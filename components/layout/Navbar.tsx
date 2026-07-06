@@ -1,13 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/buttons/Button";
 import { navLinks } from "@/constant/navigations";
 import ThemeToggle from "@/components/layout/ThemeToggle";
 
 export default function Navbar() {
+  const pathname = usePathname();
+
+  // Helper to check if a link is active
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
+
   // State management
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
@@ -29,20 +39,21 @@ export default function Navbar() {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/home" className="flex items-center space-x-2">
             <span className="text-2xl font-bold text-primary">
               Blackcrest
               <span className="text-secondary">.</span>
             </span>
-            <span className="hidden text-sm font-medium text-body md:inline">
+            <span className="hidden text-sm font-medium text-body lg:inline">
               Advisory
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
+          {/* Desktop Navigation (lg and up) */}
+          <div className="hidden lg:flex lg:items-center lg:space-x-8">
             {navLinks.map((link) => {
               const hasChildren = link.children && link.children.length > 0;
+              const active = isActive(link.link);
 
               return (
                 <div
@@ -53,27 +64,45 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.link}
-                    className="flex items-center text-sm font-medium text-body transition-colors hover:text-secondary"
+                    className={`flex items-center text-sm font-medium transition-colors hover:text-secondary ${
+                      active ? "text-secondary" : "text-body"
+                    }`}
+                    aria-current={active ? "page" : undefined}
                   >
                     {link.name}
                     {hasChildren && (
-                      <ChevronDownIcon className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                      <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                     )}
                   </Link>
+
+                  {/* Active/Hover underline */}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-0.5 w-full bg-secondary transition-transform duration-300 ease-in-out ${
+                      active
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
 
                   {/* Dropdown menu */}
                   {hasChildren && openDropdown === link.id && (
                     <div className="absolute left-0 mt-2 w-56 rounded-md bg-popover shadow-lg ring-1 ring-black/5 dark:ring-white/10">
                       <div className="py-1">
-                        {link.children!.map((child) => (
-                          <Link
-                            key={child.id}
-                            href={child.link}
-                            className="block px-4 py-2 text-sm text-body transition-colors hover:bg-muted hover:text-secondary"
-                          >
-                            {child.name}
-                          </Link>
-                        ))}
+                        {link.children!.map((child) => {
+                          const childActive = isActive(child.link);
+                          return (
+                            <Link
+                              key={child.id}
+                              href={child.link}
+                              className={`block px-4 py-2 text-sm transition-colors hover:bg-muted hover:text-secondary ${
+                                childActive ? "text-secondary" : "text-body"
+                              }`}
+                              aria-current={childActive ? "page" : undefined}
+                            >
+                              {child.name}
+                            </Link>
+                          );
+                        })}
                       </div>
                     </div>
                   )}
@@ -90,8 +119,8 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="flex items-center md:hidden">
+          {/* Mobile/Tablet menu button (visible below lg) */}
+          <div className="flex items-center lg:hidden">
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -100,15 +129,15 @@ export default function Navbar() {
             >
               <span className="sr-only">Open menu</span>
               {isOpen ? (
-                <XIcon className="h-6 w-6" />
+                <X className="h-6 w-6" />
               ) : (
-                <MenuIcon className="h-6 w-6" />
+                <Menu className="h-6 w-6" />
               )}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile/Tablet Navigation (below lg) */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -116,11 +145,12 @@ export default function Navbar() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="overflow-hidden md:hidden"
+              className="overflow-hidden lg:hidden"
             >
               <div className="space-y-1 pb-4 pt-2">
                 {navLinks.map((link) => {
                   const hasChildren = link.children && link.children.length > 0;
+                  const active = isActive(link.link);
 
                   return (
                     <div key={link.id} className="space-y-1">
@@ -128,8 +158,11 @@ export default function Navbar() {
                       <div className="flex items-center justify-between px-3 py-2">
                         <Link
                           href={link.link}
-                          className="text-base font-medium text-body transition-colors hover:text-secondary"
+                          className={`text-base font-medium transition-colors hover:text-secondary ${
+                            active ? "text-secondary" : "text-body"
+                          }`}
                           onClick={closeMobileMenu}
+                          aria-current={active ? "page" : undefined}
                         >
                           {link.name}
                         </Link>
@@ -142,7 +175,7 @@ export default function Navbar() {
                             className="rounded p-1 text-body hover:bg-muted"
                             aria-label="Toggle submenu"
                           >
-                            <ChevronDownIcon
+                            <ChevronDown
                               className={`h-5 w-5 transition-transform duration-200 ${
                                 openMobileSub === link.id ? "rotate-180" : ""
                               }`}
@@ -159,16 +192,22 @@ export default function Navbar() {
                           exit={{ opacity: 0, height: 0 }}
                           className="ml-4 space-y-1 border-l-2 border-muted pl-2"
                         >
-                          {link.children!.map((child) => (
-                            <Link
-                              key={child.id}
-                              href={child.link}
-                              className="block px-3 py-2 text-sm text-body transition-colors hover:text-secondary"
-                              onClick={closeMobileMenu}
-                            >
-                              {child.name}
-                            </Link>
-                          ))}
+                          {link.children!.map((child) => {
+                            const childActive = isActive(child.link);
+                            return (
+                              <Link
+                                key={child.id}
+                                href={child.link}
+                                className={`block px-3 py-2 text-sm transition-colors hover:text-secondary ${
+                                  childActive ? "text-secondary" : "text-body"
+                                }`}
+                                onClick={closeMobileMenu}
+                                aria-current={childActive ? "page" : undefined}
+                              >
+                                {child.name}
+                              </Link>
+                            );
+                          })}
                         </motion.div>
                       )}
                     </div>
@@ -187,45 +226,5 @@ export default function Navbar() {
         </AnimatePresence>
       </nav>
     </header>
-  );
-}
-
-// Icons
-function MenuIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M4 6h16M4 12h16M4 18h16"
-      />
-    </svg>
-  );
-}
-
-function XIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M6 18L18 6M6 6l12 12"
-      />
-    </svg>
-  );
-}
-
-function ChevronDownIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M19 9l-7 7-7-7"
-      />
-    </svg>
   );
 }
