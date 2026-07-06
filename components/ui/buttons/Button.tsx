@@ -23,7 +23,7 @@ export const Button = ({
   target,
 }: ButtonProps) => {
   const baseStyles =
-    "inline-flex items-center justify-center rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background disabled:opacity-50";
+    "inline-flex items-center justify-center cursor-pointer rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background disabled:opacity-50";
 
   const variantStyles = {
     primary:
