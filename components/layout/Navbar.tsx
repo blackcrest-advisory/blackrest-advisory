@@ -113,7 +113,7 @@ export default function Navbar() {
             {/* Desktop right side - Theme toggle & CTA */}
             <div className="flex items-center space-x-4">
               <ThemeToggle />
-              <Button variant="primary" size="sm">
+              <Button variant="primary" size="sm" href="/login">
                 Get Started
               </Button>
             </div>
@@ -216,7 +216,12 @@ export default function Navbar() {
 
                 {/* Mobile CTA */}
                 <div className="px-3 pt-4">
-                  <Button variant="primary" size="md" className="w-full">
+                  <Button
+                    variant="primary"
+                    size="md"
+                    className="w-full"
+                    href="/login"
+                  >
                     Get Started
                   </Button>
                 </div>
