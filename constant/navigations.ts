@@ -8,7 +8,7 @@ export const navLinks: NavItem[] = [
   {
     id: 1,
     name: "Home",
-    link: "/",
+    link: "/home",
   },
   {
     id: 2,
@@ -44,21 +44,11 @@ export const navLinks: NavItem[] = [
   },
   {
     id: 4,
-    name: "Process",
-    link: "/process",
-  },
-  {
-    id: 5,
-    name: "Why Us",
-    link: "/why-us",
-  },
-  {
-    id: 6,
     name: "Engagement",
     link: "/engagement",
   },
   {
-    id: 7,
+    id: 5,
     name: "Contact",
     link: "/contact",
   },
