@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { ReactNode } from "react";
 
 interface ButtonProps {
@@ -54,9 +55,9 @@ export const Button = ({
 
   if (href) {
     return (
-      <a href={href} target={target} className={combined} onClick={onClick}>
+      <Link href={href} target={target} className={combined} onClick={onClick}>
         {content}
-      </a>
+      </Link>
     );
   }
 
