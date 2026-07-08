@@ -8,6 +8,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/buttons/Button";
 import { navLinks } from "@/constant/navigations";
 import ThemeToggle from "@/components/layout/ThemeToggle";
+import { DropdownMenu } from "@/components/about/DropdownMenu";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -86,25 +87,12 @@ export default function Navbar() {
 
                   {/* Dropdown menu */}
                   {hasChildren && openDropdown === link.id && (
-                    <div className="absolute left-0 mt-2 w-56 rounded-md bg-popover shadow-lg ring-1 ring-black/5 dark:ring-white/10">
-                      <div className="py-1">
-                        {link.children!.map((child) => {
-                          const childActive = isActive(child.link);
-                          return (
-                            <Link
-                              key={child.id}
-                              href={child.link}
-                              className={`block px-4 py-2 text-sm transition-colors hover:bg-muted hover:text-secondary ${
-                                childActive ? "text-secondary" : "text-body"
-                              }`}
-                              aria-current={childActive ? "page" : undefined}
-                            >
-                              {child.name}
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </div>
+                    <DropdownMenu
+                      items={link.children || []}
+                      isOpen={true}
+                      isActive={isActive}
+                      onItemClick={() => setOpenDropdown(null)}
+                    />
                   )}
                 </div>
               );
