@@ -10,7 +10,7 @@ import {
   LuBuilding2,
 } from "react-icons/lu";
 import { Button } from "@/components/ui/buttons/Button";
-import { contactInfoData } from "@/constant/contactData";
+import { contactInfoData } from "@/content/contact/contactData";
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -175,11 +175,7 @@ export const ContactForm = () => {
                   </div>
                 </div>
 
-                <Button
-                  
-                  size="lg"
-                  className="w-full justify-center"
-                >
+                <Button size="lg" className="w-full justify-center">
                   {isSubmitting ? (
                     "Sending..."
                   ) : (

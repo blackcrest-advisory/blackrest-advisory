@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Section } from "@/components/ui/Section";
 import { LuMapPin } from "react-icons/lu";
-import { officeLocations } from "@/constant/contactData";
+import { officeLocations } from "@/content/contact/contactData";
 import Image from "next/image";
 
 export const OfficeLocations = () => {

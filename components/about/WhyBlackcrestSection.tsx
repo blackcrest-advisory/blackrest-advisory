@@ -1,7 +1,7 @@
 "use client";
 
 import { Section } from "@/components/ui/Section";
-import { whyData } from "@/constant/aboutData";
+import { whyData } from "@/content/about/aboutData";
 export const WhyBlackcrestSection = () => {
   return (
     <Section className="bg-muted">
