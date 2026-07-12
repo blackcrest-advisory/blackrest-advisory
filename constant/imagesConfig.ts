@@ -19,4 +19,9 @@ export const IMAGE = {
   architectureDiagram: "/images/architecture-diagram.avif",
   dashboardPreview: "/images/dashboard-preview.avif",
   laptopMockup: "/images/laptop-mockup.avif",
+  mobileHero: "/images/mobile-hero.jpg",
+  phoneMockup: "/images/phone-mockup.avif",
+  appScreens: "/images/app-screens.avif",
+  ecosystemDiagram: "/images/ecosystem-diagram.avif",
+  userJourney: "/images/user-journey.avif",
 } as const;

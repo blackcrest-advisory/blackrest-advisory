@@ -127,10 +127,10 @@ export default function Hero() {
                 border
                 border-secondary/20
                 shadow-2xl
-                aspect-[4/4]
-                sm:aspect-[5/4]
-                lg:aspect-[4/4]
-                xl:aspect-[5/5]
+                aspect-4/4
+                sm:aspect-5/4
+                lg:aspect-4/4
+                xl:aspect-5/5
               "
             >
               <Image
@@ -147,7 +147,7 @@ export default function Hero() {
               />
 
               {/* Mobile Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent lg:hidden" />
+              <div className="absolute inset-0 bg-linear-to-t from-background/20 to-transparent lg:hidden" />
             </div>
 
             {/* Decorative Blobs */}
