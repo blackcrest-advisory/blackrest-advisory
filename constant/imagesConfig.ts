@@ -14,4 +14,9 @@ export const IMAGE = {
   content_marketing: "/images/LL_Services-Icon_ContentMKT.webp",
   email_marketing: "/images/LL_Services-Icon_EmailMKT.webp",
   affiliate_marketing: "/images/LL_Services-Icon_Affliate.webp",
+  webDevHero: "/images/web-dev-hero.avif",
+  websiteMockup: "/images/website-mockup.avif",
+  architectureDiagram: "/images/architecture-diagram.avif",
+  dashboardPreview: "/images/dashboard-preview.avif",
+  laptopMockup: "/images/laptop-mockup.avif",
 } as const;
