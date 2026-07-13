@@ -24,4 +24,5 @@ export const IMAGE = {
   appScreens: "/images/app-screens.avif",
   ecosystemDiagram: "/images/ecosystem-diagram.avif",
   userJourney: "/images/user-journey.avif",
+  salesHeroImage: "/images/salesHeroImage.jpg",
 } as const;
