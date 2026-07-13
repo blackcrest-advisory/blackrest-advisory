@@ -65,25 +65,13 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.link}
-                    className={`flex items-center text-sm font-medium transition-colors hover:text-secondary ${
-                      active ? "text-secondary" : "text-body"
-                    }`}
-                    aria-current={active ? "page" : undefined}
+                    className={`relative flex items-center text-sm font-medium transition-colors duration-300 hover:text-secondary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-secondary after:transition-all after:duration-300 after:ease-out ${active ? "text-secondary after:w-full" : "text-body after:w-0 hover:after:w-full"}`}
                   >
                     {link.name}
                     {hasChildren && (
                       <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                     )}
                   </Link>
-
-                  {/* Active/Hover underline */}
-                  <span
-                    className={`absolute -bottom-1 left-0 h-0.5 w-full bg-secondary transition-transform duration-300 ease-in-out ${
-                      active
-                        ? "scale-x-100"
-                        : "scale-x-0 group-hover:scale-x-100"
-                    }`}
-                  />
 
                   {/* Dropdown menu */}
                   {hasChildren && openDropdown === link.id && (
