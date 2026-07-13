@@ -36,7 +36,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
         >
           <div
             className={`relative py-2 mt-6 rounded-xl backdrop-blur-lg bg-popover/80 dark:bg-gray-800/80 shadow-xl shadow-black/5 dark:shadow-white/5 ring-1 ring-black/5 dark:ring-white/10
-              before:content-[''] before:absolute before:top-[-6px] before:left-4 before:w-0 before:h-0 before:border-l-8 before:border-r-8 before:border-b-8 before:border-l-transparent before:border-r-transparent before:border-b-popover dark:before:border-b-gray-800 before:filter before:drop-shadow-[0_-1px_1px_rgba(0,0,0,0.05)] dark:before:drop-shadow-[0_-1px_1px_rgba(255,255,255,0.1)]
+              before:content-[''] before:absolute before:top-[-6px] before:left-4 before:w-0 before:h-0 before:border-l-8 before:border-r-8 before:border-b-8 before:border-l-transparent before:border-r-transparent before:border-b-popover dark:before:border-b-gray-800 before:filter before:drop-shadow-[0_-1px_1px_rgba(0,0,0,0.05)] dark:before:drop-shadow-[0_-1px_1px_rgba(255,255,255,0.1)] bg-white
               ${className}`}
           >
             <div role="menu">
