@@ -8,7 +8,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/buttons/Button";
 import { navLinks } from "@/constant/navigations";
 import ThemeToggle from "@/components/layout/ThemeToggle";
-import { DropdownMenu } from "@/components/about/DropdownMenu";
+import { DropdownMenu } from "@/components/layout/DropdownMenu";
 
 export default function Navbar() {
   const pathname = usePathname();
