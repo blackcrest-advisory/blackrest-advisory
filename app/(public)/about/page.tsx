@@ -1,6 +1,6 @@
-import { HeroSection } from "@/components/about/HeroSection";
-import { WhoWeAreSection } from "@/components/about/WhoWeAreSection";
-import { WhyBlackcrestSection } from "@/components/about/WhyBlackcrestSection";
+import { HeroSection } from "@/components/landing/about/HeroSection";
+import { WhoWeAreSection } from "@/components/landing/about/WhoWeAreSection";
+import { WhyBlackcrestSection } from "@/components/landing/about/WhyBlackcrestSection";
 
 export default function AboutPage() {
   return (

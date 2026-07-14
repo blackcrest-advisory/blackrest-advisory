@@ -1,6 +1,6 @@
-import Hero from "@/components/services/mobile-application/Hero";
-import InsideEveryTap from "@/components/services/mobile-application/InsideEveryTap";
-import NativeCrossPlatform from "@/components/services/mobile-application/NativeCrossPlatform";
+import Hero from "@/components/landing/services/mobile-application/Hero";
+import InsideEveryTap from "@/components/landing/services/mobile-application/InsideEveryTap";
+import NativeCrossPlatform from "@/components/landing/services/mobile-application/NativeCrossPlatform";
 
 const page = () => {
   return (

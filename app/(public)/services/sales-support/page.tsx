@@ -1,6 +1,6 @@
-import { SalesCapabilities } from "@/components/services/sales&business/SalesCapabilities";
-import { SalesHero } from "@/components/services/sales&business/SalesHero";
-import { SalesProcess } from "@/components/services/sales&business/SalesProcess";
+import { SalesCapabilities } from "@/components/landing/services/sales&business/SalesCapabilities";
+import { SalesHero } from "@/components/landing/services/sales&business/SalesHero";
+import { SalesProcess } from "@/components/landing/services/sales&business/SalesProcess";
 
 export default function SalesSupportPage() {
   return (

@@ -1,7 +1,7 @@
-import { HeroSection } from "@/components/contact/HeroSection";
-import { ContactForm } from "@/components/contact/ContactForm";
-import { OfficeLocations } from "@/components/contact/OfficeLocations";
-import { MapSection } from "@/components/contact/MapSection";
+import { HeroSection } from "@/components/landing/contact/HeroSection";
+import { ContactForm } from "@/components/landing/contact/ContactForm";
+import { OfficeLocations } from "@/components/landing/contact/OfficeLocations";
+import { MapSection } from "@/components/landing/contact/MapSection";
 
 export default function ContactPage() {
   return (

@@ -1,9 +1,9 @@
-import { EngagementHero } from "@/components/engagement/EngagementHero";
-import { EngagementProcess } from "@/components/engagement/EngagementProcess";
-import { EngagementModels } from "@/components/engagement/EngagementModels";
-import { EngagementStats } from "@/components/engagement/EngagementStats";
-import { EngagementFAQ } from "@/components/engagement/EngagementFAQ";
-import { EngagementCTA } from "@/components/engagement/EngagementCTA";
+import { EngagementHero } from "@/components/landing/engagement/EngagementHero";
+import { EngagementProcess } from "@/components/landing/engagement/EngagementProcess";
+import { EngagementModels } from "@/components/landing/engagement/EngagementModels";
+import { EngagementStats } from "@/components/landing/engagement/EngagementStats";
+import { EngagementFAQ } from "@/components/landing/engagement/EngagementFAQ";
+import { EngagementCTA } from "@/components/landing/engagement/EngagementCTA";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

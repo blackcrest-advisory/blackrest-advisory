@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/buttons/Button";
+import { Button } from "@/components/ui/Button";
 
 export default function NotFound() {
   return (
