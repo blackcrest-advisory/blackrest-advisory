@@ -1,10 +1,10 @@
-import ByTheNumbers from "@/components/services/ByTheNumbers";
-import FeaturedWork from "@/components/services/FeaturedWork";
-import FinalCTA from "@/components/services/FinalCTA";
-import Hero from "@/components/services/Hero";
-import Marquee from "@/components/services/Marquee";
-import StickyScroll from "@/components/services/StickyScroll";
-import WhatWeDo from "@/components/services/WhatWeDo";
+import ByTheNumbers from "@/components/services/digital-marketing/ByTheNumbers";
+import FeaturedWork from "@/components/services/digital-marketing/FeaturedWork";
+import FinalCTA from "@/components/services/digital-marketing/FinalCTA";
+import Hero from "@/components/services/digital-marketing/Hero";
+import Marquee from "@/components/services/digital-marketing/Marquee";
+import StickyScroll from "@/components/services/digital-marketing/StickyScroll";
+import WhatWeDo from "@/components/services/digital-marketing/WhatWeDo";
 
 export default function DigitalMarketingPage() {
   return (
