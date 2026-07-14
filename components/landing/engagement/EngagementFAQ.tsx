@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SectionHeader } from "./shared/SectionHeader";
+import { SectionHeader } from "../../shared/SectionHeader";
 import { ChevronDown } from "lucide-react";
 
 const faqs = [

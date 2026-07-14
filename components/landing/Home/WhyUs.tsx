@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ShieldCheck, TrendingUp, Handshake, Eye } from "lucide-react";
-import { Section } from "../ui/Section";
+import { Section } from "@/components/shared/Section";
 
 const reasons = [
   {

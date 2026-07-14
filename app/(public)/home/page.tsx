@@ -1,10 +1,10 @@
-import Hero from "@/components/Home/Hero";
-import TrustedBy from "@/components/Home/TrustedBy";
-import WhoWeServe from "@/components/Home/WhoWeServe";
-import Services from "@/components/Home/Services";
-import WhyUs from "@/components/Home/WhyUs";
-import DeliveryModel from "@/components/Home/DeliveryModel";
-import CTA from "@/components/Home/CTA";
+import Hero from "@/components/landing/Home/Hero";
+import TrustedBy from "@/components/landing/Home/TrustedBy";
+import WhoWeServe from "@/components/landing/Home/WhoWeServe";
+import Services from "@/components/landing/Home/Services";
+import WhyUs from "@/components/landing/Home/WhyUs";
+import DeliveryModel from "@/components/landing/Home/DeliveryModel";
+import CTA from "@/components/landing/Home/CTA";
 
 export default function HomePage() {
   return (

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { Section } from "../ui/Section";
+import { Section } from "@/components/shared/Section";
 
 const CTA = () => {
   return (

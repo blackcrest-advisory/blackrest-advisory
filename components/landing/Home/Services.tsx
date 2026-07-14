@@ -1,8 +1,8 @@
 "use client";
 
+import { Section } from "@/components/shared/Section";
 import { motion } from "framer-motion";
 import { BarChart3, Globe2, Smartphone, Handshake } from "lucide-react";
-import { Section } from "../ui/Section";
 
 const services = [
   {
@@ -104,7 +104,9 @@ const Services = () => {
                 <h3 className="text-xl font-semibold text-heading">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-base text-body">{service.description}</p>
+                <p className="mt-3 text-base text-body">
+                  {service.description}
+                </p>
 
                 {/* Feature list */}
                 <ul className="mt-4 space-y-1.5 border-t border-border/40 pt-4">

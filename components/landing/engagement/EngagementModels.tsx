@@ -2,7 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { SectionHeader } from "./shared/SectionHeader";
+import { SectionHeader } from "../../shared/SectionHeader";
 import { staggerContainer, fadeInUp } from "@/utils/animations";
 import { BadgeCheck, Clock, Layers, Sparkles } from "lucide-react";
 
