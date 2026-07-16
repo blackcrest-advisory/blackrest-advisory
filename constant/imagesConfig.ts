@@ -1,4 +1,5 @@
 export const IMAGE = {
+  logo: "/logos/blackcrestlogo.png",
   aboutHeroImage: "/images/about_hero_image.avif",
   london: "/images/london.avif",
   france: "/images/france.avif",
