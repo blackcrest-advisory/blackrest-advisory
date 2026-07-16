@@ -1,6 +1,6 @@
-import { PublicNavigation } from "@/types/publicNavigations";
+import { Navigation } from "@/types/navigations";
 
-export interface NavItem extends PublicNavigation {
+export interface NavItem extends Navigation {
   children?: Omit<NavItem, "children">[];
 }
 
