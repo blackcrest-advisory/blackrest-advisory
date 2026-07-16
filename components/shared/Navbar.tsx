@@ -8,7 +8,8 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { navLinks } from "@/constant/navigations";
 import ThemeToggle from "@/components/shared/ThemeToggle";
-import { DropdownMenu } from "@/components/ui/DropdownMenu";
+import Dropdown from "@/components/ui/Dropdown";
+import DropdownItem from "@/components/ui/DropdownItem";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -74,13 +75,19 @@ export default function Navbar() {
                   </Link>
 
                   {/* Dropdown menu */}
-                  {hasChildren && openDropdown === link.id && (
-                    <DropdownMenu
-                      items={link.children || []}
-                      isOpen={true}
-                      isActive={isActive}
-                      onItemClick={() => setOpenDropdown(null)}
-                    />
+                  {hasChildren && (
+                    <Dropdown isOpen={openDropdown === link.id}>
+                      {link.children?.map((child) => (
+                        <DropdownItem
+                          key={child.id}
+                          href={child.link}
+                          active={isActive(child.link)}
+                          onClick={() => setOpenDropdown(null)}
+                        >
+                          {child.name}
+                        </DropdownItem>
+                      ))}
+                    </Dropdown>
                   )}
                 </div>
               );
