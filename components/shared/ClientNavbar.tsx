@@ -1,4 +1,5 @@
 import { Menu } from "lucide-react";
+
 import SearchArea from "@/components/search/SearchArea";
 import Notification from "@/components/notification/Notification";
 import Message from "@/components/message/Message";
@@ -16,44 +17,48 @@ export default function ClientNavbar({
 }: NavbarProps) {
   return (
     <header
-      className="sticky top-0 z-50 border-b backdrop-blur-md bg-opacity-80"
+      className="sticky top-0 z-30 h-16 shrink-0 border-b backdrop-blur-xl"
       style={{
-        backgroundColor: "var(--color-background)",
+        backgroundColor:
+          "color-mix(in srgb, var(--color-background) 85%, transparent)",
         borderColor: "var(--color-border)",
-        boxShadow: "0 1px 3px rgba(0,0,0,0.02)",
       }}
     >
-      <div className="flex items-center justify-between px-4 md:px-6 h-16">
+      <div className="flex h-full items-center justify-between px-4 md:px-6">
         {/* Left */}
         <div className="flex items-center gap-3">
+          {/* Mobile Menu */}
           <button
             onClick={toggleMobileSidebar}
-            className="lg:hidden p-2 -ml-2 rounded-md hover:bg-muted/50 transition-colors"
-            aria-label="Toggle menu"
+            className="flex h-10 w-10 items-center justify-center rounded-lg transition-colors hover:bg-muted lg:hidden"
+            aria-label="Open sidebar"
           >
-            <Menu size={22} style={{ color: "var(--color-foreground)" }} />
+            <Menu size={20} style={{ color: "var(--color-heading)" }} />
           </button>
 
-          <h1 className="text-xl font-semibold text-accent">
-            {pageTitle}
-          </h1>
+          {/* Page Title */}
+          <div>
+            <h1
+              className="text-xl font-semibold"
+              style={{ color: "var(--color-heading)" }}
+            >
+              {pageTitle}
+            </h1>
+          </div>
         </div>
 
-        {/* search */}
-        <SearchArea />
+        {/* Center Search */}
+        <div className="hidden flex-1 justify-center px-8 lg:flex">
+          <div className="w-full max-w-md">
+            <SearchArea />
+          </div>
+        </div>
 
         {/* Right */}
-        <div className="flex items-center gap-2 md:gap-4">
-          {/* Notifications */}
+        <div className="flex items-center gap-2 md:gap-3">
           <Notification />
-
-          {/* Messages */}
           <Message />
-
-          {/* dark/light mode toggle */}
           <ThemeToggle />
-
-          {/* Profile Dropdown */}
           <ClientProfileDropdown />
         </div>
       </div>
