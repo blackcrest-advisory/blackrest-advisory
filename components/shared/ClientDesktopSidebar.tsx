@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { Dock, LogOut, PanelLeft } from "lucide-react";
+import { LogOut, PanelLeft } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { IMAGE } from "@/constant/imagesConfig";
@@ -13,12 +13,10 @@ import ClientSidebarItem from "@/components/shared/ClientSidebarItems";
 
 interface ClientSidebarProps {
   mobile?: boolean;
-  onClose?: () => void;
 }
 
-export default function ClientSidebar({
+export default function ClientDesktopSidebar({
   mobile = false,
-  onClose,
 }: ClientSidebarProps) {
   const pathname = usePathname();
   const desktopCollapsed = useSidebarStore((state) => state.isCollapsed);
@@ -29,14 +27,14 @@ export default function ClientSidebar({
 
   return (
     <motion.aside
-      className="h-full flex flex-col border-r bg-background overflow-hidden"
+      className="h-full flex flex-col lg:border-r bg-background overflow-hidden"
       animate={{ width: isCollapsed ? 80 : 270 }}
       transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
       style={{ borderColor: "var(--color-border)" }}
     >
       {/* Logo */}
       <div
-        className="relative flex items-center justify-center h-16 px-6"
+        className="relative items-center justify-center h-16 px-6 hidden lg:flex"
         style={{ borderColor: "var(--color-border)" }}
       >
         {!mobile && isCollapsed ? (
@@ -92,7 +90,7 @@ export default function ClientSidebar({
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+      <nav className="lg:flex-1 px-3 py-4 space-y-1 overflow-y-auto">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           return (
@@ -106,7 +104,7 @@ export default function ClientSidebar({
       </nav>
 
       {/* Footer */}
-      <div className="px-3 py-4" style={{ borderColor: "var(--color-border)" }}>
+      <div className="px-3 py-4">
         {!isCollapsed && (
           <>
             <div className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
