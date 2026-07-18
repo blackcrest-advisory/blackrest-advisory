@@ -2,17 +2,22 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Mail, Lock, Eye, EyeOff, LogIn } from "lucide-react";
 import { FaChrome } from "react-icons/fa";
+import toast from "react-hot-toast";
+import axios from "@/api-client/client";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({ email: "", password: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Basic validation – replace with your logic
     const newErrors = { email: "", password: "" };
@@ -21,8 +26,42 @@ export default function LoginPage() {
     if (!password) newErrors.password = "Password is required";
     setErrors(newErrors);
     if (!newErrors.email && !newErrors.password) {
-      // Proceed with login (API call later)
-      console.log("Login attempt", { email, password });
+      setIsLoading(true);
+
+      try {
+        const response = await axios.post<{ success: boolean }>(
+          "/api/auth/login",
+          {
+            email,
+            password,
+          },
+        );
+
+        if (response.data.success) {
+          toast.success("Welcome back");
+          router.push("/client/dashboard");
+        }
+      } catch (error: unknown) {
+        let message = "Invalid email or password";
+
+        if (typeof error === "object" && error !== null && "response" in error) {
+          const response = error as { response?: { data?: unknown } };
+          const responseData = response.response?.data;
+
+          if (
+            typeof responseData === "object" &&
+            responseData !== null &&
+            "error" in responseData &&
+            typeof responseData.error === "string"
+          ) {
+            message = responseData.error;
+          }
+        }
+
+        toast.error(message);
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -159,10 +198,11 @@ export default function LoginPage() {
           {/* Submit */}
           <button
             type="submit"
+            disabled={isLoading}
             className="flex w-full items-center justify-center gap-2 rounded-lg bg-secondary py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-secondary/90 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-secondary/30"
           >
             <LogIn className="h-5 w-5" />
-            Sign In
+            {isLoading ? "Signing in..." : "Sign In"}
           </button>
         </form>
 

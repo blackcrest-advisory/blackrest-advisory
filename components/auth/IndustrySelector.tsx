@@ -44,7 +44,7 @@ const IndustrySelector = () => {
 
   const handleContinue = () => {
     if (selectedId) {
-      router.push(`/signup`);
+      router.push("/signup");
     }
   };
   return (
