@@ -1,13 +1,200 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
-  provider = "prisma-client"
-  output   = "../app/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Role {
+  CLIENT
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum Pillar {
+  DIGITAL_MARKETING
+  WEBSITE_DEVELOPMENT
+  MOBILE_APP
+  SALES_SUPPORT
+  MIXED
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  CONVERTED
+  LOST
+}
+
+enum ConsultationType {
+  ONLINE
+  OFFLINE
+  PHONE
+}
+
+enum ConsultationStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}
+
+enum BriefStatus {
+  SUBMITTED
+  UNDER_REVIEW
+  ASSIGNED
+  CLOSED
+}
+
+enum ProposalStatus {
+  DRAFT
+  SENT
+  VIEWED
+  ACCEPTED
+  REJECTED
+}
+
+enum ProjectStatus {
+  ACTIVE
+  ON_HOLD
+  COMPLETED
+  CANCELLED
+}
+
+enum NoteEntityType {
+  LEAD
+  USER
+  BRIEF
+  PROJECT
+}
+
+model User {
+  id          String   @id @default(cuid())
+  name        String
+  email       String   @unique
+  password    String?
+  role        Role     @default(CLIENT)
+  companyName String?
+  phone       String?
+  country     String?
+  industry    String?  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  consultations Consultation[]
+  briefs        Brief[]
+  projects      Project[]
+  notes         Note[]         @relation("NoteAuthor")
+  proposals     Proposal[]     @relation("ProposalAdmin")
+}
+
+model Lead {
+  id          String     @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  companyName String?
+  pillar      Pillar?
+  problem     String     @db.Text
+  status      LeadStatus @default(NEW)
+  source      String?
+  assignedTo  String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model Consultation {
+  id          String              @id @default(cuid())
+  userId      String
+  type        ConsultationType    @default(ONLINE)
+  status      ConsultationStatus  @default(PENDING)
+  scheduledAt DateTime
+  duration    Int?
+  notes       String?             @db.Text
+  meetingLink String?
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Brief {
+  id          String      @id @default(cuid())
+  userId      String
+  title       String
+  problem     String      @db.Text
+  pillar      Pillar
+  budget      String?
+  deadline    String?
+  attachments String[]
+  status      BriefStatus @default(SUBMITTED)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  proposal Proposal?
+}
+
+model Proposal {
+  id        String         @id @default(cuid())
+  briefId   String         @unique
+  adminId   String
+  content   String         @db.Text
+  amount    Float?
+  currency  String         @default("EUR")
+  status    ProposalStatus @default(DRAFT)
+  sentAt    DateTime?
+  viewedAt  DateTime?
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+
+  brief   Brief   @relation(fields: [briefId], references: [id], onDelete: Cascade)
+  admin   User    @relation("ProposalAdmin", fields: [adminId], references: [id])
+  project Project?
+}
+
+model Project {
+  id          String        @id @default(cuid())
+  proposalId  String        @unique
+  userId      String
+  title       String
+  status      ProjectStatus @default(ACTIVE)
+  deadline    DateTime?
+  assignedTo  String?
+  description String?       @db.Text
+  updates     String[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  proposal Proposal @relation(fields: [proposalId], references: [id])
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Note {
+  id         String         @id @default(cuid())
+  authorId   String
+  entityType NoteEntityType
+  entityId   String
+  content    String         @db.Text
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+
+  author User @relation("NoteAuthor", fields: [authorId], references: [id])
+}
+
+model Partner {
+  id           String   @id @default(cuid())
+  name         String
+  specialty    Pillar
+  contactEmail String
+  phone        String?
+  website      String?
+  notes        String?  @db.Text
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }

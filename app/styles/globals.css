@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------
+   Custom theme – all colors are defined as CSS variables
+   ------------------------------------------------------------ */
+@theme {
+  /* Brand base colors */
+  --color-navy: #0b1a30;
+  --color-gold: #c9a84c;
+
+  /* Light mode variables (also used in dark mode, but overridden) */
+  --color-primary: var(--color-navy);
+  --color-secondary: var(--color-gold);
+  --color-background: #ffffff;
+  --color-foreground: #1a1a2e;
+  --color-muted: #f4f6f9;
+  --color-border: #e2e8f0;
+  --color-card-bg: #ffffff;
+  --color-card-border: #e2e8f0;
+  --color-heading: var(--color-navy);
+  --color-body: #3d3d5c;
+  --color-accent: var(--color-gold);
+  --color-accent-hover: #b8922f;
+  --color-cta-bg: var(--color-gold);
+  --color-cta-text: #ffffff;
+  --color-cta-hover: #a67a2a;
+  --color-footer-bg: var(--color-navy);
+  --color-footer-text: #e8edf5;
+  --color-nav-bg: rgba(255, 255, 255, 0.8);
+  --color-nav-border: rgba(0, 0, 0, 0.05);
+}
+
+/* Dark mode – applied when parent has class "dark" */
+.dark {
+  --color-primary: #e8edf5;
+  --color-secondary: var(--color-gold);
+  --color-background: #0b1a30;
+  --color-foreground: #e8edf5;
+  --color-muted: #1a2c45;
+  --color-border: #2a3f5a;
+  --color-card-bg: #12273f;
+  --color-card-border: #2a3f5a;
+  --color-heading: #ffffff;
+  --color-body: #c5d0e0;
+  --color-accent: var(--color-gold);
+  --color-accent-hover: #d4b86a;
+  --color-cta-bg: var(--color-gold);
+  --color-cta-text: #0b1a30;
+  --color-cta-hover: #d4b86a;
+  --color-footer-bg: #07101e;
+  --color-footer-text: #b0c4de;
+  --color-nav-bg: rgba(11, 26, 48, 0.9);
+  --color-nav-border: rgba(255, 255, 255, 0.05);
+}
+
+/* Make Tailwind aware of the "dark" class for variants like dark:bg-* */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------
+   Base styles
+   ------------------------------------------------------------ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Smooth transitions for all theme‑sensitive properties */
+* {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
