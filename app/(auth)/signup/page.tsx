@@ -2,17 +2,22 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Mail, Lock, User, Eye, EyeOff, UserPlus } from "lucide-react";
 import { FaChrome } from "react-icons/fa";
+import toast from "react-hot-toast";
+import { registerUser } from "@/api-client/auth.api";
 
 export default function SignupPage() {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({
     name: "",
     email: "",
@@ -20,7 +25,7 @@ export default function SignupPage() {
     confirmPassword: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors = {
       name: "",
@@ -40,8 +45,33 @@ export default function SignupPage() {
       newErrors.confirmPassword = "Passwords do not match";
     setErrors(newErrors);
     if (!Object.values(newErrors).some((err) => err !== "")) {
-      // Proceed with signup (API call later)
-      console.log("Signup attempt", { name, email, password });
+      try {
+        setIsLoading(true);
+        const data = await registerUser(name, email, password);
+        localStorage.setItem("pending_user_id", data.userId);
+        toast.success("Account created successfully");
+        router.push("/select-industry");
+      } catch (error: unknown) {
+        let message = "Failed to create account";
+
+        if (typeof error === "object" && error !== null && "response" in error) {
+          const response = error as { response?: { data?: unknown } };
+          const responseData = response.response?.data;
+
+          if (
+            typeof responseData === "object" &&
+            responseData !== null &&
+            "error" in responseData &&
+            typeof responseData.error === "string"
+          ) {
+            message = responseData.error;
+          }
+        }
+
+        toast.error(message);
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -223,10 +253,11 @@ export default function SignupPage() {
           {/* Submit */}
           <button
             type="submit"
+            disabled={isLoading}
             className="flex w-full items-center justify-center gap-2 rounded-lg bg-secondary py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-secondary/90 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-secondary/30"
           >
             <UserPlus className="h-5 w-5" />
-            Create Account
+            {isLoading ? "Creating account..." : "Create Account"}
           </button>
         </form>
 

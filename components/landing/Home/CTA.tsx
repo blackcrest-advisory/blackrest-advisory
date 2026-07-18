@@ -73,6 +73,7 @@ const CTA = () => {
               <Button
                 variant="primary"
                 size="lg"
+                href="/signup"
                 className="shadow-lg shadow-secondary/20 transition-shadow hover:shadow-secondary/40"
               >
                 Get Started

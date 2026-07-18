@@ -88,6 +88,7 @@ const Hero = () => {
               <Button
                 variant="primary"
                 size="lg"
+                href="/signup"
                 className="shadow-lg shadow-secondary/20"
               >
                 Get Started
