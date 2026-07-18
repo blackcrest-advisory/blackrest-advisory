@@ -17,14 +17,14 @@ export default function ClientNavbar({
 }: NavbarProps) {
   return (
     <header
-      className="sticky top-0 z-30 h-16 shrink-0 border-b backdrop-blur-xl"
+      className="sticky top-0 z-30 h-16 shrink-0 backdrop-blur-xl shadow-xl "
       style={{
         backgroundColor:
           "color-mix(in srgb, var(--color-background) 85%, transparent)",
         borderColor: "var(--color-border)",
       }}
     >
-      <div className="flex h-full items-center justify-between px-4 md:px-6">
+      <div className="flex h-full items-center justify-between px-4 md:px-6 bg-[var(--color-card-bg)]">
         {/* Left */}
         <div className="flex items-center gap-3">
           {/* Mobile Menu */}

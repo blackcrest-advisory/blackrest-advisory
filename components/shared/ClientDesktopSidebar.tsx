@@ -27,7 +27,7 @@ export default function ClientDesktopSidebar({
 
   return (
     <motion.aside
-      className="h-full flex flex-col lg:border-r bg-background overflow-hidden"
+      className="h-full flex flex-col lg:borde bg- overflow-hidden shadow-xl bg-[var(--color-card-bg)]"
       animate={{ width: isCollapsed ? 80 : 270 }}
       transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
       style={{ borderColor: "var(--color-border)" }}
