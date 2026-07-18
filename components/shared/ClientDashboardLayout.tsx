@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 
-import ClientSidebar from "@/components/shared/ClientSidebar";
 import ClientNavbar from "@/components/shared/ClientNavbar";
 import ClientMobileSidebar from "@/components/shared/ClientMobileSidebar";
 import { useSidebarStore } from "@/store/sidebarStore";
+import ClientDesktopSidebar from "@/components/shared/ClientDesktopSidebar";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -38,7 +38,7 @@ export default function ClientDashboardLayout({
     >
       {/* ================= Desktop Sidebar ================= */}
       <aside className="fixed left-0 top-0 z-40 hidden h-screen lg:block">
-        <ClientSidebar />
+        <ClientDesktopSidebar />
       </aside>
 
       {/* ================= Main Area ================= */}
