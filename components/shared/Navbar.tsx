@@ -198,14 +198,22 @@ export default function Navbar() {
                 })}
 
                 {/* Mobile CTA */}
-                <div className="px-3 pt-4">
+                <div className="px-3 pt-4 flex flex-col gap-3">
                   <Button
                     variant="primary"
-                    size="md"
                     className="w-full"
                     href="/select-industry"
+                    onClick={closeMobileMenu}
                   >
                     Get Started
+                  </Button>
+                  <Button
+                    variant="primary"
+                    className="w-full"
+                    href="/login"
+                    onClick={closeMobileMenu}
+                  >
+                    Login
                   </Button>
                 </div>
               </div>
