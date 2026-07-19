@@ -1,19 +1,19 @@
 "use client";
 
-import { ActiveProjects } from "@/components/client-dashboard/main/ActiveProjects";
-import { FooterStats } from "@/components/client-dashboard/main/FooterStats";
-import { PerformanceChart } from "@/components/client-dashboard/main/PerformanceChart";
-import { QuickActions } from "@/components/client-dashboard/main/QuickActions";
-import { RecentActivity } from "@/components/client-dashboard/main/RecentActivity";
-import { StatsSection } from "@/components/client-dashboard/main/StatsSection";
-import { SupportSection } from "@/components/client-dashboard/main/SupportSection";
-import { UpcomingMilestones } from "@/components/client-dashboard/main/UpcomingMilestones";
+import { ActiveProjects } from "@/components/client-dashboard/overview/ActiveProjects";
+import { FooterStats } from "@/components/client-dashboard/overview/FooterStats";
+import { PerformanceChart } from "@/components/client-dashboard/overview/PerformanceChart";
+import { QuickActions } from "@/components/client-dashboard/overview/QuickActions";
+import { RecentActivity } from "@/components/client-dashboard/overview/RecentActivity";
+import { StatsSection } from "@/components/client-dashboard/overview/StatsSection";
+import { SupportSection } from "@/components/client-dashboard/overview/SupportSection";
+import { UpcomingMilestones } from "@/components/client-dashboard/overview/UpcomingMilestones";
 import {
   Stats,
   Project,
   Milestone,
   Activity,
-} from "@/types/dashboard/DemoType";
+} from "@/types/dashboard/client/overviewType";
 
 interface DashboardWrapperProps {
   stats: Stats;

@@ -1,7 +1,7 @@
 // components/dashboard/UpcomingMilestones/UpcomingMilestones.tsx
 "use client";
 
-import { Milestone } from "@/types/dashboard/DemoType";
+import { Milestone } from "@/types/dashboard/client/overviewType";
 import { MilestoneItem } from "./MilestoneItem";
 import { Button } from "@/components/ui/Button";
 

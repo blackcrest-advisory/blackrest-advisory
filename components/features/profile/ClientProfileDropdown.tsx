@@ -1,8 +1,8 @@
 "use client";
-import ClientProfileTrigger from "@/components/profile/ClientProfileTrigger";
+import ClientProfileTrigger from "@/components/features/profile/ClientProfileTrigger";
 import Dropdown from "@/components/ui/Dropdown";
 import DropdownItem from "@/components/ui/DropdownItem";
-import { profileMenu } from "@/constant/clientNavigations";
+import { profileMenu } from "@/constants/clientNavigations";
 import { useState } from "react";
 
 const ClientProfileDropdown = () => {

@@ -1,4 +1,4 @@
-import IndustrySelector from "@/components/auth/IndustrySelector";
+import IndustrySelector from "@/components/features/auth/IndustrySelector";
 
 export default function page() {
   return (

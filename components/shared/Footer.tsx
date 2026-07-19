@@ -1,6 +1,6 @@
 "use client";
 
-import { navLinks } from "@/constant/navigations";
+import { navLinks } from "@/constants/publicNavigations";
 import Link from "next/link";
 
 export default function Footer() {

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Project } from "@/types/dashboard/client/projects";
+import { Project } from "@/types/dashboard/client/projectsType";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectEmptyState } from "./ProjectEmptyState";
 

@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { navLinks } from "@/constant/navigations";
+import { navLinks } from "@/constants/publicNavigations";
 import ThemeToggle from "@/components/shared/ThemeToggle";
 import Dropdown from "@/components/ui/Dropdown";
 import DropdownItem from "@/components/ui/DropdownItem";

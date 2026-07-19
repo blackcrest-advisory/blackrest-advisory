@@ -8,7 +8,7 @@ import { FaBullseye, FaUsersGear, FaHandshake } from "react-icons/fa6";
 import CountUp from "react-countup";
 import { SectionHeading } from "@/components/landing/services/sales&business/SectionHeading";
 import { Button } from "@/components/ui/Button";
-import { IMAGE } from "@/constant/imagesConfig";
+import { IMAGE } from "@/constants/imagesConfig";
 import { Funnel } from "lucide-react";
 
 export const SalesHero = () => {

@@ -8,7 +8,7 @@ import {
   FiDollarSign,
   FiTrendingUp,
 } from "react-icons/fi";
-import { Activity } from "@/types/dashboard/DemoType";
+import { Activity } from "@/types/dashboard/client/overviewType";
 
 const iconMap = {
   file: FiFileText,

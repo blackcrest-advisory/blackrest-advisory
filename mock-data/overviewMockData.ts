@@ -3,7 +3,7 @@ import {
   Milestone,
   Project,
   Stats,
-} from "@/types/dashboard/DemoType";
+} from "@/types/dashboard/client/overviewType";
 
 export const mockProjects: Project[] = [
   {

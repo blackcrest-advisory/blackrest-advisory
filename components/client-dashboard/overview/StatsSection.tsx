@@ -8,7 +8,7 @@ import {
   FiDollarSign,
 } from "react-icons/fi";
 import { StatCard } from "../../shared/StatCard";
-import { Stats } from "@/types/dashboard/DemoType";
+import { Stats } from "@/types/dashboard/client/overviewType";
 
 interface StatsSectionProps {
   stats: Stats;

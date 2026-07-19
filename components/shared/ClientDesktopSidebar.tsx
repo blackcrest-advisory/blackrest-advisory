@@ -6,8 +6,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { LogOut, PanelLeft } from "lucide-react";
 import { usePathname } from "next/navigation";
 
-import { IMAGE } from "@/constant/imagesConfig";
-import { navItems } from "@/constant/clientNavigations";
+import { IMAGE } from "@/constants/imagesConfig";
+import { navItems } from "@/constants/clientNavigations";
 import { useSidebarStore } from "@/store/sidebarStore";
 import ClientSidebarItem from "@/components/shared/ClientSidebarItems";
 

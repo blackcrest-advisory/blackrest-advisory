@@ -1,9 +1,9 @@
 // components/dashboard/ActiveProjects/ActiveProjects.tsx
 "use client";
 
-import { Project } from "@/types/dashboard/DemoType";
+import { Project } from "@/types/dashboard/client/overviewType";
 import { Button } from "@/components/ui/Button";
-import { ProjectItem } from "@/components/client-dashboard/main/ProjectItem";
+import { ProjectItem } from "@/components/client-dashboard/overview/ProjectItem";
 
 interface ActiveProjectsProps {
   projects: Project[];

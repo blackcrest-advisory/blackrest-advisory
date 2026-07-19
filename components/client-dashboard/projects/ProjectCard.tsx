@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, DollarSign, Clock } from "lucide-react";
-import { Project } from "@/types/dashboard/client/projects";
+import { Project } from "@/types/dashboard/client/projectsType";
 import { cn } from "@/lib/utils";
 
 interface ProjectCardProps {

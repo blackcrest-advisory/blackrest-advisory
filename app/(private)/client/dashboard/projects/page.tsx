@@ -10,8 +10,8 @@ import type {
   ProjectStatus,
   Industry,
   ServiceType,
-} from "@/types/dashboard/client/projects";
-import { mockProjects } from "@/data/mock-projects";
+} from "@/types/dashboard/client/projectsType";
+import { mockProjects } from "@/mock-data/projectsMockData";
 
 export default function ProjectsPage() {
   const [searchQuery, setSearchQuery] = useState("");

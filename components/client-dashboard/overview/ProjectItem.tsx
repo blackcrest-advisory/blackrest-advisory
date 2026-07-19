@@ -2,7 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Project } from "@/types/dashboard/DemoType";
+import { Project } from "@/types/dashboard/client/overviewType";
 
 interface ProjectItemProps {
   project: Project;

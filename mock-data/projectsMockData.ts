@@ -4,7 +4,7 @@ import {
   ServiceType,
   ProjectStatus,
   ProjectPriority,
-} from "@/types/dashboard/client/projects";
+} from "@/types/dashboard/client/projectsType";
 
 export const industries: Industry[] = [
   "Fashion Tech",

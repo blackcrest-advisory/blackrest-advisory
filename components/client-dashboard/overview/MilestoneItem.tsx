@@ -1,4 +1,4 @@
-import { Milestone } from "@/types/dashboard/DemoType";
+import { Milestone } from "@/types/dashboard/client/overviewType";
 
 const colorMap = [
   "text-[var(--color-secondary)]",

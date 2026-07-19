@@ -1,12 +1,16 @@
 "use client";
 
 import { Search } from "lucide-react";
-import { industries, serviceTypes, statuses } from "@/data/mock-projects";
+import {
+  industries,
+  serviceTypes,
+  statuses,
+} from "@/mock-data/projectsMockData";
 import type {
   ProjectStatus,
   Industry,
   ServiceType,
-} from "@/types/dashboard/client/projects";
+} from "@/types/dashboard/client/projectsType";
 
 interface ProjectFiltersProps {
   searchQuery: string;

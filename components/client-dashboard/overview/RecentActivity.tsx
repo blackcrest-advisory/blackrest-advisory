@@ -1,8 +1,8 @@
 // components/dashboard/RecentActivity/RecentActivity.tsx
 "use client";
 
-import { ActivityItem } from "@/components/client-dashboard/main/ActivityItem";
-import { Activity } from "@/types/dashboard/DemoType";
+import { ActivityItem } from "@/components/client-dashboard/overview/ActivityItem";
+import { Activity } from "@/types/dashboard/client/overviewType";
 
 interface RecentActivityProps {
   activities: Activity[];

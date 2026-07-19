@@ -1,4 +1,4 @@
-import { IMAGE } from "@/constant/imagesConfig";
+import { IMAGE } from "@/constants/imagesConfig";
 import Image from "next/image";
 
 const Logo = () => {

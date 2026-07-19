@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Project } from "@/types/dashboard/client/projects";
+import { Project } from "@/types/dashboard/client/projectsType";
 import { FolderKanban, Activity, CheckCircle, PauseCircle } from "lucide-react";
 import { StatCard } from "@/components/shared/StatCard";
 
