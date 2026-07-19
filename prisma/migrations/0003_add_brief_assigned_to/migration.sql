@@ -1,0 +1,1 @@
+ALTER TABLE "Brief" ADD COLUMN "assignedTo" TEXT;
