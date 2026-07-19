@@ -4,13 +4,6 @@ import {
   Project,
   Stats,
 } from "@/types/dashboard/DemoType";
-import {
-  FiFileText,
-  FiMessageCircle,
-  FiCheckCircle,
-  FiDollarSign,
-  FiTrendingUp,
-} from "react-icons/fi";
 
 export const mockProjects: Project[] = [
   {
