@@ -12,6 +12,7 @@ interface ButtonProps {
   onClick?: () => void;
   href?: string;
   target?: string;
+  disabled?: boolean;
 }
 
 export const Button = ({
@@ -22,9 +23,10 @@ export const Button = ({
   onClick,
   href,
   target,
+  disabled = false,
 }: ButtonProps) => {
   const baseStyles =
-    "inline-flex items-center justify-center cursor-pointer rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background disabled:opacity-50";
+    "inline-flex items-center justify-center cursor-pointer rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background";
 
   const variantStyles = {
     primary:
@@ -41,19 +43,24 @@ export const Button = ({
     lg: "px-8 py-4 text-lg",
   };
 
-  const combined = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+  // Add disabled styles
+  const disabledStyles = disabled
+    ? "opacity-50 cursor-not-allowed pointer-events-none"
+    : "";
+
+  const combined = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${disabledStyles} ${className}`;
 
   const content = (
     <motion.span
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={disabled ? {} : { scale: 1.02 }}
+      whileTap={disabled ? {} : { scale: 0.98 }}
       className="flex items-center gap-2"
     >
       {children}
     </motion.span>
   );
 
-  if (href) {
+  if (href && !disabled) {
     return (
       <Link href={href} target={target} className={combined} onClick={onClick}>
         {content}
@@ -62,7 +69,7 @@ export const Button = ({
   }
 
   return (
-    <button className={combined} onClick={onClick}>
+    <button className={combined} onClick={onClick} disabled={disabled}>
       {content}
     </button>
   );
