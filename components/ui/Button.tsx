@@ -7,7 +7,7 @@ import { ReactNode } from "react";
 interface ButtonProps {
   children: ReactNode;
   variant?: "primary" | "secondary" | "outline" | "ghost";
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "base" | "md" | "lg";
   className?: string;
   onClick?: () => void;
   href?: string;
@@ -18,7 +18,7 @@ interface ButtonProps {
 export const Button = ({
   children,
   variant = "primary",
-  size = "md",
+  size = "base",
   className = "",
   onClick,
   href,
@@ -39,6 +39,7 @@ export const Button = ({
 
   const sizeStyles = {
     sm: "px-3 py-1.5 text-sm",
+    base: "px-2 py-2 text-base",
     md: "px-5 py-2.5 text-base",
     lg: "px-8 py-4 text-lg",
   };
