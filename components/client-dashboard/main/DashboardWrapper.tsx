@@ -1,13 +1,13 @@
 "use client";
 
-import { ActiveProjects } from "@/components/client-dashboard/ActiveProjects";
-import { FooterStats } from "@/components/client-dashboard/FooterStats";
-import { PerformanceChart } from "@/components/client-dashboard/PerformanceChart";
-import { QuickActions } from "@/components/client-dashboard/QuickActions";
-import { RecentActivity } from "@/components/client-dashboard/RecentActivity";
-import { StatsSection } from "@/components/client-dashboard/StatsSection";
-import { SupportSection } from "@/components/client-dashboard/SupportSection";
-import { UpcomingMilestones } from "@/components/client-dashboard/UpcomingMilestones";
+import { ActiveProjects } from "@/components/client-dashboard/main/ActiveProjects";
+import { FooterStats } from "@/components/client-dashboard/main/FooterStats";
+import { PerformanceChart } from "@/components/client-dashboard/main/PerformanceChart";
+import { QuickActions } from "@/components/client-dashboard/main/QuickActions";
+import { RecentActivity } from "@/components/client-dashboard/main/RecentActivity";
+import { StatsSection } from "@/components/client-dashboard/main/StatsSection";
+import { SupportSection } from "@/components/client-dashboard/main/SupportSection";
+import { UpcomingMilestones } from "@/components/client-dashboard/main/UpcomingMilestones";
 import {
   Stats,
   Project,

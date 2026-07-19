@@ -7,7 +7,7 @@ import {
   FiTrendingUp,
   FiDollarSign,
 } from "react-icons/fi";
-import { StatCard } from "./StatCard";
+import { StatCard } from "../../shared/StatCard";
 import { Stats } from "@/types/dashboard/DemoType";
 
 interface StatsSectionProps {

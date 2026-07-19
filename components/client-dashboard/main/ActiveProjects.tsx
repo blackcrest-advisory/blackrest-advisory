@@ -2,8 +2,8 @@
 "use client";
 
 import { Project } from "@/types/dashboard/DemoType";
-import { ProjectItem } from "./ProjectItem";
 import { Button } from "@/components/ui/Button";
+import { ProjectItem } from "@/components/client-dashboard/main/ProjectItem";
 
 interface ActiveProjectsProps {
   projects: Project[];

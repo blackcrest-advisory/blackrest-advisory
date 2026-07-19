@@ -1,4 +1,4 @@
-import { DashboardWrapper } from "@/components/client-dashboard/DashboardWrapper";
+import { DashboardWrapper } from "@/components/client-dashboard/main/DashboardWrapper";
 import {
   mockActivity,
   mockMilestones,
