@@ -39,13 +39,6 @@ const formatDate = (date: Date) => {
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  // Date.now() is impure, so it can't be called directly in the render body.
-  // A lazy useState initializer is the sanctioned escape hatch: the function
-  // passed to useState runs exactly once, on first render, so React treats
-  // it as a one-time read rather than a per-render impure call. This avoids
-  // both the "impure function during render" error and the "setState inside
-  // an effect causes a cascading render" error that an effect-based fix
-  // would introduce.
   const [now] = useState(() => Date.now());
 
   const daysUntilDue = Math.ceil(
@@ -97,7 +90,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
         <div className="mt-1 h-1.5 w-full rounded-full bg-muted">
           <div
-            className="h-full rounded-full bg-primary transition-all duration-500"
+            className="h-full rounded-full bg-[var(--color-secondary)] transition-all duration-500"
             style={{ width: `${project.progress}%` }}
           />
         </div>
