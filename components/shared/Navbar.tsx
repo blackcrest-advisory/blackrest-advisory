@@ -96,6 +96,9 @@ export default function Navbar() {
             {/* Desktop right side - Theme toggle & CTA */}
             <div className="flex items-center space-x-4">
               <ThemeToggle />
+              <Button variant="secondary" size="sm" href="/login">
+                Login
+              </Button>
               <Button variant="primary" size="sm" href="/select-industry">
                 Get Started
               </Button>
