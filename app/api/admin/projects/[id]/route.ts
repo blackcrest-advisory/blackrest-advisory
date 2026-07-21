@@ -2,6 +2,7 @@ import { ProjectStatus } from "@prisma/client";
 import { NextResponse } from "next/server";
 import { getAdminUser } from "@/lib/admin-utils";
 import { prisma } from "@/lib/db/client";
+import { sendProjectUpdate } from "@/lib/services/email.service";
 
 export async function GET(
   _request: Request,
@@ -90,6 +91,27 @@ export async function PATCH(
             : undefined,
       },
     });
+
+    if (typeof update === "string" && update.trim()) {
+      const user = await prisma.user.findUnique({
+        where: {
+          id: project.userId,
+        },
+        select: {
+          email: true,
+          name: true,
+        },
+      });
+
+      if (user) {
+        void sendProjectUpdate(
+          user.email,
+          user.name,
+          project.title,
+          update,
+        );
+      }
+    }
 
     return NextResponse.json(project, { status: 200 });
   } catch {

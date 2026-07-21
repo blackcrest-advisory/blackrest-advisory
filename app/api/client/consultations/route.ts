@@ -2,6 +2,7 @@ import { ConsultationType } from "@prisma/client";
 import { NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth-utils";
 import { prisma } from "@/lib/db/client";
+import { sendConsultationConfirmation } from "@/lib/services/email.service";
 
 export async function GET() {
   try {
@@ -68,6 +69,12 @@ export async function POST(request: Request) {
         status: "PENDING",
       },
     });
+    void sendConsultationConfirmation(
+      user.email,
+      user.name,
+      consultation.scheduledAt.toISOString(),
+      consultation.type,
+    );
 
     return NextResponse.json(consultation, { status: 201 });
   } catch {

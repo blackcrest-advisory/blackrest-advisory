@@ -2,6 +2,7 @@ import { ProposalStatus } from "@prisma/client";
 import { NextResponse } from "next/server";
 import { getAdminUser } from "@/lib/admin-utils";
 import { prisma } from "@/lib/db/client";
+import { sendProposalNotification } from "@/lib/services/email.service";
 
 export async function PATCH(
   request: Request,
@@ -42,6 +43,38 @@ export async function PATCH(
         sentAt: status === "SENT" ? new Date() : undefined,
       },
     });
+
+    if (proposal.status === "SENT") {
+      const brief = await prisma.brief.findUnique({
+        where: {
+          id: proposal.briefId,
+        },
+        select: {
+          userId: true,
+        },
+      });
+
+      if (brief) {
+        const user = await prisma.user.findUnique({
+          where: {
+            id: brief.userId,
+          },
+          select: {
+            email: true,
+            name: true,
+          },
+        });
+
+        if (user) {
+          void sendProposalNotification(
+            user.email,
+            user.name,
+            proposal.amount ?? 0,
+            proposal.currency,
+          );
+        }
+      }
+    }
 
     return NextResponse.json(proposal, { status: 200 });
   } catch {
