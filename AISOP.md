@@ -27,11 +27,11 @@ blackcrest-advisory/  (root)
 │   ├── (private)/
 │   │   ├── admin/
 |   |   |    └── dashborad
-|   |           ├── files/
-│   │           ├── invoices/
+|   |           ├── clients/
+│   │           ├── finance/
 │   │           ├── messages/
-│   │           ├── overview/
-│   │           ├── payments/
+│   │           ├── projects/
+│   │           ├── reports/
 │   │           ├── projects/
 │   │           └── settings/    
 │   │   └── client/
