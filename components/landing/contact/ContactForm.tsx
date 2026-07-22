@@ -11,6 +11,8 @@ import {
 } from "react-icons/lu";
 import { Button } from "@/components/ui/Button";
 import { contactInfoData } from "@/content-data/contact/contactData";
+import { submitContactForm } from "@/api-client/contact.api";
+import toast from "react-hot-toast";
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -33,15 +35,22 @@ export const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({ name: "", email: "", company: "", message: "" });
-
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+    try {
+      await submitContactForm({
+        name: formData.name,
+        email: formData.email,
+        companyName: formData.company,
+        problem: formData.message,
+      });
+      toast.success("Message sent! We'll be in touch within 24 hours");
+      setIsSubmitted(true);
+      setFormData({ name: "", email: "", company: "", message: "" });
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -175,7 +184,11 @@ export const ContactForm = () => {
                   </div>
                 </div>
 
-                <Button size="lg" className="w-full justify-center">
+                <Button
+                  size="lg"
+                  className="w-full justify-center"
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? (
                     "Sending..."
                   ) : (
