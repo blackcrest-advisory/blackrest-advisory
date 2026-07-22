@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Calendar, DollarSign, Clock } from "lucide-react";
 import { Project } from "@/types/dashboard/client/projectsType";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface ProjectCardProps {
   project: Project;
@@ -46,91 +47,98 @@ export function ProjectCard({ project }: ProjectCardProps) {
   );
 
   return (
-    <motion.div
-      whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="group relative rounded-xl border border-[var(--color-card-border)] bg-[var(--color-card-bg)] p-5 shadow-sm hover:shadow-lg transition-all duration-300"
-    >
-      <div className="flex items-start justify-between">
-        <div className="space-y-1">
-          <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-            {project.name}
-          </h3>
-          <p className="text-sm text-muted-foreground">
-            {project.clientCompany}
-          </p>
-        </div>
-        <span
-          className={cn(
-            "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium",
-            statusColorMap[project.status],
-          )}
-        >
-          {project.status.charAt(0).toUpperCase() +
-            project.status.slice(1).replace("-", " ")}
-        </span>
-      </div>
-
-      <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-        <span className="rounded bg-muted px-2 py-0.5">{project.industry}</span>
-        <span className="rounded bg-muted px-2 py-0.5">
-          {project.serviceType}
-        </span>
-        <span className={cn("font-medium", priorityColorMap[project.priority])}>
-          {project.priority.charAt(0).toUpperCase() + project.priority.slice(1)}{" "}
-          Priority
-        </span>
-      </div>
-
-      <div className="mt-4">
-        <div className="flex items-center justify-between text-sm">
-          <span className="text-muted-foreground">Progress</span>
-          <span className="font-medium text-foreground">
-            {project.progress}%
+    <Link href={`/client/dashboard/projects/${project.id}`} className="block">
+      <motion.div
+        whileHover={{ y: -4, transition: { duration: 0.2 } }}
+        className="group relative rounded-xl border border-[var(--color-card-border)] bg-[var(--color-card-bg)] p-5 shadow-sm hover:shadow-lg transition-all duration-300"
+      >
+        <div className="flex items-start justify-between">
+          <div className="space-y-1">
+            <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+              {project.name}
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              {project.clientCompany}
+            </p>
+          </div>
+          <span
+            className={cn(
+              "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium",
+              statusColorMap[project.status],
+            )}
+          >
+            {project.status.charAt(0).toUpperCase() +
+              project.status.slice(1).replace("-", " ")}
           </span>
         </div>
-        <div className="mt-1 h-1.5 w-full rounded-full bg-muted">
-          <div
-            className="h-full rounded-full bg-[var(--color-secondary)] transition-all duration-500"
-            style={{ width: `${project.progress}%` }}
-          />
-        </div>
-      </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
-        <div className="flex items-center gap-1.5 text-muted-foreground">
-          <DollarSign className="h-3.5 w-3.5" />
-          <span>${project.budget.toLocaleString()}</span>
+        <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+          <span className="rounded bg-muted px-2 py-0.5">
+            {project.industry}
+          </span>
+          <span className="rounded bg-muted px-2 py-0.5">
+            {project.serviceType}
+          </span>
+          <span
+            className={cn("font-medium", priorityColorMap[project.priority])}
+          >
+            {project.priority.charAt(0).toUpperCase() +
+              project.priority.slice(1)}{" "}
+            Priority
+          </span>
         </div>
-        <div className="flex items-center gap-1.5 text-muted-foreground">
-          <Calendar className="h-3.5 w-3.5" />
-          <span>{formatDate(project.dueDate)}</span>
-        </div>
-      </div>
 
-      <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
-        <div className="flex items-center -space-x-1.5">
-          {project.assignedTeam.slice(0, 3).map((member) => (
+        <div className="mt-4">
+          <div className="flex items-center justify-between text-sm">
+            <span className="text-muted-foreground">Progress</span>
+            <span className="font-medium text-foreground">
+              {project.progress}%
+            </span>
+          </div>
+          <div className="mt-1 h-1.5 w-full rounded-full bg-muted">
             <div
-              key={member.id}
-              className="flex h-7 w-7 items-center justify-center rounded-full bg-muted text-xs font-medium text-foreground ring-2 ring-card"
-              title={member.name}
-            >
-              {member.avatar}
-            </div>
-          ))}
-          {project.assignedTeam.length > 3 && (
-            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-muted text-xs font-medium text-foreground ring-2 ring-card">
-              +{project.assignedTeam.length - 3}
-            </div>
-          )}
+              className="h-full rounded-full bg-[var(--color-secondary)] transition-all duration-500"
+              style={{ width: `${project.progress}%` }}
+            />
+          </div>
         </div>
-        <div className="flex items-center gap-1 text-xs text-muted-foreground">
-          <Clock className="h-3 w-3" />
-          <span>
-            {daysUntilDue > 0 ? `${daysUntilDue} days left` : "Overdue"}
-          </span>
+
+        <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
+          <div className="flex items-center gap-1.5 text-muted-foreground">
+            <DollarSign className="h-3.5 w-3.5" />
+            <span>${project.budget.toLocaleString()}</span>
+          </div>
+          <div className="flex items-center gap-1.5 text-muted-foreground">
+            <Calendar className="h-3.5 w-3.5" />
+            <span>{formatDate(project.dueDate)}</span>
+          </div>
         </div>
-      </div>
-    </motion.div>
+
+        <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
+          <div className="flex items-center -space-x-1.5">
+            {project.assignedTeam.slice(0, 3).map((member) => (
+              <div
+                key={member.id}
+                className="flex h-7 w-7 items-center justify-center rounded-full bg-muted text-xs font-medium text-foreground ring-2 ring-card"
+                title={member.name}
+              >
+                {member.avatar}
+              </div>
+            ))}
+            {project.assignedTeam.length > 3 && (
+              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-muted text-xs font-medium text-foreground ring-2 ring-card">
+                +{project.assignedTeam.length - 3}
+              </div>
+            )}
+          </div>
+          <div className="flex items-center gap-1 text-xs text-muted-foreground">
+            <Clock className="h-3 w-3" />
+            <span>
+              {daysUntilDue > 0 ? `${daysUntilDue} days left` : "Overdue"}
+            </span>
+          </div>
+        </div>
+      </motion.div>
+    </Link>
   );
 }
