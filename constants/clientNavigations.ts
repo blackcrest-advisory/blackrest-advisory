@@ -28,7 +28,7 @@ export const profileMenu: Navigation[] = [
   },
 ];
 
-export const navItems: NavItem[] = [
+export const clientNavItems: NavItem[] = [
   { label: "Dashboard", href: "/client/dashboard", icon: LayoutDashboard },
   { label: "Projects", href: "/client/dashboard/projects", icon: FolderOpen },
   { label: "Files", href: "/client/dashboard/files", icon: Files },
