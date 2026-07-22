@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db/client";
+import { sendWelcomeEmail } from "@/lib/services/email.service";
 
 export async function POST(request: Request) {
   try {
@@ -67,6 +68,7 @@ export async function POST(request: Request) {
         password: hashedPassword,
       },
     });
+    void sendWelcomeEmail(user.email, user.name);
 
     return NextResponse.json(
       { success: true, userId: user.id },
