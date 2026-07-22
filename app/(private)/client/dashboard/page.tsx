@@ -13,8 +13,6 @@ export default function page() {
       projects={mockProjects}
       milestones={mockMilestones}
       activities={mockActivity}
-      clientName="John"
-      companyName="Selenite Care"
     />
   );
 }

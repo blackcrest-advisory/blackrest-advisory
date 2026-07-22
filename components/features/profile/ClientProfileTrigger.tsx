@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronDown, User } from "lucide-react";
+import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
 
 interface ClientProfileTriggerProps {
   isProfileOpen: boolean;
@@ -11,6 +12,8 @@ const ClientProfileTrigger = ({
   isProfileOpen,
   setIsProfileOpen,
 }: ClientProfileTriggerProps) => {
+  const user = useCurrentUser();
+
   return (
     <button
       onClick={() => setIsProfileOpen((prev) => !prev)}
@@ -25,7 +28,7 @@ const ClientProfileTrigger = ({
           className="text-sm font-medium"
           style={{ color: "var(--color-heading)" }}
         >
-          John Doe
+          {user?.name ?? "Client"}
         </span>
 
         <span className="text-xs" style={{ color: "var(--color-body)" }}>

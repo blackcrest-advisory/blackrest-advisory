@@ -14,14 +14,13 @@ import {
   Milestone,
   Activity,
 } from "@/types/dashboard/client/overviewType";
+import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
 
 interface DashboardWrapperProps {
   stats: Stats;
   projects: Project[];
   milestones: Milestone[];
   activities: Activity[];
-  clientName: string;
-  companyName: string;
 }
 
 export const DashboardWrapper = ({
@@ -29,8 +28,9 @@ export const DashboardWrapper = ({
   projects,
   milestones,
   activities,
-  companyName,
 }: DashboardWrapperProps) => {
+  const user = useCurrentUser();
+
   return (
     <div className="space-y-8 bg-[var(--color-background)] text-[var(--color-foreground)] min-h-screen">
       {/* Welcome Section */}
@@ -38,7 +38,9 @@ export const DashboardWrapper = ({
         <div>
           <h1 className="text-2xl md:text-3xl font-bold text-[var(--color-heading)]">
             Welcome back,{" "}
-            <span className="text-[var(--color-secondary)]">{companyName}</span>{" "}
+            <span className="text-[var(--color-secondary)]">
+              {user?.name ?? "Client"}
+            </span>{" "}
             👋
           </h1>
           <p className="text-[var(--color-body)] mt-1">
