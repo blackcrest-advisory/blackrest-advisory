@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./styles/globals.css";
 import AuthProvider from "@/app/providers/AuthProvider";
 import { ThemeProvider } from "./providers/ThemeProvider";
+import { ToasterProvider } from "@/app/providers/ToasterProvider";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
             </div>
           </AuthProvider>
         </ThemeProvider>
+        <ToasterProvider />
       </body>
     </html>
   );

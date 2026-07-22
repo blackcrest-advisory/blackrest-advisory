@@ -61,6 +61,8 @@ enum ProposalStatus {
 enum ProjectStatus {
   ACTIVE
   ON_HOLD
+  PLANNING
+  IN_REVIEW
   COMPLETED
   CANCELLED
 }
@@ -132,6 +134,7 @@ model Brief {
   deadline    String?
   attachments String[]
   status      BriefStatus @default(SUBMITTED)
+  assignedTo  String?     
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
 
@@ -163,6 +166,11 @@ model Project {
   userId      String
   title       String
   status      ProjectStatus @default(ACTIVE)
+  priority    String        @default("medium")
+  budget      Float?
+  budgetSpent Float         @default(0)
+  progress    Int           @default(0)
+  serviceType String?
   deadline    DateTime?
   assignedTo  String?
   description String?       @db.Text

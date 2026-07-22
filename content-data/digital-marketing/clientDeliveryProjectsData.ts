@@ -1,5 +1,5 @@
 import { Project } from "@/types/clientDeliveryProjects";
-import { IMAGE } from "@/constant/imagesConfig";
+import { IMAGE } from "@/constants/imagesConfig";
 
 export const projects: Project[] = [
   {

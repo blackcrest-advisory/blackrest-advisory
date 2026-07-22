@@ -1,7 +1,7 @@
 "use client";
 
 import { Section } from "@/components/shared/Section";
-import { IMAGE } from "@/constant/imagesConfig";
+import { IMAGE } from "@/constants/imagesConfig";
 import Image from "next/image";
 
 export const WhoWeAreSection = () => {

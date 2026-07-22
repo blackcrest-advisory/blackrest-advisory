@@ -7,24 +7,26 @@ import { ReactNode } from "react";
 interface ButtonProps {
   children: ReactNode;
   variant?: "primary" | "secondary" | "outline" | "ghost";
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "base" | "md" | "lg";
   className?: string;
   onClick?: () => void;
   href?: string;
   target?: string;
+  disabled?: boolean;
 }
 
 export const Button = ({
   children,
   variant = "primary",
-  size = "md",
+  size = "base",
   className = "",
   onClick,
   href,
   target,
+  disabled = false,
 }: ButtonProps) => {
   const baseStyles =
-    "inline-flex items-center justify-center cursor-pointer rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background disabled:opacity-50";
+    "inline-flex items-center justify-center cursor-pointer rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background";
 
   const variantStyles = {
     primary:
@@ -37,23 +39,29 @@ export const Button = ({
 
   const sizeStyles = {
     sm: "px-3 py-1.5 text-sm",
+    base: "px-2 py-2 text-base",
     md: "px-5 py-2.5 text-base",
     lg: "px-8 py-4 text-lg",
   };
 
-  const combined = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+  // Add disabled styles
+  const disabledStyles = disabled
+    ? "opacity-50 cursor-not-allowed pointer-events-none"
+    : "";
+
+  const combined = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${disabledStyles} ${className}`;
 
   const content = (
     <motion.span
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={disabled ? {} : { scale: 1.02 }}
+      whileTap={disabled ? {} : { scale: 0.98 }}
       className="flex items-center gap-2"
     >
       {children}
     </motion.span>
   );
 
-  if (href) {
+  if (href && !disabled) {
     return (
       <Link href={href} target={target} className={combined} onClick={onClick}>
         {content}
@@ -62,7 +70,7 @@ export const Button = ({
   }
 
   return (
-    <button className={combined} onClick={onClick}>
+    <button className={combined} onClick={onClick} disabled={disabled}>
       {content}
     </button>
   );

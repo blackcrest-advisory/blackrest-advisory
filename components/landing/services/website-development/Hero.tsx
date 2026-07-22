@@ -2,7 +2,7 @@
 
 import { Container } from "@/components/landing/services/website-development/shared/Container";
 import { Button } from "@/components/ui/Button";
-import { IMAGE } from "@/constant/imagesConfig";
+import { IMAGE } from "@/constants/imagesConfig";
 import { motion } from "framer-motion";
 
 import Image from "next/image";

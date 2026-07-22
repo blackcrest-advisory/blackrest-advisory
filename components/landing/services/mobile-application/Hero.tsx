@@ -15,7 +15,7 @@ import {
 } from "react-icons/fi";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { IMAGE } from "@/constant/imagesConfig";
+import { IMAGE } from "@/constants/imagesConfig";
 
 const floatingFeatures = [
   { icon: FiBell, label: "Push Notifications" },

@@ -1,9 +1,9 @@
 import { Menu } from "lucide-react";
 
-import SearchArea from "@/components/search/SearchArea";
-import Notification from "@/components/notification/Notification";
-import Message from "@/components/message/Message";
-import ClientProfileDropdown from "@/components/profile/ClientProfileDropdown";
+import SearchArea from "@/components/features/search/SearchArea";
+import Notification from "@/components/features/notification/Notification";
+import Message from "@/components/features/message/Message";
+import ClientProfileDropdown from "@/components/features/profile/ClientProfileDropdown";
 import ThemeToggle from "@/components/shared/ThemeToggle";
 
 interface NavbarProps {

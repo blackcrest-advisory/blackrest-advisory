@@ -20,7 +20,7 @@ import {
   FiShield,
   FiThumbsUp,
 } from "react-icons/fi";
-import { IMAGE } from "@/constant/imagesConfig";
+import { IMAGE } from "@/constants/imagesConfig";
 import CountUp from "react-countup";
 
 // ── Types ──────────────────────────────────────────────

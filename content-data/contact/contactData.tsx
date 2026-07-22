@@ -1,4 +1,4 @@
-import { IMAGE } from "@/constant/imagesConfig";
+import { IMAGE } from "@/constants/imagesConfig";
 import { LuMapPin, LuPhone, LuMail, LuClock } from "react-icons/lu";
 
 export const contactInfoData = [

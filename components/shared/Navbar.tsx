@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { navLinks } from "@/constant/navigations";
+import { navLinks } from "@/constants/publicNavigations";
 import ThemeToggle from "@/components/shared/ThemeToggle";
 import Dropdown from "@/components/ui/Dropdown";
 import DropdownItem from "@/components/ui/DropdownItem";
@@ -96,6 +96,9 @@ export default function Navbar() {
             {/* Desktop right side - Theme toggle & CTA */}
             <div className="flex items-center space-x-4">
               <ThemeToggle />
+              <Button variant="secondary" size="sm" href="/login">
+                Login
+              </Button>
               <Button variant="primary" size="sm" href="/select-industry">
                 Get Started
               </Button>
@@ -198,14 +201,22 @@ export default function Navbar() {
                 })}
 
                 {/* Mobile CTA */}
-                <div className="px-3 pt-4">
+                <div className="px-3 pt-4 flex flex-col gap-3">
                   <Button
                     variant="primary"
-                    size="md"
                     className="w-full"
                     href="/select-industry"
+                    onClick={closeMobileMenu}
                   >
                     Get Started
+                  </Button>
+                  <Button
+                    variant="primary"
+                    className="w-full"
+                    href="/login"
+                    onClick={closeMobileMenu}
+                  >
+                    Login
                   </Button>
                 </div>
               </div>
