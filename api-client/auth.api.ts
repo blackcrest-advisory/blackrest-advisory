@@ -9,6 +9,10 @@ type UpdateIndustryResponse = {
   success: true;
 };
 
+type LogoutResponse = {
+  success: true;
+};
+
 export async function registerUser(
   name: string,
   email: string,
@@ -44,6 +48,12 @@ export async function loginUser(email: string, password: string) {
       redirect: false,
     },
   );
+
+  return response.data;
+}
+
+export async function logoutUser() {
+  const response = await axios.post<LogoutResponse>("/api/auth/logout");
 
   return response.data;
 }
