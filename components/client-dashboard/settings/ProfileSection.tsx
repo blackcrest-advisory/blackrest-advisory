@@ -8,13 +8,19 @@ import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { SettingsSectionCard } from "@/components/client-dashboard/settings/SettingsSectionCard";
 import { ClientProfile } from "@/types/dashboard/client/settingsType";
+import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
 
 interface ProfileSectionProps {
   profile: ClientProfile;
 }
 
 export const ProfileSection = ({ profile }: ProfileSectionProps) => {
-  const [formValues, setFormValues] = useState<ClientProfile>(profile);
+  const user = useCurrentUser();
+  const [formValues, setFormValues] = useState<ClientProfile>(() => ({
+    ...profile,
+    fullName: user?.name ?? profile.fullName,
+    email: user?.email ?? profile.email,
+  }));
   const [avatarPreview, setAvatarPreview] = useState<string | undefined>(
     profile.avatarUrl,
   );

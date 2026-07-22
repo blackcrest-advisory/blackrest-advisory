@@ -10,6 +10,7 @@ import { IMAGE } from "@/constants/imagesConfig";
 import { navItems } from "@/constants/clientNavigations";
 import { useSidebarStore } from "@/store/sidebarStore";
 import ClientSidebarItem from "@/components/shared/ClientSidebarItems";
+import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
 
 interface ClientSidebarProps {
   mobile?: boolean;
@@ -22,6 +23,14 @@ export default function ClientDesktopSidebar({
   const desktopCollapsed = useSidebarStore((state) => state.isCollapsed);
   const isCollapsed = mobile ? false : desktopCollapsed;
   const toggleSidebar = useSidebarStore((state) => state.toggleSidebar);
+  const user = useCurrentUser();
+  const initials =
+    user?.name
+      .split(" ")
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((part) => part[0]?.toUpperCase())
+      .join("") || "C";
 
   const [isLogoHovered, setIsLogoHovered] = useState(false);
 
@@ -112,7 +121,7 @@ export default function ClientDesktopSidebar({
                 className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-medium"
                 style={{ backgroundColor: "var(--color-gold)" }}
               >
-                JD
+                {initials}
               </div>
 
               <div className="flex-1 min-w-0">
@@ -120,14 +129,14 @@ export default function ClientDesktopSidebar({
                   className="text-sm font-medium truncate"
                   style={{ color: "var(--color-heading)" }}
                 >
-                  John Doe
+                  {user?.name ?? "Client"}
                 </p>
 
                 <p
                   className="text-xs truncate"
                   style={{ color: "var(--color-body)" }}
                 >
-                  john@blackcrest.com
+                  {user?.email ?? ""}
                 </p>
               </div>
             </div>
