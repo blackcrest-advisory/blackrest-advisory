@@ -1,33 +1,47 @@
-import { Menu } from "lucide-react";
+"use client";
 
+import { Menu } from "lucide-react";
 import SearchArea from "@/components/features/search/SearchArea";
 import Notification from "@/components/features/notification/Notification";
 import Message from "@/components/features/message/Message";
-import ClientProfileDropdown from "@/components/features/profile/ClientProfileDropdown";
 import ThemeToggle from "@/components/shared/ThemeToggle";
+import { cn } from "@/lib/utils";
+import ProfileDropdown from "@/components/shared/ProfileDropdown";
 
 interface NavbarProps {
   toggleMobileSidebar: () => void;
   pageTitle: string;
+  showSearch?: boolean;
+  showNotifications?: boolean;
+  showMessages?: boolean;
+  showProfile?: boolean;
+  className?: string;
 }
 
-export default function ClientNavbar({
+export default function DashboardNavbar({
   toggleMobileSidebar,
   pageTitle,
+  showSearch = true,
+  showNotifications = true,
+  showMessages = true,
+  showProfile = true,
+  className = "",
 }: NavbarProps) {
   return (
     <header
-      className="sticky top-0 z-30 h-16 shrink-0 backdrop-blur-xl shadow-xl "
+      className={cn(
+        "sticky top-0 z-30 h-16 shrink-0 backdrop-blur-xl shadow-xl",
+        className,
+      )}
       style={{
         backgroundColor:
           "color-mix(in srgb, var(--color-background) 85%, transparent)",
         borderColor: "var(--color-border)",
       }}
     >
-      <div className="flex h-full items-center justify-between px-4 md:px-6 bg-[var(--color-card-bg)]">
-        {/* Left */}
+      <div className="flex h-full items-center justify-between px-4 md:px-6 bg-(--color-card-bg)">
+        {/* Left – mobile menu + page title */}
         <div className="flex items-center gap-3">
-          {/* Mobile Menu */}
           <button
             onClick={toggleMobileSidebar}
             className="flex h-10 w-10 items-center justify-center rounded-lg transition-colors hover:bg-muted lg:hidden"
@@ -36,7 +50,6 @@ export default function ClientNavbar({
             <Menu size={20} style={{ color: "var(--color-heading)" }} />
           </button>
 
-          {/* Page Title */}
           <div>
             <h1
               className="text-xl font-semibold"
@@ -47,19 +60,21 @@ export default function ClientNavbar({
           </div>
         </div>
 
-        {/* Center Search */}
-        <div className="hidden flex-1 justify-center px-8 lg:flex">
-          <div className="w-full max-w-md">
-            <SearchArea />
+        {/* Center Search – conditionally shown */}
+        {showSearch && (
+          <div className="hidden flex-1 justify-center px-8 lg:flex">
+            <div className="w-full max-w-md">
+              <SearchArea />
+            </div>
           </div>
-        </div>
+        )}
 
-        {/* Right */}
+        {/* Right – conditionally shown items */}
         <div className="flex items-center gap-2 md:gap-3">
-          <Notification />
-          <Message />
+          {showNotifications && <Notification />}
+          {showMessages && <Message />}
           <ThemeToggle />
-          <ClientProfileDropdown />
+          {showProfile && <ProfileDropdown />}
         </div>
       </div>
     </header>

@@ -3,39 +3,54 @@
 import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { LogOut, PanelLeft } from "lucide-react";
+import { PanelLeft } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { IMAGE } from "@/constants/imagesConfig";
-import { navItems } from "@/constants/clientNavigations";
 import { useSidebarStore } from "@/store/sidebarStore";
-import ClientSidebarItem from "@/components/shared/ClientSidebarItems";
+import SidebarFooter from "@/components/shared/SidebarFooter";
+import { cn } from "@/lib/utils";
+import { scaleFade } from "@/utils/animations";
+import DashboardSidebarItems from "@/components/shared/DashboardSidebarItems";
+import { getNavItems } from "@/utils/getNavItems";
 
 interface ClientSidebarProps {
   mobile?: boolean;
 }
 
-export default function ClientDesktopSidebar({
+export default function DashboardDesktopSidebar({
   mobile = false,
 }: ClientSidebarProps) {
   const pathname = usePathname();
   const desktopCollapsed = useSidebarStore((state) => state.isCollapsed);
   const isCollapsed = mobile ? false : desktopCollapsed;
   const toggleSidebar = useSidebarStore((state) => state.toggleSidebar);
-
   const [isLogoHovered, setIsLogoHovered] = useState(false);
+
+  //===== Mock user data – replace with auth later =====//
+  const user = {
+    name: "John Doe",
+    email: "john@blackcrest.com",
+    initials: "JD",
+  };
+  const handleLogout = () => console.log("Logout clicked");
+  const navItems = getNavItems(pathname);
 
   return (
     <motion.aside
-      className="h-full flex flex-col lg:borde bg- overflow-hidden shadow-xl bg-[var(--color-card-bg)]"
+      className={cn(
+        "h-full flex flex-col overflow-hidden shadow-xl",
+        "bg-(--color-card-bg) border-r border-(--color-border)",
+      )}
       animate={{ width: isCollapsed ? 80 : 270 }}
       transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
-      style={{ borderColor: "var(--color-border)" }}
     >
-      {/* Logo */}
+      {/*===== Logo area =====*/}
       <div
-        className="relative items-center justify-center h-16 px-6 hidden lg:flex"
-        style={{ borderColor: "var(--color-border)" }}
+        className={cn(
+          "relative items-center justify-center h-16 px-6 hidden lg:flex",
+          "border-b border-(--color-border)",
+        )}
       >
         {!mobile && isCollapsed ? (
           <div
@@ -47,9 +62,10 @@ export default function ClientDesktopSidebar({
               {!isLogoHovered ? (
                 <motion.div
                   key="logo"
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.85 }}
+                  variants={scaleFade}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
                   transition={{ duration: 0.18 }}
                   className="absolute"
                 >
@@ -58,9 +74,10 @@ export default function ClientDesktopSidebar({
               ) : (
                 <motion.button
                   key="menu"
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.85 }}
+                  variants={scaleFade}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
                   transition={{ duration: 0.18 }}
                   onClick={toggleSidebar}
                   className="absolute flex items-center justify-center"
@@ -76,7 +93,6 @@ export default function ClientDesktopSidebar({
         ) : (
           <div className="flex items-center justify-between w-full">
             <Image src={IMAGE.logo} alt="Logo" width={28} height={28} />
-
             {!mobile && (
               <button
                 onClick={toggleSidebar}
@@ -89,12 +105,12 @@ export default function ClientDesktopSidebar({
         )}
       </div>
 
-      {/* Navigation */}
-      <nav className="lg:flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+      {/*===== Navigation =====*/}
+      <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           return (
-            <ClientSidebarItem
+            <DashboardSidebarItems
               key={item.href}
               item={item}
               isActive={isActive}
@@ -103,45 +119,14 @@ export default function ClientDesktopSidebar({
         })}
       </nav>
 
-      {/* Footer */}
-      <div className="px-3 py-4">
-        {!isCollapsed && (
-          <>
-            <div className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
-              <div
-                className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-medium"
-                style={{ backgroundColor: "var(--color-gold)" }}
-              >
-                JD
-              </div>
-
-              <div className="flex-1 min-w-0">
-                <p
-                  className="text-sm font-medium truncate"
-                  style={{ color: "var(--color-heading)" }}
-                >
-                  John Doe
-                </p>
-
-                <p
-                  className="text-xs truncate"
-                  style={{ color: "var(--color-body)" }}
-                >
-                  john@blackcrest.com
-                </p>
-              </div>
-            </div>
-
-            <button
-              className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-red-50/10 transition-colors mt-1 text-sm"
-              style={{ color: "var(--color-body)" }}
-            >
-              <LogOut size={18} />
-              <span>Logout</span>
-            </button>
-          </>
-        )}
-      </div>
+      {/*===== Footer =====*/}
+      <SidebarFooter
+        isCollapsed={isCollapsed}
+        userName={user.name}
+        userEmail={user.email}
+        userInitials={user.initials}
+        onLogout={handleLogout}
+      />
     </motion.aside>
   );
 }

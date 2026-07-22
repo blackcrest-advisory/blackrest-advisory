@@ -1,22 +1,28 @@
 "use client";
-import ClientProfileTrigger from "@/components/features/profile/ClientProfileTrigger";
+import ProfileTrigger from "@/components/shared/ProfileTrigger";
 import Dropdown from "@/components/ui/Dropdown";
 import DropdownItem from "@/components/ui/DropdownItem";
 import { profileMenu } from "@/constants/clientNavigations";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const ClientProfileDropdown = () => {
+const ProfileDropdown = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-
+  const pathname = usePathname();
   const handleLogout = () => {
     setIsProfileOpen(false);
     console.log("Logout");
   };
+
+  const name = pathname === "/admin/dashboard" ? "Admin User" : "Client User";
+  const role = pathname === "/admin/dashboard" ? "Admin" : "Client";
   return (
     <div className="relative cursor-pointer">
-      <ClientProfileTrigger
+      <ProfileTrigger
         isProfileOpen={isProfileOpen}
         setIsProfileOpen={setIsProfileOpen}
+        name={name}
+        role={role}
       />
       <Dropdown
         isOpen={isProfileOpen}
@@ -42,4 +48,4 @@ const ClientProfileDropdown = () => {
   );
 };
 
-export default ClientProfileDropdown;
+export default ProfileDropdown;

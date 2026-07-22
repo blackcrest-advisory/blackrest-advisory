@@ -5,11 +5,15 @@ import { ChevronDown, User } from "lucide-react";
 interface ClientProfileTriggerProps {
   isProfileOpen: boolean;
   setIsProfileOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  name?: string;
+  role?: string;
 }
 
-const ClientProfileTrigger = ({
+const ProfileTrigger = ({
   isProfileOpen,
   setIsProfileOpen,
+  name,
+  role,
 }: ClientProfileTriggerProps) => {
   return (
     <button
@@ -25,11 +29,11 @@ const ClientProfileTrigger = ({
           className="text-sm font-medium"
           style={{ color: "var(--color-heading)" }}
         >
-          John Doe
+          {name}
         </span>
 
         <span className="text-xs" style={{ color: "var(--color-body)" }}>
-          Client
+          {role}
         </span>
       </div>
 
@@ -43,4 +47,4 @@ const ClientProfileTrigger = ({
   );
 };
 
-export default ClientProfileTrigger;
+export default ProfileTrigger;

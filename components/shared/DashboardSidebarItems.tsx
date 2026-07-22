@@ -10,7 +10,7 @@ interface SidebarItemProps {
   isActive: boolean;
 }
 
-export default function ClientSidebarItem({
+export default function DashboardSidebarItems({
   item,
   isActive,
 }: SidebarItemProps) {

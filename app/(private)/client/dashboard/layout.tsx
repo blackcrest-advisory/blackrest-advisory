@@ -1,9 +1,9 @@
-import ClientDashboardLayout from "@/components/shared/ClientDashboardLayout";
+import DashboardLayout from "@/components/shared/DashboardLayout";
 
 export default function ClientLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <ClientDashboardLayout>{children}</ClientDashboardLayout>;
+  return <DashboardLayout>{children}</DashboardLayout>;
 }

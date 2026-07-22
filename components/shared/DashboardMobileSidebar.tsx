@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Search, X } from "lucide-react";
-import ClientDesktopSidebar from "@/components/shared/ClientDesktopSidebar";
+import ClientDesktopSidebar from "@/components/shared/DashboardDesktopSidebar";
 import Logo from "@/components/shared/Logo";
 
 interface MobileSidebarProps {
@@ -11,7 +11,7 @@ interface MobileSidebarProps {
   onClose: () => void;
 }
 
-export default function ClientMobileSidebar({
+export default function DashboardMobileSidebar({
   isOpen,
   onClose,
 }: MobileSidebarProps) {
@@ -46,7 +46,6 @@ export default function ClientMobileSidebar({
         exit={{ x: "-100%" }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
         className="fixed top-0 left-0 h-full w-[280px] z-50 shadow-2xl lg:hidden bg-background"
-      
       >
         {/* Close button inside drawer */}
         <div className="relative flex justify-between mt-4 px-2">
