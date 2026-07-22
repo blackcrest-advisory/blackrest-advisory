@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./styles/globals.css";
-import AuthProvider from "@/app/providers/AuthProvider";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import { ToasterProvider } from "@/app/providers/ToasterProvider";
 
@@ -25,11 +24,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <body className={`${roboto.className} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <AuthProvider>
-            <div className="flex min-h-screen flex-col">
-              <main className="flex-1">{children}</main>
-            </div>
-          </AuthProvider>
+          <div className="flex min-h-screen flex-col">
+            <main className="flex-1">{children}</main>
+          </div>
         </ThemeProvider>
         <ToasterProvider />
       </body>
