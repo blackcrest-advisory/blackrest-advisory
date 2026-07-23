@@ -4,13 +4,31 @@ import Dropdown from "@/components/ui/Dropdown";
 import DropdownItem from "@/components/ui/DropdownItem";
 import { profileMenu } from "@/constants/clientNavigations";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { logoutUser } from "@/api-client/auth.api";
 
 const ClientProfileDropdown = () => {
+  const router = useRouter();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    if (isLoggingOut) {
+      return;
+    }
+
     setIsProfileOpen(false);
-    console.log("Logout");
+    setIsLoggingOut(true);
+
+    try {
+      await logoutUser();
+      router.replace("/login");
+      router.refresh();
+    } catch {
+      toast.error("Failed to log out");
+      setIsLoggingOut(false);
+    }
   };
   return (
     <div className="relative cursor-pointer">
@@ -35,7 +53,7 @@ const ClientProfileDropdown = () => {
         ))}
 
         <DropdownItem danger onClick={handleLogout}>
-          Logout
+          {isLoggingOut ? "Logging out..." : "Logout"}
         </DropdownItem>
       </Dropdown>
     </div>

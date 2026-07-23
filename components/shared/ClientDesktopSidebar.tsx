@@ -4,13 +4,15 @@ import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { LogOut, PanelLeft } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 import { IMAGE } from "@/constants/imagesConfig";
 import { navItems } from "@/constants/clientNavigations";
 import { useSidebarStore } from "@/store/sidebarStore";
 import ClientSidebarItem from "@/components/shared/ClientSidebarItems";
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
+import { logoutUser } from "@/api-client/auth.api";
 
 interface ClientSidebarProps {
   mobile?: boolean;
@@ -20,6 +22,7 @@ export default function ClientDesktopSidebar({
   mobile = false,
 }: ClientSidebarProps) {
   const pathname = usePathname();
+  const router = useRouter();
   const desktopCollapsed = useSidebarStore((state) => state.isCollapsed);
   const isCollapsed = mobile ? false : desktopCollapsed;
   const toggleSidebar = useSidebarStore((state) => state.toggleSidebar);
@@ -33,6 +36,24 @@ export default function ClientDesktopSidebar({
       .join("") || "C";
 
   const [isLogoHovered, setIsLogoHovered] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  const handleLogout = async () => {
+    if (isLoggingOut) {
+      return;
+    }
+
+    setIsLoggingOut(true);
+
+    try {
+      await logoutUser();
+      router.replace("/login");
+      router.refresh();
+    } catch {
+      toast.error("Failed to log out");
+      setIsLoggingOut(false);
+    }
+  };
 
   return (
     <motion.aside
@@ -142,11 +163,13 @@ export default function ClientDesktopSidebar({
             </div>
 
             <button
+              onClick={handleLogout}
+              disabled={isLoggingOut}
               className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-red-50/10 transition-colors mt-1 text-sm"
               style={{ color: "var(--color-body)" }}
             >
               <LogOut size={18} />
-              <span>Logout</span>
+              <span>{isLoggingOut ? "Logging out..." : "Logout"}</span>
             </button>
           </>
         )}
