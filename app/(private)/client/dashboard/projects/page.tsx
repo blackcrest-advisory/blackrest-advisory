@@ -1,19 +1,38 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ProjectHeader } from "@/components/client-dashboard/projects/ProjectHeader";
 import { ProjectStats } from "@/components/client-dashboard/projects/ProjectStats";
 import { ProjectFilters } from "@/components/client-dashboard/projects/ProjectFilters";
 import { ProjectGrid } from "@/components/client-dashboard/projects/ProjectGrid";
 import { ProjectPagination } from "@/components/client-dashboard/projects/ProjectPagination";
 import type {
+  ActivityLog,
+  Milestone,
+  Project,
   ProjectStatus,
   Industry,
   ServiceType,
 } from "@/types/dashboard/client/projectsType";
-import { mockProjects } from "@/mock-data/projectsMockData";
+import axios from "@/api-client/client";
+
+type SerializedProject = Omit<
+  Project,
+  "timeline" | "dueDate" | "lastUpdated" | "milestones" | "activity"
+> & {
+  timeline: {
+    start: string;
+    end: string;
+  };
+  dueDate: string;
+  lastUpdated: string;
+  milestones: Array<Omit<Milestone, "dueDate"> & { dueDate: string }>;
+  activity: Array<Omit<ActivityLog, "timestamp"> & { timestamp: string }>;
+};
 
 export default function ProjectsPage() {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<ProjectStatus | "all">(
     "all",
@@ -25,9 +44,55 @@ export default function ProjectsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
+  useEffect(() => {
+    let isMounted = true;
+
+    axios
+      .get<SerializedProject[]>("/api/client/projects/list")
+      .then((response) => {
+        if (!isMounted) {
+          return;
+        }
+
+        setProjects(
+          response.data.map((project) => ({
+            ...project,
+            timeline: {
+              start: new Date(project.timeline.start),
+              end: new Date(project.timeline.end),
+            },
+            dueDate: new Date(project.dueDate),
+            lastUpdated: new Date(project.lastUpdated),
+            milestones: project.milestones.map((milestone) => ({
+              ...milestone,
+              dueDate: new Date(milestone.dueDate),
+            })),
+            activity: project.activity.map((activity) => ({
+              ...activity,
+              timestamp: new Date(activity.timestamp),
+            })),
+          })),
+        );
+      })
+      .catch(() => {
+        if (isMounted) {
+          setProjects([]);
+        }
+      })
+      .finally(() => {
+        if (isMounted) {
+          setLoading(false);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   // Filter projects
   const filteredProjects = useMemo(() => {
-    return mockProjects.filter((project) => {
+    return projects.filter((project) => {
       const matchesSearch =
         project.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         project.clientCompany.toLowerCase().includes(searchQuery.toLowerCase());
@@ -41,7 +106,7 @@ export default function ProjectsPage() {
         matchesSearch && matchesStatus && matchesIndustry && matchesService
       );
     });
-  }, [searchQuery, statusFilter, industryFilter, serviceFilter]);
+  }, [projects, searchQuery, statusFilter, industryFilter, serviceFilter]);
 
   // Pagination
   const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
@@ -55,10 +120,18 @@ export default function ProjectsPage() {
     setCurrentPage(1);
   };
 
+  if (loading) {
+    return (
+      <div className="text-center py-12 text-[var(--color-body)]">
+        Loading projects...
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-8">
       <ProjectHeader />
-      <ProjectStats projects={mockProjects} />
+      <ProjectStats projects={projects} />
       <ProjectFilters
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
