@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getCurrentUser } from "@/lib/auth-utils";
 import { prisma } from "@/lib/db/client";
 
@@ -11,6 +12,9 @@ const profileSelect = {
   phone: true,
   country: true,
   industry: true,
+  jobTitle: true,
+  avatarUrl: true,
+  notificationPreferences: true,
   createdAt: true,
 } as const;
 
@@ -28,6 +32,8 @@ export async function GET() {
       },
       select: profileSelect,
     });
+    revalidatePath("/client/dashboard/settings");
+    revalidatePath("/client/dashboard");
 
     return NextResponse.json(user, { status: 200 });
   } catch {
@@ -52,10 +58,8 @@ export async function PATCH(request: Request) {
       throw new Error("Invalid request body");
     }
 
-    const { name, companyName, phone, country } = body as Record<
-      string,
-      unknown
-    >;
+    const { name, companyName, phone, country, jobTitle, avatarUrl } =
+      body as Record<string, unknown>;
     const user = await prisma.user.update({
       where: {
         id: currentUser.id,
@@ -70,6 +74,14 @@ export async function PATCH(request: Request) {
           typeof phone === "string" || phone === null ? phone : undefined,
         country:
           typeof country === "string" || country === null ? country : undefined,
+        jobTitle:
+          typeof jobTitle === "string" || jobTitle === null
+            ? jobTitle
+            : undefined,
+        avatarUrl:
+          typeof avatarUrl === "string" || avatarUrl === null
+            ? avatarUrl
+            : undefined,
       },
       select: profileSelect,
     });

@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { SettingsSectionCard } from "@/components/client-dashboard/settings/SettingsSectionCard";
 import { PasswordChangePayload } from "@/types/dashboard/client/settingsType";
+import axios from "@/api-client/client";
 
 const initialPasswordState: PasswordChangePayload = {
   currentPassword: "",
@@ -16,6 +17,7 @@ const initialPasswordState: PasswordChangePayload = {
 export const SecuritySection = () => {
   const [passwordForm, setPasswordForm] =
     useState<PasswordChangePayload>(initialPasswordState);
+  const [isUpdating, setIsUpdating] = useState(false);
 
   const handleFieldChange = (
     field: keyof PasswordChangePayload,
@@ -24,8 +26,7 @@ export const SecuritySection = () => {
     setPasswordForm((prev) => ({ ...prev, [field]: value }));
   };
 
-  //===== Basic client-side validation before the placeholder submit =====//
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!passwordForm.currentPassword || !passwordForm.newPassword) {
       toast.error("Please fill in all password fields.");
       return;
@@ -41,8 +42,37 @@ export const SecuritySection = () => {
       return;
     }
 
-    toast.success("Password updated successfully.");
-    setPasswordForm(initialPasswordState);
+    setIsUpdating(true);
+
+    try {
+      await axios.post("/api/client/settings/password", {
+        currentPassword: passwordForm.currentPassword,
+        newPassword: passwordForm.newPassword,
+        confirmPassword: passwordForm.confirmPassword,
+      });
+      toast.success("Password updated successfully");
+      setPasswordForm(initialPasswordState);
+    } catch (error: unknown) {
+      let message = "Failed to update password";
+
+      if (typeof error === "object" && error !== null && "response" in error) {
+        const response = error as { response?: { data?: unknown } };
+        const responseData = response.response?.data;
+
+        if (
+          typeof responseData === "object" &&
+          responseData !== null &&
+          "error" in responseData &&
+          typeof responseData.error === "string"
+        ) {
+          message = responseData.error;
+        }
+      }
+
+      toast.error(message);
+    } finally {
+      setIsUpdating(false);
+    }
   };
 
   return (
@@ -50,8 +80,13 @@ export const SecuritySection = () => {
       title="Security"
       description="Change your password to keep your account secure."
       footer={
-        <Button variant="primary" size="md" onClick={handleSave}>
-          Update Password
+        <Button
+          variant="primary"
+          size="md"
+          onClick={handleSave}
+          disabled={isUpdating}
+        >
+          {isUpdating ? "Updating..." : "Update Password"}
         </Button>
       }
     >

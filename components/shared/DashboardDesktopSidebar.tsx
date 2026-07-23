@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { PanelLeft } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { LogOut, PanelLeft } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 import { IMAGE } from "@/constants/imagesConfig";
 import { useSidebarStore } from "@/store/sidebarStore";
@@ -14,6 +15,7 @@ import { scaleFade } from "@/utils/animations";
 import DashboardSidebarItems from "@/components/shared/DashboardSidebarItems";
 import { getNavItems } from "@/utils/getNavItems";
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
+import { logoutUser } from "@/api-client/auth.api";
 
 interface ClientSidebarProps {
   mobile?: boolean;
@@ -23,6 +25,7 @@ export default function DashboardDesktopSidebar({
   mobile = false,
 }: ClientSidebarProps) {
   const pathname = usePathname();
+  const router = useRouter();
   const desktopCollapsed = useSidebarStore((state) => state.isCollapsed);
   const isCollapsed = mobile ? false : desktopCollapsed;
   const toggleSidebar = useSidebarStore((state) => state.toggleSidebar);
@@ -36,6 +39,24 @@ export default function DashboardDesktopSidebar({
       .join("") || "C";
 
   const [isLogoHovered, setIsLogoHovered] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  const handleLogout = async () => {
+    if (isLoggingOut) {
+      return;
+    }
+
+    setIsLoggingOut(true);
+
+    try {
+      await logoutUser();
+      router.replace("/login");
+      router.refresh();
+    } catch {
+      toast.error("Failed to log out");
+      setIsLoggingOut(false);
+    }
+  };
 
   const handleLogout = () => console.log("Logout clicked");
   const navItems = getNavItems(pathname);
@@ -123,6 +144,49 @@ export default function DashboardDesktopSidebar({
         })}
       </nav>
 
+<<<<<<< HEAD:components/shared/ClientDesktopSidebar.tsx
+      {/* Footer */}
+      <div className="px-3 py-4">
+        {!isCollapsed && (
+          <>
+            <div className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
+              <div
+                className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-medium"
+                style={{ backgroundColor: "var(--color-gold)" }}
+              >
+                {initials}
+              </div>
+
+              <div className="flex-1 min-w-0">
+                <p
+                  className="text-sm font-medium truncate"
+                  style={{ color: "var(--color-heading)" }}
+                >
+                  {user?.name ?? "Client"}
+                </p>
+
+                <p
+                  className="text-xs truncate"
+                  style={{ color: "var(--color-body)" }}
+                >
+                  {user?.email ?? ""}
+                </p>
+              </div>
+            </div>
+
+            <button
+              onClick={handleLogout}
+              disabled={isLoggingOut}
+              className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-red-50/10 transition-colors mt-1 text-sm"
+              style={{ color: "var(--color-body)" }}
+            >
+              <LogOut size={18} />
+              <span>{isLoggingOut ? "Logging out..." : "Logout"}</span>
+            </button>
+          </>
+        )}
+      </div>
+=======
       {/*===== Footer =====*/}
       <SidebarFooter
         isCollapsed={isCollapsed}
@@ -131,6 +195,7 @@ export default function DashboardDesktopSidebar({
         userInitials={initials}
         onLogout={handleLogout}
       />
+>>>>>>> 4188a9a5b921de7936911df634f0dbefda19c7e8:components/shared/DashboardDesktopSidebar.tsx
     </motion.aside>
   );
 }

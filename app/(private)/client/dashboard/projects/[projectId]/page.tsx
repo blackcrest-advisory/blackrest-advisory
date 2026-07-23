@@ -1,6 +1,8 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
+import axios from "@/api-client/client";
 import { ProjectDetailsHeader } from "@/components/client-dashboard/projects/details/ProjectDetailsHeader";
 import { ProjectOverviewCards } from "@/components/client-dashboard/projects/details/ProjectOverviewCards";
 import { ProjectDescription } from "@/components/client-dashboard/projects/details/ProjectDescription";
@@ -9,16 +11,97 @@ import { ProjectTeamCard } from "@/components/client-dashboard/projects/details/
 import { ProjectMilestones } from "@/components/client-dashboard/projects/details/ProjectMilestones";
 import { ProjectFilesCard } from "@/components/client-dashboard/projects/details/ProjectFilesCard";
 import { ProjectActivityLog } from "@/components/client-dashboard/projects/details/ProjectActivityLog";
-import { getProjectById } from "@/mock-data/projectsMockData";
+import type { Project } from "@/types/dashboard/client/projectsType";
+
+type SerializedProject = Omit<
+  Project,
+  "timeline" | "dueDate" | "lastUpdated" | "milestones" | "activity"
+> & {
+  timeline: {
+    start: string;
+    end: string;
+  };
+  dueDate: string;
+  lastUpdated: string;
+  milestones: Array<
+    Omit<Project["milestones"][number], "dueDate"> & { dueDate: string }
+  >;
+  activity: Array<
+    Omit<Project["activity"][number], "timestamp"> & { timestamp: string }
+  >;
+};
 
 export default function ProjectDetailsPage() {
   const router = useRouter();
   const params = useParams<{ projectId: string }>();
+  const [project, setProject] = useState<Project | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
-  const project = getProjectById(params.projectId);
+  useEffect(() => {
+    let isMounted = true;
 
-  //===== Guard: no matching project found for this id =====//
-  if (!project) {
+    axios
+      .get<SerializedProject[]>("/api/client/projects/list")
+      .then((response) => {
+        if (!isMounted) {
+          return;
+        }
+
+        const foundProject = response.data.find(
+          (item) => item.id === params.projectId,
+        );
+
+        if (!foundProject) {
+          setNotFound(true);
+          setProject(null);
+          return;
+        }
+
+        setProject({
+          ...foundProject,
+          timeline: {
+            start: new Date(foundProject.timeline.start),
+            end: new Date(foundProject.timeline.end),
+          },
+          dueDate: new Date(foundProject.dueDate),
+          lastUpdated: new Date(foundProject.lastUpdated),
+          milestones: foundProject.milestones.map((milestone) => ({
+            ...milestone,
+            dueDate: new Date(milestone.dueDate),
+          })),
+          activity: foundProject.activity.map((activity) => ({
+            ...activity,
+            timestamp: new Date(activity.timestamp),
+          })),
+        });
+      })
+      .catch(() => {
+        if (isMounted) {
+          setNotFound(true);
+          setProject(null);
+        }
+      })
+      .finally(() => {
+        if (isMounted) {
+          setLoading(false);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [params.projectId]);
+
+  if (loading) {
+    return (
+      <div className="text-center py-24 text-[var(--color-body)]">
+        Loading project...
+      </div>
+    );
+  }
+
+  if (notFound || project === null) {
     return (
       <div className="flex flex-col items-center justify-center py-24 text-center">
         <p className="text-lg font-medium text-[var(--color-heading)]">

@@ -5,13 +5,25 @@ import DropdownItem from "@/components/ui/DropdownItem";
 import { profileMenu } from "@/constants/clientNavigations";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { logoutUser } from "@/api-client/auth.api";
 
 const ProfileDropdown = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const pathname = usePathname();
   const handleLogout = () => {
     setIsProfileOpen(false);
-    console.log("Logout");
+    setIsLoggingOut(true);
+
+    try {
+      await logoutUser();
+      router.replace("/login");
+      router.refresh();
+    } catch {
+      toast.error("Failed to log out");
+      setIsLoggingOut(false);
+    }
   };
 
   const name = pathname === "/admin/dashboard" ? "Admin User" : "Client User";
@@ -41,7 +53,7 @@ const ProfileDropdown = () => {
         ))}
 
         <DropdownItem danger onClick={handleLogout}>
-          Logout
+          {isLoggingOut ? "Logging out..." : "Logout"}
         </DropdownItem>
       </Dropdown>
     </div>
