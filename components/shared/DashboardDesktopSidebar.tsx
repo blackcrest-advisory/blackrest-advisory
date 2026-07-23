@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import { scaleFade } from "@/utils/animations";
 import DashboardSidebarItems from "@/components/shared/DashboardSidebarItems";
 import { getNavItems } from "@/utils/getNavItems";
+import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
 
 interface ClientSidebarProps {
   mobile?: boolean;
@@ -25,14 +26,17 @@ export default function DashboardDesktopSidebar({
   const desktopCollapsed = useSidebarStore((state) => state.isCollapsed);
   const isCollapsed = mobile ? false : desktopCollapsed;
   const toggleSidebar = useSidebarStore((state) => state.toggleSidebar);
+  const user = useCurrentUser();
+  const initials =
+    user?.name
+      .split(" ")
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((part) => part[0]?.toUpperCase())
+      .join("") || "C";
+
   const [isLogoHovered, setIsLogoHovered] = useState(false);
 
-  //===== Mock user data – replace with auth later =====//
-  const user = {
-    name: "John Doe",
-    email: "john@blackcrest.com",
-    initials: "JD",
-  };
   const handleLogout = () => console.log("Logout clicked");
   const navItems = getNavItems(pathname);
 
@@ -122,9 +126,9 @@ export default function DashboardDesktopSidebar({
       {/*===== Footer =====*/}
       <SidebarFooter
         isCollapsed={isCollapsed}
-        userName={user.name}
-        userEmail={user.email}
-        userInitials={user.initials}
+        userName={user?.name ?? "Client"}
+        userEmail={user?.email ?? ""}
+        userInitials={initials}
         onLogout={handleLogout}
       />
     </motion.aside>

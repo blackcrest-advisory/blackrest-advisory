@@ -53,8 +53,19 @@ export async function POST(request: Request) {
       );
     }
 
-    const { proposalId, userId, title, description, deadline, assignedTo } =
-      body as Record<string, unknown>;
+    const {
+      proposalId,
+      userId,
+      title,
+      description,
+      deadline,
+      assignedTo,
+      priority,
+      budget,
+      budgetSpent,
+      progress,
+      serviceType,
+    } = body as Record<string, unknown>;
 
     if (
       typeof proposalId !== "string" ||
@@ -79,6 +90,16 @@ export async function POST(request: Request) {
         deadline:
           typeof deadline === "string" ? new Date(deadline) : undefined,
         assignedTo: typeof assignedTo === "string" ? assignedTo : null,
+        priority: typeof priority === "string" ? priority : undefined,
+        budget:
+          typeof budget === "number" || budget === null ? budget : undefined,
+        budgetSpent:
+          typeof budgetSpent === "number" ? budgetSpent : undefined,
+        progress: typeof progress === "number" ? progress : undefined,
+        serviceType:
+          typeof serviceType === "string" || serviceType === null
+            ? serviceType
+            : undefined,
         status: "ACTIVE",
         updates: [],
       },

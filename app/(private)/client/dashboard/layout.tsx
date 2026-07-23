@@ -1,9 +1,17 @@
 import DashboardLayout from "@/components/shared/DashboardLayout";
+import { CurrentUserProvider } from "@/app/providers/CurrentUserProvider";
+import { getCurrentUser } from "@/lib/auth-utils";
 
-export default function ClientLayout({
+export default async function ClientLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <DashboardLayout>{children}</DashboardLayout>;
+  const user = await getCurrentUser();
+
+  return (
+    <CurrentUserProvider user={user}>
+      <DashboardLayout>{children}</DashboardLayout>
+    </CurrentUserProvider>
+  );
 }

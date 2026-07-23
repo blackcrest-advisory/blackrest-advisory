@@ -56,10 +56,18 @@ export async function PATCH(
       throw new Error("Invalid request body");
     }
 
-    const { status, assignedTo, deadline, description, update } = body as Record<
-      string,
-      unknown
-    >;
+    const {
+      status,
+      assignedTo,
+      deadline,
+      description,
+      update,
+      priority,
+      budget,
+      budgetSpent,
+      progress,
+      serviceType,
+    } = body as Record<string, unknown>;
     const { id } = await params;
     const project = await prisma.project.update({
       where: {
@@ -84,6 +92,16 @@ export async function PATCH(
         description:
           typeof description === "string" || description === null
             ? description
+            : undefined,
+        priority: typeof priority === "string" ? priority : undefined,
+        budget:
+          typeof budget === "number" || budget === null ? budget : undefined,
+        budgetSpent:
+          typeof budgetSpent === "number" ? budgetSpent : undefined,
+        progress: typeof progress === "number" ? progress : undefined,
+        serviceType:
+          typeof serviceType === "string" || serviceType === null
+            ? serviceType
             : undefined,
         updates:
           typeof update === "string" && update.trim()
