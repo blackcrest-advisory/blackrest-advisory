@@ -1,4 +1,4 @@
-import ClientDashboardLayout from "@/components/shared/ClientDashboardLayout";
+import DashboardLayout from "@/components/shared/DashboardLayout";
 import { CurrentUserProvider } from "@/app/providers/CurrentUserProvider";
 import { getCurrentUser } from "@/lib/auth-utils";
 
@@ -11,7 +11,7 @@ export default async function ClientLayout({
 
   return (
     <CurrentUserProvider user={user}>
-      <ClientDashboardLayout>{children}</ClientDashboardLayout>
+      <DashboardLayout>{children}</DashboardLayout>
     </CurrentUserProvider>
   );
 }

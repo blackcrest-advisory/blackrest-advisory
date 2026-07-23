@@ -6,11 +6,15 @@ import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
 interface ClientProfileTriggerProps {
   isProfileOpen: boolean;
   setIsProfileOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  name?: string;
+  role?: string;
 }
 
-const ClientProfileTrigger = ({
+const ProfileTrigger = ({
   isProfileOpen,
   setIsProfileOpen,
+  name,
+  role,
 }: ClientProfileTriggerProps) => {
   const user = useCurrentUser();
 
@@ -32,7 +36,7 @@ const ClientProfileTrigger = ({
         </span>
 
         <span className="text-xs" style={{ color: "var(--color-body)" }}>
-          Client
+          {role}
         </span>
       </div>
 
@@ -46,4 +50,4 @@ const ClientProfileTrigger = ({
   );
 };
 
-export default ClientProfileTrigger;
+export default ProfileTrigger;

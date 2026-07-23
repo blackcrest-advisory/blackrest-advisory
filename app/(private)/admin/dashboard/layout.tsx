@@ -1,7 +1,9 @@
-export default function AdminDashboardLayout({
+import DashboardLayout from "@/components/shared/DashboardLayout";
+
+export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <DashboardLayout>{children}</DashboardLayout>;
 }

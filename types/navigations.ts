@@ -4,7 +4,6 @@ export interface Navigation {
   link: string;
 }
 
-//client
 export interface NavItem {
   label: string;
   href: string;
