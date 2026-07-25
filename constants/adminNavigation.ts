@@ -38,46 +38,46 @@ export const adminNavItems: NavItem[] = [
     href: "/admin/dashboard/leads",
     icon: UserPlus,
   },
-  {
-    label: "Clients",
-    href: "/admin/dashboard/clients",
-    icon: Users,
-  },
-  {
-    label: "Sales",
-    href: "/admin/dashboard/sales",
-    icon: Briefcase,
-  },
+  // {
+  //   label: "Clients",
+  //   href: "/admin/dashboard/clients",
+  //   icon: Users,
+  // },
+  // {
+  //   label: "Sales",
+  //   href: "/admin/dashboard/sales",
+  //   icon: Briefcase,
+  // },
   {
     label: "Projects",
     href: "/admin/dashboard/projects",
     icon: FolderOpen,
   },
-  {
-    label: "Tasks",
-    href: "/admin/dashboard/tasks",
-    icon: CheckSquare,
-  },
-  {
-    label: "Resources",
-    href: "/admin/dashboard/resources",
-    icon: UserCog,
-  },
+  // {
+  //   label: "Tasks",
+  //   href: "/admin/dashboard/tasks",
+  //   icon: CheckSquare,
+  // },
+  // {
+  //   label: "Resources",
+  //   href: "/admin/dashboard/resources",
+  //   icon: UserCog,
+  // },
   {
     label: "Services",
     href: "/admin/dashboard/services",
     icon: Package,
   },
-  {
-    label: "Finance",
-    href: "/admin/dashboard/finance",
-    icon: Wallet,
-  },
-  {
-    label: "Messages",
-    href: "/admin/dashboard/messages",
-    icon: MessageSquare,
-  },
+  // {
+  //   label: "Finance",
+  //   href: "/admin/dashboard/finance",
+  //   icon: Wallet,
+  // },
+  // {
+  //   label: "Messages",
+  //   href: "/admin/dashboard/messages",
+  //   icon: MessageSquare,
+  // },
   {
     label: "Reports",
     href: "/admin/dashboard/reports",
