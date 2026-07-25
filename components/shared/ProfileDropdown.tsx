@@ -12,19 +12,18 @@ import { logoutUser } from "@/api-client/auth.api";
 const ProfileDropdown = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const pathname = usePathname();
-  const handleLogout = () => {
-    setIsProfileOpen(false);
-    setIsLoggingOut(true);
+  // const handleLogout = () => {
+  //   setIsProfileOpen(false);
 
-    try {
-      await logoutUser();
-      router.replace("/login");
-      router.refresh();
-    } catch {
-      toast.error("Failed to log out");
-      setIsLoggingOut(false);
-    }
-  };
+  //   try {
+  //     await logoutUser();
+  //     router.replace("/login");
+  //     router.refresh();
+  //   } catch {
+  //     toast.error("Failed to log out");
+  //     setIsLoggingOut(false);
+  //   }
+  // };
 
   const name = pathname === "/admin/dashboard" ? "Admin User" : "Client User";
   const role = pathname === "/admin/dashboard" ? "Admin" : "Client";
@@ -52,9 +51,9 @@ const ProfileDropdown = () => {
           </DropdownItem>
         ))}
 
-        <DropdownItem danger onClick={handleLogout}>
+        {/* <DropdownItem danger onClick={handleLogout}>
           {isLoggingOut ? "Logging out..." : "Logout"}
-        </DropdownItem>
+        </DropdownItem> */}
       </Dropdown>
     </div>
   );
