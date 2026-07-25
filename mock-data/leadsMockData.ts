@@ -67,7 +67,7 @@ const priorities = ["high", "medium", "low"] as const;
 const salesPeople = ["Rasel", "Mostafa", "Soumik", "Nahid", "Shakil"];
 const budgets = ["Under $5k", "$5k–10k", "$10k–25k", "$25k+"];
 
-const randomItem = <T>(arr: T[]): T =>
+const randomItem = <T>(arr: readonly T[]): T =>
   arr[Math.floor(Math.random() * arr.length)];
 const randomDate = (start: Date, end: Date): Date =>
   new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
