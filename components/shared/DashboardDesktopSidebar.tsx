@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { LogOut, PanelLeft } from "lucide-react";
+import { PanelLeft } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
@@ -30,13 +30,6 @@ export default function DashboardDesktopSidebar({
   const isCollapsed = mobile ? false : desktopCollapsed;
   const toggleSidebar = useSidebarStore((state) => state.toggleSidebar);
   const user = useCurrentUser();
-  const initials =
-    user?.name
-      .split(" ")
-      .filter(Boolean)
-      .slice(0, 2)
-      .map((part) => part[0]?.toUpperCase())
-      .join("") || "C";
 
   const [isLogoHovered, setIsLogoHovered] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
@@ -148,7 +141,7 @@ export default function DashboardDesktopSidebar({
         isCollapsed={isCollapsed}
         userName={user?.name ?? "Client"}
         userEmail={user?.email ?? ""}
-        userInitials={initials}
+        avatarUrl={user?.avatarUrl ?? undefined}
         onLogout={handleLogout}
       />
     </motion.aside>

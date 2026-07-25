@@ -7,6 +7,7 @@ export type CurrentUser = {
   email: string;
   role: string;
   name: string;
+  avatarUrl: string | null;
 };
 
 const CurrentUserContext = createContext<CurrentUser | null>(null);
