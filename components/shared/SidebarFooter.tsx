@@ -2,12 +2,13 @@
 
 import { LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Avatar } from "@/components/ui/Avatar";
 
 interface SidebarFooterProps {
   isCollapsed: boolean;
   userName: string;
   userEmail: string;
-  userInitials: string;
+  avatarUrl?: string;
   onLogout?: () => void;
   className?: string;
 }
@@ -16,7 +17,7 @@ export default function SidebarFooter({
   isCollapsed,
   userName,
   userEmail,
-  userInitials,
+  avatarUrl,
   onLogout = () => {},
   className = "",
 }: SidebarFooterProps) {
@@ -27,12 +28,12 @@ export default function SidebarFooter({
     <div className={cn("px-3 py-4", className)}>
       {/*===== User profile card =====*/}
       <div className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
-        <div
-          className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-medium shrink-0"
-          style={{ backgroundColor: "var(--color-gold)" }}
-        >
-          {userInitials}
-        </div>
+        <Avatar
+          src={avatarUrl}
+          name={userName}
+          size="sm"
+          className="h-8 w-8 text-sm"
+        />
 
         <div className="flex-1 min-w-0">
           <p

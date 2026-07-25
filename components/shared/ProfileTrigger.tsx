@@ -1,7 +1,8 @@
 "use client";
 
-import { ChevronDown, User } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
+import { Avatar } from "@/components/ui/Avatar";
 
 interface ClientProfileTriggerProps {
   isProfileOpen: boolean;
@@ -17,22 +18,25 @@ const ProfileTrigger = ({
   role,
 }: ClientProfileTriggerProps) => {
   const user = useCurrentUser();
+  const displayName = user?.name ?? name ?? "Client";
 
   return (
     <button
       onClick={() => setIsProfileOpen((prev) => !prev)}
       className="flex items-center gap-2 rounded-full p-1.5 hover:bg-muted/50 transition-colors cursor-pointer"
     >
-      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-gold)] text-white">
-        <User size={18} />
-      </div>
+      <Avatar
+        src={user?.avatarUrl ?? undefined}
+        name={displayName}
+        size="sm"
+      />
 
       <div className="hidden lg:flex flex-col items-start">
         <span
           className="text-sm font-medium"
           style={{ color: "var(--color-heading)" }}
         >
-          {user?.name ?? "Client"}
+          {displayName}
         </span>
 
         <span className="text-xs" style={{ color: "var(--color-body)" }}>

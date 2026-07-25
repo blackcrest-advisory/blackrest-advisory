@@ -9,7 +9,11 @@ export async function uploadFile(file: File): Promise<UploadResponse> {
   const formData = new FormData();
   formData.append("file", file);
 
-  const response = await axios.post<UploadResponse>("/api/upload", formData);
+  const response = await axios.post<UploadResponse>("/api/upload", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 
   return response.data;
 }

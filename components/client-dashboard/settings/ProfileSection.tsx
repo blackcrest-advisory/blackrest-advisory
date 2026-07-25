@@ -11,6 +11,7 @@ import { SettingsSectionCard } from "@/components/client-dashboard/settings/Sett
 import { ClientProfile } from "@/types/dashboard/client/settingsType";
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
 import axios from "@/api-client/client";
+import { uploadFile } from "@/api-client/upload.api";
 
 interface ProfileSectionProps {
   profile: ClientProfile;
@@ -27,6 +28,7 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
   const [avatarPreview, setAvatarPreview] = useState<string | undefined>(
     profile.avatarUrl,
   );
+  const [avatarFile, setAvatarFile] = useState<File | null>(null);
   const [isSaving, setIsSaving] = useState(false);
 
   //===== Handles a text field change for any profile input =====//
@@ -38,6 +40,7 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
   const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
+    setAvatarFile(file);
     setAvatarPreview(URL.createObjectURL(file));
   };
 
@@ -45,12 +48,25 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
     setIsSaving(true);
 
     try {
+      const uploadedAvatar = avatarFile
+        ? await uploadFile(avatarFile)
+        : undefined;
+
       await axios.patch("/api/client/profile", {
         name: formValues.fullName,
         companyName: formValues.companyName,
         phone: formValues.phone,
         jobTitle: formValues.jobTitle,
+        avatarUrl: uploadedAvatar?.url ?? formValues.avatarUrl,
       });
+      if (uploadedAvatar) {
+        setAvatarFile(null);
+        setAvatarPreview(uploadedAvatar.url);
+        setFormValues((current) => ({
+          ...current,
+          avatarUrl: uploadedAvatar.url,
+        }));
+      }
       toast.success("Profile updated successfully");
       router.refresh();
     } catch {

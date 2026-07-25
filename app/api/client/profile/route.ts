@@ -32,8 +32,6 @@ export async function GET() {
       },
       select: profileSelect,
     });
-    revalidatePath("/client/dashboard/settings");
-    revalidatePath("/client/dashboard");
 
     return NextResponse.json(user, { status: 200 });
   } catch {
@@ -85,6 +83,8 @@ export async function PATCH(request: Request) {
       },
       select: profileSelect,
     });
+    revalidatePath("/client/dashboard/settings");
+    revalidatePath("/client/dashboard");
 
     return NextResponse.json(user, { status: 200 });
   } catch {
