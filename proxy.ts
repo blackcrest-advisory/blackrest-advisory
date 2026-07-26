@@ -1,7 +1,7 @@
 import { jwtVerify } from "jose";
 import { NextResponse, type NextRequest } from "next/server";
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const token =
     request.cookies.get("authjs.session-token")?.value ??
     request.cookies.get("__Secure-authjs.session-token")?.value;
