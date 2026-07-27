@@ -36,26 +36,17 @@ export default function SidebarFooter({
         />
 
         <div className="flex-1 min-w-0">
-          <p
-            className="text-sm font-medium truncate"
-            style={{ color: "var(--color-heading)" }}
-          >
+          <p className="text-sm font-medium truncate text-foreground">
             {userName}
           </p>
-          <p
-            className="text-xs truncate"
-            style={{ color: "var(--color-body)" }}
-          >
-            {userEmail}
-          </p>
+          <p className="text-xs truncate text-muted-foreground">{userEmail}</p>
         </div>
       </div>
 
       {/*===== Logout button =====*/}
       <button
         onClick={onLogout}
-        className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-red-50/10 transition-colors mt-1 text-sm"
-        style={{ color: "var(--color-body)" }}
+        className="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-red-50/10 transition-colors mt-1 text-sm text-muted-foreground"
       >
         <LogOut size={18} />
         <span>Logout</span>

@@ -56,7 +56,7 @@ export default function DashboardDesktopSidebar({
   return (
     <motion.aside
       className={cn(
-        "h-full flex flex-col overflow-hidden shadow-xl",
+        "h-full flex flex-col overflow-hidden",
         "bg-(--color-card-bg) border-r border-(--color-border)",
       )}
       animate={{ width: isCollapsed ? 80 : 270 }}
