@@ -47,8 +47,10 @@ export const Select = ({
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
         className={cn(
-          "flex w-full items-center justify-between gap-2 rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground transition-colors",
-          "hover:border-secondary/40 focus:outline-none focus:ring-2 focus:ring-secondary/40",
+          "flex w-full items-center justify-between gap-2 rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground transition-all duration-200",
+          "hover:border-secondary/40",
+          "focus:border-transparent focus:outline-none focus:ring-1 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-background",
+          "focus-visible:ring-1 focus-visible:ring-secondary focus-visible:ring-offset-1 focus-visible:ring-offset-background",
         )}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
@@ -59,6 +61,7 @@ export const Select = ({
           )}
           {selectedOption?.label}
         </span>
+
         <ChevronDown
           className={cn(
             "h-4 w-4 shrink-0 text-body transition-transform duration-200",
