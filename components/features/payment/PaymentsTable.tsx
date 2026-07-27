@@ -78,7 +78,7 @@ export const PaymentsTable = ({ payments }: PaymentsTableProps) => {
                   })}
                 </TableCell>
                 <TableCell>
-                  {new Date(payment.date).toLocaleDateString()}
+                  {new Date(payment.date).toLocaleDateString('en-GB')}
                 </TableCell>
                 <TableCell>{payment.method}</TableCell>
                 <TableCell>
