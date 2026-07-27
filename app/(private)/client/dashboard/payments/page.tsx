@@ -1,8 +1,63 @@
-import { paymentsMockData } from "@/mock-data/paymentsMockData";
+import { redirect } from "next/navigation";
 import { PaymentsTable } from "@/components/features/payment/PaymentsTable";
+import { getCurrentUser } from "@/lib/auth-utils";
+import { prisma } from "@/lib/db/client";
+import type { Payment } from "@/types/dashboard/client/paymentTypes";
 
-//===== Server component – simply passes mock data to the interactive table =====//
-export default function PaymentsPage() {
+function mapPaymentStatus(status: string): Payment["status"] {
+  switch (status) {
+    case "PAID":
+      return "paid";
+    case "OVERDUE":
+      return "overdue";
+    default:
+      return "pending";
+  }
+}
+
+export default async function PaymentsPage() {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    redirect("/login");
+  }
+
+  const invoiceRecords = await prisma.invoice.findMany({
+    where: {
+      userId: user.id,
+      status: {
+        in: ["PAID", "OVERDUE"],
+      },
+    },
+    include: {
+      user: {
+        select: {
+          name: true,
+        },
+      },
+      project: {
+        select: {
+          title: true,
+        },
+      },
+    },
+    orderBy: {
+      updatedAt: "desc",
+    },
+  });
+  const payments: Payment[] = invoiceRecords.map((invoice) => ({
+    id: invoice.id,
+    invoiceId: invoice.invoiceNumber,
+    clientName: invoice.user.name,
+    projectName: invoice.project.title,
+    amount: invoice.amount,
+    date: invoice.paidAt
+      ? invoice.paidAt.toISOString().split("T")[0]
+      : invoice.createdAt.toISOString().split("T")[0],
+    method: invoice.paymentMethod ?? "Bank Transfer",
+    status: mapPaymentStatus(invoice.status),
+  }));
+
   return (
     <div className="space-y-6">
       <div>
@@ -13,7 +68,7 @@ export default function PaymentsPage() {
           Track all your invoice payments and statuses.
         </p>
       </div>
-      <PaymentsTable payments={paymentsMockData} />
+      <PaymentsTable payments={payments} />
     </div>
   );
 }
