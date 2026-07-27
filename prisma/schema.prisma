@@ -26,8 +26,11 @@ enum LeadStatus {
   NEW
   CONTACTED
   QUALIFIED
-  CONVERTED
+  PROPOSAL_SENT
+  NEGOTIATION
+  WON
   LOST
+  CONVERTED
 }
 
 enum ConsultationType {
@@ -130,18 +133,28 @@ model User {
 }
 
 model Lead {
-  id          String     @id @default(cuid())
-  name        String
-  email       String
-  phone       String?
-  companyName String?
-  pillar      Pillar?
-  problem     String     @db.Text
-  status      LeadStatus @default(NEW)
-  source      String?
-  assignedTo  String?
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
+  id             String     @id @default(cuid())
+  name           String
+  email          String
+  phone          String?
+  companyName    String?
+  industry       String?
+  companySize    String?
+  location       String?
+  website        String?
+  pillar         Pillar?
+  services       String[]
+  problem        String     @db.Text
+  status         LeadStatus @default(NEW)
+  priority       String     @default("medium")
+  budget         String?
+  source         String?
+  assignedTo     String?
+  lastContacted  DateTime?
+  nextFollowUp   DateTime?
+  notes          String?    @db.Text
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
 }
 
 model Consultation {

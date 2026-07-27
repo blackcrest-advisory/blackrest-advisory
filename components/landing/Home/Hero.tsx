@@ -105,7 +105,7 @@ const Hero = () => {
               >
                 Get Started
               </Button>
-              <Button variant="outline" size="md">
+              <Button variant="outline" size="md" href="/about">
                 Learn More
               </Button>
             </motion.div>
