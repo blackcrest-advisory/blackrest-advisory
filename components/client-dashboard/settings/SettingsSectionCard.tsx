@@ -17,15 +17,15 @@ export const SettingsSectionCard = ({
 }: SettingsSectionCardProps) => {
   return (
     <Card padding="none" className="overflow-hidden">
-      <div className="border-b border-card-border px-6 py-5">
-        <h2 className="text-base font-semibold text-heading">{title}</h2>
-        <p className="mt-1 text-sm text-body">{description}</p>
+      <div className="border-b border-border px-6 py-5">
+        <h2 className="text-base font-semibold text-foreground">{title}</h2>
+        <p className="mt-1 text-sm text-muted-foreground">{description}</p>
       </div>
 
       <div className="px-6 py-6">{children}</div>
 
       {footer && (
-        <div className="flex justify-end border-t border-card-border bg-muted/30 px-6 py-4">
+        <div className="flex justify-end border-t border-border bg-muted/30 px-6 py-4">
           {footer}
         </div>
       )}

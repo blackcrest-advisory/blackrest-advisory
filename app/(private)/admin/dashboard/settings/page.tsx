@@ -1,4 +1,9 @@
-import { redirect } from "next/navigation";
+"use client";
+
+import { motion } from "framer-motion";
+import { PageWrapper } from "@/components/ui/PageWrapper";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
 import { AdminSettingsHeader } from "@/components/admin-dashboard/settings/AdminSettingsHeader";
 import {
   AdminNotificationsSection,
@@ -6,6 +11,7 @@ import {
 } from "@/components/admin-dashboard/settings/AdminNotificationsSection";
 import { AdminProfileSection } from "@/components/admin-dashboard/settings/AdminProfileSection";
 import { AdminSecuritySection } from "@/components/admin-dashboard/settings/AdminSecuritySection";
+import { fadeInUp, staggerContainer } from "@/utils/animations";
 
 const defaultPreferences: AdminNotificationPreferences = {
   newLeads: true,
@@ -29,20 +35,47 @@ export default function AdminSettingsPage() {
   const preferences: AdminNotificationPreferences = defaultPreferences;
 
   return (
-    <div className="flex flex-col gap-6">
-      <AdminSettingsHeader />
-      <AdminProfileSection
-        profile={{
-          fullName: currentUser.name,
-          email: currentUser.email,
-          phone: currentUser.phone,
-          jobTitle: currentUser.jobTitle,
-          avatarUrl: currentUser.avatarUrl,
-          role: currentUser.role,
-        }}
-      />
-      <AdminSecuritySection />
-      <AdminNotificationsSection preferences={preferences} />
-    </div>
+    //===== Admin Settings Page =====//
+    <PageWrapper>
+      <Section className="py-2 md:py-2 lg:py-2">
+        <Container>
+          <div className="flex flex-col gap-6">
+            {/*===== Header =====*/}
+            <motion.div variants={fadeInUp} initial="hidden" animate="visible">
+              <AdminSettingsHeader />
+            </motion.div>
+
+            {/*===== Settings Sections =====*/}
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-col gap-6"
+            >
+              <motion.div variants={fadeInUp}>
+                <AdminProfileSection
+                  profile={{
+                    fullName: currentUser.name,
+                    email: currentUser.email,
+                    phone: currentUser.phone,
+                    jobTitle: currentUser.jobTitle,
+                    avatarUrl: currentUser.avatarUrl,
+                    role: currentUser.role,
+                  }}
+                />
+              </motion.div>
+
+              <motion.div variants={fadeInUp}>
+                <AdminSecuritySection />
+              </motion.div>
+
+              <motion.div variants={fadeInUp}>
+                <AdminNotificationsSection preferences={preferences} />
+              </motion.div>
+            </motion.div>
+          </div>
+        </Container>
+      </Section>
+    </PageWrapper>
   );
 }

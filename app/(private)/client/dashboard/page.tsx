@@ -245,7 +245,7 @@ export default async function Page() {
   ];
 
   const activities: Activity[] = activityRecords
-    .sort((first, second) => second.date.getTime() - first.date.getTime())
+    .sort((first, second) => second.date.getTime() - first.date.getTime()) 
     .slice(0, 5)
     .map(({ iconName, text, date }) => ({
       iconName,

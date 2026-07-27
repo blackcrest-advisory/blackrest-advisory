@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import {
   Users,
   Briefcase,
@@ -10,7 +11,9 @@ import {
   LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { AdminStats } from "@/types/dashboard/admin/overviewType";
+import { Card } from "@/components/ui/Card";
+import { staggerContainer, fadeInUp, hoverScale } from "@/utils/animations";
+import type { AdminStats } from "@/types/dashboard/admin/overviewType";
 
 interface AdminStatsSectionProps {
   stats: AdminStats;
@@ -24,6 +27,7 @@ interface StatCardConfig {
 }
 
 export const AdminStatsSection = ({ stats }: AdminStatsSectionProps) => {
+  //===== Build stat cards from props =====//
   const cards: StatCardConfig[] = [
     {
       label: "Total Clients",
@@ -62,34 +66,41 @@ export const AdminStatsSection = ({ stats }: AdminStatsSectionProps) => {
   ];
 
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+    //===== Stats Grid with staggered entrance =====//
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      animate="visible"
+      className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6"
+    >
       {cards.map((card) => (
-        <div
-          key={card.label}
-          className="rounded-xl border border-[var(--color-card-border)] bg-[var(--color-card-bg)] p-4"
-        >
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-medium uppercase tracking-wide text-[var(--color-body)]">
-              {card.label}
-            </span>
-            <card.icon className="h-4 w-4 text-[var(--color-secondary)]" />
-          </div>
-          <p className="mt-3 text-2xl font-bold text-[var(--color-heading)]">
-            {card.value}
-          </p>
-          {card.change !== undefined && (
-            <p
-              className={cn(
-                "mt-1 text-xs font-medium",
-                card.change >= 0 ? "text-green-600" : "text-red-500",
-              )}
-            >
-              {card.change >= 0 ? "+" : ""}
-              {card.change}% vs last month
+        <motion.div key={card.label} variants={fadeInUp} {...hoverScale}>
+          <Card hoverEffect>
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                {card.label}
+              </span>
+              <card.icon className="h-4 w-4 text-secondary" />
+            </div>
+            <p className="mt-3 text-2xl font-bold text-foreground">
+              {card.value}
             </p>
-          )}
-        </div>
+            {card.change !== undefined && (
+              <p
+                className={cn(
+                  "mt-1 text-xs font-medium",
+                  card.change >= 0
+                    ? "text-green-600 dark:text-green-400"
+                    : "text-red-500 dark:text-red-400",
+                )}
+              >
+                {card.change >= 0 ? "+" : ""}
+                {card.change}% vs last month
+              </p>
+            )}
+          </Card>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };

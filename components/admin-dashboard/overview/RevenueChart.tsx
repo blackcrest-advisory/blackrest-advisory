@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -11,6 +11,9 @@ import {
   Tooltip,
   Filler,
 } from "chart.js";
+import { Card } from "@/components/ui/Card";
+import { motion } from "framer-motion";
+import { fadeInUp, hoverScale } from "@/utils/animations";
 
 ChartJS.register(
   CategoryScale,
@@ -24,16 +27,21 @@ ChartJS.register(
 const months = ["Feb", "Mar", "Apr", "May", "Jun", "Jul"];
 const revenueSeries = [58200, 61500, 67200, 72900, 79000, 84500];
 
-export const RevenueChart = () => {
-  //===== Read the brand secondary color token so canvas rendering matches the active theme =====//
-  const [accentColor, setAccentColor] = useState("#c9a84c");
+//===== Get CSS variable value during render =====//
+const getAccentColor = (): string => {
+  if (typeof window === "undefined") return "#c9a84c";
+  const computed = getComputedStyle(document.documentElement)
+    .getPropertyValue("--color-secondary")
+    .trim();
+  return computed || "#c9a84c";
+};
 
-  useEffect(() => {
-    const computed = getComputedStyle(document.documentElement)
-      .getPropertyValue("--color-secondary")
-      .trim();
-    if (computed) setAccentColor(computed);
-  }, []);
+export const RevenueChart = () => {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
+
+  //===== Read color during render – no effect needed =====//
+  const accentColor = getAccentColor();
 
   const data = {
     labels: months,
@@ -54,20 +62,35 @@ export const RevenueChart = () => {
     responsive: true,
     plugins: { legend: { display: false } },
     scales: {
-      x: { grid: { display: false } },
-      y: { grid: { color: "rgba(148,163,184,0.15)" } },
+      x: {
+        grid: { display: false },
+        ticks: { color: isDark ? "#94a3b8" : "#64748b" },
+      },
+      y: {
+        grid: {
+          color: isDark ? "rgba(148,163,184,0.15)" : "rgba(100,116,139,0.15)",
+        },
+        ticks: { color: isDark ? "#94a3b8" : "#64748b" },
+      },
     },
   };
 
   return (
-    <div className="rounded-xl border border-[var(--color-card-border)] bg-[var(--color-card-bg)] p-5">
-      <div className="mb-4 flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-[var(--color-heading)]">
-          Revenue Overview
-        </h3>
-        <span className="text-xs text-[var(--color-body)]">Last 6 months</span>
-      </div>
-      <Line data={data} options={options} />
-    </div>
+    <motion.div
+      variants={fadeInUp}
+      initial="hidden"
+      animate="visible"
+      {...hoverScale}
+    >
+      <Card padding="base" hoverEffect className="rounded-xl">
+        <div className="mb-4 flex items-center justify-between">
+          <h3 className="text-lg font-semibold text-foreground">
+            Revenue Overview
+          </h3>
+          <span className="text-xs text-muted-foreground">Last 6 months</span>
+        </div>
+        <Line data={data} options={options} />
+      </Card>
+    </motion.div>
   );
 };

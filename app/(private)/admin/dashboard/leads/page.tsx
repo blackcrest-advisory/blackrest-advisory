@@ -1,18 +1,21 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import axios from "@/api-client/client";
-import {
-  Lead,
-  LeadService,
-} from "@/types/dashboard/admin/leadTypes";
+import { PageWrapper } from "@/components/ui/PageWrapper";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { Button } from "@/components/ui/Button";
 import { LeadStats } from "@/components/admin-dashboard/leads/LeadStats";
 import { LeadFilters } from "@/components/admin-dashboard/leads/LeadFilters";
 import { LeadTable } from "@/components/admin-dashboard/leads/LeadTable";
 import { LeadDetailModal } from "@/components/admin-dashboard/leads/LeadDetailModal";
-import { Button } from "@/components/ui/Button";
+import { fadeInUp, staggerContainer } from "@/utils/animations";
+import type { Lead, LeadService } from "@/types/dashboard/admin/leadTypes";
 import toast from "react-hot-toast";
 
+//===== Filter state type =====//
 interface LeadFiltersState {
   status: string;
   service: string;
@@ -34,6 +37,7 @@ export default function LeadsPage() {
   const [modalMode, setModalMode] = useState<"view" | "edit">("view");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  //===== Fetch leads =====//
   useEffect(() => {
     const fetchLeads = async () => {
       try {
@@ -49,6 +53,7 @@ export default function LeadsPage() {
     void fetchLeads();
   }, []);
 
+  //===== Apply filters and search =====//
   const filteredLeads = useMemo(() => {
     return leads.filter((lead) => {
       if (searchTerm) {
@@ -73,6 +78,7 @@ export default function LeadsPage() {
     });
   }, [leads, searchTerm, filters]);
 
+  //===== Handlers =====//
   const handleFilterChange = (newFilters: LeadFiltersState) => {
     setFilters(newFilters);
   };
@@ -94,9 +100,7 @@ export default function LeadsPage() {
 
   const handleSaveLead = async (updatedLead: Lead) => {
     setLeads((previous) =>
-      previous.map((lead) =>
-        lead.id === updatedLead.id ? updatedLead : lead,
-      ),
+      previous.map((lead) => (lead.id === updatedLead.id ? updatedLead : lead)),
     );
 
     try {
@@ -137,47 +141,77 @@ export default function LeadsPage() {
     }
   };
 
+  //===== Loading state =====//
   if (loading) {
     return (
-      <div className="py-12 text-center text-[var(--color-body)]">
-        Loading leads...
-      </div>
+      <PageWrapper>
+        <Section className="py-2 md:py-2 lg:py-2">
+          <Container>
+            <div className="py-12 text-center text-muted-foreground">
+              Loading leads...
+            </div>
+          </Container>
+        </Section>
+      </PageWrapper>
     );
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-        <h1 className="text-2xl font-bold text-heading">Leads</h1>
-        <Button variant="primary" size="sm">
-          + Add Lead
-        </Button>
-      </div>
+    //===== Leads Page =====//
+    <PageWrapper>
+      <Section className="py-2 md:py-2 lg:py-2">
+        <Container>
+          <div className="space-y-6">
+            {/*===== Header =====*/}
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-col sm:flex-row sm:items-center sm:justify-between"
+            >
+              <h1 className="text-2xl font-bold text-foreground">Leads</h1>
+              <Button variant="primary" size="sm">
+                + Add Lead
+              </Button>
+            </motion.div>
 
-      <LeadStats leads={leads} />
+            {/*===== Stats =====*/}
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+            >
+              <LeadStats leads={leads} />
+            </motion.div>
 
-      <LeadFilters
-        onFilterChange={handleFilterChange}
-        onSearch={handleSearch}
-      />
+            {/*===== Filters =====*/}
+            <LeadFilters
+              onFilterChange={handleFilterChange}
+              onSearch={handleSearch}
+            />
 
-      <LeadTable
-        leads={filteredLeads}
-        onView={(lead) => openModal(lead, "view")}
-        onEdit={(lead) => openModal(lead, "edit")}
-        onConvert={handleConvert}
-        onDelete={handleDelete}
-      />
+            {/*===== Table =====*/}
+            <LeadTable
+              leads={filteredLeads}
+              onView={(lead) => openModal(lead, "view")}
+              onEdit={(lead) => openModal(lead, "edit")}
+              onConvert={handleConvert}
+              onDelete={handleDelete}
+            />
 
-      {selectedLead && (
-        <LeadDetailModal
-          lead={selectedLead}
-          isOpen={isModalOpen}
-          onClose={closeModal}
-          onSave={handleSaveLead}
-          mode={modalMode}
-        />
-      )}
-    </div>
+            {/*===== Modal =====*/}
+            {selectedLead && (
+              <LeadDetailModal
+                lead={selectedLead}
+                isOpen={isModalOpen}
+                onClose={closeModal}
+                onSave={handleSaveLead}
+                mode={modalMode}
+              />
+            )}
+          </div>
+        </Container>
+      </Section>
+    </PageWrapper>
   );
 }
