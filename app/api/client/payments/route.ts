@@ -1,19 +1,13 @@
 import { NextResponse } from "next/server";
-import { getCurrentUser } from "@/lib/auth-utils";
 import { prisma } from "@/lib/db/client";
+import { getCurrentUser } from "@/lib/auth-utils";
 
-function mapInvoiceStatus(status: string): string {
+function mapPaymentStatus(status: string): string {
   switch (status) {
-    case "DRAFT":
-      return "draft";
-    case "SENT":
-      return "pending";
     case "PAID":
       return "paid";
     case "OVERDUE":
       return "overdue";
-    case "CANCELLED":
-      return "cancelled";
     default:
       return "pending";
   }
@@ -24,12 +18,18 @@ export async function GET() {
     const user = await getCurrentUser();
 
     if (!user) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      return NextResponse.json(
+        { success: false, error: "Unauthorized" },
+        { status: 401 },
+      );
     }
 
     const invoices = await prisma.invoice.findMany({
       where: {
         userId: user.id,
+        status: {
+          in: ["PAID", "OVERDUE"],
+        },
       },
       include: {
         user: {
@@ -44,24 +44,24 @@ export async function GET() {
         },
       },
       orderBy: {
-        createdAt: "desc",
+        updatedAt: "desc",
       },
     });
-    const mappedInvoices = invoices.map((invoice) => ({
+    const mappedPayments = invoices.map((invoice) => ({
       id: invoice.id,
-      invoiceNumber: invoice.invoiceNumber,
+      invoiceId: invoice.invoiceNumber,
       clientName: invoice.user.name,
       projectName: invoice.project.title,
       amount: invoice.amount,
-      issueDate: invoice.createdAt.toISOString().split("T")[0],
-      dueDate: invoice.dueDate
-        ? invoice.dueDate.toISOString().split("T")[0]
-        : "",
-      status: mapInvoiceStatus(invoice.status),
+      date: invoice.paidAt
+        ? invoice.paidAt.toISOString().split("T")[0]
+        : invoice.createdAt.toISOString().split("T")[0],
+      method: invoice.paymentMethod ?? "Bank Transfer",
+      status: mapPaymentStatus(invoice.status),
     }));
 
     return NextResponse.json(
-      { success: true, data: mappedInvoices },
+      { success: true, data: mappedPayments },
       { status: 200 },
     );
   } catch {

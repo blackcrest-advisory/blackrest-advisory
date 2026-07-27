@@ -78,10 +78,10 @@ export const InvoicesTable = ({ invoices }: InvoicesTableProps) => {
                   })}
                 </TableCell>
                 <TableCell>
-                  {new Date(invoice.issueDate).toLocaleDateString()}
+                  {new Date(invoice.issueDate).toLocaleDateString('en-GB')}
                 </TableCell>
                 <TableCell>
-                  {new Date(invoice.dueDate).toLocaleDateString()}
+                  {new Date(invoice.dueDate).toLocaleDateString('en-GB')}
                 </TableCell>
                 <TableCell>
                   <InvoiceStatusBadge status={invoice.status} />
