@@ -40,7 +40,7 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/home" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-primary">
+            <span className="text-2xl font-bold text-primary dark:text-secondary">
               Blackcrest
               <span className="text-secondary">.</span>
             </span>
