@@ -26,25 +26,24 @@ export const Button = ({
   disabled = false,
 }: ButtonProps) => {
   const baseStyles =
-    "group relative inline-flex items-center justify-center overflow-hidden cursor-pointer rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background";
+    "group relative inline-flex items-center justify-center overflow-hidden cursor-pointer rounded-sm  transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background";
 
   const variantStyles = {
     primary:
-      "bg-secondary text-cta-text hover:bg-accent-hover shadow-md hover:shadow-lg",
-    secondary: "bg-primary text-background hover:bg-primary/90",
+      "bg-secondary text-white shadow-md hover:bg-secondary/90 hover:shadow-lg",
+    secondary: "bg-primary text-primary-foreground hover:bg-primary/90",
     outline:
-      "border-2 border-secondary text-secondary hover:bg-secondary hover:text-cta-text",
+      "border-2 border-secondary text-secondary hover:bg-secondary hover:text-primary-foreground",
     ghost: "text-foreground hover:bg-muted",
   };
 
   const sizeStyles = {
     sm: "px-3 py-1.5 text-sm",
-    base: "px-2 py-2 text-base",
+    base: "px-4 py-2 text-base",
     md: "px-5 py-2.5 text-base",
     lg: "px-8 py-4 text-lg",
   };
 
-  // Add disabled styles
   const disabledStyles = disabled
     ? "opacity-50 cursor-not-allowed pointer-events-none"
     : "";
@@ -53,6 +52,7 @@ export const Button = ({
 
   const content = (
     <>
+      {/* Shine effect for primary variant only */}
       {variant === "primary" && (
         <motion.span
           aria-hidden="true"

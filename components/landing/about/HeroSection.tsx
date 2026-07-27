@@ -2,42 +2,47 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { fadeInUp } from "@/utils/animations";
 
 export const HeroSection = () => {
   return (
-    <section className="relative pt-24 pb-24 md:pt-32 md:pb-32 overflow-hidden">
-      <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(circle_at_20%_50%,var(--color-gold)_0%,transparent_60%),radial-gradient(circle_at_80%_20%,var(--color-gold)_0%,transparent_50%)]" />
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+    <Section>
+      {/* Background gradient */}
+
+      <Container className="relative z-10 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="max-w-4xl mx-auto"
         >
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase bg-secondary/10 text-secondary px-4 py-1.5 rounded-full border border-secondary/20 mb-6">
+          <span className="inline-block text-xs font-semibold tracking-widest uppercase bg-secondary/10 text-secondary px-4 py-1.5 rounded-full border border-secondary/20 mb-5">
             About Us
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight text-primary dark:text-white">
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight text-foreground">
             Building the Future of
             <span className="block mt-1 bg-gradient-to-r from-secondary to-[#e8d48b] bg-clip-text text-transparent">
               European B2B Digital Growth
             </span>
           </h1>
-          <p className="mt-6 text-lg md:text-xl text-body dark:text-body max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             We are a full‑service international digital solutions company —
             combining strategy, technology, marketing, and sales support to help
             European businesses thrive.
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Button variant="secondary" size="lg" href="#our-story">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <Button variant="primary" size="md" href="#our-story">
               Our Story
             </Button>
-            <Button variant="outline" size="lg" href="#values">
+            <Button variant="outline" size="md" href="#values">
               Our Values
             </Button>
           </div>
         </motion.div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };

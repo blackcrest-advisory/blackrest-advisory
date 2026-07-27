@@ -1,14 +1,6 @@
-// src/components/engagement/EngagementProcess.tsx
 "use client";
 
 import { motion } from "framer-motion";
-import { SectionHeader } from "../../shared/SectionHeader";
-import {
-  staggerContainer,
-  fadeInUp,
-  slideInLeft,
-  slideInRight,
-} from "@/utils/animations";
 import {
   Search,
   Target,
@@ -17,7 +9,16 @@ import {
   BarChart3,
   TrendingUp,
 } from "lucide-react";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { Card } from "@/components/ui/Card";
+import {
+  staggerContainer,
+  slideInLeft,
+  slideInRight,
+} from "@/utils/animations";
 
+//===== Process steps data =====//
 const processSteps = [
   {
     icon: Search,
@@ -59,20 +60,30 @@ const processSteps = [
 
 export const EngagementProcess = () => {
   return (
-    <section className="py-12 sm:py-16 md:py-20 lg:py-32 bg-muted/30 dark:bg-muted/10">
-      <div className="container px-4 sm:px-6">
-        <SectionHeader
-          tag="How We Work"
-          title="Our Engagement Process"
-          description="A structured, transparent approach designed to minimise risk and maximise results — keeping you informed at every stage."
-        />
+    //===== Engagement process section with step-by-step cards =====//
+    <Section className="bg-muted/30">
+      <Container>
+        {/*===== Section header =====*/}
+        <div className="mb-12 text-center md:mb-16">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-secondary">
+            How We Work
+          </span>
+          <h2 className="mt-2 text-3xl font-bold text-foreground sm:text-3xl md:text-4xl">
+            Our Engagement Process
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+            A structured, transparent approach designed to minimise risk and
+            maximise results — keeping you informed at every stage.
+          </p>
+        </div>
 
+        {/*===== Process steps grid =====*/}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8"
+          className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-6 lg:gap-8"
         >
           {processSteps.map((step, index) => {
             const Icon = step.icon;
@@ -81,24 +92,25 @@ export const EngagementProcess = () => {
               <motion.div
                 key={step.title}
                 variants={isEven ? slideInLeft : slideInRight}
-                className="bg-background dark:bg-background/50 rounded-xl p-5 sm:p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow border border-border/40"
               >
-                <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-lg bg-secondary/10 text-secondary">
-                    <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
+                <Card padding="base" hoverEffect className="h-full">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-lg bg-secondary/10 text-secondary">
+                      <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
+                    </div>
+                    <h3 className="font-display text-base sm:text-lg font-semibold text-foreground">
+                      {step.title}
+                    </h3>
                   </div>
-                  <h3 className="font-display text-base sm:text-lg font-semibold text-foreground">
-                    {step.title}
-                  </h3>
-                </div>
-                <p className="text-xs sm:text-sm text-body/70 leading-relaxed">
-                  {step.description}
-                </p>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
+                </Card>
               </motion.div>
             );
           })}
         </motion.div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };

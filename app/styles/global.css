@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0b1a30;
+  --color-gold: #c9a84c;
+
+  --color-background: #ffffff;
+  --color-foreground: #1a1a2e;
+
+  --color-primary: var(--color-navy);
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: var(--color-gold);
+  --color-secondary-foreground: var(--color-navy);
+
+  --color-card: #ffffff;
+  --color-card-foreground: #1a1a2e;
+
+  --color-muted: #f4f6f9;
+  --color-muted-foreground: #5b6475;
+
+  --color-accent: var(--color-gold);
+  --color-accent-foreground: var(--color-navy);
+
+  --color-border: #e2e8f0;
+  --color-ring: var(--color-gold);
+
+  --color-destructive: #dc2626;
+  --color-destructive-foreground: #ffffff;
+}
+
+.dark {
+  --color-background: #0b1a30;
+  --color-foreground: #e8edf5;
+
+  --color-primary: var(--color-navy);
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: var(--color-gold);
+  --color-secondary-foreground: var(--color-navy);
+
+  --color-card: #12273f;
+  --color-card-foreground: #e8edf5;
+
+  --color-muted: #1a2c45;
+  --color-muted-foreground: #c5d0e0;
+
+  --color-accent: var(--color-gold);
+  --color-accent-foreground: var(--color-navy);
+
+  --color-border: #2a3f5a;
+  --color-ring: #d4b86a;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+* {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}

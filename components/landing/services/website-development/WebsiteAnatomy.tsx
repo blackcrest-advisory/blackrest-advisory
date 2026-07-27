@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Container } from "@/components/landing/services/website-development/shared/Container";
-import { SectionHeading } from "@/components/landing/services/website-development/shared/SectionHeading";
 import {
   FiMonitor,
   FiServer,
@@ -13,6 +11,10 @@ import {
   FiTrendingUp,
   FiCpu,
 } from "react-icons/fi";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { Card } from "@/components/ui/Card";
+import { fadeInUp, staggerContainer, hoverScale } from "@/utils/animations";
 
 const nodes = [
   {
@@ -73,109 +75,105 @@ const nodes = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const WebsiteAnatomy = () => {
+export default function WebsiteAnatomy() {
   return (
-    <section className="relative py-16 md:py-24 bg-[var(--color-card-bg)] overflow-hidden">
-      {/* Subtle background pattern – adds depth without distracting */}
+    <Section className="relative overflow-hidden bg-muted/30">
+      {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cGF0aCBkPSJNMzAgMzBhMTUgMTUgMCAwIDEgMCAzMCAxNSAxNSAwIDAgMSAwLTMweiIgZmlsbD0iY3VycmVudENvbG9yIiBmaWxsLW9wYWNpdHk9IjAuMSIvPjwvc3ZnPg==')] bg-repeat" />
 
       <Container>
-        {/* Gold‑accented heading */}
+        {/*===== Section header =====*/}
         <div className="text-center">
           <motion.span
-            className="inline-block rounded-full bg-[var(--color-secondary)]/10 px-4 py-1.5 text-sm font-medium text-[var(--color-secondary)]"
+            className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary"
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             ✦ Architecture
           </motion.span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-[var(--color-heading)] sm:text-4xl md:text-5xl">
-            Your Website,{" "}
-            <span className="text-[var(--color-secondary)]">Deconstructed</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-[var(--color-body)]">
+          <motion.h2
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl"
+          >
+            Your Website, <span className="text-secondary">Deconstructed</span>
+          </motion.h2>
+          <motion.p
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground"
+          >
             Every modern website is built on interconnected layers. We master
             them all – from the frontend you see to the backend that powers it.
-          </p>
+          </motion.p>
         </div>
 
-        {/* Cards grid */}
+        {/*===== Cards grid =====*/}
         <motion.div
-          className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4"
-          variants={containerVariants}
+          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
+          className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4"
         >
           {nodes.map((node) => (
-            <motion.div
-              key={node.label}
-              variants={itemVariants}
-              className={`group relative rounded-2xl border border-[var(--color-border)] bg-[var(--color-background)] p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-[var(--color-secondary)]/40 ${node.bg}`}
-              whileHover={{ y: -6 }}
-            >
-              {/* Glow effect on hover */}
-              <div className="absolute inset-0 rounded-2xl bg-[var(--color-secondary)]/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <motion.div key={node.label} variants={fadeInUp} {...hoverScale}>
+              <Card
+                padding="base"
+                hoverEffect
+                className={`group relative border-border/50 ${node.bg}`}
+              >
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 rounded-2xl bg-secondary/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-              <div className="relative flex flex-col items-center text-center">
-                <div
-                  className={`rounded-xl p-3 transition-colors duration-300 ${
-                    node.bg
-                  } group-hover:bg-[var(--color-secondary)]/10`}
-                >
-                  <node.icon
-                    className={`h-8 w-8 ${node.color} transition-transform duration-300 group-hover:scale-110`}
-                  />
+                <div className="relative flex flex-col items-center text-center">
+                  <div
+                    className={`rounded-xl p-3 transition-colors duration-300 ${
+                      node.bg
+                    } group-hover:bg-secondary/10`}
+                  >
+                    <node.icon
+                      className={`h-8 w-8 ${node.color} transition-transform duration-300 group-hover:scale-110`}
+                    />
+                  </div>
+                  <h3 className="mt-3 text-sm font-semibold text-foreground">
+                    {node.label}
+                  </h3>
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                    {node.description}
+                  </p>
                 </div>
-                <h3 className="mt-3 text-sm font-semibold text-[var(--color-heading)]">
-                  {node.label}
-                </h3>
-                <p className="mt-1 text-xs text-[var(--color-body)] leading-relaxed">
-                  {node.description}
-                </p>
-              </div>
+              </Card>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Bottom golden badge */}
+        {/*===== Bottom golden badge =====*/}
         <motion.div
-          className="mt-16 flex justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
+          className="mt-16 flex justify-center"
         >
-          <div className="flex items-center gap-3 rounded-full border border-[var(--color-secondary)]/20 bg-[var(--color-background)] px-6 py-3 text-sm shadow-sm">
-            <span className="font-medium text-[var(--color-secondary)]">
+          <div className="flex items-center gap-3 rounded-full border border-secondary/20 bg-card px-6 py-3 text-sm shadow-sm">
+            <span className="font-medium text-secondary">
               ✦ All layers work together
             </span>
-            <span className="text-[var(--color-body)]">→</span>
-            <span className="font-medium text-[var(--color-heading)]">
+            <span className="text-muted-foreground">→</span>
+            <span className="font-medium text-foreground">
               seamless performance
             </span>
           </div>
         </motion.div>
       </Container>
-    </section>
+    </Section>
   );
-};
-
-export default WebsiteAnatomy;
+}

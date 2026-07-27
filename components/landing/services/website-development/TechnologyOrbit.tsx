@@ -7,8 +7,6 @@ import {
   useTransform,
   type MotionValue,
 } from "framer-motion";
-import { Container } from "@/components/landing/services/website-development/shared/Container";
-import { SectionHeading } from "@/components/landing/services/website-development/shared/SectionHeading";
 import {
   SiNextdotjs,
   SiReact,
@@ -20,11 +18,11 @@ import {
   SiFramer,
 } from "react-icons/si";
 import type { IconType } from "react-icons";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { fadeInUp } from "@/utils/animations";
 
-// ----------------------------------------------
-// Data
-// ----------------------------------------------
-
+//===== Tech stack data =====//
 interface TechItem {
   icon: IconType;
   label: string;
@@ -41,43 +39,36 @@ const techIcons: TechItem[] = [
   { icon: SiPostgresql, label: "PostgreSQL" },
 ];
 
-// ----------------------------------------------
-// Orbiting Icon Component (valid Hook usage)
-// ----------------------------------------------
-
+//===== Orbiting Icon Component =====//
 interface OrbitingIconProps {
   tech: TechItem;
-  angle: number; // fixed angle offset in radians
-  radius: number; // orbit radius in px
-  rotation: MotionValue<number>; // MotionValue in radians (0–2π)
+  angle: number;
+  radius: number;
+  rotation: MotionValue<number>;
 }
 
 const OrbitingIcon = ({ tech, angle, radius, rotation }: OrbitingIconProps) => {
-  // Hooks are at the top level of a component
   const x = useTransform(rotation, (r) => Math.cos(r + angle) * radius);
   const y = useTransform(rotation, (r) => Math.sin(r + angle) * radius);
 
   return (
     <motion.div
       className="absolute flex flex-col items-center"
-      style={{ x, y }} // MotionValues injected directly
+      style={{ x, y }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: angle * 0.5 }} // slightly different delay
+      transition={{ delay: angle * 0.5 }}
     >
-      <tech.icon className="h-8 w-8 text-[var(--color-secondary)]" />
-      <span className="mt-1 text-xs font-medium text-[var(--color-body)]">
+      <tech.icon className="h-8 w-8 text-secondary" />
+      <span className="mt-1 text-xs font-medium text-muted-foreground">
         {tech.label}
       </span>
     </motion.div>
   );
 };
 
-// ----------------------------------------------
-// Main Section
-// ----------------------------------------------
-
-const TechnologyOrbit = () => {
+//===== Main Section =====//
+export default function TechnologyOrbit() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -85,45 +76,71 @@ const TechnologyOrbit = () => {
     offset: ["start end", "end start"],
   });
 
-  // Convert scroll progress to radians (0 – 2π)
   const rotation = useTransform(scrollYProgress, [0, 1], [0, 2 * Math.PI]);
 
   return (
-    <section
-      ref={containerRef}
-      className="overflow-hidden bg-[var(--color-background)] py-16 md:py-24"
-    >
-      <Container>
-        <SectionHeading
-          title="Our Technology Orbit"
-          subtitle="We leverage a modern, best‑in‑class tech stack to build fast, secure, and scalable websites."
-        />
-
-        <div className="relative mt-16 flex h-80 items-center justify-center md:h-96">
-          {/* Central brand mark */}
-          <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-full bg-[var(--color-primary)] shadow-lg">
-            <span className="text-2xl font-bold text-white dark:text-accent">
-              B
-            </span>
+    //===== Technology Orbit Section =====//
+    <Section className="overflow-hidden bg-background">
+      {/* Wrapper div with ref – this is what useScroll observes */}
+      <div ref={containerRef}>
+        <Container>
+          {/*===== Section header =====*/}
+          <div className="text-center">
+            <motion.span
+              className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary"
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              ✦ Our Stack
+            </motion.span>
+            <motion.h2
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl"
+            >
+              Our Technology Orbit
+            </motion.h2>
+            <motion.p
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground"
+            >
+              We leverage a modern, best‑in‑class tech stack to build fast,
+              secure, and scalable websites.
+            </motion.p>
           </div>
 
-          {/* Orbiting icons – each is now a proper component */}
-          {techIcons.map((tech, index) => {
-            const angle = (index / techIcons.length) * 2 * Math.PI;
-            return (
-              <OrbitingIcon
-                key={tech.label}
-                tech={tech}
-                angle={angle}
-                radius={140} // adjust as needed
-                rotation={rotation}
-              />
-            );
-          })}
-        </div>
-      </Container>
-    </section>
-  );
-};
+          {/*===== Orbit =====*/}
+          <div className="relative mt-16 flex h-80 items-center justify-center md:h-96">
+            {/* Central brand mark */}
+            <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-full bg-primary shadow-lg">
+              <span className="text-2xl font-bold text-primary-foreground">
+                B
+              </span>
+            </div>
 
-export default TechnologyOrbit;
+            {/* Orbiting icons */}
+            {techIcons.map((tech, index) => {
+              const angle = (index / techIcons.length) * 2 * Math.PI;
+              return (
+                <OrbitingIcon
+                  key={tech.label}
+                  tech={tech}
+                  angle={angle}
+                  radius={140}
+                  rotation={rotation}
+                />
+              );
+            })}
+          </div>
+        </Container>
+      </div>
+    </Section>
+  );
+}

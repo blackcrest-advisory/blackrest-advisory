@@ -4,9 +4,14 @@ import { useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowRight, ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/Button";
 import Image from "next/image";
+import { Button } from "@/components/ui/Button";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { Card } from "@/components/ui/Card";
 import { projects } from "@/content-data/digital-marketing/clientDeliveryProjectsData";
+import { fadeInUp } from "@/utils/animations";
+import { motion } from "framer-motion";
 
 export default function FeaturedWork() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
@@ -32,44 +37,57 @@ export default function FeaturedWork() {
   const scrollNext = () => emblaApi?.scrollNext();
 
   return (
-    <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-card-bg/40 border-y border-border/50">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <span className="text-secondary font-medium tracking-wider uppercase text-sm">
+    //===== Featured Work Carousel Section =====//
+    <Section className="border-border/50 bg-card">
+      <Container>
+        {/*===== Section header =====*/}
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mb-12 text-center"
+        >
+          <span className="text-sm font-medium uppercase tracking-wider text-secondary">
             Featured Work
           </span>
-          <h2 className="text-heading text-3xl md:text-4xl font-bold mt-2">
+          <h2 className="mt-2 text-3xl font-bold text-foreground md:text-4xl">
             Browse Through Our Case Study Portfolio
           </h2>
-          <p className="text-body max-w-2xl mx-auto mt-4">
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
             See how we positively impacted growth and bottom-line revenue for
             our clients.
           </p>
-        </div>
+        </motion.div>
 
+        {/*===== Carousel =====*/}
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {projects.map((project, index) => (
                 <div key={index} className="flex-[0_0_100%] min-w-0 px-4">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center p-6 lg:p-10 rounded-2xl border border-border/40">
-                    {/* Image */}
-                    <div className="aspect-[4/3] bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-xl flex items-center justify-center text-body/30">
+                  <Card
+                    padding="lg"
+                    hoverEffect
+                    className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12"
+                  >
+                    {/*===== Project image =====*/}
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-gradient-to-br from-secondary/10 to-secondary/5">
                       <Image
-                        height={300}
-                        width={300}
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </div>
 
-                    {/* Content */}
+                    {/*===== Project content =====*/}
                     <div className="space-y-6">
-                      <h3 className="text-heading text-2xl md:text-3xl font-bold">
+                      <h3 className="text-2xl font-bold text-foreground md:text-3xl">
                         {project.title}
                       </h3>
-                      <p className="text-body leading-relaxed">
+                      <p className="leading-relaxed text-muted-foreground">
                         {project.description}
                       </p>
 
@@ -82,43 +100,45 @@ export default function FeaturedWork() {
                         </Button>
                       </div>
 
-                      {/* Metrics */}
-                      <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border/30">
+                      {/*===== Metrics =====*/}
+                      <div className="grid grid-cols-3 gap-4 border-t border-border/30 pt-4">
                         {project.metrics.map((metric, i) => (
                           <div key={i}>
-                            <div className="text-secondary text-2xl font-bold">
+                            <div className="text-2xl font-bold text-secondary">
                               {metric.value}
                             </div>
-                            <div className="text-body text-xs leading-tight">
+                            <div className="text-xs leading-tight text-muted-foreground">
                               {metric.label}
                             </div>
                           </div>
                         ))}
                       </div>
                     </div>
-                  </div>
+                  </Card>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Navigation */}
+          {/*===== Navigation buttons =====*/}
           <button
             onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-6 p-3 rounded-full bg-background border border-border/60 shadow-lg hover:bg-secondary/5 transition-colors"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 rounded-full border border-border/60 bg-background p-3 shadow-lg transition-colors hover:bg-muted lg:-translate-x-6"
+            aria-label="Previous slide"
           >
-            <ArrowLeft className="h-5 w-5 text-heading" />
+            <ArrowLeft className="h-5 w-5 text-foreground" />
           </button>
           <button
             onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-6 p-3 rounded-full bg-background border border-border/60 shadow-lg hover:bg-secondary/5 transition-colors"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 rounded-full border border-border/60 bg-background p-3 shadow-lg transition-colors hover:bg-muted lg:translate-x-6"
+            aria-label="Next slide"
           >
-            <ArrowRight className="h-5 w-5 text-heading" />
+            <ArrowRight className="h-5 w-5 text-foreground" />
           </button>
         </div>
 
-        {/* Dots */}
-        <div className="flex justify-center gap-2 mt-8">
+        {/*===== Dots =====*/}
+        <div className="mt-8 flex justify-center gap-2">
           {projects.map((_, index) => (
             <button
               key={index}
@@ -128,10 +148,11 @@ export default function FeaturedWork() {
                   ? "w-8 bg-secondary"
                   : "w-2 bg-border/60 hover:bg-border"
               }`}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

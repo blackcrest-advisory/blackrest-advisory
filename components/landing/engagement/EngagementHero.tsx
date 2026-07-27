@@ -1,15 +1,17 @@
-// src/components/engagement/EngagementHero.tsx
 "use client";
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { float } from "@/utils/animations";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { fadeIn, slideInLeft, slideInRight, float } from "@/utils/animations";
 
 export const EngagementHero = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 dark:from-background dark:via-background dark:to-primary/10">
-      {/* Ambient background elements */}
+    //===== Hero Section with gradient background and ambient decorations =====//
+    <Section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 py-12 md:py-16 lg:py-20">
+      {/*===== Ambient background decorations =====*/}
       <div className="absolute inset-0 -z-10">
         {/* Glowing orbs */}
         <div className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full bg-secondary/5 blur-3xl" />
@@ -49,34 +51,35 @@ export const EngagementHero = () => {
         />
       </div>
 
-      <div className="container relative z-10 flex min-h-screen items-center px-4 py-12 md:px-6">
-        {/* Main content grid */}
-        <div className="grid w-full grid-cols-1 gap-6 md:gap-8 lg:grid-cols-2 lg:gap-12">
-          {/* Left column: Massive number (now smaller, responsive) */}
+      {/*===== Main content grid =====*/}
+      <Container className="relative z-10">
+        <div className="grid w-full grid-cols-1 gap-8 md:gap-10 lg:grid-cols-2 lg:gap-12">
+          {/*===== Left column: Large number =====*/}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
+            variants={slideInLeft}
+            initial="hidden"
+            animate="visible"
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="relative flex items-center justify-center lg:justify-center"
+            className="relative flex items-center justify-center"
           >
-            <span className="font-display text-[8rem] font-black leading-none tracking-tighter text-transparent md:text-[10rem] lg:text-[13rem] xl:text-[16rem] bg-clip-text bg-gradient-to-br from-secondary/40 via-secondary to-secondary/20 dark:from-secondary/30 dark:via-secondary dark:to-secondary/10">
+            <span className="font-display max-w-full text-[6rem] font-black leading-none tracking-tighter text-transparent md:text-[8rem] lg:text-[10rem] xl:text-[12rem] bg-clip-text bg-gradient-to-br from-secondary/40 via-secondary to-secondary/20 dark:from-secondary/30 dark:via-secondary dark:to-secondary/10">
               01
             </span>
-            {/* Decorative line - hidden on mobile, visible from lg */}
             <div className="absolute bottom-0 right-0 hidden h-0.5 w-24 bg-gradient-to-r from-secondary/80 to-transparent lg:block lg:bottom-8 lg:right-8" />
           </motion.div>
 
-          {/* Right column: Text content */}
+          {/*===== Right column: Heading, description, CTA =====*/}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            variants={slideInRight}
+            initial="hidden"
+            animate="visible"
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
-            className="flex flex-col justify-center space-y-4 md:space-y-6"
+            className="flex flex-col justify-center space-y-4 md:space-y-5"
           >
             <span className="inline-block text-xs font-semibold uppercase tracking-widest text-secondary/80 md:text-sm">
               Begin Your Engagement
             </span>
-            <h1 className="font-display text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+            <h1 className="font-display text-2xl font-bold leading-tight tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
               Let’s Build Your{" "}
               <span className="relative inline-block">
                 <span className="text-secondary">Financial Future</span>
@@ -84,7 +87,7 @@ export const EngagementHero = () => {
                 <span className="absolute -bottom-2 left-0 h-1 w-full rounded-full bg-secondary/30 blur-sm" />
               </span>
             </h1>
-            <p className="max-w-lg text-sm text-body/80 sm:text-base md:text-lg">
+            <p className="max-w-lg text-sm text-muted-foreground sm:text-base md:text-lg">
               Partner with Blackcrest Advisory to navigate complex financial
               landscapes with confidence and clarity. From strategy to
               execution, we’re with you every step of the way.
@@ -100,22 +103,23 @@ export const EngagementHero = () => {
             </div>
           </motion.div>
         </div>
-      </div>
+      </Container>
 
-      {/* Scroll indicator */}
+      {/*===== Scroll indicator =====*/}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        variants={fadeIn}
+        initial="hidden"
+        animate="visible"
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-sm text-body/40 md:bottom-8"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-sm text-muted-foreground/40 md:bottom-8"
       >
-        <div className="flex flex-col items-center gap-1">
+        <div className="flex flex-col items-center gap-1 mt-4">
           <span className="text-[10px] uppercase tracking-widest md:text-xs">
             Scroll
           </span>
           <div className="h-6 w-px bg-gradient-to-b from-secondary/40 to-transparent" />
         </div>
       </motion.div>
-    </section>
+    </Section>
   );
 };

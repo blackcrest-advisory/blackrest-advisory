@@ -1,11 +1,15 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaLightbulb, FaRocket, FaChartLine } from "react-icons/fa6";
 import { FaCogs } from "react-icons/fa";
-import { SectionHeading } from "@/components/landing/services/sales&business/SectionHeading";
 import { Button } from "@/components/ui/Button";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { Card } from "@/components/ui/Card";
+import { staggerContainer, fadeInUp, hoverScale } from "@/utils/animations";
 
+//===== Process steps data =====//
 const steps = [
   {
     icon: FaLightbulb,
@@ -34,73 +38,58 @@ const steps = [
 ];
 
 export const SalesProcess = () => {
-  const container: Variants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const item: Variants = {
-    hidden: { opacity: 0, x: -30 },
-    show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
-  };
-
   return (
-    <section className="py-20 md:py-28 bg-[var(--color-card-bg)] border-t border-[var(--color-border)]">
-      <div className="container mx-auto px-4 md:px-6">
-        <SectionHeading
-          label="Our Approach"
-          title={
-            <>
-              How We Drive Your{" "}
-              <span className="text-[var(--color-secondary)]">
-                Sales Growth
-              </span>
-            </>
-          }
-          subtitle="A structured, end‑to‑end process that transforms your sales engine from the inside out."
-        />
+    <Section className="border-t border-border/50 bg-muted/30">
+      <Container>
+        {/*===== Section header =====*/}
+        <div className="text-center">
+          <span className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary">
+            ✦ Our Approach
+          </span>
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            How We Drive Your{" "}
+            <span className="text-secondary">Sales Growth</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+            A structured, end‑to‑end process that transforms your sales engine
+            from the inside out.
+          </p>
+        </div>
 
+        {/*===== Process steps grid =====*/}
         <motion.div
-          variants={container}
+          variants={staggerContainer}
           initial="hidden"
-          whileInView="show"
+          whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8"
+          className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2"
         >
           {steps.map((step, idx) => (
-            <motion.div
-              key={idx}
-              variants={item}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="flex gap-5 p-6 bg-[var(--color-background)] rounded-xl border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[var(--color-secondary)]/10 flex items-center justify-center text-[var(--color-secondary)] text-xl">
-                <step.icon />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-[var(--color-heading)] mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-[var(--color-body)] leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
+            <motion.div key={idx} variants={fadeInUp} {...hoverScale}>
+              <Card padding="base" hoverEffect className="flex gap-5">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-secondary/10 text-secondary text-xl">
+                  <step.icon />
+                </div>
+                <div>
+                  <h3 className="mb-2 text-xl font-semibold text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="leading-relaxed text-muted-foreground text-justify text-base">
+                    {step.description}
+                  </p>
+                </div>
+              </Card>
             </motion.div>
           ))}
         </motion.div>
 
+        {/*===== CTA =====*/}
         <div className="mt-16 text-center">
           <Button href="#contact" variant="primary" size="lg">
-            Let‘s Start Your Growth Journey
+            Let&apos;s Start Your Growth Journey
           </Button>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };

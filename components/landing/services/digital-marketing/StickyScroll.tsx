@@ -1,5 +1,12 @@
-import { IMAGE } from "@/constants/imagesConfig";
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { Card } from "@/components/ui/Card";
+import { IMAGE } from "@/constants/imagesConfig";
+import { fadeInUp, staggerContainer, hoverScale } from "@/utils/animations";
 
 interface Service {
   id: number;
@@ -53,57 +60,70 @@ const services: Service[] = [
   },
 ];
 
-const StickyScroll = () => {
+export default function StickyScroll() {
   return (
-    <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 p-4 sm:p-6 lg:p-8 max-w-[1400px] mx-auto">
-      {/* Left – sticky summary */}
-      <div className="w-full lg:w-1/3">
-        <div className="lg:sticky top-24 space-y-4 lg:space-y-6">
-          <h2 className="text-xl md:text-2xl font-semibold uppercase text-heading">
-            Online Marketing Services for Clients
-          </h2>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl uppercase font-bold text-heading leading-tight">
-            What You <br /> Get
-          </h1>
-          <p className="text-body text-sm sm:text-base leading-relaxed text-justify">
-            As an award winning full service digital marketing agency, our team
-            of Mixologists and Brandtenders mixes up a full menu of digital
-            advertising and marketing campaigns designed to create a long-term
-            marketing strategy, reach your ideal target audience, and optimize
-            your website for search results.
-          </p>
-        </div>
-      </div>
-
-      {/* Right – services grid */}
-      <div className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4 md:gap-6">
-        {services.map((service) => (
-          <div
-            key={service.id}
-            className="flex gap-4 p-4 rounded-lg bg-card-bg hover:shadow-lg transition-shadow duration-200"
+    <Section>
+      <Container>
+        <div className="flex flex-col gap-8 lg:flex-row lg:gap-12">
+          {/*===== Left – sticky summary =====*/}
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="w-full lg:w-1/3"
           >
-            <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-44 lg:h-44 rounded-full overflow-hidden shrink-0">
-              <Image
-                width={96}
-                height={96}
-                src={service.image}
-                alt={service.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="flex flex-col justify-center">
-              <h3 className="text-sm sm:text-base font-semibold text-heading mb-1">
-                {service.title}
-              </h3>
-              <p className="text-body text-xs sm:text-sm leading-relaxed text-justify">
-                {service.description}
+            <div className="lg:sticky top-24 space-y-4 lg:space-y-6">
+              <h2 className="text-2xl font-semibold uppercase text-foreground md:text-3xl">
+                Online Marketing Services for Clients
+              </h2>
+              <h1 className="text-3xl font-bold uppercase leading-tight text-foreground sm:text-4xl lg:text-5xl">
+                What You <br /> Get
+              </h1>
+              <p className="text-justify text-sm leading-relaxed text-muted-foreground sm:text-base">
+                As an award winning full service digital marketing agency, our
+                team of Mixologists and Brandtenders mixes up a full menu of
+                digital advertising and marketing campaigns designed to create a
+                long-term marketing strategy, reach your ideal target audience,
+                and optimize your website for search results.
               </p>
             </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
+          </motion.div>
 
-export default StickyScroll;
+          {/*===== Right – services grid =====*/}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="w-full lg:w-2/3 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-2"
+          >
+            {services.map((service) => (
+              <motion.div key={service.id} variants={fadeInUp} {...hoverScale}>
+                <Card padding="base" hoverEffect className="flex gap-4">
+                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-44 lg:w-44">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, (max-width: 1024px) 96px, 176px"
+                    />
+                  </div>
+                  <div className="flex flex-col justify-center">
+                    <h3 className="mb-1 text-sm font-semibold text-foreground sm:text-base">
+                      {service.title}
+                    </h3>
+                    <p className="text-justify text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                      {service.description}
+                    </p>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </Container>
+    </Section>
+  );
+}

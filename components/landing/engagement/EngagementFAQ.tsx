@@ -2,9 +2,13 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SectionHeader } from "../../shared/SectionHeader";
 import { ChevronDown } from "lucide-react";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { Card } from "@/components/ui/Card";
+import { fadeInUp, staggerContainer } from "@/utils/animations";
 
+//===== FAQ data =====//
 const faqs = [
   {
     question: "What is the typical timeline for a project?",
@@ -37,61 +41,80 @@ export const EngagementFAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-20 md:py-32 bg-muted/30 dark:bg-muted/10">
-      <div className="container max-w-3xl mx-auto">
-        <SectionHeader
-          tag="Frequently Asked Questions"
-          title="Common Questions About Working With Us"
-          description="Find answers to the most common queries about our engagement process, timelines, and deliverables."
-        />
+    //===== FAQ section with accordion =====//
+    <Section className="bg-muted/30">
+      <Container>
+        {/*===== Section header =====*/}
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-secondary">
+            Frequently Asked Questions
+          </span>
+          <h2 className="mt-2 text-3xl font-bold text-foreground md:text-4xl">
+            Common Questions About Working With Us
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+            Find answers to the most common queries about our engagement
+            process, timelines, and deliverables.
+          </p>
+        </div>
 
-        <div className="mt-12 space-y-4">
+        {/*===== FAQ accordion list =====*/}
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mx-auto mt-12 max-w-3xl space-y-4"
+        >
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                variants={fadeInUp}
                 transition={{ delay: index * 0.05 }}
-                className="border border-border rounded-xl overflow-hidden bg-background"
               >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-muted/50 transition-colors"
-                  aria-expanded={isOpen}
+                <Card
+                  padding="none"
+                  className="overflow-hidden border border-border"
                 >
-                  <span className="font-medium text-foreground">
-                    {faq.question}
-                  </span>
-                  <motion.span
-                    animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
+                  <button
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    className="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-muted/50"
+                    aria-expanded={isOpen}
                   >
-                    <ChevronDown className="h-5 w-5 text-body/50" />
-                  </motion.span>
-                </button>
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
+                    <span className="font-medium text-foreground">
+                      {faq.question}
+                    </span>
+                    <motion.span
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="ml-4 shrink-0"
                     >
-                      <div className="px-6 pb-6 text-body/80 leading-relaxed">
-                        {faq.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                      <ChevronDown className="h-5 w-5 text-muted-foreground/50" />
+                    </motion.span>
+                  </button>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="px-6 pb-6 text-sm leading-relaxed text-muted-foreground/80">
+                          {faq.answer}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </Card>
               </motion.div>
             );
           })}
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </Container>
+    </Section>
   );
 };

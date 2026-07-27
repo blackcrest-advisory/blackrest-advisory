@@ -1,13 +1,14 @@
 import { HeroSection } from "@/components/landing/about/HeroSection";
 import { WhoWeAreSection } from "@/components/landing/about/WhoWeAreSection";
 import { WhyBlackcrestSection } from "@/components/landing/about/WhyBlackcrestSection";
+import { PageWrapper } from "@/components/ui/PageWrapper";
 
 export default function AboutPage() {
   return (
-    <main className="overflow-hidden">
+    <PageWrapper>
       <HeroSection />
       <WhoWeAreSection />
       <WhyBlackcrestSection />
-    </main>
+    </PageWrapper>
   );
 }

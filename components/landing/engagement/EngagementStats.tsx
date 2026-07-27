@@ -1,4 +1,3 @@
-// src/components/engagement/EngagementStats.tsx
 "use client";
 
 import {
@@ -9,7 +8,11 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { fadeInUp, staggerContainer } from "@/utils/animations";
 
+//===== Animated counter component with spring physics =====//
 interface AnimatedCounterProps {
   value: number;
   duration?: number;
@@ -26,23 +29,23 @@ const AnimatedCounter = ({
   const count = useMotionValue(0);
   const [displayValue, setDisplayValue] = useState(0);
 
-  // Spring with smooth deceleration
+  //===== Spring with smooth deceleration =====//
   const spring = useSpring(count, {
     damping: 30,
     stiffness: 80,
   });
 
-  // Listen to spring changes and update state
+  //===== Listen to spring changes and update state =====//
   useMotionValueEvent(spring, "change", (latest) => {
     setDisplayValue(latest);
   });
 
-  // Start counting when value changes
+  //===== Start counting when value changes =====//
   useEffect(() => {
     count.set(value);
   }, [count, value]);
 
-  // Format number with separators
+  //===== Format number with separators =====//
   const formatNumber = (num: number) => {
     const parts = num.toFixed(0).split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, separator);
@@ -57,6 +60,7 @@ const AnimatedCounter = ({
   );
 };
 
+//===== Stats data =====//
 const stats = [
   { label: "Years Experience", value: 15, suffix: "+" },
   { label: "Clients Served", value: 120, suffix: "+" },
@@ -69,12 +73,24 @@ export const EngagementStats = () => {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section className="py-16 bg-primary text-background dark:bg-background dark:text-foreground border-y border-border/40">
-      <div className="container">
-        <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-8">
+    //===== Stats section with counter animations =====//
+    <Section className="overflow-hidden border-y border-border/40 bg-card">
+      <Container>
+        <motion.div
+          ref={ref}
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          className="grid grid-cols-2 gap-8 md:grid-cols-4"
+        >
           {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="font-display text-4xl md:text-5xl lg:text-6xl font-bold">
+            <motion.div
+              key={stat.label}
+              variants={fadeInUp}
+              className="text-center"
+            >
+              <div className="font-display text-4xl font-bold text-foreground md:text-5xl lg:text-6xl">
                 {isInView ? (
                   <AnimatedCounter
                     value={stat.value}
@@ -85,13 +101,13 @@ export const EngagementStats = () => {
                   `0${stat.suffix}`
                 )}
               </div>
-              <p className="text-sm uppercase tracking-wider text-white dark:text-body/50 mt-2">
+              <p className="mt-2 text-sm uppercase tracking-wider text-muted-foreground">
                 {stat.label}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </Container>
+    </Section>
   );
 };

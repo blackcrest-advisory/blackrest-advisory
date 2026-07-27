@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import "./styles/globals.css";
+import "./styles/global.css";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import { ToasterProvider } from "@/app/providers/ToasterProvider";
 
@@ -22,11 +22,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
-      <body className={`${roboto.className} font-sans antialiased`}>
+      <body
+        className={`${roboto.className} font-sans antialiased overflow-x-hidden`}
+      >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="flex min-h-screen flex-col">
-            <main className="flex-1">{children}</main>
-          </div>
+          {children}
         </ThemeProvider>
         <ToasterProvider />
       </body>

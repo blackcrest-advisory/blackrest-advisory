@@ -24,7 +24,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-xl border bg-card-bg border-card-border",
+        "rounded-[10px] border border-border bg-card text-card-foreground",
         paddingStyles[padding],
         hoverEffect &&
           "transition-all duration-200 hover:border-secondary/40 hover:shadow-md",
