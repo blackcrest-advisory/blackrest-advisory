@@ -27,7 +27,7 @@ export const Card = ({
         "rounded-[10px] border border-border bg-card text-card-foreground",
         paddingStyles[padding],
         hoverEffect &&
-          "transition-all duration-200 hover:border-secondary/40 hover:shadow-md",
+          "transition-all duration-200 hover:border-secondary/40 hover:shadow-sm",
         className,
       )}
     >
