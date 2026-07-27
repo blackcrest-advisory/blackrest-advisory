@@ -78,7 +78,7 @@ const CTA = () => {
               >
                 Get Started
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" href="/about">
                 Learn More
               </Button>
             </motion.div>

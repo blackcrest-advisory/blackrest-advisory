@@ -43,11 +43,16 @@ export async function proxy(request: NextRequest) {
     pathname.startsWith("/client") &&
     (role === "ADMIN" || role === "SUPER_ADMIN")
   ) {
-    return NextResponse.redirect(new URL("/admin", request.url));
+    return NextResponse.redirect(new URL("/admin/dashboard", request.url));
   }
 
   if (isAuthRoute && isAuthenticated) {
-    return NextResponse.redirect(new URL("/", request.url));
+    const dashboardPath =
+      role === "ADMIN" || role === "SUPER_ADMIN"
+        ? "/admin/dashboard"
+        : "/client/dashboard";
+
+    return NextResponse.redirect(new URL(dashboardPath, request.url));
   }
 
   return NextResponse.next();

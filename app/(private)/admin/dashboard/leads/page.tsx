@@ -1,8 +1,11 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { leadsMockData } from "@/mock-data/leadsMockData";
-import { Lead } from "@/types/dashboard/admin/leadTypes";
+import { useEffect, useMemo, useState } from "react";
+import axios from "@/api-client/client";
+import {
+  Lead,
+  LeadService,
+} from "@/types/dashboard/admin/leadTypes";
 import { LeadStats } from "@/components/admin-dashboard/leads/LeadStats";
 import { LeadFilters } from "@/components/admin-dashboard/leads/LeadFilters";
 import { LeadTable } from "@/components/admin-dashboard/leads/LeadTable";
@@ -10,9 +13,17 @@ import { LeadDetailModal } from "@/components/admin-dashboard/leads/LeadDetailMo
 import { Button } from "@/components/ui/Button";
 import toast from "react-hot-toast";
 
+interface LeadFiltersState {
+  status: string;
+  service: string;
+  priority: string;
+  assigned: string;
+}
+
 export default function LeadsPage() {
-  const [leads, setLeads] = useState<Lead[]>(leadsMockData);
-  const [filters, setFilters] = useState({
+  const [leads, setLeads] = useState<Lead[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [filters, setFilters] = useState<LeadFiltersState>({
     status: "all",
     service: "all",
     priority: "all",
@@ -23,10 +34,23 @@ export default function LeadsPage() {
   const [modalMode, setModalMode] = useState<"view" | "edit">("view");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  //===== Filter and search =====//
+  useEffect(() => {
+    const fetchLeads = async () => {
+      try {
+        const response = await axios.get<Lead[]>("/api/admin/leads");
+        setLeads(response.data);
+      } catch {
+        toast.error("Failed to load leads");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    void fetchLeads();
+  }, []);
+
   const filteredLeads = useMemo(() => {
     return leads.filter((lead) => {
-      // Search
       if (searchTerm) {
         const term = searchTerm.toLowerCase();
         const match =
@@ -34,27 +58,22 @@ export default function LeadsPage() {
           lead.contactPerson.toLowerCase().includes(term);
         if (!match) return false;
       }
-      // Status
       if (filters.status !== "all" && lead.status !== filters.status)
         return false;
-      // Service
       if (
         filters.service !== "all" &&
-        !lead.services.includes(filters.service as any)
+        !lead.services.includes(filters.service as LeadService)
       )
         return false;
-      // Priority
       if (filters.priority !== "all" && lead.priority !== filters.priority)
         return false;
-      // Assigned
       if (filters.assigned !== "all" && lead.assignedTo !== filters.assigned)
         return false;
       return true;
     });
   }, [leads, searchTerm, filters]);
 
-  //===== Handlers =====//
-  const handleFilterChange = (newFilters: any) => {
+  const handleFilterChange = (newFilters: LeadFiltersState) => {
     setFilters(newFilters);
   };
 
@@ -73,26 +92,58 @@ export default function LeadsPage() {
     setSelectedLead(null);
   };
 
-  const handleSaveLead = (updatedLead: Lead) => {
-    setLeads((prev) =>
-      prev.map((l) => (l.id === updatedLead.id ? updatedLead : l)),
+  const handleSaveLead = async (updatedLead: Lead) => {
+    setLeads((previous) =>
+      previous.map((lead) =>
+        lead.id === updatedLead.id ? updatedLead : lead,
+      ),
     );
-    toast.success("Lead updated successfully");
-  };
 
-  const handleConvert = (lead: Lead) => {
-    // Change status to 'won' and update
-    const updated = { ...lead, status: "won" as const };
-    setLeads((prev) => prev.map((l) => (l.id === updated.id ? updated : l)));
-    toast.success(`${lead.companyName} converted to client!`);
-  };
-
-  const handleDelete = (lead: Lead) => {
-    if (window.confirm(`Delete lead "${lead.companyName}"?`)) {
-      setLeads((prev) => prev.filter((l) => l.id !== lead.id));
-      toast.success("Lead deleted");
+    try {
+      await axios.patch(`/api/admin/leads/${updatedLead.id}`, {
+        ...updatedLead,
+        name: updatedLead.contactPerson,
+      });
+      toast.success("Lead updated successfully");
+    } catch {
+      toast.error("Failed to update lead");
     }
   };
+
+  const handleConvert = async (lead: Lead) => {
+    const updated = { ...lead, status: "won" as const };
+    setLeads((previous) =>
+      previous.map((item) => (item.id === updated.id ? updated : item)),
+    );
+
+    try {
+      await axios.patch(`/api/admin/leads/${lead.id}`, { status: "won" });
+      toast.success(`${lead.companyName} converted to client!`);
+    } catch {
+      toast.error("Failed to convert lead");
+    }
+  };
+
+  const handleDelete = async (lead: Lead) => {
+    if (window.confirm(`Delete lead "${lead.companyName}"?`)) {
+      setLeads((previous) => previous.filter((item) => item.id !== lead.id));
+
+      try {
+        await axios.delete(`/api/admin/leads/${lead.id}`);
+        toast.success("Lead deleted");
+      } catch {
+        toast.error("Failed to delete lead");
+      }
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="py-12 text-center text-[var(--color-body)]">
+        Loading leads...
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">

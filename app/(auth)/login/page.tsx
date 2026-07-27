@@ -29,17 +29,22 @@ export default function LoginPage() {
       setIsLoading(true);
 
       try {
-        const response = await axios.post<{ success: boolean }>(
-          "/api/auth/login",
-          {
-            email,
-            password,
-          },
-        );
+        const response = await axios.post<{
+          success: boolean;
+          user: { role: string };
+        }>("/api/auth/login", {
+          email,
+          password,
+        });
 
         if (response.data.success) {
           toast.success("Welcome back");
-          router.push("/client/dashboard");
+          const dashboardPath =
+            response.data.user.role === "ADMIN" ||
+            response.data.user.role === "SUPER_ADMIN"
+              ? "/admin/dashboard"
+              : "/client/dashboard";
+          router.replace(dashboardPath);
         }
       } catch (error: unknown) {
         let message = "Invalid email or password";
