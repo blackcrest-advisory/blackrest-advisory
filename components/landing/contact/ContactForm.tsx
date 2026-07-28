@@ -181,7 +181,7 @@ export const ContactForm = () => {
                 </div>
 
                 <Button
-                  size="lg"
+                  size="md"
                   className="w-full justify-center"
                   disabled={isSubmitting}
                 >

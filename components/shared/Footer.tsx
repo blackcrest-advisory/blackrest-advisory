@@ -15,7 +15,7 @@ export default function Footer() {
   );
 
   return (
-    <Section className="w-full bg-primary/90 text-primary-foreground transition-colors">
+    <Section className="w-full bg-[#12273F] text-primary-foreground transition-colors">
       <Container>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
           {/* Brand */}

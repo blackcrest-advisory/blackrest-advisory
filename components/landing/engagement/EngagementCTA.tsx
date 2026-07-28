@@ -57,13 +57,13 @@ export const EngagementCTA = () => {
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
               <Button
                 variant="primary"
-                size="lg"
+                size="md"
                 className="w-full shadow-lg transition-shadow hover:shadow-xl sm:w-auto"
               >
                 <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Book a Consultation
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="md">
                 <Mail className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 hello@blackcrestadvisory.com
               </Button>
