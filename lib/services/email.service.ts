@@ -1,4 +1,6 @@
 import { Resend } from "resend";
+import { NotificationType } from "@prisma/client";
+import { prisma } from "@/lib/db/client";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -144,6 +146,34 @@ export async function sendContactFormConfirmation(
     if (error) {
       throw error;
     }
+  } catch (error: unknown) {
+    console.error(error);
+  }
+}
+
+export async function createNotification({
+  userId,
+  type,
+  title,
+  body,
+  link,
+}: {
+  userId: string;
+  type: string;
+  title: string;
+  body?: string;
+  link?: string;
+}): Promise<void> {
+  try {
+    await prisma.notification.create({
+      data: {
+        userId,
+        type: type as NotificationType,
+        title,
+        body,
+        link,
+      },
+    });
   } catch (error: unknown) {
     console.error(error);
   }

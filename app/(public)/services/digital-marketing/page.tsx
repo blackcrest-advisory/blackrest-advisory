@@ -5,10 +5,11 @@ import Hero from "@/components/landing/services/digital-marketing/Hero";
 import Marquee from "@/components/landing/services/digital-marketing/Marquee";
 import StickyScroll from "@/components/landing/services/digital-marketing/StickyScroll";
 import WhatWeDo from "@/components/landing/services/digital-marketing/WhatWeDo";
+import { PageWrapper } from "@/components/ui/PageWrapper";
 
 export default function DigitalMarketingPage() {
   return (
-    <main className="bg-background ">
+    <PageWrapper>
       <Hero />
       <Marquee />
       <WhatWeDo />
@@ -16,6 +17,6 @@ export default function DigitalMarketingPage() {
       <ByTheNumbers />
       <StickyScroll />
       <FinalCTA />
-    </main>
+    </PageWrapper>
   );
 }

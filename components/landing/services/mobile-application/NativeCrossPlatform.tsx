@@ -1,9 +1,6 @@
-// components/home/NativeCrossPlatform.tsx
 "use client";
 
 import { motion } from "framer-motion";
-import { Container } from "@/components/landing/services/website-development/shared/Container";
-import { SectionHeading } from "@/components/landing/services/website-development/shared/SectionHeading";
 import {
   FiCode,
   FiLayers,
@@ -13,24 +10,33 @@ import {
   FiSmartphone,
   FiCloud,
 } from "react-icons/fi";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { Card } from "@/components/ui/Card";
+import {
+  slideInLeft,
+  slideInRight,
+  fadeInUp,
+  staggerContainer,
+  hoverScale,
+} from "@/utils/animations";
 
 //===== Left Content: Value Proposition & Benefits =====//
 const LeftContent = () => (
   <motion.div
-    initial={{ opacity: 0, x: -30 }}
-    whileInView={{ opacity: 1, x: 0 }}
+    variants={slideInLeft}
+    initial="hidden"
+    whileInView="visible"
     viewport={{ once: true, margin: "-100px" }}
     transition={{ duration: 0.6 }}
     className="space-y-8"
   >
     <div>
-      <h2 className="text-3xl font-bold text-[var(--color-heading)] leading-tight">
+      <h2 className="text-3xl font-bold leading-tight text-foreground md:text-4xl">
         One Codebase, <br />
-        <span className="text-[var(--color-secondary)]">
-          Unlimited Platforms
-        </span>
+        <span className="text-secondary">Unlimited Platforms</span>
       </h2>
-      <p className="mt-4 text-[var(--color-body)] text-lg leading-relaxed">
+      <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
         Build once, deploy everywhere. Our cross‑platform development approach
         delivers native‑like performance, consistent user experiences, and
         significant cost savings without ever compromising on quality.
@@ -50,17 +56,15 @@ const LeftContent = () => (
           className="flex items-start gap-3"
           whileHover={{ x: 4 }}
         >
-          <span className="mt-1 p-1.5 rounded-full bg-[var(--color-secondary)]/10">
-            <item.icon className="w-4 h-4 text-[var(--color-secondary)]" />
+          <span className="mt-1 rounded-full bg-secondary/10 p-1.5">
+            <item.icon className="h-4 w-4 text-secondary" />
           </span>
-          <span className="text-[var(--color-heading)] font-medium">
-            {item.label}
-          </span>
+          <span className="font-medium text-foreground">{item.label}</span>
         </motion.li>
       ))}
     </ul>
 
-    <p className="text-sm text-[var(--color-body)] border-l-2 border-[var(--color-secondary)] pl-4 italic">
+    <p className="border-l-2 border-secondary pl-4 text-sm italic text-muted-foreground">
       &ldquo;Cross‑platform development allowed our team to launch on both
       stores in half the time, with a 30% lower budget.&rdquo;
     </p>
@@ -69,10 +73,10 @@ const LeftContent = () => (
 
 //===== Center Visual: Animated Codebase Node =====//
 const CodebaseVisual = () => (
-  <div className="relative flex items-center justify-center h-[300px] md:h-[400px]">
+  <div className="relative flex h-[100px] lg:h-[300px] items-center justify-center">
     {/* Background glow */}
     <div className="absolute inset-0 flex items-center justify-center">
-      <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-[var(--color-secondary)]/10 blur-3xl" />
+      <div className="h-48 w-48 rounded-full bg-secondary/10 blur-3xl md:h-64 md:w-64" />
     </div>
 
     {/* Central code icon */}
@@ -81,9 +85,9 @@ const CodebaseVisual = () => (
       whileInView={{ scale: 1, rotate: 0 }}
       viewport={{ once: true }}
       transition={{ type: "spring", stiffness: 200, damping: 15 }}
-      className="relative z-10 w-20 h-20 md:w-24 md:h-24 rounded-full bg-[var(--color-primary)] border-2 border-[var(--color-secondary)] shadow-2xl flex items-center justify-center"
+      className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full border-2 border-secondary bg-primary shadow-2xl md:h-24 md:w-24"
     >
-      <FiCode className="w-10 h-10 md:w-12 md:h-12 text-[var(--color-secondary)]" />
+      <FiCode className="h-10 w-10 text-secondary md:h-12 md:w-12" />
     </motion.div>
   </div>
 );
@@ -91,15 +95,16 @@ const CodebaseVisual = () => (
 //===== Right Column: Metrics & Timeline =====//
 const RightContent = () => (
   <motion.div
-    initial={{ opacity: 0, x: 30 }}
-    whileInView={{ opacity: 1, x: 0 }}
+    variants={slideInRight}
+    initial="hidden"
+    whileInView="visible"
     viewport={{ once: true, margin: "-100px" }}
     transition={{ duration: 0.6 }}
     className="space-y-8"
   >
     {/* Platform compatibility bars */}
-    <div className="p-6 bg-[var(--color-background)] border border-[var(--color-border)] rounded-2xl shadow-sm">
-      <h3 className="text-xl font-semibold text-[var(--color-heading)] mb-4">
+    <Card padding="base" className="shadow-sm">
+      <h3 className="mb-4 text-xl font-semibold text-foreground">
         Platform Compatibility
       </h3>
       <div className="space-y-3">
@@ -110,17 +115,13 @@ const RightContent = () => (
           { platform: "Desktop", perc: 90 },
         ].map((item) => (
           <div key={item.platform}>
-            <div className="flex justify-between text-sm mb-1">
-              <span className="text-[var(--color-heading)]">
-                {item.platform}
-              </span>
-              <span className="text-[var(--color-secondary)]">
-                {item.perc}%
-              </span>
+            <div className="mb-1 flex justify-between text-sm">
+              <span className="text-foreground">{item.platform}</span>
+              <span className="text-secondary">{item.perc}%</span>
             </div>
-            <div className="w-full h-2 bg-[var(--color-border)] rounded-full overflow-hidden">
+            <div className="h-2 w-full overflow-hidden rounded-full bg-border">
               <motion.div
-                className="h-full bg-[var(--color-secondary)] rounded-full"
+                className="h-full rounded-full bg-secondary"
                 initial={{ width: 0 }}
                 whileInView={{ width: `${item.perc}%` }}
                 viewport={{ once: true }}
@@ -130,27 +131,27 @@ const RightContent = () => (
           </div>
         ))}
       </div>
-    </div>
+    </Card>
 
     {/* Development timeline */}
-    <div className="p-6 bg-[var(--color-background)] border border-[var(--color-border)] rounded-2xl shadow-sm">
-      <h3 className="text-xl font-semibold text-[var(--color-heading)] mb-4">
+    <Card padding="base" className="shadow-sm">
+      <h3 className="mb-4 text-xl font-semibold text-foreground">
         Development Timeline
       </h3>
-      <ol className="relative border-l border-[var(--color-border)] ml-3 space-y-4">
+      <ol className="relative ml-3 space-y-4 border-l border-border">
         {["Plan", "Design", "Develop", "Test", "Deploy"].map((step, idx) => (
           <li key={step} className="ml-6">
-            <span className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 ring-4 ring-[var(--color-card-bg)] bg-[var(--color-primary)]">
-              <span className="text-xs text-white">{idx + 1}</span>
+            <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-primary ring-4 ring-card">
+              <span className="text-xs text-primary-foreground">{idx + 1}</span>
             </span>
-            <h4 className="font-medium text-[var(--color-heading)]">{step}</h4>
-            <p className="text-xs text-[var(--color-body)]">
+            <h4 className="font-medium text-foreground">{step}</h4>
+            <p className="text-xs text-muted-foreground">
               {idx + 2}–{idx + 4} weeks
             </p>
           </li>
         ))}
       </ol>
-    </div>
+    </Card>
   </motion.div>
 );
 
@@ -190,32 +191,31 @@ const WhyOneCodebase = () => {
   ];
 
   return (
-    <div className="mt-24 lg:mt-32">
-      <h3 className="text-2xl font-bold text-[var(--color-heading)] text-center mb-10">
+    <div className="mt-10">
+      <h3 className="mb-10 text-center text-2xl font-bold text-foreground">
         Why One Codebase Matters
       </h3>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+      >
         {whyItems.map(({ icon: Icon, title, desc }, i) => (
-          <motion.div
-            key={title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ delay: i * 0.1 }}
-            className="p-5 bg-[var(--color-background)] border border-[var(--color-border)] rounded-xl hover:border-[var(--color-secondary)]/30 transition-colors"
-          >
-            <div className="flex items-center gap-3 mb-2">
-              <div className="p-1.5 rounded-lg bg-[var(--color-secondary)]/10">
-                <Icon className="w-5 h-5 text-[var(--color-secondary)]" />
+          <motion.div key={title} variants={fadeInUp} {...hoverScale}>
+            <Card padding="base" hoverEffect className="group">
+              <div className="flex items-center gap-3">
+                <div className="rounded-lg bg-secondary/10 p-1.5 text-secondary">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h4 className="font-semibold text-foreground">{title}</h4>
               </div>
-              <h4 className="font-semibold text-[var(--color-heading)]">
-                {title}
-              </h4>
-            </div>
-            <p className="text-sm text-[var(--color-body)]">{desc}</p>
+              <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
+            </Card>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
@@ -223,28 +223,37 @@ const WhyOneCodebase = () => {
 //===== Main Section =====//
 const NativeCrossPlatform = () => {
   return (
-    <section className="relative py-16 md:py-24 lg:py-32 bg-[var(--color-card-bg)] overflow-hidden">
+    //===== Native Cross‑Platform Section =====//
+    <Section className="relative overflow-hidden bg-muted/30">
       {/* Background decoration */}
       <div
-        className="absolute inset-0 overflow-hidden pointer-events-none"
+        className="absolute inset-0 pointer-events-none overflow-hidden"
         aria-hidden
       >
-        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-[var(--color-secondary)]/5 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-[var(--color-primary)]/5 blur-3xl" />
+        <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-secondary/5 blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-primary/5 blur-3xl" />
       </div>
 
       <Container>
-        <SectionHeading
-          title="Native Feel, Cross‑Platform Reach"
-          subtitle="One codebase. Two platforms. Consistent experience."
-        />
+        {/*===== Section header =====*/}
+        <div className="text-center">
+          <span className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary">
+            ✦ Cross‑Platform
+          </span>
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            Native Feel, Cross‑Platform Reach
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+            One codebase. Two platforms. Consistent experience.
+          </p>
+        </div>
 
-        {/* Three‑column layout: left content → center visual → right metrics */}
-        <div className="mt-16 lg:mt-24 grid lg:grid-cols-[1fr_auto_1fr] gap-12 lg:gap-0 items-start">
+        {/*===== Three‑column layout =====*/}
+        <div className="mt-14 grid lg:grid-cols-[1fr_auto_1fr] gap-6 lg:gap-12 items-start">
           <div className="lg:pr-8">
             <LeftContent />
           </div>
-          <div className="flex justify-center order-first lg:order-none">
+          <div className="order-first flex justify-center lg:order-0">
             <CodebaseVisual />
           </div>
           <div className="lg:pl-8">
@@ -252,10 +261,10 @@ const NativeCrossPlatform = () => {
           </div>
         </div>
 
-        {/* Supporting section */}
+        {/*===== Supporting section =====*/}
         <WhyOneCodebase />
       </Container>
-    </section>
+    </Section>
   );
 };
 

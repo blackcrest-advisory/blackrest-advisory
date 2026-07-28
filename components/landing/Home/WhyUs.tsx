@@ -2,7 +2,10 @@
 
 import { motion } from "framer-motion";
 import { ShieldCheck, TrendingUp, Handshake, Eye } from "lucide-react";
-import { Section } from "@/components/shared/Section";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { Card } from "@/components/ui/Card";
+import { fadeInUp, fadeIn, staggerContainer } from "@/utils/animations";
 
 const reasons = [
   {
@@ -33,66 +36,78 @@ const reasons = [
 
 const WhyUs = () => {
   return (
-    <Section id="why-us">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <Section>
+      <Container>
         <div className="text-center">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl font-bold text-heading sm:text-4xl"
+            className="text-3xl font-bold text-foreground sm:text-4xl"
           >
             Why Blackcrest Advisory
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="mx-auto mt-4 max-w-2xl text-body"
+            className="mx-auto mt-4 max-w-2xl text-muted-foreground"
           >
             We combine strategic thinking with hands-on execution to deliver
             real results.
           </motion.p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
-          {reasons.map((reason, index) => {
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2"
+        >
+          {reasons.map((reason) => {
             const Icon = reason.icon;
             return (
               <motion.div
                 key={reason.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
+                variants={fadeInUp}
                 whileHover={{
                   y: -4,
-                  scale: 1.01,
+                  scale: 1,
                   transition: { duration: 0.2 },
                 }}
-                className="group relative overflow-hidden rounded-xl border border-border bg-card-bg p-6 shadow-sm transition-shadow hover:shadow-lg dark:shadow-gray-900/30"
               >
-                {/* Left accent bar */}
-                <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-secondary to-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <Card
+                  padding="base"
+                  hoverEffect
+                  className="group relative overflow-hidden"
+                >
+                  {/* Left accent bar */}
+                  <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-secondary to-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                <div className="flex items-start space-x-4">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-secondary/10 text-secondary transition-colors group-hover:bg-secondary/20">
-                    <Icon className="h-5 w-5" strokeWidth={1.8} />
+                  <div className="flex items-start space-x-4">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-secondary/10 text-secondary transition-colors group-hover:bg-secondary/20">
+                      <Icon className="h-5 w-5" strokeWidth={1.8} />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground">
+                        {reason.title}
+                      </h3>
+                      <p className="mt-1 text-muted-foreground">
+                        {reason.description}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-heading">
-                      {reason.title}
-                    </h3>
-                    <p className="mt-1 text-body">{reason.description}</p>
-                  </div>
-                </div>
+                </Card>
               </motion.div>
             );
           })}
-        </div>
-      </div>
+        </motion.div>
+      </Container>
     </Section>
   );
 };

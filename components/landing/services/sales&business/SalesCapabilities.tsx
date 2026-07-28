@@ -1,21 +1,22 @@
-// components/sales-support/SalesCapabilities.tsx
 "use client";
 
-import { motion, Variants } from "framer-motion"; // ← import Variants
+import { motion } from "framer-motion";
 import {
   FaBullseye,
   FaRocket,
   FaHandshake,
   FaChartLine,
-} from "react-icons/fa6";
-import {
   FaChalkboardTeacher,
   FaCogs,
   FaFileAlt,
   FaFunnelDollar,
 } from "react-icons/fa";
-import { SectionHeading } from "@/components/landing/services/sales&business/SectionHeading";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { Card } from "@/components/ui/Card";
+import { staggerContainer, fadeInUp, hoverScale } from "@/utils/animations";
 
+//===== Capabilities data =====//
 const capabilities = [
   {
     icon: FaBullseye,
@@ -60,70 +61,58 @@ const capabilities = [
 ];
 
 export const SalesCapabilities = () => {
-  // ✅ Explicit Variants typing
-  const container: Variants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const item: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-  };
-
   return (
-    <section
-      id="capabilities"
-      className="py-20 md:py-28 bg-[var(--color-background)]"
-    >
-      <div className="container mx-auto px-4 md:px-6">
-        <SectionHeading
-          label="Our Capabilities"
-          // ✅ title now uses JSX so the <span> renders correctly
-          title={
-            <>
-              Sales & Business Support{" "}
-              <span className="text-[var(--color-secondary)]">
-                Capabilities
-              </span>
-            </>
-          }
-          subtitle="We cover every aspect of the sales process—from strategy to execution—to help you grow."
-        />
+    <Section className="bg-background">
+      <Container>
+        {/*===== Section header =====*/}
+        <div className="text-center">
+          <span className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary">
+            ✦ Our Capabilities
+          </span>
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+            Sales & Business Support{" "}
+            <span className="text-secondary">Capabilities</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+            We cover every aspect of the sales process—from strategy to
+            execution—to help you grow.
+          </p>
+        </div>
 
+        {/*===== Capabilities grid =====*/}
         <motion.div
-          variants={container}
+          variants={staggerContainer}
           initial="hidden"
-          whileInView="show"
+          whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-14"
+          className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 md:gap-8"
         >
           {capabilities.map((cap, idx) => (
-            <motion.div
-              key={idx}
-              variants={item}
-              whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-[var(--color-card-bg)] border border-[var(--color-border)] rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[var(--color-secondary)]/10 text-[var(--color-secondary)] mb-4">
-                <cap.icon className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-semibold text-[var(--color-heading)] mb-2">
-                {cap.title}
-              </h3>
-              <p className="text-sm text-[var(--color-body)] leading-relaxed">
-                {cap.desc}
-              </p>
+            <motion.div key={idx} variants={fadeInUp} {...hoverScale}>
+              <Card
+                padding="base"
+                hoverEffect
+                className="group relative overflow-hidden"
+              >
+                {/* Decorative top line */}
+                <div className="absolute -top-px left-6 right-6 h-0.5 rounded-full bg-gradient-to-r from-transparent via-secondary to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                <div className="relative z-10">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-secondary/10 text-secondary">
+                    <cap.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold text-foreground">
+                    {cap.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {cap.desc}
+                  </p>
+                </div>
+              </Card>
             </motion.div>
           ))}
         </motion.div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };

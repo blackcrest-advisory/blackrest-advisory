@@ -26,8 +26,11 @@ enum LeadStatus {
   NEW
   CONTACTED
   QUALIFIED
-  CONVERTED
+  PROPOSAL_SENT
+  NEGOTIATION
+  WON
   LOST
+  CONVERTED
 }
 
 enum ConsultationType {
@@ -67,11 +70,37 @@ enum ProjectStatus {
   CANCELLED
 }
 
+enum MessageStatus {
+  UNREAD
+  READ
+}
+
 enum NoteEntityType {
   LEAD
   USER
   BRIEF
   PROJECT
+}
+
+enum InvoiceStatus {
+  DRAFT
+  SENT
+  PAID
+  OVERDUE
+  CANCELLED
+}
+
+enum NotificationType {
+  REQUEST_RECEIVED
+  REQUEST_ASSIGNED
+  QUOTE_SENT
+  QUOTE_ACCEPTED
+  QUOTE_REJECTED
+  PROJECT_CREATED
+  MILESTONE_COMPLETED
+  NEW_MESSAGE
+  INVOICE_SENT
+  INVOICE_PAID
 }
 
 model User {
@@ -86,27 +115,46 @@ model User {
   industry    String?  
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  jobTitle                String?
+  avatarUrl               String?
+  notificationPreferences Json?
 
   consultations Consultation[]
   briefs        Brief[]
   projects      Project[]
   notes         Note[]         @relation("NoteAuthor")
   proposals     Proposal[]     @relation("ProposalAdmin")
+  files         File[]
+  sentMessages  Message[] @relation("MessageSender")
+  receivedMessages Message[] @relation("MessageReceiver")
+  invoices      Invoice[]
+  notifications Notification[]
+  business      Business?
 }
 
 model Lead {
-  id          String     @id @default(cuid())
-  name        String
-  email       String
-  phone       String?
-  companyName String?
-  pillar      Pillar?
-  problem     String     @db.Text
-  status      LeadStatus @default(NEW)
-  source      String?
-  assignedTo  String?
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
+  id             String     @id @default(cuid())
+  name           String
+  email          String
+  phone          String?
+  companyName    String?
+  industry       String?
+  companySize    String?
+  location       String?
+  website        String?
+  pillar         Pillar?
+  services       String[]
+  problem        String     @db.Text
+  status         LeadStatus @default(NEW)
+  priority       String     @default("medium")
+  budget         String?
+  source         String?
+  assignedTo     String?
+  lastContacted  DateTime?
+  nextFollowUp   DateTime?
+  notes          String?    @db.Text
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
 }
 
 model Consultation {
@@ -177,9 +225,45 @@ model Project {
   updates     String[]
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
+  files       File[]
+  invoices    Invoice[]
+  milestones  Milestone[]
 
   proposal Proposal @relation(fields: [proposalId], references: [id])
   user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+model File {
+  id             String   @id @default(cuid())
+  projectId      String
+  userId         String
+  name           String
+  extension      String
+  category       String   @default("other")
+  sizeInBytes    Int      @default(0)
+  uploadedBy     String
+  uploadedByRole String   @default("client")
+  path           String
+  downloadUrl    String
+  previewUrl     String?
+  createdAt      DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Message {
+  id         String        @id @default(cuid())
+  senderId   String
+  receiverId String
+  subject    String?
+  body       String        @db.Text
+  status     MessageStatus @default(UNREAD)
+  projectId  String?
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+
+  sender   User @relation("MessageSender", fields: [senderId], references: [id], onDelete: Cascade)
+  receiver User @relation("MessageReceiver", fields: [receiverId], references: [id], onDelete: Cascade)
 }
 
 model Note {
@@ -205,4 +289,69 @@ model Partner {
   isActive     Boolean  @default(true)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
+}
+
+model Invoice {
+  id            String        @id @default(cuid())
+  projectId     String
+  userId        String
+  proposalId    String?
+  invoiceNumber String        @unique
+  amount        Float
+  currency      String        @default("EUR")
+  status        InvoiceStatus @default(DRAFT)
+  dueDate       DateTime?
+  paidAt        DateTime?
+  paymentMethod String?
+  notes         String?       @db.Text
+  lineItems     Json?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  project  Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  user     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Milestone {
+  id          String    @id @default(cuid())
+  projectId   String
+  title       String
+  description String?   @db.Text
+  dueDate     DateTime?
+  isCompleted Boolean   @default(false)
+  completedAt DateTime?
+  sortOrder   Int       @default(0)
+  createdAt   DateTime  @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+}
+
+model Notification {
+  id        String           @id @default(cuid())
+  userId    String
+  type      NotificationType
+  title     String
+  body      String?          @db.Text
+  link      String?
+  isRead    Boolean          @default(false)
+  createdAt DateTime         @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Business {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  businessName String
+  industry     String?
+  businessType String?
+  websiteUrl   String?
+  phone        String?
+  address      String?
+  logoUrl      String?
+  description  String?  @db.Text
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

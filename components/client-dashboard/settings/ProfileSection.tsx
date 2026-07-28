@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Camera } from "lucide-react";
 import toast from "react-hot-toast";
 import { Avatar } from "@/components/ui/Avatar";
@@ -9,12 +10,15 @@ import { Button } from "@/components/ui/Button";
 import { SettingsSectionCard } from "@/components/client-dashboard/settings/SettingsSectionCard";
 import { ClientProfile } from "@/types/dashboard/client/settingsType";
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
+import axios from "@/api-client/client";
+import { uploadFile } from "@/api-client/upload.api";
 
 interface ProfileSectionProps {
   profile: ClientProfile;
 }
 
 export const ProfileSection = ({ profile }: ProfileSectionProps) => {
+  const router = useRouter();
   const user = useCurrentUser();
   const [formValues, setFormValues] = useState<ClientProfile>(() => ({
     ...profile,
@@ -24,6 +28,8 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
   const [avatarPreview, setAvatarPreview] = useState<string | undefined>(
     profile.avatarUrl,
   );
+  const [avatarFile, setAvatarFile] = useState<File | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
 
   //===== Handles a text field change for any profile input =====//
   const handleFieldChange = (field: keyof ClientProfile, value: string) => {
@@ -34,12 +40,40 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
   const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
+    setAvatarFile(file);
     setAvatarPreview(URL.createObjectURL(file));
   };
 
-  //===== Placeholder save handler until the account API is wired =====//
-  const handleSave = () => {
-    toast.success("Profile changes saved.");
+  const handleSave = async () => {
+    setIsSaving(true);
+
+    try {
+      const uploadedAvatar = avatarFile
+        ? await uploadFile(avatarFile)
+        : undefined;
+
+      await axios.patch("/api/client/profile", {
+        name: formValues.fullName,
+        companyName: formValues.companyName,
+        phone: formValues.phone,
+        jobTitle: formValues.jobTitle,
+        avatarUrl: uploadedAvatar?.url ?? formValues.avatarUrl,
+      });
+      if (uploadedAvatar) {
+        setAvatarFile(null);
+        setAvatarPreview(uploadedAvatar.url);
+        setFormValues((current) => ({
+          ...current,
+          avatarUrl: uploadedAvatar.url,
+        }));
+      }
+      toast.success("Profile updated successfully");
+      router.refresh();
+    } catch {
+      toast.error("Failed to update profile");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (
@@ -47,8 +81,13 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
       title="Profile Information"
       description="Update your personal and company details."
       footer={
-        <Button variant="primary" size="md" onClick={handleSave}>
-          Save Changes
+        <Button
+          variant="primary"
+          size="md"
+          onClick={handleSave}
+          disabled={isSaving}
+        >
+          {isSaving ? "Saving..." : "Save Changes"}
         </Button>
       }
     >

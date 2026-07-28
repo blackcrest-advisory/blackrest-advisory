@@ -1,13 +1,14 @@
 import { SalesCapabilities } from "@/components/landing/services/sales&business/SalesCapabilities";
 import { SalesHero } from "@/components/landing/services/sales&business/SalesHero";
 import { SalesProcess } from "@/components/landing/services/sales&business/SalesProcess";
+import { PageWrapper } from "@/components/ui/PageWrapper";
 
 export default function SalesSupportPage() {
   return (
-    <main>
+    <PageWrapper>
       <SalesHero />
       <SalesCapabilities />
       <SalesProcess />
-    </main>
+    </PageWrapper>
   );
 }

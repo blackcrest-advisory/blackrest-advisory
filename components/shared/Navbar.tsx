@@ -10,48 +10,46 @@ import { navLinks } from "@/constants/publicNavigations";
 import ThemeToggle from "@/components/shared/ThemeToggle";
 import Dropdown from "@/components/ui/Dropdown";
 import DropdownItem from "@/components/ui/DropdownItem";
+import { slideDown } from "@/utils/animations";
+import { Container } from "@/components/ui/Container";
 
 export default function Navbar() {
   const pathname = usePathname();
 
-  // Helper to check if a link is active
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
   };
 
-  // State management
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [openMobileSub, setOpenMobileSub] = useState<number | null>(null);
 
-  // Mobile submenu toggle
   const toggleMobileSub = (id: number) => {
     setOpenMobileSub(openMobileSub === id ? null : id);
   };
 
-  // Close mobile menu
   const closeMobileMenu = () => {
     setIsOpen(false);
     setOpenMobileSub(null);
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-nav-border bg-nav-bg backdrop-blur-md transition-colors">
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md transition-colors">
+      <Container>
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/home" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-primary">
+            <span className="text-2xl font-bold text-primary dark:text-secondary">
               Blackcrest
               <span className="text-secondary">.</span>
             </span>
-            <span className="hidden text-sm font-medium text-body lg:inline">
+            <span className="hidden text-sm font-medium text-muted-foreground lg:inline">
               Advisory
             </span>
           </Link>
 
-          {/* Desktop Navigation (lg and up) */}
+          {/* Desktop Navigation */}
           <div className="hidden lg:flex lg:items-center lg:space-x-8">
             {navLinks.map((link) => {
               const hasChildren = link.children && link.children.length > 0;
@@ -66,7 +64,11 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.link}
-                    className={`relative flex items-center text-sm font-medium transition-colors duration-300 hover:text-secondary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-secondary after:transition-all after:duration-300 after:ease-out ${active ? "text-secondary after:w-full" : "text-body after:w-0 hover:after:w-full"}`}
+                    className={`relative flex items-center text-sm font-medium transition-colors duration-300 hover:text-secondary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-secondary after:transition-all after:duration-300 after:ease-out ${
+                      active
+                        ? "text-secondary after:w-full"
+                        : "text-foreground after:w-0 hover:after:w-full"
+                    }`}
                   >
                     {link.name}
                     {hasChildren && (
@@ -74,7 +76,6 @@ export default function Navbar() {
                     )}
                   </Link>
 
-                  {/* Dropdown menu */}
                   {hasChildren && (
                     <Dropdown isOpen={openDropdown === link.id}>
                       {link.children?.map((child) => (
@@ -93,24 +94,24 @@ export default function Navbar() {
               );
             })}
 
-            {/* Desktop right side - Theme toggle & CTA */}
+            {/* Desktop right side */}
             <div className="flex items-center space-x-4">
               <ThemeToggle />
-              <Button variant="secondary" size="sm" href="/login">
+              <Button variant="outline" size="sm" href="/login">
                 Login
               </Button>
-              <Button variant="primary" size="sm" href="/select-industry">
+              <Button variant="primary" size="sm" href="/signup">
                 Get Started
               </Button>
             </div>
           </div>
 
-          {/* Mobile/Tablet menu button (visible below lg) */}
+          {/* Mobile menu button */}
           <div className="flex items-center lg:hidden">
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center rounded-md p-2 text-body hover:bg-muted"
+              className="inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-muted"
               aria-expanded={isOpen}
             >
               <span className="sr-only">Open menu</span>
@@ -123,14 +124,14 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile/Tablet Navigation (below lg) */}
+        {/* Mobile/Tablet Navigation */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              variants={slideDown}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
               className="overflow-hidden lg:hidden"
             >
               <div className="space-y-1 pb-4 pt-2">
@@ -140,12 +141,11 @@ export default function Navbar() {
 
                   return (
                     <div key={link.id} className="space-y-1">
-                      {/* Mobile nav item */}
                       <div className="flex items-center justify-between px-3 py-2">
                         <Link
                           href={link.link}
                           className={`text-base font-medium transition-colors hover:text-secondary ${
-                            active ? "text-secondary" : "text-body"
+                            active ? "text-secondary" : "text-foreground"
                           }`}
                           onClick={closeMobileMenu}
                           aria-current={active ? "page" : undefined}
@@ -158,7 +158,7 @@ export default function Navbar() {
                               e.preventDefault();
                               toggleMobileSub(link.id);
                             }}
-                            className="rounded p-1 text-body hover:bg-muted"
+                            className="rounded p-1 text-foreground hover:bg-muted"
                             aria-label="Toggle submenu"
                           >
                             <ChevronDown
@@ -170,7 +170,6 @@ export default function Navbar() {
                         )}
                       </div>
 
-                      {/* Mobile submenu */}
                       {hasChildren && openMobileSub === link.id && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
@@ -185,7 +184,9 @@ export default function Navbar() {
                                 key={child.id}
                                 href={child.link}
                                 className={`block px-3 py-2 text-sm transition-colors hover:text-secondary ${
-                                  childActive ? "text-secondary" : "text-body"
+                                  childActive
+                                    ? "text-secondary"
+                                    : "text-foreground"
                                 }`}
                                 onClick={closeMobileMenu}
                                 aria-current={childActive ? "page" : undefined}
@@ -205,13 +206,13 @@ export default function Navbar() {
                   <Button
                     variant="primary"
                     className="w-full"
-                    href="/select-industry"
+                    href="/signup"
                     onClick={closeMobileMenu}
                   >
                     Get Started
                   </Button>
                   <Button
-                    variant="primary"
+                    variant="outline"
                     className="w-full"
                     href="/login"
                     onClick={closeMobileMenu}
@@ -223,7 +224,7 @@ export default function Navbar() {
             </motion.div>
           )}
         </AnimatePresence>
-      </nav>
+      </Container>
     </header>
   );
 }

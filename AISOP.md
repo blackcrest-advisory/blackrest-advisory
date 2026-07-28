@@ -26,6 +26,14 @@ blackcrest-advisory/  (root)
 │   │   └── layout.tsx
 │   ├── (private)/
 │   │   ├── admin/
+|   |   |    └── dashborad
+|   |           ├── clients/
+│   │           ├── finance/
+│   │           ├── messages/
+│   │           ├── projects/
+│   │           ├── reports/
+│   │           ├── projects/
+│   │           └── settings/    
 │   │   └── client/
 │   │       └── dashboard/
 │   │           ├── files/

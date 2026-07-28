@@ -1,11 +1,14 @@
-// src/components/engagement/EngagementModels.tsx
 "use client";
 
 import { motion } from "framer-motion";
-import { SectionHeader } from "../../shared/SectionHeader";
-import { staggerContainer, fadeInUp } from "@/utils/animations";
 import { BadgeCheck, Clock, Layers, Sparkles } from "lucide-react";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
+import { staggerContainer, fadeInUp } from "@/utils/animations";
 
+//===== Engagement models data =====//
 const models = [
   {
     title: "Retained Partnership",
@@ -20,6 +23,7 @@ const models = [
       "Unlimited ad-hoc support",
     ],
     cta: "Start Retained",
+    popular: true,
   },
   {
     title: "Project-Based",
@@ -34,6 +38,7 @@ const models = [
       "Post-launch handover",
     ],
     cta: "Request a Quote",
+    popular: false,
   },
   {
     title: "Hybrid",
@@ -48,74 +53,99 @@ const models = [
       "Strategic advisory included",
     ],
     cta: "Explore Hybrid",
+    popular: false,
   },
 ];
 
 export const EngagementModels = () => {
   return (
-    <section
-      id="engagement-models"
-      className="py-12 sm:py-16 md:py-20 lg:py-32"
-    >
-      <div className="container px-4 sm:px-6">
-        <SectionHeader
-          tag="Choose Your Path"
-          title="Engagement Models"
-          description="We offer flexible engagement models to suit different client needs, project sizes, and stages of growth."
-        />
+    //===== Engagement models section with three options =====//
+    <Section>
+      <Container>
+        {/*===== Section header =====*/}
+        <div className="mb-12 text-center md:mb-16">
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-secondary">
+            Choose Your Path
+          </span>
+          <h2 className="mt-2 text-3xl font-bold text-foreground sm:text-3xl md:text-4xl">
+            Engagement Models
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+            We offer flexible engagement models to suit different client needs,
+            project sizes, and stages of growth.
+          </p>
+        </div>
 
+        {/*===== Models grid =====*/}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-8"
         >
           {models.map((model) => {
             const Icon = model.icon;
             return (
-              <motion.div
-                key={model.title}
-                variants={fadeInUp}
-                className="group relative flex flex-col rounded-2xl border border-border bg-background p-6 sm:p-8 transition-all hover:shadow-xl hover:-translate-y-1"
-              >
-                {/* Decorative badge */}
-                {model.title === "Retained Partnership" && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-secondary px-3 py-0.5 sm:px-4 sm:py-1 text-[10px] sm:text-xs font-semibold text-cta-text shadow-lg whitespace-nowrap">
-                    Most Popular
+              <motion.div key={model.title} variants={fadeInUp}>
+                <Card
+                  padding="lg"
+                  hoverEffect
+                  className="group relative flex h-full flex-col"
+                >
+                  {/*===== "Most Popular" badge =====*/}
+                  {model.popular && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-secondary px-3 py-0.5 text-[10px] font-semibold text-white shadow-lg sm:px-4 sm:py-1 sm:text-xs whitespace-nowrap">
+                      Most Popular
+                    </div>
+                  )}
+
+                  {/* Icon */}
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-secondary/10 text-secondary transition-colors group-hover:bg-secondary group-hover:text-secondary-foreground sm:h-14 sm:w-14">
+                    <Icon className="h-6 w-6 sm:h-7 sm:w-7" />
                   </div>
-                )}
-                <div className="mb-4 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-cta-text transition-colors">
-                  <Icon className="h-6 w-6 sm:h-7 sm:w-7" />
-                </div>
-                <h3 className="font-display text-lg sm:text-xl font-bold text-foreground mb-2">
-                  {model.title}
-                </h3>
-                <span className="text-xs sm:text-sm font-medium text-secondary/80 uppercase tracking-wider mb-3">
-                  Best for: {model.bestFor}
-                </span>
-                <p className="text-xs sm:text-sm text-body/70 leading-relaxed mb-6">
-                  {model.description}
-                </p>
-                <ul className="space-y-1.5 sm:space-y-2 mb-6 flex-1">
-                  {model.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-start gap-2 text-xs sm:text-sm text-body/80"
-                    >
-                      <Sparkles className="mt-0.5 h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-secondary" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button className="mt-auto w-full rounded-lg border border-secondary/30 bg-transparent py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-secondary transition-all hover:bg-secondary hover:text-cta-text">
-                  {model.cta}
-                </button>
+
+                  {/* Title */}
+                  <h3 className="mb-2 font-display text-lg font-bold text-foreground sm:text-xl">
+                    {model.title}
+                  </h3>
+
+                  {/* Best for */}
+                  <span className="mb-3 text-xs font-medium uppercase tracking-wider text-secondary/80 sm:text-sm">
+                    Best for: {model.bestFor}
+                  </span>
+
+                  {/* Description */}
+                  <p className="mb-6 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                    {model.description}
+                  </p>
+
+                  {/* Features list */}
+                  <ul className="mb-6 flex-1 space-y-1.5 sm:space-y-2">
+                    {model.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-start gap-2 text-xs text-muted-foreground/80 sm:text-sm"
+                      >
+                        <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0 text-secondary sm:h-4 sm:w-4" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA Button */}
+                  <Button
+                    variant="outline"
+                    className="mt-auto w-full border-secondary/30 text-secondary hover:bg-secondary hover:text-primary-foreground"
+                  >
+                    {model.cta}
+                  </Button>
+                </Card>
               </motion.div>
             );
           })}
         </motion.div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };

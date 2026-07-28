@@ -1,51 +1,68 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
-import { IMAGE } from "@/constants/imagesConfig";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Button } from "@/components/ui/Button";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { IMAGE } from "@/constants/imagesConfig";
+import { slideInLeft, slideInRight } from "@/utils/animations";
 
 export default function WhatWeDo() {
   return (
-    <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-background">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Image */}
+    //===== What We Do section =====//
+    <Section className="bg-background">
+      <Container>
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/*===== Left: Image =====*/}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            variants={slideInLeft}
+            initial="hidden"
+            whileInView="visible"
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="relative order-2 lg:order-1"
           >
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-secondary/10 to-secondary/5 border border-border/50">
-              {/* Replace with your actual image */}
-              <div className="w-full h-full flex items-center justify-center text-body/40 text-lg">
-                <Image fill src={IMAGE.seo_image} alt="seo_image" />
-              </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border/50 bg-gradient-to-br from-secondary/10 to-secondary/5">
+              <motion.div
+                whileHover={{
+                  scale: 1.05,
+                  transition: { duration: 0.3, ease: "easeOut" },
+                }}
+                className="relative h-full w-full"
+              >
+                <Image
+                  src={IMAGE.seo_image}
+                  alt="SEO and digital marketing services"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </motion.div>
             </div>
             {/* Decorative element */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-secondary/10 rounded-full -z-10" />
+            <div className="absolute -bottom-4 -right-4 -z-10 h-24 w-24 rounded-full bg-secondary/10" />
           </motion.div>
 
-          {/* Right: Content */}
+          {/*===== Right: Content =====*/}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            variants={slideInRight}
+            initial="hidden"
+            whileInView="visible"
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="order-1 lg:order-2 space-y-6"
+            className="order-1 space-y-6 lg:order-2"
           >
             <div className="space-y-2">
-              <span className="text-secondary font-medium tracking-wider uppercase text-sm">
+              <span className="text-sm font-medium uppercase tracking-wider text-secondary">
                 What We Do as a Marketing Agency
               </span>
-              <h2 className="text-heading text-3xl md:text-4xl font-bold leading-tight">
+              <h2 className="text-3xl font-bold leading-tight text-foreground md:text-4xl">
                 Solutions for Increased Traffic and Higher Sales
               </h2>
             </div>
 
-            <p className="text-body text-base leading-relaxed">
+            <p className="text-base leading-relaxed text-muted-foreground text-justify">
               We don&apos;t just take care of the basics—we develop and execute
               strategic plans that include a blended mix of products targeted to
               improve your customer engagement, boost your organic search
@@ -57,7 +74,7 @@ export default function WhatWeDo() {
             </div>
           </motion.div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

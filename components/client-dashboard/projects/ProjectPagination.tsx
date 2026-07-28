@@ -17,6 +17,7 @@ export function ProjectPagination({
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
+    //===== Pagination Controls =====//
     <div className="flex items-center justify-center gap-1 py-4">
       <Button
         variant="ghost"
@@ -24,6 +25,7 @@ export function ProjectPagination({
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
         className="px-2"
+        aria-label="Previous page"
       >
         <ChevronLeft className="h-4 w-4" />
       </Button>
@@ -31,10 +33,12 @@ export function ProjectPagination({
       {pages.map((page) => (
         <Button
           key={page}
-          variant={page === currentPage ? "primary" : "ghost"}
+          variant={page === currentPage ? "secondary" : "ghost"}
           size="sm"
           onClick={() => onPageChange(page)}
-          className={page === currentPage ? "min-w-[2rem]" : "min-w-[2rem]"}
+          className="min-w-[2rem]"
+          aria-label={`Go to page ${page}`}
+          aria-current={page === currentPage ? "page" : undefined}
         >
           {page}
         </Button>
@@ -46,6 +50,7 @@ export function ProjectPagination({
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
         className="px-2"
+        aria-label="Next page"
       >
         <ChevronRight className="h-4 w-4" />
       </Button>

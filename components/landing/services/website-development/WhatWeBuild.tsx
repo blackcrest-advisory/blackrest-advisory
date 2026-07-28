@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Container } from "@/components/landing/services/website-development/shared/Container";
-import { SectionHeading } from "@/components/landing/services/website-development/shared/SectionHeading";
 import {
   FiBriefcase,
   FiShoppingCart,
@@ -12,6 +10,10 @@ import {
   FiLifeBuoy,
   FiArrowRight,
 } from "react-icons/fi";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { Card } from "@/components/ui/Card";
+import { fadeInUp, staggerContainer, hoverScale } from "@/utils/animations";
 
 const services = [
   {
@@ -52,83 +54,111 @@ const services = [
   },
 ];
 
-const WhatWeBuild = () => {
+export default function WhatWeBuild() {
   return (
-    <section className="relative py-16 md:py-24 bg-[var(--color-card-bg)] overflow-hidden">
+    //===== What We Build Section =====//
+    <Section className="relative overflow-hidden bg-muted/30">
       {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-[var(--color-secondary)]/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none" />
+      <div className="absolute inset-0 bg-secondary/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none" />
 
       <Container>
-        <SectionHeading
-          title="What We Build"
-          subtitle="From simple business sites to complex web applications – we deliver tailored solutions that align with your goals."
-        />
-
-        <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                delay: index * 0.08,
-                type: "spring",
-                stiffness: 80,
-              }}
-              className="group relative rounded-2xl bg-[var(--color-background)] p-6 shadow-sm transition-all duration-300 hover:shadow-xl border border-[var(--color-border)] hover:border-[var(--color-secondary)]/40"
-              whileHover={{ y: -8 }}
-            >
-              {/* Golden top accent bar */}
-              <div className="absolute -top-px left-6 right-6 h-0.5 rounded-full bg-linear-to-r from-transparent via-[var(--color-secondary)] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
-              {/* Glow overlay on hover */}
-              <div className="absolute inset-0 rounded-2xl bg-[var(--color-secondary)]/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
-              <div className="relative z-10">
-                {/* Icon – golden gradient circle */}
-                <div className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-[var(--color-secondary)]/20 to-[var(--color-secondary)]/5 text-[var(--color-secondary)] transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[var(--color-secondary)]/20">
-                  <service.icon className="h-7 w-7" />
-                </div>
-
-                <h3 className="mt-4 text-xl font-semibold text-[var(--color-heading)] group-hover:text-[var(--color-secondary)] transition-colors duration-300">
-                  {service.title}
-                </h3>
-
-                <p className="mt-2 text-sm text-[var(--color-body)] leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Arrow indicator at bottom right */}
-                <div className="mt-4 flex justify-end">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-secondary)]/10 text-[var(--color-secondary)] transition-all duration-300 group-hover:bg-[var(--color-secondary)] group-hover:text-white group-hover:translate-x-1">
-                    <FiArrowRight className="h-4 w-4" />
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+        {/*===== Section header =====*/}
+        <div className="text-center">
+          <motion.span
+            className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary"
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            ✦ What We Build
+          </motion.span>
+          <motion.h2
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl"
+          >
+            What We Build
+          </motion.h2>
+          <motion.p
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground"
+          >
+            From simple business sites to complex web applications – we deliver
+            tailored solutions that align with your goals.
+          </motion.p>
         </div>
 
-        {/* Bottom golden CTA badge */}
+        {/*===== Services grid =====*/}
         <motion.div
-          className="mt-16 flex justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {services.map((service) => (
+            <motion.div key={service.title} variants={fadeInUp} {...hoverScale}>
+              <Card
+                padding="base"
+                hoverEffect
+                className="group relative overflow-hidden border-border/50"
+              >
+                {/* Golden top accent bar */}
+                <div className="absolute -top-px left-6 right-6 h-0.5 rounded-full bg-gradient-to-r from-transparent via-secondary to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                {/* Glow overlay on hover */}
+                <div className="absolute inset-0 rounded-2xl bg-secondary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                <div className="relative z-10">
+                  {/* Icon – golden gradient circle */}
+                  <div className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 text-secondary transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-secondary/20">
+                    <service.icon className="h-7 w-7" />
+                  </div>
+
+                  <h3 className="mt-4 text-xl font-semibold text-foreground transition-colors duration-300 group-hover:text-secondary">
+                    {service.title}
+                  </h3>
+
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {service.description}
+                  </p>
+
+                  {/* Arrow indicator at bottom right */}
+                  <div className="mt-4 flex justify-end">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-secondary/10 text-secondary transition-all duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground group-hover:translate-x-1">
+                      <FiArrowRight className="h-4 w-4" />
+                    </span>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/*===== Bottom golden CTA badge =====*/}
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
+          className="mt-16 flex justify-center"
         >
-          <div className="flex items-center gap-3 rounded-full border border-[var(--color-secondary)]/20 bg-[var(--color-background)] px-6 py-3 shadow-sm">
-            <span className="text-[var(--color-secondary)]">✦</span>
-            <span className="text-sm font-medium text-[var(--color-heading)]">
+          <div className="flex items-center gap-3 rounded-full border border-secondary/20 bg-card px-6 py-3 shadow-sm">
+            <span className="text-secondary">✦</span>
+            <span className="text-sm font-medium text-foreground">
               Every project is custom‑built for your unique needs
             </span>
-            <span className="text-[var(--color-secondary)]">✦</span>
+            <span className="text-secondary">✦</span>
           </div>
         </motion.div>
       </Container>
-    </section>
+    </Section>
   );
-};
-
-export default WhatWeBuild;
+}

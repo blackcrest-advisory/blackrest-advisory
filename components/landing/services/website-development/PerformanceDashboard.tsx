@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { Container } from "@/components/landing/services/website-development/shared/Container";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import CountUp from "react-countup";
 import {
   FiZap,
@@ -12,7 +11,11 @@ import {
   FiClock,
   FiActivity,
 } from "react-icons/fi";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { fadeInUp, staggerContainer, hoverScale } from "@/utils/animations";
 
+//===== Metrics data =====//
 const metrics = [
   {
     label: "Performance",
@@ -70,224 +73,214 @@ const metrics = [
   },
 ];
 
-const PerformanceDashboard = () => {
-  const [isVisible, setIsVisible] = useState(false);
+export default function PerformanceDashboard() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 },
-    );
-    const section = document.getElementById("performance");
-    if (section) observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
-
-  // Calculate circle circumference for progress rings
   const radius = 36;
   const circumference = 2 * Math.PI * radius;
 
   return (
-    <section
-      id="performance"
-      className="relative py-16 md:py-24 bg-[var(--color-card-bg)] overflow-hidden"
-    >
-      {/* Background decorations */}
-      <div className="absolute inset-0 bg-[var(--color-secondary)]/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none" />
+    <Section className="relative overflow-hidden bg-muted/30">
+      {/* Wrapper div with ref – useScroll/useInView observes this */}
+      <div ref={sectionRef}>
+        <Container>
+          {/* Background decorations */}
+          <div className="absolute inset-0 bg-secondary/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none" />
+          <div className="absolute top-20 left-10 h-2 w-2 rounded-full bg-secondary/20 blur-sm" />
+          <div className="absolute bottom-20 right-10 h-3 w-3 rounded-full bg-secondary/20 blur-sm" />
+          <div className="absolute top-1/2 left-1/4 h-1.5 w-1.5 rounded-full bg-secondary/10 blur-sm" />
 
-      {/* Floating golden dots */}
-      <div className="absolute top-20 left-10 h-2 w-2 rounded-full bg-[var(--color-secondary)]/20 blur-sm" />
-      <div className="absolute bottom-20 right-10 h-3 w-3 rounded-full bg-[var(--color-secondary)]/20 blur-sm" />
-      <div className="absolute top-1/2 left-1/4 h-1.5 w-1.5 rounded-full bg-[var(--color-secondary)]/10 blur-sm" />
+          {/*===== Section header =====*/}
+          <div className="text-center">
+            <motion.span
+              className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary"
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              ✦ Core Web Vitals
+            </motion.span>
+            <motion.h2
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl"
+            >
+              Performance <span className="text-secondary">Dashboard</span>
+            </motion.h2>
+            <motion.p
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground"
+            >
+              We build for speed and reliability – every website is optimised to
+              pass Google&apos;s Core Web Vitals with flying colours.
+            </motion.p>
+          </div>
 
-      <Container>
-        {/* Gold-accented heading */}
-        <div className="text-center">
-          <motion.span
-            className="inline-block rounded-full bg-[var(--color-secondary)]/10 px-4 py-1.5 text-sm font-medium text-[var(--color-secondary)]"
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          {/*===== Metrics Grid =====*/}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
+            className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6"
           >
-            ✦ Core Web Vitals
-          </motion.span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-[var(--color-heading)] sm:text-4xl md:text-5xl">
-            Performance{" "}
-            <span className="text-[var(--color-secondary)]">Dashboard</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-[var(--color-body)]">
-            We build for speed and reliability – every website is optimised to
-            pass Google&apos;s Core Web Vitals with flying colours.
-          </p>
-        </div>
+            {metrics.map((metric, index) => {
+              const Icon = metric.icon;
+              const progress = metric.value / 100;
+              const strokeDashoffset = circumference * (1 - progress);
 
-        {/* Metrics Grid */}
-        <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
-          {metrics.map((metric, index) => {
-            const Icon = metric.icon;
-            // Calculate progress for the ring
-            const progress = metric.value / 100;
-            const strokeDashoffset = circumference * (1 - progress);
+              return (
+                <motion.div
+                  key={metric.label}
+                  variants={fadeInUp}
+                  {...hoverScale}
+                >
+                  <div className="group relative rounded-2xl border border-border/50 bg-card p-6 text-center shadow-sm transition-all duration-300 hover:border-secondary/30 hover:shadow-xl">
+                    {/* Golden glow on hover */}
+                    <div className="absolute inset-0 rounded-2xl bg-secondary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-            return (
-              <motion.div
-                key={metric.label}
-                className="group relative rounded-2xl border border-[var(--color-border)] bg-[var(--color-background)] p-6 text-center shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[var(--color-secondary)]/30"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{
-                  delay: index * 0.08,
-                  type: "spring",
-                  stiffness: 80,
-                }}
-                whileHover={{ y: -4 }}
-              >
-                {/* Golden glow on hover */}
-                <div className="absolute inset-0 rounded-2xl bg-[var(--color-secondary)]/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    {/* Small golden top accent */}
+                    <div className="absolute -top-px left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-secondary/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-                {/* Small golden top accent */}
-                <div className="absolute -top-px left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-[var(--color-secondary)]/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    <div className="relative z-10">
+                      {/* Circular progress ring */}
+                      <div className="relative mx-auto flex h-24 w-24 items-center justify-center">
+                        <svg className="h-24 w-24 -rotate-90 transform">
+                          {/* Background circle */}
+                          <circle
+                            cx="48"
+                            cy="48"
+                            r={radius}
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                            className="text-border"
+                            opacity="0.3"
+                          />
+                          {/* Progress circle with gradient */}
+                          <motion.circle
+                            cx="48"
+                            cy="48"
+                            r={radius}
+                            fill="none"
+                            stroke="url(#goldGradient)"
+                            strokeWidth="4"
+                            strokeLinecap="round"
+                            strokeDasharray={circumference}
+                            initial={{ strokeDashoffset: circumference }}
+                            animate={{
+                              strokeDashoffset: isInView
+                                ? strokeDashoffset
+                                : circumference,
+                            }}
+                            transition={{
+                              duration: 1.8,
+                              delay: index * 0.1,
+                              ease: "easeOut",
+                            }}
+                            className={metric.ringColor}
+                          />
+                          <defs>
+                            <linearGradient
+                              id="goldGradient"
+                              x1="0%"
+                              y1="0%"
+                              x2="100%"
+                              y2="100%"
+                            >
+                              <stop
+                                offset="0%"
+                                stopColor="var(--color-secondary)"
+                              />
+                              <stop
+                                offset="100%"
+                                stopColor="var(--color-secondary)"
+                                stopOpacity="0.6"
+                              />
+                            </linearGradient>
+                          </defs>
+                        </svg>
 
-                <div className="relative z-10">
-                  {/* Circular progress ring */}
-                  <div className="relative mx-auto flex h-24 w-24 items-center justify-center">
-                    <svg className="h-24 w-24 -rotate-90 transform">
-                      {/* Background circle */}
-                      <circle
-                        cx="48"
-                        cy="48"
-                        r={radius}
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                        className="text-[var(--color-border)]"
-                        opacity="0.3"
-                      />
-                      {/* Progress circle with gradient */}
-                      <motion.circle
-                        cx="48"
-                        cy="48"
-                        r={radius}
-                        fill="none"
-                        stroke="url(#goldGradient)"
-                        strokeWidth="4"
-                        strokeLinecap="round"
-                        strokeDasharray={circumference}
-                        initial={{ strokeDashoffset: circumference }}
-                        animate={{
-                          strokeDashoffset: isVisible
-                            ? strokeDashoffset
-                            : circumference,
-                        }}
-                        transition={{
-                          duration: 1.8,
-                          delay: index * 0.1,
-                          ease: "easeOut",
-                        }}
-                        className={metric.ringColor}
-                      />
-                      {/* Gradient definition */}
-                      <defs>
-                        <linearGradient
-                          id="goldGradient"
-                          x1="0%"
-                          y1="0%"
-                          x2="100%"
-                          y2="100%"
+                        {/* Icon in the center */}
+                        <div
+                          className={`absolute flex h-10 w-10 items-center justify-center rounded-full ${metric.bg} ${metric.color} transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-secondary/20`}
                         >
-                          <stop
-                            offset="0%"
-                            stopColor="var(--color-secondary)"
-                          />
-                          <stop
-                            offset="100%"
-                            stopColor="var(--color-secondary)"
-                            stopOpacity="0.6"
-                          />
-                        </linearGradient>
-                      </defs>
-                    </svg>
+                          <Icon className="h-5 w-5" />
+                        </div>
+                      </div>
 
-                    {/* Icon in the center */}
-                    <div
-                      className={`absolute flex h-10 w-10 items-center justify-center rounded-full ${metric.bg} ${metric.color} transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-[var(--color-secondary)]/20`}
-                    >
-                      <Icon className="h-5 w-5" />
-                    </div>
-                  </div>
+                      {/* Value */}
+                      <div className="mt-3">
+                        <span className="text-2xl font-bold text-foreground">
+                          {isInView ? (
+                            <CountUp
+                              end={metric.value}
+                              duration={2.5}
+                              decimals={metric.label === "Load Time" ? 1 : 0}
+                              delay={index * 0.08}
+                              redraw={true}
+                            />
+                          ) : (
+                            metric.value
+                          )}
+                          <span className="text-sm font-normal text-muted-foreground">
+                            {metric.unit}
+                          </span>
+                        </span>
+                      </div>
 
-                  {/* Value */}
-                  <div className="mt-3">
-                    <span className="text-2xl font-bold text-[var(--color-heading)]">
-                      {isVisible ? (
-                        <CountUp
-                          end={metric.value}
-                          duration={2.5}
-                          decimals={metric.label === "Load Time" ? 1 : 0}
-                          delay={index * 0.08}
-                          redraw={true}
-                        />
-                      ) : (
-                        metric.value
+                      {/* Label */}
+                      <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                        {metric.label}
+                      </div>
+
+                      {/* Score badge for 100 scores */}
+                      {metric.value >= 100 && (
+                        <div className="mt-2 inline-flex items-center gap-1 rounded-full bg-secondary/10 px-2.5 py-0.5 text-[10px] font-bold text-secondary">
+                          ✦ Perfect
+                        </div>
                       )}
-                      <span className="text-sm font-normal text-[var(--color-body)]">
-                        {metric.unit}
-                      </span>
-                    </span>
-                  </div>
-
-                  {/* Label */}
-                  <div className="mt-1 text-xs font-medium uppercase tracking-wider text-[var(--color-body)]">
-                    {metric.label}
-                  </div>
-
-                  {/* Score badge for 100 scores */}
-                  {metric.value >= 100 && (
-                    <div className="mt-2 inline-flex items-center gap-1 rounded-full bg-[var(--color-secondary)]/10 px-2.5 py-0.5 text-[10px] font-bold text-[var(--color-secondary)]">
-                      ✦ Perfect
                     </div>
-                  )}
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
 
-        {/* Bottom golden badge with additional stats */}
-        <motion.div
-          className="mt-14 flex flex-wrap justify-center gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-        >
-          <div className="flex items-center gap-3 rounded-full border border-[var(--color-secondary)]/20 bg-[var(--color-background)] px-5 py-2.5 shadow-sm">
-            <span className="text-[var(--color-secondary)]">✦</span>
-            <span className="text-sm font-medium text-[var(--color-heading)]">
-              Google PageSpeed Insights Score
-            </span>
-            <span className="text-sm font-bold text-[var(--color-secondary)]">
-              98+
-            </span>
-            <span className="text-[var(--color-secondary)]">✦</span>
-          </div>
-          <div className="flex items-center gap-3 rounded-full border border-[var(--color-secondary)]/20 bg-[var(--color-background)] px-5 py-2.5 shadow-sm">
-            <span className="text-[var(--color-secondary)]">✦</span>
-            <span className="text-sm font-medium text-[var(--color-heading)]">
-              Lighthouse Certified
-            </span>
-            <span className="text-[var(--color-secondary)]">✦</span>
-          </div>
-        </motion.div>
-      </Container>
-    </section>
+          {/*===== Bottom golden badges =====*/}
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ delay: 0.6 }}
+            className="mt-14 flex flex-wrap justify-center gap-4"
+          >
+            <div className="flex items-center gap-3 rounded-full border border-secondary/20 bg-card px-5 py-2.5 shadow-sm">
+              <span className="text-secondary">✦</span>
+              <span className="text-sm font-medium text-foreground">
+                Google PageSpeed Insights Score
+              </span>
+              <span className="text-sm font-bold text-secondary">98+</span>
+              <span className="text-secondary">✦</span>
+            </div>
+            <div className="flex items-center gap-3 rounded-full border border-secondary/20 bg-card px-5 py-2.5 shadow-sm">
+              <span className="text-secondary">✦</span>
+              <span className="text-sm font-medium text-foreground">
+                Lighthouse Certified
+              </span>
+              <span className="text-secondary">✦</span>
+            </div>
+          </motion.div>
+        </Container>
+      </div>
+    </Section>
   );
-};
-
-export default PerformanceDashboard;
+}

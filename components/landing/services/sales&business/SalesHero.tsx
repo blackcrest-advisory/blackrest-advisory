@@ -1,15 +1,21 @@
-// components/sales-support/SalesHero.tsx
 "use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-
-import { FaBullseye, FaUsersGear, FaHandshake } from "react-icons/fa6";
 import CountUp from "react-countup";
-import { SectionHeading } from "@/components/landing/services/sales&business/SectionHeading";
-import { Button } from "@/components/ui/Button";
-import { IMAGE } from "@/constants/imagesConfig";
+import { FaBullseye, FaUsersGear, FaHandshake } from "react-icons/fa6";
 import { Funnel } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { IMAGE } from "@/constants/imagesConfig";
+import {
+  slideInLeft,
+  scaleIn,
+  fadeInUp,
+  staggerContainer,
+  hoverScale,
+} from "@/utils/animations";
 
 export const SalesHero = () => {
   const stats = [
@@ -19,84 +25,95 @@ export const SalesHero = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[var(--color-background)] py-20 md:py-28 lg:py-36">
-      {/* Decorative gradients */}
+    //===== Sales & Business Support Hero Section =====//
+    <Section className="relative overflow-hidden bg-background">
+      {/*===== Decorative gradients =====*/}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-linear-to-bl from-[var(--color-secondary)]/10 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-linear-to-tr from-[var(--color-primary)]/5 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-secondary/10 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-primary/5 to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left content */}
+      <Container>
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/*===== Left content =====*/}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            variants={slideInLeft}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <SectionHeading
-              label="✦ Sales & Business Support"
-              title={
-                <>
-                  Sales &{" "}
-                  <span className="text-[var(--color-secondary)]">
-                    Business Support
-                  </span>{" "}
-                  Services
-                </>
-              }
-              subtitle="Technology and marketing are only as powerful as the sales process behind them. Blackcrest provides professional sales support services that help European businesses build stronger pipelines, close more deals, and retain clients for longer."
-              align="left"
-              className="!max-w-full"
-            />
+            {/* Badge */}
+            <span className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary">
+              ✦ Sales & Business Support
+            </span>
 
-            <div className="flex flex-wrap gap-4 mt-8">
-              <Button href="#capabilities" variant="primary" size="lg">
+            {/* Heading */}
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+              Sales & <span className="text-secondary">Business Support</span>{" "}
+              Services
+            </h2>
+
+            {/* Description */}
+            <p className="mt-4 text-base text-muted-foreground text-justify">
+              Technology and marketing are only as powerful as the sales process
+              behind them. Blackcrest provides professional sales support
+              services that help European businesses build stronger pipelines,
+              close more deals, and retain clients for longer.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button href="#capabilities" variant="primary" size="md">
                 Explore Services
               </Button>
-              <Button href="#contact" variant="outline" size="lg">
+              <Button href="#contact" variant="outline" size="md">
                 Talk to an Expert
               </Button>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-[var(--color-border)]">
+            {/*===== Stats =====*/}
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="mt-12 grid grid-cols-3 gap-6 border-t border-border pt-8"
+            >
               {stats.map((stat, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 * idx, duration: 0.5 }}
+                  variants={fadeInUp}
+                  transition={{ delay: 0.1 * idx }}
                   className="text-left"
                 >
-                  <div className="text-3xl md:text-4xl font-bold text-[var(--color-secondary)]">
+                  <div className="text-3xl font-bold text-secondary md:text-4xl">
                     <CountUp
                       end={stat.value}
                       duration={2.5}
                       suffix={stat.suffix}
                     />
                   </div>
-                  <p className="text-sm text-[var(--color-body)] mt-1">
+                  <p className="mt-1 text-sm text-muted-foreground">
                     {stat.label}
                   </p>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
 
-          {/* Right visual card */}
+          {/*===== Right visual card =====*/}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            variants={scaleIn}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="relative"
           >
-            <div className="bg-[var(--color-card-bg)] border border-[var(--color-border)] rounded-2xl shadow-xl overflow-hidden p-6 md:p-8 backdrop-blur-sm">
-              {/* Optional image */}
-              <div className="relative w-full h-48 md:h-56 rounded-xl overflow-hidden mb-6">
+            <div className="overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-xl backdrop-blur-sm md:p-8">
+              {/* Image */}
+              <div className="relative mb-6 h-48 w-full overflow-hidden rounded-xl md:h-56">
                 <Image
                   src={IMAGE.salesHeroImage}
                   alt="Sales support team"
@@ -105,7 +122,14 @@ export const SalesHero = () => {
                 />
               </div>
 
-              <div className="space-y-4">
+              {/* Service items */}
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="space-y-4"
+              >
                 {[
                   {
                     icon: FaBullseye,
@@ -130,30 +154,28 @@ export const SalesHero = () => {
                 ].map((item, idx) => (
                   <motion.div
                     key={idx}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 * idx, duration: 0.4 }}
-                    className="flex items-start gap-4 p-3 rounded-lg hover:bg-[var(--color-primary)]/5 transition-colors"
+                    variants={fadeInUp}
+                    {...hoverScale}
+                    className="flex items-start gap-4 rounded-lg p-3 transition-colors hover:bg-primary/5"
                   >
-                    <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--color-secondary)]/10 text-[var(--color-secondary)]">
-                      <item.icon className="w-5 h-5" />
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary/10 text-secondary">
+                      <item.icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="font-semibold text-[var(--color-heading)]">
+                      <p className="font-semibold text-foreground">
                         {item.text}
                       </p>
-                      <p className="text-sm text-[var(--color-body)]">
+                      <p className="text-sm text-muted-foreground">
                         {item.desc}
                       </p>
                     </div>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };

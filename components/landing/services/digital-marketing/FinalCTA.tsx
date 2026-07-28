@@ -1,39 +1,42 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, Globe } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { fadeInUp } from "@/utils/animations";
 
 export default function FinalCTA() {
   return (
-    <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-secondary/5 border-t border-border/50">
-      <div className="max-w-4xl mx-auto text-center">
+    <Section className="border-border/50">
+      <Container>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          className="space-y-6"
+          className="mx-auto max-w-4xl space-y-6 text-center"
         >
-          <h2 className="text-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground lg:text-4xl">
             Ready to Amplify Your Digital Presence?
           </h2>
-          <p className="text-body text-lg max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Let&apos;s create a digital marketing strategy that drives real
             results for your business.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Button variant="primary" size="lg" className="group">
+          <div className="flex flex-col items-center justify-center gap-4 pt-4 sm:flex-row">
+            <Button variant="primary" size="md" className="group">
               Request Proposal
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="md">
               hello@blackcrestadvisory.com
               <Mail className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </motion.div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

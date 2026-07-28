@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import { Invoice } from "@/types/dashboard/client/invoiceTypes";
 import {
@@ -12,7 +13,9 @@ import {
   TableCell,
 } from "@/components/ui/Table";
 import { Input } from "@/components/ui/Input";
+import { Card } from "@/components/ui/Card";
 import { InvoiceStatusBadge } from "./InvoiceStatusBadge";
+import { fadeInUp, hoverScale } from "@/utils/animations";
 
 interface InvoicesTableProps {
   invoices: Invoice[];
@@ -29,68 +32,78 @@ export const InvoicesTable = ({ invoices }: InvoicesTableProps) => {
   );
 
   return (
-    <div className="space-y-4">
-      {/* Search */}
-      <div className="max-w-sm">
-        <Input
-          icon={Search}
-          placeholder="Search invoices..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
+    //===== Invoices Table Card =====//
+    <motion.div
+      variants={fadeInUp}
+      initial="hidden"
+      animate="visible"
+      {...hoverScale}
+    >
+      <Card padding="base" hoverEffect className="rounded-xl">
+        <div className="space-y-4">
+          {/*===== Search =====*/}
+          <div className="max-w-sm">
+            <Input
+              icon={Search}
+              placeholder="Search invoices..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
 
-      {/* Table */}
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead>Invoice #</TableHead>
-            <TableHead>Client</TableHead>
-            <TableHead>Project</TableHead>
-            <TableHead>Amount</TableHead>
-            <TableHead>Issue Date</TableHead>
-            <TableHead>Due Date</TableHead>
-            <TableHead>Status</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {filtered.length === 0 ? (
-            <TableRow>
-              <TableCell
-                colSpan={7}
-                className="text-center text-[var(--color-body)]"
-              >
-                No invoices found.
-              </TableCell>
-            </TableRow>
-          ) : (
-            filtered.map((invoice) => (
-              <TableRow key={invoice.id}>
-                <TableCell className="font-mono text-sm">
-                  {invoice.invoiceNumber}
-                </TableCell>
-                <TableCell>{invoice.clientName}</TableCell>
-                <TableCell>{invoice.projectName}</TableCell>
-                <TableCell>
-                  $
-                  {invoice.amount.toLocaleString("en-US", {
-                    minimumFractionDigits: 2,
-                  })}
-                </TableCell>
-                <TableCell>
-                  {new Date(invoice.issueDate).toLocaleDateString()}
-                </TableCell>
-                <TableCell>
-                  {new Date(invoice.dueDate).toLocaleDateString()}
-                </TableCell>
-                <TableCell>
-                  <InvoiceStatusBadge status={invoice.status} />
-                </TableCell>
+          {/*===== Table =====*/}
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Invoice #</TableHead>
+                <TableHead>Client</TableHead>
+                <TableHead>Project</TableHead>
+                <TableHead>Amount</TableHead>
+                <TableHead>Issue Date</TableHead>
+                <TableHead>Due Date</TableHead>
+                <TableHead>Status</TableHead>
               </TableRow>
-            ))
-          )}
-        </TableBody>
-      </Table>
-    </div>
+            </TableHeader>
+            <TableBody>
+              {filtered.length === 0 ? (
+                <TableRow>
+                  <TableCell
+                    colSpan={7}
+                    className="text-center text-muted-foreground"
+                  >
+                    No invoices found.
+                  </TableCell>
+                </TableRow>
+              ) : (
+                filtered.map((invoice) => (
+                  <TableRow key={invoice.id}>
+                    <TableCell className="font-mono text-sm">
+                      {invoice.invoiceNumber}
+                    </TableCell>
+                    <TableCell>{invoice.clientName}</TableCell>
+                    <TableCell>{invoice.projectName}</TableCell>
+                    <TableCell>
+                      $
+                      {invoice.amount.toLocaleString("en-US", {
+                        minimumFractionDigits: 2,
+                      })}
+                    </TableCell>
+                    <TableCell>
+                      {new Date(invoice.issueDate).toLocaleDateString("en-GB")}
+                    </TableCell>
+                    <TableCell>
+                      {new Date(invoice.dueDate).toLocaleDateString("en-GB")}
+                    </TableCell>
+                    <TableCell>
+                      <InvoiceStatusBadge status={invoice.status} />
+                    </TableCell>
+                  </TableRow>
+                ))
+              )}
+            </TableBody>
+          </Table>
+        </div>
+      </Card>
+    </motion.div>
   );
 };

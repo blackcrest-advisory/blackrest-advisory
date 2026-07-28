@@ -1,9 +1,11 @@
-// components/dashboard/UpcomingMilestones/UpcomingMilestones.tsx
 "use client";
 
+import { motion } from "framer-motion";
 import { Milestone } from "@/types/dashboard/client/overviewType";
-import { MilestoneItem } from "./MilestoneItem";
 import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
+import { MilestoneItem } from "./MilestoneItem";
+import { fadeInUp, hoverScale } from "@/utils/animations";
 
 interface UpcomingMilestonesProps {
   milestones: Milestone[];
@@ -11,20 +13,28 @@ interface UpcomingMilestonesProps {
 
 export const UpcomingMilestones = ({ milestones }: UpcomingMilestonesProps) => {
   return (
-    <div className="bg-[var(--color-card-bg)] border border-[var(--color-card-border)] rounded-xl p-4 md:p-6 shadow-sm">
-      <h2 className="text-lg font-semibold text-[var(--color-heading)] mb-4">
-        🎯 Upcoming Milestones
-      </h2>
-      <ul className="space-y-3">
-        {milestones.map((item, idx) => (
-          <MilestoneItem key={idx} milestone={item} index={idx} />
-        ))}
-      </ul>
-      <div className="mt-4 pt-4 border-t border-[var(--color-border)]">
-        <Button variant="outline" size="sm" className="w-full">
-          View All Milestones
-        </Button>
-      </div>
-    </div>
+    //===== Upcoming Milestones Card =====//
+    <motion.div
+      variants={fadeInUp}
+      initial="hidden"
+      animate="visible"
+      {...hoverScale}
+    >
+      <Card padding="base" hoverEffect className="rounded-xl">
+        <h2 className="mb-4 text-lg font-semibold text-foreground">
+          Upcoming Milestones
+        </h2>
+        <ul className="space-y-3">
+          {milestones.map((item, idx) => (
+            <MilestoneItem key={idx} milestone={item} index={idx} />
+          ))}
+        </ul>
+        <div className="mt-4 border-t border-border pt-4">
+          <Button variant="outline" size="sm" className="w-full">
+            View All Milestones
+          </Button>
+        </div>
+      </Card>
+    </motion.div>
   );
 };

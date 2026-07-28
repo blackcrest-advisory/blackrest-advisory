@@ -3,46 +3,55 @@
 import { motion } from "framer-motion";
 import { Globe, TrendingUp, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import {
+  fadeInUp,
+  fadeIn,
+  slideInLeft,
+  scaleIn,
+  floatShape,
+  gradientShift,
+  pulseScale,
+  orbit,
+  orbitReverse,
+} from "@/utils/animations";
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-background py-20 md:py-32">
+    <Section>
       {/* Animated gradient background */}
       <motion.div
-        className="absolute inset-0 -z-10 bg-gradient-to-br from-secondary/5 via-transparent to-primary/5"
-        animate={{
-          background: [
-            "radial-gradient(circle at 20% 50%, rgba(99,102,241,0.05) 0%, transparent 50%)",
-            "radial-gradient(circle at 80% 50%, rgba(99,102,241,0.08) 0%, transparent 50%)",
-          ],
-        }}
-        transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
+        className="absolute inset-0 -z-10"
+        variants={gradientShift}
+        initial="initial"
+        animate="animate"
       />
 
       {/* Floating decorative shapes */}
       <motion.div
         className="absolute -left-20 top-20 h-40 w-40 rounded-full bg-secondary/10 blur-3xl"
-        animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        variants={floatShape}
+        initial="initial"
+        animate="animate"
       />
       <motion.div
         className="absolute -bottom-32 right-10 h-64 w-64 rounded-full bg-primary/5 blur-3xl"
-        animate={{ x: [0, -40, 0], y: [0, 30, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        variants={floatShape}
+        initial="initial"
+        animate="animate"
+        transition={{ delay: 0.5 }} // offset the second shape
       />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          {/* Left content - unchanged except slight timing tweaks */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
+          {/* Left content */}
+          <motion.div variants={slideInLeft} initial="hidden" animate="visible">
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: 0.2 }}
             >
               <span className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary backdrop-blur-sm">
                 B2B International Digital Solutions
@@ -51,9 +60,10 @@ const Hero = () => {
 
             <motion.h1
               className="mt-6 text-4xl font-bold tracking-tight text-heading sm:text-5xl md:text-6xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.7 }}
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: 0.3 }}
             >
               Empowering European{" "}
               <span className="relative whitespace-nowrap text-secondary">
@@ -70,9 +80,10 @@ const Hero = () => {
 
             <motion.p
               className="mt-6 text-lg text-body md:text-xl"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
+              variants={fadeIn}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: 0.5 }}
             >
               Blackcrest Advisory combines strategic thinking with hands-on
               execution across technology, marketing, and sales to drive
@@ -81,19 +92,20 @@ const Hero = () => {
 
             <motion.div
               className="mt-8 flex flex-wrap gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.6 }}
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: 0.7 }}
             >
               <Button
                 variant="primary"
-                size="lg"
+                size="md"
                 href="/signup"
                 className="shadow-lg shadow-secondary/20"
               >
                 Get Started
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="md" href="/about">
                 Learn More
               </Button>
             </motion.div>
@@ -101,9 +113,10 @@ const Hero = () => {
             {/* Stats */}
             <motion.div
               className="mt-12 flex flex-wrap gap-8 border-t border-border/40 pt-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.6 }}
+              variants={fadeIn}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: 0.9 }}
             >
               <div>
                 <p className="text-2xl font-bold text-heading">100+</p>
@@ -122,21 +135,19 @@ const Hero = () => {
 
           {/* Right section - Premium abstract visual */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            variants={scaleIn}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 0.3 }}
             className="relative flex justify-center"
           >
             <div className="relative h-72 w-full max-w-md lg:h-80">
               {/* Central glowing circle */}
               <motion.div
-                className="absolute inset-0 m-auto h-48 w-48 rounded-full bg-gradient-to-br from-secondary/20 to-primary/10 blur-2xl"
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+                className="absolute inset-0 m-auto h-48 w-48 rounded-full bg-linear-to-br from-secondary/20 to-primary/10 blur-2xl"
+                variants={pulseScale}
+                initial="initial"
+                animate="animate"
               />
 
               {/* Main circle with border and pulse */}
@@ -151,7 +162,6 @@ const Hero = () => {
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                {/* Inner content - you can replace this with an <img> tag if you have an image */}
                 <div className="flex h-full flex-col items-center justify-center p-6 text-center">
                   <Globe
                     className="h-12 w-12 text-secondary"
@@ -169,8 +179,9 @@ const Hero = () => {
               {/* Orbiting icons */}
               <motion.div
                 className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                variants={orbit}
+                initial="initial"
+                animate="animate"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 backdrop-blur-sm border border-secondary/20">
                   <TrendingUp className="h-6 w-6 text-secondary" />
@@ -178,9 +189,10 @@ const Hero = () => {
               </motion.div>
 
               <motion.div
-                className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                className="absolute bottom-4 md:bottom-0 right-4 md:right-0 translate-x-1/2 translate-y-1/2"
+                variants={orbitReverse}
+                initial="initial"
+                animate="animate"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20">
                   <Sparkles className="h-6 w-6 text-primary" />
@@ -199,13 +211,13 @@ const Hero = () => {
                 transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
               />
 
-              {/* Dashed connecting lines (pure CSS) */}
+              {/* Dashed connecting lines */}
               <div className="absolute inset-0 m-auto h-48 w-48 rounded-full border-2 border-dashed border-secondary/10" />
             </div>
           </motion.div>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 

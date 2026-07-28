@@ -7,6 +7,7 @@ import {
   FilesSortOption,
   FileTypeFilter,
 } from "@/types/dashboard/client/filesType";
+import { Card } from "@/components/ui/Card";
 
 interface FilesFilterBarProps {
   search: string;
@@ -42,7 +43,7 @@ export const FilesFilterBar = ({
   onSortByChange,
 }: FilesFilterBarProps) => {
   return (
-    <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+    <Card className="flex flex-col gap-3 sm:flex-row sm:items-center">
       <Input
         icon={Search}
         placeholder="Search files or projects..."
@@ -66,6 +67,6 @@ export const FilesFilterBar = ({
           className="sm:w-44"
         />
       </div>
-    </div>
+    </Card>
   );
 };
