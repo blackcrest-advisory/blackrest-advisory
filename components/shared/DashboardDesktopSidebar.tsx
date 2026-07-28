@@ -34,13 +34,11 @@ export default function DashboardDesktopSidebar({
   const [isLogoHovered, setIsLogoHovered] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
+  //===== Handle logout =====//
   const handleLogout = async () => {
-    if (isLoggingOut) {
-      return;
-    }
+    if (isLoggingOut) return;
 
     setIsLoggingOut(true);
-
     try {
       await logoutUser();
       router.replace("/login");
@@ -54,10 +52,11 @@ export default function DashboardDesktopSidebar({
   const navItems = getNavItems(pathname);
 
   return (
+    //===== Desktop Sidebar =====//
     <motion.aside
       className={cn(
-        "h-full flex flex-col overflow-hidden",
-        "bg-(--color-card-bg) border-r border-(--color-border)",
+        "flex h-full flex-col overflow-hidden border-r border-border bg-card backdrop-blur-sm",
+        "dark:bg-card",
       )}
       animate={{ width: isCollapsed ? 80 : 270 }}
       transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
@@ -65,13 +64,12 @@ export default function DashboardDesktopSidebar({
       {/*===== Logo area =====*/}
       <div
         className={cn(
-          "relative items-center justify-center h-16 px-6 hidden lg:flex",
-          "border-b border-(--color-border)",
+          "relative flex h-16 items-center justify-center border-b border-border px-6 lg:flex",
         )}
       >
         {!mobile && isCollapsed ? (
           <div
-            className="relative flex items-center justify-center w-10 h-10 cursor-pointer"
+            className="relative flex h-10 w-10 cursor-pointer items-center justify-center"
             onMouseEnter={() => setIsLogoHovered(true)}
             onMouseLeave={() => setIsLogoHovered(false)}
           >
@@ -101,19 +99,19 @@ export default function DashboardDesktopSidebar({
                 >
                   <PanelLeft
                     size={22}
-                    className="hover:scale-110 transition-transform cursor-e-resize"
+                    className="cursor-e-resize transition-transform hover:scale-110"
                   />
                 </motion.button>
               )}
             </AnimatePresence>
           </div>
         ) : (
-          <div className="flex items-center justify-between w-full">
+          <div className="flex w-full items-center justify-between">
             <Image src={IMAGE.logo} alt="Logo" width={28} height={28} />
             {!mobile && (
               <button
                 onClick={toggleSidebar}
-                className="p-2 rounded-lg hover:bg-muted transition-colors"
+                className="rounded-lg p-2 transition-colors hover:bg-muted"
               >
                 <PanelLeft size={20} className="cursor-e-resize" />
               </button>
@@ -123,7 +121,7 @@ export default function DashboardDesktopSidebar({
       </div>
 
       {/*===== Navigation =====*/}
-      <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+      <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-4">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           return (
