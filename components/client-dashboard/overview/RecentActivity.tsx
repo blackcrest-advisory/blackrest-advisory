@@ -1,8 +1,10 @@
-// components/dashboard/RecentActivity/RecentActivity.tsx
 "use client";
 
+import { motion } from "framer-motion";
 import { ActivityItem } from "@/components/client-dashboard/overview/ActivityItem";
+import { Card } from "@/components/ui/Card";
 import { Activity } from "@/types/dashboard/client/overviewType";
+import { fadeInUp, hoverScale } from "@/utils/animations";
 
 interface RecentActivityProps {
   activities: Activity[];
@@ -10,15 +12,23 @@ interface RecentActivityProps {
 
 export const RecentActivity = ({ activities }: RecentActivityProps) => {
   return (
-    <div className="bg-[var(--color-card-bg)] border border-[var(--color-card-border)] rounded-xl p-4 md:p-6 shadow-sm">
-      <h2 className="text-lg font-semibold text-[var(--color-heading)] mb-4">
-        🔔 Recent Activity
-      </h2>
-      <ul className="divide-y divide-[var(--color-border)]">
-        {activities.map((item, idx) => (
-          <ActivityItem key={idx} activity={item} />
-        ))}
-      </ul>
-    </div>
+    //===== Recent Activity Card =====//
+    <motion.div
+      variants={fadeInUp}
+      initial="hidden"
+      animate="visible"
+      {...hoverScale}
+    >
+      <Card padding="base" hoverEffect className="rounded-xl">
+        <h2 className="mb-4 text-lg font-semibold text-foreground">
+          Recent Activity
+        </h2>
+        <ul className="divide-y divide-border">
+          {activities.map((item, idx) => (
+            <ActivityItem key={idx} activity={item} />
+          ))}
+        </ul>
+      </Card>
+    </motion.div>
   );
 };

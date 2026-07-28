@@ -3,14 +3,15 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, DollarSign, Clock } from "lucide-react";
-import { Project } from "@/types/dashboard/client/projectsType";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
+import type { Project } from "@/types/dashboard/client/projectsType";
 
 interface ProjectCardProps {
   project: Project;
 }
 
+//===== Status color mapping =====//
 const statusColorMap: Record<string, string> = {
   active:
     "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800",
@@ -24,6 +25,7 @@ const statusColorMap: Record<string, string> = {
     "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border-cyan-200 dark:border-cyan-800",
 };
 
+//===== Priority color mapping =====//
 const priorityColorMap: Record<string, string> = {
   low: "text-muted-foreground",
   medium: "text-amber-600 dark:text-amber-400",
@@ -31,6 +33,7 @@ const priorityColorMap: Record<string, string> = {
   critical: "text-red-600 dark:text-red-400",
 };
 
+//===== Format date =====//
 const formatDate = (date: Date) => {
   return date.toLocaleDateString("en-US", {
     month: "short",
@@ -50,11 +53,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <Link href={`/client/dashboard/projects/${project.id}`} className="block">
       <motion.div
         whileHover={{ y: -4, transition: { duration: 0.2 } }}
-        className="group relative rounded-xl border border-[var(--color-card-border)] bg-[var(--color-card-bg)] p-5 shadow-sm hover:shadow-lg transition-all duration-300"
+        className="group relative rounded-xl border border-border bg-card p-5 shadow-sm transition-all duration-300 hover:shadow-lg"
       >
+        {/*===== Header: Title + Status =====*/}
         <div className="flex items-start justify-between">
           <div className="space-y-1">
-            <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+            <h3 className="font-semibold text-foreground transition-colors group-hover:text-secondary">
               {project.name}
             </h3>
             <p className="text-sm text-muted-foreground">
@@ -72,6 +76,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </span>
         </div>
 
+        {/*===== Tags: Industry, Service, Priority =====*/}
         <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
           <span className="rounded bg-muted px-2 py-0.5">
             {project.industry}
@@ -88,6 +93,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </span>
         </div>
 
+        {/*===== Progress bar =====*/}
         <div className="mt-4">
           <div className="flex items-center justify-between text-sm">
             <span className="text-muted-foreground">Progress</span>
@@ -97,12 +103,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
           <div className="mt-1 h-1.5 w-full rounded-full bg-muted">
             <div
-              className="h-full rounded-full bg-[var(--color-secondary)] transition-all duration-500"
+              className="h-full rounded-full bg-secondary transition-all duration-500"
               style={{ width: `${project.progress}%` }}
             />
           </div>
         </div>
 
+        {/*===== Budget & Due Date =====*/}
         <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
           <div className="flex items-center gap-1.5 text-muted-foreground">
             <DollarSign className="h-3.5 w-3.5" />
@@ -114,19 +121,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
 
+        {/*===== Team Avatars + Due countdown =====*/}
         <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
           <div className="flex items-center -space-x-1.5">
             {project.assignedTeam.slice(0, 3).map((member) => (
               <div
                 key={member.id}
-                className="flex h-7 w-7 items-center justify-center rounded-full bg-muted text-xs font-medium text-foreground ring-2 ring-card"
+                className="flex h-7 w-7 items-center justify-center rounded-full bg-muted text-xs font-medium text-foreground ring-2 ring-border"
                 title={member.name}
               >
                 {member.avatar}
               </div>
             ))}
             {project.assignedTeam.length > 3 && (
-              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-muted text-xs font-medium text-foreground ring-2 ring-card">
+              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-muted text-xs font-medium text-foreground ring-2 ring-border">
                 +{project.assignedTeam.length - 3}
               </div>
             )}

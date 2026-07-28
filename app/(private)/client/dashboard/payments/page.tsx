@@ -1,9 +1,13 @@
 import { redirect } from "next/navigation";
 import { PaymentsTable } from "@/components/features/payment/PaymentsTable";
+import { PageWrapper } from "@/components/ui/PageWrapper";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
 import { getCurrentUser } from "@/lib/auth-utils";
 import { prisma } from "@/lib/db/client";
 import type { Payment } from "@/types/dashboard/client/paymentTypes";
 
+//===== Map database status to frontend status =====//
 function mapPaymentStatus(status: string): Payment["status"] {
   switch (status) {
     case "PAID":
@@ -22,6 +26,7 @@ export default async function PaymentsPage() {
     redirect("/login");
   }
 
+  //===== Fetch paid/overdue invoices =====//
   const invoiceRecords = await prisma.invoice.findMany({
     where: {
       userId: user.id,
@@ -45,6 +50,8 @@ export default async function PaymentsPage() {
       updatedAt: "desc",
     },
   });
+
+  //===== Transform to frontend type =====//
   const payments: Payment[] = invoiceRecords.map((invoice) => ({
     id: invoice.id,
     invoiceId: invoice.invoiceNumber,
@@ -59,16 +66,21 @@ export default async function PaymentsPage() {
   }));
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-[var(--color-heading)]">
-          Payments
-        </h1>
-        <p className="mt-1 text-[var(--color-body)]">
-          Track all your invoice payments and statuses.
-        </p>
-      </div>
-      <PaymentsTable payments={payments} />
-    </div>
+    //===== Payments Page =====//
+    <PageWrapper>
+      <Section className="py-2 md:py-2 lg:py-2">
+        <Container>
+          <div className="space-y-6">
+            <div>
+              <h1 className="text-3xl font-bold text-foreground">Payments</h1>
+              <p className="mt-1 text-muted-foreground">
+                Track all your invoice payments and statuses.
+              </p>
+            </div>
+            <PaymentsTable payments={payments} />
+          </div>
+        </Container>
+      </Section>
+    </PageWrapper>
   );
 }

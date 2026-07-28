@@ -1,6 +1,8 @@
 "use client";
 
 import { Search } from "lucide-react";
+import { Input } from "@/components/ui/Input";
+import { Select } from "@/components/ui/Select";
 import {
   industries,
   serviceTypes,
@@ -11,6 +13,26 @@ import type {
   Industry,
   ServiceType,
 } from "@/types/dashboard/client/projectsType";
+import { Card } from "@/components/ui/Card";
+
+//===== Map status values to display labels =====//
+const statusOptions = [
+  { value: "all", label: "All Status" },
+  ...statuses.map((s) => ({
+    value: s,
+    label: s.charAt(0).toUpperCase() + s.slice(1).replace("-", " "),
+  })),
+];
+
+const industryOptions = [
+  { value: "all", label: "All Industries" },
+  ...industries.map((i) => ({ value: i, label: i })),
+];
+
+const serviceOptions = [
+  { value: "all", label: "All Services" },
+  ...serviceTypes.map((s) => ({ value: s, label: s })),
+];
 
 interface ProjectFiltersProps {
   searchQuery: string;
@@ -34,62 +56,41 @@ export function ProjectFilters({
   onServiceChange,
 }: ProjectFiltersProps) {
   return (
-    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    //===== Project Filters =====//
+    <Card className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <div className="relative flex-1 max-w-sm">
-        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-body)]" />
-        <input
+        <Input
+          icon={Search}
           type="text"
           placeholder="Search projects or clients..."
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="w-full rounded-lg border border-[var(--color-card-border)] bg-[var(--color-card-bg)] py-2 pl-10 pr-4 text-sm text-[var(--color-foreground)] placeholder:text-[var(--color-body)] focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]/20"
+          className="pl-10"
         />
       </div>
 
       <div className="flex flex-wrap items-center gap-2">
-        <select
+        <Select
+          options={statusOptions}
           value={statusFilter}
-          onChange={(e) =>
-            onStatusChange(e.target.value as ProjectStatus | "all")
-          }
-          className="rounded-lg border border-[var(--color-card-border)] bg-[var(--color-card-bg)] px-3 py-2 text-sm text-[var(--color-foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]/20"
-        >
-          <option value="all">All Status</option>
-          {statuses.map((s) => (
-            <option key={s} value={s}>
-              {s.charAt(0).toUpperCase() + s.slice(1).replace("-", " ")}
-            </option>
-          ))}
-        </select>
+          onChange={(value) => onStatusChange(value as ProjectStatus | "all")}
+          className="min-w-36"
+        />
 
-        <select
+        <Select
+          options={industryOptions}
           value={industryFilter}
-          onChange={(e) => onIndustryChange(e.target.value as Industry | "all")}
-          className="rounded-lg border border-[var(--color-card-border)] bg-[var(--color-card-bg)] px-3 py-2 text-sm text-[var(--color-foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]/20"
-        >
-          <option value="all">All Industries</option>
-          {industries.map((i) => (
-            <option key={i} value={i}>
-              {i}
-            </option>
-          ))}
-        </select>
+          onChange={(value) => onIndustryChange(value as Industry | "all")}
+          className="min-w-40"
+        />
 
-        <select
+        <Select
+          options={serviceOptions}
           value={serviceFilter}
-          onChange={(e) =>
-            onServiceChange(e.target.value as ServiceType | "all")
-          }
-          className="rounded-lg border border-[var(--color-card-border)] bg-[var(--color-card-bg)] px-3 py-2 text-sm text-[var(--color-foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]/20"
-        >
-          <option value="all">All Services</option>
-          {serviceTypes.map((s) => (
-            <option key={s} value={s}>
-              {s}
-            </option>
-          ))}
-        </select>
+          onChange={(value) => onServiceChange(value as ServiceType | "all")}
+          className="min-w-36"
+        />
       </div>
-    </div>
+    </Card>
   );
 }

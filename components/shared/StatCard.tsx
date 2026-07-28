@@ -1,6 +1,8 @@
 "use client";
 
 import { ReactNode } from "react";
+import { Card } from "@/components/ui/Card";
+import { cn } from "@/lib/utils";
 
 interface StatCardProps {
   icon: ReactNode;
@@ -8,6 +10,7 @@ interface StatCardProps {
   value: string;
   change?: string;
   color?: string;
+  className?: string;
 }
 
 export const StatCard = ({
@@ -16,21 +19,21 @@ export const StatCard = ({
   value,
   change,
   color,
+  className = "",
 }: StatCardProps) => {
   return (
-    <div className="bg-[var(--color-card-bg)] border border-[var(--color-card-border)] rounded-xl p-4 shadow-sm">
-      <div className="flex items-center gap-2 text-[var(--color-body)]">
-        <span style={{ color }}>{icon}</span>
+    //===== Stat Card =====//
+    <Card padding="base" hoverEffect className={cn("rounded-xl", className)}>
+      <div className="flex items-center gap-2 text-muted-foreground">
+        <span className={color || "text-secondary"}>{icon}</span>
         <span className="text-sm">{label}</span>
       </div>
-      <p className="text-2xl font-bold text-[var(--color-heading)] mt-1">
-        {value}
-      </p>
+      <p className="mt-1 text-2xl font-bold text-foreground">{value}</p>
       {change && (
-        <p className="text-xs text-green-600 dark:text-green-400 mt-0.5">
+        <p className="mt-0.5 text-xs text-green-600 dark:text-green-400">
           {change}
         </p>
       )}
-    </div>
+    </Card>
   );
 };

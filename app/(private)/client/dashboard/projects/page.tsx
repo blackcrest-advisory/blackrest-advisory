@@ -1,11 +1,16 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import { PageWrapper } from "@/components/ui/PageWrapper";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
 import { ProjectHeader } from "@/components/client-dashboard/projects/ProjectHeader";
 import { ProjectStats } from "@/components/client-dashboard/projects/ProjectStats";
 import { ProjectFilters } from "@/components/client-dashboard/projects/ProjectFilters";
 import { ProjectGrid } from "@/components/client-dashboard/projects/ProjectGrid";
 import { ProjectPagination } from "@/components/client-dashboard/projects/ProjectPagination";
+import { fadeInUp, staggerContainer } from "@/utils/animations";
 import type {
   ActivityLog,
   Milestone,
@@ -16,6 +21,7 @@ import type {
 } from "@/types/dashboard/client/projectsType";
 import axios from "@/api-client/client";
 
+//===== Serialized project type from API =====//
 type SerializedProject = Omit<
   Project,
   "timeline" | "dueDate" | "lastUpdated" | "milestones" | "activity"
@@ -44,15 +50,14 @@ export default function ProjectsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
+  //===== Fetch projects =====//
   useEffect(() => {
     let isMounted = true;
 
     axios
       .get<SerializedProject[]>("/api/client/projects/list")
       .then((response) => {
-        if (!isMounted) {
-          return;
-        }
+        if (!isMounted) return;
 
         setProjects(
           response.data.map((project) => ({
@@ -75,14 +80,10 @@ export default function ProjectsPage() {
         );
       })
       .catch(() => {
-        if (isMounted) {
-          setProjects([]);
-        }
+        if (isMounted) setProjects([]);
       })
       .finally(() => {
-        if (isMounted) {
-          setLoading(false);
-        }
+        if (isMounted) setLoading(false);
       });
 
     return () => {
@@ -90,7 +91,7 @@ export default function ProjectsPage() {
     };
   }, []);
 
-  // Filter projects
+  //===== Filter projects =====//
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {
       const matchesSearch =
@@ -108,57 +109,94 @@ export default function ProjectsPage() {
     });
   }, [projects, searchQuery, statusFilter, industryFilter, serviceFilter]);
 
-  // Pagination
+  //===== Pagination =====//
   const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
   const paginatedProjects = useMemo(() => {
     const start = (currentPage - 1) * itemsPerPage;
     return filteredProjects.slice(start, start + itemsPerPage);
   }, [filteredProjects, currentPage]);
 
-  // Reset page when filters change
+  //===== Reset page when filters change =====//
   const handleFilterChange = () => {
     setCurrentPage(1);
   };
 
+  //===== Loading state =====//
   if (loading) {
     return (
-      <div className="text-center py-12 text-[var(--color-body)]">
-        Loading projects...
-      </div>
+      <PageWrapper>
+        <Section className="py-2 md:py-2 lg:py-2">
+          <Container>
+            <div className="py-12 text-center text-muted-foreground">
+              Loading projects...
+            </div>
+          </Container>
+        </Section>
+      </PageWrapper>
     );
   }
 
   return (
-    <div className="space-y-8">
-      <ProjectHeader />
-      <ProjectStats projects={projects} />
-      <ProjectFilters
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        statusFilter={statusFilter}
-        onStatusChange={(v) => {
-          setStatusFilter(v);
-          handleFilterChange();
-        }}
-        industryFilter={industryFilter}
-        onIndustryChange={(v) => {
-          setIndustryFilter(v);
-          handleFilterChange();
-        }}
-        serviceFilter={serviceFilter}
-        onServiceChange={(v) => {
-          setServiceFilter(v);
-          handleFilterChange();
-        }}
-      />
-      <ProjectGrid projects={paginatedProjects} />
-      {totalPages > 1 && (
-        <ProjectPagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={setCurrentPage}
-        />
-      )}
-    </div>
+    //===== Client Projects Page =====//
+    <PageWrapper>
+      <Section className="py-2 md:py-2 lg:py-2">
+        <Container>
+          <div className="space-y-8">
+            {/*===== Header =====*/}
+            <motion.div variants={fadeInUp} initial="hidden" animate="visible">
+              <ProjectHeader />
+            </motion.div>
+
+            {/*===== Stats =====*/}
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+            >
+              <ProjectStats projects={projects} />
+            </motion.div>
+
+            {/*===== Filters =====*/}
+            <motion.div variants={fadeInUp}>
+              <ProjectFilters
+                searchQuery={searchQuery}
+                onSearchChange={setSearchQuery}
+                statusFilter={statusFilter}
+                onStatusChange={(v) => {
+                  setStatusFilter(v);
+                  handleFilterChange();
+                }}
+                industryFilter={industryFilter}
+                onIndustryChange={(v) => {
+                  setIndustryFilter(v);
+                  handleFilterChange();
+                }}
+                serviceFilter={serviceFilter}
+                onServiceChange={(v) => {
+                  setServiceFilter(v);
+                  handleFilterChange();
+                }}
+              />
+            </motion.div>
+
+            {/*===== Project Grid =====*/}
+            <motion.div variants={fadeInUp}>
+              <ProjectGrid projects={paginatedProjects} />
+            </motion.div>
+
+            {/*===== Pagination =====*/}
+            {totalPages > 1 && (
+              <motion.div variants={fadeInUp}>
+                <ProjectPagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={setCurrentPage}
+                />
+              </motion.div>
+            )}
+          </div>
+        </Container>
+      </Section>
+    </PageWrapper>
   );
 }

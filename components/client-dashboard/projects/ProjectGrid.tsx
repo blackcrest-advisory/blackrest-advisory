@@ -10,11 +10,13 @@ interface ProjectGridProps {
 }
 
 export function ProjectGrid({ projects }: ProjectGridProps) {
+  //===== Show empty state if no projects =====//
   if (projects.length === 0) {
     return <ProjectEmptyState />;
   }
 
   return (
+    //===== Animated grid of project cards =====//
     <AnimatePresence mode="wait">
       <motion.div
         key={projects.length}
@@ -22,7 +24,7 @@ export function ProjectGrid({ projects }: ProjectGridProps) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
-        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
+        className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3"
       >
         {projects.map((project, index) => (
           <motion.div
