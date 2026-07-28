@@ -2,9 +2,16 @@
 
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Search, X } from "lucide-react";
-import ClientDesktopSidebar from "@/components/shared/DashboardDesktopSidebar";
+import { X } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+
 import Logo from "@/components/shared/Logo";
+import SidebarFooter from "@/components/shared/SidebarFooter";
+import DashboardSidebarItems from "@/components/shared/DashboardSidebarItems";
+import { getNavItems } from "@/utils/getNavItems";
+import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
+import { logoutUser } from "@/api-client/auth.api";
 
 interface MobileSidebarProps {
   isOpen: boolean;
@@ -15,7 +22,13 @@ export default function DashboardMobileSidebar({
   isOpen,
   onClose,
 }: MobileSidebarProps) {
-  // Prevent body scroll when open
+  const pathname = usePathname();
+  const router = useRouter();
+  const user = useCurrentUser();
+
+  const navItems = getNavItems(pathname);
+
+  //===== Prevent body scroll when open =====//
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -27,44 +40,71 @@ export default function DashboardMobileSidebar({
     };
   }, [isOpen]);
 
+  //===== Handle logout =====//
+  const handleLogout = async () => {
+    try {
+      await logoutUser();
+      router.replace("/login");
+      router.refresh();
+    } catch {
+      toast.error("Failed to log out");
+    }
+  };
+
   return (
     <>
-      {/* Backdrop */}
+      {/*===== Backdrop =====*/}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
-        className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden "
+        className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm lg:hidden"
         onClick={onClose}
       />
 
-      {/* Drawer */}
+      {/*===== Drawer =====*/}
       <motion.aside
         initial={{ x: "-100%" }}
         animate={{ x: 0 }}
         exit={{ x: "-100%" }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        className="fixed top-0 left-0 h-full w-[280px] z-50 shadow-2xl lg:hidden bg-background"
+        className="fixed left-0 top-0 z-50 flex h-full w-[280px] flex-col bg-card shadow-2xl lg:hidden"
       >
-        {/* Close button inside drawer */}
-        <div className="relative flex justify-between mt-4 px-2">
+        {/*===== Header =====*/}
+        <div className="flex items-center justify-between border-b border-border px-4 py-4">
           <Logo />
-
-          <div className="flex items-center gap-2">
-            <Search size="20" />
-            <button
-              onClick={onClose}
-              className="flex items- justify-between cursor-pointer"
-            >
-              <X size={22} style={{ color: "var(--color-foreground)" }} />
-            </button>
-          </div>
+          <button
+            onClick={onClose}
+            className="rounded-lg p-2 text-foreground transition-colors hover:bg-muted"
+            aria-label="Close sidebar"
+          >
+            <X className="h-5 w-5" />
+          </button>
         </div>
 
-        <div className="h-full">
-          <ClientDesktopSidebar />
-        </div>
+        {/*===== Navigation =====*/}
+        <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-4">
+          {navItems.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <DashboardSidebarItems
+                key={item.href}
+                item={item}
+                isActive={isActive}
+              />
+            );
+          })}
+        </nav>
+
+        {/*===== Footer =====*/}
+        <SidebarFooter
+          isCollapsed={false}
+          userName={user?.name ?? "Client"}
+          userEmail={user?.email ?? ""}
+          avatarUrl={user?.avatarUrl ?? undefined}
+          onLogout={handleLogout}
+        />
       </motion.aside>
     </>
   );

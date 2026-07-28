@@ -56,7 +56,6 @@ export default function DashboardDesktopSidebar({
     <motion.aside
       className={cn(
         "flex h-full flex-col overflow-hidden border-r border-border bg-card backdrop-blur-sm",
-        "dark:bg-card",
       )}
       animate={{ width: isCollapsed ? 80 : 270 }}
       transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
@@ -64,7 +63,7 @@ export default function DashboardDesktopSidebar({
       {/*===== Logo area =====*/}
       <div
         className={cn(
-          "relative flex h-16 items-center justify-center border-b border-border px-6 lg:flex",
+          "relative h-16 items-center justify-center border-b border-border px-6 hidden lg:flex",
         )}
       >
         {!mobile && isCollapsed ? (
