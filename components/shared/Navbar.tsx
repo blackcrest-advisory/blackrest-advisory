@@ -100,7 +100,7 @@ export default function Navbar() {
               <Button variant="outline" size="sm" href="/login">
                 Login
               </Button>
-              <Button variant="primary" size="sm" href="/signup">
+              <Button variant="primary" size="sm" href="/select-industry">
                 Get Started
               </Button>
             </div>
@@ -206,7 +206,7 @@ export default function Navbar() {
                   <Button
                     variant="primary"
                     className="w-full"
-                    href="/signup"
+                    href="/select-industry"
                     onClick={closeMobileMenu}
                   >
                     Get Started
