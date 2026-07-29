@@ -1,32 +1,42 @@
+"use client";
+
+import { motion } from "framer-motion";
 import IndustrySelector from "@/components/features/auth/IndustrySelector";
+import { PageWrapper } from "@/components/ui/PageWrapper";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { fadeInUp } from "@/utils/animations";
 
-export default function page() {
+export default function SelectIndustryPage() {
   return (
-    <main
-      className="flex flex-col items-center justify-center px-4 py-12 sm:px-6 lg:px-8"
-      style={{ backgroundColor: "var(--color-background)" }}
-    >
-      <div className="w-full max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h1
-            className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight"
-            style={{ color: "var(--color-heading)" }}
-          >
-            Choose Your <br className="sm:hidden" />
-            <span style={{ color: "var(--color-gold)" }}>Industry</span>
-          </h1>
-          <p
-            className="text-base mt-4 max-w-2xl mx-auto"
-            style={{ color: "var(--color-body)" }}
-          >
-            Select the sector that best describes your business. We&apos;ll
-            tailor your entire Blackcrest experience to fit your unique needs.
-          </p>
-        </div>
-      </div>
+    //===== Select Industry Page =====//
+    <PageWrapper>
+      <Section className="relative flex items-center justify-center">
+        <Container>
+          <div className="mx-auto max-w-4xl">
+            {/*===== Header =====*/}
+            <motion.div
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              className="mb-12 text-center md:mb-16"
+            >
+              <h1 className="text-3xl font-bold tracking-tight text-foreground lg:text-4xl">
+                Choose Your <br className="sm:hidden" />
+                <span className="text-secondary">Industry</span>
+              </h1>
+              <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground">
+                Select the sector that best describes your business. We&apos;ll
+                tailor your entire Blackcrest experience to fit your unique
+                needs.
+              </p>
+            </motion.div>
 
-      <IndustrySelector />
-    </main>
+            {/*===== Industry Selector =====*/}
+            <IndustrySelector />
+          </div>
+        </Container>
+      </Section>
+    </PageWrapper>
   );
 }

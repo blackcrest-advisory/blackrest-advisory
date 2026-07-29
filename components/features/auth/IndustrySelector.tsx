@@ -2,10 +2,15 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Shirt, Laptop, HeartPulse, Flower2 } from "lucide-react";
-import { Industry } from "@/types/industryType";
+import { motion } from "framer-motion";
+import { Shirt, Laptop, HeartPulse, Flower2, Utensils } from "lucide-react";
+import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
+import { cn } from "@/lib/utils";
+import { staggerContainer, fadeInUp, hoverScale } from "@/utils/animations";
+import type { Industry } from "@/types/industryType";
 
-//industries array with id, label, Icon, and description
+//===== Industries array =====//
 const industries: Industry[] = [
   {
     id: "fashion",
@@ -35,117 +40,124 @@ const industries: Industry[] = [
     description:
       "Innovative platforms for cosmetics, wellness brands, and personal care services.",
   },
+  {
+    id: "restaurant",
+    label: "Restaurant & Cafe",
+    Icon: Utensils,
+    description:
+      "Digital solutions for restaurants, cafes, food chains, and hospitality businesses.",
+  },
 ];
 
-//component for selecting an industry
+//===== Industry Selector Component =====//
 const IndustrySelector = () => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const router = useRouter();
 
+  //===== Handle continue navigation =====//
   const handleContinue = () => {
     if (selectedId) {
       router.push("/signup");
     }
   };
+
   return (
     <div>
-      {/* Industry Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-7">
-        {industries.map(({ id, label, Icon, description }) => {
+      {/*===== Industry Grid =====*/}
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+        className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-7"
+      >
+        {industries.map(({ id, label, Icon, description }, index) => {
           const isSelected = selectedId === id;
+          const isLastOdd =
+            index === industries.length - 1 && industries.length % 2 !== 0;
 
           return (
-            <div
+            <motion.div
               key={id}
+              variants={fadeInUp}
+              {...hoverScale}
               onClick={() => setSelectedId(id)}
-              className="group relative p-6 md:p-8 rounded-2xl border-2 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
-              style={{
-                backgroundColor: "var(--color-card-bg)",
-                borderColor: isSelected
-                  ? "var(--color-gold)"
-                  : "var(--color-card-border)",
-                boxShadow: isSelected
-                  ? "0 0 0 4px rgba(201, 168, 76, 0.25), 0 8px 30px rgba(0,0,0,0.08)"
-                  : "0 4px 6px -1px rgba(0,0,0,0.02)",
-              }}
-            >
-              {/* Selected Checkmark Badge */}
-              {isSelected && (
-                <div className="absolute top-4 right-4 w-7 h-7 rounded-full bg-[var(--color-gold)] flex items-center justify-center shadow-lg shadow-[var(--color-gold)]/30">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 text-white"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                </div>
+              className={cn(
+                "cursor-pointer",
+                isLastOdd && "col-span-2 flex justify-center",
               )}
+            >
+              <Card
+                hoverEffect={!isSelected}
+                className={cn(
+                  "group relative transition-all duration-300",
+                  isSelected
+                    ? "border-secondary ring-2 ring-secondary/25"
+                    : "border-border",
+                  isLastOdd && "w-full max-w-sm",
+                )}
+              >
+                {/*===== Selected Checkmark Badge =====*/}
+                {isSelected && (
+                  <div className="absolute right-4 top-4 flex h-7 w-7 items-center justify-center rounded-full bg-secondary shadow-lg shadow-secondary/30">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 text-secondary-foreground"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={3}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                )}
 
-              <div className="flex flex-col items-center text-center">
-                {/* Icon Container */}
-                <div
-                  className="p-3.5 rounded-xl mb-5 transition-colors duration-300"
-                  style={{
-                    backgroundColor: isSelected
-                      ? "var(--color-gold)"
-                      : "var(--color-muted)",
-                  }}
-                >
-                  <Icon
-                    className="w-7 h-7 md:w-8 md:h-8 transition-colors duration-300"
-                    style={{
-                      color: isSelected ? "#ffffff" : "var(--color-gold)",
-                    }}
-                  />
+                {/*===== Content =====*/}
+                <div className="flex flex-col items-center text-center">
+                  {/* Icon Container */}
+                  <div
+                    className={`mb-5 rounded-xl p-3.5 transition-colors duration-300 ${
+                      isSelected
+                        ? "bg-secondary text-secondary-foreground"
+                        : "bg-muted text-secondary"
+                    }`}
+                  >
+                    <Icon className="h-7 w-7 md:h-8 md:w-8" />
+                  </div>
+
+                  <h3 className="text-xl font-semibold text-foreground">
+                    {label}
+                  </h3>
+                  <p className="mt-2.5 text-sm text-muted-foreground md:text-base">
+                    {description}
+                  </p>
+
+                  {/* Subtle animated underline on hover */}
+                  <div className="mt-4 h-0.5 w-0 rounded-full bg-secondary transition-all duration-300 group-hover:w-8" />
                 </div>
-
-                <h3
-                  className="text-xl md:text-2xl font-semibold"
-                  style={{ color: "var(--color-heading)" }}
-                >
-                  {label}
-                </h3>
-                <p
-                  className="text-sm md:text-base mt-2.5 max-w-xs"
-                  style={{ color: "var(--color-body)" }}
-                >
-                  {description}
-                </p>
-
-                {/* Subtle animated underline on hover */}
-                <div className="mt-4 h-0.5 w-0 rounded-full bg-[var(--color-gold)] transition-all duration-300 group-hover:w-8" />
-              </div>
-            </div>
+              </Card>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
 
-      {/* Continue Button */}
+      {/*===== Continue Button =====*/}
       <div className="mt-12 flex flex-col items-center gap-3">
-        <button
+        <Button
+          variant="primary"
+          size="md"
           onClick={handleContinue}
           disabled={!selectedId}
-          className="px-10 py-3.5 rounded-full font-semibold text-base transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed disabled:scale-100 hover:shadow-lg hover:shadow-[var(--color-gold)]/30"
-          style={{
-            backgroundColor: "var(--color-cta-bg)",
-            color: "var(--color-cta-text)",
-          }}
+          className="px-10"
         >
           Continue to Sign Up →
-        </button>
+        </Button>
         {!selectedId && (
-          <p
-            className="text-sm animate-pulse"
-            style={{ color: "var(--color-body)" }}
-          >
+          <p className="animate-pulse text-sm text-muted-foreground">
             Please select an industry to continue
           </p>
         )}
