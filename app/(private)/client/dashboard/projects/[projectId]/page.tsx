@@ -1,8 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { useRouter, useParams } from "next/navigation";
 import axios from "@/api-client/client";
+import { PageWrapper } from "@/components/ui/PageWrapper";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
 import { ProjectDetailsHeader } from "@/components/client-dashboard/projects/details/ProjectDetailsHeader";
 import { ProjectOverviewCards } from "@/components/client-dashboard/projects/details/ProjectOverviewCards";
 import { ProjectDescription } from "@/components/client-dashboard/projects/details/ProjectDescription";
@@ -11,8 +15,10 @@ import { ProjectTeamCard } from "@/components/client-dashboard/projects/details/
 import { ProjectMilestones } from "@/components/client-dashboard/projects/details/ProjectMilestones";
 import { ProjectFilesCard } from "@/components/client-dashboard/projects/details/ProjectFilesCard";
 import { ProjectActivityLog } from "@/components/client-dashboard/projects/details/ProjectActivityLog";
+import { fadeInUp, staggerContainer } from "@/utils/animations";
 import type { Project } from "@/types/dashboard/client/projectsType";
 
+//===== Serialized project type from API =====//
 type SerializedProject = Omit<
   Project,
   "timeline" | "dueDate" | "lastUpdated" | "milestones" | "activity"
@@ -38,15 +44,14 @@ export default function ProjectDetailsPage() {
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
+  //===== Fetch project data =====//
   useEffect(() => {
     let isMounted = true;
 
     axios
       .get<SerializedProject[]>("/api/client/projects/list")
       .then((response) => {
-        if (!isMounted) {
-          return;
-        }
+        if (!isMounted) return;
 
         const foundProject = response.data.find(
           (item) => item.id === params.projectId,
@@ -93,54 +98,102 @@ export default function ProjectDetailsPage() {
     };
   }, [params.projectId]);
 
+  //===== Loading state =====//
   if (loading) {
     return (
-      <div className="text-center py-24 text-[var(--color-body)]">
-        Loading project...
-      </div>
+      <PageWrapper>
+        <Section className="py-2 md:py-2 lg:py-2">
+          <Container>
+            <div className="py-24 text-center text-muted-foreground">
+              Loading project...
+            </div>
+          </Container>
+        </Section>
+      </PageWrapper>
     );
   }
 
+  //===== Not found state =====//
   if (notFound || project === null) {
     return (
-      <div className="flex flex-col items-center justify-center py-24 text-center">
-        <p className="text-lg font-medium text-[var(--color-heading)]">
-          Project not found
-        </p>
-        <p className="mt-1 text-sm text-[var(--color-body)]">
-          The project you are looking for does not exist.
-        </p>
-      </div>
+      <PageWrapper>
+        <Section className="py-2 md:py-2 lg:py-2">
+          <Container>
+            <div className="flex flex-col items-center justify-center py-24 text-center">
+              <p className="text-lg font-medium text-foreground">
+                Project not found
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                The project you are looking for does not exist.
+              </p>
+            </div>
+          </Container>
+        </Section>
+      </PageWrapper>
     );
   }
 
   return (
-    <div className="flex flex-col gap-6 py-6">
-      <ProjectDetailsHeader project={project} onBack={() => router.back()} />
+    //===== Project Details Page =====//
+    <PageWrapper>
+      <Section className="py-2 md:py-2 lg:py-2">
+        <Container>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col gap-6 py-6"
+          >
+            {/*===== Header =====*/}
+            <motion.div variants={fadeInUp}>
+              <ProjectDetailsHeader
+                project={project}
+                onBack={() => router.back()}
+              />
+            </motion.div>
 
-      <ProjectOverviewCards project={project} />
+            {/*===== Overview Cards =====*/}
+            <motion.div variants={fadeInUp}>
+              <ProjectOverviewCards project={project} />
+            </motion.div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        {/* Left column: main content */}
-        <div className="flex flex-col gap-6 lg:col-span-2">
-          <ProjectDescription description={project.description} />
-          <ProjectTimelineCard
-            timeline={project.timeline}
-            progress={project.progress}
-          />
-          <ProjectMilestones milestones={project.milestones} />
-          <ProjectActivityLog activity={project.activity} />
-        </div>
+            {/*===== Main Content + Sidebar =====*/}
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+              {/*===== Left column: main content =====*/}
+              <div className="flex flex-col gap-6 lg:col-span-2">
+                <motion.div variants={fadeInUp}>
+                  <ProjectDescription description={project.description} />
+                </motion.div>
+                <motion.div variants={fadeInUp}>
+                  <ProjectTimelineCard
+                    timeline={project.timeline}
+                    progress={project.progress}
+                  />
+                </motion.div>
+                <motion.div variants={fadeInUp}>
+                  <ProjectMilestones milestones={project.milestones} />
+                </motion.div>
+                <motion.div variants={fadeInUp}>
+                  <ProjectActivityLog activity={project.activity} />
+                </motion.div>
+              </div>
 
-        {/* Right column: side info */}
-        <div className="flex flex-col gap-6">
-          <ProjectTeamCard
-            assignedTeam={project.assignedTeam}
-            clientContact={project.clientContact}
-          />
-          <ProjectFilesCard files={project.files} />
-        </div>
-      </div>
-    </div>
+              {/*===== Right column: side info =====*/}
+              <div className="flex flex-col gap-6">
+                <motion.div variants={fadeInUp}>
+                  <ProjectTeamCard
+                    assignedTeam={project.assignedTeam}
+                    clientContact={project.clientContact}
+                  />
+                </motion.div>
+                <motion.div variants={fadeInUp}>
+                  <ProjectFilesCard files={project.files} />
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+    </PageWrapper>
   );
 }
