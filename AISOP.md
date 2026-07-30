@@ -10,7 +10,9 @@ You are acting as a **senior Next.js developer with 7+ years of experience** bui
 
 ---
 
-## 1. PROJECT STRUCTURE (CURRENT — DO NOT REORGANIZE)
+## 1. HISTORICAL PROJECT STRUCTURE (SUPERSEDED)
+
+> The tree below is retained for reference only. The verified structure in Section 1.1 is the authoritative project map.
 
 ```
 blackcrest-advisory/  (root)
@@ -134,6 +136,98 @@ blackcrest-advisory/  (root)
 ```
 
 **Rule:** New files must be placed in the correct existing folder above. Do not invent new top-level folders without asking.
+
+---
+
+## 1.1 VERIFIED PROJECT STRUCTURE (AUTHORITATIVE — DO NOT REORGANIZE)
+
+> Verified from the repository on 2026-07-30. Route groups such as `(auth)`, `(private)`, and `(public)` organize files but do not appear in URLs. Generated folders such as `.next/` and `node_modules/` are intentionally omitted.
+
+```text
+blackrest-advisory/
+├── api-client/
+│   ├── auth.api.ts
+│   ├── client.ts
+│   ├── contact.api.ts
+│   └── upload.api.ts
+├── app/
+│   ├── (auth)/
+│   │   ├── login/page.tsx
+│   │   ├── select-industry/page.tsx
+│   │   ├── signup/page.tsx
+│   │   └── layout.tsx
+│   ├── (private)/
+│   │   ├── admin/dashboard/
+│   │   │   ├── {clients,finance,messages,projects,reports,resources,sales,services,settings,tasks}/page.tsx
+│   │   │   ├── leads/{loading.tsx,page.tsx}
+│   │   │   ├── others/
+│   │   │   ├── layout.tsx
+│   │   │   └── page.tsx
+│   │   └── client/dashboard/
+│   │       ├── {files,invoices,messages,overview,payments,settings}/page.tsx
+│   │       ├── projects/{page.tsx,[projectId]/page.tsx}
+│   │       ├── layout.tsx
+│   │       └── page.tsx
+│   ├── (public)/
+│   │   ├── {about,contact,engagement,home}/page.tsx
+│   │   └── services/{digital-marketing,mobile-applications,sales-support,website-development}/page.tsx
+│   ├── api/
+│   │   ├── admin/              # Admin API route handlers
+│   │   ├── auth/               # NextAuth, login, logout route handlers
+│   │   ├── client/             # Client API route handlers
+│   │   ├── contact/route.ts
+│   │   ├── notifications/
+│   │   ├── register/
+│   │   ├── seed/admin/route.ts
+│   │   └── upload/
+│   ├── providers/{AuthProvider,CurrentUserProvider,ThemeProvider,ToasterProvider}.tsx
+│   ├── styles/{global,globals}.css
+│   ├── test/page.tsx
+│   └── {favicon.ico,layout.tsx,not-found.tsx,page.tsx}
+├── components/
+│   ├── admin-dashboard/{leads,overview,projects,reports,services,settings}/
+│   ├── client-dashboard/{files,overview,projects/details,settings}/
+│   ├── features/{auth,invoice,message,notification,payment,search}/
+│   ├── landing/
+│   │   ├── {Home,about,contact,engagement}/
+│   │   └── services/{digital-marketing,mobile-application,sales&business,website-development/shared}/
+│   ├── shared/                 # Navigation, dashboard shell, layout, footer, theme controls
+│   ├── test/
+│   └── ui/                     # Reusable UI primitives
+├── constants/{adminNavigation,clientNavigations,imagesConfig,publicNavigations}.ts
+├── content-data/{about,contact,digital-marketing}/
+├── hooks/{useFilesFilter,useOutsideClick}.ts
+├── lib/
+│   ├── db/client.ts
+│   ├── services/email.service.ts
+│   ├── supabase/client.ts
+│   └── {admin-utils,auth-utils,font,utils}.ts
+├── mock-data/                  # Dashboard mock data
+├── prisma/
+│   ├── migrations/             # 0001_init through 0010_add_lead_priority_budget
+│   └── schema.prisma
+├── public/{icons,images,logos}/
+├── store/sidebarStore.ts
+├── types/
+│   ├── dashboard/{admin,client}/
+│   └── {clientDeliveryProjects,industryType,navigations}.ts
+├── utils/{animations,format,getCurrentPage,getNavItems,invoice,projectStatus}.ts
+├── {.env,.gitignore,AGENTS.md,AISOP.md,auth.ts,CLAUDE.md}
+├── {eslint.config.mjs,middleware.ts,next.config.ts,next-env.d.ts}
+├── {package.json,package-lock.json,postcss.config.mjs,proxy.ts,README.md}
+└── {summary.md,tsconfig.json}
+```
+
+**Route map:**
+
+```text
+/admin/dashboard[/clients|finance|leads|messages|projects|reports|resources|sales|services|settings|tasks]
+/client/dashboard[/files|invoices|messages|overview|payments|projects|projects/:projectId|settings]
+/about, /contact, /engagement, /home
+/services/digital-marketing, /services/mobile-applications, /services/sales-support, /services/website-development
+```
+
+**Placement rule:** New files must be placed in the matching existing area above. Do not introduce new top-level directories without explicit approval.
 
 ---
 
