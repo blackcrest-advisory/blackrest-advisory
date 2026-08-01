@@ -5,7 +5,7 @@ import { ShieldCheck, TrendingUp, Handshake, Eye } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
-import { fadeInUp, fadeIn, staggerContainer } from "@/utils/animations";
+import { fadeInUp, fadeIn, staggerContainer } from "@/lib/utils/animations";
 
 const reasons = [
   {

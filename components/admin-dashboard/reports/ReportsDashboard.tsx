@@ -19,7 +19,7 @@ import { Container } from "@/components/ui/Container";
 import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
 import { Select } from "@/components/ui/Select";
-import { fadeInUp, staggerContainer, hoverScale } from "@/utils/animations";
+import { fadeInUp, staggerContainer, hoverScale } from "@/lib/utils/animations";
 
 //===== Period options =====//
 const periods = [

@@ -1,10 +1,7 @@
 import { DashboardWrapper } from "@/components/client-dashboard/overview/DashboardWrapper";
-import { getCurrentUser } from "@/lib/auth-utils";
+import { getCurrentUser } from "@/lib/utils/auth-utils";
 import { prisma } from "@/lib/db/client";
-import type {
-  Activity,
-  Project,
-} from "@/types/dashboard/client/overviewType";
+import type { Activity, Project } from "@/types/dashboard/client/overviewType";
 import { redirect } from "next/navigation";
 
 function mapProjectStatus(status: string): Project["status"] {
@@ -245,7 +242,7 @@ export default async function Page() {
   ];
 
   const activities: Activity[] = activityRecords
-    .sort((first, second) => second.date.getTime() - first.date.getTime()) 
+    .sort((first, second) => second.date.getTime() - first.date.getTime())
     .slice(0, 5)
     .map(({ iconName, text, date }) => ({
       iconName,

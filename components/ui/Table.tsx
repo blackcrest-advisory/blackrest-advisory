@@ -4,7 +4,7 @@ import {
   TdHTMLAttributes,
   ThHTMLAttributes,
 } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 
 interface TableProps extends HTMLAttributes<HTMLTableElement> {
   children: ReactNode;

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { IMAGE } from "@/constants/imagesConfig";
-import { fadeInUp, fadeIn, hoverScale } from "@/utils/animations";
+import { fadeInUp, fadeIn, hoverScale } from "@/lib/utils/animations";
 
 export const WhoWeAreSection = () => {
   return (

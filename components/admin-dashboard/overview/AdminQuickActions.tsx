@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { UserPlus, FolderPlus, Receipt, Users, LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 
 //===== Quick action items =====//
 const actions: { label: string; href: string; icon: LucideIcon }[] = [

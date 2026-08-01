@@ -1,6 +1,6 @@
 "use client";
 
-import { orbitron } from "@/lib/font";
+import { orbitron } from "@/lib/utils/font-utils";
 import { motion } from "framer-motion";
 import { GiStarShuriken } from "react-icons/gi";
 

@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 import { Shirt, Laptop, HeartPulse, Flower2, Utensils } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { cn } from "@/lib/utils";
-import { staggerContainer, fadeInUp, hoverScale } from "@/utils/animations";
+import { cn } from "@/lib/utils/utils";
+import { staggerContainer, fadeInUp, hoverScale } from "@/lib/utils/animations";
 import type { Industry } from "@/types/industryType";
 
 //===== Industries array =====//

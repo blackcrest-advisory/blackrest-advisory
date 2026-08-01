@@ -7,7 +7,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { officeLocations } from "@/content-data/contact/contactData";
-import { fadeInUp, staggerContainer } from "@/utils/animations";
+import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 
 export const OfficeLocations = () => {
   return (

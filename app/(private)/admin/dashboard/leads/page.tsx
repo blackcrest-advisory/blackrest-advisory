@@ -11,7 +11,7 @@ import { LeadStats } from "@/components/admin-dashboard/leads/LeadStats";
 import { LeadFilters } from "@/components/admin-dashboard/leads/LeadFilters";
 import { LeadTable } from "@/components/admin-dashboard/leads/LeadTable";
 import { LeadDetailModal } from "@/components/admin-dashboard/leads/LeadDetailModal";
-import { fadeInUp, staggerContainer } from "@/utils/animations";
+import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 import type { Lead, LeadService } from "@/types/dashboard/admin/leadTypes";
 import toast from "react-hot-toast";
 

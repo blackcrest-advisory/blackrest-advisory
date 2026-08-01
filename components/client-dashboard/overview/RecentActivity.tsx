@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ActivityItem } from "@/components/client-dashboard/overview/ActivityItem";
 import { Card } from "@/components/ui/Card";
 import { Activity } from "@/types/dashboard/client/overviewType";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 
 interface RecentActivityProps {
   activities: Activity[];

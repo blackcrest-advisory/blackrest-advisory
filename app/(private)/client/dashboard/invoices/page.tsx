@@ -3,7 +3,7 @@ import { InvoicesTable } from "@/components/features/invoice/InvoicesTable";
 import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { getCurrentUser } from "@/lib/auth-utils";
+import { getCurrentUser } from "@/lib/utils/auth-utils";
 import { prisma } from "@/lib/db/client";
 import type { Invoice } from "@/types/dashboard/client/invoiceTypes";
 

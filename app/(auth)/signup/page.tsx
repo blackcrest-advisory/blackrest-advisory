@@ -14,7 +14,7 @@ import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { fadeInUp, hoverScale, pulseScale } from "@/utils/animations";
+import { fadeInUp, hoverScale, pulseScale } from "@/lib/utils/animations";
 
 export default function SignupPage() {
   const router = useRouter();

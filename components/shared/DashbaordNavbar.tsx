@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 import SearchArea from "@/components/features/search/SearchArea";
 import Notification from "@/components/features/notification/Notification";
 import Message from "@/components/features/message/Message";

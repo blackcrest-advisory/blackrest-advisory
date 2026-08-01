@@ -2,75 +2,53 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Mail, Lock, Eye, EyeOff, LogIn } from "lucide-react";
 import { FaChrome } from "react-icons/fa";
-import toast from "react-hot-toast";
-import axios from "@/api-client/client";
 import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { fadeInUp, hoverScale, pulseScale } from "@/utils/animations";
+import { fadeInUp, hoverScale, pulseScale } from "@/lib/utils/animations";
+import { useLogin } from "@/hooks/useLogin";
+import { Loader } from "@/components/ui/Loader";
+import { loginSchema } from "@/lib/validations/auth";
 
 export default function LoginPage() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({ email: "", password: "" });
+  const { login, loading } = useLogin();
 
   //===== Handle form submission =====//
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const newErrors = { email: "", password: "" };
-    if (!email) newErrors.email = "Email is required";
-    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = "Email is invalid";
-    if (!password) newErrors.password = "Password is required";
-    setErrors(newErrors);
-    if (newErrors.email || newErrors.password) return;
+    const data = {
+      email,
+      password,
+    };
+    const result = loginSchema.safeParse(data);
 
-    setIsLoading(true);
-    try {
-      const response = await axios.post<{
-        success: boolean;
-        user: { role: string };
-      }>("/api/auth/login", {
-        email,
-        password,
+    if (!result.success) {
+      const fieldErrors = result.error.flatten().fieldErrors;
+
+      setErrors({
+        email: fieldErrors.email?.[0] ?? "",
+        password: fieldErrors.password?.[0] ?? "",
       });
 
-      if (response.data.success) {
-        toast.success("Welcome back");
-        const dashboardPath =
-          response.data.user.role === "ADMIN" ||
-          response.data.user.role === "SUPER_ADMIN"
-            ? "/admin/dashboard"
-            : "/client/dashboard";
-        router.replace(dashboardPath);
-      }
-    } catch (error: unknown) {
-      let message = "Invalid email or password";
-      if (typeof error === "object" && error !== null && "response" in error) {
-        const response = error as { response?: { data?: unknown } };
-        const responseData = response.response?.data;
-        if (
-          typeof responseData === "object" &&
-          responseData !== null &&
-          "error" in responseData &&
-          typeof responseData.error === "string"
-        ) {
-          message = responseData.error;
-        }
-      }
-      toast.error(message);
-    } finally {
-      setIsLoading(false);
+      return;
     }
+
+    setErrors({
+      email: "",
+      password: "",
+    });
+
+    await login(result.data);
   };
 
   //===== Google login placeholder =====//
@@ -220,10 +198,16 @@ export default function LoginPage() {
                     variant="primary"
                     size="md"
                     className="w-full"
-                    disabled={isLoading}
+                    disabled={loading}
                   >
-                    <LogIn className="mr-2 h-5 w-5" />
-                    {isLoading ? "Signing in..." : "Sign In"}
+                    {loading ? (
+                      <Loader size="sm" />
+                    ) : (
+                      <>
+                        Login
+                        <LogIn className="mr-2 h-5 w-5" />
+                      </>
+                    )}
                   </Button>
                 </form>
 

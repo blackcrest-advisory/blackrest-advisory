@@ -15,7 +15,7 @@ import {
 import { Input } from "@/components/ui/Input";
 import { Card } from "@/components/ui/Card";
 import { InvoiceStatusBadge } from "./InvoiceStatusBadge";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 
 interface InvoicesTableProps {
   invoices: Invoice[];

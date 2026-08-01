@@ -10,7 +10,7 @@ import { navLinks } from "@/constants/publicNavigations";
 import ThemeToggle from "@/components/shared/ThemeToggle";
 import Dropdown from "@/components/ui/Dropdown";
 import DropdownItem from "@/components/ui/DropdownItem";
-import { slideDown } from "@/utils/animations";
+import { slideDown } from "@/lib/utils/animations";
 import { Container } from "@/components/ui/Container";
 
 export default function Navbar() {

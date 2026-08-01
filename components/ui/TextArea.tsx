@@ -1,5 +1,5 @@
 import { TextareaHTMLAttributes, ComponentType } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   icon?: ComponentType<{ className?: string }>;

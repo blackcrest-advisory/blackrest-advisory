@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { AdminDashboardWrapper } from "@/components/admin-dashboard/overview/AdminDashboardWrapper";
-import { getAdminUser } from "@/lib/admin-utils";
+import { getAdminUser } from "@/lib/utils/admin-utils";
 import { prisma } from "@/lib/db/client";
 import type {
   AdminActivity,

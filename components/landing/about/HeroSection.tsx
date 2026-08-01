@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { fadeInUp } from "@/utils/animations";
+import { fadeInUp } from "@/lib/utils/animations";
 
 export const HeroSection = () => {
   return (

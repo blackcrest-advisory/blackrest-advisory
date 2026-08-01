@@ -9,7 +9,7 @@ import {
 } from "react-icons/fi";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 
 export const QuickActions = () => {
   return (

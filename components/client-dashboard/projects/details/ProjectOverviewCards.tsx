@@ -5,7 +5,7 @@ import { DollarSign, TrendingUp, CalendarClock, Layers } from "lucide-react";
 import { differenceInCalendarDays } from "date-fns";
 import { Project } from "@/types/dashboard/client/projectsType";
 import { Card } from "@/components/ui/Card";
-import { staggerContainer, fadeInUp, hoverScale } from "@/utils/animations";
+import { staggerContainer, fadeInUp, hoverScale } from "@/lib/utils/animations";
 
 interface ProjectOverviewCardsProps {
   project: Project;

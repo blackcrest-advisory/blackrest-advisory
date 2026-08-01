@@ -14,7 +14,7 @@ import {
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
-import { fadeInUp, staggerContainer, hoverScale } from "@/utils/animations";
+import { fadeInUp, staggerContainer, hoverScale } from "@/lib/utils/animations";
 
 const nodes = [
   {

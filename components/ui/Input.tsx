@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ElementType<{ className?: string }>;

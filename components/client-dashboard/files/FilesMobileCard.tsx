@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/Card";
 import { FileTypeIcon } from "@/components/client-dashboard/files/FileTypeIcon";
 import { FileCategoryBadge } from "@/components/client-dashboard/files/FileCategoryBadge";
 import { ProjectFile } from "@/types/dashboard/client/filesType";
-import { formatFileDate, formatFileSize } from "@/utils/format";
+import { formatFileDate, formatFileSize } from "@/lib/utils/format";
 
 interface FilesMobileCardProps {
   file: ProjectFile;

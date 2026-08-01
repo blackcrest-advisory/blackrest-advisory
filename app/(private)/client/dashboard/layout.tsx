@@ -1,6 +1,6 @@
 import DashboardLayout from "@/components/shared/DashboardLayout";
 import { CurrentUserProvider } from "@/app/providers/CurrentUserProvider";
-import { getCurrentUser } from "@/lib/auth-utils";
+import { getCurrentUser } from "@/lib/utils/auth-utils";
 import { prisma } from "@/lib/db/client";
 
 export default async function ClientLayout({

@@ -5,7 +5,12 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { fadeIn, slideInLeft, slideInRight, float } from "@/utils/animations";
+import {
+  fadeIn,
+  slideInLeft,
+  slideInRight,
+  float,
+} from "@/lib/utils/animations";
 
 export const EngagementHero = () => {
   return (

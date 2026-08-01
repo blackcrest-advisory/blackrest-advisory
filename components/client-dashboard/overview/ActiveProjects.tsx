@@ -5,7 +5,7 @@ import { Project } from "@/types/dashboard/client/overviewType";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { ProjectItem } from "@/components/client-dashboard/overview/ProjectItem";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 
 interface ActiveProjectsProps {
   projects: Project[];

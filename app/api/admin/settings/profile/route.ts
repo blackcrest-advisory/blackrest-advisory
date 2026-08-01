@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getCurrentUser } from "@/lib/auth-utils";
+import { getCurrentUser } from "@/lib/utils/auth-utils";
 import { prisma } from "@/lib/db/client";
 
 export async function PATCH(request: Request) {
@@ -11,7 +11,10 @@ export async function PATCH(request: Request) {
   try {
     const body: unknown = await request.json();
     if (typeof body !== "object" || body === null) {
-      return NextResponse.json({ error: "Invalid profile data" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Invalid profile data" },
+        { status: 400 },
+      );
     }
 
     const { name, phone, jobTitle } = body as Record<string, unknown>;
@@ -27,6 +30,9 @@ export async function PATCH(request: Request) {
 
     return NextResponse.json(user);
   } catch {
-    return NextResponse.json({ error: "Unable to update profile" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Unable to update profile" },
+      { status: 500 },
+    );
   }
 }

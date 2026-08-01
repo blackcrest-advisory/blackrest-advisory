@@ -13,7 +13,7 @@ import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
-import { fadeInUp, staggerContainer } from "@/utils/animations";
+import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 import type {
   Stats,
   Project,

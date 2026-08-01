@@ -1,6 +1,6 @@
 import { ConsultationStatus } from "@prisma/client";
 import { NextResponse } from "next/server";
-import { getAdminUser } from "@/lib/admin-utils";
+import { getAdminUser } from "@/lib/utils/admin-utils";
 import { prisma } from "@/lib/db/client";
 
 export async function PATCH(
@@ -41,8 +41,7 @@ export async function PATCH(
           typeof meetingLink === "string" || meetingLink === null
             ? meetingLink
             : undefined,
-        notes:
-          typeof notes === "string" || notes === null ? notes : undefined,
+        notes: typeof notes === "string" || notes === null ? notes : undefined,
         duration:
           typeof duration === "number" || duration === null
             ? duration

@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2, Circle, Clock } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 import { Card } from "@/components/ui/Card";
-import { fadeInUp } from "@/utils/animations";
+import { fadeInUp } from "@/lib/utils/animations";
 import type { Milestone } from "@/types/dashboard/client/projectsType";
 
 interface ProjectMilestonesProps {

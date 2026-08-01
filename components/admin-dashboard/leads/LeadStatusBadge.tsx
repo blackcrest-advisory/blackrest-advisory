@@ -3,7 +3,7 @@ import {
   leadStatusStyles,
   leadStatusLabels,
 } from "@/types/dashboard/admin/leadTypes";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 
 interface LeadStatusBadgeProps {
   status: LeadStatus;

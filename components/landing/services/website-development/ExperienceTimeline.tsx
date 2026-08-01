@@ -12,7 +12,7 @@ import {
 import { GiFireworkRocket } from "react-icons/gi";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { fadeInUp, staggerContainer, hoverScale } from "@/utils/animations";
+import { fadeInUp, staggerContainer, hoverScale } from "@/lib/utils/animations";
 
 //===== Timeline steps data =====//
 const steps = [

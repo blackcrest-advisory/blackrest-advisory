@@ -10,7 +10,7 @@ import {
   fadeIn,
   staggerContainer,
   hoverScale,
-} from "@/utils/animations";
+} from "@/lib/utils/animations";
 
 export const WhyBlackcrestSection = () => {
   return (

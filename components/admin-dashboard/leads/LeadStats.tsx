@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import { Card } from "@/components/ui/Card";
-import { staggerContainer, fadeInUp, hoverScale } from "@/utils/animations";
+import { staggerContainer, fadeInUp, hoverScale } from "@/lib/utils/animations";
 import type { Lead } from "@/types/dashboard/admin/leadTypes";
 
 interface LeadStatsProps {

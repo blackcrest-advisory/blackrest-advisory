@@ -3,7 +3,7 @@
 import { FolderOpen, SearchX, Upload } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { fadeIn } from "@/utils/animations";
+import { fadeIn } from "@/lib/utils/animations";
 
 interface FilesEmptyStateProps {
   variant: "no-files" | "no-results";

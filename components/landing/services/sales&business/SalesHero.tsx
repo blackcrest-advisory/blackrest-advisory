@@ -15,7 +15,7 @@ import {
   fadeInUp,
   staggerContainer,
   hoverScale,
-} from "@/utils/animations";
+} from "@/lib/utils/animations";
 
 export const SalesHero = () => {
   const stats = [

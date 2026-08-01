@@ -12,7 +12,7 @@ import {
   slideInRight,
   staggerContainer,
   hoverScale,
-} from "@/utils/animations";
+} from "@/lib/utils/animations";
 
 export default function DeliveryModel() {
   return (

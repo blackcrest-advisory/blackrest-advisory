@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Avatar } from "@/components/ui/Avatar";
 import { Card } from "@/components/ui/Card";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 import type { TeamMember } from "@/types/dashboard/admin/overviewType";
 
 interface TeamWorkloadProps {

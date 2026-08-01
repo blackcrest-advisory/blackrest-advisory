@@ -6,7 +6,7 @@ import {
   Video,
 } from "lucide-react";
 import { FileCategory } from "@/types/dashboard/client/filesType";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 
 interface FileTypeIconProps {
   category: FileCategory;

@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { IMAGE } from "@/constants/imagesConfig";
-import { fadeInUp, scaleIn, slideInLeft } from "@/utils/animations";
+import { fadeInUp, scaleIn, slideInLeft } from "@/lib/utils/animations";
 
 const floatingFeatures = [
   { icon: FiBell, label: "Push Notifications" },

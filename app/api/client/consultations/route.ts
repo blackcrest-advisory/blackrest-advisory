@@ -1,6 +1,6 @@
 import { ConsultationType } from "@prisma/client";
 import { NextResponse } from "next/server";
-import { getCurrentUser } from "@/lib/auth-utils";
+import { getCurrentUser } from "@/lib/utils/auth-utils";
 import { prisma } from "@/lib/db/client";
 import { sendConsultationConfirmation } from "@/lib/services/email.service";
 

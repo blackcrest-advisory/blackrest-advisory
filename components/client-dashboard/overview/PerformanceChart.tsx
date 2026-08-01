@@ -15,7 +15,7 @@ import {
 import { Line } from "react-chartjs-2";
 import { useTheme } from "next-themes";
 import { Card } from "@/components/ui/Card";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 
 ChartJS.register(
   CategoryScale,

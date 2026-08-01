@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/Card";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 import type { FooterStat } from "@/types/dashboard/admin/overviewType";
 
 interface AdminFooterStatsProps {

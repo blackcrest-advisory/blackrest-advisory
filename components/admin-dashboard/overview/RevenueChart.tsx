@@ -13,7 +13,7 @@ import {
 } from "chart.js";
 import { Card } from "@/components/ui/Card";
 import { motion } from "framer-motion";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 
 ChartJS.register(
   CategoryScale,

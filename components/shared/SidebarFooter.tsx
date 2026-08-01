@@ -1,7 +1,7 @@
 "use client";
 
 import { LogOut } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 import { Avatar } from "@/components/ui/Avatar";
 
 interface SidebarFooterProps {

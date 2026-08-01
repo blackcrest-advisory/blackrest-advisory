@@ -6,7 +6,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { IMAGE } from "@/constants/imagesConfig";
-import { fadeInUp, staggerContainer, hoverScale } from "@/utils/animations";
+import { fadeInUp, staggerContainer, hoverScale } from "@/lib/utils/animations";
 
 interface Service {
   id: number;

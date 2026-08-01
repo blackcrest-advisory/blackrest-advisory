@@ -20,7 +20,7 @@ import {
 import type { IconType } from "react-icons";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { fadeInUp } from "@/utils/animations";
+import { fadeInUp } from "@/lib/utils/animations";
 
 //===== Tech stack data =====//
 interface TechItem {

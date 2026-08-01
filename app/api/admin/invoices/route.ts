@@ -1,8 +1,8 @@
 import type { Prisma } from "@prisma/client";
 import { NextResponse } from "next/server";
-import { getAdminUser } from "@/lib/admin-utils";
+import { getAdminUser } from "@/lib/utils/admin-utils";
 import { prisma } from "@/lib/db/client";
-import { generateInvoiceNumber } from "@/utils/invoice";
+import { generateInvoiceNumber } from "@/lib/utils/invoice";
 
 export async function GET() {
   try {

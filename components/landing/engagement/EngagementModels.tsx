@@ -6,7 +6,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { staggerContainer, fadeInUp } from "@/utils/animations";
+import { staggerContainer, fadeInUp } from "@/lib/utils/animations";
 
 //===== Engagement models data =====//
 const models = [

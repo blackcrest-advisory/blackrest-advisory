@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { FileText, HardDrive, Layers, UploadCloud } from "lucide-react";
 import { FileStatCard } from "@/components/client-dashboard/files/FileStatCard";
 import { FilesStats } from "@/types/dashboard/client/filesType";
-import { formatFileSize, formatStorageSummary } from "@/utils/format";
-import { fadeInUp, staggerContainer } from "@/utils/animations";
+import { formatFileSize, formatStorageSummary } from "@/lib/utils/format";
+import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 
 interface FilesStatsGridProps {
   stats: FilesStats;

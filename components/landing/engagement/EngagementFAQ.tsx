@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
-import { fadeInUp, staggerContainer } from "@/utils/animations";
+import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 
 //===== FAQ data =====//
 const faqs = [

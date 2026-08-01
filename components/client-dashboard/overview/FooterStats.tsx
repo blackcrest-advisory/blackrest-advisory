@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { FiStar, FiCalendar, FiBriefcase, FiCheckCircle } from "react-icons/fi";
 import { Card } from "@/components/ui/Card";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 
 export const FooterStats = () => {
   return (

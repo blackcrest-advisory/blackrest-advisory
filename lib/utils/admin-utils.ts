@@ -1,4 +1,4 @@
-import { getCurrentUser } from "@/lib/auth-utils";
+import { getCurrentUser } from "@/lib/utils/auth-utils";
 
 export async function getAdminUser() {
   const user = await getCurrentUser();

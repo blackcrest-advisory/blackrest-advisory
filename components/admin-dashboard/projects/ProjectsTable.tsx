@@ -16,7 +16,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/Table";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 import { ProjectHealthBadge } from "./ProjectHealthBadge";
 import type { AdminProject } from "@/types/dashboard/admin/projectsType";
 

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 import type { ProjectHealth } from "@/types/dashboard/admin/projectsType";
 
 const styles: Record<ProjectHealth, string> = {
@@ -8,7 +8,12 @@ const styles: Record<ProjectHealth, string> = {
 };
 
 export const ProjectHealthBadge = ({ health }: { health: ProjectHealth }) => (
-  <span className={cn("inline-flex rounded-full border px-2.5 py-1 text-xs font-medium", styles[health])}>
+  <span
+    className={cn(
+      "inline-flex rounded-full border px-2.5 py-1 text-xs font-medium",
+      styles[health],
+    )}
+  >
     {health.replace("-", " ")}
   </span>
 );

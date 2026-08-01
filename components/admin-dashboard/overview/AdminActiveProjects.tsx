@@ -14,7 +14,7 @@ import {
   TableRow,
 } from "@/components/ui/Table";
 import { Card } from "@/components/ui/Card";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 import type { AdminProject } from "@/types/dashboard/admin/overviewType";
 
 interface AdminActiveProjectsProps {

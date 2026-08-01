@@ -29,7 +29,7 @@ import {
   slideInLeft,
   slideInRight,
   hoverScale,
-} from "@/utils/animations";
+} from "@/lib/utils/animations";
 
 //===== Feature card data =====//
 interface FeatureCardProps {

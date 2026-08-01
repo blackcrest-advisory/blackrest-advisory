@@ -15,7 +15,7 @@ import {
   pulseScale,
   orbit,
   orbitReverse,
-} from "@/utils/animations";
+} from "@/lib/utils/animations";
 
 const Hero = () => {
   return (

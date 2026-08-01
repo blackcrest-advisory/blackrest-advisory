@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getCurrentUser } from "@/lib/auth-utils";
+import { getCurrentUser } from "@/lib/utils/auth-utils";
 import { prisma } from "@/lib/db/client";
 
 export async function GET(
@@ -28,10 +28,7 @@ export async function GET(
       );
     }
 
-    return NextResponse.json(
-      { success: true, data: invoice },
-      { status: 200 },
-    );
+    return NextResponse.json({ success: true, data: invoice }, { status: 200 });
   } catch {
     return NextResponse.json(
       { success: false, error: "Something went wrong" },

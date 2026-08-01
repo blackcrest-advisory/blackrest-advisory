@@ -9,7 +9,7 @@ import {
   LucideIcon,
 } from "lucide-react";
 import { Card } from "@/components/ui/Card";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 import type {
   DeadlineItem,
   DeadlineType,

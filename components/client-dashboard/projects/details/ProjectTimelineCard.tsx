@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/Card";
-import { fadeInUp } from "@/utils/animations";
+import { fadeInUp } from "@/lib/utils/animations";
 import type { Project } from "@/types/dashboard/client/projectsType";
 
 interface ProjectTimelineCardProps {

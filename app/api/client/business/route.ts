@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db/client";
-import { getCurrentUser } from "@/lib/auth-utils";
+import { getCurrentUser } from "@/lib/utils/auth-utils";
 
 export async function GET() {
   try {
@@ -83,8 +83,7 @@ export async function POST(request: Request) {
         typeof websiteUrl === "string" || websiteUrl === null
           ? websiteUrl
           : undefined,
-      phone:
-        typeof phone === "string" || phone === null ? phone : undefined,
+      phone: typeof phone === "string" || phone === null ? phone : undefined,
       address:
         typeof address === "string" || address === null ? address : undefined,
       logoUrl:

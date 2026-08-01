@@ -6,7 +6,7 @@ import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { adminServicesMock } from "@/mock-data/adminServicesMockData";
-import { fadeInUp, staggerContainer } from "@/utils/animations";
+import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 import { ServicesFilters } from "./ServicesFilters";
 import { ServicesGrid } from "./ServicesGrid";
 import { ServicesHeader } from "./ServicesHeader";

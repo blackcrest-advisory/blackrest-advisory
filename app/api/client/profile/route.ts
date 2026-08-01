@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
-import { getCurrentUser } from "@/lib/auth-utils";
+import { getCurrentUser } from "@/lib/utils/auth-utils";
 import { prisma } from "@/lib/db/client";
 
 const profileSelect = {
@@ -68,8 +68,7 @@ export async function PATCH(request: Request) {
           typeof companyName === "string" || companyName === null
             ? companyName
             : undefined,
-        phone:
-          typeof phone === "string" || phone === null ? phone : undefined,
+        phone: typeof phone === "string" || phone === null ? phone : undefined,
         country:
           typeof country === "string" || country === null ? country : undefined,
         jobTitle:

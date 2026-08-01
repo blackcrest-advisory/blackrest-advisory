@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { IMAGE } from "@/constants/imagesConfig";
-import { slideInLeft, slideInRight } from "@/utils/animations";
+import { slideInLeft, slideInRight } from "@/lib/utils/animations";
 
 export default function WhatWeDo() {
   return (

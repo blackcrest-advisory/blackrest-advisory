@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { ChevronDown, LucideIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 import Dropdown from "@/components/ui/Dropdown";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
 

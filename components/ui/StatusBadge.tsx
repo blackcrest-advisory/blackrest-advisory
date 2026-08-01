@@ -1,5 +1,5 @@
 import { ProjectStatus } from "@/types/dashboard/client/projectsType";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 
 interface StatusBadgeProps {
   status: ProjectStatus;

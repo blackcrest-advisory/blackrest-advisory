@@ -11,7 +11,7 @@ import {
 } from "@/components/admin-dashboard/settings/AdminNotificationsSection";
 import { AdminProfileSection } from "@/components/admin-dashboard/settings/AdminProfileSection";
 import { AdminSecuritySection } from "@/components/admin-dashboard/settings/AdminSecuritySection";
-import { fadeInUp, staggerContainer } from "@/utils/animations";
+import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 
 const defaultPreferences: AdminNotificationPreferences = {
   newLeads: true,

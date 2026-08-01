@@ -10,9 +10,9 @@ import {
   Receipt,
   LucideIcon,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 import { Card } from "@/components/ui/Card";
-import { staggerContainer, fadeInUp, hoverScale } from "@/utils/animations";
+import { staggerContainer, fadeInUp, hoverScale } from "@/lib/utils/animations";
 import type { AdminStats } from "@/types/dashboard/admin/overviewType";
 
 interface AdminStatsSectionProps {

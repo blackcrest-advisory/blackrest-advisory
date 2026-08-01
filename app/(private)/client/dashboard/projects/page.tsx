@@ -10,7 +10,7 @@ import { ProjectStats } from "@/components/client-dashboard/projects/ProjectStat
 import { ProjectFilters } from "@/components/client-dashboard/projects/ProjectFilters";
 import { ProjectGrid } from "@/components/client-dashboard/projects/ProjectGrid";
 import { ProjectPagination } from "@/components/client-dashboard/projects/ProjectPagination";
-import { fadeInUp, staggerContainer } from "@/utils/animations";
+import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 import type {
   ActivityLog,
   Milestone,

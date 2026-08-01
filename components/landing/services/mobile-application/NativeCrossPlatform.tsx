@@ -19,7 +19,7 @@ import {
   fadeInUp,
   staggerContainer,
   hoverScale,
-} from "@/utils/animations";
+} from "@/lib/utils/animations";
 
 //===== Left Content: Value Proposition & Benefits =====//
 const LeftContent = () => (

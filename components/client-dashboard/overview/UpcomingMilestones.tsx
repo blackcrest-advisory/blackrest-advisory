@@ -5,7 +5,7 @@ import { Milestone } from "@/types/dashboard/client/overviewType";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { MilestoneItem } from "./MilestoneItem";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 
 interface UpcomingMilestonesProps {
   milestones: Milestone[];

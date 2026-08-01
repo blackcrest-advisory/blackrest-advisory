@@ -1,6 +1,6 @@
 // src/components/engagement/shared/SectionHeader.tsx
 import { motion } from "framer-motion";
-import { fadeInUp } from "@/utils/animations";
+import { fadeInUp } from "@/lib/utils/animations";
 
 interface SectionHeaderProps {
   tag?: string;

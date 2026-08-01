@@ -6,7 +6,7 @@ import { Project } from "@/types/dashboard/client/projectsType";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { PriorityBadge } from "@/components/ui/PriorityBadge";
 import { Button } from "@/components/ui/Button";
-import { fadeInUp } from "@/utils/animations";
+import { fadeInUp } from "@/lib/utils/animations";
 
 interface ProjectDetailsHeaderProps {
   project: Project;

@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { motion } from "framer-motion";
 import { Mail, Calendar } from "lucide-react";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 
 export const EngagementCTA = () => {
   return (

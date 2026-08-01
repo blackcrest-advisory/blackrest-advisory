@@ -4,7 +4,12 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { fadeInUp, fadeIn, pulseScale, hoverScale } from "@/utils/animations";
+import {
+  fadeInUp,
+  fadeIn,
+  pulseScale,
+  hoverScale,
+} from "@/lib/utils/animations";
 import { Card } from "@/components/ui/Card";
 
 const CTA = () => {

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 import type { ServiceStatus } from "@/types/dashboard/admin/servicesType";
 
 const styles: Record<ServiceStatus, string> = {
@@ -7,4 +7,13 @@ const styles: Record<ServiceStatus, string> = {
   paused: "border-secondary/30 bg-secondary/10 text-secondary",
 };
 
-export const ServiceStatusBadge = ({ status }: { status: ServiceStatus }) => <span className={cn("inline-flex rounded-full border px-2.5 py-1 text-xs font-medium capitalize", styles[status])}>{status}</span>;
+export const ServiceStatusBadge = ({ status }: { status: ServiceStatus }) => (
+  <span
+    className={cn(
+      "inline-flex rounded-full border px-2.5 py-1 text-xs font-medium capitalize",
+      styles[status],
+    )}
+  >
+    {status}
+  </span>
+);

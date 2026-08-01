@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, DollarSign, Clock } from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 import type { Project } from "@/types/dashboard/client/projectsType";
 
 interface ProjectCardProps {

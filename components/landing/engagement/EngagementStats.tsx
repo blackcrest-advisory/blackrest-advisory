@@ -10,7 +10,7 @@ import {
 import { useRef, useState, useEffect } from "react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { fadeInUp, staggerContainer } from "@/utils/animations";
+import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 
 //===== Animated counter component with spring physics =====//
 interface AnimatedCounterProps {

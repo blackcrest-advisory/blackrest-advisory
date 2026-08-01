@@ -1,5 +1,5 @@
 import { InvoiceStatus } from "@/types/dashboard/client/invoiceTypes";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 
 interface InvoiceStatusBadgeProps {
   status: InvoiceStatus;

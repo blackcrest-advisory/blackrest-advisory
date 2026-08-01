@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
-import { staggerContainer, fadeInUp, hoverScale } from "@/utils/animations";
+import { staggerContainer, fadeInUp, hoverScale } from "@/lib/utils/animations";
 
 //===== Process steps data =====//
 const steps = [

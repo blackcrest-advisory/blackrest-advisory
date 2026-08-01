@@ -11,7 +11,7 @@ import {
   staggerContainer,
   pulseScale,
   hoverScale,
-} from "@/utils/animations";
+} from "@/lib/utils/animations";
 
 const segments = [
   {

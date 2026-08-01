@@ -16,7 +16,7 @@ import {
   staggerContainer,
   slideInLeft,
   slideInRight,
-} from "@/utils/animations";
+} from "@/lib/utils/animations";
 
 //===== Process steps data =====//
 const processSteps = [

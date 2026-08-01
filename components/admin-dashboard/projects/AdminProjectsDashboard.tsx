@@ -6,7 +6,7 @@ import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { adminProjectsMock } from "@/mock-data/adminProjectsMockData";
-import { fadeInUp, staggerContainer } from "@/utils/animations";
+import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 import { ProjectsFilters } from "./ProjectsFilters";
 import { ProjectsHeader } from "./ProjectsHeader";
 import { ProjectsStats } from "./ProjectsStats";

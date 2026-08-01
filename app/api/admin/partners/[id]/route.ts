@@ -1,6 +1,6 @@
 import { Pillar } from "@prisma/client";
 import { NextResponse } from "next/server";
-import { getAdminUser } from "@/lib/admin-utils";
+import { getAdminUser } from "@/lib/utils/admin-utils";
 import { prisma } from "@/lib/db/client";
 
 export async function PATCH(
@@ -36,14 +36,10 @@ export async function PATCH(
             : undefined,
         contactEmail:
           typeof contactEmail === "string" ? contactEmail : undefined,
-        phone:
-          typeof phone === "string" || phone === null ? phone : undefined,
+        phone: typeof phone === "string" || phone === null ? phone : undefined,
         website:
-          typeof website === "string" || website === null
-            ? website
-            : undefined,
-        notes:
-          typeof notes === "string" || notes === null ? notes : undefined,
+          typeof website === "string" || website === null ? website : undefined,
+        notes: typeof notes === "string" || notes === null ? notes : undefined,
         isActive: typeof isActive === "boolean" ? isActive : undefined,
       },
     });

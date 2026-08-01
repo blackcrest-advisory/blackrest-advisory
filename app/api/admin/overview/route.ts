@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db/client";
-import { getAdminUser } from "@/lib/admin-utils";
+import { getAdminUser } from "@/lib/utils/admin-utils";
 
 function calculateChange(current: number, previous: number): number {
   return Math.round(((current - previous) / Math.max(previous, 1)) * 100);

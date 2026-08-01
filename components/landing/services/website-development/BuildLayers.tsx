@@ -21,7 +21,7 @@ import {
   slideInRight,
   staggerContainer,
   hoverScale,
-} from "@/utils/animations";
+} from "@/lib/utils/animations";
 
 const layersData = [
   {

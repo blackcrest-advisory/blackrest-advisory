@@ -2,7 +2,7 @@ import { SettingsPageHeader } from "@/components/client-dashboard/settings/Setti
 import { ProfileSection } from "@/components/client-dashboard/settings/ProfileSection";
 import { SecuritySection } from "@/components/client-dashboard/settings/SecuritySection";
 import { NotificationsSection } from "@/components/client-dashboard/settings/NotificationsSection";
-import { getCurrentUser } from "@/lib/auth-utils";
+import { getCurrentUser } from "@/lib/utils/auth-utils";
 import { prisma } from "@/lib/db/client";
 import type {
   ClientProfile,

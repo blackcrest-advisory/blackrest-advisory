@@ -13,7 +13,7 @@ import {
 } from "react-icons/fi";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { fadeInUp, staggerContainer, hoverScale } from "@/utils/animations";
+import { fadeInUp, staggerContainer, hoverScale } from "@/lib/utils/animations";
 
 //===== Metrics data =====//
 const metrics = [

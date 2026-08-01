@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 import Logo from "@/components/shared/Logo";
 import SidebarFooter from "@/components/shared/SidebarFooter";
 import DashboardSidebarItems from "@/components/shared/DashboardSidebarItems";
-import { getNavItems } from "@/utils/getNavItems";
+import { getNavItems } from "@/lib/utils/getNavItems";
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
 import { logoutUser } from "@/api-client/auth.api";
 

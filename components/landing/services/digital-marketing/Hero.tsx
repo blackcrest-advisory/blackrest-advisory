@@ -13,7 +13,7 @@ import {
   scaleIn,
   fadeInUp,
   staggerContainer,
-} from "@/utils/animations";
+} from "@/lib/utils/animations";
 
 export default function Hero() {
   const services = [

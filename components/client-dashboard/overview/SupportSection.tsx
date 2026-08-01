@@ -5,7 +5,7 @@ import { FiCalendar, FiMessageCircle, FiMail, FiPhone } from "react-icons/fi";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Avatar } from "@/components/ui/Avatar";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 
 export const SupportSection = () => {
   return (

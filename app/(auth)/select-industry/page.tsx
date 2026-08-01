@@ -5,7 +5,7 @@ import IndustrySelector from "@/components/features/auth/IndustrySelector";
 import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { fadeInUp } from "@/utils/animations";
+import { fadeInUp } from "@/lib/utils/animations";
 
 export default function SelectIndustryPage() {
   return (

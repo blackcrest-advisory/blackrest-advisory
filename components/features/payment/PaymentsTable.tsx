@@ -15,7 +15,7 @@ import {
 import { Input } from "@/components/ui/Input";
 import { Card } from "@/components/ui/Card";
 import { PaymentStatusBadge } from "./PaymentStatusBadge";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 
 interface PaymentsTableProps {
   payments: Payment[];

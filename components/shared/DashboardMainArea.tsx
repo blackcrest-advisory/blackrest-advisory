@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 import DashboardNavbar from "@/components/shared/DashbaordNavbar";
 import DashboardMobileSidebar from "@/components/shared/DashboardMobileSidebar";
-import { getCurrentPage } from "@/utils/getCurrentPage";
-import { getNavItems } from "@/utils/getNavItems";
+import { getCurrentPage } from "@/lib/utils/getCurrentPage";
+import { getNavItems } from "@/lib/utils/getNavItems";
 
 interface DashboardMainAreaProps {
   children: React.ReactNode;

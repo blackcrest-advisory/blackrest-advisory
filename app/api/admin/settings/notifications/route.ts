@@ -1,6 +1,6 @@
 import type { Prisma } from "@prisma/client";
 import { NextResponse } from "next/server";
-import { getCurrentUser } from "@/lib/auth-utils";
+import { getCurrentUser } from "@/lib/utils/auth-utils";
 import { prisma } from "@/lib/db/client";
 
 export async function PATCH(request: Request) {
@@ -11,9 +11,19 @@ export async function PATCH(request: Request) {
 
   try {
     const body: unknown = await request.json();
-    const preferences = typeof body === "object" && body !== null ? (body as Record<string, unknown>).notificationPreferences : null;
-    if (typeof preferences !== "object" || preferences === null || Array.isArray(preferences)) {
-      return NextResponse.json({ error: "Notification preferences are required" }, { status: 400 });
+    const preferences =
+      typeof body === "object" && body !== null
+        ? (body as Record<string, unknown>).notificationPreferences
+        : null;
+    if (
+      typeof preferences !== "object" ||
+      preferences === null ||
+      Array.isArray(preferences)
+    ) {
+      return NextResponse.json(
+        { error: "Notification preferences are required" },
+        { status: 400 },
+      );
     }
 
     await prisma.user.update({
@@ -22,6 +32,9 @@ export async function PATCH(request: Request) {
     });
     return NextResponse.json({ success: true });
   } catch {
-    return NextResponse.json({ error: "Unable to save notification preferences" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Unable to save notification preferences" },
+      { status: 500 },
+    );
   }
 }

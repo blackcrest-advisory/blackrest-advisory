@@ -15,7 +15,7 @@ import { ProjectTeamCard } from "@/components/client-dashboard/projects/details/
 import { ProjectMilestones } from "@/components/client-dashboard/projects/details/ProjectMilestones";
 import { ProjectFilesCard } from "@/components/client-dashboard/projects/details/ProjectFilesCard";
 import { ProjectActivityLog } from "@/components/client-dashboard/projects/details/ProjectActivityLog";
-import { fadeInUp, staggerContainer } from "@/utils/animations";
+import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 import type { Project } from "@/types/dashboard/client/projectsType";
 
 //===== Serialized project type from API =====//

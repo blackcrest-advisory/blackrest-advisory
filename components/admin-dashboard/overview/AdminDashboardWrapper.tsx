@@ -12,7 +12,7 @@ import { AdminFooterStats } from "./AdminFooterStats";
 import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { fadeInUp, hoverScale } from "@/utils/animations";
+import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 import type {
   AdminStats,
   AdminProject,

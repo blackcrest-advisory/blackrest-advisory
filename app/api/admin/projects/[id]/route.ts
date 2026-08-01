@@ -1,6 +1,6 @@
 import { ProjectStatus } from "@prisma/client";
 import { NextResponse } from "next/server";
-import { getAdminUser } from "@/lib/admin-utils";
+import { getAdminUser } from "@/lib/utils/admin-utils";
 import { prisma } from "@/lib/db/client";
 import { sendProjectUpdate } from "@/lib/services/email.service";
 
@@ -96,8 +96,7 @@ export async function PATCH(
         priority: typeof priority === "string" ? priority : undefined,
         budget:
           typeof budget === "number" || budget === null ? budget : undefined,
-        budgetSpent:
-          typeof budgetSpent === "number" ? budgetSpent : undefined,
+        budgetSpent: typeof budgetSpent === "number" ? budgetSpent : undefined,
         progress: typeof progress === "number" ? progress : undefined,
         serviceType:
           typeof serviceType === "string" || serviceType === null
@@ -122,12 +121,7 @@ export async function PATCH(
       });
 
       if (user) {
-        void sendProjectUpdate(
-          user.email,
-          user.name,
-          project.title,
-          update,
-        );
+        void sendProjectUpdate(user.email, user.name, project.title, update);
       }
     }
 

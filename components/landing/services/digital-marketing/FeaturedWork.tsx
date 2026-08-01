@@ -10,7 +10,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { projects } from "@/content-data/digital-marketing/clientDeliveryProjectsData";
-import { fadeInUp } from "@/utils/animations";
+import { fadeInUp } from "@/lib/utils/animations";
 import { motion } from "framer-motion";
 
 export default function FeaturedWork() {

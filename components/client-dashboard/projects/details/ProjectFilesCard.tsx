@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { FileText, Download } from "lucide-react";
 import { Card } from "@/components/ui/Card";
-import { fadeInUp } from "@/utils/animations";
+import { fadeInUp } from "@/lib/utils/animations";
 import type { ProjectFile } from "@/types/dashboard/client/projectsType";
 
 interface ProjectFilesCardProps {

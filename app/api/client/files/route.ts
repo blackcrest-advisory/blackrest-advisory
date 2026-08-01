@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getCurrentUser } from "@/lib/auth-utils";
+import { getCurrentUser } from "@/lib/utils/auth-utils";
 import { prisma } from "@/lib/db/client";
 
 export async function GET() {
@@ -50,9 +50,8 @@ export async function GET() {
       ),
       storageLimitInBytes: 53687091200,
       activeProjectsCount: new Set(files.map((file) => file.projectId)).size,
-      recentUploadsCount: files.filter(
-        (file) => file.createdAt >= sevenDaysAgo,
-      ).length,
+      recentUploadsCount: files.filter((file) => file.createdAt >= sevenDaysAgo)
+        .length,
     };
 
     return NextResponse.json({ files: mappedFiles, stats }, { status: 200 });

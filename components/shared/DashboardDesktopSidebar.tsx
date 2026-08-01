@@ -10,10 +10,10 @@ import toast from "react-hot-toast";
 import { IMAGE } from "@/constants/imagesConfig";
 import { useSidebarStore } from "@/store/sidebarStore";
 import SidebarFooter from "@/components/shared/SidebarFooter";
-import { cn } from "@/lib/utils";
-import { scaleFade } from "@/utils/animations";
+import { cn } from "@/lib/utils/utils";
+import { scaleFade } from "@/lib/utils/animations";
 import DashboardSidebarItems from "@/components/shared/DashboardSidebarItems";
-import { getNavItems } from "@/utils/getNavItems";
+import { getNavItems } from "@/lib/utils/getNavItems";
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
 import { logoutUser } from "@/api-client/auth.api";
 

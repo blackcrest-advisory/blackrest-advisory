@@ -1,6 +1,6 @@
 import { LeadStatus, Pillar } from "@prisma/client";
 import { NextResponse } from "next/server";
-import { getAdminUser } from "@/lib/admin-utils";
+import { getAdminUser } from "@/lib/utils/admin-utils";
 import { prisma } from "@/lib/db/client";
 
 function mapLeadStatus(status: string): string {
@@ -158,9 +158,7 @@ export async function PATCH(
             ? location
             : undefined,
         website:
-          typeof website === "string" || website === null
-            ? website
-            : undefined,
+          typeof website === "string" || website === null ? website : undefined,
         services: Array.isArray(services)
           ? services.filter(
               (service): service is string => typeof service === "string",
@@ -178,13 +176,11 @@ export async function PATCH(
             : nextFollowUp === null
               ? null
               : undefined,
-        notes:
-          typeof notes === "string" || notes === null ? notes : undefined,
+        notes: typeof notes === "string" || notes === null ? notes : undefined,
         priority: typeof priority === "string" ? priority : undefined,
         name: typeof name === "string" ? name : undefined,
         email: typeof email === "string" ? email : undefined,
-        phone:
-          typeof phone === "string" || phone === null ? phone : undefined,
+        phone: typeof phone === "string" || phone === null ? phone : undefined,
         companyName:
           typeof companyName === "string" || companyName === null
             ? companyName

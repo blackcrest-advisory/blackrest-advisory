@@ -1,5 +1,5 @@
 import { ProjectPriority } from "@/types/dashboard/client/projectsType";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 
 interface PriorityBadgeProps {
   priority: ProjectPriority;

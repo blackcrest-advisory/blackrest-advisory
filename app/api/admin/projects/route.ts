@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAdminUser } from "@/lib/admin-utils";
+import { getAdminUser } from "@/lib/utils/admin-utils";
 import { prisma } from "@/lib/db/client";
 
 export async function GET() {
@@ -87,14 +87,12 @@ export async function POST(request: Request) {
         userId,
         title: title.trim(),
         description: typeof description === "string" ? description : null,
-        deadline:
-          typeof deadline === "string" ? new Date(deadline) : undefined,
+        deadline: typeof deadline === "string" ? new Date(deadline) : undefined,
         assignedTo: typeof assignedTo === "string" ? assignedTo : null,
         priority: typeof priority === "string" ? priority : undefined,
         budget:
           typeof budget === "number" || budget === null ? budget : undefined,
-        budgetSpent:
-          typeof budgetSpent === "number" ? budgetSpent : undefined,
+        budgetSpent: typeof budgetSpent === "number" ? budgetSpent : undefined,
         progress: typeof progress === "number" ? progress : undefined,
         serviceType:
           typeof serviceType === "string" || serviceType === null
