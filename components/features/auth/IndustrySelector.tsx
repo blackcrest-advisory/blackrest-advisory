@@ -56,8 +56,10 @@ const IndustrySelector = () => {
 
   //===== Handle continue navigation =====//
   const handleContinue = () => {
-    if (selectedId) {
-      router.push("/signup");
+    const selectedItem = industries.find((item) => item.id === selectedId);
+
+    if (selectedItem) {
+      router.push(`/signup?industry=${encodeURIComponent(selectedItem.label)}`);
     }
   };
 
