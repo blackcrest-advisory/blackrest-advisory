@@ -14,7 +14,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, email, password } = body as Record<string, unknown>;
+    const { name, email, password, industry } = body as Record<string, unknown>;
 
     if (
       typeof name !== "string" ||
@@ -66,6 +66,10 @@ export async function POST(request: Request) {
         name: name.trim(),
         email: normalizedEmail,
         password: hashedPassword,
+        industry:
+          typeof industry === "string" && industry.trim()
+            ? industry.trim()
+            : undefined,
       },
     });
     void sendWelcomeEmail(user.email, user.name);
@@ -76,7 +80,7 @@ export async function POST(request: Request) {
     );
   } catch {
     return NextResponse.json(
-      { error: "Something went wrong" },
+      { success: false, error: "Something went wrong" },
       { status: 500 },
     );
   }
