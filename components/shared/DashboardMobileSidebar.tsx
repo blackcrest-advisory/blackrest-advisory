@@ -11,7 +11,7 @@ import SidebarFooter from "@/components/shared/SidebarFooter";
 import DashboardSidebarItems from "@/components/shared/DashboardSidebarItems";
 import { getNavItems } from "@/lib/utils/getNavItems";
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
-import { logoutUser } from "@/api-client/auth.api";
+import { logoutUser } from "@/api-client/auth/logout";
 
 interface MobileSidebarProps {
   isOpen: boolean;

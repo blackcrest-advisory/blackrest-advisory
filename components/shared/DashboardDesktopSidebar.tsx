@@ -15,7 +15,7 @@ import { scaleFade } from "@/lib/utils/animations";
 import DashboardSidebarItems from "@/components/shared/DashboardSidebarItems";
 import { getNavItems } from "@/lib/utils/getNavItems";
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
-import { logoutUser } from "@/api-client/auth.api";
+import { logoutUser } from "@/api-client/auth/logout";
 
 interface ClientSidebarProps {
   mobile?: boolean;
