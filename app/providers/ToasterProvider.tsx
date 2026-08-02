@@ -9,8 +9,8 @@ export function ToasterProvider() {
       toastOptions={{
         duration: 4000,
         style: {
-          background: "var(--color-card-bg)",
-          color: "var(--color-foreground)",
+          background: "var(--color-card)",
+          color: "var(--color-card-foreground)",
           border: "1px solid var(--color-border)",
           borderRadius: "8px",
           padding: "12px 16px",
@@ -20,16 +20,19 @@ export function ToasterProvider() {
         success: {
           iconTheme: {
             primary: "var(--color-secondary)",
-            secondary: "var(--color-accent-hover)",
+            secondary: "var(--color-secondary-foreground)",
           },
         },
         error: {
-          iconTheme: { primary: "#ef4444", secondary: "#b91c1c" },
+          iconTheme: {
+            primary: "var(--color-destructive)",
+            secondary: "var(--color-destructive-foreground)",
+          },
         },
         loading: {
           iconTheme: {
             primary: "var(--color-secondary)",
-            secondary: "var(--color-accent-hover)",
+            secondary: "var(--color-secondary-foreground)",
           },
         },
       }}
