@@ -2,82 +2,71 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Mail, Lock, User, Eye, EyeOff, UserPlus } from "lucide-react";
 import { FaChrome } from "react-icons/fa";
-import toast from "react-hot-toast";
-import { registerUser } from "@/api-client/auth.api";
 import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
+import { Loader } from "@/components/ui/Loader";
 import { fadeInUp, hoverScale, pulseScale } from "@/lib/utils/animations";
+import { useRegister } from "@/hooks/useSignUp";
+import { signupSchema } from "@/lib/validations/auth";
 
 export default function SignupPage() {
-  const router = useRouter();
+  const searchParams = useSearchParams();
+  const selectedIndustry = searchParams.get("industry") || "";
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+  const { register, loading } = useRegister();
 
   //===== Handle form submission =====//
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const newErrors = {
+    const values = {
+      email,
+      password,
+      name,
+      confirmPassword,
+      industry: selectedIndustry,
+    };
+    const result = signupSchema.safeParse(values);
+
+    if (!result.success) {
+      const fieldErrors = result.error.flatten().fieldErrors;
+
+      setErrors({
+        name: fieldErrors.name?.[0] ?? "",
+        email: fieldErrors.email?.[0] ?? "",
+        password: fieldErrors.password?.[0] ?? "",
+        confirmPassword: fieldErrors.confirmPassword?.[0] ?? "",
+      });
+
+      return;
+    }
+
+    setErrors({
       name: "",
       email: "",
       password: "",
       confirmPassword: "",
-    };
-    if (!name) newErrors.name = "Full name is required";
-    if (!email) newErrors.email = "Email is required";
-    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = "Email is invalid";
-    if (!password) newErrors.password = "Password is required";
-    else if (password.length < 8)
-      newErrors.password = "Password must be at least 8 characters";
-    if (!confirmPassword)
-      newErrors.confirmPassword = "Please confirm your password";
-    else if (password !== confirmPassword)
-      newErrors.confirmPassword = "Passwords do not match";
-    setErrors(newErrors);
-    if (Object.values(newErrors).some((err) => err !== "")) return;
+    });
 
-    setIsLoading(true);
-    try {
-      const data = await registerUser(name, email, password);
-      localStorage.setItem("pending_user_id", data.userId);
-      toast.success("Account created successfully");
-      router.push("/select-industry");
-    } catch (error: unknown) {
-      let message = "Failed to create account";
-      if (typeof error === "object" && error !== null && "response" in error) {
-        const response = error as { response?: { data?: unknown } };
-        const responseData = response.response?.data;
-        if (
-          typeof responseData === "object" &&
-          responseData !== null &&
-          "error" in responseData &&
-          typeof responseData.error === "string"
-        ) {
-          message = responseData.error;
-        }
-      }
-      toast.error(message);
-    } finally {
-      setIsLoading(false);
-    }
+    await register(result.data);
   };
 
   //===== Google signup placeholder =====//
@@ -136,6 +125,12 @@ export default function SignupPage() {
 
                 {/*===== Form =====*/}
                 <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+                  {selectedIndustry ? (
+                    <div className="rounded-lg border border-border bg-muted p-3 text-sm text-foreground">
+                      Selected industry:{" "}
+                      <span className="font-semibold">{selectedIndustry}</span>
+                    </div>
+                  ) : null}
                   {/* Full Name */}
                   <div>
                     <label
@@ -269,10 +264,18 @@ export default function SignupPage() {
                     variant="primary"
                     size="md"
                     className="w-full"
-                    disabled={isLoading}
+                    disabled={loading}
                   >
-                    <UserPlus className="mr-2 h-5 w-5" />
-                    {isLoading ? "Creating account..." : "Create Account"}
+                    {loading ? (
+                      <>
+                        <Loader size="sm" /> Creating account...
+                      </>
+                    ) : (
+                      <>
+                        <UserPlus className="mr-2 h-5 w-5" />
+                        Create Account
+                      </>
+                    )}
                   </Button>
                 </form>
 
