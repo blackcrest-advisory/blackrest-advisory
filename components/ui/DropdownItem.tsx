@@ -8,6 +8,7 @@ interface DropdownItemProps {
   danger?: boolean;
   onClick?: () => void;
   className?: string;
+  disabled?: boolean;
 }
 
 const DropdownItem = ({
@@ -17,6 +18,7 @@ const DropdownItem = ({
   danger = false,
   onClick,
   className = "",
+  disabled = false,
 }: DropdownItemProps) => {
   const styles = `
     group
@@ -77,7 +79,11 @@ const DropdownItem = ({
   }
 
   return (
-    <button onClick={onClick} className={`${styles} w-full text-left cursor-pointer`}>
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className={`${styles} w-full text-left cursor-pointer`}
+    >
       {content}
     </button>
   );
