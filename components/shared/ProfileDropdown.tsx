@@ -1,32 +1,41 @@
 "use client";
+
+import { logoutUser } from "@/api-client/auth/logout";
 import ProfileTrigger from "@/components/shared/ProfileTrigger";
 import Dropdown from "@/components/ui/Dropdown";
 import DropdownItem from "@/components/ui/DropdownItem";
+import { Loader } from "@/components/ui/Loader";
 import { profileMenu } from "@/constants/clientNavigations";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
-import { logoutUser } from "@/api-client/auth.api";
 
 const ProfileDropdown = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const pathname = usePathname();
-  // const handleLogout = () => {
-  //   setIsProfileOpen(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
-  //   try {
-  //     await logoutUser();
-  //     router.replace("/login");
-  //     router.refresh();
-  //   } catch {
-  //     toast.error("Failed to log out");
-  //     setIsLoggingOut(false);
-  //   }
-  // };
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+
+    try {
+      await logoutUser();
+
+      setIsProfileOpen(false);
+
+      router.replace("/login");
+      router.refresh();
+    } catch (error) {
+      console.error("Logout failed:", error);
+    } finally {
+      setIsLoggingOut(false);
+    }
+  };
 
   const name = pathname === "/admin/dashboard" ? "Admin User" : "Client User";
   const role = pathname === "/admin/dashboard" ? "Admin" : "Client";
+
   return (
     <div className="relative cursor-pointer">
       <ProfileTrigger
@@ -35,6 +44,7 @@ const ProfileDropdown = () => {
         name={name}
         role={role}
       />
+
       <Dropdown
         isOpen={isProfileOpen}
         align="end"
@@ -51,9 +61,15 @@ const ProfileDropdown = () => {
           </DropdownItem>
         ))}
 
-        {/* <DropdownItem danger onClick={handleLogout}>
-          {isLoggingOut ? "Logging out..." : "Logout"}
-        </DropdownItem> */}
+        <DropdownItem danger onClick={handleLogout} disabled={isLoggingOut}>
+          {isLoggingOut ? (
+            <div className="flex items-center gap-2">
+              <span className="ml-2">Logging out...</span> <Loader size="sm" />
+            </div>
+          ) : (
+            "Logout"
+          )}
+        </DropdownItem>
       </Dropdown>
     </div>
   );
