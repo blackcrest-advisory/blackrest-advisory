@@ -1,4 +1,4 @@
-import client from "@/api-client/client";
+import client from "@/api-client/base.axios";
 
 type LogoutResponse = {
   success: true;

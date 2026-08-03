@@ -1,4 +1,4 @@
-import axios from "@/api-client/client";
+import axios from "@/api-client/base.axios";
 
 type ContactFormData = {
   name: string;

@@ -1,4 +1,4 @@
-import client from "@/api-client/client";
+import client from "@/api-client/base.axios";
 import { loginInput } from "@/lib/validations/auth";
 import { LoginResponse } from "@/types/auth/login";
 

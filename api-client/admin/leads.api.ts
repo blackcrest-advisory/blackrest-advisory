@@ -1,4 +1,4 @@
-import client from "@/api-client/client";
+import client from "@/api-client/base.axios";
 import type { Lead } from "@/types/dashboard/admin/leadTypes";
 
 export async function fetchAdminLeads(): Promise<Lead[]> {

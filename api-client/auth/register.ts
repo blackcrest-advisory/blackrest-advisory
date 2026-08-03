@@ -1,4 +1,4 @@
-import client from "@/api-client/client";
+import client from "@/api-client/base.axios";
 import { signupInput } from "@/lib/validations/auth";
 import { RegisterResponse } from "@/types/auth/register";
 
