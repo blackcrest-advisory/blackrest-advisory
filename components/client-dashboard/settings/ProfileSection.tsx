@@ -11,7 +11,7 @@ import { SettingsSectionCard } from "@/components/client-dashboard/settings/Sett
 import { ClientProfile } from "@/types/dashboard/client/settingsType";
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
 import { updateClientProfile } from "@/api-client/client/settings.api";
-import { uploadFile } from "@/api-client/upload.api";
+import { uploadFile } from "@/api-client/upload/upload.api";
 
 interface ProfileSectionProps {
   profile: ClientProfile;

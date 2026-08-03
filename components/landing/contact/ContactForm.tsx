@@ -15,7 +15,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { contactInfoData } from "@/content-data/contact/contactData";
-import { submitContactForm } from "@/api-client/contact.api";
+import { submitContactForm } from "@/api-client/contact/contact.api";
 import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 import toast from "react-hot-toast";
 import { Textarea } from "@/components/ui/TextArea";
