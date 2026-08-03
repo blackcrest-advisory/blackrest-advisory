@@ -67,14 +67,6 @@ export default function FilesPage() {
     setSortBy("newest");
   };
 
-  if (loading) {
-    return (
-      <div className="py-12 text-center text-[var(--color-body)]">
-        Loading files...
-      </div>
-    );
-  }
-
   return (
     <div className="flex flex-col gap-6">
       <FilesPageHeader onUploadClick={handleUploadClick} />

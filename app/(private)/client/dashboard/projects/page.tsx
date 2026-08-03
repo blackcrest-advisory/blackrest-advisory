@@ -110,21 +110,6 @@ export default function ProjectsPage() {
     setCurrentPage(1);
   };
 
-  //===== Loading state =====//
-  if (loading) {
-    return (
-      <PageWrapper>
-        <Section className="py-2 md:py-2 lg:py-2">
-          <Container>
-            <div className="py-12 text-center text-muted-foreground">
-              Loading projects...
-            </div>
-          </Container>
-        </Section>
-      </PageWrapper>
-    );
-  }
-
   return (
     //===== Client Projects Page =====//
     <PageWrapper>
