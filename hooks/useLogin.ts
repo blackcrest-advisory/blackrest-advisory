@@ -1,6 +1,6 @@
+import { isAxiosError } from "axios";
 import { loginUser } from "@/api-client/auth/login";
 import { loginInput } from "@/lib/validations/auth";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -21,7 +21,7 @@ export const useLogin = () => {
         toast.success("Wellcome Back to Dashboard");
       }
     } catch (error) {
-      if (axios.isAxiosError(error)) {
+      if (isAxiosError(error)) {
         toast.error(error.response?.data?.error || "Login failed");
       } else {
         toast.error("Something went wrong");
