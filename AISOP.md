@@ -141,15 +141,27 @@ blackcrest-advisory/  (root)
 
 ## 1.1 VERIFIED PROJECT STRUCTURE (AUTHORITATIVE — DO NOT REORGANIZE)
 
-> Verified from the repository on 2026-07-30. Route groups such as `(auth)`, `(private)`, and `(public)` organize files but do not appear in URLs. Generated folders such as `.next/` and `node_modules/` are intentionally omitted.
+> Verified from the repository on 2026-08-03. Route groups such as `(auth)`, `(private)`, and `(public)` organize files but do not appear in URLs. Generated folders such as `.next/` and `node_modules/` are intentionally omitted.
 
 ```text
 blackrest-advisory/
 ├── api-client/
-│   ├── auth.api.ts
-│   ├── client.ts
-│   ├── contact.api.ts
-│   └── upload.api.ts
+│   ├── base.axios.ts
+│   ├── admin/
+│   │   ├── leads.api.ts
+│   │   └── settings.api.ts
+│   ├── auth/
+│   │   ├── login.ts
+│   │   ├── logout.ts
+│   │   └── register.ts
+│   ├── client/
+│   │   ├── files.api.ts
+│   │   ├── projects.api.ts
+│   │   └── settings.api.ts
+│   ├── contact/
+│   │   └── contact.api.ts
+│   └── upload/
+│       └── upload.api.ts
 ├── app/
 │   ├── (auth)/
 │   │   ├── login/page.tsx
@@ -158,64 +170,156 @@ blackrest-advisory/
 │   │   └── layout.tsx
 │   ├── (private)/
 │   │   ├── admin/dashboard/
-│   │   │   ├── {clients,finance,messages,projects,reports,resources,sales,services,settings,tasks}/page.tsx
-│   │   │   ├── leads/{loading.tsx,page.tsx}
-│   │   │   ├── others/
+│   │   │   ├── clients/page.tsx
+│   │   │   ├── finance/page.tsx
+│   │   │   ├── leads/loading.tsx
+│   │   │   ├── leads/page.tsx
+│   │   │   ├── messages/page.tsx
+│   │   │   ├── others/page.tsx
+│   │   │   ├── projects/page.tsx
+│   │   │   ├── reports/page.tsx
+│   │   │   ├── resources/page.tsx
+│   │   │   ├── sales/page.tsx
+│   │   │   ├── services/page.tsx
+│   │   │   ├── settings/page.tsx
+│   │   │   └── tasks/page.tsx
 │   │   │   ├── layout.tsx
 │   │   │   └── page.tsx
 │   │   └── client/dashboard/
-│   │       ├── {files,invoices,messages,overview,payments,settings}/page.tsx
-│   │       ├── projects/{page.tsx,[projectId]/page.tsx}
+│   │       ├── files/page.tsx
+│   │       ├── invoices/page.tsx
+│   │       ├── messages/page.tsx
+│   │       ├── overview/page.tsx
+│   │       ├── payments/page.tsx
+│   │       ├── projects/page.tsx
+│   │       ├── projects/[projectId]/page.tsx
+│   │       ├── settings/page.tsx
 │   │       ├── layout.tsx
 │   │       └── page.tsx
 │   ├── (public)/
-│   │   ├── {about,contact,engagement,home}/page.tsx
-│   │   └── services/{digital-marketing,mobile-applications,sales-support,website-development}/page.tsx
+│   │   ├── about/page.tsx
+│   │   ├── contact/page.tsx
+│   │   ├── engagement/page.tsx
+│   │   ├── home/page.tsx
+│   │   ├── services/digital-marketing/page.tsx
+│   │   ├── services/mobile-applications/page.tsx
+│   │   ├── services/sales-support/page.tsx
+│   │   ├── services/website-development/page.tsx
+│   │   ├── start-project/page.tsx
+│   │   └── layout.tsx
 │   ├── api/
-│   │   ├── admin/              # Admin API route handlers
-│   │   ├── auth/               # NextAuth, login, logout route handlers
-│   │   ├── client/             # Client API route handlers
-│   │   ├── contact/route.ts
+│   │   ├── admin/
+│   │   ├── auth/
+│   │   │   ├── [...nextauth]/
+│   │   │   ├── login/
+│   │   │   └── logout/
+│   │   ├── client/
+│   │   ├── contact/
 │   │   ├── notifications/
 │   │   ├── register/
-│   │   ├── seed/admin/route.ts
+│   │   │   └── industry/
+│   │   ├── seed/
+│   │   │   └── admin/
 │   │   └── upload/
-│   ├── providers/{AuthProvider,CurrentUserProvider,ThemeProvider,ToasterProvider}.tsx
-│   ├── styles/{global,globals}.css
+│   │       └── delete/
+│   ├── providers/
+│   │   ├── AuthProvider.tsx
+│   │   ├── CurrentUserProvider.tsx
+│   │   ├── ThemeProvider.tsx
+│   │   └── ToasterProvider.tsx
+│   ├── styles/
+│   │   ├── global.css
+│   │   └── globals.css
 │   ├── test/page.tsx
 │   └── {favicon.ico,layout.tsx,not-found.tsx,page.tsx}
 ├── components/
-│   ├── admin-dashboard/{leads,overview,projects,reports,services,settings}/
-│   ├── client-dashboard/{files,overview,projects/details,settings}/
-│   ├── features/{auth,invoice,message,notification,payment,search}/
+│   ├── admin-dashboard/
+│   │   ├── leads/
+│   │   ├── overview/
+│   │   ├── projects/
+│   │   ├── reports/
+│   │   ├── services/
+│   │   └── settings/
+│   ├── client-dashboard/
+│   │   ├── files/
+│   │   ├── overview/
+│   │   ├── projects/
+│   │   │   └── details/
+│   │   └── settings/
+│   ├── features/
+│   │   ├── auth/
+│   │   ├── invoice/
+│   │   ├── message/
+│   │   ├── notification/
+│   │   ├── payment/
+│   │   └── search/
 │   ├── landing/
-│   │   ├── {Home,about,contact,engagement}/
-│   │   └── services/{digital-marketing,mobile-application,sales&business,website-development/shared}/
-│   ├── shared/                 # Navigation, dashboard shell, layout, footer, theme controls
+│   │   ├── Home/
+│   │   ├── about/
+│   │   ├── contact/
+│   │   ├── engagement/
+│   │   └── services/
+│   │       ├── digital-marketing/
+│   │       ├── mobile-application/
+│   │       ├── sales&business/
+│   │       └── website-development/
+│   ├── shared/
 │   ├── test/
-│   └── ui/                     # Reusable UI primitives
-├── constants/{adminNavigation,clientNavigations,imagesConfig,publicNavigations}.ts
-├── content-data/{about,contact,digital-marketing}/
-├── hooks/{useFilesFilter,useOutsideClick}.ts
+│   └── ui/
+├── constants/
+│   ├── adminNavigation.ts
+│   ├── clientNavigations.ts
+│   ├── imagesConfig.ts
+│   └── publicNavigations.ts
+├── content-data/
+│   ├── about/
+│   ├── contact/
+│   └── digital-marketing/
+├── hooks/
+│   ├── useFilesFilter.ts
+│   └── useOutsideClick.ts
 ├── lib/
-│   ├── db/client.ts
-│   ├── services/email.service.ts
-│   ├── supabase/client.ts
-│   └── {admin-utils,auth-utils,font,utils}.ts
-├── mock-data/                  # Dashboard mock data
+│   ├── db/
+│   │   └── client.ts
+│   ├── services/
+│   │   └── email.service.ts
+│   ├── supabase/
+│   │   └── client.ts
+│   └── utils/
+│       ├── adminDashboard.ts
+│       ├── animations.ts
+│       ├── auth-utils.ts
+│       ├── clientDashboard.ts
+│       ├── format.ts
+│       ├── font-utils.ts
+│       ├── getCurrentPage.tsx
+│       ├── getNavItems.ts
+│       ├── invoice.ts
+│       ├── projectStatus.ts
+│       └── utils.ts
+├── mock-data/
 ├── prisma/
-│   ├── migrations/             # 0001_init through 0010_add_lead_priority_budget
+│   ├── migrations/
 │   └── schema.prisma
-├── public/{icons,images,logos}/
-├── store/sidebarStore.ts
+├── public/
+│   ├── icons/
+│   ├── images/
+│   └── logos/
+├── store/
+│   └── sidebarStore.ts
 ├── types/
-│   ├── dashboard/{admin,client}/
-│   └── {clientDeliveryProjects,industryType,navigations}.ts
-├── utils/{animations,format,getCurrentPage,getNavItems,invoice,projectStatus}.ts
-├── {.env,.gitignore,AGENTS.md,AISOP.md,auth.ts,CLAUDE.md}
-├── {eslint.config.mjs,middleware.ts,next.config.ts,next-env.d.ts}
-├── {package.json,package-lock.json,postcss.config.mjs,proxy.ts,README.md}
-└── {summary.md,tsconfig.json}
+│   ├── dashboard/
+│   │   ├── admin/
+│   │   └── client/
+│   ├── clientDeliveryProjects.ts
+│   ├── industryType.ts
+│   └── navigations.ts
+├── .env
+├── auth.ts
+├── middleware.ts
+├── next.config.ts
+├── package.json
+└── tsconfig.json
 ```
 
 **Route map:**
@@ -224,7 +328,7 @@ blackrest-advisory/
 /admin/dashboard[/clients|finance|leads|messages|projects|reports|resources|sales|services|settings|tasks]
 /client/dashboard[/files|invoices|messages|overview|payments|projects|projects/:projectId|settings]
 /about, /contact, /engagement, /home
-/services/digital-marketing, /services/mobile-applications, /services/sales-support, /services/website-development
+/services/digital-marketing, /services/mobile-applications, /services/sales-support, /services/website-development, /start-project
 ```
 
 **Placement rule:** New files must be placed in the matching existing area above. Do not introduce new top-level directories without explicit approval.
