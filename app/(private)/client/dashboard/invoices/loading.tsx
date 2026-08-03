@@ -1,0 +1,38 @@
+import { Container } from "@/components/ui/Container";
+import { PageWrapper } from "@/components/ui/PageWrapper";
+import { Section } from "@/components/ui/Section";
+
+function SkeletonLine({ width = "w-full" }: { width?: string }) {
+  return (
+    <div className={`h-4 rounded-full bg-muted/60 animate-pulse ${width}`} />
+  );
+}
+
+export default function Loading() {
+  return (
+    <PageWrapper>
+      <Section className="py-2 md:py-2 lg:py-2">
+        <Container>
+          <div className="space-y-8">
+            <div className="space-y-3">
+              <div className="h-10 w-2/5 rounded-full bg-muted/60 animate-pulse" />
+              <SkeletonLine width="w-1/3" />
+            </div>
+
+            <div className="rounded-3xl border border-border bg-card p-6">
+              <SkeletonLine width="w-1/4" />
+              <div className="mt-6 space-y-4">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <div
+                    key={index}
+                    className="h-14 rounded-3xl bg-muted/60 animate-pulse"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+    </PageWrapper>
+  );
+}
