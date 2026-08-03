@@ -1,0 +1,332 @@
+"use client";
+
+import { useState, useRef, FormEvent } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Select } from "@/components/ui/Select";
+import { Switch } from "@/components/ui/Switch";
+import { Loader } from "@/components/ui/Loader";
+import toast from "react-hot-toast";
+import { Upload, X } from "lucide-react";
+import { Textarea } from "@/components/ui/TextArea";
+
+// Options for Select
+const projectTypeOptions = [
+  { value: "web-application", label: "Web Application" },
+  { value: "mobile-application", label: "Mobile Application" },
+  { value: "digital-marketing", label: "Digital Marketing" },
+  { value: "custom-software", label: "Custom Software" },
+];
+
+const industryOptions = [
+  { value: "fashion", label: "Fashion Tech" },
+  { value: "it", label: "IT & Software" },
+  { value: "medical", label: "Medical Industry" },
+  { value: "beauty", label: "Beauty Industry" },
+  { value: "restaurant", label: "Restaurant & Cafe" },
+  { value: "other", label: "Other" },
+];
+
+const budgetOptions = [
+  { value: "under-10k", label: "Under $10,000" },
+  { value: "10k-25k", label: "$10,000 – $25,000" },
+  { value: "25k-50k", label: "$25,000 – $50,000" },
+  { value: "50k-100k", label: "$50,000 – $100,000" },
+  { value: "100k-plus", label: "$100,000+" },
+];
+
+const timelineOptions = [
+  { value: "1-month", label: "1 Month" },
+  { value: "2-3-months", label: "2–3 Months" },
+  { value: "4-6-months", label: "4–6 Months" },
+  { value: "6-12-months", label: "6–12 Months" },
+  { value: "12-plus", label: "12+ Months" },
+];
+
+export const ProjectForm = () => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    companyName: "",
+    email: "",
+    phone: "",
+    projectTitle: "",
+    projectType: "business-website",
+    industry: "technology",
+    budget: "under-10k",
+    timeline: "1-month",
+    description: "",
+    agree: false,
+  });
+
+  const [file, setFile] = useState<File | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSwitchChange = (checked: boolean) => {
+    setFormData((prev) => ({ ...prev, agree: checked }));
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setFile(e.target.files[0]);
+    }
+  };
+
+  const removeFile = () => {
+    setFile(null);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+
+  const validate = (): boolean => {
+    const { fullName, email, projectTitle, description, agree } = formData;
+    if (!fullName.trim()) {
+      toast.error("Full name is required.");
+      return false;
+    }
+    if (!email.trim() || !email.includes("@")) {
+      toast.error("Please enter a valid email address.");
+      return false;
+    }
+    if (!projectTitle.trim()) {
+      toast.error("Project title is required.");
+      return false;
+    }
+    if (!description.trim()) {
+      toast.error("Project description is required.");
+      return false;
+    }
+    if (!agree) {
+      toast.error("You must agree to be contacted.");
+      return false;
+    }
+    return true;
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    setIsSubmitting(true);
+
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    // Mock success
+    setIsSubmitting(false);
+    setIsSuccess(true);
+    toast.success("Your inquiry has been submitted successfully!");
+
+    // Reset form after a delay
+    setTimeout(() => {
+      setIsSuccess(false);
+      setFormData({
+        fullName: "",
+        companyName: "",
+        email: "",
+        phone: "",
+        projectTitle: "",
+        projectType: "business-website",
+        industry: "technology",
+        budget: "under-10k",
+        timeline: "1-month",
+        description: "",
+        agree: false,
+      });
+      setFile(null);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    }, 4000);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="rounded-2xl border border-border bg-card-bg p-6 shadow-sm md:p-8"
+    >
+      <h2 className="mb-6 text-2xl font-bold text-heading">
+        Project Inquiry Form
+      </h2>
+
+      {isSuccess ? (
+        <div className="flex flex-col items-center justify-center py-12 text-center">
+          <div className="mb-4 rounded-full bg-green-500/20 p-4">
+            <svg
+              className="h-12 w-12 text-green-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
+          <h3 className="text-xl font-semibold text-heading">
+            Inquiry Submitted!
+          </h3>
+          <p className="mt-2 text-body">
+            We&apos;ll be in touch within one business day.
+          </p>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Business Information */}
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-body">
+              Business Information
+            </h3>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <Input
+                name="fullName"
+                placeholder="Full Name *"
+                value={formData.fullName}
+                onChange={handleChange}
+                required
+              />
+              <Input
+                name="companyName"
+                placeholder="Company Name"
+                value={formData.companyName}
+                onChange={handleChange}
+              />
+              <Input
+                name="email"
+                type="email"
+                placeholder="Business Email *"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+              <Input
+                name="phone"
+                type="tel"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          {/* Project Information */}
+          <div className="space-y-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-body">
+              Project Information
+            </h3>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <Input
+                name="projectTitle"
+                placeholder="Project Title *"
+                value={formData.projectTitle}
+                onChange={handleChange}
+                required
+              />
+              <Select
+                options={projectTypeOptions}
+                value={formData.projectType}
+                onChange={(val) => handleSelectChange("projectType", val)}
+              />
+              <Select
+                options={industryOptions}
+                value={formData.industry}
+                onChange={(val) => handleSelectChange("industry", val)}
+              />
+              <Select
+                options={budgetOptions}
+                value={formData.budget}
+                onChange={(val) => handleSelectChange("budget", val)}
+              />
+              <Select
+                options={timelineOptions}
+                value={formData.timeline}
+                onChange={(val) => handleSelectChange("timeline", val)}
+              />
+            </div>
+            <Textarea
+              name="description"
+              placeholder="Tell us about your project vision, goals, and any specific requirements... *"
+              rows={5}
+              value={formData.description}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          {/* File Attachment */}
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-heading">
+              Attachment (optional)
+            </label>
+            <div className="flex items-center gap-2">
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept=".pdf,.docx,.zip,.jpg,.jpeg,.png"
+                onChange={handleFileChange}
+                className="hidden"
+                id="file-upload"
+              />
+              <label
+                htmlFor="file-upload"
+                className="inline-flex cursor-pointer items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm text-body transition hover:bg-muted"
+              >
+                <Upload className="h-4 w-4" />
+                Choose File
+              </label>
+              {file && (
+                <span className="flex items-center gap-1 text-sm text-body">
+                  {file.name}
+                  <button
+                    type="button"
+                    onClick={removeFile}
+                    className="ml-1 text-red-500 hover:text-red-700"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                </span>
+              )}
+            </div>
+            <p className="text-xs text-body">
+              Accepted: PDF, DOCX, ZIP, JPG, PNG (max 10MB)
+            </p>
+          </div>
+
+          {/* Agree checkbox */}
+          <div className="flex items-center gap-3">
+            <Switch checked={formData.agree} onChange={handleSwitchChange} />
+            <span className="text-sm text-body">
+              I agree to be contacted by the Blackcrest team.
+            </span>
+          </div>
+
+          <Button size="md" disabled={isSubmitting} className="w-full">
+            {isSubmitting ? (
+              <>
+                <Loader size="sm" className="mr-2 border-t-cta-text" />
+                Submitting...
+              </>
+            ) : (
+              "Submit Project Inquiry"
+            )}
+          </Button>
+        </form>
+      )}
+    </motion.div>
+  );
+};
