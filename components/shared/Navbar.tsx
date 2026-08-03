@@ -50,49 +50,51 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-8">
-            {navLinks.map((link) => {
-              const hasChildren = link.children && link.children.length > 0;
-              const active = isActive(link.link);
+          <div className="hidden lg:flex lg:items-center gap-4">
+            <div className="hidden lg:flex lg:justify-center lg:space-x-8">
+              {navLinks.map((link) => {
+                const hasChildren = link.children && link.children.length > 0;
+                const active = isActive(link.link);
 
-              return (
-                <div
-                  key={link.id}
-                  className="relative group"
-                  onMouseEnter={() => hasChildren && setOpenDropdown(link.id)}
-                  onMouseLeave={() => hasChildren && setOpenDropdown(null)}
-                >
-                  <Link
-                    href={link.link}
-                    className={`relative flex items-center text-sm font-medium transition-colors duration-300 hover:text-secondary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-secondary after:transition-all after:duration-300 after:ease-out ${
-                      active
-                        ? "text-secondary after:w-full"
-                        : "text-foreground after:w-0 hover:after:w-full"
-                    }`}
+                return (
+                  <div
+                    key={link.id}
+                    className="relative group"
+                    onMouseEnter={() => hasChildren && setOpenDropdown(link.id)}
+                    onMouseLeave={() => hasChildren && setOpenDropdown(null)}
                   >
-                    {link.name}
-                    {hasChildren && (
-                      <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
-                    )}
-                  </Link>
+                    <Link
+                      href={link.link}
+                      className={`relative flex items-center text-sm font-medium transition-colors duration-300 hover:text-secondary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-secondary after:transition-all after:duration-300 after:ease-out ${
+                        active
+                          ? "text-secondary after:w-full"
+                          : "text-foreground after:w-0 hover:after:w-full"
+                      }`}
+                    >
+                      {link.name}
+                      {hasChildren && (
+                        <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                      )}
+                    </Link>
 
-                  {hasChildren && (
-                    <Dropdown isOpen={openDropdown === link.id}>
-                      {link.children?.map((child) => (
-                        <DropdownItem
-                          key={child.id}
-                          href={child.link}
-                          active={isActive(child.link)}
-                          onClick={() => setOpenDropdown(null)}
-                        >
-                          {child.name}
-                        </DropdownItem>
-                      ))}
-                    </Dropdown>
-                  )}
-                </div>
-              );
-            })}
+                    {hasChildren && (
+                      <Dropdown isOpen={openDropdown === link.id}>
+                        {link.children?.map((child) => (
+                          <DropdownItem
+                            key={child.id}
+                            href={child.link}
+                            active={isActive(child.link)}
+                            onClick={() => setOpenDropdown(null)}
+                          >
+                            {child.name}
+                          </DropdownItem>
+                        ))}
+                      </Dropdown>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
 
             {/* Desktop right side */}
             <div className="flex items-center space-x-4">
