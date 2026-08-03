@@ -12,6 +12,7 @@ interface ActiveProjectsProps {
 }
 
 export const ActiveProjects = ({ projects }: ActiveProjectsProps) => {
+  console.log(projects);
   return (
     //===== Active Projects Card =====//
     <motion.div
@@ -25,15 +26,28 @@ export const ActiveProjects = ({ projects }: ActiveProjectsProps) => {
           <h2 className="text-lg font-semibold text-foreground">
             Active Projects
           </h2>
-          <Button variant="ghost" size="sm">
+          <Button
+            variant="ghost"
+            size="sm"
+            disabled={projects.length === 0}
+            className="text-sm"
+          >
             View All →
           </Button>
         </div>
-        <div className="space-y-4">
-          {projects.map((project) => (
-            <ProjectItem key={project.id} project={project} />
-          ))}
-        </div>
+        {projects.length === 0 ? (
+          <div className="flex flex-col items-center justify-center gap-2 py-8 text-center">
+            <p className="text-sm text-muted-foreground">
+              No active projects at the moment.
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {projects.map((project) => (
+              <ProjectItem key={project.id} project={project} />
+            ))}
+          </div>
+        )}
       </Card>
     </motion.div>
   );
