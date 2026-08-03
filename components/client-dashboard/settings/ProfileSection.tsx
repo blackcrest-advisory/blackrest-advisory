@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/Button";
 import { SettingsSectionCard } from "@/components/client-dashboard/settings/SettingsSectionCard";
 import { ClientProfile } from "@/types/dashboard/client/settingsType";
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
-import axios from "@/api-client/client";
+import { updateClientProfile } from "@/api-client/client/settings.api";
 import { uploadFile } from "@/api-client/upload.api";
 
 interface ProfileSectionProps {
@@ -52,7 +52,7 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
         ? await uploadFile(avatarFile)
         : undefined;
 
-      await axios.patch("/api/client/profile", {
+      await updateClientProfile({
         name: formValues.fullName,
         companyName: formValues.companyName,
         phone: formValues.phone,

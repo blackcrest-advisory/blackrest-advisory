@@ -1,7 +1,14 @@
 import { redirect } from "next/navigation";
 import { AdminDashboardWrapper } from "@/components/admin-dashboard/overview/AdminDashboardWrapper";
 import { getAdminUser } from "@/lib/utils/admin-utils";
-import { prisma } from "@/lib/db/client";
+import { getAdminDashboardData } from "@/lib/services/adminDashboard.service";
+import {
+  formatDate,
+  formatRevenue,
+  mapPriority,
+  mapStatus,
+  timeAgo,
+} from "@/lib/utils/adminDashboard";
 import type {
   AdminActivity,
   AdminProject,
@@ -10,71 +17,6 @@ import type {
   FooterStat,
   TeamMember,
 } from "@/types/dashboard/admin/overviewType";
-import type {
-  ProjectPriority,
-  ProjectStatus,
-} from "@/types/dashboard/client/projectsType";
-
-function mapStatus(status: string): ProjectStatus {
-  switch (status) {
-    case "ACTIVE":
-      return "active";
-    case "COMPLETED":
-      return "completed";
-    case "ON_HOLD":
-      return "on-hold";
-    case "PLANNING":
-      return "planning";
-    case "IN_REVIEW":
-      return "in-review";
-    default:
-      return "active";
-  }
-}
-
-function mapPriority(priority: string | null): ProjectPriority {
-  switch (priority) {
-    case "low":
-    case "high":
-    case "critical":
-      return priority;
-    default:
-      return "medium";
-  }
-}
-
-function formatDate(date: Date): string {
-  return date.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
-}
-
-function timeAgo(date: Date): string {
-  const difference = Math.max(0, Date.now() - date.getTime());
-  const minutes = Math.floor(difference / 60000);
-
-  if (minutes < 60) {
-    return `${minutes} minutes ago`;
-  }
-
-  const hours = Math.floor(difference / 3600000);
-
-  if (hours < 24) {
-    return `${hours} hours ago`;
-  }
-
-  return `${Math.floor(difference / 86400000)} days ago`;
-}
-
-function formatRevenue(value: number): string {
-  if (value > 1000) {
-    return `${(value / 1000).toFixed(1).replace(/\.0$/, "")}K`;
-  }
-
-  return String(value);
-}
 
 export default async function AdminDashboardPage() {
   const admin = await getAdminUser();
@@ -83,12 +25,7 @@ export default async function AdminDashboardPage() {
     redirect("/login");
   }
 
-  const now = new Date();
-  const thisMonthStart = new Date(now.getFullYear(), now.getMonth(), 1);
-  const nextMonthStart = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-  const yearStart = new Date(now.getFullYear(), 0, 1);
-
-  const [
+  const {
     totalClients,
     activeProjects,
     newLeads,
@@ -101,73 +38,7 @@ export default async function AdminDashboardPage() {
     recentPaidInvoices,
     adminUsers,
     totalYTDRevenueResult,
-  ] = await Promise.all([
-    prisma.user.count({ where: { role: "CLIENT" } }),
-    prisma.project.count({ where: { status: "ACTIVE" } }),
-    prisma.lead.count({ where: { status: "NEW" } }),
-    prisma.invoice.aggregate({
-      where: {
-        status: "PAID",
-        paidAt: { gte: thisMonthStart, lt: nextMonthStart },
-      },
-      _sum: { amount: true },
-    }),
-    prisma.invoice.count({ where: { status: "OVERDUE" } }),
-    prisma.project.findMany({
-      take: 5,
-      include: {
-        user: { select: { name: true, companyName: true } },
-      },
-      orderBy: { createdAt: "desc" },
-    }),
-    prisma.project.findMany({
-      where: { deadline: { gt: now } },
-      take: 3,
-      include: {
-        user: { select: { name: true, companyName: true } },
-      },
-      orderBy: { deadline: "asc" },
-    }),
-    prisma.invoice.findMany({
-      where: {
-        dueDate: { lt: now },
-        status: { notIn: ["PAID", "CANCELLED"] },
-      },
-      take: 3,
-      include: {
-        user: { select: { name: true } },
-      },
-      orderBy: { dueDate: "asc" },
-    }),
-    prisma.lead.findMany({
-      take: 5,
-      orderBy: { createdAt: "desc" },
-    }),
-    prisma.invoice.findMany({
-      where: { status: "PAID" },
-      take: 5,
-      include: {
-        user: { select: { name: true } },
-      },
-      orderBy: { paidAt: "desc" },
-    }),
-    prisma.user.findMany({
-      where: { role: "ADMIN" },
-      select: {
-        id: true,
-        name: true,
-        role: true,
-        avatarUrl: true,
-      },
-    }),
-    prisma.invoice.aggregate({
-      where: {
-        status: "PAID",
-        paidAt: { gte: yearStart, lt: nextMonthStart },
-      },
-      _sum: { amount: true },
-    }),
-  ]);
+  } = await getAdminDashboardData();
 
   const monthlyRevenue = monthlyRevenueResult._sum.amount ?? 0;
   const totalYTDRevenue = totalYTDRevenueResult._sum.amount ?? 0;

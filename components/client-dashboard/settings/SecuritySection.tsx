@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { SettingsSectionCard } from "@/components/client-dashboard/settings/SettingsSectionCard";
 import { PasswordChangePayload } from "@/types/dashboard/client/settingsType";
-import axios from "@/api-client/client";
+import { updateClientPassword } from "@/api-client/client/settings.api";
 
 const initialPasswordState: PasswordChangePayload = {
   currentPassword: "",
@@ -45,7 +45,7 @@ export const SecuritySection = () => {
     setIsUpdating(true);
 
     try {
-      await axios.post("/api/client/settings/password", {
+      await updateClientPassword({
         currentPassword: passwordForm.currentPassword,
         newPassword: passwordForm.newPassword,
         confirmPassword: passwordForm.confirmPassword,

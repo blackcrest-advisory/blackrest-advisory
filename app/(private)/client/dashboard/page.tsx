@@ -1,75 +1,14 @@
 import { DashboardWrapper } from "@/components/client-dashboard/overview/DashboardWrapper";
 import { getCurrentUser } from "@/lib/utils/auth-utils";
-import { prisma } from "@/lib/db/client";
+import { getClientDashboardData } from "@/lib/services/clientDashboard.service";
+import {
+  calculateDaysLeft,
+  formatActivityTime,
+  formatMilestoneDate,
+  mapProjectStatus,
+} from "@/lib/utils/clientDashboard";
 import type { Activity, Project } from "@/types/dashboard/client/overviewType";
 import { redirect } from "next/navigation";
-
-function mapProjectStatus(status: string): Project["status"] {
-  const statuses: Record<string, Project["status"]> = {
-    ACTIVE: "in-progress",
-    ON_HOLD: "review",
-    COMPLETED: "complete",
-    PLANNING: "on-track",
-    IN_REVIEW: "review",
-  };
-
-  return statuses[status] ?? "in-progress";
-}
-
-function formatMilestoneDate(date: Date) {
-  const milestoneDate = new Date(date);
-  milestoneDate.setHours(0, 0, 0, 0);
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const tomorrow = new Date(today);
-  tomorrow.setDate(tomorrow.getDate() + 1);
-
-  if (milestoneDate.getTime() === today.getTime()) {
-    return "Today";
-  }
-
-  if (milestoneDate.getTime() === tomorrow.getTime()) {
-    return "Tomorrow";
-  }
-
-  return milestoneDate.toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "short",
-  });
-}
-
-function formatActivityTime(date: Date) {
-  const elapsed = Math.max(0, Date.now() - new Date(date).getTime());
-  const hours = Math.floor(elapsed / 3600000);
-
-  if (hours < 24) {
-    return `${hours}h ago`;
-  }
-
-  const days = Math.floor(hours / 24);
-
-  if (days < 7) {
-    return `${days}d ago`;
-  }
-
-  return new Date(date).toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "short",
-  });
-}
-
-function calculateDaysLeft(deadline: Date | null) {
-  if (!deadline) {
-    return 0;
-  }
-
-  return Math.max(
-    0,
-    Math.ceil((new Date(deadline).getTime() - Date.now()) / 86400000),
-  );
-}
 
 type ActivityRecord = {
   iconName: Activity["iconName"];
@@ -84,7 +23,7 @@ export default async function Page() {
     redirect("/login");
   }
 
-  const [
+  const {
     projectRecords,
     consultationRecords,
     activeProjectCount,
@@ -92,101 +31,7 @@ export default async function Page() {
     recentProposals,
     recentConsultations,
     recentProjects,
-  ] = await Promise.all([
-    prisma.project.findMany({
-      where: {
-        userId: user.id,
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-      select: {
-        id: true,
-        title: true,
-        status: true,
-        progress: true,
-        deadline: true,
-        serviceType: true,
-      },
-    }),
-    prisma.consultation.findMany({
-      where: {
-        userId: user.id,
-        status: {
-          in: ["PENDING", "CONFIRMED"],
-        },
-      },
-      orderBy: {
-        scheduledAt: "asc",
-      },
-      select: {
-        id: true,
-        scheduledAt: true,
-        type: true,
-        notes: true,
-      },
-    }),
-    prisma.project.count({
-      where: {
-        userId: user.id,
-        status: "ACTIVE",
-      },
-    }),
-    prisma.brief.findMany({
-      where: {
-        userId: user.id,
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-      take: 2,
-      select: {
-        title: true,
-        createdAt: true,
-      },
-    }),
-    prisma.proposal.findMany({
-      where: {
-        brief: {
-          userId: user.id,
-        },
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-      take: 2,
-      select: {
-        status: true,
-        createdAt: true,
-      },
-    }),
-    prisma.consultation.findMany({
-      where: {
-        userId: user.id,
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-      take: 2,
-      select: {
-        type: true,
-        createdAt: true,
-      },
-    }),
-    prisma.project.findMany({
-      where: {
-        userId: user.id,
-      },
-      orderBy: {
-        updatedAt: "desc",
-      },
-      take: 2,
-      select: {
-        title: true,
-        updatedAt: true,
-      },
-    }),
-  ]);
+  } = await getClientDashboardData(user.id);
 
   const stats = {
     activeProjects: activeProjectCount,

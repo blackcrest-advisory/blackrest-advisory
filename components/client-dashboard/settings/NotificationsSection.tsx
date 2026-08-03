@@ -9,7 +9,7 @@ import {
   NotificationItemConfig,
   NotificationPreferences,
 } from "@/types/dashboard/client/settingsType";
-import axios from "@/api-client/client";
+import { updateClientNotificationPreferences } from "@/api-client/client/settings.api";
 
 interface NotificationsSectionProps {
   preferences: NotificationPreferences;
@@ -57,9 +57,7 @@ export const NotificationsSection = ({
     setValues(updatedPreferences);
 
     try {
-      await axios.patch("/api/client/settings/notifications", {
-        notificationPreferences: updatedPreferences,
-      });
+      await updateClientNotificationPreferences(updatedPreferences);
     } catch {
       toast.error("Failed to save preference");
     }

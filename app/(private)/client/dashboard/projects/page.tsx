@@ -12,29 +12,15 @@ import { ProjectGrid } from "@/components/client-dashboard/projects/ProjectGrid"
 import { ProjectPagination } from "@/components/client-dashboard/projects/ProjectPagination";
 import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 import type {
-  ActivityLog,
-  Milestone,
   Project,
   ProjectStatus,
   Industry,
   ServiceType,
 } from "@/types/dashboard/client/projectsType";
-import axios from "@/api-client/client";
-
-//===== Serialized project type from API =====//
-type SerializedProject = Omit<
-  Project,
-  "timeline" | "dueDate" | "lastUpdated" | "milestones" | "activity"
-> & {
-  timeline: {
-    start: string;
-    end: string;
-  };
-  dueDate: string;
-  lastUpdated: string;
-  milestones: Array<Omit<Milestone, "dueDate"> & { dueDate: string }>;
-  activity: Array<Omit<ActivityLog, "timestamp"> & { timestamp: string }>;
-};
+import {
+  fetchClientProjects,
+  type SerializedProject,
+} from "@/api-client/client/projects.api";
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -54,13 +40,12 @@ export default function ProjectsPage() {
   useEffect(() => {
     let isMounted = true;
 
-    axios
-      .get<SerializedProject[]>("/api/client/projects/list")
-      .then((response) => {
+    fetchClientProjects()
+      .then((projectsData) => {
         if (!isMounted) return;
 
         setProjects(
-          response.data.map((project) => ({
+          projectsData.map((project: SerializedProject) => ({
             ...project,
             timeline: {
               start: new Date(project.timeline.start),
@@ -71,6 +56,10 @@ export default function ProjectsPage() {
             milestones: project.milestones.map((milestone) => ({
               ...milestone,
               dueDate: new Date(milestone.dueDate),
+            })),
+            files: project.files.map((file) => ({
+              ...file,
+              uploadedAt: new Date(file.uploadedAt),
             })),
             activity: project.activity.map((activity) => ({
               ...activity,

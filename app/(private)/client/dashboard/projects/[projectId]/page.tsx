@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter, useParams } from "next/navigation";
-import axios from "@/api-client/client";
 import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
@@ -17,25 +16,10 @@ import { ProjectFilesCard } from "@/components/client-dashboard/projects/details
 import { ProjectActivityLog } from "@/components/client-dashboard/projects/details/ProjectActivityLog";
 import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 import type { Project } from "@/types/dashboard/client/projectsType";
-
-//===== Serialized project type from API =====//
-type SerializedProject = Omit<
-  Project,
-  "timeline" | "dueDate" | "lastUpdated" | "milestones" | "activity"
-> & {
-  timeline: {
-    start: string;
-    end: string;
-  };
-  dueDate: string;
-  lastUpdated: string;
-  milestones: Array<
-    Omit<Project["milestones"][number], "dueDate"> & { dueDate: string }
-  >;
-  activity: Array<
-    Omit<Project["activity"][number], "timestamp"> & { timestamp: string }
-  >;
-};
+import {
+  fetchClientProjectById,
+  type SerializedProject,
+} from "@/api-client/client/projects.api";
 
 export default function ProjectDetailsPage() {
   const router = useRouter();
@@ -48,20 +32,9 @@ export default function ProjectDetailsPage() {
   useEffect(() => {
     let isMounted = true;
 
-    axios
-      .get<SerializedProject[]>("/api/client/projects/list")
-      .then((response) => {
+    fetchClientProjectById(params.projectId)
+      .then((foundProject: SerializedProject) => {
         if (!isMounted) return;
-
-        const foundProject = response.data.find(
-          (item) => item.id === params.projectId,
-        );
-
-        if (!foundProject) {
-          setNotFound(true);
-          setProject(null);
-          return;
-        }
 
         setProject({
           ...foundProject,
@@ -75,10 +48,16 @@ export default function ProjectDetailsPage() {
             ...milestone,
             dueDate: new Date(milestone.dueDate),
           })),
+          files: foundProject.files.map((file) => ({
+            ...file,
+            uploadedAt: new Date(file.uploadedAt),
+          })),
           activity: foundProject.activity.map((activity) => ({
             ...activity,
             timestamp: new Date(activity.timestamp),
           })),
+          progress: foundProject.progress,
+          assignedTeam: foundProject.assignedTeam,
         });
       })
       .catch(() => {

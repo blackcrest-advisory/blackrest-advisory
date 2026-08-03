@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import axios from "@/api-client/client";
 import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
@@ -13,6 +12,12 @@ import { LeadTable } from "@/components/admin-dashboard/leads/LeadTable";
 import { LeadDetailModal } from "@/components/admin-dashboard/leads/LeadDetailModal";
 import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 import type { Lead, LeadService } from "@/types/dashboard/admin/leadTypes";
+import {
+  convertAdminLead,
+  deleteAdminLead,
+  fetchAdminLeads,
+  updateAdminLead,
+} from "@/api-client/admin/leads.api";
 import toast from "react-hot-toast";
 
 //===== Filter state type =====//
@@ -39,10 +44,10 @@ export default function LeadsPage() {
 
   //===== Fetch leads =====//
   useEffect(() => {
-    const fetchLeads = async () => {
+    const fetchLeadsData = async () => {
       try {
-        const response = await axios.get<Lead[]>("/api/admin/leads");
-        setLeads(response.data);
+        const leads = await fetchAdminLeads();
+        setLeads(leads);
       } catch {
         toast.error("Failed to load leads");
       } finally {
@@ -50,7 +55,7 @@ export default function LeadsPage() {
       }
     };
 
-    void fetchLeads();
+    void fetchLeadsData();
   }, []);
 
   //===== Apply filters and search =====//
@@ -104,7 +109,7 @@ export default function LeadsPage() {
     );
 
     try {
-      await axios.patch(`/api/admin/leads/${updatedLead.id}`, {
+      await updateAdminLead(updatedLead.id, {
         ...updatedLead,
         name: updatedLead.contactPerson,
       });
@@ -121,7 +126,7 @@ export default function LeadsPage() {
     );
 
     try {
-      await axios.patch(`/api/admin/leads/${lead.id}`, { status: "won" });
+      await convertAdminLead(lead.id);
       toast.success(`${lead.companyName} converted to client!`);
     } catch {
       toast.error("Failed to convert lead");
@@ -133,7 +138,7 @@ export default function LeadsPage() {
       setLeads((previous) => previous.filter((item) => item.id !== lead.id));
 
       try {
-        await axios.delete(`/api/admin/leads/${lead.id}`);
+        await deleteAdminLead(lead.id);
         toast.success("Lead deleted");
       } catch {
         toast.error("Failed to delete lead");

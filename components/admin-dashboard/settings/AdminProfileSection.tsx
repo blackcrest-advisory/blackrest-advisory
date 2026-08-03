@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { BriefcaseBusiness, Mail, Shield } from "lucide-react";
 import toast from "react-hot-toast";
-import axios from "@/api-client/client";
+import { updateAdminProfile } from "@/api-client/admin/settings.api";
 import { Avatar } from "@/components/ui/Avatar";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -37,7 +37,7 @@ export const AdminProfileSection = ({ profile }: { profile: AdminProfile }) => {
     setIsSaving(true);
 
     try {
-      await axios.patch("/api/admin/settings/profile", {
+      await updateAdminProfile({
         name: values.fullName,
         phone: values.phone,
         jobTitle: values.jobTitle,

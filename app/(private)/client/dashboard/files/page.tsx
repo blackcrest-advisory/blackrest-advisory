@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import axios from "@/api-client/client";
 import { FilesPageHeader } from "@/components/client-dashboard/files/FilesPageHeader";
 import { FilesStatsGrid } from "@/components/client-dashboard/files/FilesStatsGrid";
 import { FilesFilterBar } from "@/components/client-dashboard/files/FilesFilterBar";
@@ -10,6 +9,10 @@ import { FilesTable } from "@/components/client-dashboard/files/FilesTable";
 import { FilesEmptyState } from "@/components/client-dashboard/files/FilesEmptyState";
 import { useFilesFilter } from "@/hooks/useFilesFilter";
 import {
+  fetchClientFiles,
+  type ClientFilesResponse,
+} from "@/api-client/client/files.api";
+import type {
   FilesStats,
   ProjectFile,
 } from "@/types/dashboard/client/filesType";
@@ -28,12 +31,9 @@ export default function FilesPage() {
   useEffect(() => {
     const fetchFiles = async () => {
       try {
-        const response = await axios.get<{
-          files: ProjectFile[];
-          stats: FilesStats;
-        }>("/api/client/files");
-        setFiles(response.data.files);
-        setStats(response.data.stats);
+        const response = await fetchClientFiles();
+        setFiles(response.files);
+        setStats(response.stats);
       } catch {
         toast.error("Failed to load files");
       } finally {
