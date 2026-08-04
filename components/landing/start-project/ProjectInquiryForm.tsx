@@ -10,13 +10,15 @@ import { Loader } from "@/components/ui/Loader";
 import toast from "react-hot-toast";
 import { Upload, X } from "lucide-react";
 import { Textarea } from "@/components/ui/TextArea";
+import { projectInquiryFormSchema } from "@/lib/validations/inquiryForm";
 
 // Options for Select
 const projectTypeOptions = [
   { value: "web-application", label: "Web Application" },
   { value: "mobile-application", label: "Mobile Application" },
   { value: "digital-marketing", label: "Digital Marketing" },
-  { value: "custom-software", label: "Custom Software" },
+  { value: "sales", label: "Sales & Business Development" },
+  { value: "support", label: "Customer Support" },
 ];
 
 const industryOptions = [
@@ -28,12 +30,13 @@ const industryOptions = [
   { value: "other", label: "Other" },
 ];
 
-const budgetOptions = [
-  { value: "under-10k", label: "Under $10,000" },
-  { value: "10k-25k", label: "$10,000 – $25,000" },
-  { value: "25k-50k", label: "$25,000 – $50,000" },
-  { value: "50k-100k", label: "$50,000 – $100,000" },
-  { value: "100k-plus", label: "$100,000+" },
+// Budget ranges (values in USD)
+const budgetRanges = [
+  { value: "under-10k", min: 0, max: 10000, label: "Under 10,000" },
+  { value: "10k-25k", min: 10000, max: 25000, label: "10,000 – 25,000" },
+  { value: "25k-50k", min: 25000, max: 50000, label: "25,000 – 50,000" },
+  { value: "50k-100k", min: 50000, max: 100000, label: "50,000 – 100,000" },
+  { value: "100k-plus", min: 100000, max: Infinity, label: "100,000+" },
 ];
 
 const timelineOptions = [
@@ -44,17 +47,26 @@ const timelineOptions = [
   { value: "12-plus", label: "12+ Months" },
 ];
 
-export const ProjectForm = () => {
+const currencyOptions = [
+  { value: "USD", label: "USD ($)" },
+  { value: "BDT", label: "BDT (৳)" },
+];
+
+// Fixed exchange rate (1 USD = 110 BDT)
+const EXCHANGE_RATE = 110;
+
+export const ProjectInquiryForm = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     companyName: "",
     email: "",
     phone: "",
     projectTitle: "",
-    projectType: "business-website",
-    industry: "technology",
+    projectType: "web-application",
+    industry: "it",
     budget: "under-10k",
     timeline: "1-month",
+    currency: "USD",
     description: "",
     agree: false,
   });
@@ -63,6 +75,26 @@ export const ProjectForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Dynamic budget options based on currency
+  const getBudgetOptions = (currency: string) => {
+    const symbol = currency === "USD" ? "$" : "৳";
+    const factor = currency === "USD" ? 1 : EXCHANGE_RATE;
+
+    return budgetRanges.map((range) => {
+      const minFormatted = (range.min * factor).toLocaleString("en-US");
+      const maxFormatted =
+        range.max === Infinity
+          ? "+"
+          : (range.max * factor).toLocaleString("en-US");
+      let label = `${symbol}${minFormatted} – ${symbol}${maxFormatted}`;
+      // Special case for "100k+" – show single value
+      if (range.value === "100k-plus") {
+        label = `${symbol}${(100000 * factor).toLocaleString("en-US")}+`;
+      }
+      return { value: range.value, label };
+    });
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -90,26 +122,12 @@ export const ProjectForm = () => {
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
+  //Updated validation using Zod
   const validate = (): boolean => {
-    const { fullName, email, projectTitle, description, agree } = formData;
-    if (!fullName.trim()) {
-      toast.error("Full name is required.");
-      return false;
-    }
-    if (!email.trim() || !email.includes("@")) {
-      toast.error("Please enter a valid email address.");
-      return false;
-    }
-    if (!projectTitle.trim()) {
-      toast.error("Project title is required.");
-      return false;
-    }
-    if (!description.trim()) {
-      toast.error("Project description is required.");
-      return false;
-    }
-    if (!agree) {
-      toast.error("You must agree to be contacted.");
+    const result = projectInquiryFormSchema.safeParse(formData);
+    if (!result.success) {
+      const firstError = result.error.issues[0];
+      toast.error(firstError.message);
       return false;
     }
     return true;
@@ -138,10 +156,11 @@ export const ProjectForm = () => {
         email: "",
         phone: "",
         projectTitle: "",
-        projectType: "business-website",
-        industry: "technology",
+        projectType: "web-application",
+        industry: "it",
         budget: "under-10k",
         timeline: "1-month",
+        currency: "USD",
         description: "",
         agree: false,
       });
@@ -248,7 +267,7 @@ export const ProjectForm = () => {
                 onChange={(val) => handleSelectChange("industry", val)}
               />
               <Select
-                options={budgetOptions}
+                options={getBudgetOptions(formData.currency)}
                 value={formData.budget}
                 onChange={(val) => handleSelectChange("budget", val)}
               />
@@ -256,6 +275,11 @@ export const ProjectForm = () => {
                 options={timelineOptions}
                 value={formData.timeline}
                 onChange={(val) => handleSelectChange("timeline", val)}
+              />
+              <Select
+                options={currencyOptions}
+                value={formData.currency}
+                onChange={(val) => handleSelectChange("currency", val)}
               />
             </div>
             <Textarea
