@@ -104,70 +104,70 @@ enum NotificationType {
 }
 
 model User {
-  id          String   @id @default(cuid())
-  name        String
-  email       String   @unique
-  password    String?
-  role        Role     @default(CLIENT)
-  companyName String?
-  phone       String?
-  country     String?
-  industry    String?  
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id                      String   @id @default(cuid())
+  name                    String
+  email                   String   @unique
+  password                String?
+  role                    Role     @default(CLIENT)
+  companyName             String?
+  phone                   String?
+  country                 String?
+  industry                String?
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
   jobTitle                String?
   avatarUrl               String?
   notificationPreferences Json?
 
-  consultations Consultation[]
-  briefs        Brief[]
-  projects      Project[]
-  notes         Note[]         @relation("NoteAuthor")
-  proposals     Proposal[]     @relation("ProposalAdmin")
-  files         File[]
-  sentMessages  Message[] @relation("MessageSender")
-  receivedMessages Message[] @relation("MessageReceiver")
-  invoices      Invoice[]
-  notifications Notification[]
-  business      Business?
+  consultations    Consultation[]
+  briefs           Brief[]
+  projects         Project[]
+  notes            Note[]         @relation("NoteAuthor")
+  proposals        Proposal[]     @relation("ProposalAdmin")
+  files            File[]
+  sentMessages     Message[]      @relation("MessageSender")
+  receivedMessages Message[]      @relation("MessageReceiver")
+  invoices         Invoice[]
+  notifications    Notification[]
+  business         Business?
 }
 
 model Lead {
-  id             String     @id @default(cuid())
-  name           String
-  email          String
-  phone          String?
-  companyName    String?
-  industry       String?
-  companySize    String?
-  location       String?
-  website        String?
-  pillar         Pillar?
-  services       String[]
-  problem        String     @db.Text
-  status         LeadStatus @default(NEW)
-  priority       String     @default("medium")
-  budget         String?
-  source         String?
-  assignedTo     String?
-  lastContacted  DateTime?
-  nextFollowUp   DateTime?
-  notes          String?    @db.Text
-  createdAt      DateTime   @default(now())
-  updatedAt      DateTime   @updatedAt
+  id            String     @id @default(cuid())
+  name          String
+  email         String
+  phone         String?
+  companyName   String?
+  industry      String?
+  companySize   String?
+  location      String?
+  website       String?
+  pillar        Pillar?
+  services      String[]
+  problem       String     @db.Text
+  status        LeadStatus @default(NEW)
+  priority      String     @default("medium")
+  budget        String?
+  source        String?
+  assignedTo    String?
+  lastContacted DateTime?
+  nextFollowUp  DateTime?
+  notes         String?    @db.Text
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
 }
 
 model Consultation {
-  id          String              @id @default(cuid())
+  id          String             @id @default(cuid())
   userId      String
-  type        ConsultationType    @default(ONLINE)
-  status      ConsultationStatus  @default(PENDING)
+  type        ConsultationType   @default(ONLINE)
+  status      ConsultationStatus @default(PENDING)
   scheduledAt DateTime
   duration    Int?
-  notes       String?             @db.Text
+  notes       String?            @db.Text
   meetingLink String?
-  createdAt   DateTime            @default(now())
-  updatedAt   DateTime            @updatedAt
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
@@ -182,7 +182,7 @@ model Brief {
   deadline    String?
   attachments String[]
   status      BriefStatus @default(SUBMITTED)
-  assignedTo  String?     
+  assignedTo  String?
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
 
@@ -203,8 +203,8 @@ model Proposal {
   createdAt DateTime       @default(now())
   updatedAt DateTime       @updatedAt
 
-  brief   Brief   @relation(fields: [briefId], references: [id], onDelete: Cascade)
-  admin   User    @relation("ProposalAdmin", fields: [adminId], references: [id])
+  brief   Brief    @relation(fields: [briefId], references: [id], onDelete: Cascade)
+  admin   User     @relation("ProposalAdmin", fields: [adminId], references: [id])
   project Project?
 }
 
@@ -232,6 +232,7 @@ model Project {
   proposal Proposal @relation(fields: [proposalId], references: [id])
   user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
 model File {
   id             String   @id @default(cuid())
   projectId      String
@@ -308,8 +309,8 @@ model Invoice {
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
 
-  project  Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  user     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Milestone {

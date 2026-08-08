@@ -2,6 +2,10 @@ import { Pillar } from "@prisma/client";
 import { NextResponse } from "next/server";
 import { getAdminUser } from "@/lib/utils/admin-utils";
 import { prisma } from "@/lib/db/client";
+import {
+  leadRequestSchema,
+  projectTypeToPillar,
+} from "@/lib/validations/leadRequest";
 
 function mapLeadStatus(status: string): string {
   switch (status) {
@@ -70,19 +74,13 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const admin = await getAdminUser();
+    const body = await request.json();
 
-    if (!admin) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    const body: unknown = await request.json();
-
-    if (typeof body !== "object" || body === null) {
-      return NextResponse.json(
-        { error: "Name, email, and problem are required" },
-        { status: 400 },
-      );
+    // Validate with Zod
+    const result = leadRequestSchema.safeParse(body);
+    if (!result.success) {
+      const firstError = result.error.issues[0];
+      return NextResponse.json({ error: firstError.message }, { status: 400 });
     }
 
     const {
@@ -91,65 +89,63 @@ export async function POST(request: Request) {
       phone,
       companyName,
       industry,
-      companySize,
-      location,
-      website,
-      pillar,
+      projectType,
+      projectTitle,
+      budget,
+      timeline,
+      currency,
+      description,
       services,
-      problem,
       source,
-      lastContacted,
-      nextFollowUp,
-      notes,
-    } = body as Record<string, unknown>;
+    } = result.data;
 
-    if (
-      typeof name !== "string" ||
-      !name.trim() ||
-      typeof email !== "string" ||
-      !email.trim() ||
-      typeof problem !== "string" ||
-      !problem.trim()
-    ) {
-      return NextResponse.json(
-        { error: "Name, email, and problem are required" },
-        { status: 400 },
-      );
-    }
+    // Map projectType to Pillar enum
+    const pillar = projectType
+      ? (projectTypeToPillar[projectType] as Pillar | undefined) || null
+      : null;
+
+    // Extra fields that we don't have dedicated columns for yet.
+    // Store them as JSON in the `notes` field.
+    const extraMetadata = {
+      projectTitle,
+      timeline,
+      currency,
+    };
+    const notes = JSON.stringify(extraMetadata);
 
     const lead = await prisma.lead.create({
       data: {
         name: name.trim(),
         email: email.trim().toLowerCase(),
-        phone: typeof phone === "string" ? phone : null,
-        companyName: typeof companyName === "string" ? companyName : null,
-        industry: typeof industry === "string" ? industry : null,
-        companySize: typeof companySize === "string" ? companySize : null,
-        location: typeof location === "string" ? location : null,
-        website: typeof website === "string" ? website : null,
-        pillar:
-          typeof pillar === "string" &&
-          Object.values(Pillar).includes(pillar as Pillar)
-            ? (pillar as Pillar)
-            : null,
-        services: Array.isArray(services)
-          ? services.filter(
-              (service): service is string => typeof service === "string",
-            )
-          : [],
-        problem: problem.trim(),
-        source: typeof source === "string" ? source : null,
+        phone: phone || null,
+        companyName: companyName || null,
+        industry: industry || null,
+        companySize: null,
+        location: null,
+        website: null,
+        pillar: pillar,
+        services: services || [],
+        problem: description.trim(),
+        source: source || "website_inquiry",
         status: "NEW",
-        lastContacted:
-          typeof lastContacted === "string" ? new Date(lastContacted) : null,
-        nextFollowUp:
-          typeof nextFollowUp === "string" ? new Date(nextFollowUp) : null,
-        notes: typeof notes === "string" ? notes : null,
+        budget: budget || null,
+        notes: notes,
+        lastContacted: null,
+        nextFollowUp: null,
       },
     });
 
-    return NextResponse.json(lead, { status: 201 });
-  } catch {
+    return NextResponse.json(
+      {
+        lead: lead,
+        success: true,
+        message:
+          "Your inquiry has been submitted successfully! We will get back to you within one business day.",
+      },
+      { status: 201 },
+    );
+  } catch (error) {
+    console.error("Error creating lead:", error);
     return NextResponse.json(
       { error: "Something went wrong" },
       { status: 500 },

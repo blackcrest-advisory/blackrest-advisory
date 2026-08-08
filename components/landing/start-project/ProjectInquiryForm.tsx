@@ -11,14 +11,14 @@ import toast from "react-hot-toast";
 import { Upload, X } from "lucide-react";
 import { Textarea } from "@/components/ui/TextArea";
 import { projectInquiryFormSchema } from "@/lib/validations/inquiryForm";
+import { createLeadInquiry } from "@/api-client/admin/leads.api";
 
 // Options for Select
 const projectTypeOptions = [
   { value: "web-application", label: "Web Application" },
   { value: "mobile-application", label: "Mobile Application" },
   { value: "digital-marketing", label: "Digital Marketing" },
-  { value: "sales", label: "Sales & Business Development" },
-  { value: "support", label: "Customer Support" },
+  { value: "sales-support", label: "SALES & SUPPORT" },
 ];
 
 const industryOptions = [
@@ -27,7 +27,6 @@ const industryOptions = [
   { value: "medical", label: "Medical Industry" },
   { value: "beauty", label: "Beauty Industry" },
   { value: "restaurant", label: "Restaurant & Cafe" },
-  { value: "other", label: "Other" },
 ];
 
 // Budget ranges (values in USD)
@@ -72,9 +71,8 @@ export const ProjectInquiryForm = () => {
   });
 
   const [file, setFile] = useState<File | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [loading, setLoading] = useState(false);
 
   // Dynamic budget options based on currency
   const getBudgetOptions = (currency: string) => {
@@ -88,7 +86,6 @@ export const ProjectInquiryForm = () => {
           ? "+"
           : (range.max * factor).toLocaleString("en-US");
       let label = `${symbol}${minFormatted} – ${symbol}${maxFormatted}`;
-      // Special case for "100k+" – show single value
       if (range.value === "100k-plus") {
         label = `${symbol}${(100000 * factor).toLocaleString("en-US")}+`;
       }
@@ -122,34 +119,44 @@ export const ProjectInquiryForm = () => {
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
-  //Updated validation using Zod
   const validate = (): boolean => {
     const result = projectInquiryFormSchema.safeParse(formData);
+
     if (!result.success) {
       const firstError = result.error.issues[0];
       toast.error(firstError.message);
       return false;
     }
+
     return true;
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
     if (!validate()) return;
 
-    setIsSubmitting(true);
+    const payload = {
+      name: formData.fullName,
+      email: formData.email,
+      phone: formData.phone || undefined,
+      companyName: formData.companyName || undefined,
+      industry: formData.industry,
+      projectType: formData.projectType,
+      projectTitle: formData.projectTitle,
+      budget: formData.budget,
+      timeline: formData.timeline,
+      currency: formData.currency,
+      description: formData.description,
+      services: [],
+      source: "website_inquiry",
+    };
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      setLoading(true);
+      const data = await createLeadInquiry(payload);
+      toast.success(data.message || "Inquiry submitted successfully!");
 
-    // Mock success
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    toast.success("Your inquiry has been submitted successfully!");
-
-    // Reset form after a delay
-    setTimeout(() => {
-      setIsSuccess(false);
       setFormData({
         fullName: "",
         companyName: "",
@@ -164,9 +171,19 @@ export const ProjectInquiryForm = () => {
         description: "",
         agree: false,
       });
+
       setFile(null);
-      if (fileInputRef.current) fileInputRef.current.value = "";
-    }, 4000);
+
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
+    } catch (error) {
+      toast.error(
+        error instanceof Error ? error.message : "Failed to submit inquiry",
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -180,177 +197,152 @@ export const ProjectInquiryForm = () => {
         Project Inquiry Form
       </h2>
 
-      {isSuccess ? (
-        <div className="flex flex-col items-center justify-center py-12 text-center">
-          <div className="mb-4 rounded-full bg-green-500/20 p-4">
-            <svg
-              className="h-12 w-12 text-green-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-          </div>
-          <h3 className="text-xl font-semibold text-heading">
-            Inquiry Submitted!
+      {/* form */}
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Business Information */}
+        <div className="space-y-4">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-body">
+            Business Information
           </h3>
-          <p className="mt-2 text-body">
-            We&apos;ll be in touch within one business day.
-          </p>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Business Information */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-body">
-              Business Information
-            </h3>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <Input
-                name="fullName"
-                placeholder="Full Name *"
-                value={formData.fullName}
-                onChange={handleChange}
-                required
-              />
-              <Input
-                name="companyName"
-                placeholder="Company Name"
-                value={formData.companyName}
-                onChange={handleChange}
-              />
-              <Input
-                name="email"
-                type="email"
-                placeholder="Business Email *"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-              <Input
-                name="phone"
-                type="tel"
-                placeholder="Phone Number"
-                value={formData.phone}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-
-          {/* Project Information */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-body">
-              Project Information
-            </h3>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <Input
-                name="projectTitle"
-                placeholder="Project Title *"
-                value={formData.projectTitle}
-                onChange={handleChange}
-                required
-              />
-              <Select
-                options={projectTypeOptions}
-                value={formData.projectType}
-                onChange={(val) => handleSelectChange("projectType", val)}
-              />
-              <Select
-                options={industryOptions}
-                value={formData.industry}
-                onChange={(val) => handleSelectChange("industry", val)}
-              />
-              <Select
-                options={getBudgetOptions(formData.currency)}
-                value={formData.budget}
-                onChange={(val) => handleSelectChange("budget", val)}
-              />
-              <Select
-                options={timelineOptions}
-                value={formData.timeline}
-                onChange={(val) => handleSelectChange("timeline", val)}
-              />
-              <Select
-                options={currencyOptions}
-                value={formData.currency}
-                onChange={(val) => handleSelectChange("currency", val)}
-              />
-            </div>
-            <Textarea
-              name="description"
-              placeholder="Tell us about your project vision, goals, and any specific requirements... *"
-              rows={5}
-              value={formData.description}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Input
+              name="fullName"
+              placeholder="Full Name *"
+              value={formData.fullName}
               onChange={handleChange}
               required
             />
+            <Input
+              name="companyName"
+              placeholder="Company Name"
+              value={formData.companyName}
+              onChange={handleChange}
+            />
+            <Input
+              name="email"
+              type="email"
+              placeholder="Business Email *"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+            <Input
+              name="phone"
+              type="tel"
+              placeholder="Phone Number"
+              value={formData.phone}
+              onChange={handleChange}
+            />
           </div>
+        </div>
 
-          {/* File Attachment */}
-          <div className="space-y-2">
-            <label className="block text-sm font-medium text-heading">
-              Attachment (optional)
+        {/* Project Information */}
+        <div className="space-y-4">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-body">
+            Project Information
+          </h3>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Input
+              name="projectTitle"
+              placeholder="Project Title *"
+              value={formData.projectTitle}
+              onChange={handleChange}
+              required
+            />
+            <Select
+              options={projectTypeOptions}
+              value={formData.projectType}
+              onChange={(val) => handleSelectChange("projectType", val)}
+            />
+            <Select
+              options={industryOptions}
+              value={formData.industry}
+              onChange={(val) => handleSelectChange("industry", val)}
+            />
+            <Select
+              options={getBudgetOptions(formData.currency)}
+              value={formData.budget}
+              onChange={(val) => handleSelectChange("budget", val)}
+            />
+            <Select
+              options={timelineOptions}
+              value={formData.timeline}
+              onChange={(val) => handleSelectChange("timeline", val)}
+            />
+            <Select
+              options={currencyOptions}
+              value={formData.currency}
+              onChange={(val) => handleSelectChange("currency", val)}
+            />
+          </div>
+          <Textarea
+            name="description"
+            placeholder="Tell us about your project vision, goals, and any specific requirements... *"
+            rows={5}
+            value={formData.description}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        {/* File Attachment */}
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-heading">
+            Attachment (optional)
+          </label>
+          <div className="flex items-center gap-2">
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".pdf,.docx,.zip,.jpg,.jpeg,.png"
+              onChange={handleFileChange}
+              className="hidden"
+              id="file-upload"
+            />
+            <label
+              htmlFor="file-upload"
+              className="inline-flex cursor-pointer items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm text-body transition hover:bg-muted"
+            >
+              <Upload className="h-4 w-4" />
+              Choose File
             </label>
-            <div className="flex items-center gap-2">
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept=".pdf,.docx,.zip,.jpg,.jpeg,.png"
-                onChange={handleFileChange}
-                className="hidden"
-                id="file-upload"
-              />
-              <label
-                htmlFor="file-upload"
-                className="inline-flex cursor-pointer items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm text-body transition hover:bg-muted"
-              >
-                <Upload className="h-4 w-4" />
-                Choose File
-              </label>
-              {file && (
-                <span className="flex items-center gap-1 text-sm text-body">
-                  {file.name}
-                  <button
-                    type="button"
-                    onClick={removeFile}
-                    className="ml-1 text-red-500 hover:text-red-700"
-                  >
-                    <X className="h-4 w-4" />
-                  </button>
-                </span>
-              )}
-            </div>
-            <p className="text-xs text-body">
-              Accepted: PDF, DOCX, ZIP, JPG, PNG (max 10MB)
-            </p>
-          </div>
-
-          {/* Agree checkbox */}
-          <div className="flex items-center gap-3">
-            <Switch checked={formData.agree} onChange={handleSwitchChange} />
-            <span className="text-sm text-body">
-              I agree to be contacted by the Blackcrest team.
-            </span>
-          </div>
-
-          <Button size="md" disabled={isSubmitting} className="w-full">
-            {isSubmitting ? (
-              <>
-                <Loader size="sm" className="mr-2 border-t-cta-text" />
-                Submitting...
-              </>
-            ) : (
-              "Submit Project Inquiry"
+            {file && (
+              <span className="flex items-center gap-1 text-sm text-body">
+                {file.name}
+                <button
+                  type="button"
+                  onClick={removeFile}
+                  className="ml-1 text-red-500 hover:text-red-700"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </span>
             )}
-          </Button>
-        </form>
-      )}
+          </div>
+          <p className="text-xs text-body">
+            Accepted: PDF, DOCX, ZIP, JPG, PNG (max 10MB)
+          </p>
+        </div>
+
+        {/* Agree checkbox */}
+        <div className="flex items-center gap-3">
+          <Switch checked={formData.agree} onChange={handleSwitchChange} />
+          <span className="text-sm text-body">
+            I agree to be contacted by the Blackcrest team.
+          </span>
+        </div>
+
+        <Button size="md" disabled={loading} className="w-full">
+          {loading ? (
+            <>
+              <Loader size="sm" className="mr-2 border-t-cta-text" />
+              Submitting...
+            </>
+          ) : (
+            "Submit Project Inquiry"
+          )}
+        </Button>
+      </form>
     </motion.div>
   );
 };
