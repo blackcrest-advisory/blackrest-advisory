@@ -58,7 +58,8 @@ enum ProposalStatus {
   SENT
   VIEWED
   ACCEPTED
-  REJECTED
+  DECLINED
+  EXPIRED
 }
 
 enum ProjectStatus {
@@ -188,6 +189,8 @@ model Brief {
   projectGoals   String? @db.Text 
   targetAudience String? @db.Text 
   referenceLinks String? @db.Text
+   closedReason  String? @db.Text  
+  closedAt      DateTime?         
   user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   proposal Proposal?
 }
@@ -196,15 +199,26 @@ model Proposal {
   id        String         @id @default(cuid())
   briefId   String         @unique
   adminId   String
-  content   String         @db.Text
-  amount    Float?
-  currency  String         @default("EUR")
   status    ProposalStatus @default(DRAFT)
   sentAt    DateTime?
   viewedAt  DateTime?
   createdAt DateTime       @default(now())
   updatedAt DateTime       @updatedAt
 
+  //===== PROPOSAL CONTENT (Option C - structured) =====//
+  scope       String  @db.Text   // What we will do
+  deliverables String @db.Text   // What client will receive
+  timeline    String  @db.Text   // Estimated timeline
+  amount      Float?
+  currency    String  @default("EUR")
+  terms       String? @db.Text   // Terms & conditions
+  
+  //===== CLIENT RESPONSE =====//
+  acceptedAt      DateTime?
+  declinedAt      DateTime?
+  clientFeedback  String?  @db.Text  // Client comments
+  declinedReason  String?  @db.Text  // Why declined (if applicable)
+  
   brief   Brief    @relation(fields: [briefId], references: [id], onDelete: Cascade)
   admin   User     @relation("ProposalAdmin", fields: [adminId], references: [id])
   project Project?
