@@ -1,145 +1,288 @@
 "use client";
 
-import { useActionState, useTransition } from "react";
+import { useRef, useState, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Select } from "@/components/ui/Select";
+import { Textarea } from "@/components/ui/TextArea";
+import { briefRequestSchema } from "@/lib/validations/briefRequest";
 import { Brief, PILLAR } from "@/types/projectBrief";
 import { createBrief } from "@/lib/actions/briefs/brief.action";
+import { Loader } from "@/components/ui/Loader";
 
-// Initial form state (before any submission)
-const initialState = {
-  success: false,
-  error: "",
-  brief: null,
+const pillarOptions: { value: PILLAR; label: string }[] = [
+  {
+    value: "WEBSITE_DEVELOPMENT",
+    label: "Website Development",
+  },
+  {
+    value: "MOBILE_APP",
+    label: "Mobile App",
+  },
+  {
+    value: "DIGITAL_MARKETING",
+    label: "Digital Marketing",
+  },
+  {
+    value: "SALES_SUPPORT",
+    label: "Sales & Support",
+  },
+];
+
+type BriefFormData = Omit<Brief, "attachments"> & {
+  budget: string;
+  deadline: string;
+  projectGoals?: string;
+  targetAudience?: string;
+  referenceLinks?: string;
 };
 
-export function BriefForm() {
-  // useActionState (Next.js 15+) – manages the result of the server action
-  const [state, formAction, isPending] = useActionState(
-    async (prevState: any, formData: FormData) => {
-      // Build the payload from FormData
-      const payload: Brief = {
-        title: formData.get("title") as string,
-        problem: formData.get("problem") as string,
-        pillar: formData.get("pillar") as PILLAR,
-        budget: formData.get("budget") as string | null,
-        deadline: formData.get("deadline") as string | null,
-        attachments: [], // handle file uploads separately if needed
-        projectGoals: formData.get("projectGoals") as string | null,
-        targetAudience: formData.get("targetAudience") as string | null,
-        referenceLinks: formData.get("referenceLinks") as string | null,
-      };
+export const RequestProjectForm = () => {
+  const router = useRouter();
 
-      const result = await createBrief(payload);
-      return result; // { success, error, brief }
-    },
-    initialState,
-  );
+  const [formData, setFormData] = useState<BriefFormData>({
+    title: "",
+    problem: "",
+    pillar: "WEBSITE_DEVELOPMENT",
+    budget: "",
+    deadline: "",
+    projectGoals: "",
+    targetAudience: "",
+    referenceLinks: "",
+  });
 
-  // Or use useTransition for older Next.js versions
-  // const [isPending, startTransition] = useTransition();
-  // const [result, setResult] = useState(initialState);
-  // const handleSubmit = (e) => { ... }
+  const [submitting, setSubmitting] = useState(false);
+  const [attachments, setAttachments] = useState<string[]>([]);
+
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSelectChange = (value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      pillar: value as PILLAR,
+    }));
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (!files?.length) return;
+    const fileUrls: string[] = [];
+
+    for (let i = 0; i < files.length; i += 1) {
+      fileUrls.push(files[i].name);
+    }
+
+    setAttachments((prev) => [...prev, ...fileUrls]);
+    event.target.value = "";
+  };
+
+  const removeAttachment = (name: string) => {
+    setAttachments((prev) => prev.filter((attachment) => attachment !== name));
+  };
+
+  const validate = () => {
+    const result = briefRequestSchema.safeParse({
+      ...formData,
+      attachments,
+    });
+
+    if (!result.success) {
+      const firstError = result.error.issues[0];
+      toast.error(firstError.message);
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!validate()) return;
+
+    setSubmitting(true);
+
+    try {
+      const result = await createBrief({
+        ...formData,
+        attachments,
+      });
+
+      if (!result.success) {
+        toast.error(result.error);
+        return;
+      }
+
+      toast.success("Project request submitted successfully.");
+      router.push("/client/dashboard/project-requests");
+      router.refresh();
+    } catch (error) {
+      console.error("Submit project request error:", error);
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Failed to submit project request.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
-    <form action={formAction} className="space-y-4 max-w-lg">
+    <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="title">Title *</label>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          required
-          className="border p-2 w-full"
-        />
+        {/* Header */}
+        <div className="mb-8">
+          <h1 className="text-2xl font-semibold text-foreground">
+            Request a New Project
+          </h1>
+
+          <p className="mt-2 text-sm text-muted-foreground">
+            Send your project requirements to the Blackcrest team and we will
+            review it within one business day.
+          </p>
+        </div>
+
+        {/* Project Information */}
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Input
+            name="title"
+            placeholder="Project title"
+            value={formData.title}
+            onChange={handleChange}
+            required
+          />
+
+          <Select
+            options={pillarOptions}
+            value={formData.pillar}
+            onChange={handleSelectChange}
+          />
+
+          <Input
+            name="budget"
+            placeholder="Estimated budget"
+            value={formData.budget}
+            onChange={handleChange}
+          />
+
+          <Input
+            name="deadline"
+            type="date"
+            placeholder="Target deadline"
+            value={formData.deadline}
+            onChange={handleChange}
+          />
+        </div>
+
+        {/* Project Description */}
+        <div className="mt-6">
+          <Textarea
+            name="problem"
+            placeholder="Describe your project requirements"
+            value={formData.problem}
+            onChange={handleChange}
+            required
+            className="min-h-[220px]"
+          />
+        </div>
+
+        {/* Additional Information */}
+        <div className="mt-6 space-y-6">
+          <Textarea
+            name="projectGoals"
+            placeholder="Project goals – what do you want to achieve with this project?"
+            value={formData.projectGoals}
+            onChange={handleChange}
+            className="min-h-[100px]"
+          />
+
+          <Textarea
+            name="targetAudience"
+            placeholder="Target audience – who is the primary audience for this project?"
+            value={formData.targetAudience}
+            onChange={handleChange}
+            className="min-h-[100px]"
+          />
+
+          <Input
+            name="referenceLinks"
+            placeholder="Reference websites / links (e.g., https://example.com)"
+            value={formData.referenceLinks}
+            onChange={handleChange}
+          />
+        </div>
+
+        {/* Attachments */}
+        <div className="mt-6">
+          <label className="mb-2 block text-sm font-medium text-body">
+            Attachments
+          </label>
+
+          <input
+            ref={fileInputRef}
+            type="file"
+            multiple
+            onChange={handleFileChange}
+            className="w-full rounded-lg border border-border bg-background p-3 text-sm text-foreground"
+          />
+
+          {attachments.length > 0 && (
+            <div className="mt-4 space-y-2">
+              {attachments.map((attachment) => (
+                <div
+                  key={attachment}
+                  className="flex items-center justify-between rounded-lg border border-border bg-muted px-4 py-3"
+                >
+                  <span className="truncate text-sm text-foreground">
+                    {attachment}
+                  </span>
+
+                  <button
+                    type="button"
+                    className="text-sm font-medium text-destructive hover:text-destructive/80"
+                    onClick={() => removeAttachment(attachment)}
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Submit */}
+        <div className="mt-8 flex items-center justify-end gap-3">
+          <Button
+            type="submit"
+            variant="primary"
+            size="md"
+            disabled={submitting}
+          >
+            {submitting ? (
+              <>
+                {" "}
+                <span>Submitting</span> <Loader size="sm" />{" "}
+              </>
+            ) : (
+              "Submit Project Request"
+            )}
+          </Button>
+        </div>
       </div>
-
-      <div>
-        <label htmlFor="problem">Problem *</label>
-        <textarea
-          id="problem"
-          name="problem"
-          required
-          className="border p-2 w-full"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="pillar">Pillar *</label>
-        <select
-          id="pillar"
-          name="pillar"
-          required
-          className="border p-2 w-full"
-        >
-          <option value="DIGITAL_MARKETING">Digital Marketing</option>
-          <option value="WEBSITE_DEVELOPMENT">Website Development</option>
-          <option value="MOBILE_APP">Mobile App</option>
-          <option value="SALES_SUPPORT">Sales Support</option>
-          <option value="MIXED">Mixed</option>
-        </select>
-      </div>
-
-      <div>
-        <label htmlFor="budget">Budget ($)</label>
-        <input
-          type="number"
-          id="budget"
-          name="budget"
-          className="border p-2 w-full"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="deadline">Deadline</label>
-        <input
-          type="date"
-          id="deadline"
-          name="deadline"
-          className="border p-2 w-full"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="projectGoals">Project Goals</label>
-        <textarea
-          id="projectGoals"
-          name="projectGoals"
-          className="border p-2 w-full"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="targetAudience">Target Audience</label>
-        <input
-          type="text"
-          id="targetAudience"
-          name="targetAudience"
-          className="border p-2 w-full"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="referenceLinks">Reference Links</label>
-        <input
-          type="url"
-          id="referenceLinks"
-          name="referenceLinks"
-          className="border p-2 w-full"
-        />
-      </div>
-
-      {/* Display errors or success */}
-      {state.error && <p className="text-red-500">{state.error}</p>}
-      {state.success && (
-        <p className="text-green-500">Brief created successfully!</p>
-      )}
-
-      <button
-        type="submit"
-        disabled={isPending}
-        className="bg-blue-600 text-white p-2 rounded disabled:opacity-50"
-      >
-        {isPending ? "Submitting..." : "Submit Brief"}
-      </button>
     </form>
   );
-}
+};
