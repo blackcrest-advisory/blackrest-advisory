@@ -1,120 +1,148 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { MoreHorizontal } from "lucide-react";
-import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
+//===== imports =====//
+import { format } from "date-fns";
 import {
   Table,
-  TableBody,
-  TableCell,
-  TableHead,
   TableHeader,
+  TableBody,
   TableRow,
+  TableHead,
+  TableCell,
 } from "@/components/ui/Table";
 import { StatusBadge } from "@/components/ui/StatusBadge";
-import { fadeInUp, hoverScale } from "@/lib/utils/animations";
-import type { AdminProjectRequest } from "@/types/dashboard/admin/projectRequestsType";
+import { Button } from "@/components/ui/Button";
+import { ProjectActionsDropdown } from "@/components/admin-dashboard/project-requests/ProjectActionsDropdown";
 
-interface ProjectRequestsTableProps {
-  requests: AdminProjectRequest[];
-  loading: boolean;
+//===== types (same as before) =====//
+interface BriefForList {
+  id: string;
+  title: string;
+  pillar: string;
+  budget: string | null;
+  status: string;
+  createdAt: Date;
+  user?: {
+    name?: string | null;
+    email?: string;
+  };
+  assignedTo?: string | null;
+  deadline?: string | null;
 }
 
-export const ProjectRequestsTable = ({
-  requests,
-  loading,
-}: ProjectRequestsTableProps) => {
-  if (loading) {
-    return (
-      <Card
-        padding="base"
-        className="rounded-xl border border-border py-16 text-center"
-      >
-        Loading project requests...
-      </Card>
-    );
-  }
+interface ProjectRequestsTableProps {
+  briefs: BriefForList[];
+  basePath: string;
+  isAdmin?: boolean;
+}
 
-  if (!requests.length) {
+export function ProjectRequestsTable({
+  briefs,
+  basePath,
+  isAdmin = false,
+}: ProjectRequestsTableProps) {
+  if (briefs.length === 0) {
     return (
-      <Card
-        padding="base"
-        className="rounded-xl border-dashed border-border py-14 text-center"
-      >
-        <p className="font-medium text-foreground">No project requests found</p>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Once clients submit requests, they will appear here.
+      <div className="rounded-lg border border-border bg-card py-16 text-center">
+        <h2 className="text-lg font-semibold text-foreground">
+          No project requests
+        </h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          {isAdmin
+            ? "No requests have been submitted yet."
+            : "You haven't submitted any project requests yet."}
         </p>
-      </Card>
+        {!isAdmin && (
+          <Button
+            href="/client/dashboard/requests/new"
+            variant="primary"
+            size="md"
+            className="mt-5"
+          >
+            Submit Your First Request
+          </Button>
+        )}
+      </div>
     );
   }
 
   return (
-    <motion.div
-      variants={fadeInUp}
-      initial="hidden"
-      animate="visible"
-      {...hoverScale}
-    >
-      <Card padding="none" hoverEffect className="overflow-hidden rounded-xl">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Client</TableHead>
-              <TableHead>Project</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Submitted</TableHead>
-              <TableHead className="w-12" />
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {requests.map((request) => (
-              <TableRow key={request.id}>
-                <TableCell>
-                  <div>
-                    <p className="font-medium text-foreground">
-                      {request.clientName}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {request.companyName}
-                    </p>
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <div>
-                    <p className="font-medium text-foreground">
-                      {request.title}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {request.pillar}
-                    </p>
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <StatusBadge status={request.status.toLowerCase()} />
-                </TableCell>
-                <TableCell>
-                  <p className="text-sm text-muted-foreground">
-                    {request.submittedAt}
+    <div className="rounded-lg border border-border bg-card overflow-x-auto">
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead>Project</TableHead>
+            <TableHead>Service</TableHead>
+            <TableHead>Budget</TableHead>
+            <TableHead>Submitted</TableHead>
+            {isAdmin && <TableHead>Client</TableHead>}
+            {isAdmin && <TableHead>Deadline</TableHead>}
+            <TableHead>Status</TableHead>
+            <TableHead className="text-right">Action</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {briefs.map((brief) => (
+            <TableRow key={brief.id}>
+              <TableCell>
+                <div className="max-w-[200px]">
+                  <p className="truncate font-medium text-foreground">
+                    {brief.title}
                   </p>
-                </TableCell>
+                  <p className="mt-1 truncate text-xs text-muted-foreground">
+                    #{brief.id}
+                  </p>
+                </div>
+              </TableCell>
+
+              <TableCell>
+                <span className="whitespace-nowrap">
+                  {brief.pillar.replace(/_/g, " ")}
+                </span>
+              </TableCell>
+
+              <TableCell>
+                {brief.budget || (
+                  <span className="text-muted-foreground">Not specified</span>
+                )}
+              </TableCell>
+
+              <TableCell className="whitespace-nowrap">
+                {format(brief.createdAt, "MMM d, yyyy")}
+              </TableCell>
+
+              {isAdmin && (
                 <TableCell>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="!p-2"
-                    href={`/admin/dashboard/project-requests/${request.id}`}
-                  >
-                    <MoreHorizontal className="h-4 w-4" />
-                    <span className="sr-only">View request details</span>
-                  </Button>
+                  <div className="max-w-[150px] truncate">
+                    {brief.user?.name || brief.user?.email || "N/A"}
+                  </div>
                 </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </Card>
-    </motion.div>
+              )}
+
+              {isAdmin && (
+                <TableCell>
+                  {brief.deadline ? (
+                    format(new Date(brief.deadline), "MMM d, yyyy")
+                  ) : (
+                    <span className="text-muted-foreground">—</span>
+                  )}
+                </TableCell>
+              )}
+
+              <TableCell>
+                <StatusBadge status={brief.status} />
+              </TableCell>
+
+              <TableCell className="text-right">
+                <ProjectActionsDropdown
+                  briefId={brief.id}
+                  currentStatus={brief.status}
+                  basePath={basePath}
+                  isAdmin={isAdmin}
+                />
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
   );
-};
+}

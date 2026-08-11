@@ -4,6 +4,8 @@ import { prisma } from "@/lib/db/client";
 import { getCurrentUser } from "@/lib/utils/auth-utils";
 import { briefRequestSchema } from "@/lib/validations/briefRequest";
 import { Brief, BriefResponse } from "@/types/projectBrief";
+import { BriefStatus } from "@prisma/client";
+import { revalidatePath } from "next/cache";
 
 type CreateBriefResult =
   | {
@@ -14,6 +16,10 @@ type CreateBriefResult =
       success: false;
       error: string;
     };
+
+export type ActionResult =
+  | { success: true; message: string }
+  | { success: false; error: string };
 
 //create brief
 export async function createBrief(payload: Brief): Promise<CreateBriefResult> {
@@ -71,6 +77,60 @@ export async function createBrief(payload: Brief): Promise<CreateBriefResult> {
     return {
       success: false,
       error: "Something went wrong. Please try again.",
+    };
+  }
+}
+
+//===== update status =====//
+export async function updateBriefStatus(
+  briefId: string,
+  newStatus: string,
+): Promise<ActionResult> {
+  try {
+    const user = await getCurrentUser();
+    if (!user || (user.role !== "ADMIN" && user.role !== "SUPER_ADMIN")) {
+      throw new Error("Unauthorized");
+    }
+
+    await prisma.brief.update({
+      where: { id: briefId },
+      data: { status: newStatus as BriefStatus },
+    });
+    revalidatePath("/admin/dashboard/project-requests");
+    return {
+      success: true,
+      message: "Status updated successfully",
+    };
+  } catch (error) {
+    console.error("updateBriefStatus failed:", error);
+    return {
+      success: false,
+      error: "Something went  wrong, try again",
+    };
+  }
+}
+
+//===== delete brief =====//
+export async function deleteBrief(briefId: string): Promise<ActionResult> {
+  try {
+    const user = await getCurrentUser();
+    if (!user || (user.role !== "ADMIN" && user.role !== "SUPER_ADMIN")) {
+      throw new Error("Unauthorized");
+    }
+
+    await prisma.brief.delete({
+      where: { id: briefId },
+    });
+    revalidatePath("/admin/dashboard/project-requests");
+    return {
+      success: true,
+      message: "Request deleted successfully",
+    };
+  } catch (error) {
+    console.error("deleteBrief failed:", error);
+    return {
+      success: false,
+      error: "Something went wrong, try again",
     };
   }
 }
