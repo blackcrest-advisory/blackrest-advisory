@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Mail, Lock, User, Eye, EyeOff, UserPlus } from "lucide-react";
 import { FaChrome } from "react-icons/fa";
@@ -18,8 +17,7 @@ import { useRegister } from "@/hooks/useSignUp";
 import { signupSchema } from "@/lib/validations/auth";
 
 export default function SignupPage() {
-  const searchParams = useSearchParams();
-  const selectedIndustry = searchParams.get("industry") || "";
+  const [selectedIndustry, setSelectedIndustry] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -73,6 +71,11 @@ export default function SignupPage() {
   const handleGoogleSignup = () => {
     console.log("Google signup clicked");
   };
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    setSelectedIndustry(searchParams.get("industry") || "");
+  }, []);
 
   return (
     //===== Signup Page =====//
@@ -265,6 +268,7 @@ export default function SignupPage() {
                     size="md"
                     className="w-full"
                     disabled={loading}
+                    type="submit"
                   >
                     {loading ? (
                       <>

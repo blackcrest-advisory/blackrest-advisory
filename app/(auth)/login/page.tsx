@@ -195,6 +195,7 @@ export default function LoginPage() {
 
                   {/* Submit */}
                   <Button
+                    type="submit"
                     variant="primary"
                     size="md"
                     className="w-full"
