@@ -28,9 +28,14 @@ export async function fetchAdminLeads(): Promise<Lead[]> {
   return response.data;
 }
 
+type UpdateLeadPayload = Partial<Omit<Lead, "contactPerson">> & {
+  name?: string;
+  contactPerson?: string;
+};
+
 export async function updateAdminLead(
   id: string,
-  lead: Partial<Lead>,
+  lead: UpdateLeadPayload,
 ): Promise<Lead> {
   const response = await client.patch<Lead>(`/api/leads/${id}`, lead);
   return response.data;
@@ -41,5 +46,6 @@ export async function deleteAdminLead(id: string): Promise<void> {
 }
 
 export async function convertAdminLead(id: string): Promise<Lead> {
-  return updateAdminLead(id, { status: "won" });
+  const response = await client.post<Lead>(`/api/admin/leads/${id}/convert`);
+  return response.data;
 }
