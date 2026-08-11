@@ -26,11 +26,12 @@ export const QuickActions = () => {
         </h2>
         <div className="space-y-2">
           <Button
+            href="/client/dashboard/request"
             variant="outline"
             size="md"
             className="w-full justify-start gap-2"
           >
-            <FiFileText /> Request Proposal
+            <FiFileText /> Request Project
           </Button>
           <Button
             variant="outline"

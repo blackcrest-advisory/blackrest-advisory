@@ -30,7 +30,6 @@ export default function DashboardDesktopSidebar({
   const isCollapsed = mobile ? false : desktopCollapsed;
   const toggleSidebar = useSidebarStore((state) => state.toggleSidebar);
   const user = useCurrentUser();
-
   const [isLogoHovered, setIsLogoHovered] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
@@ -136,7 +135,7 @@ export default function DashboardDesktopSidebar({
       {/*===== Footer =====*/}
       <SidebarFooter
         isCollapsed={isCollapsed}
-        userName={user?.name ?? "Client"}
+        userName={user?.name ?? ""}
         userEmail={user?.email ?? ""}
         avatarUrl={user?.avatarUrl ?? undefined}
         onLogout={handleLogout}

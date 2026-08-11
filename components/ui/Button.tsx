@@ -13,6 +13,7 @@ interface ButtonProps {
   href?: string;
   target?: string;
   disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
 export const Button = ({
@@ -24,6 +25,7 @@ export const Button = ({
   href,
   target,
   disabled = false,
+  type = "button",
 }: ButtonProps) => {
   const baseStyles =
     "group relative inline-flex items-center justify-center overflow-hidden cursor-pointer rounded-sm  transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background";
@@ -87,7 +89,12 @@ export const Button = ({
   }
 
   return (
-    <button className={combined} onClick={onClick} disabled={disabled}>
+    <button
+      type={type}
+      className={combined}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {content}
     </button>
   );

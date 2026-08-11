@@ -64,7 +64,7 @@ export default function DashboardNavbar({
 
         {/*===== Right – conditionally shown items =====*/}
         <div className="flex items-center gap-2 md:gap-3">
-          {showNotifications && <Notification />}
+          {showNotifications}
           {showMessages && <Message />}
           <ThemeToggle />
           {showProfile && <ProfileDropdown />}

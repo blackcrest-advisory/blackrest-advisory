@@ -49,6 +49,11 @@ export const adminNavItems: NavItem[] = [
   //   icon: Briefcase,
   // },
   {
+    label: "Project Requests",
+    href: "/admin/dashboard/project-requests",
+    icon: Briefcase,
+  },
+  {
     label: "Projects",
     href: "/admin/dashboard/projects",
     icon: FolderOpen,
