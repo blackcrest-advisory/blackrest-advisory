@@ -18,6 +18,7 @@ interface SelectProps {
   onChange: (value: string) => void;
   className?: string;
   align?: "start" | "center" | "end";
+  disabled?: boolean; // <-- new prop
 }
 
 export const Select = ({
@@ -26,6 +27,7 @@ export const Select = ({
   onChange,
   className = "",
   align = "start",
+  disabled = false, // <-- default false
 }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -35,7 +37,6 @@ export const Select = ({
   const selectedOption =
     options.find((option) => option.value === value) ?? options[0];
 
-  //===== Close the dropdown immediately after a choice is made =====//
   const handleSelect = (nextValue: string) => {
     onChange(nextValue);
     setIsOpen(false);
@@ -45,12 +46,14 @@ export const Select = ({
     <div ref={containerRef} className={cn("relative", className)}>
       <button
         type="button"
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={() => !disabled && setIsOpen((prev) => !prev)}
+        disabled={disabled}
         className={cn(
           "flex w-full items-center justify-between gap-2 rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground transition-all duration-200",
           "hover:border-secondary/40",
           "focus:border-transparent focus:outline-none focus:ring-1 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-background",
           "focus-visible:ring-1 focus-visible:ring-secondary focus-visible:ring-offset-1 focus-visible:ring-offset-background",
+          disabled && "opacity-50 cursor-not-allowed pointer-events-none",
         )}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
