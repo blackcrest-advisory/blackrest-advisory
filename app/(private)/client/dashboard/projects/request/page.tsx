@@ -1,4 +1,4 @@
-import { RequestProjectForm } from "@/components/client-dashboard/briefs/RequestProjectForm";
+import { RequestProjectForm } from "@/components/client-dashboard/project-requests/RequestProjectForm";
 import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";

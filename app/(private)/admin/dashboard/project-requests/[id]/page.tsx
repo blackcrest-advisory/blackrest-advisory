@@ -18,6 +18,7 @@ import { StatusBadge } from "@/components/ui/StatusBadge";
 import { format } from "date-fns";
 import { AdminBriefActions } from "@/components/admin-dashboard/project-requests/AdminBriefActions";
 import { Card } from "@/components/ui/Card";
+import { ProposalSection } from "@/components/admin-dashboard/project-requests/ProposalSection";
 
 interface AdminProjectRequestPageProps {
   params: Promise<{
@@ -29,16 +30,24 @@ export default async function AdminProjectRequestDetailPage({
   params,
 }: AdminProjectRequestPageProps) {
   const admin = await getAdminUser();
-
   if (!admin) {
     notFound();
   }
 
   const brief = await prisma.brief.findUnique({
-    where: {
-      id: (await params).id,
-    },
-    include: {
+    where: { id: (await params).id },
+    select: {
+      id: true,
+      title: true,
+      problem: true,
+      pillar: true,
+      budget: true,
+      currency: true,
+      deadline: true,
+      attachments: true,
+      status: true,
+      createdAt: true,
+      assignedTo: true,
       user: {
         select: {
           id: true,
@@ -47,12 +56,15 @@ export default async function AdminProjectRequestDetailPage({
           companyName: true,
         },
       },
+      proposal: true,
     },
   });
 
   if (!brief) {
     notFound();
   }
+
+  const hasProposal = !!brief.proposal;
 
   return (
     <PageWrapper>
@@ -105,6 +117,34 @@ export default async function AdminProjectRequestDetailPage({
                 </div>
               </div>
             </Card>
+
+            {/* Proposal Section */}
+            <ProposalSection
+              briefId={brief.id}
+              hasProposal={hasProposal}
+              proposalData={
+                hasProposal
+                  ? {
+                      id: brief.proposal!.id,
+                      briefId: brief.proposal!.briefId,
+                      status: brief.proposal!.status,
+                      scope: brief.proposal!.scope,
+                      deliverables: brief.proposal!.deliverables,
+                      timeline: brief.proposal!.timeline,
+                      amount: brief.proposal!.amount,
+                      currency: brief.proposal!.currency,
+                      terms: brief.proposal!.terms,
+                      sentAt: brief.proposal!.sentAt?.toISOString() || null,
+                      viewedAt: brief.proposal!.viewedAt?.toISOString() || null,
+                      acceptedAt:
+                        brief.proposal!.acceptedAt?.toISOString() || null,
+                      declinedAt:
+                        brief.proposal!.declinedAt?.toISOString() || null,
+                    }
+                  : null
+              }
+              briefStatus={brief.status}
+            />
 
             {/* Content grid */}
             <div className="grid gap-6 lg:grid-cols-3">
@@ -167,7 +207,13 @@ export default async function AdminProjectRequestDetailPage({
                         Budget
                       </dt>
                       <dd className="text-sm font-medium text-foreground">
-                        {brief.budget ?? "—"}
+                        {brief.budget ? (
+                          <span>
+                            {brief.budget} {brief.currency || "EUR"}
+                          </span>
+                        ) : (
+                          "—"
+                        )}
                       </dd>
                     </div>
                     <div className="flex items-center justify-between gap-4 py-2.5">

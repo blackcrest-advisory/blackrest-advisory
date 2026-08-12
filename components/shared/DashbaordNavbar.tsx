@@ -7,6 +7,8 @@ import Notification from "@/components/features/notification/Notification";
 import Message from "@/components/features/message/Message";
 import ThemeToggle from "@/components/shared/ThemeToggle";
 import ProfileDropdown from "@/components/shared/ProfileDropdown";
+import { NotificationBell } from "@/components/shared/NotificationBell";
+import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
 
 interface NavbarProps {
   toggleMobileSidebar: () => void;
@@ -27,6 +29,12 @@ export default function DashboardNavbar({
   showProfile = true,
   className = "",
 }: NavbarProps) {
+  const currentUser = useCurrentUser();
+  const notificationPath =
+    currentUser?.role === "CLIENT"
+      ? "/admin/dashboard/notifications"
+      : "/admin/dashboard/notifications";
+
   return (
     //===== Dashboard Navbar =====//
     <header
@@ -64,7 +72,9 @@ export default function DashboardNavbar({
 
         {/*===== Right – conditionally shown items =====*/}
         <div className="flex items-center gap-2 md:gap-3">
-          {showNotifications}
+          {showNotifications && (
+            <NotificationBell basePath={notificationPath} />
+          )}
           {showMessages && <Message />}
           <ThemeToggle />
           {showProfile && <ProfileDropdown />}

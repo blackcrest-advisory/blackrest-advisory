@@ -20,6 +20,7 @@ export default async function AdminRequestsPage() {
       pillar: true,
       budget: true,
       status: true,
+      currency: true,
       createdAt: true,
       deadline: true,
       assignedTo: true,

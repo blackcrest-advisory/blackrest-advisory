@@ -13,12 +13,12 @@ export interface SelectOption {
 }
 
 interface SelectProps {
-  options: SelectOption[];
+  options: readonly SelectOption[];
   value: string;
   onChange: (value: string) => void;
   className?: string;
   align?: "start" | "center" | "end";
-  disabled?: boolean; // <-- new prop
+  disabled?: boolean;
 }
 
 export const Select = ({
@@ -27,7 +27,7 @@ export const Select = ({
   onChange,
   className = "",
   align = "start",
-  disabled = false, // <-- default false
+  disabled = false,
 }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);

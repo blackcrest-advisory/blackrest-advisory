@@ -94,6 +94,7 @@ enum InvoiceStatus {
 enum NotificationType {
   REQUEST_RECEIVED
   REQUEST_ASSIGNED
+  REQUEST_UPDATED
   QUOTE_SENT
   QUOTE_ACCEPTED
   QUOTE_REJECTED
@@ -102,6 +103,8 @@ enum NotificationType {
   NEW_MESSAGE
   INVOICE_SENT
   INVOICE_PAID
+  FILE_UPLOADED
+  PROJECT_STATUS_CHANGED
 }
 
 model User {
@@ -174,23 +177,27 @@ model Consultation {
 }
 
 model Brief {
-  id          String      @id @default(cuid())
-  userId      String
-  title       String
-  problem     String      @db.Text
-  pillar      Pillar
-  budget      String?
-  deadline    String?
-  attachments String[]
-  status      BriefStatus @default(SUBMITTED)
-  assignedTo  String?
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
-  projectGoals   String? @db.Text 
-  targetAudience String? @db.Text 
-  referenceLinks String? @db.Text
-   closedReason  String? @db.Text  
-  closedAt      DateTime?         
+  id             String      @id @default(cuid())
+  userId         String
+  title          String
+  problem        String      @db.Text
+  pillar         Pillar
+  budget         String?
+  currency    String?   @default("EUR")
+  deadline       String?
+  attachments    String[]
+  status         BriefStatus @default(SUBMITTED)
+  assignedTo     String?
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  projectGoals   String?     @db.Text
+  targetAudience String?     @db.Text
+  referenceLinks String?     @db.Text
+
+  //===== NEW FIELDS =====//
+  closedReason String?   @db.Text
+  closedAt     DateTime?
+
   user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   proposal Proposal?
 }
@@ -205,20 +212,20 @@ model Proposal {
   createdAt DateTime       @default(now())
   updatedAt DateTime       @updatedAt
 
-  //===== PROPOSAL CONTENT (Option C - structured) =====//
-  scope       String  @db.Text   // What we will do
-  deliverables String @db.Text   // What client will receive
-  timeline    String  @db.Text   // Estimated timeline
-  amount      Float?
-  currency    String  @default("EUR")
-  terms       String? @db.Text   // Terms & conditions
-  
+  //===== PROPOSAL CONTENT (structured) =====//
+  scope        String  @db.Text // What we will do
+  deliverables String  @db.Text // What client will receive
+  timeline     String  @db.Text // Estimated timeline
+  amount       Float?
+  currency     String  @default("EUR")
+  terms        String? @db.Text // Terms & conditions
+
   //===== CLIENT RESPONSE =====//
-  acceptedAt      DateTime?
-  declinedAt      DateTime?
-  clientFeedback  String?  @db.Text  // Client comments
-  declinedReason  String?  @db.Text  // Why declined (if applicable)
-  
+  acceptedAt     DateTime?
+  declinedAt     DateTime?
+  clientFeedback String?   @db.Text
+  declinedReason String?   @db.Text
+
   brief   Brief    @relation(fields: [briefId], references: [id], onDelete: Cascade)
   admin   User     @relation("ProposalAdmin", fields: [adminId], references: [id])
   project Project?

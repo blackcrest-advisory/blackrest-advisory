@@ -11,29 +11,19 @@ import { briefRequestSchema } from "@/lib/validations/briefRequest";
 import { Brief, PILLAR } from "@/types/projectBrief";
 import { createBrief } from "@/lib/actions/briefs/brief.action";
 import { Loader } from "@/components/ui/Loader";
+import { CURRENCY_OPTIONS } from "@/lib/utils/currencies";
 
 const pillarOptions: { value: PILLAR; label: string }[] = [
-  {
-    value: "WEBSITE_DEVELOPMENT",
-    label: "Website Development",
-  },
-  {
-    value: "MOBILE_APP",
-    label: "Mobile App",
-  },
-  {
-    value: "DIGITAL_MARKETING",
-    label: "Digital Marketing",
-  },
-  {
-    value: "SALES_SUPPORT",
-    label: "Sales & Support",
-  },
+  { value: "WEBSITE_DEVELOPMENT", label: "Website Development" },
+  { value: "MOBILE_APP", label: "Mobile App" },
+  { value: "DIGITAL_MARKETING", label: "Digital Marketing" },
+  { value: "SALES_SUPPORT", label: "Sales & Support" },
 ];
 
 type BriefFormData = Omit<Brief, "attachments"> & {
   budget: string;
   deadline: string;
+  currency: string;
   projectGoals?: string;
   targetAudience?: string;
   referenceLinks?: string;
@@ -48,6 +38,7 @@ export const RequestProjectForm = () => {
     pillar: "WEBSITE_DEVELOPMENT",
     budget: "",
     deadline: "",
+    currency: "EUR",
     projectGoals: "",
     targetAudience: "",
     referenceLinks: "",
@@ -62,29 +53,24 @@ export const RequestProjectForm = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSelectChange = (value: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      pillar: value as PILLAR,
-    }));
+    setFormData((prev) => ({ ...prev, pillar: value as PILLAR }));
+  };
+
+  const handleCurrencyChange = (value: string) => {
+    setFormData((prev) => ({ ...prev, currency: value }));
   };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (!files?.length) return;
     const fileUrls: string[] = [];
-
     for (let i = 0; i < files.length; i += 1) {
       fileUrls.push(files[i].name);
     }
-
     setAttachments((prev) => [...prev, ...fileUrls]);
     event.target.value = "";
   };
@@ -98,34 +84,27 @@ export const RequestProjectForm = () => {
       ...formData,
       attachments,
     });
-
     if (!result.success) {
       const firstError = result.error.issues[0];
       toast.error(firstError.message);
       return false;
     }
-
     return true;
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     if (!validate()) return;
-
     setSubmitting(true);
-
     try {
       const result = await createBrief({
         ...formData,
         attachments,
       });
-
       if (!result.success) {
         toast.error(result.error);
         return;
       }
-
       toast.success("Project request submitted successfully.");
       router.push("/client/dashboard/project-requests");
       router.refresh();
@@ -149,7 +128,6 @@ export const RequestProjectForm = () => {
           <h1 className="text-2xl font-semibold text-foreground">
             Request a New Project
           </h1>
-
           <p className="mt-2 text-sm text-muted-foreground">
             Send your project requirements to the Blackcrest team and we will
             review it within one business day.
@@ -165,20 +143,26 @@ export const RequestProjectForm = () => {
             onChange={handleChange}
             required
           />
-
           <Select
             options={pillarOptions}
             value={formData.pillar}
             onChange={handleSelectChange}
           />
-
-          <Input
-            name="budget"
-            placeholder="Estimated budget"
-            value={formData.budget}
-            onChange={handleChange}
-          />
-
+          <div className="flex gap-3">
+            <Input
+              name="budget"
+              placeholder="Estimated budget"
+              value={formData.budget}
+              onChange={handleChange}
+              className="flex-1"
+            />
+            <Select
+              options={CURRENCY_OPTIONS}
+              value={formData.currency}
+              onChange={handleCurrencyChange}
+              className="w-28 flex-shrink-0"
+            />
+          </div>
           <Input
             name="deadline"
             type="date"
@@ -209,7 +193,6 @@ export const RequestProjectForm = () => {
             onChange={handleChange}
             className="min-h-[100px]"
           />
-
           <Textarea
             name="targetAudience"
             placeholder="Target audience – who is the primary audience for this project?"
@@ -217,7 +200,6 @@ export const RequestProjectForm = () => {
             onChange={handleChange}
             className="min-h-[100px]"
           />
-
           <Input
             name="referenceLinks"
             placeholder="Reference websites / links (e.g., https://example.com)"
@@ -231,7 +213,6 @@ export const RequestProjectForm = () => {
           <label className="mb-2 block text-sm font-medium text-body">
             Attachments
           </label>
-
           <input
             ref={fileInputRef}
             type="file"
@@ -239,7 +220,6 @@ export const RequestProjectForm = () => {
             onChange={handleFileChange}
             className="w-full rounded-lg border border-border bg-background p-3 text-sm text-foreground"
           />
-
           {attachments.length > 0 && (
             <div className="mt-4 space-y-2">
               {attachments.map((attachment) => (
@@ -250,7 +230,6 @@ export const RequestProjectForm = () => {
                   <span className="truncate text-sm text-foreground">
                     {attachment}
                   </span>
-
                   <button
                     type="button"
                     className="text-sm font-medium text-destructive hover:text-destructive/80"
@@ -274,8 +253,7 @@ export const RequestProjectForm = () => {
           >
             {submitting ? (
               <>
-                {" "}
-                <span>Submitting</span> <Loader size="sm" />{" "}
+                <span>Submitting</span> <Loader size="sm" />
               </>
             ) : (
               "Submit Project Request"

@@ -35,6 +35,7 @@ export default async function page() {
       title: true,
       pillar: true,
       budget: true,
+      currency: true,
       status: true,
       createdAt: true,
     },
@@ -76,7 +77,7 @@ export default async function page() {
             </p>
 
             <Button
-              href="/client/dashboard/requests/new"
+              href="/client/dashboard/projects/request"
               variant="primary"
               size="md"
               className="mt-5"
@@ -124,7 +125,11 @@ export default async function page() {
 
                     {/* Budget */}
                     <TableCell>
-                      {brief.budget || (
+                      {brief.budget || brief.currency ? (
+                        <span className="whitespace-nowrap">
+                          {brief.budget || "—"} {brief.currency || ""}
+                        </span>
+                      ) : (
                         <span className="text-muted-foreground">
                           Not specified
                         </span>

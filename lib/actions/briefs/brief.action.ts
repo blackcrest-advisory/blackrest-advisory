@@ -1,6 +1,10 @@
 "use server";
 
 import { prisma } from "@/lib/db/client";
+import {
+  createNotification,
+  sendBriefStatusUpdate,
+} from "@/lib/services/email/email.service";
 import { getCurrentUser } from "@/lib/utils/auth-utils";
 import { briefRequestSchema } from "@/lib/validations/briefRequest";
 import { Brief, BriefResponse } from "@/types/projectBrief";
@@ -46,6 +50,7 @@ export async function createBrief(payload: Brief): Promise<CreateBriefResult> {
       problem,
       pillar,
       budget,
+      currency,
       deadline,
       attachments,
       projectGoals,
@@ -60,6 +65,7 @@ export async function createBrief(payload: Brief): Promise<CreateBriefResult> {
         problem: problem.trim(),
         pillar,
         budget: budget || null,
+        currency: currency || "EUR",
         deadline: deadline || null,
         attachments: attachments ?? [],
         projectGoals: projectGoals?.trim() || null,
@@ -132,5 +138,62 @@ export async function deleteBrief(briefId: string): Promise<ActionResult> {
       success: false,
       error: "Something went wrong, try again",
     };
+  }
+}
+
+//===== close brief with reason =====//
+export async function closeBriefWithReason(
+  briefId: string,
+  reason: string,
+): Promise<ActionResult> {
+  try {
+    const admin = await getCurrentUser();
+    if (!admin || (admin.role !== "ADMIN" && admin.role !== "SUPER_ADMIN")) {
+      return { success: false, error: "Unauthorized" };
+    }
+
+    const brief = await prisma.brief.findUnique({
+      where: { id: briefId },
+      include: { user: true },
+    });
+
+    if (!brief) {
+      return { success: false, error: "Brief not found" };
+    }
+
+    if (brief.status === "CLOSED") {
+      return { success: false, error: "Brief is already closed" };
+    }
+
+    await prisma.brief.update({
+      where: { id: briefId },
+      data: {
+        status: "CLOSED",
+        closedReason: reason,
+        closedAt: new Date(),
+      },
+    });
+
+    // Notify client
+    await sendBriefStatusUpdate({
+      to: brief.user.email,
+      name: brief.user.name || "Client",
+      briefTitle: brief.title,
+      newStatus: "CLOSED",
+    });
+
+    await createNotification({
+      userId: brief.userId,
+      type: "BRIEF_CLOSED",
+      title: "Request Closed",
+      body: `Your request "${brief.title}" has been closed. Reason: ${reason}`,
+      link: `/client/dashboard/project-requests/${briefId}`,
+    });
+
+    revalidatePath(`/admin/dashboard/project-requests/${briefId}`);
+    return { success: true, message: "Brief closed" };
+  } catch (error: any) {
+    console.error("Close brief error:", error);
+    return { success: false, error: error.message || "Failed to close brief" };
   }
 }

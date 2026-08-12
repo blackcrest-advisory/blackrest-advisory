@@ -7,16 +7,19 @@ function Skeleton({ className }: { className?: string }) {
   return <div className={`animate-pulse bg-muted rounded ${className}`} />;
 }
 
-export default function ClientProjectDetailLoading() {
+export default function AdminProjectDetailLoading() {
   return (
     <Section>
       <Container>
         <div className="space-y-6">
+          {/* Back link */}
           <Skeleton className="h-5 w-32" />
+
+          {/* Header card */}
           <Card padding="lg">
             <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
               <div className="space-y-3">
-                <Skeleton className="h-4 w-16" />
+                <Skeleton className="h-4 w-32" />
                 <div className="flex flex-wrap items-center gap-3">
                   <Skeleton className="h-8 w-48" />
                   <Skeleton className="h-6 w-20 rounded-full" />
@@ -28,15 +31,20 @@ export default function ClientProjectDetailLoading() {
               </div>
               <Skeleton className="h-4 w-32" />
             </div>
-            <div className="mt-6 flex items-center gap-4">
-              <Skeleton className="h-4 w-16" />
-              <Skeleton className="h-2 w-48 rounded-full" />
-              <Skeleton className="h-4 w-10" />
+            <div className="mt-6 flex items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <Skeleton className="h-4 w-16" />
+                <Skeleton className="h-2 w-48 rounded-full" />
+                <Skeleton className="h-4 w-10" />
+              </div>
+              <Skeleton className="h-8 w-32" />
             </div>
           </Card>
 
+          {/* Grid */}
           <div className="grid gap-6 lg:grid-cols-3">
             <div className="space-y-6 lg:col-span-2">
+              {/* Project Info */}
               <Card>
                 <Skeleton className="h-6 w-40" />
                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -48,8 +56,12 @@ export default function ClientProjectDetailLoading() {
                   ))}
                 </div>
               </Card>
+
+              {/* Milestones */}
               <Card>
-                <Skeleton className="h-6 w-32" />
+                <div className="flex items-center justify-between">
+                  <Skeleton className="h-6 w-32" />
+                </div>
                 <div className="mt-4 space-y-2">
                   {[1, 2, 3].map((i) => (
                     <div
@@ -61,10 +73,14 @@ export default function ClientProjectDetailLoading() {
                         <Skeleton className="h-4 w-32" />
                         <Skeleton className="mt-1 h-3 w-48" />
                       </div>
+                      <Skeleton className="h-4 w-4" />
                     </div>
                   ))}
                 </div>
+                <Skeleton className="mt-4 h-8 w-32" />
               </Card>
+
+              {/* Invoices */}
               <Card>
                 <Skeleton className="h-6 w-32" />
                 <div className="mt-4 space-y-2">
@@ -86,7 +102,10 @@ export default function ClientProjectDetailLoading() {
                 </div>
               </Card>
             </div>
+
+            {/* Sidebar */}
             <div className="space-y-6">
+              {/* Files */}
               <Card>
                 <Skeleton className="h-6 w-32" />
                 <div className="mt-4 space-y-2">
@@ -100,10 +119,13 @@ export default function ClientProjectDetailLoading() {
                         <Skeleton className="h-4 w-32" />
                         <Skeleton className="mt-1 h-3 w-24" />
                       </div>
+                      <Skeleton className="h-4 w-4" />
                     </div>
                   ))}
                 </div>
               </Card>
+
+              {/* Brief info */}
               <Card>
                 <Skeleton className="h-6 w-32" />
                 <div className="mt-4 space-y-2">

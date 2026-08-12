@@ -14,8 +14,8 @@ function Skeleton({ className }: { className?: string }) {
   return <div className={`animate-pulse bg-muted rounded ${className}`} />;
 }
 
-export default function ClientProjectsLoading() {
-  const rows = Array.from({ length: 4 }, (_, i) => i);
+export default function AdminProjectsLoading() {
+  const rows = Array.from({ length: 5 }, (_, i) => i);
 
   return (
     <Section>
@@ -52,11 +52,12 @@ export default function ClientProjectsLoading() {
             <TableHeader>
               <TableRow>
                 <TableHead>Project</TableHead>
+                <TableHead>Client</TableHead>
                 <TableHead>Service</TableHead>
                 <TableHead>Budget</TableHead>
                 <TableHead>Progress</TableHead>
                 <TableHead>Status</TableHead>
-                <TableHead>Invoices</TableHead>
+                <TableHead>Assigned To</TableHead>
                 <TableHead className="text-right">Action</TableHead>
               </TableRow>
             </TableHeader>
@@ -68,6 +69,9 @@ export default function ClientProjectsLoading() {
                       <Skeleton className="h-4 w-32" />
                       <Skeleton className="mt-1 h-3 w-20" />
                     </div>
+                  </TableCell>
+                  <TableCell>
+                    <Skeleton className="h-4 w-24" />
                   </TableCell>
                   <TableCell>
                     <Skeleton className="h-4 w-20" />
@@ -85,10 +89,10 @@ export default function ClientProjectsLoading() {
                     <Skeleton className="h-6 w-20" />
                   </TableCell>
                   <TableCell>
-                    <Skeleton className="h-4 w-24" />
+                    <Skeleton className="h-4 w-16" />
                   </TableCell>
                   <TableCell className="text-right">
-                    <Skeleton className="h-8 w-16 ml-auto" />
+                    <Skeleton className="h-8 w-8 ml-auto" />
                   </TableCell>
                 </TableRow>
               ))}

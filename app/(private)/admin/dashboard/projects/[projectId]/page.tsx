@@ -1,6 +1,14 @@
 //===== imports =====//
 import { notFound, redirect } from "next/navigation";
 import { format } from "date-fns";
+import { getAdminUser } from "@/lib/utils/admin-utils";
+import { prisma } from "@/lib/db/client";
+import { PageWrapper } from "@/components/ui/PageWrapper";
+import { Section } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Container";
+import { Card } from "@/components/ui/Card";
+import { StatusBadge } from "@/components/ui/StatusBadge";
+import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 import {
   ChevronLeft,
@@ -8,38 +16,63 @@ import {
   DollarSign,
   Tag,
   User,
+  Paperclip,
   FileText,
+  Clock,
+  CheckCircle,
+  AlertCircle,
 } from "lucide-react";
-import { getCurrentUser } from "@/lib/utils/auth-utils";
-import { getClientProjectById } from "@/lib/actions/projects/project.action";
-import { PageWrapper } from "@/components/ui/PageWrapper";
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
-import { Card } from "@/components/ui/Card";
-import { StatusBadge } from "@/components/ui/StatusBadge";
-import { Button } from "@/components/ui/Button";
+import { ProjectProgressUpdate } from "@/components/admin-dashboard/projects/ProjectProgressUpdate";
 import { MilestoneList } from "@/components/admin-dashboard/projects/MilestoneList";
 import { InvoiceList } from "@/components/admin-dashboard/projects/InvoiceList";
 import { FileList } from "@/components/admin-dashboard/projects/FileList";
+import { FileUploader } from "@/components/shared/FileUploader";
+import { CreateInvoiceModal } from "@/components/admin-dashboard/projects/CreateInvoiceModal";
 
-interface ClientProjectDetailPageProps {
+interface AdminProjectDetailPageProps {
   params: Promise<{
     projectId: string;
   }>;
 }
 
-export default async function ClientProjectDetailPage({
+export default async function AdminProjectDetailPage({
   params,
-}: ClientProjectDetailPageProps) {
-  const user = await getCurrentUser();
-  if (!user) {
+}: AdminProjectDetailPageProps) {
+  const admin = await getAdminUser();
+  if (!admin) {
     redirect("/login");
   }
 
   const { projectId: id } = await params;
 
-  //===== fetch project with authorization =====//
-  const project = await getClientProjectById(id);
+  //===== fetch project with all relations =====//
+  const project = await prisma.project.findUnique({
+    where: { id },
+    include: {
+      user: {
+        select: {
+          id: true,
+          name: true,
+          email: true,
+          companyName: true,
+        },
+      },
+      proposal: {
+        include: {
+          brief: true,
+        },
+      },
+      milestones: {
+        orderBy: { sortOrder: "asc" },
+      },
+      invoices: {
+        orderBy: { createdAt: "desc" },
+      },
+      files: {
+        orderBy: { createdAt: "desc" },
+      },
+    },
+  });
 
   if (!project) {
     notFound();
@@ -49,7 +82,9 @@ export default async function ClientProjectDetailPage({
   const completedMilestones = project.milestones.filter(
     (m) => m.isCompleted,
   ).length;
-  const progress =
+
+  //===== compute progress from milestones (redundant but safe) =====//
+  const computedProgress =
     totalMilestones > 0
       ? Math.round((completedMilestones / totalMilestones) * 100)
       : project.progress;
@@ -61,11 +96,11 @@ export default async function ClientProjectDetailPage({
           <div className="space-y-6">
             {/* Back navigation */}
             <Link
-              href="/client/dashboard/projects"
+              href="/admin/dashboard/projects"
               className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               <ChevronLeft className="h-4 w-4" />
-              My Projects
+              All Projects
             </Link>
 
             {/* Header card */}
@@ -73,7 +108,7 @@ export default async function ClientProjectDetailPage({
               <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
                 <div className="min-w-0 space-y-3">
                   <p className="text-sm font-medium uppercase tracking-[0.25em] text-muted-foreground">
-                    Project
+                    Project Details
                   </p>
                   <div className="flex flex-wrap items-center gap-3">
                     <h1 className="text-3xl font-semibold text-foreground">
@@ -89,34 +124,37 @@ export default async function ClientProjectDetailPage({
                     {project.user.companyName && (
                       <span>{project.user.companyName}</span>
                     )}
-                    <span>
-                      • Service:{" "}
-                      {project.serviceType ||
-                        project.proposal?.brief?.pillar ||
-                        "—"}
-                    </span>
+                    <span>{project.user.email}</span>
                   </div>
                 </div>
                 <div className="flex flex-shrink-0 flex-col items-start gap-3 md:items-end">
                   <div className="text-xs text-muted-foreground">
-                    Started {format(new Date(project.createdAt), "MMM d, yyyy")}
+                    Created {format(new Date(project.createdAt), "MMM d, yyyy")}
                   </div>
                 </div>
               </div>
 
               {/* Progress bar */}
               <div className="mt-6">
-                <div className="flex items-center gap-4">
-                  <span className="text-sm font-medium text-foreground">
-                    Progress
-                  </span>
-                  <div className="h-2 w-48 rounded-full bg-muted overflow-hidden">
-                    <div
-                      className="h-full bg-secondary rounded-full transition-all duration-500"
-                      style={{ width: `${Math.min(progress, 100)}%` }}
-                    />
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-4">
+                    <span className="text-sm font-medium text-foreground">
+                      Progress
+                    </span>
+                    <div className="h-2 w-48 rounded-full bg-muted overflow-hidden">
+                      <div
+                        className="h-full bg-secondary rounded-full transition-all duration-500"
+                        style={{ width: `${Math.min(computedProgress, 100)}%` }}
+                      />
+                    </div>
+                    <span className="text-sm font-medium">
+                      {computedProgress}%
+                    </span>
                   </div>
-                  <span className="text-sm font-medium">{progress}%</span>
+                  <ProjectProgressUpdate
+                    projectId={project.id}
+                    currentProgress={computedProgress}
+                  />
                 </div>
               </div>
             </Card>
@@ -150,8 +188,8 @@ export default async function ClientProjectDetailPage({
                       <dt className="text-sm text-muted-foreground">
                         Priority
                       </dt>
-                      <dd className="mt-1 text-sm font-medium text-foreground capitalize">
-                        {project.priority}
+                      <dd className="mt-1 text-sm font-medium text-foreground">
+                        <span className="capitalize">{project.priority}</span>
                       </dd>
                     </div>
                     <div>
@@ -183,30 +221,33 @@ export default async function ClientProjectDetailPage({
                   </dl>
                 </Card>
 
-                {/* Milestones (readonly) */}
+                {/* Milestones */}
                 <Card>
-                  <h2 className="text-lg font-semibold text-foreground">
-                    Milestones ({completedMilestones}/{totalMilestones})
-                  </h2>
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-lg font-semibold text-foreground">
+                      Milestones ({completedMilestones}/{totalMilestones})
+                    </h2>
+                  </div>
                   <div className="mt-4">
                     <MilestoneList
                       projectId={project.id}
                       milestones={project.milestones}
-                      readonly={true}
                     />
                   </div>
                 </Card>
 
-                {/* Invoices (readonly) */}
+                {/* Invoices */}
                 <Card>
-                  <h2 className="text-lg font-semibold text-foreground">
-                    Invoices ({project.invoices.length})
-                  </h2>
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-lg font-semibold text-foreground">
+                      Invoices ({project.invoices.length})
+                    </h2>
+                    <CreateInvoiceModal projectId={project.id} />
+                  </div>
                   <div className="mt-4">
                     <InvoiceList
                       invoices={project.invoices}
                       projectId={project.id}
-                      readonly={true}
                     />
                   </div>
                 </Card>
@@ -214,19 +255,19 @@ export default async function ClientProjectDetailPage({
 
               {/* Sidebar */}
               <div className="space-y-6">
-                {/* Files (readonly) */}
+                {/* Files */}
                 <Card>
                   <h2 className="text-lg font-semibold text-foreground">
                     Files ({project.files.length})
                   </h2>
                   <div className="mt-4">
-                    <FileList
-                      projectId={project.id}
-                      files={project.files}
-                      readonly={true}
-                    />
+                    <FileList projectId={project.id} files={project.files} />
                   </div>
                 </Card>
+
+                <div className="mt-4">
+                  <FileUploader projectId={project.id} />
+                </div>
 
                 {/* Brief info (linked) */}
                 {project.proposal && (
@@ -246,7 +287,7 @@ export default async function ClientProjectDetailPage({
                         )}
                       </p>
                       <Button
-                        href={`/client/dashboard/project-requests/${project.proposal.briefId}`}
+                        href={`/admin/dashboard/project-requests/${project.proposal.briefId}`}
                         variant="outline"
                         size="sm"
                         className="w-full mt-2"

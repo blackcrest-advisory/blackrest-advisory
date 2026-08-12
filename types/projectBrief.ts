@@ -11,6 +11,7 @@ export interface Brief {
   pillar: PILLAR;
 
   budget?: string | null;
+  currency?: string;
   deadline?: string | null;
 
   attachments?: string[];

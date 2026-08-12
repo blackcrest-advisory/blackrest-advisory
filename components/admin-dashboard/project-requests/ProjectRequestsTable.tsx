@@ -12,12 +12,13 @@ import { StatusBadge } from "@/components/ui/StatusBadge";
 import { Button } from "@/components/ui/Button";
 import { ProjectActionsDropdown } from "@/components/admin-dashboard/project-requests/ProjectActionsDropdown";
 
-//===== types (same as before) =====//
+//===== types =====//
 interface BriefForList {
   id: string;
   title: string;
   pillar: string;
   budget: string | null;
+  currency: string | null; // new
   status: string;
   createdAt: Date;
   user?: {
@@ -99,8 +100,13 @@ export function ProjectRequestsTable({
                 </span>
               </TableCell>
 
+              {/* Budget with currency */}
               <TableCell>
-                {brief.budget || (
+                {brief.budget || brief.currency ? (
+                  <span className="whitespace-nowrap">
+                    {brief.budget || "—"} {brief.currency || ""}
+                  </span>
+                ) : (
                   <span className="text-muted-foreground">Not specified</span>
                 )}
               </TableCell>

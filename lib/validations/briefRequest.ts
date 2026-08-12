@@ -10,6 +10,7 @@ export const briefRequestSchema = z.object({
     "SALES_SUPPORT",
   ]),
   budget: z.string().optional(),
+  currency: z.string().optional().default("EUR"),
   deadline: z.string().optional(),
   attachments: z.array(z.string()).optional().default([]),
   projectGoals: z.string().optional(),
