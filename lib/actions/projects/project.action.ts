@@ -5,6 +5,10 @@ import { prisma } from "@/lib/db/client";
 import { ProjectStatus } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { getCurrentUser } from "@/lib/utils/auth-utils";
+import {
+  createNotification,
+  sendBriefStatusUpdate,
+} from "@/lib/services/email/email.service";
 
 type ActionResult<T = any> =
   | { success: true; data: T }
@@ -175,10 +179,61 @@ export async function updateProjectStatus(
       return { success: false, error: "Unauthorized" };
     }
 
+    // Update the project status
     await prisma.project.update({
       where: { id: projectId },
       data: { status },
     });
+
+    //===== Auto-close brief when project is COMPLETED =====//
+    if (status === "COMPLETED") {
+      // Get the project with user and proposal/brief
+      const project = await prisma.project.findUnique({
+        where: { id: projectId },
+        include: {
+          user: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+            },
+          },
+          proposal: {
+            include: {
+              brief: true,
+            },
+          },
+        },
+      });
+
+      if (project?.proposal?.brief && project.user) {
+        // Close the brief
+        await prisma.brief.update({
+          where: { id: project.proposal.brief.id },
+          data: {
+            status: "CLOSED",
+            closedReason: "Project completed",
+            closedAt: new Date(),
+          },
+        });
+
+        // Send notification to client
+        await sendBriefStatusUpdate({
+          to: project.user.email,
+          name: project.user.name || "Client",
+          briefTitle: project.proposal.brief.title,
+          newStatus: "CLOSED",
+        });
+
+        await createNotification({
+          userId: project.user.id,
+          type: "REQUEST_UPDATED",
+          title: "Project Completed",
+          body: `Your project "${project.proposal.brief.title}" has been completed.`,
+          link: `/client/dashboard/projects/${projectId}`,
+        });
+      }
+    }
 
     revalidatePath(`/admin/dashboard/projects`);
     revalidatePath(`/admin/dashboard/projects/${projectId}`);

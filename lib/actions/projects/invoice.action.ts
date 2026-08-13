@@ -112,6 +112,15 @@ export async function updateInvoice(
       return { success: false, error: "Unauthorized" };
     }
 
+    // First, get the existing invoice
+    const existingInvoice = await prisma.invoice.findUnique({
+      where: { id: invoiceId },
+      include: { project: true },
+    });
+    if (!existingInvoice) {
+      return { success: false, error: "Invoice not found" };
+    }
+
     const parsed = updateInvoiceSchema.safeParse(input);
     if (!parsed.success) {
       return { success: false, error: parsed.error.issues[0].message };
@@ -119,27 +128,49 @@ export async function updateInvoice(
 
     const { amount, currency, dueDate, notes, status, lineItems } = parsed.data;
 
-    const invoice = await prisma.invoice.findUnique({
-      where: { id: invoiceId },
-      include: { project: true },
-    });
-    if (!invoice) {
-      return { success: false, error: "Invoice not found" };
+    // Prepare update data
+    const updateData: any = {
+      amount: amount ?? existingInvoice.amount,
+      currency: currency ?? existingInvoice.currency,
+      dueDate: dueDate ? new Date(dueDate) : existingInvoice.dueDate,
+      notes: notes ?? existingInvoice.notes,
+      status: status ?? existingInvoice.status,
+      lineItems: lineItems ?? existingInvoice.lineItems,
+    };
+
+    // If status is being changed to PAID and it wasn't already PAID
+    if (status === "PAID" && existingInvoice.status !== "PAID") {
+      // Update the project's budgetSpent
+      await prisma.project.update({
+        where: { id: existingInvoice.projectId },
+        data: {
+          budgetSpent: {
+            increment: existingInvoice.amount,
+          },
+        },
+      });
+      // Set paidAt
+      updateData.paidAt = new Date();
+    } else if (status !== "PAID" && existingInvoice.status === "PAID") {
+      // If status is being changed from PAID to something else, decrement
+      // (should we allow this? maybe not, but we handle it)
+      await prisma.project.update({
+        where: { id: existingInvoice.projectId },
+        data: {
+          budgetSpent: {
+            decrement: existingInvoice.amount,
+          },
+        },
+      });
+      updateData.paidAt = null;
     }
 
     const updated = await prisma.invoice.update({
       where: { id: invoiceId },
-      data: {
-        amount: amount ?? invoice.amount,
-        currency: currency || invoice.currency,
-        dueDate: dueDate ? new Date(dueDate) : invoice.dueDate,
-        notes: notes ?? invoice.notes,
-        status: status ?? invoice.status,
-        lineItems: lineItems ?? invoice.lineItems,
-      },
+      data: updateData,
     });
 
-    revalidatePath(`/admin/dashboard/projects/${invoice.projectId}`);
+    revalidatePath(`/admin/dashboard/projects/${existingInvoice.projectId}`);
     return { success: true, data: updated };
   } catch (error: any) {
     console.error("updateInvoice error:", error);

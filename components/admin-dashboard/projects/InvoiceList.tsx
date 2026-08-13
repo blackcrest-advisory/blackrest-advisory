@@ -11,8 +11,17 @@ import {
   updateInvoice,
 } from "@/lib/actions/projects/invoice.action";
 import { Button } from "@/components/ui/Button";
-import { Mail, Trash2, Edit, CheckCircle, XCircle, Clock } from "lucide-react";
+import {
+  Mail,
+  Trash2,
+  Edit,
+  CheckCircle,
+  XCircle,
+  Clock,
+  FileDown,
+} from "lucide-react";
 import toast from "react-hot-toast";
+import Link from "next/link";
 
 //===== types =====//
 interface Invoice {
@@ -193,6 +202,14 @@ export function InvoiceList({
               )}
             </div>
           )}
+
+          <Link
+            href={`/api/invoices/${invoice.id}/pdf`}
+            target="_blank"
+            className="text-muted-foreground hover:text-foreground"
+          >
+            <FileDown className="h-4 w-4" />
+          </Link>
         </div>
       ))}
     </div>
