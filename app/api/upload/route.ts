@@ -19,15 +19,27 @@ export async function POST(request: Request) {
   }
 
   const file = formData.get("file");
+  const requestedBucket = formData.get("bucket");
 
   if (!file || typeof file === "string") {
     return NextResponse.json({ error: "No file provided" }, { status: 400 });
   }
 
-  const path = `${user.id}/${Date.now()}-${file.name}`;
+  const allowedBuckets = new Set(["blackcrest-files", "briefs"]);
+  const bucketName =
+    typeof requestedBucket === "string" && requestedBucket
+      ? requestedBucket
+      : "blackcrest-files";
+
+  if (!allowedBuckets.has(bucketName)) {
+    return NextResponse.json({ error: "Invalid bucket" }, { status: 400 });
+  }
+
+  const safeFileName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+  const path = `${user.id}/${Date.now()}-${crypto.randomUUID()}-${safeFileName}`;
   const arrayBuffer = await file.arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);
-  const bucket = supabaseAdmin.storage.from("blackcrest-files");
+  const bucket = supabaseAdmin.storage.from(bucketName);
   const { error: uploadError } = await bucket.upload(path, buffer, {
     contentType: file.type,
   });
