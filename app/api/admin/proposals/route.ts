@@ -14,24 +14,26 @@ export async function POST(request: Request) {
 
     if (typeof body !== "object" || body === null) {
       return NextResponse.json(
-        { error: "Brief ID and content are required" },
+        { error: "Brief ID, scope, deliverables, and timeline are required" },
         { status: 400 },
       );
     }
 
-    const { briefId, content, amount, currency } = body as Record<
-      string,
-      unknown
-    >;
+    const { briefId, scope, deliverables, timeline, amount, currency, terms } =
+      body as Record<string, unknown>;
 
     if (
       typeof briefId !== "string" ||
       !briefId.trim() ||
-      typeof content !== "string" ||
-      !content.trim()
+      typeof scope !== "string" ||
+      !scope.trim() ||
+      typeof deliverables !== "string" ||
+      !deliverables.trim() ||
+      typeof timeline !== "string" ||
+      !timeline.trim()
     ) {
       return NextResponse.json(
-        { error: "Brief ID and content are required" },
+        { error: "Brief ID, scope, deliverables, and timeline are required" },
         { status: 400 },
       );
     }
@@ -41,10 +43,14 @@ export async function POST(request: Request) {
         data: {
           briefId,
           adminId: admin.id,
-          content: content.trim(),
+          scope: scope.trim(),
+          deliverables: deliverables.trim(),
+          timeline: timeline.trim(),
           amount:
             typeof amount === "number" || amount === null ? amount : undefined,
           currency: typeof currency === "string" ? currency : undefined,
+          terms:
+            typeof terms === "string" || terms === null ? terms : undefined,
           status: "DRAFT",
         },
       });
