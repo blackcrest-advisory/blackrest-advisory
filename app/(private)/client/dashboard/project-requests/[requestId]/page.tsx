@@ -9,12 +9,12 @@ import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { Button } from "@/components/ui/Button";
-import { ArrowBigLeft, FileText } from "lucide-react";
+import { ArrowBigLeft, FileText, Paperclip } from "lucide-react";
 import { ClientProposalActions } from "@/components/client-dashboard/project-requests/ClientProposalActions";
 
 interface ProjectRequestDetailsPageProps {
   params: Promise<{
-    id: string;
+    requestId: string;
   }>;
 }
 
@@ -26,14 +26,11 @@ export default async function ProjectRequestDetailsPage({
     redirect("/login");
   }
 
-  const { id } = await params;
+  const { requestId } = await params;
 
   //===== fetch brief with explicit select =====//
-  const brief = await prisma.brief.findFirst({
-    where: {
-      id,
-      userId: user.id,
-    },
+  const brief = await prisma.brief.findUnique({
+    where: { id: requestId },
     select: {
       id: true,
       title: true,
@@ -49,6 +46,7 @@ export default async function ProjectRequestDetailsPage({
       projectGoals: true,
       targetAudience: true,
       referenceLinks: true,
+      userId: true,
       proposal: {
         select: {
           id: true,
@@ -68,11 +66,23 @@ export default async function ProjectRequestDetailsPage({
     },
   });
 
-  if (!brief) {
+  console.log(brief);
+
+  if (!brief || brief.userId !== user.id) {
     notFound();
   }
 
   const hasProposal = !!brief.proposal;
+
+  // Helper to extract filename from URL
+  const getFileName = (url: string) => {
+    try {
+      const decoded = decodeURIComponent(url.split("/").pop() || "");
+      return decoded.split("?")[0] || "file";
+    } catch {
+      return "file";
+    }
+  };
 
   return (
     <Section>
@@ -235,9 +245,17 @@ export default async function ProjectRequestDetailsPage({
                   {brief.attachments.map((attachment) => (
                     <div
                       key={attachment}
-                      className="rounded-lg border border-border bg-muted/30 px-4 py-3 text-sm text-foreground"
+                      className="flex items-center gap-3 rounded-lg border border-border bg-muted/30 px-4 py-3 text-sm text-foreground"
                     >
-                      {attachment}
+                      <Paperclip className="h-4 w-4 flex-shrink-0 text-muted-foreground" />
+                      <a
+                        href={attachment}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-secondary hover:underline truncate"
+                      >
+                        {getFileName(attachment)}
+                      </a>
                     </div>
                   ))}
                 </div>

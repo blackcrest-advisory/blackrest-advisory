@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, FormEvent } from "react";
+import { useState, FormEvent, useTransition } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -8,10 +8,12 @@ import { Select } from "@/components/ui/Select";
 import { Switch } from "@/components/ui/Switch";
 import { Loader } from "@/components/ui/Loader";
 import toast from "react-hot-toast";
-import { Upload, X } from "lucide-react";
 import { Textarea } from "@/components/ui/TextArea";
 import { projectInquiryFormSchema } from "@/lib/validations/inquiryForm";
-import { createLeadInquiry } from "@/api-client/admin/leads.api";
+import { createLeadInquiry } from "@/lib/actions/leads/lead.action";
+import { supabaseAnon } from "@/lib/supabase/client";
+import { FileSelector } from "@/components/shared/FileSelector";
+import { CURRENCY_OPTIONS } from "@/lib/utils/currencies";
 
 // Options for Select
 const projectTypeOptions = [
@@ -46,13 +48,23 @@ const timelineOptions = [
   { value: "12-plus", label: "12+ Months" },
 ];
 
-const currencyOptions = [
-  { value: "USD", label: "USD ($)" },
-  { value: "BDT", label: "BDT (৳)" },
-];
-
-// Fixed exchange rate (1 USD = 110 BDT)
-const EXCHANGE_RATE = 110;
+// Currency symbol mapping
+const getCurrencySymbol = (currency: string) => {
+  switch (currency) {
+    case "USD":
+      return "$";
+    case "EUR":
+      return "€";
+    case "GBP":
+      return "£";
+    case "CHF":
+      return "CHF";
+    case "BDT":
+      return "৳";
+    default:
+      return "$";
+  }
+};
 
 export const ProjectInquiryForm = () => {
   const [formData, setFormData] = useState({
@@ -70,26 +82,20 @@ export const ProjectInquiryForm = () => {
     agree: false,
   });
 
-  const [file, setFile] = useState<File | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const [loading, setLoading] = useState(false);
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [uploading, setUploading] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
-  // Dynamic budget options based on currency
   const getBudgetOptions = (currency: string) => {
-    const symbol = currency === "USD" ? "$" : "৳";
-    const factor = currency === "USD" ? 1 : EXCHANGE_RATE;
-
+    const symbol = getCurrencySymbol(currency);
     return budgetRanges.map((range) => {
-      const minFormatted = (range.min * factor).toLocaleString("en-US");
+      const minFormatted = range.min.toLocaleString("en-US");
       const maxFormatted =
-        range.max === Infinity
-          ? "+"
-          : (range.max * factor).toLocaleString("en-US");
-      let label = `${symbol}${minFormatted} – ${symbol}${maxFormatted}`;
-      if (range.value === "100k-plus") {
-        label = `${symbol}${(100000 * factor).toLocaleString("en-US")}+`;
-      }
-      return { value: range.value, label };
+        range.max === Infinity ? "+" : range.max.toLocaleString("en-US");
+      return {
+        value: range.value,
+        label: `${symbol}${minFormatted} – ${symbol}${maxFormatted}`,
+      };
     });
   };
 
@@ -108,83 +114,104 @@ export const ProjectInquiryForm = () => {
     setFormData((prev) => ({ ...prev, agree: checked }));
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setFile(e.target.files[0]);
-    }
-  };
-
-  const removeFile = () => {
-    setFile(null);
-    if (fileInputRef.current) fileInputRef.current.value = "";
-  };
-
   const validate = (): boolean => {
     const result = projectInquiryFormSchema.safeParse(formData);
-
     if (!result.success) {
       const firstError = result.error.issues[0];
       toast.error(firstError.message);
       return false;
     }
-
     return true;
   };
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-
     if (!validate()) return;
 
-    const payload = {
-      name: formData.fullName,
-      email: formData.email,
-      phone: formData.phone || undefined,
-      companyName: formData.companyName || undefined,
-      industry: formData.industry,
-      projectType: formData.projectType,
-      projectTitle: formData.projectTitle,
-      budget: formData.budget,
-      timeline: formData.timeline,
-      currency: formData.currency,
-      description: formData.description,
-      services: [],
-      source: "website_inquiry",
-    };
+    startTransition(async () => {
+      try {
+        let attachmentUrl: string | undefined;
 
-    try {
-      setLoading(true);
-      const data = await createLeadInquiry(payload);
-      toast.success(data.message || "Inquiry submitted successfully!");
+        // Upload file if present
+        if (selectedFiles.length > 0) {
+          const file = selectedFiles[0];
+          setUploading(true);
+          const timestamp = Date.now();
+          const random = Math.random().toString(36).substring(2, 8);
+          const ext = file.name.split(".").pop() || "";
+          const cleanName = file.name
+            .replace(/\.[^/.]+$/, "")
+            .replace(/[^a-zA-Z0-9]/g, "_");
+          const filePath = `leads/${cleanName}-${timestamp}-${random}.${ext}`;
 
-      setFormData({
-        fullName: "",
-        companyName: "",
-        email: "",
-        phone: "",
-        projectTitle: "",
-        projectType: "web-application",
-        industry: "it",
-        budget: "under-10k",
-        timeline: "1-month",
-        currency: "USD",
-        description: "",
-        agree: false,
-      });
+          const { data, error } = await supabaseAnon.storage
+            .from("leads")
+            .upload(filePath, file, {
+              cacheControl: "3600",
+              upsert: false,
+            });
 
-      setFile(null);
+          if (error) throw error;
 
-      if (fileInputRef.current) {
-        fileInputRef.current.value = "";
+          const { data: publicUrlData } = supabaseAnon.storage
+            .from("leads")
+            .getPublicUrl(filePath);
+          attachmentUrl = publicUrlData.publicUrl;
+          setUploading(false);
+        }
+
+        const payload = {
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone || undefined,
+          companyName: formData.companyName || undefined,
+          industry: formData.industry,
+          projectType: formData.projectType,
+          projectTitle: formData.projectTitle,
+          budget: formData.budget,
+          timeline: formData.timeline,
+          currency: formData.currency,
+          description: formData.description,
+          services: [],
+          source: "website_inquiry",
+          attachmentUrl,
+        };
+
+        const result = await createLeadInquiry(payload);
+
+        if (!result.success) {
+          toast.error(result.error || "Failed to submit inquiry");
+          return;
+        }
+
+        toast.success(result.data.message || "Inquiry submitted successfully!");
+
+        // Reset form
+        setFormData({
+          fullName: "",
+          companyName: "",
+          email: "",
+          phone: "",
+          projectTitle: "",
+          projectType: "web-application",
+          industry: "it",
+          budget: "under-10k",
+          timeline: "1-month",
+          currency: "USD",
+          description: "",
+          agree: false,
+        });
+        setSelectedFiles([]);
+      } catch (error) {
+        toast.error(
+          error instanceof Error ? error.message : "Failed to submit",
+        );
+        setUploading(false);
       }
-    } catch (error) {
-      toast.error(
-        error instanceof Error ? error.message : "Failed to submit inquiry",
-      );
-    } finally {
-      setLoading(false);
-    }
+    });
   };
+
+  const isSubmitting = isPending || uploading;
 
   return (
     <motion.div
@@ -197,7 +224,6 @@ export const ProjectInquiryForm = () => {
         Project Inquiry Form
       </h2>
 
-      {/* form */}
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Business Information */}
         <div className="space-y-4">
@@ -270,7 +296,7 @@ export const ProjectInquiryForm = () => {
               onChange={(val) => handleSelectChange("timeline", val)}
             />
             <Select
-              options={currencyOptions}
+              options={CURRENCY_OPTIONS}
               value={formData.currency}
               onChange={(val) => handleSelectChange("currency", val)}
             />
@@ -287,38 +313,14 @@ export const ProjectInquiryForm = () => {
 
         {/* File Attachment */}
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-heading">
-            Attachment (optional)
-          </label>
-          <div className="flex items-center gap-2">
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept=".pdf,.docx,.zip,.jpg,.jpeg,.png"
-              onChange={handleFileChange}
-              className="hidden"
-              id="file-upload"
-            />
-            <label
-              htmlFor="file-upload"
-              className="inline-flex cursor-pointer items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm text-body transition hover:bg-muted"
-            >
-              <Upload className="h-4 w-4" />
-              Choose File
-            </label>
-            {file && (
-              <span className="flex items-center gap-1 text-sm text-body">
-                {file.name}
-                <button
-                  type="button"
-                  onClick={removeFile}
-                  className="ml-1 text-red-500 hover:text-red-700"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-              </span>
-            )}
-          </div>
+          <FileSelector
+            files={selectedFiles}
+            onFilesChange={setSelectedFiles}
+            disabled={isSubmitting}
+            maxFiles={1}
+            maxSizeMB={10}
+            label="Attachment (optional)"
+          />
           <p className="text-xs text-body">
             Accepted: PDF, DOCX, ZIP, JPG, PNG (max 10MB)
           </p>
@@ -326,17 +328,26 @@ export const ProjectInquiryForm = () => {
 
         {/* Agree checkbox */}
         <div className="flex items-center gap-3">
-          <Switch checked={formData.agree} onChange={handleSwitchChange} />
+          <Switch
+            checked={formData.agree}
+            onChange={handleSwitchChange}
+            disabled={isSubmitting}
+          />
           <span className="text-sm text-body">
             I agree to be contacted by the Blackcrest team.
           </span>
         </div>
 
-        <Button size="md" disabled={loading} className="w-full">
-          {loading ? (
+        <Button
+          size="md"
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full"
+        >
+          {isSubmitting ? (
             <>
               <Loader size="sm" className="mr-2 border-t-cta-text" />
-              Submitting...
+              {uploading ? "Uploading..." : "Submitting..."}
             </>
           ) : (
             "Submit Project Inquiry"

@@ -23,6 +23,7 @@ export const leadRequestSchema = z.object({
   description: z.string().min(1, "Project description is required."),
   services: z.array(z.string()).optional(),
   source: z.string().optional(),
+  attachmentUrl: z.string().optional(),
 });
 
 export type LeadRequestData = z.infer<typeof leadRequestSchema>;

@@ -13,7 +13,7 @@ import { createBrief } from "@/lib/actions/briefs/brief.action";
 import { Loader } from "@/components/ui/Loader";
 import { CURRENCY_OPTIONS } from "@/lib/utils/currencies";
 import { supabaseAnon } from "@/lib/supabase/client";
-import { BriefAttachments } from "./BriefAttachments";
+import { FileSelector } from "@/components/shared/FileSelector";
 
 const pillarOptions: { value: PILLAR; label: string }[] = [
   { value: "WEBSITE_DEVELOPMENT", label: "Website Development" },
@@ -228,10 +228,7 @@ export const RequestProjectForm = () => {
 
         {/* Attachments */}
         <div className="mt-6">
-          <label className="mb-2 block text-sm font-medium text-body">
-            Attachments (optional)
-          </label>
-          <BriefAttachments
+          <FileSelector
             files={selectedFiles}
             onFilesChange={setSelectedFiles}
             disabled={submitting}

@@ -20,6 +20,16 @@ import { AdminBriefActions } from "@/components/admin-dashboard/project-requests
 import { Card } from "@/components/ui/Card";
 import { ProposalSection } from "@/components/admin-dashboard/project-requests/ProposalSection";
 
+// Helper to extract filename from URL
+function getFileName(url: string): string {
+  try {
+    const decoded = decodeURIComponent(url.split("/").pop() || "");
+    return decoded.split("?")[0] || "file";
+  } catch {
+    return "file";
+  }
+}
+
 interface AdminProjectRequestPageProps {
   params: Promise<{
     id: string;
@@ -160,6 +170,7 @@ export default async function AdminProjectRequestDetailPage({
                   </p>
                 </Card>
 
+                {/* Attachments - Updated */}
                 <Card>
                   <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground">
                     <Paperclip className="h-4 w-4 text-muted-foreground" />
@@ -173,7 +184,14 @@ export default async function AdminProjectRequestDetailPage({
                           className="flex items-center gap-2 rounded-[10px] border border-border bg-background px-3 py-2.5 text-sm text-body"
                         >
                           <Paperclip className="h-3.5 w-3.5 flex-shrink-0 text-muted-foreground" />
-                          <span className="truncate">{attachment}</span>
+                          <a
+                            href={attachment}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-secondary hover:underline truncate"
+                          >
+                            {getFileName(attachment)}
+                          </a>
                         </li>
                       ))}
                     </ul>
