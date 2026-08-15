@@ -12,7 +12,6 @@ import { Brief, PILLAR } from "@/types/projectBrief";
 import { createBrief } from "@/lib/actions/briefs/brief.action";
 import { Loader } from "@/components/ui/Loader";
 import { CURRENCY_OPTIONS } from "@/lib/utils/currencies";
-import { supabaseAnon } from "@/lib/supabase/client";
 import { FileSelector } from "@/components/shared/FileSelector";
 
 const pillarOptions: { value: PILLAR; label: string }[] = [
@@ -89,28 +88,34 @@ export const RequestProjectForm = () => {
 
       if (selectedFiles.length > 0) {
         const uploadPromises = selectedFiles.map(async (file) => {
-          const timestamp = Date.now();
-          const random = Math.random().toString(36).substring(2, 8);
-          const ext = file.name.split(".").pop() || "";
-          const cleanName = file.name
-            .replace(/\.[^/.]+$/, "")
-            .replace(/[^a-zA-Z0-9]/g, "_");
-          const filePath = `briefs/${cleanName}-${timestamp}-${random}.${ext}`;
+          const uploadData = new FormData();
+          uploadData.append("file", file);
+          uploadData.append("bucket", "briefs");
 
-          const { data, error } = await supabaseAnon.storage
-            .from("briefs")
-            .upload(filePath, file, {
-              cacheControl: "3600",
-              upsert: false,
-            });
+          const response = await fetch("/api/upload", {
+            method: "POST",
+            body: uploadData,
+          });
+          const result: unknown = await response.json();
 
-          if (error) throw error;
+          if (
+            !response.ok ||
+            typeof result !== "object" ||
+            result === null ||
+            !("url" in result) ||
+            typeof result.url !== "string"
+          ) {
+            const message =
+              typeof result === "object" &&
+              result !== null &&
+              "error" in result &&
+              typeof result.error === "string"
+                ? result.error
+                : "Failed to upload attachment";
+            throw new Error(message);
+          }
 
-          const { data: publicUrlData } = supabaseAnon.storage
-            .from("briefs")
-            .getPublicUrl(filePath);
-
-          return publicUrlData.publicUrl;
+          return result.url;
         });
 
         attachmentUrls = await Promise.all(uploadPromises);
@@ -130,9 +135,13 @@ export const RequestProjectForm = () => {
       toast.success("Project request submitted successfully.");
       router.push("/client/dashboard/project-requests");
       router.refresh();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Submit error:", error);
-      toast.error(error.message || "Failed to submit project request.");
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Failed to submit project request.",
+      );
     } finally {
       setSubmitting(false);
     }
