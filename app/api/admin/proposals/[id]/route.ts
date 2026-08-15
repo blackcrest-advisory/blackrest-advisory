@@ -21,20 +21,23 @@ export async function PATCH(
       throw new Error("Invalid request body");
     }
 
-    const { content, amount, currency, status } = body as Record<
-      string,
-      unknown
-    >;
+    const { scope, deliverables, timeline, amount, currency, terms, status } =
+      body as Record<string, unknown>;
     const { id } = await params;
     const proposal = await prisma.proposal.update({
       where: {
         id,
       },
       data: {
-        content: typeof content === "string" ? content : undefined,
+        scope: typeof scope === "string" ? scope : undefined,
+        deliverables:
+          typeof deliverables === "string" ? deliverables : undefined,
+        timeline: typeof timeline === "string" ? timeline : undefined,
         amount:
           typeof amount === "number" || amount === null ? amount : undefined,
         currency: typeof currency === "string" ? currency : undefined,
+        terms:
+          typeof terms === "string" || terms === null ? terms : undefined,
         status:
           typeof status === "string" &&
           Object.values(ProposalStatus).includes(status as ProposalStatus)

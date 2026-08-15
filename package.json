@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prebuild": "node scripts/clean-next-dev.mjs",
     "dev": "next dev",
     "build": "prisma generate && next build",
     "postinstall": "prisma generate",
