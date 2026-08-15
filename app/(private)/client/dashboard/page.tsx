@@ -1,6 +1,6 @@
 import { DashboardWrapper } from "@/components/client-dashboard/overview/DashboardWrapper";
 import { getCurrentUser } from "@/lib/utils/auth-utils";
-import { getClientDashboardData } from "@/lib/services/clientDashboard.service";
+import { getClientDashboardData } from "@/lib/data/clientDashboard.data";
 import {
   calculateDaysLeft,
   formatActivityTime,

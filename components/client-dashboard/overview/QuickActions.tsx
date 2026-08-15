@@ -20,7 +20,7 @@ export const QuickActions = () => {
       animate="visible"
       {...hoverScale}
     >
-      <Card padding="base" hoverEffect className="rounded-xl">
+      <Card padding="base" className="rounded-xl">
         <h2 className="mb-4 text-lg font-semibold text-foreground">
           Quick Actions
         </h2>

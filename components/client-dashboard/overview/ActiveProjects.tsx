@@ -12,7 +12,7 @@ interface ActiveProjectsProps {
 }
 
 export const ActiveProjects = ({ projects }: ActiveProjectsProps) => {
-  console.log(projects);
+  const showFirstFourProjects = projects.slice(0, 4);
   return (
     //===== Active Projects Card =====//
     <motion.div
@@ -21,7 +21,7 @@ export const ActiveProjects = ({ projects }: ActiveProjectsProps) => {
       animate="visible"
       {...hoverScale}
     >
-      <Card padding="base" hoverEffect className="rounded-xl">
+      <Card padding="base" className="rounded-xl">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-semibold text-foreground">
             Active Projects
@@ -43,7 +43,7 @@ export const ActiveProjects = ({ projects }: ActiveProjectsProps) => {
           </div>
         ) : (
           <div className="space-y-4">
-            {projects.map((project) => (
+            {showFirstFourProjects.map((project) => (
               <ProjectItem key={project.id} project={project} />
             ))}
           </div>

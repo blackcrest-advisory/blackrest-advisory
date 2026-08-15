@@ -18,7 +18,6 @@ export const SupportSection = () => {
     >
       <Card
         padding="base"
-        hoverEffect
         className="flex flex-col gap-4 rounded-xl md:flex-row md:items-center md:justify-between"
       >
         <div className="flex items-center gap-4">
