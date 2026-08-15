@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { Button } from "@/components/ui/Button";
@@ -12,6 +12,8 @@ import { Brief, PILLAR } from "@/types/projectBrief";
 import { createBrief } from "@/lib/actions/briefs/brief.action";
 import { Loader } from "@/components/ui/Loader";
 import { CURRENCY_OPTIONS } from "@/lib/utils/currencies";
+import { supabaseAnon } from "@/lib/supabase/client";
+import { BriefAttachments } from "./BriefAttachments";
 
 const pillarOptions: { value: PILLAR; label: string }[] = [
   { value: "WEBSITE_DEVELOPMENT", label: "Website Development" },
@@ -45,9 +47,7 @@ export const RequestProjectForm = () => {
   });
 
   const [submitting, setSubmitting] = useState(false);
-  const [attachments, setAttachments] = useState<string[]>([]);
-
-  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -64,25 +64,10 @@ export const RequestProjectForm = () => {
     setFormData((prev) => ({ ...prev, currency: value }));
   };
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (!files?.length) return;
-    const fileUrls: string[] = [];
-    for (let i = 0; i < files.length; i += 1) {
-      fileUrls.push(files[i].name);
-    }
-    setAttachments((prev) => [...prev, ...fileUrls]);
-    event.target.value = "";
-  };
-
-  const removeAttachment = (name: string) => {
-    setAttachments((prev) => prev.filter((attachment) => attachment !== name));
-  };
-
   const validate = () => {
     const result = briefRequestSchema.safeParse({
       ...formData,
-      attachments,
+      attachments: [],
     });
     if (!result.success) {
       const firstError = result.error.issues[0];
@@ -95,26 +80,59 @@ export const RequestProjectForm = () => {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!validate()) return;
+
     setSubmitting(true);
+
     try {
+      // 1. Upload files to Supabase
+      let attachmentUrls: string[] = [];
+
+      if (selectedFiles.length > 0) {
+        const uploadPromises = selectedFiles.map(async (file) => {
+          const timestamp = Date.now();
+          const random = Math.random().toString(36).substring(2, 8);
+          const ext = file.name.split(".").pop() || "";
+          const cleanName = file.name
+            .replace(/\.[^/.]+$/, "")
+            .replace(/[^a-zA-Z0-9]/g, "_");
+          const filePath = `briefs/${cleanName}-${timestamp}-${random}.${ext}`;
+
+          const { data, error } = await supabaseAnon.storage
+            .from("briefs")
+            .upload(filePath, file, {
+              cacheControl: "3600",
+              upsert: false,
+            });
+
+          if (error) throw error;
+
+          const { data: publicUrlData } = supabaseAnon.storage
+            .from("briefs")
+            .getPublicUrl(filePath);
+
+          return publicUrlData.publicUrl;
+        });
+
+        attachmentUrls = await Promise.all(uploadPromises);
+      }
+
+      // 2. Submit the brief with attachment URLs
       const result = await createBrief({
         ...formData,
-        attachments,
+        attachments: attachmentUrls,
       });
+
       if (!result.success) {
         toast.error(result.error);
         return;
       }
+
       toast.success("Project request submitted successfully.");
       router.push("/client/dashboard/project-requests");
       router.refresh();
-    } catch (error) {
-      console.error("Submit project request error:", error);
-      toast.error(
-        error instanceof Error
-          ? error.message
-          : "Failed to submit project request.",
-      );
+    } catch (error: any) {
+      console.error("Submit error:", error);
+      toast.error(error.message || "Failed to submit project request.");
     } finally {
       setSubmitting(false);
     }
@@ -211,36 +229,15 @@ export const RequestProjectForm = () => {
         {/* Attachments */}
         <div className="mt-6">
           <label className="mb-2 block text-sm font-medium text-body">
-            Attachments
+            Attachments (optional)
           </label>
-          <input
-            ref={fileInputRef}
-            type="file"
-            multiple
-            onChange={handleFileChange}
-            className="w-full rounded-lg border border-border bg-background p-3 text-sm text-foreground"
+          <BriefAttachments
+            files={selectedFiles}
+            onFilesChange={setSelectedFiles}
+            disabled={submitting}
+            maxFiles={5}
+            maxSizeMB={10}
           />
-          {attachments.length > 0 && (
-            <div className="mt-4 space-y-2">
-              {attachments.map((attachment) => (
-                <div
-                  key={attachment}
-                  className="flex items-center justify-between rounded-lg border border-border bg-muted px-4 py-3"
-                >
-                  <span className="truncate text-sm text-foreground">
-                    {attachment}
-                  </span>
-                  <button
-                    type="button"
-                    className="text-sm font-medium text-destructive hover:text-destructive/80"
-                    onClick={() => removeAttachment(attachment)}
-                  >
-                    Remove
-                  </button>
-                </div>
-              ))}
-            </div>
-          )}
         </div>
 
         {/* Submit */}
