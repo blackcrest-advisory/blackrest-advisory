@@ -5,16 +5,19 @@ import { prisma } from "@/lib/db/client";
 import {
   leadRequestSchema,
   projectTypeToPillar,
+  projectTypeToService,
 } from "@/lib/validations/leadRequest";
 import { sendNewLeadAlert } from "@/lib/services/email/email.service";
 import { revalidatePath } from "next/cache";
-import { NotificationType, Pillar } from "@prisma/client";
+import { Lead, NotificationType, Pillar } from "@prisma/client";
 
-type ActionResult<T = any> =
+type ActionResult<T = unknown> =
   | { success: true; data: T }
   | { success: false; error: string };
 
-export async function createLeadInquiry(input: any): Promise<ActionResult> {
+export async function createLeadInquiry(
+  input: unknown,
+): Promise<ActionResult<{ message: string; lead: Lead }>> {
   try {
     const result = leadRequestSchema.safeParse(input);
     if (!result.success) {
@@ -65,7 +68,7 @@ export async function createLeadInquiry(input: any): Promise<ActionResult> {
         location: null,
         website: null,
         pillar: pillar,
-        services: services || [],
+        services: projectType ? [projectTypeToService[projectType]] : services || [],
         problem: description.trim(),
         source: source || "website_inquiry",
         status: "NEW",
@@ -115,11 +118,12 @@ export async function createLeadInquiry(input: any): Promise<ActionResult> {
         lead,
       },
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("createLeadInquiry error:", error);
     return {
       success: false,
-      error: error.message || "Failed to submit inquiry",
+      error:
+        error instanceof Error ? error.message : "Failed to submit inquiry",
     };
   }
 }

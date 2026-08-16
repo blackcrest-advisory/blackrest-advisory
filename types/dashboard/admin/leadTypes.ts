@@ -31,8 +31,7 @@ export type LeadService =
   | "web-development"
   | "mobile-app"
   | "digital-marketing"
-  | "branding"
-  | "seo";
+  | "sales-support";
 
 export interface Lead {
   id: string;
@@ -92,6 +91,5 @@ export const serviceLabels: Record<LeadService, string> = {
   "web-development": "Web Development",
   "mobile-app": "Mobile App",
   "digital-marketing": "Digital Marketing",
-  branding: "Branding",
-  seo: "SEO",
+  "sales-support": "Sales & Support",
 };

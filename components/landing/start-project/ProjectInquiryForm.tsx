@@ -10,6 +10,10 @@ import { Loader } from "@/components/ui/Loader";
 import toast from "react-hot-toast";
 import { Textarea } from "@/components/ui/TextArea";
 import { projectInquiryFormSchema } from "@/lib/validations/inquiryForm";
+import {
+  projectTypeToService,
+  type ProjectType,
+} from "@/lib/validations/leadRequest";
 import { createLeadInquiry } from "@/lib/actions/leads/lead.action";
 import { FileSelector } from "@/components/shared/FileSelector";
 import { CURRENCY_OPTIONS } from "@/lib/utils/currencies";
@@ -21,6 +25,21 @@ const projectTypeOptions = [
   { value: "digital-marketing", label: "Digital Marketing" },
   { value: "sales-support", label: "SALES & SUPPORT" },
 ];
+
+const createInitialFormData = () => ({
+  fullName: "",
+  companyName: "",
+  email: "",
+  phone: "",
+  projectTitle: "",
+  projectType: "web-application" as ProjectType,
+  industry: "it",
+  budget: "under-10k",
+  timeline: "1-month",
+  currency: "USD",
+  description: "",
+  agree: false,
+});
 
 const industryOptions = [
   { value: "fashion", label: "Fashion Tech" },
@@ -66,20 +85,7 @@ const getCurrencySymbol = (currency: string) => {
 };
 
 export const ProjectInquiryForm = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    companyName: "",
-    email: "",
-    phone: "",
-    projectTitle: "",
-    projectType: "web-application",
-    industry: "it",
-    budget: "under-10k",
-    timeline: "1-month",
-    currency: "USD",
-    description: "",
-    agree: false,
-  });
+  const [formData, setFormData] = useState(createInitialFormData);
 
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [uploading, setUploading] = useState(false);
@@ -180,7 +186,7 @@ export const ProjectInquiryForm = () => {
           timeline: formData.timeline,
           currency: formData.currency,
           description: formData.description,
-          services: [],
+          services: [projectTypeToService[formData.projectType]],
           source: "website_inquiry",
           attachmentUrl,
         };
@@ -195,20 +201,7 @@ export const ProjectInquiryForm = () => {
         toast.success(result.data.message || "Inquiry submitted successfully!");
 
         // Reset form
-        setFormData({
-          fullName: "",
-          companyName: "",
-          email: "",
-          phone: "",
-          projectTitle: "",
-          projectType: "web-application",
-          industry: "it",
-          budget: "under-10k",
-          timeline: "1-month",
-          currency: "USD",
-          description: "",
-          agree: false,
-        });
+        setFormData(createInitialFormData());
         setSelectedFiles([]);
       } catch (error) {
         toast.error(
