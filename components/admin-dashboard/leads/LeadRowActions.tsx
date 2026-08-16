@@ -23,6 +23,7 @@ export const LeadRowActions = ({
 }: LeadRowActionsProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
+  const [opensUpward, setOpensUpward] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -32,12 +33,26 @@ export const LeadRowActions = ({
     if (buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect();
       const dropdownWidth = 224;
-      const left = Math.max(8, Math.min(rect.right - dropdownWidth, window.innerWidth - dropdownWidth - 8));
+      const dropdownHeight = 216;
+      const viewportPadding = 8;
+      const hasRoomBelow =
+        rect.bottom + dropdownHeight + viewportPadding <= window.innerHeight;
+      const shouldOpenUpward = !hasRoomBelow && rect.top >= dropdownHeight;
+      const left = Math.max(
+        viewportPadding,
+        Math.min(
+          rect.right - dropdownWidth,
+          window.innerWidth - dropdownWidth - viewportPadding,
+        ),
+      );
 
       setDropdownPosition({
-        top: rect.bottom + 4,
+        top: shouldOpenUpward
+          ? rect.top - dropdownHeight - viewportPadding
+          : rect.bottom + viewportPadding,
         left,
       });
+      setOpensUpward(shouldOpenUpward);
     }
     setIsOpen(true);
   };
@@ -71,7 +86,11 @@ export const LeadRowActions = ({
               isOpen={true}
               align="end"
               className="w-56"
-              contentClassName="before:right-4"
+              contentClassName={
+                opensUpward
+                  ? "!mt-0 before:bottom-[-6px] before:top-auto before:border-b-0 before:border-t-8 before:border-t-popover dark:before:border-t-gray-800 before:right-4"
+                  : "!mt-0 before:right-4"
+              }
             >
               <DropdownItem onClick={() => handleAction(onView)}>
                 <Eye className="mr-2 h-4 w-4" />

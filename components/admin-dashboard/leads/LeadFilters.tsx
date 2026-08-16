@@ -105,12 +105,12 @@ export const LeadFilters = ({ onFilterChange, onSearch }: LeadFiltersProps) => {
           onChange={(v) => updateFilter("priority", v)}
           className="w-40"
         />
-        <Select
+        {/* <Select
           options={assignedOptions}
           value={assigned}
           onChange={(v) => updateFilter("assigned", v)}
           className="w-40"
-        />
+        /> */}
       </div>
     </div>
   );
