@@ -11,7 +11,6 @@ import toast from "react-hot-toast";
 import { Textarea } from "@/components/ui/TextArea";
 import { projectInquiryFormSchema } from "@/lib/validations/inquiryForm";
 import { createLeadInquiry } from "@/lib/actions/leads/lead.action";
-import { supabaseAnon } from "@/lib/supabase/client";
 import { FileSelector } from "@/components/shared/FileSelector";
 import { CURRENCY_OPTIONS } from "@/lib/utils/currencies";
 
@@ -132,31 +131,40 @@ export const ProjectInquiryForm = () => {
       try {
         let attachmentUrl: string | undefined;
 
-        // Upload file if present
+        // Upload file if present using the API route
         if (selectedFiles.length > 0) {
           const file = selectedFiles[0];
           setUploading(true);
-          const timestamp = Date.now();
-          const random = Math.random().toString(36).substring(2, 8);
-          const ext = file.name.split(".").pop() || "";
-          const cleanName = file.name
-            .replace(/\.[^/.]+$/, "")
-            .replace(/[^a-zA-Z0-9]/g, "_");
-          const filePath = `leads/${cleanName}-${timestamp}-${random}.${ext}`;
 
-          const { data, error } = await supabaseAnon.storage
-            .from("leads")
-            .upload(filePath, file, {
-              cacheControl: "3600",
-              upsert: false,
-            });
+          const uploadData = new FormData();
+          uploadData.append("file", file);
+          uploadData.append("bucket", "leads");
 
-          if (error) throw error;
+          const response = await fetch("/api/upload", {
+            method: "POST",
+            body: uploadData,
+          });
 
-          const { data: publicUrlData } = supabaseAnon.storage
-            .from("leads")
-            .getPublicUrl(filePath);
-          attachmentUrl = publicUrlData.publicUrl;
+          const result: unknown = await response.json();
+
+          if (
+            !response.ok ||
+            typeof result !== "object" ||
+            result === null ||
+            !("url" in result) ||
+            typeof result.url !== "string"
+          ) {
+            const message =
+              typeof result === "object" &&
+              result !== null &&
+              "error" in result &&
+              typeof result.error === "string"
+                ? result.error
+                : "Failed to upload attachment";
+            throw new Error(message);
+          }
+
+          attachmentUrl = result.url;
           setUploading(false);
         }
 

@@ -8,7 +8,7 @@ import {
 } from "@/lib/validations/leadRequest";
 import { sendNewLeadAlert } from "@/lib/services/email/email.service";
 import { revalidatePath } from "next/cache";
-import { Pillar } from "@prisma/client";
+import { NotificationType, Pillar } from "@prisma/client";
 
 type ActionResult<T = any> =
   | { success: true; data: T }
@@ -76,11 +76,36 @@ export async function createLeadInquiry(input: any): Promise<ActionResult> {
       },
     });
 
-    // 5. Send email alert to admin
+    // 5. Create an in-app notification for every admin
+    const adminUsers = await prisma.user.findMany({
+      where: {
+        role: {
+          in: ["ADMIN", "SUPER_ADMIN"],
+        },
+      },
+      select: {
+        id: true,
+      },
+    });
+
+    if (adminUsers.length > 0) {
+      await prisma.notification.createMany({
+        data: adminUsers.map((admin) => ({
+          userId: admin.id,
+          type: NotificationType.REQUEST_RECEIVED,
+          title: "New lead inquiry received",
+          body: `${lead.name} submitted an inquiry${lead.companyName ? ` from ${lead.companyName}` : ""}.`,
+          link: "/admin/dashboard/leads",
+        })),
+      });
+    }
+
+    // 6. Send email alert to admin
     await sendNewLeadAlert(name, email, description);
 
-    // 6. Revalidate admin leads page
+    // 7. Revalidate the admin pages
     revalidatePath("/admin/dashboard/leads");
+    revalidatePath("/admin/dashboard/notifications");
 
     return {
       success: true,
