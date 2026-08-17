@@ -13,18 +13,18 @@ import {
 export const profileMenu: Navigation[] = [
   {
     id: 1,
-    name: "My Profile",
-    link: "/client/profile",
+    name: "Profile & Settings",
+    link: "/client/dashboard/settings",
   },
   {
     id: 2,
-    name: "Account Settings",
-    link: "/client/account",
+    name: "Invoices",
+    link: "/client/dashboard/invoices",
   },
   {
     id: 3,
-    name: "Billing",
-    link: "/client/billing",
+    name: "Payments",
+    link: "/client/dashboard/payments",
   },
 ];
 

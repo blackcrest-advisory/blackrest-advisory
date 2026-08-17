@@ -6,6 +6,7 @@ import Dropdown from "@/components/ui/Dropdown";
 import DropdownItem from "@/components/ui/DropdownItem";
 import { Loader } from "@/components/ui/Loader";
 import { profileMenu } from "@/constants/clientNavigations";
+import { adminProfileMenu } from "@/constants/adminNavigation";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
@@ -41,6 +42,10 @@ const ProfileDropdown = () => {
       : user?.role === "ADMIN"
         ? "Administrator"
         : "Client";
+  const menu =
+    user?.role === "ADMIN" || user?.role === "SUPER_ADMIN"
+      ? adminProfileMenu
+      : profileMenu;
 
   return (
     <div className="relative cursor-pointer">
@@ -57,7 +62,7 @@ const ProfileDropdown = () => {
         className="top-9"
         contentClassName="before:right-4"
       >
-        {profileMenu.map((item) => (
+        {menu.map((item) => (
           <DropdownItem
             key={item.id}
             href={item.link}

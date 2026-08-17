@@ -17,13 +17,13 @@ import {
 export const adminProfileMenu: Navigation[] = [
   {
     id: 1,
-    name: "My Profile",
-    link: "/admin/profile",
+    name: "Profile & Settings",
+    link: "/admin/dashboard/settings",
   },
   {
     id: 2,
-    name: "Settings",
-    link: "/admin/settings",
+    name: "Reports",
+    link: "/admin/dashboard/reports",
   },
 ];
 
