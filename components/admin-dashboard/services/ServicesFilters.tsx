@@ -36,6 +36,7 @@ export const ServicesFilters = ({
       value={status}
       onChange={(value) => onStatusChange(value as ServiceStatus | "all")}
       className="sm:w-40"
+      align="center"
     />
   </Card>
 );
