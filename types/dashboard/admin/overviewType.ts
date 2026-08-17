@@ -13,8 +13,12 @@ export interface AdminStats {
   newLeadsChange: number;
   monthlyRevenue: number;
   monthlyRevenueChange: number;
-  pendingTasks: number;
   overdueInvoices: number;
+}
+
+export interface RevenuePoint {
+  label: string;
+  value: number;
 }
 
 export interface AdminProject {

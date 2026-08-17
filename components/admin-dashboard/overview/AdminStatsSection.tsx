@@ -6,7 +6,6 @@ import {
   Briefcase,
   UserPlus,
   Wallet,
-  CheckSquare,
   Receipt,
   LucideIcon,
 } from "lucide-react";
@@ -54,11 +53,6 @@ export const AdminStatsSection = ({ stats }: AdminStatsSectionProps) => {
       icon: Wallet,
     },
     {
-      label: "Pending Tasks",
-      value: stats.pendingTasks.toString(),
-      icon: CheckSquare,
-    },
-    {
       label: "Overdue Invoices",
       value: stats.overdueInvoices.toString(),
       icon: Receipt,
@@ -71,7 +65,7 @@ export const AdminStatsSection = ({ stats }: AdminStatsSectionProps) => {
       variants={staggerContainer}
       initial="hidden"
       animate="visible"
-      className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6"
+      className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
     >
       {cards.map((card) => (
         <motion.div key={card.label} variants={fadeInUp} {...hoverScale}>

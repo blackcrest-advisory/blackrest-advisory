@@ -14,6 +14,7 @@ import {
 import { Card } from "@/components/ui/Card";
 import { motion } from "framer-motion";
 import { fadeInUp, hoverScale } from "@/lib/utils/animations";
+import type { RevenuePoint } from "@/types/dashboard/admin/overviewType";
 
 ChartJS.register(
   CategoryScale,
@@ -24,9 +25,6 @@ ChartJS.register(
   Filler,
 );
 
-const months = ["Feb", "Mar", "Apr", "May", "Jun", "Jul"];
-const revenueSeries = [58200, 61500, 67200, 72900, 79000, 84500];
-
 //===== Get CSS variable value during render =====//
 const getAccentColor = (): string => {
   if (typeof window === "undefined") return "#c9a84c";
@@ -36,7 +34,7 @@ const getAccentColor = (): string => {
   return computed || "#c9a84c";
 };
 
-export const RevenueChart = () => {
+export const RevenueChart = ({ revenue }: { revenue: RevenuePoint[] }) => {
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme === "dark";
 
@@ -44,11 +42,11 @@ export const RevenueChart = () => {
   const accentColor = getAccentColor();
 
   const data = {
-    labels: months,
+    labels: revenue.map((point) => point.label),
     datasets: [
       {
-        label: "Revenue (€)",
-        data: revenueSeries,
+        label: "Revenue",
+        data: revenue.map((point) => point.value),
         borderColor: accentColor,
         backgroundColor: `${accentColor}22`,
         fill: true,

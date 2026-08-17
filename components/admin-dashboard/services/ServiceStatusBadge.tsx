@@ -3,7 +3,6 @@ import type { ServiceStatus } from "@/types/dashboard/admin/servicesType";
 
 const styles: Record<ServiceStatus, string> = {
   active: "border-emerald-500/30 bg-emerald-500/10 text-emerald-600",
-  draft: "border-blue-500/30 bg-blue-500/10 text-blue-600",
   paused: "border-secondary/30 bg-secondary/10 text-secondary",
 };
 

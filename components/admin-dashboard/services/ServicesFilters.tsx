@@ -9,7 +9,6 @@ import { Card } from "@/components/ui/Card";
 const statusOptions = [
   { value: "all", label: "All statuses" },
   { value: "active", label: "Active" },
-  { value: "draft", label: "Draft" },
   { value: "paused", label: "Paused" },
 ];
 

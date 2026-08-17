@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { UserPlus, FolderPlus, Receipt, Users, LucideIcon } from "lucide-react";
+import { BarChart3, BriefcaseBusiness, ClipboardCheck, UserPlus, LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { fadeInUp, hoverScale } from "@/lib/utils/animations";
@@ -9,17 +9,9 @@ import { fadeInUp, hoverScale } from "@/lib/utils/animations";
 //===== Quick action items =====//
 const actions: { label: string; href: string; icon: LucideIcon }[] = [
   { label: "Add New Lead", href: "/admin/dashboard/leads/new", icon: UserPlus },
-  {
-    label: "Create Project",
-    href: "/admin/dashboard/projects/new",
-    icon: FolderPlus,
-  },
-  {
-    label: "New Invoice",
-    href: "/admin/dashboard/finance/invoices/new",
-    icon: Receipt,
-  },
-  { label: "Add Client", href: "/admin/dashboard/clients/new", icon: Users },
+  { label: "Review Requests", href: "/admin/dashboard/project-requests", icon: ClipboardCheck },
+  { label: "Manage Projects", href: "/admin/dashboard/projects", icon: BriefcaseBusiness },
+  { label: "View Reports", href: "/admin/dashboard/reports", icon: BarChart3 },
 ];
 
 export const AdminQuickActions = () => {

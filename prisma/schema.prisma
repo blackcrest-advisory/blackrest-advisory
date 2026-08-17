@@ -183,7 +183,7 @@ model Brief {
   problem        String      @db.Text
   pillar         Pillar
   budget         String?
-  currency    String?   @default("EUR")
+  currency       String?     @default("EUR")
   deadline       String?
   attachments    String[]
   status         BriefStatus @default(SUBMITTED)
@@ -378,4 +378,45 @@ model Business {
   updatedAt    DateTime @updatedAt
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Service {
+  id               String  @id @default(cuid())
+  pillar           Pillar  @unique
+  slug             String  @unique
+  name             String
+  shortDescription String?
+  description      String? @db.Text
+
+  isActive   Boolean @default(true)
+  isFeatured Boolean @default(false)
+  sortOrder  Int     @default(0)
+
+  startingPrice Decimal? @db.Decimal(12, 2)
+  currency      String   @default("EUR")
+  deliveryTime  String?
+
+  heroImageUrl String?
+  metadata     Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  packages ServicePackage[]
+}
+
+model ServicePackage {
+  id          String   @id @default(cuid())
+  serviceId   String
+  name        String
+  description String?  @db.Text
+  price       Decimal? @db.Decimal(12, 2)
+  currency    String   @default("EUR")
+  isActive    Boolean  @default(true)
+  sortOrder   Int      @default(0)
+
+  service Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
