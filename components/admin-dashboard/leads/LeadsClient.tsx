@@ -9,6 +9,7 @@ import ConfirmationModal from "@/components/ui/ConfirmationModal";
 import { LeadStats } from "@/components/admin-dashboard/leads/LeadStats";
 import { LeadFilters } from "@/components/admin-dashboard/leads/LeadFilters";
 import { LeadTable } from "@/components/admin-dashboard/leads/LeadTable";
+import { Pagination } from "@/components/shared/Pagination";
 import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 import {
   convertAdminLead,
@@ -23,6 +24,8 @@ interface LeadFiltersState {
   assigned: string;
 }
 
+const LEADS_PER_PAGE = 10;
+
 export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
   const [leads, setLeads] = useState(initialLeads);
   const [filters, setFilters] = useState<LeadFiltersState>({
@@ -32,6 +35,7 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
     assigned: "all",
   });
   const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
   const [leadToDelete, setLeadToDelete] = useState<Lead | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
   const router = useRouter();
@@ -61,6 +65,26 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
       }),
     [leads, searchTerm, filters],
   );
+
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredLeads.length / LEADS_PER_PAGE),
+  );
+  const activePage = Math.min(currentPage, totalPages);
+  const paginatedLeads = useMemo(() => {
+    const startIndex = (activePage - 1) * LEADS_PER_PAGE;
+    return filteredLeads.slice(startIndex, startIndex + LEADS_PER_PAGE);
+  }, [activePage, filteredLeads]);
+
+  const handleFilterChange = (newFilters: LeadFiltersState) => {
+    setFilters(newFilters);
+    setCurrentPage(1);
+  };
+
+  const handleSearch = (term: string) => {
+    setSearchTerm(term);
+    setCurrentPage(1);
+  };
 
   const handleConvert = async (lead: Lead) => {
     try {
@@ -120,15 +144,25 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
       >
         <LeadStats leads={leads} />
       </motion.div>
-      <LeadFilters onFilterChange={setFilters} onSearch={setSearchTerm} />
+      <LeadFilters
+        onFilterChange={handleFilterChange}
+        onSearch={handleSearch}
+      />
       <LeadTable
-        leads={filteredLeads}
+        leads={paginatedLeads}
         onView={(lead) => router.push(`/admin/dashboard/leads/${lead.id}`)}
         onEdit={(lead) =>
           router.push(`/admin/dashboard/leads/${lead.id}?edit=true`)
         }
         onConvert={handleConvert}
         onDelete={setLeadToDelete}
+      />
+      <Pagination
+        currentPage={activePage}
+        totalItems={filteredLeads.length}
+        pageSize={LEADS_PER_PAGE}
+        itemLabel="leads"
+        onPageChange={setCurrentPage}
       />
       <ConfirmationModal
         isOpen={Boolean(leadToDelete)}

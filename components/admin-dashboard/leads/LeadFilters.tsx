@@ -104,6 +104,7 @@ export const LeadFilters = ({ onFilterChange, onSearch }: LeadFiltersProps) => {
           value={priority}
           onChange={(v) => updateFilter("priority", v)}
           className="w-40"
+          align="center"
         />
         {/* <Select
           options={assignedOptions}
