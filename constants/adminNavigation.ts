@@ -1,15 +1,12 @@
 import { Navigation, NavItem } from "@/types/navigations";
 import {
   LayoutDashboard,
-  Users,
   UserPlus,
   Briefcase,
   FolderOpen,
-  CheckSquare,
-  UserCog,
   Package,
-  Wallet,
-  MessageSquare,
+  Files,
+  Receipt,
   BarChart3,
   Settings,
 } from "lucide-react";
@@ -58,31 +55,21 @@ export const adminNavItems: NavItem[] = [
     href: "/admin/dashboard/projects",
     icon: FolderOpen,
   },
-  // {
-  //   label: "Tasks",
-  //   href: "/admin/dashboard/tasks",
-  //   icon: CheckSquare,
-  // },
-  // {
-  //   label: "Resources",
-  //   href: "/admin/dashboard/resources",
-  //   icon: UserCog,
-  // },
+  {
+    label: "Files",
+    href: "/admin/dashboard/files",
+    icon: Files,
+  },
+  {
+    label: "Invoices",
+    href: "/admin/dashboard/invoices",
+    icon: Receipt,
+  },
   {
     label: "Services",
     href: "/admin/dashboard/services",
     icon: Package,
   },
-  // {
-  //   label: "Finance",
-  //   href: "/admin/dashboard/finance",
-  //   icon: Wallet,
-  // },
-  // {
-  //   label: "Messages",
-  //   href: "/admin/dashboard/messages",
-  //   icon: MessageSquare,
-  // },
   {
     label: "Reports",
     href: "/admin/dashboard/reports",
