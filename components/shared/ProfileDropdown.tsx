@@ -6,15 +6,16 @@ import Dropdown from "@/components/ui/Dropdown";
 import DropdownItem from "@/components/ui/DropdownItem";
 import { Loader } from "@/components/ui/Loader";
 import { profileMenu } from "@/constants/clientNavigations";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
 
 const ProfileDropdown = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
-  const pathname = usePathname();
   const router = useRouter();
+  const user = useCurrentUser();
 
   const handleLogout = async () => {
     setIsLoggingOut(true);
@@ -33,8 +34,13 @@ const ProfileDropdown = () => {
     }
   };
 
-  const name = pathname === "/admin/dashboard" ? "Admin User" : "Client User";
-  const role = pathname === "/admin/dashboard" ? "Admin" : "Client";
+  const name = user?.name ?? "User";
+  const role =
+    user?.role === "SUPER_ADMIN"
+      ? "Super Admin"
+      : user?.role === "ADMIN"
+        ? "Administrator"
+        : "Client";
 
   return (
     <div className="relative cursor-pointer">
