@@ -8,21 +8,24 @@ import { useSidebarStore } from "@/store/sidebarStore";
 interface SidebarItemProps {
   item: NavItem;
   isActive: boolean;
+  isCollapsed?: boolean;
 }
 
 export default function DashboardSidebarItems({
   item,
   isActive,
+  isCollapsed: collapsedOverride,
 }: SidebarItemProps) {
   const Icon = item.icon;
-  const { isCollapsed } = useSidebarStore();
+  const { isCollapsed: storeIsCollapsed } = useSidebarStore();
+  const isCollapsed = collapsedOverride ?? storeIsCollapsed;
 
   return (
     <Link
       href={item.href}
       className={`
-        relative flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200
-        hover:bg-muted/50
+        relative flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all duration-200
+        hover:bg-muted/70 ${isCollapsed ? "justify-center" : ""}
       `}
       style={{
         color: isActive ? "var(--color-gold)" : "var(--color-body)",
@@ -31,18 +34,17 @@ export default function DashboardSidebarItems({
     >
       <Icon className="shrink-0" />
 
-      {/* Label with smooth fade+slide animation */}
-      <motion.span
-        className="text-sm font-medium whitespace-nowrap"
-        initial={false}
-        animate={{
-          opacity: isCollapsed ? 0 : 1,
-          x: isCollapsed ? -8 : 0,
-        }}
-        transition={{ duration: 0.2, ease: "easeOut" }}
-      >
-        {item.label}
-      </motion.span>
+      {/* Labels must leave the flex layout when the sidebar is collapsed. */}
+      {!isCollapsed && (
+        <motion.span
+          className="whitespace-nowrap text-sm font-medium"
+          initial={{ opacity: 0, x: -8 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+        >
+          {item.label}
+        </motion.span>
+      )}
 
       {/* Active indicator bar */}
       {isActive && (

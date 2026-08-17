@@ -1,10 +1,8 @@
-import { Navigation, NavItem } from "@/types/navigations";
+import { Navigation, NavGroup, NavItem } from "@/types/navigations";
 import {
   LayoutDashboard,
   FolderOpen,
-  FileText,
   Files,
-  MessageSquare,
   Receipt,
   CreditCard,
   Settings,
@@ -28,7 +26,10 @@ export const profileMenu: Navigation[] = [
   },
 ];
 
-export const clientNavItems: NavItem[] = [
+export const clientNavGroups: NavGroup[] = [
+  {
+    label: "Workspace",
+    items: [
   { label: "Dashboard", href: "/client/dashboard", icon: LayoutDashboard },
   { label: "Projects", href: "/client/dashboard/projects", icon: FolderOpen },
   {
@@ -36,13 +37,24 @@ export const clientNavItems: NavItem[] = [
     href: "/client/dashboard/project-requests",
     icon: FolderOpen,
   },
+    ],
+  },
+  {
+    label: "Manage",
+    items: [
   { label: "Files", href: "/client/dashboard/files", icon: Files },
-  // {
-  //   label: "Messages",
-  //   href: "/client/dashboard/messages",
-  //   icon: MessageSquare,
-  // },
   { label: "Invoices", href: "/client/dashboard/invoices", icon: Receipt },
   { label: "Payments", href: "/client/dashboard/payments", icon: CreditCard },
+    ],
+  },
+  {
+    label: "Account",
+    items: [
   { label: "Settings", href: "/client/dashboard/settings", icon: Settings },
+    ],
+  },
 ];
+
+export const clientNavItems: NavItem[] = clientNavGroups.flatMap(
+  (group) => group.items,
+);

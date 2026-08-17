@@ -13,7 +13,7 @@ import SidebarFooter from "@/components/shared/SidebarFooter";
 import { cn } from "@/lib/utils/utils";
 import { scaleFade } from "@/lib/utils/animations";
 import DashboardSidebarItems from "@/components/shared/DashboardSidebarItems";
-import { getNavItems } from "@/lib/utils/getNavItems";
+import { getNavGroups, isNavItemActive } from "@/lib/utils/getNavItems";
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
 import { logoutUser } from "@/api-client/auth/logout";
 
@@ -48,7 +48,7 @@ export default function DashboardDesktopSidebar({
     }
   };
 
-  const navItems = getNavItems(pathname);
+  const navGroups = getNavGroups(pathname);
 
   return (
     //===== Desktop Sidebar =====//
@@ -104,8 +104,14 @@ export default function DashboardDesktopSidebar({
             </AnimatePresence>
           </div>
         ) : (
-          <div className="flex w-full items-center justify-between">
-            <Image src={IMAGE.logo} alt="Logo" width={28} height={28} />
+          <div className="flex w-full items-center justify-between gap-3">
+            <div className="flex min-w-0 items-center gap-2.5">
+              <Image src={IMAGE.logo} alt="Blackcrest" width={28} height={28} />
+              <div className="min-w-0">
+                <p className="truncate text-sm font-semibold tracking-wide text-foreground">Blackcrest</p>
+                <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">Workspace</p>
+              </div>
+            </div>
             {!mobile && (
               <button
                 onClick={toggleSidebar}
@@ -119,17 +125,24 @@ export default function DashboardDesktopSidebar({
       </div>
 
       {/*===== Navigation =====*/}
-      <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-4">
-        {navItems.map((item) => {
-          const isActive = pathname === item.href;
-          return (
-            <DashboardSidebarItems
-              key={item.href}
-              item={item}
-              isActive={isActive}
-            />
-          );
-        })}
+      <nav className="flex-1 space-y-6 overflow-y-auto px-3 py-5">
+        {navGroups.map((group) => (
+          <div key={group.label} className="space-y-1">
+            {!isCollapsed && (
+              <p className="px-3 pb-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                {group.label}
+              </p>
+            )}
+            {group.items.map((item) => (
+              <DashboardSidebarItems
+                key={item.href}
+                item={item}
+                isActive={isNavItemActive(pathname, item.href)}
+                isCollapsed={isCollapsed}
+              />
+            ))}
+          </div>
+        ))}
       </nav>
 
       {/*===== Footer =====*/}

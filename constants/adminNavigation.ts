@@ -1,4 +1,4 @@
-import { Navigation, NavItem } from "@/types/navigations";
+import { Navigation, NavGroup, NavItem } from "@/types/navigations";
 import {
   LayoutDashboard,
   UserPlus,
@@ -24,7 +24,10 @@ export const adminProfileMenu: Navigation[] = [
   },
 ];
 
-export const adminNavItems: NavItem[] = [
+export const adminNavGroups: NavGroup[] = [
+  {
+    label: "Workspace",
+    items: [
   {
     label: "Dashboard",
     href: "/admin/dashboard",
@@ -55,6 +58,11 @@ export const adminNavItems: NavItem[] = [
     href: "/admin/dashboard/projects",
     icon: FolderOpen,
   },
+    ],
+  },
+  {
+    label: "Operations",
+    items: [
   {
     label: "Files",
     href: "/admin/dashboard/files",
@@ -70,14 +78,30 @@ export const adminNavItems: NavItem[] = [
     href: "/admin/dashboard/services",
     icon: Package,
   },
+    ],
+  },
+  {
+    label: "Insights",
+    items: [
   {
     label: "Reports",
     href: "/admin/dashboard/reports",
     icon: BarChart3,
   },
+    ],
+  },
+  {
+    label: "System",
+    items: [
   {
     label: "Settings",
     href: "/admin/dashboard/settings",
     icon: Settings,
   },
+    ],
+  },
 ];
+
+export const adminNavItems: NavItem[] = adminNavGroups.flatMap(
+  (group) => group.items,
+);
