@@ -87,12 +87,14 @@ export async function updateAdminProfile(input: {
   name: string;
   phone: string;
   jobTitle: string;
+  avatarUrl?: string;
 }) {
   const admin = await requireAdmin();
   if (
     typeof input?.name !== "string" ||
     typeof input.phone !== "string" ||
-    typeof input.jobTitle !== "string"
+    typeof input.jobTitle !== "string" ||
+    (input.avatarUrl !== undefined && typeof input.avatarUrl !== "string")
   ) {
     throw new Error("Invalid profile data");
   }
@@ -102,9 +104,10 @@ export async function updateAdminProfile(input: {
   await prisma.user.update({
     where: { id: admin.id },
     data: {
-      name,
-      phone: input.phone.trim() || null,
-      jobTitle: input.jobTitle.trim() || null,
+        name,
+        phone: input.phone.trim() || null,
+        jobTitle: input.jobTitle.trim() || null,
+        avatarUrl: input.avatarUrl,
     },
   });
   revalidatePath("/admin/dashboard/settings");
