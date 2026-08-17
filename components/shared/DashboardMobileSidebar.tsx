@@ -72,7 +72,7 @@ export default function DashboardMobileSidebar({
         className="fixed left-0 top-0 z-50 flex h-full w-[280px] flex-col bg-card shadow-2xl lg:hidden"
       >
         {/*===== Header =====*/}
-        <div className="flex items-center justify-between border-b border-border px-4 py-4">
+        <div className="flex items-center justify-between border-b border-border/60 px-4 py-4">
           <Logo />
           <button
             onClick={onClose}
@@ -84,7 +84,7 @@ export default function DashboardMobileSidebar({
         </div>
 
         {/*===== Navigation =====*/}
-        <nav className="flex-1 space-y-6 overflow-y-auto px-3 py-5">
+        <nav className="dashboard-nav-scroll flex-1 space-y-6 overflow-y-auto px-3 py-5">
           {navGroups.map((group) => (
             <div key={group.label} className="space-y-1">
               <p className="px-3 pb-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">{group.label}</p>

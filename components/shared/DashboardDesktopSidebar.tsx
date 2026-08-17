@@ -54,7 +54,7 @@ export default function DashboardDesktopSidebar({
     //===== Desktop Sidebar =====//
     <motion.aside
       className={cn(
-        "flex h-full flex-col overflow-hidden border-r border-border bg-card backdrop-blur-sm",
+        "flex h-full flex-col overflow-hidden border-r border-border/60 bg-card backdrop-blur-sm",
       )}
       animate={{ width: isCollapsed ? 80 : 270 }}
       transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
@@ -62,7 +62,7 @@ export default function DashboardDesktopSidebar({
       {/*===== Logo area =====*/}
       <div
         className={cn(
-          "relative h-16 items-center justify-center border-b border-border px-6 hidden lg:flex",
+          "relative hidden h-16 items-center justify-center border-b border-border/60 px-6 lg:flex",
         )}
       >
         {!mobile && isCollapsed ? (
@@ -125,7 +125,7 @@ export default function DashboardDesktopSidebar({
       </div>
 
       {/*===== Navigation =====*/}
-      <nav className="flex-1 space-y-6 overflow-y-auto px-3 py-5">
+      <nav className="dashboard-nav-scroll flex-1 space-y-6 overflow-y-auto px-3 py-5">
         {navGroups.map((group) => (
           <div key={group.label} className="space-y-1">
             {!isCollapsed && (

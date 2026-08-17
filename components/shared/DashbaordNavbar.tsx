@@ -32,7 +32,7 @@ export default function DashboardNavbar({
     //===== Dashboard Navbar =====//
     <header
       className={cn(
-        "sticky top-0 z-30 h-16 shrink-0 border-b border-border bg-card/90 backdrop-blur-md",
+        "sticky top-0 z-30 h-16 shrink-0 border-b border-border/60 bg-card/90 backdrop-blur-md",
         className,
       )}
     >
