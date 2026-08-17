@@ -5,15 +5,10 @@ import toast from "react-hot-toast";
 import { Button } from "@/components/ui/Button";
 import { Switch } from "@/components/ui/Switch";
 import { SettingsSectionCard } from "@/components/client-dashboard/settings/SettingsSectionCard";
-import { updateAdminNotificationPreferences } from "@/api-client/admin/settings.api";
+import { updateAdminNotificationPreferences } from "@/lib/actions/settings/admin-settings.action";
+import type { AdminNotificationPreferences } from "@/types/dashboard/admin/settingsType";
 
-export type AdminNotificationPreferences = {
-  newLeads: boolean;
-  clientMessages: boolean;
-  projectDeadlines: boolean;
-  paymentUpdates: boolean;
-  weeklyDigest: boolean;
-};
+export type { AdminNotificationPreferences } from "@/types/dashboard/admin/settingsType";
 
 const items: {
   key: keyof AdminNotificationPreferences;

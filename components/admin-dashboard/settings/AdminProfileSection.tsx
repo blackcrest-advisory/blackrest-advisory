@@ -4,20 +4,14 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { BriefcaseBusiness, Mail, Shield } from "lucide-react";
 import toast from "react-hot-toast";
-import { updateAdminProfile } from "@/api-client/admin/settings.api";
+import { updateAdminProfile } from "@/lib/actions/settings/admin-settings.action";
 import { Avatar } from "@/components/ui/Avatar";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { SettingsSectionCard } from "@/components/client-dashboard/settings/SettingsSectionCard";
+import type { AdminSettings } from "@/types/dashboard/admin/settingsType";
 
-export type AdminProfile = {
-  fullName: string;
-  email: string;
-  phone: string;
-  jobTitle: string;
-  avatarUrl?: string;
-  role: string;
-};
+export type AdminProfile = AdminSettings["profile"];
 
 export const AdminProfileSection = ({ profile }: { profile: AdminProfile }) => {
   const router = useRouter();

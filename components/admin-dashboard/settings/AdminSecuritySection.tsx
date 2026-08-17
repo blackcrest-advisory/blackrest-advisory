@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { updateAdminPassword } from "@/api-client/admin/settings.api";
+import { updateAdminPassword } from "@/lib/actions/settings/admin-settings.action";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { SettingsSectionCard } from "@/components/client-dashboard/settings/SettingsSectionCard";
@@ -40,9 +40,10 @@ export const AdminSecuritySection = () => {
       await updateAdminPassword(passwords);
       setPasswords(emptyPasswords);
       toast.success("Password updated successfully");
-    } catch (error: unknown) {
-      const message = getErrorMessage(error);
-      toast.error(message);
+    } catch (error) {
+      toast.error(
+        error instanceof Error ? error.message : "Unable to update password",
+      );
     } finally {
       setIsUpdating(false);
     }
@@ -92,17 +93,3 @@ export const AdminSecuritySection = () => {
     </SettingsSectionCard>
   );
 };
-
-function getErrorMessage(error: unknown) {
-  if (typeof error === "object" && error !== null && "response" in error) {
-    const data = (error as { response?: { data?: unknown } }).response?.data;
-    if (
-      typeof data === "object" &&
-      data !== null &&
-      "error" in data &&
-      typeof data.error === "string"
-    )
-      return data.error;
-  }
-  return "Unable to update your password";
-}
