@@ -35,12 +35,12 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-card backdrop-blur-md transition-colors">
+    <header className="sticky top-0 z-50 w-full border-b border-border/80 bg-card/92 backdrop-blur-xl transition-[background-color,border-color]">
       <Container>
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/home" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-primary dark:text-secondary">
+          <Link href="/home" className="flex items-center space-x-2 rounded-[var(--radius-control)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60">
+            <span className="text-xl font-bold tracking-[-0.025em] text-primary dark:text-secondary sm:text-2xl">
               Blackcrest
               <span className="text-secondary">.</span>
             </span>
@@ -113,7 +113,7 @@ export default function Navbar() {
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-muted"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-[var(--radius-control)] text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
               aria-expanded={isOpen}
             >
               <span className="sr-only">Open menu</span>
@@ -160,7 +160,7 @@ export default function Navbar() {
                               e.preventDefault();
                               toggleMobileSub(link.id);
                             }}
-                            className="rounded p-1 text-foreground hover:bg-muted"
+                            className="rounded-[var(--radius-control)] p-1 text-foreground hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
                             aria-label="Toggle submenu"
                           >
                             <ChevronDown

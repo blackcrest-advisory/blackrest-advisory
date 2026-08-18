@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Globe, TrendingUp, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
@@ -18,6 +18,8 @@ import {
 } from "@/lib/utils/animations";
 
 const Hero = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <Section>
       {/* Animated gradient background */}
@@ -25,7 +27,7 @@ const Hero = () => {
         className="absolute inset-0 -z-10"
         variants={gradientShift}
         initial="initial"
-        animate="animate"
+        animate={shouldReduceMotion ? undefined : "animate"}
       />
 
       {/* Floating decorative shapes */}
@@ -33,13 +35,13 @@ const Hero = () => {
         className="absolute -left-20 top-20 h-40 w-40 rounded-full bg-secondary/10 blur-3xl"
         variants={floatShape}
         initial="initial"
-        animate="animate"
+        animate={shouldReduceMotion ? undefined : "animate"}
       />
       <motion.div
         className="absolute -bottom-32 right-10 h-64 w-64 rounded-full bg-primary/5 blur-3xl"
         variants={floatShape}
         initial="initial"
-        animate="animate"
+        animate={shouldReduceMotion ? undefined : "animate"}
         transition={{ delay: 0.5 }} // offset the second shape
       />
 
@@ -152,15 +154,7 @@ const Hero = () => {
 
               {/* Main circle with border and pulse */}
               <motion.div
-                className="absolute inset-0 m-auto h-48 w-48 rounded-full border-2 border-secondary/20 bg-background/50 backdrop-blur-sm shadow-2xl"
-                animate={{
-                  boxShadow: [
-                    "0 0 20px rgba(99,102,241,0.1)",
-                    "0 0 40px rgba(99,102,241,0.3)",
-                    "0 0 20px rgba(99,102,241,0.1)",
-                  ],
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
+                className="absolute inset-0 m-auto h-48 w-48 rounded-full border-2 border-secondary/20 bg-background/60 shadow-[var(--shadow-gold-glow)] backdrop-blur-sm"
               >
                 <div className="flex h-full flex-col items-center justify-center p-6 text-center">
                   <Globe
@@ -181,7 +175,7 @@ const Hero = () => {
                 className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"
                 variants={orbit}
                 initial="initial"
-                animate="animate"
+                animate={shouldReduceMotion ? undefined : "animate"}
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 backdrop-blur-sm border border-secondary/20">
                   <TrendingUp className="h-6 w-6 text-secondary" />
@@ -192,7 +186,7 @@ const Hero = () => {
                 className="absolute bottom-4 md:bottom-0 right-4 md:right-0 translate-x-1/2 translate-y-1/2"
                 variants={orbitReverse}
                 initial="initial"
-                animate="animate"
+                animate={shouldReduceMotion ? undefined : "animate"}
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20">
                   <Sparkles className="h-6 w-6 text-primary" />
@@ -202,13 +196,17 @@ const Hero = () => {
               {/* Small decorative dots */}
               <motion.div
                 className="absolute top-1/4 right-0 h-3 w-3 rounded-full bg-secondary/40"
-                animate={{ scale: [1, 1.5, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                animate={shouldReduceMotion ? undefined : { scale: [1, 1.5, 1] }}
+                transition={shouldReduceMotion ? { duration: 0.01 } : { duration: 2, repeat: Infinity }}
               />
               <motion.div
                 className="absolute bottom-1/3 left-0 h-2 w-2 rounded-full bg-primary/30"
-                animate={{ scale: [1, 1.5, 1] }}
-                transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
+                animate={shouldReduceMotion ? undefined : { scale: [1, 1.5, 1] }}
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0.01 }
+                    : { duration: 2.5, repeat: Infinity, delay: 0.5 }
+                }
               />
 
               {/* Dashed connecting lines */}
