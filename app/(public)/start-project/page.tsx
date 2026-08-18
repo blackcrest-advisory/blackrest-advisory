@@ -9,15 +9,22 @@ export default function StartProjectPage() {
   return (
     <PageWrapper>
       <StepsSection />
-      <Section>
+
+      <Section className="bg-background">
         <Container>
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-5 lg:gap-16">
-            <div className="lg:col-span-3">
-              <ProjectInquiryForm />
-            </div>
-            <div className="lg:col-span-2">
-              <InfoCard />
-            </div>
+          <div
+            className="
+              grid grid-cols-1
+              gap-8
+              lg:grid-cols-[minmax(0,1.45fr)_minmax(320px,0.55fr)]
+              lg:items-start
+              lg:gap-10
+              xl:gap-12
+            "
+          >
+            <ProjectInquiryForm />
+
+            <InfoCard />
           </div>
         </Container>
       </Section>
