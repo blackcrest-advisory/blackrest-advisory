@@ -74,30 +74,30 @@
 .dark {
   --color-gold: #d4b86a;
   --color-gold-light: #e8cf8f;
-  --color-background: #0a1628;
+  --color-background: #0b1d35;
   --color-foreground: #e9edf5;
 
-  --color-primary: #0f213a;
+  --color-primary: #112b49;
   --color-primary-foreground: #ffffff;
 
   --color-secondary: var(--color-gold);
   --color-secondary-foreground: #0a1628;
 
-  --color-card: #0f213a;
+  --color-card: #112b49;
   --color-card-foreground: #e9edf5;
-  --color-popover: #14273f;
+  --color-popover: #163557;
   --color-heading: #f7f9fc;
   --color-body: #a9b7cb;
-  --color-card-bg: #0f213a;
-  --color-card-border: #24374f;
+  --color-card-bg: #112b49;
+  --color-card-border: #294865;
 
-  --color-muted: #14273f;
-  --color-muted-foreground: #c2cddc;
+  --color-muted: #173858;
+  --color-muted-foreground: #bfccdd;
 
   --color-accent: var(--color-gold);
   --color-accent-foreground: #0a1628;
 
-  --color-border: #24374f;
+  --color-border: #294865;
   --color-ring: #d4b86a;
 
   --color-destructive: #f0554a;
@@ -115,7 +115,7 @@
     #e8cf8f 45%,
     #d4b86a 100%
   );
-  --gradient-navy: linear-gradient(135deg, #060e1c 0%, #0f213a 100%);
+  --gradient-navy: linear-gradient(135deg, #0b1d35 0%, #163557 100%);
 
   --surface-glow: radial-gradient(
     64rem 34rem at 50% -22%,
