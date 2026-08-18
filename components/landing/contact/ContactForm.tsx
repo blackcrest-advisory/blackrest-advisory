@@ -26,7 +26,7 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 
 import { contactInfoData } from "@/content-data/contact/contactData";
-import { submitContactForm } from "@/api-client/contact/contact.api";
+import { createContactLead } from "@/lib/actions/contact/contact.action";
 
 const formSignals = [
   "Clear context is enough",
@@ -64,12 +64,17 @@ export const ContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      await submitContactForm({
+      const result = await createContactLead({
         name: formData.name,
         email: formData.email,
         companyName: formData.company,
         problem: formData.message,
       });
+
+      if (!result.success) {
+        toast.error(result.error);
+        return;
+      }
 
       toast.success("Message sent! We'll be in touch within 24 hours");
 
@@ -554,6 +559,7 @@ export const ContactForm = () => {
                     size="lg"
                     className="group w-full justify-center sm:w-auto"
                     disabled={isSubmitting}
+                    type="submit"
                   >
                     {isSubmitting ? (
                       <>

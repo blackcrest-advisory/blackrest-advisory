@@ -51,6 +51,7 @@ export async function POST(request: Request) {
           Object.values(Pillar).includes(pillar as Pillar)
             ? (pillar as Pillar)
             : null,
+        services: [],
         problem: normalizedProblem,
         source: "Contact Form",
         status: "NEW",
