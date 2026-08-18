@@ -1,4 +1,4 @@
-import { registerUser } from "@/api-client/auth/register";
+import { registerWithCredentials } from "@/lib/actions/auth/register.action";
 import { signupInput } from "@/lib/validations/auth";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -12,11 +12,13 @@ export const useRegister = () => {
     setLoading(true);
 
     try {
-      const responseData = await registerUser(data);
+      const responseData = await registerWithCredentials(data);
 
-      if (responseData) {
+      if (responseData.success) {
         toast.success("Registration completed");
         router.push("/login");
+      } else {
+        toast.error(responseData.error);
       }
     } catch (error: unknown) {
       const message =
