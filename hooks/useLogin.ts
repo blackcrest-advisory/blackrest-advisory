@@ -1,5 +1,4 @@
-import { isAxiosError } from "axios";
-import { loginUser } from "@/api-client/auth/login";
+import { loginWithCredentials } from "@/lib/actions/auth/login.action";
 import { loginInput } from "@/lib/validations/auth";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -12,20 +11,18 @@ export const useLogin = () => {
   const login = async (data: loginInput) => {
     setLoading(true);
     try {
-      const response = await loginUser(data);
-      if (response.data.success) {
-        const role = response.data.user.role;
+      const response = await loginWithCredentials(data);
+      if (response.success) {
+        const role = response.user.role;
         const dashboard =
           role === "CLIENT" ? "/client/dashboard" : "/admin/dashboard";
         router.push(dashboard);
         toast.success("Wellcome Back to Dashboard");
-      }
-    } catch (error) {
-      if (isAxiosError(error)) {
-        toast.error(error.response?.data?.error || "Login failed");
       } else {
-        toast.error("Something went wrong");
+        toast.error(response.error);
       }
+    } catch {
+      toast.error("Something went wrong");
     } finally {
       setLoading(false);
     }
