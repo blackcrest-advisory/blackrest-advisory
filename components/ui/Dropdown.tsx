@@ -31,30 +31,25 @@ const Dropdown = ({
       {isOpen && (
         <motion.div
           key="dropdown"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 8, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 6, scale: 0.98 }}
           transition={{
             duration: 0.2,
             ease: [0.25, 0.8, 0.25, 1],
           }}
-          className={`absolute w-56 z-50 origin-top ${alignClasses[align]} ${className}`}
+          className={`absolute z-50 w-56 origin-top ${alignClasses[align]} ${className}`}
         >
           <div
             className={`
-               mt-6
+              mt-3
               relative
-              rounded-xl
-              py-2
-              backdrop-blur-lg
-              bg-popover/80
-              dark:bg-gray-800/80
-              shadow-xl
-              shadow-black/5
-              dark:shadow-white/5
-              ring-1
-              ring-black/5
-              dark:ring-white/10
+              rounded-[var(--radius-surface)]
+              border border-border/80
+              bg-popover/95
+              py-1.5
+              shadow-[var(--shadow-overlay)]
+              backdrop-blur-xl
               before:content-['']
               before:absolute
               before:top-[-6px]
@@ -66,10 +61,6 @@ const Dropdown = ({
               before:border-l-transparent
               before:border-r-transparent
               before:border-b-popover
-              dark:before:border-b-gray-800
-              before:drop-shadow-[0_-1px_1px_rgba(0,0,0,0.05)]
-              dark:before:drop-shadow-[0_-1px_1px_rgba(255,255,255,0.1)]
-              bg-white
               ${contentClassName}
             `}
           >

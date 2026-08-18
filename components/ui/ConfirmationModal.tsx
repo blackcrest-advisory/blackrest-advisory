@@ -51,7 +51,7 @@ export default function ConfirmationModal({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-card p-6 shadow-xl ring-1 ring-border transition-all">
+              <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-[var(--radius-surface)] border border-border/80 bg-card p-6 shadow-[var(--shadow-overlay)] transition-all">
                 <Dialog.Title
                   as="h3"
                   className="text-lg font-semibold text-foreground"
@@ -71,7 +71,7 @@ export default function ConfirmationModal({
                     {cancelLabel}
                   </Button>
                   <Button
-                    variant="ghost"
+                    variant="destructive"
                     size="sm"
                     onClick={onConfirm}
                     disabled={isPending}

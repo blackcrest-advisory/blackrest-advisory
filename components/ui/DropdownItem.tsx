@@ -26,21 +26,19 @@ const DropdownItem = ({
     flex
     items-center
     px-4
-    py-3
+    py-2.5
     text-sm
     font-medium
     transition-all
     duration-150
-    border-l-2
-    first:rounded-t-xl
-    last:rounded-b-xl
+    rounded-lg
 
     ${
       danger
-        ? "text-red-500 hover:bg-red-50 border-transparent"
+        ? "text-destructive hover:bg-destructive/8"
         : active
-          ? "border-secondary bg-muted text-secondary"
-          : "border-transparent text-body hover:bg-muted/50 hover:text-secondary hover:border-secondary/30"
+          ? "bg-secondary/10 text-secondary"
+          : "text-body hover:bg-muted/70 hover:text-foreground"
     }
 
     ${className}
@@ -49,7 +47,7 @@ const DropdownItem = ({
   const content = (
     <>
       {active && (
-        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-secondary rounded-full" />
+        <span className="absolute left-2 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-secondary" />
       )}
 
       <span className="truncate">{children}</span>

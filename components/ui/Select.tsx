@@ -49,11 +49,9 @@ export const Select = ({
         onClick={() => !disabled && setIsOpen((prev) => !prev)}
         disabled={disabled}
         className={cn(
-          "flex w-full items-center justify-between gap-2 rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground transition-all duration-200",
-          "hover:border-secondary/40",
-          "focus:border-transparent focus:outline-none focus:ring-1 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-background",
-          "focus-visible:ring-1 focus-visible:ring-secondary focus-visible:ring-offset-1 focus-visible:ring-offset-background",
-          disabled && "opacity-50 cursor-not-allowed pointer-events-none",
+          "flex min-h-10 w-full items-center justify-between gap-2 rounded-[var(--radius-control)] border border-border bg-background px-3 text-sm text-foreground shadow-[inset_0_1px_1px_rgb(15_23_42/0.02)] transition-[border-color,box-shadow,background-color] duration-200",
+          "hover:border-secondary/35 focus:border-secondary/60 focus:outline-none focus:ring-4 focus:ring-secondary/10",
+          disabled && "pointer-events-none cursor-not-allowed bg-muted/50 opacity-60",
         )}
         aria-haspopup="listbox"
         aria-expanded={isOpen}

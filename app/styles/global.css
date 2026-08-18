@@ -2,7 +2,7 @@
 
 @theme {
   --color-navy: #0b1a30;
-  --color-gold: #c9a84c;
+  --color-gold: #9b741d;
 
   --color-background: #ffffff;
   --color-foreground: #1a1a2e;
@@ -11,10 +11,15 @@
   --color-primary-foreground: #ffffff;
 
   --color-secondary: var(--color-gold);
-  --color-secondary-foreground: var(--color-navy);
+  --color-secondary-foreground: #ffffff;
 
   --color-card: #ffffff;
   --color-card-foreground: #1a1a2e;
+  --color-popover: #ffffff;
+  --color-heading: #17233a;
+  --color-body: #536176;
+  --color-card-bg: #ffffff;
+  --color-card-border: #e2e8f0;
 
   --color-muted: #f4f6f9;
   --color-muted-foreground: #5b6475;
@@ -27,9 +32,18 @@
 
   --color-destructive: #dc2626;
   --color-destructive-foreground: #ffffff;
+
+  --surface-glow: radial-gradient(68rem 34rem at 50% -18%, rgb(201 168 76 / 0.11), transparent 62%);
+
+  --radius-control: 0.5rem;
+  --radius-surface: 0.75rem;
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.03), 0 10px 28px rgb(15 23 42 / 0.05);
+  --shadow-card-hover: 0 2px 4px rgb(15 23 42 / 0.04), 0 18px 38px rgb(15 23 42 / 0.09);
+  --shadow-overlay: 0 24px 64px rgb(15 23 42 / 0.18);
 }
 
 .dark {
+  --color-gold: #d4b86a;
   --color-background: #0b1a30;
   --color-foreground: #e8edf5;
 
@@ -41,6 +55,11 @@
 
   --color-card: #12273f;
   --color-card-foreground: #e8edf5;
+  --color-popover: #162c46;
+  --color-heading: #f5f8fc;
+  --color-body: #b6c4d7;
+  --color-card-bg: #12273f;
+  --color-card-border: #2a3f5a;
 
   --color-muted: #1a2c45;
   --color-muted-foreground: #c5d0e0;
@@ -53,6 +72,12 @@
 
   --color-destructive: #ef4444;
   --color-destructive-foreground: #ffffff;
+
+  --surface-glow: radial-gradient(62rem 32rem at 50% -20%, rgb(212 184 106 / 0.1), transparent 62%);
+
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.12), 0 12px 30px rgb(0 0 0 / 0.14);
+  --shadow-card-hover: 0 2px 5px rgb(0 0 0 / 0.16), 0 20px 42px rgb(0 0 0 / 0.24);
+  --shadow-overlay: 0 28px 72px rgb(0 0 0 / 0.42);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -62,19 +87,32 @@ html {
 }
 
 body {
-  background: var(--color-background);
+  background: var(--surface-glow), var(--color-background);
   color: var(--color-foreground);
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
 }
 
-* {
-  transition:
-    background-color 0.3s ease,
-    border-color 0.3s ease,
-    color 0.3s ease,
-    box-shadow 0.3s ease;
+::selection {
+  background: color-mix(in srgb, var(--color-secondary) 28%, transparent);
+  color: var(--color-foreground);
+}
+
+:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-ring) 72%, transparent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .dashboard-nav-scroll {

@@ -36,7 +36,7 @@ export function Loader({
         ease: "linear",
       }}
       className={cn(
-        "rounded-full border-solid border-[var(--color-card-border)] border-t-[var(--color-secondary)]",
+        "rounded-full border-solid border-border border-t-secondary",
         sizeMap[size],
         className,
       )}
@@ -47,7 +47,7 @@ export function Loader({
     <div className="flex flex-col items-center justify-center gap-4">
       {spinner}
       {label && (
-        <p className="text-sm text-[var(--color-body)] font-medium">{label}</p>
+        <p className="text-sm font-medium text-body">{label}</p>
       )}
     </div>
   );
