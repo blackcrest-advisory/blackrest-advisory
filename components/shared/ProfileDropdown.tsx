@@ -8,13 +8,15 @@ import { Loader } from "@/components/ui/Loader";
 import { profileMenu } from "@/constants/clientNavigations";
 import { adminProfileMenu } from "@/constants/adminNavigation";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
 import { LogOut, ShieldCheck, UserRound } from "lucide-react";
+import { useOutsideClick } from "@/hooks/useOutsideClick";
 
 const ProfileDropdown = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const dropdownContainerRef = useRef<HTMLDivElement>(null);
 
   const router = useRouter();
   const user = useCurrentUser();
@@ -50,8 +52,12 @@ const ProfileDropdown = () => {
       ? adminProfileMenu
       : profileMenu;
 
+  useOutsideClick(dropdownContainerRef, isProfileOpen, () =>
+    setIsProfileOpen(false),
+  );
+
   return (
-    <div className="relative">
+    <div ref={dropdownContainerRef} className="relative">
       <ProfileTrigger
         isProfileOpen={isProfileOpen}
         setIsProfileOpen={setIsProfileOpen}
