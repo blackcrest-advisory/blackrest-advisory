@@ -10,6 +10,7 @@ import { adminProfileMenu } from "@/constants/adminNavigation";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
+import { LogOut, ShieldCheck, UserRound } from "lucide-react";
 
 const ProfileDropdown = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -36,19 +37,21 @@ const ProfileDropdown = () => {
   };
 
   const name = user?.name ?? "User";
+
   const role =
     user?.role === "SUPER_ADMIN"
       ? "Super Admin"
       : user?.role === "ADMIN"
         ? "Administrator"
         : "Client";
+
   const menu =
     user?.role === "ADMIN" || user?.role === "SUPER_ADMIN"
       ? adminProfileMenu
       : profileMenu;
 
   return (
-    <div className="relative cursor-pointer">
+    <div className="relative">
       <ProfileTrigger
         isProfileOpen={isProfileOpen}
         setIsProfileOpen={setIsProfileOpen}
@@ -59,28 +62,183 @@ const ProfileDropdown = () => {
       <Dropdown
         isOpen={isProfileOpen}
         align="end"
-        className="top-9"
-        contentClassName="before:right-4"
+        className="
+          top-11
+          w-[280px]
+        "
+        contentClassName="
+          overflow-hidden
+          border border-border
+          bg-popover
+          p-0
+          shadow-[var(--shadow-overlay)]
+          before:right-5
+        "
       >
-        {menu.map((item) => (
-          <DropdownItem
-            key={item.id}
-            href={item.link}
-            onClick={() => setIsProfileOpen(false)}
-          >
-            {item.name}
-          </DropdownItem>
-        ))}
+        {/* ================================================ */}
+        {/* PROFILE HEADER                                   */}
+        {/* ================================================ */}
 
-        <DropdownItem danger onClick={handleLogout} disabled={isLoggingOut}>
-          {isLoggingOut ? (
-            <div className="flex items-center gap-2">
-              <span className="ml-2">Logging out...</span> <Loader size="sm" />
+        <div
+          className="
+            relative
+            overflow-hidden
+            border-b border-border
+            px-4 py-4
+          "
+        >
+          {/* ambient glow */}
+          <div
+            aria-hidden="true"
+            className="
+              pointer-events-none
+              absolute -right-10 -top-10
+              h-24 w-24
+              rounded-full
+              bg-secondary/[0.08]
+              blur-2xl
+            "
+          />
+
+          <div className="relative z-10 flex items-center gap-3">
+            <div
+              className="
+                flex h-10 w-10
+                shrink-0
+                items-center justify-center
+                border border-secondary/15
+                bg-secondary/[0.05]
+                text-secondary
+              "
+            >
+              <UserRound className="h-4 w-4" />
             </div>
-          ) : (
-            "Logout"
-          )}
-        </DropdownItem>
+
+            <div className="min-w-0 flex-1">
+              <p
+                className="
+                  truncate
+                  text-sm
+                  font-semibold
+                  text-heading
+                "
+              >
+                {name}
+              </p>
+
+              <div className="mt-1 flex items-center gap-2">
+                <ShieldCheck className="h-3 w-3 text-secondary" />
+
+                <span
+                  className="
+                    font-mono
+                    text-[7px]
+                    font-semibold
+                    uppercase
+                    tracking-[0.15em]
+                    text-muted-foreground/45
+                  "
+                >
+                  {role}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ================================================ */}
+        {/* MENU                                             */}
+        {/* ================================================ */}
+
+        <div className="py-2">
+          <div className="px-4 pb-2 pt-1">
+            <p
+              className="
+                font-mono
+                text-[7px]
+                font-semibold
+                uppercase
+                tracking-[0.16em]
+                text-muted-foreground/35
+              "
+            >
+              Account
+            </p>
+          </div>
+
+          {menu.map((item) => (
+            <DropdownItem
+              key={item.id}
+              href={item.link}
+              onClick={() => setIsProfileOpen(false)}
+              className="
+                mx-2
+                flex min-h-10
+                items-center
+                px-3
+                text-sm
+                text-foreground/80
+                transition-all
+                duration-200
+                hover:bg-secondary/[0.045]
+                hover:text-secondary
+              "
+            >
+              {item.name}
+            </DropdownItem>
+          ))}
+        </div>
+
+        {/* ================================================ */}
+        {/* LOGOUT                                           */}
+        {/* ================================================ */}
+
+        <div
+          className="
+            border-t border-border
+            bg-muted/15
+            p-2
+          "
+        >
+          <DropdownItem
+            danger
+            onClick={handleLogout}
+            disabled={isLoggingOut}
+            className="
+              flex min-h-10
+              items-center
+              justify-between
+              px-3
+            "
+          >
+            {isLoggingOut ? (
+              <div className="flex w-full items-center justify-between gap-3">
+                <span className="text-sm font-medium">Logging out...</span>
+
+                <Loader size="sm" />
+              </div>
+            ) : (
+              <div className="flex w-full items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <LogOut className="h-4 w-4" />
+                  <span>Logout</span>
+                </div>
+
+                <span
+                  className="
+                    font-mono
+                    text-[7px]
+                    uppercase
+                    tracking-[0.14em]
+                    opacity-50
+                  "
+                >
+                  Exit
+                </span>
+              </div>
+            )}
+          </DropdownItem>
+        </div>
       </Dropdown>
     </div>
   );
