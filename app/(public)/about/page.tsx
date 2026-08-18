@@ -9,8 +9,8 @@ export default function AboutPage() {
     <PageWrapper>
       <HeroSection />
       <WhoWeAreSection />
-      <WhyBlackcrestSection />
       <HowWeOperateSection />
+      <WhyBlackcrestSection />
     </PageWrapper>
   );
 }
