@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #0b1a30;
-  --color-gold: #9b741d;
+  --color-navy: #0a1628;
+  --color-navy-deep: #060e1c;
+  --color-gold: #a67c27;
+  --color-gold-light: #c9a45c;
 
-  --color-background: #ffffff;
-  --color-foreground: #1a1a2e;
+  --color-background: #fbfaf7;
+  --color-foreground: #14192a;
 
   --color-primary: var(--color-navy);
   --color-primary-foreground: #ffffff;
@@ -14,70 +16,103 @@
   --color-secondary-foreground: #ffffff;
 
   --color-card: #ffffff;
-  --color-card-foreground: #1a1a2e;
+  --color-card-foreground: #14192a;
   --color-popover: #ffffff;
-  --color-heading: #17233a;
-  --color-body: #536176;
+  --color-heading: #10192e;
+  --color-body: #4c5769;
   --color-card-bg: #ffffff;
-  --color-card-border: #e2e8f0;
+  --color-card-border: #e6e1d6;
 
-  --color-muted: #f4f6f9;
-  --color-muted-foreground: #5b6475;
+  --color-muted: #f2efe8;
+  --color-muted-foreground: #5c6577;
 
   --color-accent: var(--color-gold);
   --color-accent-foreground: var(--color-navy);
 
-  --color-border: #e2e8f0;
+  --color-border: #e6e1d6;
   --color-ring: var(--color-gold);
 
-  --color-destructive: #dc2626;
+  --color-destructive: #b3261e;
   --color-destructive-foreground: #ffffff;
 
-  --surface-glow: radial-gradient(68rem 34rem at 50% -18%, rgb(201 168 76 / 0.11), transparent 62%);
+  --gradient-gold: linear-gradient(
+    135deg,
+    #b8903f 0%,
+    #d9bb74 45%,
+    #a67c27 100%
+  );
+  --gradient-navy: linear-gradient(135deg, #0a1628 0%, #14243d 100%);
 
-  --radius-control: 0.5rem;
-  --radius-surface: 0.75rem;
-  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.03), 0 10px 28px rgb(15 23 42 / 0.05);
-  --shadow-card-hover: 0 2px 4px rgb(15 23 42 / 0.04), 0 18px 38px rgb(15 23 42 / 0.09);
-  --shadow-overlay: 0 24px 64px rgb(15 23 42 / 0.18);
+  --surface-glow: radial-gradient(
+    70rem 36rem at 50% -20%,
+    rgb(166 124 39 / 0.08),
+    transparent 60%
+  );
+
+  --radius-control: 0.375rem;
+  --radius-surface: 0.5rem;
+
+  --shadow-card:
+    0 1px 1px rgb(15 23 42 / 0.04), 0 6px 16px rgb(15 23 42 / 0.06);
+  --shadow-card-hover:
+    0 2px 3px rgb(15 23 42 / 0.06), 0 14px 30px rgb(15 23 42 / 0.1);
+  --shadow-overlay: 0 30px 70px rgb(15 23 42 / 0.22);
+  --shadow-gold-glow:
+    0 0 0 1px rgb(166 124 39 / 0.15), 0 8px 24px rgb(166 124 39 / 0.12);
 }
 
 .dark {
   --color-gold: #d4b86a;
-  --color-background: #0b1a30;
-  --color-foreground: #e8edf5;
+  --color-gold-light: #e8cf8f;
+  --color-background: #060e1c;
+  --color-foreground: #e9edf5;
 
-  --color-primary: var(--color-navy);
+  --color-primary: #0f213a;
   --color-primary-foreground: #ffffff;
 
   --color-secondary: var(--color-gold);
-  --color-secondary-foreground: var(--color-navy);
+  --color-secondary-foreground: #0a1628;
 
-  --color-card: #12273f;
-  --color-card-foreground: #e8edf5;
-  --color-popover: #162c46;
-  --color-heading: #f5f8fc;
-  --color-body: #b6c4d7;
-  --color-card-bg: #12273f;
-  --color-card-border: #2a3f5a;
+  --color-card: #0f213a;
+  --color-card-foreground: #e9edf5;
+  --color-popover: #14273f;
+  --color-heading: #f7f9fc;
+  --color-body: #a9b7cb;
+  --color-card-bg: #0f213a;
+  --color-card-border: #24374f;
 
-  --color-muted: #1a2c45;
-  --color-muted-foreground: #c5d0e0;
+  --color-muted: #14273f;
+  --color-muted-foreground: #c2cddc;
 
   --color-accent: var(--color-gold);
-  --color-accent-foreground: var(--color-navy);
+  --color-accent-foreground: #0a1628;
 
-  --color-border: #2a3f5a;
+  --color-border: #24374f;
   --color-ring: #d4b86a;
 
-  --color-destructive: #ef4444;
+  --color-destructive: #f0554a;
   --color-destructive-foreground: #ffffff;
 
-  --surface-glow: radial-gradient(62rem 32rem at 50% -20%, rgb(212 184 106 / 0.1), transparent 62%);
+  --gradient-gold: linear-gradient(
+    135deg,
+    #b8903f 0%,
+    #e8cf8f 45%,
+    #d4b86a 100%
+  );
+  --gradient-navy: linear-gradient(135deg, #060e1c 0%, #0f213a 100%);
 
-  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.12), 0 12px 30px rgb(0 0 0 / 0.14);
-  --shadow-card-hover: 0 2px 5px rgb(0 0 0 / 0.16), 0 20px 42px rgb(0 0 0 / 0.24);
-  --shadow-overlay: 0 28px 72px rgb(0 0 0 / 0.42);
+  --surface-glow: radial-gradient(
+    64rem 34rem at 50% -22%,
+    rgb(212 184 106 / 0.09),
+    transparent 60%
+  );
+
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.2), 0 8px 20px rgb(0 0 0 / 0.22);
+  --shadow-card-hover:
+    0 2px 4px rgb(0 0 0 / 0.24), 0 18px 36px rgb(0 0 0 / 0.32);
+  --shadow-overlay: 0 32px 80px rgb(0 0 0 / 0.5);
+  --shadow-gold-glow:
+    0 0 0 1px rgb(212 184 106 / 0.18), 0 8px 28px rgb(212 184 106 / 0.14);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -92,6 +127,34 @@ body {
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
+}
+
+/* Reusable gold text/border treatment for premium accents */
+.text-gold-gradient {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card-premium {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-surface);
+  box-shadow: var(--shadow-card);
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.card-premium:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: color-mix(
+    in srgb,
+    var(--color-gold) 30%,
+    var(--color-card-border)
+  );
 }
 
 ::selection {
@@ -117,7 +180,12 @@ body {
 
 .dashboard-nav-scroll {
   scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--color-muted-foreground) 35%, transparent) transparent;
+  scrollbar-color: color-mix(
+      in srgb,
+      var(--color-muted-foreground) 35%,
+      transparent
+    )
+    transparent;
 }
 
 .dashboard-nav-scroll::-webkit-scrollbar {
@@ -130,9 +198,17 @@ body {
 
 .dashboard-nav-scroll::-webkit-scrollbar-thumb {
   border-radius: 999px;
-  background: color-mix(in srgb, var(--color-muted-foreground) 35%, transparent);
+  background: color-mix(
+    in srgb,
+    var(--color-muted-foreground) 35%,
+    transparent
+  );
 }
 
 .dashboard-nav-scroll::-webkit-scrollbar-thumb:hover {
-  background: color-mix(in srgb, var(--color-muted-foreground) 55%, transparent);
+  background: color-mix(
+    in srgb,
+    var(--color-muted-foreground) 55%,
+    transparent
+  );
 }
