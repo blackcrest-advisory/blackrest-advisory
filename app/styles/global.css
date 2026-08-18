@@ -177,6 +177,10 @@ body {
   );
 }
 
+.dashboard-shell {
+  background: var(--surface-glow), var(--color-background);
+}
+
 ::selection {
   background: color-mix(in srgb, var(--color-secondary) 28%, transparent);
   color: var(--color-foreground);

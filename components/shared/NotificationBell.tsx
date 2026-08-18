@@ -109,11 +109,13 @@ export function NotificationBell({
       <button
         ref={buttonRef}
         onClick={toggleDropdown}
-        className="relative rounded-full p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+        className="relative inline-flex h-9 w-9 items-center justify-center rounded-[var(--radius-control)] text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
+        aria-label="Open notifications"
+        aria-expanded={isOpen}
       >
         <Bell className="h-5 w-5" />
         {unreadCount > 0 && (
-          <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-destructive text-[10px] font-medium text-white">
+          <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-destructive text-[10px] font-medium text-destructive-foreground">
             {unreadCount > 9 ? "9+" : unreadCount}
           </span>
         )}
@@ -126,15 +128,15 @@ export function NotificationBell({
         contentClassName="before:right-4"
       >
         <div ref={dropdownRef}>
-          <div className="flex items-center justify-between border-b border-border px-4 py-2">
-            <span className="text-sm font-medium text-foreground">
+          <div className="flex items-center justify-between border-b border-border/80 px-4 py-3">
+            <span className="text-sm font-semibold text-foreground">
               Notifications
             </span>
             {unreadCount > 0 && (
               <button
                 onClick={handleMarkAllRead}
                 disabled={isPending}
-                className="text-xs text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+                className="flex items-center gap-1 text-xs font-medium text-muted-foreground transition-colors hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
               >
                 <CheckCheck className="h-3 w-3" />
                 Mark all read
@@ -163,7 +165,7 @@ export function NotificationBell({
                       }
                       setIsOpen(false);
                     }}
-                    className="block"
+                    className="block rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
                   >
                     <div className="flex items-start gap-3">
                       <div className="flex-1 min-w-0">
@@ -192,11 +194,11 @@ export function NotificationBell({
             </ul>
           )}
 
-          <div className="border-t border-border px-4 py-2">
+          <div className="border-t border-border/80 px-4 py-3">
             <Link
               href={basePath}
               onClick={() => setIsOpen(false)}
-              className="block text-center text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="block text-center text-sm font-medium text-muted-foreground transition-colors hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
             >
               View all notifications
             </Link>

@@ -59,7 +59,7 @@ export default function DashboardMobileSidebar({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
-        className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm lg:hidden"
+        className="fixed inset-0 z-40 bg-navy-deep/60 backdrop-blur-sm lg:hidden"
         onClick={onClose}
       />
 
@@ -69,14 +69,14 @@ export default function DashboardMobileSidebar({
         animate={{ x: 0 }}
         exit={{ x: "-100%" }}
         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-        className="fixed left-0 top-0 z-50 flex h-full w-[280px] flex-col bg-card shadow-2xl lg:hidden"
+        className="fixed left-0 top-0 z-50 flex h-full w-[280px] flex-col border-r border-border/70 bg-card shadow-[var(--shadow-overlay)] lg:hidden"
       >
         {/*===== Header =====*/}
         <div className="flex items-center justify-between border-b border-border/60 px-4 py-4">
           <Logo />
           <button
             onClick={onClose}
-            className="rounded-lg p-2 text-foreground transition-colors hover:bg-muted"
+            className="rounded-[var(--radius-control)] p-2 text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
             aria-label="Close sidebar"
           >
             <X className="h-5 w-5" />
@@ -87,14 +87,16 @@ export default function DashboardMobileSidebar({
         <nav className="dashboard-nav-scroll flex-1 space-y-6 overflow-y-auto px-3 py-5">
           {navGroups.map((group) => (
             <div key={group.label} className="space-y-1">
-              <p className="px-3 pb-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">{group.label}</p>
+              <p className="px-3 pb-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                {group.label}
+              </p>
               {group.items.map((item) => (
-              <DashboardSidebarItems
-                key={item.href}
-                item={item}
-                isActive={isNavItemActive(pathname, item.href)}
-                isCollapsed={false}
-              />
+                <DashboardSidebarItems
+                  key={item.href}
+                  item={item}
+                  isActive={isNavItemActive(pathname, item.href)}
+                  isCollapsed={false}
+                />
               ))}
             </div>
           ))}
