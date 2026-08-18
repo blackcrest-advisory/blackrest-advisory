@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils/utils";
 
 interface SwitchProps {
@@ -16,6 +16,8 @@ export const Switch = ({
   disabled = false,
   className = "",
 }: SwitchProps) => {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <button
       type="button"
@@ -32,7 +34,11 @@ export const Switch = ({
     >
       <motion.span
         animate={{ x: checked ? 24 : 4 }}
-        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+        transition={
+          shouldReduceMotion
+            ? { duration: 0.01 }
+            : { type: "spring", stiffness: 500, damping: 30 }
+        }
         className="absolute left-0 h-4 w-4 rounded-full bg-white shadow-[0_1px_2px_rgb(15_23_42/0.25)]"
       />
     </button>

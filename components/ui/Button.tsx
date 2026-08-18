@@ -51,7 +51,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
 
     const variantStyles = {
       primary:
-        "bg-secondary text-secondary-foreground shadow-[0_1px_2px_rgb(11_26_48/0.16),inset_0_1px_0_rgb(255_255_255/0.28)] hover:-translate-y-px hover:bg-secondary/90 hover:shadow-[0_10px_20px_rgb(201_168_76/0.2)]",
+        "bg-secondary text-secondary-foreground shadow-[var(--shadow-action)] hover:-translate-y-px hover:bg-secondary/90 hover:shadow-[var(--shadow-action-hover)]",
       secondary: "bg-primary text-primary-foreground shadow-sm hover:-translate-y-px hover:bg-primary/90 hover:shadow-md",
       outline:
         "border border-border bg-card text-foreground shadow-[inset_0_1px_0_rgb(255_255_255/0.22)] hover:border-secondary/50 hover:bg-secondary/8 hover:text-secondary",

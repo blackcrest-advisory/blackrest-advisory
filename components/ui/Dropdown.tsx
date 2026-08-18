@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactNode } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 interface DropdownProps {
   isOpen: boolean;
@@ -20,6 +20,7 @@ const Dropdown = ({
   contentClassName = "before:left-4",
   align = "start",
 }: DropdownProps) => {
+  const shouldReduceMotion = useReducedMotion();
   const alignClasses = {
     start: "left-0",
     center: "left-1/2 -translate-x-1/2",
@@ -31,11 +32,11 @@ const Dropdown = ({
       {isOpen && (
         <motion.div
           key="dropdown"
-          initial={{ opacity: 0, y: 8, scale: 0.98 }}
+          initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 8, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 6, scale: 0.98 }}
+          exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 6, scale: 0.98 }}
           transition={{
-            duration: 0.2,
+            duration: shouldReduceMotion ? 0.01 : 0.2,
             ease: [0.25, 0.8, 0.25, 1],
           }}
           className={`absolute z-50 w-56 origin-top ${alignClasses[align]} ${className}`}

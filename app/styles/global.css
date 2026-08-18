@@ -34,6 +34,12 @@
 
   --color-destructive: #b3261e;
   --color-destructive-foreground: #ffffff;
+  --color-success: #237a57;
+  --color-success-foreground: #ffffff;
+  --color-warning: #9a6416;
+  --color-warning-foreground: #ffffff;
+  --color-info: #2563a7;
+  --color-info-foreground: #ffffff;
 
   --gradient-gold: linear-gradient(
     135deg,
@@ -59,6 +65,10 @@
   --shadow-overlay: 0 30px 70px rgb(15 23 42 / 0.22);
   --shadow-gold-glow:
     0 0 0 1px rgb(166 124 39 / 0.15), 0 8px 24px rgb(166 124 39 / 0.12);
+  --shadow-control-inset: inset 0 1px 1px rgb(15 23 42 / 0.03);
+  --shadow-action:
+    0 1px 2px rgb(10 22 40 / 0.16), inset 0 1px 0 rgb(255 255 255 / 0.28);
+  --shadow-action-hover: 0 10px 20px rgb(166 124 39 / 0.2);
 }
 
 .dark {
@@ -92,6 +102,12 @@
 
   --color-destructive: #f0554a;
   --color-destructive-foreground: #ffffff;
+  --color-success: #4fc18a;
+  --color-success-foreground: #06121d;
+  --color-warning: #e2ad58;
+  --color-warning-foreground: #06121d;
+  --color-info: #75b5f5;
+  --color-info-foreground: #06121d;
 
   --gradient-gold: linear-gradient(
     135deg,
@@ -113,6 +129,10 @@
   --shadow-overlay: 0 32px 80px rgb(0 0 0 / 0.5);
   --shadow-gold-glow:
     0 0 0 1px rgb(212 184 106 / 0.18), 0 8px 28px rgb(212 184 106 / 0.14);
+  --shadow-control-inset: inset 0 1px 1px rgb(0 0 0 / 0.16);
+  --shadow-action:
+    0 1px 2px rgb(0 0 0 / 0.32), inset 0 1px 0 rgb(255 255 255 / 0.18);
+  --shadow-action-hover: 0 10px 22px rgb(0 0 0 / 0.26);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));

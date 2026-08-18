@@ -32,7 +32,7 @@ export const Avatar = ({
   return (
     <div
       className={cn(
-        "flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-secondary/20 bg-secondary/12 font-semibold text-secondary shadow-[inset_0_1px_0_rgb(255_255_255/0.3)]",
+        "flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-secondary/20 bg-secondary/12 font-semibold text-secondary shadow-[var(--shadow-control-inset)]",
         sizeStyles[size],
         className,
       )}

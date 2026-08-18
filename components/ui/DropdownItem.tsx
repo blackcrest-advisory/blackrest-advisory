@@ -29,9 +29,12 @@ const DropdownItem = ({
     py-2.5
     text-sm
     font-medium
-    transition-all
+    transition-[background-color,color,transform]
     duration-150
-    rounded-lg
+    rounded-[calc(var(--radius-control)-0.0625rem)]
+    focus-visible:outline-none
+    focus-visible:ring-2
+    focus-visible:ring-ring/50
 
     ${
       danger
@@ -70,7 +73,7 @@ const DropdownItem = ({
 
   if (href) {
     return (
-      <Link href={href} className={styles}>
+      <Link href={href} className={styles} onClick={onClick}>
         {content}
       </Link>
     );
@@ -80,7 +83,7 @@ const DropdownItem = ({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`${styles} w-full text-left cursor-pointer`}
+      className={`${styles} w-full cursor-pointer text-left disabled:cursor-not-allowed disabled:opacity-50`}
     >
       {content}
     </button>

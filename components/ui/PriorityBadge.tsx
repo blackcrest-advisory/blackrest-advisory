@@ -8,9 +8,9 @@ interface PriorityBadgeProps {
 
 const priorityStyles: Record<ProjectPriority, string> = {
   low: "border-border bg-muted/70 text-body",
-  medium: "bg-blue-500/15 text-blue-600 border-blue-500/30",
-  high: "bg-orange-500/15 text-orange-600 border-orange-500/30",
-  critical: "bg-red-500/15 text-red-600 border-red-500/30",
+  medium: "border-info/30 bg-info/15 text-info",
+  high: "border-warning/30 bg-warning/15 text-warning",
+  critical: "border-destructive/30 bg-destructive/15 text-destructive",
 };
 
 export const PriorityBadge = ({

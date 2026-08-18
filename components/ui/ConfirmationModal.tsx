@@ -37,7 +37,7 @@ export default function ConfirmationModal({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black/50" />
+          <div className="fixed inset-0 bg-navy-deep/60 backdrop-blur-[2px]" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
@@ -51,15 +51,17 @@ export default function ConfirmationModal({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-[var(--radius-surface)] border border-border/80 bg-card p-6 shadow-[var(--shadow-overlay)] transition-all">
+              <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-[var(--radius-surface)] border border-border/80 bg-card p-6 shadow-[var(--shadow-overlay)] transition-all sm:p-7">
                 <Dialog.Title
                   as="h3"
-                  className="text-lg font-semibold text-foreground"
+                  className="text-lg font-semibold tracking-[-0.015em] text-heading"
                 >
                   {title}
                 </Dialog.Title>
                 <div className="mt-2">
-                  <p className="text-sm text-muted-foreground">{description}</p>
+                  <p className="max-w-prose text-sm leading-6 text-muted-foreground">
+                    {description}
+                  </p>
                 </div>
                 <div className="mt-6 flex justify-end gap-3">
                   <Button

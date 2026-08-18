@@ -9,29 +9,29 @@ interface StatusBadgeProps {
 const statusStyles: Record<string, string> = {
   // ---- Project statuses ----
   active: "bg-secondary/15 text-secondary border-secondary/30",
-  completed: "bg-green-500/15 text-green-600 border-green-500/30",
-  "on-hold": "bg-yellow-500/15 text-yellow-600 border-yellow-500/30",
-  planning: "bg-blue-500/15 text-blue-600 border-blue-500/30",
+  completed: "border-success/30 bg-success/15 text-success",
+  "on-hold": "border-warning/30 bg-warning/15 text-warning",
+  planning: "border-info/30 bg-info/15 text-info",
   "in-review": "bg-purple-500/15 text-purple-600 border-purple-500/30",
 
   // ---- Brief statuses (exact match) ----
-  SUBMITTED: "bg-blue-500/15 text-blue-600 border-blue-500/30",
-  REVIEWING: "bg-yellow-500/15 text-yellow-600 border-yellow-500/30",
-  APPROVED: "bg-green-500/15 text-green-600 border-green-500/30",
+  SUBMITTED: "border-info/30 bg-info/15 text-info",
+  REVIEWING: "border-warning/30 bg-warning/15 text-warning",
+  APPROVED: "border-success/30 bg-success/15 text-success",
   IN_PROGRESS: "bg-purple-500/15 text-purple-600 border-purple-500/30",
-  REJECTED: "bg-red-500/15 text-red-600 border-red-500/30",
+  REJECTED: "border-destructive/30 bg-destructive/15 text-destructive",
 
   // ---- Brief statuses (lowercase) ----
-  submitted: "bg-blue-500/15 text-blue-600 border-blue-500/30",
-  reviewing: "bg-yellow-500/15 text-yellow-600 border-yellow-500/30",
-  approved: "bg-green-500/15 text-green-600 border-green-500/30",
+  submitted: "border-info/30 bg-info/15 text-info",
+  reviewing: "border-warning/30 bg-warning/15 text-warning",
+  approved: "border-success/30 bg-success/15 text-success",
   in_progress: "bg-purple-500/15 text-purple-600 border-purple-500/30",
-  rejected: "bg-red-500/15 text-red-600 border-red-500/30",
+  rejected: "border-destructive/30 bg-destructive/15 text-destructive",
 
   // ---- Alternative spellings ----
-  under_review: "bg-yellow-500/15 text-yellow-600 border-yellow-500/30",
+  under_review: "border-warning/30 bg-warning/15 text-warning",
   assigned: "bg-purple-500/15 text-purple-600 border-purple-500/30",
-  closed: "bg-slate-500/15 text-slate-700 border-slate-500/30",
+  closed: "border-border bg-muted text-body",
 };
 
 //===== Human‑readable labels =====//
@@ -67,7 +67,7 @@ export const StatusBadge = ({ status, className = "" }: StatusBadgeProps) => {
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-semibold",
+        "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold",
         statusStyles[styleKey] ?? "bg-muted/15 text-foreground border-muted/30",
         className,
       )}

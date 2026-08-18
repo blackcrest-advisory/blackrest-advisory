@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { NavItem } from "@/types/navigations";
 import { useSidebarStore } from "@/store/sidebarStore";
+import { cn } from "@/lib/utils/utils";
 
 interface SidebarItemProps {
   item: NavItem;
@@ -23,14 +24,12 @@ export default function DashboardSidebarItems({
   return (
     <Link
       href={item.href}
-      className={`
-        relative flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all duration-200
-        hover:bg-muted/70 ${isCollapsed ? "justify-center" : ""}
-      `}
-      style={{
-        color: isActive ? "var(--color-gold)" : "var(--color-body)",
-        backgroundColor: isActive ? "rgba(201,168,76,0.08)" : "transparent",
-      }}
+      className={cn(
+        "relative flex items-center gap-3 rounded-[var(--radius-control)] px-3 py-2.5 text-body transition-[background-color,color,transform] duration-200 hover:bg-muted/70 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50",
+        isCollapsed && "justify-center",
+        isActive && "bg-secondary/10 font-semibold text-secondary",
+      )}
+      aria-current={isActive ? "page" : undefined}
     >
       <Icon className="shrink-0" />
 
@@ -50,8 +49,7 @@ export default function DashboardSidebarItems({
       {isActive && (
         <motion.div
           layoutId="activeIndicator"
-          className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-6 rounded-r"
-          style={{ backgroundColor: "var(--color-gold)" }}
+          className="absolute left-0 top-1/2 h-6 w-0.5 -translate-y-1/2 rounded-r bg-secondary"
           transition={{ type: "spring", stiffness: 500, damping: 30 }}
         />
       )}

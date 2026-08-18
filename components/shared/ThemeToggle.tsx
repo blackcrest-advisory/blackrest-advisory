@@ -51,7 +51,8 @@ export default function ThemeToggle() {
     <button
       onClick={toggleTheme}
       className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-[var(--radius-control)] border border-transparent text-body transition-[background-color,border-color,color,transform] duration-200 hover:-translate-y-px hover:border-border hover:bg-muted hover:text-secondary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-secondary/10"
-      aria-label="Toggle theme"
+      aria-label={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} theme`}
+      title={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} theme`}
     >
       {resolvedTheme === "dark" ? (
         <SunIcon className="h-5 w-5" />
