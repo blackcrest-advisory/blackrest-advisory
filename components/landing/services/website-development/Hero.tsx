@@ -1,104 +1,1465 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { FiCode, FiZap } from "react-icons/fi";
+//===== imports =====//
+import { motion, useReducedMotion } from "framer-motion";
+import {
+  Activity,
+  ArrowRight,
+  Braces,
+  Check,
+  Code2,
+  Cpu,
+  Database,
+  Gauge,
+  Layers3,
+  Network,
+  Server,
+  Sparkles,
+  Zap,
+} from "lucide-react";
+
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { IMAGE } from "@/constants/imagesConfig";
-import { fadeInUp, scaleIn, slideInLeft } from "@/lib/utils/animations";
+
+import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
+
+//==============================================================//
+// CONTENT
+//==============================================================//
+
+const technologies = [
+  "NEXT.JS",
+  "REACT",
+  "TYPESCRIPT",
+  "PERFORMANCE",
+  "SCALABILITY",
+];
+
+const architectureNodes = [
+  {
+    number: "01",
+    title: "Experience",
+    subtitle: "Interface & UX",
+    icon: Layers3,
+  },
+  {
+    number: "02",
+    title: "Application",
+    subtitle: "Next.js / React",
+    icon: Code2,
+  },
+  {
+    number: "03",
+    title: "Services",
+    subtitle: "APIs & Logic",
+    icon: Server,
+  },
+  {
+    number: "04",
+    title: "Data",
+    subtitle: "Storage & Systems",
+    icon: Database,
+  },
+];
+
+//==============================================================//
+// WEBSITE DEVELOPMENT HERO
+//==============================================================//
 
 const Hero = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <Section className="relative overflow-hidden bg-background">
-      {/* Subtle background glow */}
-      <div className="absolute inset-0 -z-10 opacity-30">
-        <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-secondary/5 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
+    <Section
+      className="
+        relative
+        isolate
+        overflow-hidden
+        bg-navy-deep
+        py-0
+        text-white
+      "
+    >
+      {/* ====================================================== */}
+      {/* BLUEPRINT BACKGROUND                                  */}
+      {/* ====================================================== */}
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute inset-0
+          -z-30
+        "
+      >
+        {/* technical grid */}
+        <div
+          className="
+            absolute inset-0
+            opacity-[0.12]
+            [background-image:linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)]
+            [background-size:64px_64px]
+          "
+        />
+
+        {/* micro grid */}
+        <div
+          className="
+            absolute inset-0
+            opacity-[0.05]
+            [background-image:radial-gradient(rgba(255,255,255,0.65)_0.75px,transparent_0.75px)]
+            [background-size:16px_16px]
+          "
+        />
+
+        {/* gold ambient field */}
+        <div
+          className="
+            absolute
+            -left-32 top-[12%]
+            h-[420px] w-[420px]
+            rounded-full
+            bg-gold-light/[0.08]
+            blur-[150px]
+          "
+        />
+
+        {/* lower blue ambience */}
+        <div
+          className="
+            absolute
+            -right-40 bottom-[-80px]
+            h-[500px] w-[500px]
+            rounded-full
+            bg-white/[0.035]
+            blur-[160px]
+          "
+        />
+
+        {/* architecture guides */}
+        <div
+          className="
+            absolute
+            left-[7%] top-0
+            h-full w-px
+            bg-white/[0.06]
+          "
+        />
+
+        <div
+          className="
+            absolute
+            right-[7%] top-0
+            h-full w-px
+            bg-white/[0.06]
+          "
+        />
+
+        <div
+          className="
+            absolute
+            left-0 right-0
+            top-[72%]
+            h-px
+            bg-white/[0.055]
+          "
+        />
       </div>
 
       <Container>
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          {/*===== Left content =====*/}
-          <motion.div
-            variants={slideInLeft}
-            initial="hidden"
-            animate="visible"
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center gap-2 rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary">
-              <FiZap className="h-4 w-4" />
-              <span>Website Development</span>
-            </div>
-            <h1 className="mt-6 text-3xl font-bold tracking-tight text-foreground lg:text-4xl">
-              Build a <span className="text-secondary">Digital Foundation</span>{" "}
-              That Drives Growth
-            </h1>
-            <p className="mt-6 max-w-lg text-lg text-muted-foreground">
-              From corporate websites to custom web applications – we design,
-              develop, and optimise digital experiences that convert visitors
-              into clients.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button href="#contact" size="md">
-                Start Your Project
-              </Button>
-              <Button variant="outline" size="md" href="#work">
-                See Our Work
-              </Button>
-            </div>
-            <div className="mt-8 flex items-center gap-6 text-sm text-muted-foreground">
-              <span className="flex items-center gap-1">
-                <FiCode className="h-4 w-4 text-secondary" />
-                Next.js / React
-              </span>
-              <span className="flex items-center gap-1">
-                <FiZap className="h-4 w-4 text-secondary" />
-                Fast & Scalable
-              </span>
-            </div>
-          </motion.div>
+        {/* ==================================================== */}
+        {/* TOP SYSTEM BAR                                      */}
+        {/* ==================================================== */}
 
-          {/*===== Right image =====*/}
-          <motion.div
-            variants={scaleIn}
-            initial="hidden"
-            animate="visible"
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
+        <div
+          className="
+            flex
+            flex-col
+            gap-3
+            border-x border-b
+            border-white/10
+            px-4 py-3
+            sm:flex-row
+            sm:items-center
+            sm:justify-between
+            sm:px-6
+            lg:px-8
+          "
+        >
+          <div
+            className="
+              flex
+              items-center
+              gap-3
+            "
           >
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-              <Image
-                src={IMAGE.webDevHero}
-                alt="Website development illustration"
-                width={800}
-                height={600}
-                className="h-auto w-full object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
-            </div>
-            {/*===== Floating badge =====*/}
-            <motion.div
-              variants={fadeInUp}
-              initial="hidden"
-              animate="visible"
-              transition={{ delay: 0.4 }}
-              className="absolute -bottom-4 -right-4 rounded-xl border border-border bg-card p-4 shadow-lg"
+            <span
+              className="
+                relative
+                flex h-2 w-2
+              "
             >
-              <span className="text-sm font-semibold text-foreground">
-                +200%
+              {!shouldReduceMotion && (
+                <motion.span
+                  className="
+                    absolute inset-0
+                    rounded-full
+                    bg-gold-light
+                  "
+                  animate={{
+                    scale: [1, 2.4, 1],
+                    opacity: [0.8, 0, 0.8],
+                  }}
+                  transition={{
+                    duration: 2.4,
+                    repeat: Infinity,
+                  }}
+                />
+              )}
+
+              <span
+                className="
+                  relative
+                  h-2 w-2
+                  rounded-full
+                  bg-gold-light
+                "
+              />
+            </span>
+
+            <span
+              className="
+                font-mono
+                text-[7px]
+                font-semibold
+                uppercase
+                tracking-[0.18em]
+                text-gold-light
+              "
+            >
+              Web Engineering System
+            </span>
+          </div>
+
+          <div
+            className="
+              flex
+              items-center
+              gap-5
+            "
+          >
+            <span
+              className="
+                font-mono
+                text-[7px]
+                uppercase
+                tracking-[0.15em]
+                text-white/30
+              "
+            >
+              Blackcrest / Web Development
+            </span>
+
+            <span
+              className="
+                hidden
+                font-mono
+                text-[7px]
+                font-semibold
+                uppercase
+                tracking-[0.14em]
+                text-white/45
+                sm:block
+              "
+            >
+              Build / 01
+            </span>
+          </div>
+        </div>
+
+        {/* ==================================================== */}
+        {/* HERO                                                */}
+        {/* ==================================================== */}
+
+        <div
+          className="
+            grid
+            min-w-0
+            border-x
+            border-white/10
+            lg:min-h-[720px]
+            lg:grid-cols-[minmax(0,0.92fr)_minmax(500px,1.08fr)]
+          "
+        >
+          {/* ================================================== */}
+          {/* LEFT CONTENT                                      */}
+          {/* ================================================== */}
+
+          <motion.div
+            variants={shouldReduceMotion ? undefined : staggerContainer}
+            initial={shouldReduceMotion ? undefined : "hidden"}
+            animate={shouldReduceMotion ? undefined : "visible"}
+            className="
+              relative
+              flex
+              min-w-0
+              flex-col
+              justify-center
+              border-b
+              border-white/10
+              px-5 py-14
+              sm:px-7
+              sm:py-16
+              lg:border-b-0
+              lg:border-r
+              lg:px-8
+              lg:py-20
+              xl:px-10
+            "
+          >
+            {/* eyebrow */}
+            <motion.div
+              variants={shouldReduceMotion ? undefined : fadeInUp}
+              className="
+                flex
+                flex-wrap
+                items-center
+                gap-3
+              "
+            >
+              <div
+                className="
+                  flex h-8 w-8
+                  items-center
+                  justify-center
+                  border border-gold-light/20
+                  bg-gold-light/[0.05]
+                  text-gold-light
+                "
+              >
+                <Braces className="h-3.5 w-3.5" />
+              </div>
+
+              <span
+                className="
+                  font-mono
+                  text-[8px]
+                  font-semibold
+                  uppercase
+                  tracking-[0.2em]
+                  text-gold-light
+                "
+              >
+                Website Development
               </span>
-              <span className="block text-xs text-muted-foreground">
-                Average traffic growth
+
+              <span
+                className="
+                  h-px w-10
+                  bg-gold-light/35
+                "
+              />
+
+              <span
+                className="
+                  font-mono
+                  text-[7px]
+                  uppercase
+                  tracking-[0.15em]
+                  text-white/30
+                "
+              >
+                Engineering Practice
               </span>
             </motion.div>
+
+            {/* ================================================== */}
+            {/* HEADLINE                                          */}
+            {/* ================================================== */}
+
+            <motion.div
+              variants={shouldReduceMotion ? undefined : fadeInUp}
+              className="mt-8"
+            >
+              <h1
+                className="
+                  max-w-[780px]
+                  text-[42px]
+                  font-semibold
+                  leading-[0.96]
+                  tracking-[-0.065em]
+                  text-white
+                  sm:text-[56px]
+                  lg:text-[60px]
+                  xl:text-[70px]
+                "
+              >
+                We engineer digital
+                <span
+                  className="
+                    block
+                    text-gold-light
+                  "
+                >
+                  infrastructure built to perform.
+                </span>
+              </h1>
+
+              <p
+                className="
+                  mt-6
+                  max-w-xl
+                  text-sm
+                  leading-7
+                  text-white/50
+                  sm:text-base
+                  sm:leading-8
+                "
+              >
+                From high-performance corporate websites to custom web
+                applications, Blackcrest designs and engineers digital platforms
+                built for speed, clarity, scalability, and commercial growth.
+              </p>
+            </motion.div>
+
+            {/* ================================================== */}
+            {/* CTA                                               */}
+            {/* ================================================== */}
+
+            <motion.div
+              variants={shouldReduceMotion ? undefined : fadeInUp}
+              className="
+                mt-8
+                flex
+                flex-col
+                gap-3
+                sm:flex-row
+              "
+            >
+              <Button
+                href="#contact"
+                size="md"
+                className="
+                  group
+                  w-full
+                  !rounded-md
+                  sm:w-auto
+                "
+              >
+                Start Your Project
+                <ArrowRight
+                  className="
+                    h-4 w-4
+                    transition-transform
+                    duration-300
+                    group-hover:translate-x-1
+                  "
+                />
+              </Button>
+
+              <Button
+                variant="outline"
+                size="md"
+                href="#work"
+                className="
+                  w-full
+                  !rounded-md
+                  border-white/20
+                  text-white
+                  hover:bg-white/5
+                  sm:w-auto
+                "
+              >
+                See Our Work
+              </Button>
+            </motion.div>
+
+            {/* ================================================== */}
+            {/* ENGINEERING PRINCIPLES                            */}
+            {/* ================================================== */}
+
+            <motion.div
+              variants={shouldReduceMotion ? undefined : fadeInUp}
+              className="
+                mt-9
+                grid
+                grid-cols-2
+                border-y
+                border-white/10
+              "
+            >
+              <div
+                className="
+                  border-r
+                  border-white/10
+                  py-4
+                  pr-4
+                "
+              >
+                <div
+                  className="
+                    flex
+                    items-center
+                    gap-2
+                  "
+                >
+                  <Code2 className="h-3.5 w-3.5 text-gold-light" />
+
+                  <span
+                    className="
+                      font-mono
+                      text-[7px]
+                      font-semibold
+                      uppercase
+                      tracking-[0.15em]
+                      text-white/35
+                    "
+                  >
+                    Technology
+                  </span>
+                </div>
+
+                <p
+                  className="
+                    mt-2
+                    text-xs
+                    font-medium
+                    text-white/75
+                  "
+                >
+                  Next.js / React
+                </p>
+              </div>
+
+              <div className="py-4 pl-4">
+                <div
+                  className="
+                    flex
+                    items-center
+                    gap-2
+                  "
+                >
+                  <Zap className="h-3.5 w-3.5 text-gold-light" />
+
+                  <span
+                    className="
+                      font-mono
+                      text-[7px]
+                      font-semibold
+                      uppercase
+                      tracking-[0.15em]
+                      text-white/35
+                    "
+                  >
+                    Engineering
+                  </span>
+                </div>
+
+                <p
+                  className="
+                    mt-2
+                    text-xs
+                    font-medium
+                    text-white/75
+                  "
+                >
+                  Fast & Scalable
+                </p>
+              </div>
+            </motion.div>
+
+            {/* ================================================== */}
+            {/* TECHNOLOGY RAIL                                  */}
+            {/* ================================================== */}
+
+            <motion.div
+              variants={shouldReduceMotion ? undefined : fadeInUp}
+              className="
+                mt-7
+                flex
+                flex-wrap
+                items-center
+                gap-x-4
+                gap-y-3
+              "
+            >
+              {technologies.map((technology, index) => (
+                <div
+                  key={technology}
+                  className="
+                      flex
+                      items-center
+                      gap-3
+                    "
+                >
+                  {index > 0 && (
+                    <span
+                      className="
+                          hidden
+                          h-3 w-px
+                          bg-white/10
+                          sm:block
+                        "
+                    />
+                  )}
+
+                  <span
+                    className="
+                        font-mono
+                        text-[7px]
+                        font-semibold
+                        uppercase
+                        tracking-[0.14em]
+                        text-white/30
+                      "
+                  >
+                    {technology}
+                  </span>
+                </div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* ================================================== */}
+          {/* RIGHT / LIVE ARCHITECTURE                         */}
+          {/* ================================================== */}
+
+          <motion.div
+            initial={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    opacity: 0,
+                    x: 35,
+                  }
+            }
+            animate={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    opacity: 1,
+                    x: 0,
+                  }
+            }
+            transition={{
+              duration: 0.9,
+              delay: 0.15,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="
+              relative
+              min-h-[620px]
+              overflow-hidden
+              px-4 py-8
+              sm:px-6
+              sm:py-10
+              lg:min-h-0
+              lg:px-8
+              lg:py-12
+            "
+          >
+            {/* ================================================ */}
+            {/* VISUAL AMBIENCE                                 */}
+            {/* ================================================ */}
+
+            <div
+              aria-hidden="true"
+              className="
+                pointer-events-none
+                absolute
+                left-1/2 top-1/2
+                h-[420px] w-[420px]
+                -translate-x-1/2
+                -translate-y-1/2
+                rounded-full
+                bg-gold-light/[0.07]
+                blur-[120px]
+              "
+            />
+
+            {/* ================================================ */}
+            {/* SYSTEM FRAME                                    */}
+            {/* ================================================ */}
+
+            <div
+              className="
+                relative
+                mx-auto
+                flex
+                h-full
+                min-h-[540px]
+                w-full
+                max-w-[650px]
+                flex-col
+                border border-white/10
+                bg-white/[0.018]
+              "
+            >
+              {/* ============================================== */}
+              {/* ANIMATED BORDER BEAM                          */}
+              {/* ============================================== */}
+
+              {!shouldReduceMotion && (
+                <>
+                  <motion.span
+                    aria-hidden="true"
+                    className="
+                      absolute
+                      left-0 top-0
+                      z-20
+                      h-px w-28
+                      bg-gradient-to-r
+                      from-transparent
+                      via-gold-light
+                      to-transparent
+                      shadow-[0_0_16px_rgba(232,207,143,0.4)]
+                    "
+                    animate={{
+                      x: ["-100%", "600%"],
+                    }}
+                    transition={{
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "linear",
+                      repeatDelay: 1,
+                    }}
+                  />
+
+                  <motion.span
+                    aria-hidden="true"
+                    className="
+                      absolute
+                      bottom-0 right-0
+                      z-20
+                      h-px w-28
+                      bg-gradient-to-r
+                      from-transparent
+                      via-gold-light
+                      to-transparent
+                      shadow-[0_0_16px_rgba(232,207,143,0.4)]
+                    "
+                    animate={{
+                      x: ["100%", "-600%"],
+                    }}
+                    transition={{
+                      duration: 7,
+                      repeat: Infinity,
+                      ease: "linear",
+                      repeatDelay: 0.5,
+                    }}
+                  />
+                </>
+              )}
+
+              {/* ============================================== */}
+              {/* FRAME HEADER                                  */}
+              {/* ============================================== */}
+
+              <div
+                className="
+                  flex
+                  items-center
+                  justify-between
+                  gap-4
+                  border-b border-white/10
+                  px-4 py-3
+                  sm:px-5
+                "
+              >
+                <div
+                  className="
+                    flex
+                    items-center
+                    gap-3
+                  "
+                >
+                  <Cpu className="h-3.5 w-3.5 text-gold-light" />
+
+                  <span
+                    className="
+                      font-mono
+                      text-[7px]
+                      font-semibold
+                      uppercase
+                      tracking-[0.16em]
+                      text-white/45
+                    "
+                  >
+                    Architecture Runtime
+                  </span>
+                </div>
+
+                <div
+                  className="
+                    flex
+                    items-center
+                    gap-2
+                  "
+                >
+                  <span
+                    className="
+                      h-1.5 w-1.5
+                      rounded-full
+                      bg-success
+                    "
+                  />
+
+                  <span
+                    className="
+                      font-mono
+                      text-[7px]
+                      font-semibold
+                      uppercase
+                      tracking-[0.14em]
+                      text-white/30
+                    "
+                  >
+                    Live
+                  </span>
+                </div>
+              </div>
+
+              {/* ============================================== */}
+              {/* ARCHITECTURE CANVAS                           */}
+              {/* ============================================== */}
+
+              <div
+                className="
+                  relative
+                  flex-1
+                  overflow-hidden
+                  px-4 py-8
+                  sm:px-6
+                "
+              >
+                {/* canvas grid */}
+                <div
+                  aria-hidden="true"
+                  className="
+                    absolute inset-0
+                    opacity-[0.1]
+                    [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)]
+                    [background-size:40px_40px]
+                  "
+                />
+
+                {/* ============================================ */}
+                {/* NETWORK SVG                                 */}
+                {/* ============================================ */}
+
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 600 430"
+                  preserveAspectRatio="none"
+                  className="
+                    pointer-events-none
+                    absolute
+                    inset-0
+                    h-full w-full
+                  "
+                >
+                  {/* static architecture */}
+                  <path
+                    d="
+                      M300 65
+                      L300 130
+                      M300 185
+                      L300 245
+                      M300 300
+                      L300 365
+                    "
+                    stroke="currentColor"
+                    strokeWidth="1"
+                    className="text-white/15"
+                  />
+
+                  <path
+                    d="
+                      M300 158
+                      L105 158
+                      M300 158
+                      L495 158
+                    "
+                    stroke="currentColor"
+                    strokeWidth="1"
+                    className="text-white/10"
+                  />
+
+                  <path
+                    d="
+                      M300 275
+                      L120 275
+                      M300 275
+                      L480 275
+                    "
+                    stroke="currentColor"
+                    strokeWidth="1"
+                    className="text-white/10"
+                  />
+
+                  {/* animated primary signal */}
+                  <motion.path
+                    d="
+                      M300 65
+                      L300 365
+                    "
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    className="text-gold-light"
+                    initial={
+                      shouldReduceMotion
+                        ? undefined
+                        : {
+                            pathLength: 0,
+                            opacity: 0,
+                          }
+                    }
+                    animate={
+                      shouldReduceMotion
+                        ? undefined
+                        : {
+                            pathLength: 1,
+                            opacity: [0.35, 1, 0.35],
+                          }
+                    }
+                    transition={{
+                      pathLength: {
+                        duration: 1.5,
+                        delay: 0.5,
+                      },
+                      opacity: {
+                        duration: 2.8,
+                        repeat: Infinity,
+                      },
+                    }}
+                  />
+
+                  {/* moving signal */}
+                  {!shouldReduceMotion && (
+                    <motion.circle
+                      r="4"
+                      fill="currentColor"
+                      className="text-gold-light"
+                      initial={{
+                        cx: 300,
+                        cy: 65,
+                      }}
+                      animate={{
+                        cy: [65, 365, 65],
+                      }}
+                      transition={{
+                        duration: 4.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    />
+                  )}
+                </svg>
+
+                {/* ============================================ */}
+                {/* NODES                                       */}
+                {/* ============================================ */}
+
+                <div
+                  className="
+                    relative z-10
+                    mx-auto
+                    flex
+                    h-full
+                    max-w-[430px]
+                    flex-col
+                    justify-between
+                    py-2
+                  "
+                >
+                  {architectureNodes.map((node, index) => {
+                    const Icon = node.icon;
+
+                    return (
+                      <motion.div
+                        key={node.title}
+                        initial={
+                          shouldReduceMotion
+                            ? undefined
+                            : {
+                                opacity: 0,
+                                scale: 0.92,
+                                y: 12,
+                              }
+                        }
+                        animate={
+                          shouldReduceMotion
+                            ? undefined
+                            : {
+                                opacity: 1,
+                                scale: 1,
+                                y: 0,
+                              }
+                        }
+                        transition={{
+                          duration: 0.55,
+                          delay: 0.45 + index * 0.18,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                        className="
+                            relative
+                            mx-auto
+                            w-full
+                            max-w-[320px]
+                          "
+                      >
+                        <div
+                          className="
+                              group
+                              relative
+                              flex
+                              items-center
+                              gap-4
+                              border border-white/15
+                              bg-navy-deep/85
+                              px-4 py-3.5
+                              backdrop-blur-md
+                              transition-all
+                              duration-300
+                              hover:border-gold-light/35
+                              hover:bg-navy-deep
+                            "
+                        >
+                          {/* number */}
+                          <span
+                            className="
+                                font-mono
+                                text-[7px]
+                                font-semibold
+                                text-gold-light/60
+                              "
+                          >
+                            {node.number}
+                          </span>
+
+                          {/* icon */}
+                          <div
+                            className="
+                                flex h-8 w-8
+                                shrink-0
+                                items-center
+                                justify-center
+                                border border-gold-light/20
+                                bg-gold-light/[0.04]
+                                text-gold-light
+                              "
+                          >
+                            <Icon className="h-3.5 w-3.5" />
+                          </div>
+
+                          {/* copy */}
+                          <div className="min-w-0 flex-1">
+                            <span
+                              className="
+                                  block
+                                  text-xs
+                                  font-semibold
+                                  text-white
+                                "
+                            >
+                              {node.title}
+                            </span>
+
+                            <span
+                              className="
+                                  mt-1
+                                  block
+                                  font-mono
+                                  text-[7px]
+                                  uppercase
+                                  tracking-[0.13em]
+                                  text-white/30
+                                "
+                            >
+                              {node.subtitle}
+                            </span>
+                          </div>
+
+                          {/* status */}
+                          <div
+                            className="
+                                flex
+                                items-center
+                                gap-1.5
+                              "
+                          >
+                            <Check className="h-3 w-3 text-success" />
+
+                            <span
+                              className="
+                                  hidden
+                                  font-mono
+                                  text-[6px]
+                                  font-semibold
+                                  uppercase
+                                  tracking-[0.12em]
+                                  text-white/25
+                                  sm:block
+                                "
+                            >
+                              Ready
+                            </span>
+                          </div>
+
+                          {/* active bottom signal */}
+                          <span
+                            aria-hidden="true"
+                            className="
+                                absolute
+                                bottom-0 left-0
+                                h-[2px] w-0
+                                bg-gold-light
+                                transition-all
+                                duration-500
+                                group-hover:w-full
+                              "
+                          />
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+
+                {/* ============================================ */}
+                {/* SIDE SIGNALS                                */}
+                {/* ============================================ */}
+
+                <motion.div
+                  initial={
+                    shouldReduceMotion
+                      ? undefined
+                      : {
+                          opacity: 0,
+                          x: -12,
+                        }
+                  }
+                  animate={
+                    shouldReduceMotion
+                      ? undefined
+                      : {
+                          opacity: 1,
+                          x: 0,
+                        }
+                  }
+                  transition={{
+                    delay: 1.1,
+                  }}
+                  className="
+                    absolute
+                    left-4 top-[31%]
+                    hidden
+                    items-center
+                    gap-2
+                    xl:flex
+                  "
+                >
+                  <Network className="h-3 w-3 text-gold-light/60" />
+
+                  <span
+                    className="
+                      font-mono
+                      text-[6px]
+                      font-semibold
+                      uppercase
+                      tracking-[0.14em]
+                      text-white/25
+                    "
+                  >
+                    Request
+                  </span>
+                </motion.div>
+
+                <motion.div
+                  initial={
+                    shouldReduceMotion
+                      ? undefined
+                      : {
+                          opacity: 0,
+                          x: 12,
+                        }
+                  }
+                  animate={
+                    shouldReduceMotion
+                      ? undefined
+                      : {
+                          opacity: 1,
+                          x: 0,
+                        }
+                  }
+                  transition={{
+                    delay: 1.25,
+                  }}
+                  className="
+                    absolute
+                    right-4 top-[58%]
+                    hidden
+                    items-center
+                    gap-2
+                    xl:flex
+                  "
+                >
+                  <span
+                    className="
+                      font-mono
+                      text-[6px]
+                      font-semibold
+                      uppercase
+                      tracking-[0.14em]
+                      text-white/25
+                    "
+                  >
+                    Response
+                  </span>
+
+                  <Activity className="h-3 w-3 text-gold-light/60" />
+                </motion.div>
+              </div>
+
+              {/* ============================================== */}
+              {/* PERFORMANCE FOOTER                            */}
+              {/* ============================================== */}
+
+              <div
+                className="
+                  grid
+                  grid-cols-3
+                  border-t
+                  border-white/10
+                "
+              >
+                <SystemMetric
+                  icon={Gauge}
+                  label="Performance"
+                  value="Optimised"
+                />
+
+                <SystemMetric
+                  icon={Network}
+                  label="Architecture"
+                  value="Scalable"
+                />
+
+                <SystemMetric
+                  icon={Sparkles}
+                  label="Experience"
+                  value="Refined"
+                />
+              </div>
+            </div>
+
+            {/* ================================================ */}
+            {/* FRAME DETAILS                                   */}
+            {/* ================================================ */}
+
+            <span
+              aria-hidden="true"
+              className="
+                absolute
+                left-1 top-1
+                h-5 w-5
+                border-l
+                border-t
+                border-gold-light/35
+              "
+            />
+
+            <span
+              aria-hidden="true"
+              className="
+                absolute
+                bottom-1 right-1
+                h-5 w-5
+                border-b
+                border-r
+                border-gold-light/35
+              "
+            />
           </motion.div>
         </div>
+
+        {/* ==================================================== */}
+        {/* BOTTOM ENGINEERING RAIL                             */}
+        {/* ==================================================== */}
+
+        <div
+          className="
+            grid
+            border-x border-t
+            border-white/10
+            sm:grid-cols-[minmax(0,1fr)_auto]
+            sm:items-center
+          "
+        >
+          <div
+            className="
+              flex
+              items-center
+              gap-3
+              px-4 py-4
+              sm:px-6
+              lg:px-8
+            "
+          >
+            <Code2 className="h-3.5 w-3.5 text-gold-light" />
+
+            <span
+              className="
+                font-mono
+                text-[7px]
+                font-semibold
+                uppercase
+                tracking-[0.15em]
+                text-white/35
+              "
+            >
+              Strategy → UX → Engineering → Performance
+            </span>
+          </div>
+
+          <div
+            className="
+              flex
+              items-center
+              gap-3
+              border-t border-white/10
+              px-4 py-4
+              sm:border-l
+              sm:border-t-0
+              sm:px-6
+            "
+          >
+            <span
+              className="
+                h-1.5 w-1.5
+                rounded-full
+                bg-success
+              "
+            />
+
+            <span
+              className="
+                whitespace-nowrap
+                font-mono
+                text-[7px]
+                font-semibold
+                uppercase
+                tracking-[0.14em]
+                text-white/30
+              "
+            >
+              Engineered for growth
+            </span>
+          </div>
+        </div>
       </Container>
+
+      {/* ====================================================== */}
+      {/* MOVING SCAN LINE                                     */}
+      {/* ====================================================== */}
+
+      {!shouldReduceMotion && (
+        <motion.div
+          aria-hidden="true"
+          className="
+            pointer-events-none
+            absolute
+            bottom-0 top-0
+            z-20
+            w-px
+            bg-gradient-to-b
+            from-transparent
+            via-gold-light/35
+            to-transparent
+          "
+          initial={{
+            left: "-2%",
+            opacity: 0,
+          }}
+          animate={{
+            left: "102%",
+            opacity: [0, 0.8, 0],
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "linear",
+            repeatDelay: 2,
+          }}
+        />
+      )}
     </Section>
   );
 };
 
 export default Hero;
+
+//==============================================================//
+// SYSTEM METRIC
+//==============================================================//
+
+function SystemMetric({
+  icon: Icon,
+  label,
+  value,
+}: {
+  icon: typeof Gauge;
+  label: string;
+  value: string;
+}) {
+  return (
+    <div
+      className="
+        min-w-0
+        border-r
+        border-white/10
+        px-3 py-3.5
+        last:border-r-0
+        sm:px-4
+      "
+    >
+      <div
+        className="
+          flex
+          items-center
+          gap-2
+        "
+      >
+        <Icon className="h-3 w-3 shrink-0 text-gold-light" />
+
+        <span
+          className="
+            truncate
+            font-mono
+            text-[6px]
+            font-semibold
+            uppercase
+            tracking-[0.13em]
+            text-white/25
+          "
+        >
+          {label}
+        </span>
+      </div>
+
+      <span
+        className="
+          mt-2
+          block
+          truncate
+          text-[10px]
+          font-medium
+          text-white/65
+        "
+      >
+        {value}
+      </span>
+    </div>
+  );
+}
