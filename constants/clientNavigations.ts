@@ -1,12 +1,15 @@
-import { Navigation, NavGroup, NavItem } from "@/types/navigations";
 import {
-  LayoutDashboard,
-  FolderOpen,
-  Files,
-  Receipt,
-  CreditCard,
-  Settings,
+  BadgeDollarSign,
+  ChartSpline,
+  FileArchive,
+  FolderKanban,
+  Landmark,
+  PanelsTopLeft,
+  ScrollText,
+  ShieldCheck,
 } from "lucide-react";
+
+import { Navigation, NavGroup, NavItem } from "@/types/navigations";
 
 export const profileMenu: Navigation[] = [
   {
@@ -30,27 +33,53 @@ export const clientNavGroups: NavGroup[] = [
   {
     label: "Workspace",
     items: [
-  { label: "Dashboard", href: "/client/dashboard", icon: LayoutDashboard },
-  { label: "Projects", href: "/client/dashboard/projects", icon: FolderOpen },
-  {
-    label: "Project Request",
-    href: "/client/dashboard/project-requests",
-    icon: FolderOpen,
-  },
+      {
+        label: "Dashboard",
+        href: "/client/dashboard",
+        icon: PanelsTopLeft,
+      },
+      {
+        label: "Projects",
+        href: "/client/dashboard/projects",
+        icon: FolderKanban,
+      },
+      {
+        label: "Project Request",
+        href: "/client/dashboard/project-requests",
+        icon: ChartSpline,
+      },
     ],
   },
+
   {
     label: "Manage",
     items: [
-  { label: "Files", href: "/client/dashboard/files", icon: Files },
-  { label: "Invoices", href: "/client/dashboard/invoices", icon: Receipt },
-  { label: "Payments", href: "/client/dashboard/payments", icon: CreditCard },
+      {
+        label: "Files",
+        href: "/client/dashboard/files",
+        icon: FileArchive,
+      },
+      {
+        label: "Invoices",
+        href: "/client/dashboard/invoices",
+        icon: ScrollText,
+      },
+      {
+        label: "Payments",
+        href: "/client/dashboard/payments",
+        icon: BadgeDollarSign,
+      },
     ],
   },
+
   {
     label: "Account",
     items: [
-  { label: "Settings", href: "/client/dashboard/settings", icon: Settings },
+      {
+        label: "Settings",
+        href: "/client/dashboard/settings",
+        icon: ShieldCheck,
+      },
     ],
   },
 ];
