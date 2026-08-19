@@ -39,6 +39,8 @@ export default function DashboardMainArea({
         className="
           relative
           flex-1
+          min-w-0
+          max-w-full
           overflow-y-auto
           overscroll-contain
         "
@@ -77,6 +79,7 @@ export default function DashboardMainArea({
             relative
             mx-auto
             w-full
+            min-w-0
             max-w-[1600px]
             px-4 py-5
 

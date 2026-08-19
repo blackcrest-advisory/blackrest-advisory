@@ -69,6 +69,7 @@ export default function DashboardLayout({
         className={`
           relative z-10
           flex h-screen
+          min-w-0
           flex-col
           transition-[margin]
           duration-300
