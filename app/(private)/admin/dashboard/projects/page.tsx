@@ -5,7 +5,7 @@ import { prisma } from "@/lib/db/client";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { ProjectStats } from "@/components/admin-dashboard/projects/ProjectStats";
-import { AdminProjectsTable } from "@/components/admin-dashboard/projects/AdminProjectsTable";
+import { AdminProjectsClient } from "@/components/admin-dashboard/projects/AdminProjectsClient";
 
 export default async function AdminProjectsPage() {
   const admin = await getAdminUser();
@@ -75,7 +75,7 @@ export default async function AdminProjectsPage() {
         </div>
 
         {/* Table */}
-        <AdminProjectsTable projects={projects} />
+        <AdminProjectsClient projects={projects} />
       </Container>
     </Section>
   );

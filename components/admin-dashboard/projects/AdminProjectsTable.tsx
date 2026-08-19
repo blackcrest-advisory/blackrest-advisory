@@ -26,7 +26,7 @@ interface ProjectProposal {
   };
 }
 
-interface Project {
+export interface AdminProject {
   id: string;
   title: string;
   status: string;
@@ -42,10 +42,14 @@ interface Project {
 }
 
 interface AdminProjectsTableProps {
-  projects: Project[];
+  projects: AdminProject[];
+  emptyMessage?: string;
 }
 
-export function AdminProjectsTable({ projects }: AdminProjectsTableProps) {
+export function AdminProjectsTable({
+  projects,
+  emptyMessage,
+}: AdminProjectsTableProps) {
   if (projects.length === 0) {
     return (
       <div className="rounded-lg border border-border bg-card py-16 text-center">
@@ -53,7 +57,8 @@ export function AdminProjectsTable({ projects }: AdminProjectsTableProps) {
           No projects yet
         </h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          Projects are automatically created when a client accepts a proposal.
+          {emptyMessage ??
+            "Projects are automatically created when a client accepts a proposal."}
         </p>
       </div>
     );
