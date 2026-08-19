@@ -9,6 +9,7 @@ import {
   Fingerprint,
   Gauge,
   Navigation,
+  ShieldCheck,
   Smartphone,
   Wifi,
   Zap,
@@ -27,42 +28,48 @@ const features = [
     number: "01",
     title: "Smooth Navigation",
     description:
-      "Clear flows and familiar gestures help users move through the product without thinking about the interface.",
+      "Clear flows and familiar gestures help users move naturally through the product.",
+    meta: "Interaction",
     icon: Navigation,
   },
   {
     number: "02",
     title: "Secure Auth",
     description:
-      "Authentication is designed to protect access without creating unnecessary friction.",
+      "Protected access without unnecessary friction between users and the product.",
+    meta: "Security",
     icon: Fingerprint,
   },
   {
     number: "03",
     title: "Fast Response",
     description:
-      "Efficient rendering, caching and data handling keep every interaction feeling immediate.",
+      "Efficient rendering and data handling keep interactions feeling immediate.",
+    meta: "Performance",
     icon: Zap,
   },
   {
     number: "04",
     title: "Offline Access",
     description:
-      "Important experiences can remain useful even when connectivity becomes unreliable.",
+      "Important experiences remain useful when connectivity becomes unreliable.",
+    meta: "Availability",
     icon: Wifi,
   },
   {
     number: "05",
     title: "Connected Data",
     description:
-      "Reliable APIs and synchronisation keep information current across sessions and devices.",
+      "Reliable APIs and synchronisation keep information current across sessions.",
+    meta: "Data",
     icon: Activity,
   },
   {
     number: "06",
     title: "Useful Analytics",
     description:
-      "Product insights help teams understand behavior and improve the experience after launch.",
+      "Meaningful product insights help teams understand behavior and improve.",
+    meta: "Intelligence",
     icon: BarChart3,
   },
 ];
@@ -90,18 +97,17 @@ const InsideEveryTap = () => {
 
         <div
           className="
-            flex
-            flex-col
-            gap-6
+            grid
+            gap-8
             border-b border-border
             pb-10
-            lg:flex-row
+            lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]
             lg:items-end
-            lg:justify-between
             lg:gap-16
+            lg:pb-14
           "
         >
-          <div className="max-w-xl">
+          <div>
             <div className="flex items-center gap-3">
               <span
                 className="
@@ -122,6 +128,7 @@ const InsideEveryTap = () => {
             <h2
               className="
                 mt-5
+                max-w-2xl
                 text-3xl
                 font-semibold
                 leading-[1.03]
@@ -133,98 +140,194 @@ const InsideEveryTap = () => {
               "
             >
               Simple on the surface.
-              <span className="block text-secondary">
-                Considered underneath.
-              </span>
+              <span className="block text-secondary">Powerful underneath.</span>
             </h2>
           </div>
 
-          <p
-            className="
-              max-w-xl
-              text-sm
-              leading-7
-              text-body
-              sm:text-base
-              sm:leading-8
-            "
-          >
-            The best mobile products hide complexity. Navigation, performance,
-            security and connectivity work quietly behind the interface so the
-            experience feels natural.
-          </p>
+          <div className="lg:pb-1">
+            <p
+              className="
+                max-w-xl
+                text-sm
+                leading-7
+                text-body
+                sm:text-base
+                sm:leading-8
+              "
+            >
+              Great mobile experiences are built from dozens of invisible
+              decisions. Navigation, speed, security, connectivity and data all
+              work together so the product simply feels right.
+            </p>
+
+            <div
+              className="
+                mt-5
+                flex
+                flex-wrap
+                gap-x-6
+                gap-y-2
+              "
+            >
+              <SmallSignal label="Touch-first" />
+              <SmallSignal label="Responsive" />
+              <SmallSignal label="Secure" />
+              <SmallSignal label="Connected" />
+            </div>
+          </div>
         </div>
 
         {/* ==================================================== */}
-        {/* INTERACTION CANVAS                                  */}
+        {/* EXPERIENCE LAYOUT                                   */}
         {/* ==================================================== */}
 
         <div
           className="
-            relative
-            mt-12
-            min-h-[820px]
+            mt-10
+            grid
             overflow-hidden
             border border-border
             bg-card
             shadow-[var(--shadow-card)]
-            lg:mt-16
+            lg:mt-14
+            lg:grid-cols-[minmax(320px,0.8fr)_minmax(0,1.35fr)]
           "
         >
           {/* ================================================== */}
-          {/* LARGE BACKGROUND TYPE                             */}
-          {/* ================================================== */}
-
-          <span
-            aria-hidden="true"
-            className="
-              absolute
-              left-1/2 top-1/2
-              -translate-x-1/2
-              -translate-y-1/2
-              select-none
-              whitespace-nowrap
-              text-[150px]
-              font-semibold
-              tracking-[-0.08em]
-              text-secondary/[0.025]
-              sm:text-[200px]
-              lg:text-[260px]
-            "
-          >
-            TOUCH
-          </span>
-
-          {/* ================================================== */}
-          {/* PHONE                                             */}
+          {/* PHONE STAGE                                       */}
           {/* ================================================== */}
 
           <div
             className="
-              absolute
-              left-1/2
-              top-1/2
-              z-10
-              -translate-x-1/2
-              -translate-y-1/2
+              relative
+              flex
+              min-h-[520px]
+              items-center
+              justify-center
+              overflow-hidden
+              border-b border-border
+              bg-primary
+              px-6
+              py-12
+              lg:min-h-[680px]
+              lg:border-b-0
+              lg:border-r
             "
           >
+            {/* ================================================ */}
+            {/* BACKGROUND TYPE                                 */}
+            {/* ================================================ */}
+
+            <span
+              aria-hidden="true"
+              className="
+                absolute
+                left-1/2
+                top-1/2
+                -translate-x-1/2
+                -translate-y-1/2
+                select-none
+                whitespace-nowrap
+                text-[110px]
+                font-semibold
+                tracking-[-0.08em]
+                text-white/[0.025]
+                sm:text-[150px]
+                lg:-rotate-90
+                lg:text-[170px]
+              "
+            >
+              MOBILE
+            </span>
+
+            {/* ================================================ */}
+            {/* TOP LABEL                                       */}
+            {/* ================================================ */}
+
+            <div
+              className="
+                absolute
+                left-5
+                right-5
+                top-5
+                flex
+                items-center
+                justify-between
+                gap-4
+                lg:left-6
+                lg:right-6
+                lg:top-6
+              "
+            >
+              <div className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-success" />
+
+                <span
+                  className="
+                    font-mono
+                    text-[7px]
+                    font-semibold
+                    uppercase
+                    tracking-[0.14em]
+                    text-white/35
+                  "
+                >
+                  Experience active
+                </span>
+              </div>
+
+              <span
+                className="
+                  font-mono
+                  text-[7px]
+                  font-semibold
+                  uppercase
+                  tracking-[0.14em]
+                  text-gold-light
+                "
+              >
+                Mobile / UX
+              </span>
+            </div>
+
+            {/* ================================================ */}
+            {/* PHONE                                           */}
+            {/* ================================================ */}
+
             <div
               className="
                 relative
-                rounded-[34px]
-                border-[5px]
-                border-primary
-                bg-primary
-                p-[3px]
-                shadow-[0_30px_70px_rgba(10,22,40,0.2)]
+                z-10
+                flex
+                flex-col
+                items-center
               "
             >
               <div
+                aria-hidden="true"
                 className="
+                  absolute
+                  left-1/2
+                  top-1/2
+                  h-[320px]
+                  w-[220px]
+                  -translate-x-1/2
+                  -translate-y-1/2
+                  rounded-full
+                  bg-secondary/10
+                  blur-[80px]
+                "
+              />
+
+              <div
+                className="
+                  relative
+                  z-10
                   overflow-hidden
-                  rounded-[25px]
-                  bg-card
+                  rounded-[32px]
+                  border border-white/10
+                  bg-navy-deep
+                  shadow-[0_35px_80px_rgba(0,0,0,0.28)]
                 "
               >
                 <Image
@@ -234,198 +337,338 @@ const InsideEveryTap = () => {
                   height={600}
                   priority
                   className="
-                    h-[420px]
-                    w-[220px]
+                    h-auto
+                    w-[205px]
                     object-cover
-                    sm:h-[470px]
-                    sm:w-[245px]
+                    sm:w-[225px]
+                    lg:w-[245px]
                   "
                 />
               </div>
 
               <div
                 className="
-                  absolute
-                  left-1/2 top-2
-                  h-1.5 w-12
-                  -translate-x-1/2
-                  rounded-full
-                  bg-primary
-                "
-              />
-            </div>
-
-            <div
-              className="
-                mt-5
-                flex
-                items-center
-                justify-center
-                gap-2
-              "
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-success" />
-
-              <span
-                className="
-                  font-mono
-                  text-[7px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.14em]
-                  text-muted-foreground/35
+                  relative
+                  z-10
+                  mt-7
+                  flex
+                  items-center
+                  gap-3
                 "
               >
-                Interaction ready
-              </span>
+                <Smartphone className="h-3.5 w-3.5 text-gold-light" />
+
+                <span
+                  className="
+                    font-mono
+                    text-[7px]
+                    font-semibold
+                    uppercase
+                    tracking-[0.15em]
+                    text-white/40
+                  "
+                >
+                  Designed for real-world interaction
+                </span>
+              </div>
             </div>
+
+            {/* ================================================ */}
+            {/* BOTTOM LABEL                                    */}
+            {/* ================================================ */}
+
+            <span
+              className="
+                absolute
+                bottom-5
+                left-5
+                font-mono
+                text-[7px]
+                uppercase
+                tracking-[0.14em]
+                text-white/20
+                lg:bottom-6
+                lg:left-6
+              "
+            >
+              Blackcrest / Mobile Experience
+            </span>
           </div>
 
           {/* ================================================== */}
-          {/* FEATURE 01                                        */}
-          {/* ================================================== */}
-
-          <FeatureBlock
-            className="
-              left-5 top-6
-              sm:left-8 sm:top-10
-              lg:left-[6%]
-              lg:top-[11%]
-            "
-            {...features[0]}
-          />
-
-          {/* ================================================== */}
-          {/* FEATURE 02                                        */}
-          {/* ================================================== */}
-
-          <FeatureBlock
-            className="
-              right-5 top-6
-              sm:right-8 sm:top-10
-              lg:right-[6%]
-              lg:top-[11%]
-            "
-            align="right"
-            {...features[1]}
-          />
-
-          {/* ================================================== */}
-          {/* FEATURE 03                                        */}
-          {/* ================================================== */}
-
-          <FeatureBlock
-            className="
-              right-5 top-[34%]
-              sm:right-8
-              lg:right-[3%]
-              lg:top-[40%]
-            "
-            align="right"
-            {...features[2]}
-          />
-
-          {/* ================================================== */}
-          {/* FEATURE 04                                        */}
-          {/* ================================================== */}
-
-          <FeatureBlock
-            className="
-              left-5 bottom-[26%]
-              sm:left-8
-              lg:left-[4%]
-              lg:bottom-[27%]
-            "
-            {...features[3]}
-          />
-
-          {/* ================================================== */}
-          {/* FEATURE 05                                        */}
-          {/* ================================================== */}
-
-          <FeatureBlock
-            className="
-              right-5 bottom-[11%]
-              sm:right-8
-              lg:right-[7%]
-              lg:bottom-[10%]
-            "
-            align="right"
-            {...features[4]}
-          />
-
-          {/* ================================================== */}
-          {/* FEATURE 06                                        */}
-          {/* ================================================== */}
-
-          <FeatureBlock
-            className="
-              left-5 bottom-[7%]
-              sm:left-8
-              lg:left-[8%]
-              lg:bottom-[8%]
-            "
-            {...features[5]}
-          />
-
-          {/* ================================================== */}
-          {/* MOBILE/TABLET FALLBACK                            */}
+          {/* EXPERIENCE GRID                                   */}
           {/* ================================================== */}
 
           <div
             className="
-              absolute
-              bottom-5 left-5 right-5
-              z-20
               grid
-              grid-cols-2
-              gap-3
-              lg:hidden
+              min-w-0
+              sm:grid-cols-2
             "
           >
-            {features.slice(0, 4).map((feature) => {
-              const Icon = feature.icon;
+            {/* ================================================ */}
+            {/* FEATURE 01 - FEATURED                           */}
+            {/* ================================================ */}
 
-              return (
+            <article
+              className="
+                group
+                relative
+                min-w-0
+                border-b border-border
+                bg-secondary/[0.035]
+                p-6
+                sm:col-span-2
+                sm:p-7
+                lg:p-8
+              "
+            >
+              <span
+                aria-hidden="true"
+                className="
+                  absolute
+                  left-0
+                  top-0
+                  h-[2px]
+                  w-16
+                  bg-secondary
+                "
+              />
+
+              <div
+                className="
+                  flex
+                  flex-col
+                  gap-8
+                  sm:flex-row
+                  sm:items-end
+                  sm:justify-between
+                "
+              >
+                <div className="max-w-lg">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="
+                        flex
+                        h-10
+                        w-10
+                        items-center
+                        justify-center
+                        border
+                        border-secondary/20
+                        bg-secondary/[0.06]
+                        text-secondary
+                      "
+                    >
+                      <Navigation className="h-4 w-4" />
+                    </div>
+
+                    <div>
+                      <span
+                        className="
+                          font-mono
+                          text-[7px]
+                          font-semibold
+                          uppercase
+                          tracking-[0.15em]
+                          text-secondary
+                        "
+                      >
+                        Interaction
+                      </span>
+
+                      <span
+                        className="
+                          ml-3
+                          font-mono
+                          text-[7px]
+                          text-muted-foreground/35
+                        "
+                      >
+                        01
+                      </span>
+                    </div>
+                  </div>
+
+                  <h3
+                    className="
+                      mt-6
+                      text-2xl
+                      font-semibold
+                      tracking-[-0.035em]
+                      text-heading
+                      sm:text-3xl
+                    "
+                  >
+                    Smooth Navigation
+                  </h3>
+
+                  <p
+                    className="
+                      mt-3
+                      max-w-xl
+                      text-sm
+                      leading-7
+                      text-muted-foreground
+                    "
+                  >
+                    Clear flows and familiar gestures help users move naturally
+                    through the product without having to think about the
+                    interface.
+                  </p>
+                </div>
+
                 <div
-                  key={feature.title}
                   className="
-                    border border-border
-                    bg-card/95
-                    p-3
-                    backdrop-blur
+                    hidden
+                    text-right
+                    sm:block
                   "
                 >
-                  <div className="flex items-center gap-2">
-                    <Icon className="h-3.5 w-3.5 text-secondary" />
+                  <span
+                    className="
+                      text-5xl
+                      font-semibold
+                      tracking-[-0.06em]
+                      text-secondary/10
+                    "
+                  >
+                    01
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            {/* ================================================ */}
+            {/* REMAINING FEATURES                              */}
+            {/* ================================================ */}
+
+            {features.slice(1).map((feature, index) => {
+              const Icon = feature.icon;
+
+              const isLast = index === features.slice(1).length - 1;
+
+              return (
+                <article
+                  key={feature.title}
+                  className={`
+                    group
+                    relative
+                    min-w-0
+                    p-6
+                    transition-colors
+                    duration-300
+                    hover:bg-muted/10
+                    sm:p-7
+                    lg:p-8
+
+                    ${!isLast ? "border-b border-border" : ""}
+
+                    ${index % 2 === 0 ? "sm:border-r sm:border-border" : ""}
+                  `}
+                >
+                  <div
+                    className="
+                      flex
+                      items-start
+                      justify-between
+                      gap-5
+                    "
+                  >
+                    <div
+                      className="
+                        flex
+                        h-10
+                        w-10
+                        shrink-0
+                        items-center
+                        justify-center
+                        border
+                        border-secondary/15
+                        bg-secondary/[0.04]
+                        text-secondary
+                        transition-colors
+                        duration-300
+                        group-hover:border-secondary/30
+                        group-hover:bg-secondary/[0.065]
+                      "
+                    >
+                      <Icon className="h-4 w-4" />
+                    </div>
 
                     <span
                       className="
-                        text-[11px]
+                        font-mono
+                        text-[7px]
                         font-semibold
-                        text-heading
+                        text-secondary/45
                       "
                     >
-                      {feature.title}
+                      {feature.number}
                     </span>
                   </div>
-                </div>
+
+                  <span
+                    className="
+                      mt-7
+                      block
+                      font-mono
+                      text-[7px]
+                      font-semibold
+                      uppercase
+                      tracking-[0.14em]
+                      text-muted-foreground/35
+                    "
+                  >
+                    {feature.meta}
+                  </span>
+
+                  <h3
+                    className="
+                      mt-2
+                      text-lg
+                      font-semibold
+                      tracking-[-0.025em]
+                      text-heading
+                    "
+                  >
+                    {feature.title}
+                  </h3>
+
+                  <p
+                    className="
+                      mt-3
+                      max-w-sm
+                      text-xs
+                      leading-5
+                      text-muted-foreground
+                    "
+                  >
+                    {feature.description}
+                  </p>
+
+                  <span
+                    aria-hidden="true"
+                    className="
+                      absolute
+                      bottom-[-1px]
+                      left-0
+                      h-[2px]
+                      w-0
+                      bg-secondary
+                      transition-all
+                      duration-500
+                      group-hover:w-10
+                    "
+                  />
+                </article>
               );
             })}
           </div>
-
-          {/* hide desktop blocks below lg */}
-          <style jsx>{`
-            @media (max-width: 1023px) {
-              .desktop-feature {
-                display: none;
-              }
-            }
-          `}</style>
         </div>
 
         {/* ==================================================== */}
-        {/* PRINCIPLE STRIP                                     */}
+        {/* EXPERIENCE PRINCIPLES                               */}
         {/* ==================================================== */}
 
         <div
@@ -433,7 +676,8 @@ const InsideEveryTap = () => {
             mt-6
             grid
             overflow-hidden
-            border border-border
+            border
+            border-border
             bg-card
             sm:grid-cols-3
           "
@@ -441,25 +685,25 @@ const InsideEveryTap = () => {
           <Principle
             icon={Gauge}
             label="Responsive"
-            description="Every interaction feels immediate."
+            description="Interactions designed to feel immediate."
           />
 
           <Principle
-            icon={Fingerprint}
+            icon={ShieldCheck}
             label="Protected"
-            description="Security stays behind the experience."
+            description="Security considered from the first interaction."
           />
 
           <Principle
             icon={Smartphone}
             label="Intuitive"
-            description="The interface feels familiar from the first tap."
+            description="Interfaces that feel natural from the first tap."
             last
           />
         </div>
 
         {/* ==================================================== */}
-        {/* CLOSING                                             */}
+        {/* CLOSING LINE                                        */}
         {/* ==================================================== */}
 
         <div
@@ -468,7 +712,8 @@ const InsideEveryTap = () => {
             flex
             flex-col
             gap-4
-            border-t border-border
+            border-t
+            border-border
             pt-6
             sm:flex-row
             sm:items-center
@@ -485,7 +730,8 @@ const InsideEveryTap = () => {
               text-heading
             "
           >
-            Good mobile engineering is rarely noticed. Friction is.
+            Good mobile engineering is rarely noticed.
+            <span className="text-secondary"> Friction is.</span>
           </p>
 
           <span
@@ -509,114 +755,33 @@ const InsideEveryTap = () => {
 export default InsideEveryTap;
 
 //==============================================================//
-// FEATURE BLOCK
+// SMALL SIGNAL
 //==============================================================//
 
-function FeatureBlock({
-  number,
-  icon: Icon,
-  title,
-  description,
-  className,
-  align = "left",
-}: {
-  number: string;
-  icon: typeof Navigation;
-  title: string;
-  description: string;
-  className?: string;
-  align?: "left" | "right";
-}) {
+function SmallSignal({ label }: { label: string }) {
   return (
-    <article
-      className={`
-        desktop-feature
-        absolute
-        z-20
-        max-w-[250px]
-        ${className ?? ""}
-      `}
+    <div
+      className="
+        flex
+        items-center
+        gap-2
+      "
     >
-      <div
-        className={`
-          flex
-          items-center
-          gap-3
+      <span className="h-1 w-1 rounded-full bg-secondary" />
 
-          ${align === "right" ? "justify-end" : ""}
-        `}
+      <span
+        className="
+          font-mono
+          text-[7px]
+          font-semibold
+          uppercase
+          tracking-[0.13em]
+          text-muted-foreground/45
+        "
       >
-        {align === "right" && (
-          <span
-            className="
-              font-mono
-              text-[7px]
-              font-semibold
-              text-secondary/50
-            "
-          >
-            {number}
-          </span>
-        )}
-
-        <div
-          className="
-            flex h-9 w-9
-            shrink-0
-            items-center
-            justify-center
-            border border-secondary/15
-            bg-secondary/[0.045]
-            text-secondary
-          "
-        >
-          <Icon className="h-4 w-4" />
-        </div>
-
-        {align === "left" && (
-          <span
-            className="
-              font-mono
-              text-[7px]
-              font-semibold
-              text-secondary/50
-            "
-          >
-            {number}
-          </span>
-        )}
-      </div>
-
-      <div
-        className={`
-          mt-3
-
-          ${align === "right" ? "text-right" : ""}
-        `}
-      >
-        <h3
-          className="
-            text-lg
-            font-semibold
-            tracking-[-0.025em]
-            text-heading
-          "
-        >
-          {title}
-        </h3>
-
-        <p
-          className="
-            mt-2
-            text-xs
-            leading-5
-            text-muted-foreground
-          "
-        >
-          {description}
-        </p>
-      </div>
-    </article>
+        {label}
+      </span>
+    </div>
   );
 }
 
@@ -641,7 +806,8 @@ function Principle({
         flex
         items-center
         gap-4
-        px-5 py-5
+        px-5
+        py-5
         sm:px-6
 
         ${!last ? "border-b border-border sm:border-b-0 sm:border-r" : ""}
@@ -649,11 +815,14 @@ function Principle({
     >
       <div
         className="
-          flex h-9 w-9
+          flex
+          h-9
+          w-9
           shrink-0
           items-center
           justify-center
-          border border-secondary/15
+          border
+          border-secondary/15
           bg-secondary/[0.04]
           text-secondary
         "
@@ -661,7 +830,7 @@ function Principle({
         <Icon className="h-4 w-4" />
       </div>
 
-      <div>
+      <div className="min-w-0">
         <h3
           className="
             text-sm
