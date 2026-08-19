@@ -1,47 +1,60 @@
-import { PageWrapper } from "@/components/ui/PageWrapper";
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
+//===== imports =====//
 import { AdminSettingsHeader } from "@/components/admin-dashboard/settings/AdminSettingsHeader";
-import {
-  AdminNotificationsSection,
-} from "@/components/admin-dashboard/settings/AdminNotificationsSection";
+import { AdminNotificationsSection } from "@/components/admin-dashboard/settings/AdminNotificationsSection";
 import { AdminProfileSection } from "@/components/admin-dashboard/settings/AdminProfileSection";
 import { AdminSecuritySection } from "@/components/admin-dashboard/settings/AdminSecuritySection";
+
 import { getAdminSettings } from "@/lib/actions/settings/admin-settings.action";
 
 export default async function AdminSettingsPage() {
   const settings = await getAdminSettings();
 
   return (
-    //===== Admin Settings Page =====//
-    <PageWrapper>
-      <Section className="py-2 md:py-2 lg:py-2">
-        <Container>
-          <div className="flex flex-col gap-6">
-            {/*===== Header =====*/}
-            <div>
-              <AdminSettingsHeader />
-            </div>
+    <div className="relative space-y-6">
+      {/* ====================================================== */}
+      {/* SETTINGS HEADER                                       */}
+      {/* ====================================================== */}
 
-            {/*===== Settings Sections =====*/}
-            <div className="flex flex-col gap-6">
-              <div>
-                <AdminProfileSection
-                  profile={settings.profile}
-                />
-              </div>
+      <AdminSettingsHeader />
 
-              <div>
-                <AdminSecuritySection />
-              </div>
+      {/* ====================================================== */}
+      {/* SETTINGS WORKSPACE                                    */}
+      {/* ====================================================== */}
 
-              <div>
-                <AdminNotificationsSection preferences={settings.preferences} />
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
-    </PageWrapper>
+      <div
+        className="
+          grid
+          min-w-0
+          gap-6
+          xl:grid-cols-[minmax(0,1.45fr)_minmax(320px,0.55fr)]
+          xl:items-start
+        "
+      >
+        {/* ==================================================== */}
+        {/* MAIN SETTINGS                                       */}
+        {/* ==================================================== */}
+
+        <div className="min-w-0 space-y-6">
+          <AdminProfileSection profile={settings.profile} />
+
+          <AdminNotificationsSection preferences={settings.preferences} />
+        </div>
+
+        {/* ==================================================== */}
+        {/* SECURITY RAIL                                       */}
+        {/* ==================================================== */}
+
+        <aside
+          className="
+            min-w-0
+            space-y-6
+            xl:sticky
+            xl:top-4
+          "
+        >
+          <AdminSecuritySection />
+        </aside>
+      </div>
+    </div>
   );
 }
