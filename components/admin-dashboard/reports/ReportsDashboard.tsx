@@ -157,7 +157,7 @@ export function ReportsDashboard({
   };
 
   return (
-    <div className="relative min-w-0 max-w-full space-y-6 border border-red-500">
+    <div className="relative min-w-0 max-w-full space-y-6">
       {/* ====================================================== */}
       {/* EXECUTIVE INTELLIGENCE HEADER                         */}
       {/* ====================================================== */}
@@ -192,7 +192,7 @@ export function ReportsDashboard({
           aria-hidden="true"
           className="
             pointer-events-none
-            absolute -right-24 -top-24
+            absolute right-0 top-0
             h-72 w-72
             rounded-full
             bg-secondary/[0.055]
