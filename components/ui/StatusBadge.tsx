@@ -5,7 +5,7 @@ interface StatusBadgeProps {
   className?: string;
 }
 
-//===== Map status → theme‑aware style classes =====//
+//===== Map status → theme-aware style classes =====//
 const statusStyles: Record<string, string> = {
   // ---- Project statuses ----
   active: "bg-secondary/15 text-secondary border-secondary/30",
@@ -34,7 +34,7 @@ const statusStyles: Record<string, string> = {
   closed: "border-border bg-muted text-body",
 };
 
-//===== Human‑readable labels =====//
+//===== Human-readable labels =====//
 const statusLabels: Record<string, string> = {
   active: "Active",
   completed: "Completed",
@@ -60,18 +60,44 @@ const statusLabels: Record<string, string> = {
 };
 
 export const StatusBadge = ({ status, className = "" }: StatusBadgeProps) => {
-  // Use exact match if available, otherwise fallback to lowercase
+  //===== Resolve style + label =====//
   const styleKey = statusStyles[status] ? status : status.toLowerCase();
+
   const labelKey = statusLabels[status] ? status : status.toLowerCase();
 
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold",
-        statusStyles[styleKey] ?? "bg-muted/15 text-foreground border-muted/30",
+        `
+          inline-flex
+          items-center
+          gap-1.5
+          rounded-md
+          border
+          px-2.5
+          py-1
+          text-[10px]
+          font-semibold
+          uppercase
+          tracking-[0.08em]
+        `,
+        statusStyles[styleKey] ??
+          "border-border bg-muted/20 text-muted-foreground",
         className,
       )}
     >
+      <span
+        aria-hidden="true"
+        className="
+          h-1.5
+          w-1.5
+          shrink-0
+          rounded-full
+          bg-current
+          opacity-70
+        "
+      />
+
       {statusLabels[labelKey] ?? status}
     </span>
   );

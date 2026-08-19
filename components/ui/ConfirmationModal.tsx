@@ -2,9 +2,16 @@
 
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { AlertTriangle, ShieldAlert, X } from "lucide-react";
+import {
+  AlertTriangle,
+  CheckCircle2,
+  CircleAlert,
+  ShieldAlert,
+  X,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/Button";
+import { cn } from "@/lib/utils/utils";
 
 interface ConfirmationModalProps {
   isOpen: boolean;
@@ -15,6 +22,8 @@ interface ConfirmationModalProps {
   confirmLabel?: string;
   cancelLabel?: string;
   isPending?: boolean;
+
+  tone?: "default" | "danger" | "success" | "warning";
 }
 
 export default function ConfirmationModal({
@@ -26,7 +35,63 @@ export default function ConfirmationModal({
   confirmLabel = "Confirm",
   cancelLabel = "Cancel",
   isPending = false,
+  tone = "default",
 }: ConfirmationModalProps) {
+  //===== tone config =====//
+  const toneConfig = {
+    default: {
+      icon: CircleAlert,
+      eyebrow: "Confirmation required",
+      accent: "text-secondary",
+      border: "border-secondary/20",
+      background: "bg-secondary/[0.06]",
+      glow: "bg-secondary/[0.07]",
+      line: "from-secondary via-secondary/50 to-transparent",
+      dot: "bg-secondary",
+      confirmVariant: "primary" as const,
+    },
+
+    danger: {
+      icon: AlertTriangle,
+      eyebrow: "Destructive action",
+      accent: "text-destructive",
+      border: "border-destructive/20",
+      background: "bg-destructive/[0.06]",
+      glow: "bg-destructive/[0.07]",
+      line: "from-destructive via-destructive/50 to-transparent",
+      dot: "bg-destructive",
+      confirmVariant: "destructive" as const,
+    },
+
+    success: {
+      icon: CheckCircle2,
+      eyebrow: "Confirm update",
+      accent: "text-success",
+      border: "border-success/20",
+      background: "bg-success/[0.06]",
+      glow: "bg-success/[0.07]",
+      line: "from-success via-success/50 to-transparent",
+      dot: "bg-success",
+      confirmVariant: "primary" as const,
+    },
+
+    warning: {
+      icon: ShieldAlert,
+      eyebrow: "Review action",
+      accent: "text-warning",
+      border: "border-warning/20",
+      background: "bg-warning/[0.06]",
+      glow: "bg-warning/[0.07]",
+      line: "from-warning via-warning/50 to-transparent",
+      dot: "bg-warning",
+      confirmVariant: "primary" as const,
+    },
+  };
+
+  const config = toneConfig[tone];
+
+  const Icon = config.icon;
+
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-[100]" onClose={onClose}>
@@ -88,29 +153,31 @@ export default function ConfirmationModal({
                   transition-all
                 "
               >
-                {/* top danger signal */}
+                {/* top signal */}
                 <div
-                  className="
-                    absolute left-0 top-0
-                    h-[2px] w-full
-                    bg-gradient-to-r
-                    from-destructive
-                    via-destructive/50
-                    to-transparent
-                  "
+                  className={cn(
+                    `
+                      absolute left-0 top-0
+                      h-[2px] w-full
+                      bg-gradient-to-r
+                    `,
+                    config.line,
+                  )}
                 />
 
-                {/* ambient warning glow */}
+                {/* ambient glow */}
                 <div
                   aria-hidden="true"
-                  className="
-                    pointer-events-none
-                    absolute -right-20 -top-20
-                    h-44 w-44
-                    rounded-full
-                    bg-destructive/[0.07]
-                    blur-[80px]
-                  "
+                  className={cn(
+                    `
+                      pointer-events-none
+                      absolute -right-20 -top-20
+                      h-44 w-44
+                      rounded-full
+                      blur-[80px]
+                    `,
+                    config.glow,
+                  )}
                 />
 
                 {/* ================================================== */}
@@ -129,33 +196,41 @@ export default function ConfirmationModal({
                   "
                 >
                   <div
-                    className="
-                      flex h-10 w-10
-                      shrink-0
-                      items-center justify-center
-                      border border-destructive/20
-                      bg-destructive/[0.06]
-                      text-destructive
-                    "
+                    className={cn(
+                      `
+                        flex h-10 w-10
+                        shrink-0
+                        items-center
+                        justify-center
+                        border
+                      `,
+                      config.border,
+                      config.background,
+                      config.accent,
+                    )}
                   >
-                    <AlertTriangle className="h-4.5 w-4.5" strokeWidth={1.8} />
+                    <Icon className="h-4.5 w-4.5" strokeWidth={1.8} />
                   </div>
 
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
-                      <ShieldAlert className="h-3.5 w-3.5 text-destructive" />
+                      <ShieldAlert
+                        className={cn("h-3.5 w-3.5", config.accent)}
+                      />
 
                       <span
-                        className="
-                          font-mono
-                          text-[7px]
-                          font-semibold
-                          uppercase
-                          tracking-[0.16em]
-                          text-destructive
-                        "
+                        className={cn(
+                          `
+                            font-mono
+                            text-[7px]
+                            font-semibold
+                            uppercase
+                            tracking-[0.16em]
+                          `,
+                          config.accent,
+                        )}
                       >
-                        Confirmation required
+                        {config.eyebrow}
                       </span>
                     </div>
 
@@ -181,7 +256,8 @@ export default function ConfirmationModal({
                     className="
                       flex h-8 w-8
                       shrink-0
-                      items-center justify-center
+                      items-center
+                      justify-center
                       border border-transparent
                       text-muted-foreground
                       transition-colors
@@ -221,13 +297,16 @@ export default function ConfirmationModal({
                   <div
                     className="
                       mt-5
-                      flex items-center
+                      flex
+                      items-center
                       gap-2
                       border-t border-border
                       pt-4
                     "
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-destructive" />
+                    <span
+                      className={cn("h-1.5 w-1.5 rounded-full", config.dot)}
+                    />
 
                     <span
                       className="
@@ -267,25 +346,19 @@ export default function ConfirmationModal({
                     size="sm"
                     onClick={onClose}
                     disabled={isPending}
-                    className="
-                      w-full
-                      sm:w-auto
-                    "
+                    className="w-full sm:w-auto"
                   >
                     {cancelLabel}
                   </Button>
 
                   <Button
-                    variant="destructive"
+                    variant={config.confirmVariant}
                     size="sm"
                     onClick={onConfirm}
                     disabled={isPending}
-                    className="
-                      w-full
-                      sm:w-auto
-                    "
+                    className="w-full sm:w-auto"
                   >
-                    {isPending ? "Deleting..." : confirmLabel}
+                    {isPending ? "Processing..." : confirmLabel}
                   </Button>
                 </div>
               </Dialog.Panel>
