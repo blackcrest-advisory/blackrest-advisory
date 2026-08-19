@@ -1,286 +1,773 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import CountUp from "react-countup";
+//===== imports =====//
 import {
-  FiZap,
-  FiTrendingUp,
-  FiEye,
-  FiCheckCircle,
-  FiClock,
-  FiActivity,
-} from "react-icons/fi";
+  Activity,
+  CheckCircle2,
+  Clock3,
+  Eye,
+  Gauge,
+  Search,
+  ShieldCheck,
+  Sparkles,
+  Zap,
+} from "lucide-react";
+
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { fadeInUp, staggerContainer, hoverScale } from "@/lib/utils/animations";
 
-//===== Metrics data =====//
+//==============================================================//
+// METRICS
+//==============================================================//
+
 const metrics = [
   {
     label: "Performance",
-    value: 99,
+    value: "99",
+    numericValue: 99,
     unit: "",
-    icon: FiZap,
-    color: "text-blue-500",
-    bg: "bg-blue-50 dark:bg-blue-950/30",
-    ringColor: "stroke-blue-500",
+    description: "Speed, runtime efficiency & responsiveness",
+    icon: Zap,
   },
   {
     label: "SEO",
-    value: 100,
+    value: "100",
+    numericValue: 100,
     unit: "",
-    icon: FiTrendingUp,
-    color: "text-green-500",
-    bg: "bg-green-50 dark:bg-green-950/30",
-    ringColor: "stroke-green-500",
+    description: "Search structure, metadata & discoverability",
+    icon: Search,
   },
   {
     label: "Accessibility",
-    value: 100,
+    value: "100",
+    numericValue: 100,
     unit: "",
-    icon: FiEye,
-    color: "text-purple-500",
-    bg: "bg-purple-50 dark:bg-purple-950/30",
-    ringColor: "stroke-purple-500",
+    description: "Inclusive UX, semantics & keyboard support",
+    icon: Eye,
   },
   {
     label: "Best Practices",
-    value: 98,
+    value: "98",
+    numericValue: 98,
     unit: "",
-    icon: FiCheckCircle,
-    color: "text-orange-500",
-    bg: "bg-orange-50 dark:bg-orange-950/30",
-    ringColor: "stroke-orange-500",
-  },
-  {
-    label: "Load Time",
-    value: 0.9,
-    unit: "s",
-    icon: FiClock,
-    color: "text-cyan-500",
-    bg: "bg-cyan-50 dark:bg-cyan-950/30",
-    ringColor: "stroke-cyan-500",
-  },
-  {
-    label: "CLS",
-    value: 0.01,
-    unit: "",
-    icon: FiActivity,
-    color: "text-rose-500",
-    bg: "bg-rose-50 dark:bg-rose-950/30",
-    ringColor: "stroke-rose-500",
+    description: "Security, standards & implementation quality",
+    icon: CheckCircle2,
   },
 ];
 
+//==============================================================//
+// WEB VITALS
+//==============================================================//
+
+const webVitals = [
+  {
+    label: "Load Time",
+    value: "0.9",
+    unit: "s",
+    description: "Fast initial page delivery",
+    icon: Clock3,
+  },
+  {
+    label: "CLS",
+    value: "0.01",
+    unit: "",
+    description: "Minimal visual layout shift",
+    icon: Activity,
+  },
+];
+
+//==============================================================//
+// PERFORMANCE DASHBOARD
+//==============================================================//
+
 export default function PerformanceDashboard() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
-
-  const radius = 36;
-  const circumference = 2 * Math.PI * radius;
-
   return (
-    <Section className="relative overflow-hidden bg-muted/30">
-      {/* Wrapper div with ref – useScroll/useInView observes this */}
-      <div ref={sectionRef}>
-        <Container>
-          {/* Background decorations */}
-          <div className="absolute inset-0 bg-secondary/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none" />
-          <div className="absolute top-20 left-10 h-2 w-2 rounded-full bg-secondary/20 blur-sm" />
-          <div className="absolute bottom-20 right-10 h-3 w-3 rounded-full bg-secondary/20 blur-sm" />
-          <div className="absolute top-1/2 left-1/4 h-1.5 w-1.5 rounded-full bg-secondary/10 blur-sm" />
+    <Section
+      className="
+        relative
+        isolate
+        overflow-hidden
+        bg-background
+        py-16
+        sm:py-20
+        lg:py-28
+      "
+    >
+      {/* ====================================================== */}
+      {/* BACKGROUND                                            */}
+      {/* ====================================================== */}
 
-          {/*===== Section header =====*/}
-          <div className="text-center">
-            <motion.span
-              className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary"
-              initial={{ opacity: 0, y: -10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute inset-0
+          -z-20
+        "
+      >
+        {/* architectural grid */}
+        <div
+          className="
+            absolute inset-0
+            opacity-[0.16]
+            [background-image:linear-gradient(to_right,var(--color-border)_1px,transparent_1px)]
+            [background-size:96px_100%]
+            [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]
+          "
+        />
+
+        {/* restrained ambience */}
+        <div
+          className="
+            absolute
+            -right-40 top-[12%]
+            h-[360px] w-[360px]
+            rounded-full
+            bg-secondary/[0.045]
+            blur-[140px]
+          "
+        />
+      </div>
+
+      <Container>
+        {/* ==================================================== */}
+        {/* HEADER                                              */}
+        {/* ==================================================== */}
+
+        <div
+          className="
+            grid
+            gap-8
+            border-b border-border
+            pb-10
+            lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]
+            lg:items-end
+            lg:gap-16
+            lg:pb-14
+          "
+        >
+          <div>
+            <div className="flex items-center gap-3">
+              <Gauge className="h-3.5 w-3.5 text-secondary" />
+
+              <span
+                className="
+                  font-mono
+                  text-[8px]
+                  font-semibold
+                  uppercase
+                  tracking-[0.2em]
+                  text-secondary
+                "
+              >
+                06 / Performance Audit
+              </span>
+
+              <span className="h-px w-10 bg-secondary/35" />
+            </div>
+
+            <p
+              className="
+                mt-4
+                max-w-sm
+                text-sm
+                leading-6
+                text-muted-foreground
+              "
             >
-              ✦ Core Web Vitals
-            </motion.span>
-            <motion.h2
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl"
-            >
-              Performance <span className="text-secondary">Dashboard</span>
-            </motion.h2>
-            <motion.p
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground"
-            >
-              We build for speed and reliability – every website is optimised to
-              pass Google&apos;s Core Web Vitals with flying colours.
-            </motion.p>
+              Performance is treated as an engineering requirement, not a
+              finishing touch.
+            </p>
           </div>
 
-          {/*===== Metrics Grid =====*/}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6"
+          <div>
+            <h2
+              className="
+                max-w-4xl
+                text-3xl
+                font-semibold
+                leading-[1.04]
+                tracking-[-0.045em]
+                text-heading
+                sm:text-4xl
+                lg:text-5xl
+                xl:text-[58px]
+              "
+            >
+              Built to score well.
+              <span className="block text-secondary">
+                Built to feel even faster.
+              </span>
+            </h2>
+
+            <p
+              className="
+                mt-5
+                max-w-2xl
+                text-sm
+                leading-7
+                text-body
+                sm:text-base
+                sm:leading-8
+              "
+            >
+              We optimise structure, rendering, assets, accessibility and
+              delivery so every website performs reliably across real devices
+              and real network conditions.
+            </p>
+          </div>
+        </div>
+
+        {/* ==================================================== */}
+        {/* AUDIT BOARD                                         */}
+        {/* ==================================================== */}
+
+        <div
+          className="
+            mt-10
+            overflow-hidden
+            border border-border
+            bg-card
+            shadow-[var(--shadow-card)]
+            lg:mt-14
+          "
+        >
+          {/* board header */}
+          <div
+            className="
+              flex
+              flex-col
+              gap-3
+              border-b border-border
+              bg-muted/10
+              px-5 py-4
+              sm:flex-row
+              sm:items-center
+              sm:justify-between
+              sm:px-6
+            "
+          >
+            <div className="flex items-center gap-3">
+              <span className="h-1.5 w-1.5 rounded-full bg-success" />
+
+              <span
+                className="
+                  font-mono
+                  text-[7px]
+                  font-semibold
+                  uppercase
+                  tracking-[0.16em]
+                  text-muted-foreground/45
+                "
+              >
+                Quality report
+              </span>
+            </div>
+
+            <span
+              className="
+                font-mono
+                text-[7px]
+                font-semibold
+                uppercase
+                tracking-[0.14em]
+                text-secondary
+              "
+            >
+              Production benchmark
+            </span>
+          </div>
+
+          {/* ================================================== */}
+          {/* MAIN SCORE GRID                                   */}
+          {/* ================================================== */}
+
+          <div
+            className="
+              grid
+              md:grid-cols-2
+              xl:grid-cols-4
+            "
           >
             {metrics.map((metric, index) => {
               const Icon = metric.icon;
-              const progress = metric.value / 100;
-              const strokeDashoffset = circumference * (1 - progress);
 
               return (
-                <motion.div
+                <article
                   key={metric.label}
-                  variants={fadeInUp}
-                  {...hoverScale}
+                  className="
+                    group
+                    relative
+                    min-w-0
+                    border-b border-r border-border
+                    px-5 py-6
+                    transition-colors
+                    duration-300
+                    hover:bg-muted/10
+                    md:px-6
+                    xl:border-b-0
+                  "
                 >
-                  <div className="group relative rounded-2xl border border-border/50 bg-card p-6 text-center shadow-sm transition-all duration-300 hover:border-secondary/30 hover:shadow-xl">
-                    {/* Golden glow on hover */}
-                    <div className="absolute inset-0 rounded-2xl bg-secondary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  {/* top accent */}
+                  <span
+                    aria-hidden="true"
+                    className="
+                      absolute
+                      left-0 top-0
+                      h-[2px] w-10
+                      bg-secondary
+                    "
+                  />
 
-                    {/* Small golden top accent */}
-                    <div className="absolute -top-px left-1/2 h-0.5 w-8 -translate-x-1/2 rounded-full bg-secondary/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  {/* index + icon */}
+                  <div
+                    className="
+                      flex
+                      items-start
+                      justify-between
+                      gap-4
+                    "
+                  >
+                    <span
+                      className="
+                        font-mono
+                        text-[7px]
+                        font-semibold
+                        text-secondary/55
+                      "
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
 
-                    <div className="relative z-10">
-                      {/* Circular progress ring */}
-                      <div className="relative mx-auto flex h-24 w-24 items-center justify-center">
-                        <svg className="h-24 w-24 -rotate-90 transform">
-                          {/* Background circle */}
-                          <circle
-                            cx="48"
-                            cy="48"
-                            r={radius}
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                            className="text-border"
-                            opacity="0.3"
-                          />
-                          {/* Progress circle with gradient */}
-                          <motion.circle
-                            cx="48"
-                            cy="48"
-                            r={radius}
-                            fill="none"
-                            stroke="url(#goldGradient)"
-                            strokeWidth="4"
-                            strokeLinecap="round"
-                            strokeDasharray={circumference}
-                            initial={{ strokeDashoffset: circumference }}
-                            animate={{
-                              strokeDashoffset: isInView
-                                ? strokeDashoffset
-                                : circumference,
-                            }}
-                            transition={{
-                              duration: 1.8,
-                              delay: index * 0.1,
-                              ease: "easeOut",
-                            }}
-                            className={metric.ringColor}
-                          />
-                          <defs>
-                            <linearGradient
-                              id="goldGradient"
-                              x1="0%"
-                              y1="0%"
-                              x2="100%"
-                              y2="100%"
-                            >
-                              <stop
-                                offset="0%"
-                                stopColor="var(--color-secondary)"
-                              />
-                              <stop
-                                offset="100%"
-                                stopColor="var(--color-secondary)"
-                                stopOpacity="0.6"
-                              />
-                            </linearGradient>
-                          </defs>
-                        </svg>
+                    <div
+                      className="
+                        flex h-9 w-9
+                        items-center
+                        justify-center
+                        border border-secondary/15
+                        bg-secondary/[0.04]
+                        text-secondary
+                      "
+                    >
+                      <Icon className="h-4 w-4" />
+                    </div>
+                  </div>
 
-                        {/* Icon in the center */}
-                        <div
-                          className={`absolute flex h-10 w-10 items-center justify-center rounded-full ${metric.bg} ${metric.color} transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-secondary/20`}
+                  {/* score */}
+                  <div className="mt-8">
+                    <div className="flex items-end gap-2">
+                      <span
+                        className="
+                          text-5xl
+                          font-semibold
+                          leading-none
+                          tracking-[-0.055em]
+                          text-heading
+                          sm:text-6xl
+                        "
+                      >
+                        {metric.value}
+                      </span>
+
+                      {metric.unit && (
+                        <span
+                          className="
+                            pb-1
+                            text-sm
+                            font-medium
+                            text-muted-foreground
+                          "
                         >
-                          <Icon className="h-5 w-5" />
-                        </div>
-                      </div>
-
-                      {/* Value */}
-                      <div className="mt-3">
-                        <span className="text-2xl font-bold text-foreground">
-                          {isInView ? (
-                            <CountUp
-                              end={metric.value}
-                              duration={2.5}
-                              decimals={metric.label === "Load Time" ? 1 : 0}
-                              delay={index * 0.08}
-                              redraw={true}
-                            />
-                          ) : (
-                            metric.value
-                          )}
-                          <span className="text-sm font-normal text-muted-foreground">
-                            {metric.unit}
-                          </span>
+                          {metric.unit}
                         </span>
-                      </div>
+                      )}
+                    </div>
 
-                      {/* Label */}
-                      <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                        {metric.label}
-                      </div>
+                    <h3
+                      className="
+                        mt-4
+                        text-sm
+                        font-semibold
+                        text-heading
+                      "
+                    >
+                      {metric.label}
+                    </h3>
 
-                      {/* Score badge for 100 scores */}
-                      {metric.value >= 100 && (
-                        <div className="mt-2 inline-flex items-center gap-1 rounded-full bg-secondary/10 px-2.5 py-0.5 text-[10px] font-bold text-secondary">
-                          ✦ Perfect
+                    <p
+                      className="
+                        mt-2
+                        text-xs
+                        leading-5
+                        text-muted-foreground
+                      "
+                    >
+                      {metric.description}
+                    </p>
+                  </div>
+
+                  {/* score rail */}
+                  <div className="mt-7">
+                    <div
+                      className="
+                        flex
+                        items-center
+                        justify-between
+                        gap-3
+                      "
+                    >
+                      <span
+                        className="
+                          font-mono
+                          text-[6px]
+                          font-semibold
+                          uppercase
+                          tracking-[0.13em]
+                          text-muted-foreground/30
+                        "
+                      >
+                        Score
+                      </span>
+
+                      <span
+                        className="
+                          font-mono
+                          text-[6px]
+                          font-semibold
+                          uppercase
+                          tracking-[0.13em]
+                          text-success
+                        "
+                      >
+                        Excellent
+                      </span>
+                    </div>
+
+                    <div
+                      className="
+                        mt-2
+                        h-[3px]
+                        overflow-hidden
+                        bg-muted
+                      "
+                    >
+                      <div
+                        className="
+                          h-full
+                          bg-secondary
+                        "
+                        style={{
+                          width: `${metric.numericValue}%`,
+                        }}
+                      />
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          {/* ================================================== */}
+          {/* WEB VITALS                                        */}
+          {/* ================================================== */}
+
+          <div
+            className="
+              grid
+              border-t border-border
+              lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]
+            "
+          >
+            {webVitals.map((metric, index) => {
+              const Icon = metric.icon;
+
+              return (
+                <article
+                  key={metric.label}
+                  className={`
+                    min-w-0
+                    px-5 py-6
+                    md:px-6
+
+                    ${
+                      index === 0
+                        ? "border-b border-border lg:border-b-0 lg:border-r"
+                        : ""
+                    }
+                  `}
+                >
+                  <div
+                    className="
+                      flex
+                      flex-col
+                      gap-6
+                      sm:flex-row
+                      sm:items-center
+                      sm:justify-between
+                    "
+                  >
+                    <div>
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="
+                            flex h-9 w-9
+                            items-center
+                            justify-center
+                            border border-secondary/15
+                            bg-secondary/[0.04]
+                            text-secondary
+                          "
+                        >
+                          <Icon className="h-4 w-4" />
                         </div>
+
+                        <div>
+                          <span
+                            className="
+                              font-mono
+                              text-[7px]
+                              font-semibold
+                              uppercase
+                              tracking-[0.14em]
+                              text-secondary
+                            "
+                          >
+                            Core Web Vital
+                          </span>
+
+                          <h3
+                            className="
+                              mt-1
+                              text-sm
+                              font-semibold
+                              text-heading
+                            "
+                          >
+                            {metric.label}
+                          </h3>
+                        </div>
+                      </div>
+
+                      <p
+                        className="
+                          mt-3
+                          text-xs
+                          leading-5
+                          text-muted-foreground
+                        "
+                      >
+                        {metric.description}
+                      </p>
+                    </div>
+
+                    <div
+                      className="
+                        flex
+                        items-end
+                        gap-2
+                        sm:text-right
+                      "
+                    >
+                      <span
+                        className="
+                          text-4xl
+                          font-semibold
+                          tracking-[-0.05em]
+                          text-heading
+                        "
+                      >
+                        {metric.value}
+                      </span>
+
+                      {metric.unit && (
+                        <span
+                          className="
+                            pb-1
+                            text-sm
+                            text-muted-foreground
+                          "
+                        >
+                          {metric.unit}
+                        </span>
                       )}
                     </div>
                   </div>
-                </motion.div>
+                </article>
               );
             })}
-          </motion.div>
+          </div>
+        </div>
 
-          {/*===== Bottom golden badges =====*/}
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
-            className="mt-14 flex flex-wrap justify-center gap-4"
+        {/* ==================================================== */}
+        {/* QUALITY SUMMARY                                     */}
+        {/* ==================================================== */}
+
+        <div
+          className="
+            mt-6
+            grid
+            overflow-hidden
+            border border-border
+            bg-card
+            md:grid-cols-[minmax(0,1fr)_auto]
+            md:items-stretch
+          "
+        >
+          <div
+            className="
+              grid
+              gap-5
+              px-5 py-5
+              sm:grid-cols-3
+              sm:px-6
+            "
           >
-            <div className="flex items-center gap-3 rounded-full border border-secondary/20 bg-card px-5 py-2.5 shadow-sm">
-              <span className="text-secondary">✦</span>
-              <span className="text-sm font-medium text-foreground">
-                Google PageSpeed Insights Score
+            <SummaryItem icon={Zap} label="PageSpeed" value="98+" />
+
+            <SummaryItem
+              icon={ShieldCheck}
+              label="Quality"
+              value="Production Ready"
+            />
+
+            <SummaryItem
+              icon={Sparkles}
+              label="Approach"
+              value="Performance First"
+            />
+          </div>
+
+          <div
+            className="
+              flex
+              items-center
+              border-t border-border
+              bg-primary
+              px-5 py-5
+              text-white
+              md:border-l
+              md:border-t-0
+              sm:px-6
+            "
+          >
+            <div>
+              <span
+                className="
+                  font-mono
+                  text-[7px]
+                  font-semibold
+                  uppercase
+                  tracking-[0.15em]
+                  text-gold-light
+                "
+              >
+                Performance standard
               </span>
-              <span className="text-sm font-bold text-secondary">98+</span>
-              <span className="text-secondary">✦</span>
+
+              <p
+                className="
+                  mt-2
+                  max-w-[260px]
+                  text-xs
+                  leading-5
+                  text-white/42
+                "
+              >
+                Fast enough to benchmark. Stable enough for production.
+              </p>
             </div>
-            <div className="flex items-center gap-3 rounded-full border border-secondary/20 bg-card px-5 py-2.5 shadow-sm">
-              <span className="text-secondary">✦</span>
-              <span className="text-sm font-medium text-foreground">
-                Lighthouse Certified
-              </span>
-              <span className="text-secondary">✦</span>
-            </div>
-          </motion.div>
-        </Container>
-      </div>
+          </div>
+        </div>
+
+        {/* ==================================================== */}
+        {/* FOOTER                                              */}
+        {/* ==================================================== */}
+
+        <div
+          className="
+            mt-8
+            flex
+            flex-col
+            gap-3
+            border-t border-border
+            pt-4
+            sm:flex-row
+            sm:items-center
+            sm:justify-between
+          "
+        >
+          <span
+            className="
+              font-mono
+              text-[7px]
+              font-semibold
+              uppercase
+              tracking-[0.15em]
+              text-secondary
+            "
+          >
+            Measure → Diagnose → Optimise → Validate
+          </span>
+
+          <span
+            className="
+              font-mono
+              text-[7px]
+              uppercase
+              tracking-[0.14em]
+              text-muted-foreground/30
+            "
+          >
+            Blackcrest / Performance Engineering
+          </span>
+        </div>
+      </Container>
     </Section>
+  );
+}
+
+//==============================================================//
+// SUMMARY ITEM
+//==============================================================//
+
+function SummaryItem({
+  icon: Icon,
+  label,
+  value,
+}: {
+  icon: typeof Zap;
+  label: string;
+  value: string;
+}) {
+  return (
+    <div className="min-w-0">
+      <div className="flex items-center gap-2">
+        <Icon className="h-3.5 w-3.5 text-secondary" />
+
+        <span
+          className="
+            font-mono
+            text-[7px]
+            font-semibold
+            uppercase
+            tracking-[0.14em]
+            text-muted-foreground/35
+          "
+        >
+          {label}
+        </span>
+      </div>
+
+      <p
+        className="
+          mt-2
+          text-xs
+          font-semibold
+          text-heading
+        "
+      >
+        {value}
+      </p>
+    </div>
   );
 }
