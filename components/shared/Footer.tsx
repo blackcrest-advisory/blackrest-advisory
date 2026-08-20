@@ -247,9 +247,7 @@ export default function Footer() {
   );
 }
 
-/* -------------------------------------------------------------------------- */
-/* Footer pieces                                                              */
-/* -------------------------------------------------------------------------- */
+//===== FOOTER PIECES =====//
 
 function FooterTitle({ children }: { children: React.ReactNode }) {
   return (

@@ -149,9 +149,7 @@ export const UpcomingDeadlines = ({ deadlines }: UpcomingDeadlinesProps) => {
           })}
         </div>
       ) : (
-        /* ==================================================== */
-        /* EMPTY STATE                                          */
-        /* ==================================================== */
+        //===== EMPTY STATE =====//
 
         <div className="flex min-h-[260px] flex-col items-center justify-center px-6 py-10 text-center">
           <div className="flex h-11 w-11 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary">

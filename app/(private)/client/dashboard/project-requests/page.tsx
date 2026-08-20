@@ -143,9 +143,7 @@ export default async function page() {
       {/*===== REQUESTS =====*/}
 
       {briefs.length === 0 ? (
-        /* ==================================================== */
-        /* EMPTY STATE                                          */
-        /* ==================================================== */
+        //===== EMPTY STATE =====//
 
         <section className="relative overflow-hidden border border-border bg-card px-6 py-16 text-center shadow-[var(--shadow-card)]">
           <div

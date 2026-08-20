@@ -357,9 +357,7 @@ export default async function ProjectRequestDetailsPage({
           </div>
         </section>
       ) : (
-        /* ==================================================== */
-        /* PROPOSAL PENDING                                     */
-        /* ==================================================== */
+        //===== PROPOSAL PENDING =====//
 
         <section className="relative overflow-hidden border border-dashed border-secondary/25 bg-secondary/[0.025] px-6 py-12 text-center shadow-[var(--shadow-card)]">
           <div

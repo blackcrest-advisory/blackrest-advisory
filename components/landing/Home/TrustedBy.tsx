@@ -240,9 +240,7 @@ export default function TrustedBy() {
                   ${index === stats.length - 1 ? "lg:pr-0" : ""}
                 `}
               >
-                {/* ----------------------------------------------------- */}
-                {/* subtle interactive illumination                       */}
-                {/* ----------------------------------------------------- */}
+                {/*===== subtle interactive illumination =====*/}
 
                 <div className="pointer-events-none absolute -right-16 -top-20 h-44 w-44 rounded-full bg-secondary/[0.08] opacity-0 blur-3xl transition-all duration-500 group-hover:opacity-100"/>
 

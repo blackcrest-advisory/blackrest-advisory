@@ -114,9 +114,7 @@ export const RecentActivity = ({ activities }: RecentActivityProps) => {
           </ul>
         </div>
       ) : (
-        /* ==================================================== */
-        /* EMPTY STATE                                          */
-        /* ==================================================== */
+        //===== EMPTY STATE =====//
 
         <div className="relative z-10 flex min-h-[300px] flex-col items-center justify-center px-6 py-10 text-center">
           <div className="flex h-12 w-12 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary">

@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
 
-const extensions = new Set([".tsx", ".jsx"]);
-const sourceDirectories = ["app", "components"];
+const extensions = new Set([".tsx", ".ts", ".jsx", ".js"]);
+const sourceDirectories = ["app", "components", "hooks", "lib"];
 const writeChanges = process.argv.includes("--write");
 
 let changedFiles = 0;
@@ -12,17 +12,17 @@ function cleanFile(filePath) {
   const code = fs.readFileSync(filePath, "utf8");
   let commentsInFile = 0;
 
-  // Convert only decorative three-line JSX separator blocks. All other JSX
-  // comments are intentionally preserved.
+  // Convert only three-line divider comments. Explanatory block comments and
+  // inline comments remain unchanged.
   const cleanedCode = code.replace(
-    /^(\s*)\{\/\*\s*[-=]+\s*\*\/\}\r?\n\s*\{\/\*\s*(.*?)\s*\*\/\}\r?\n\s*\{\/\*\s*[-=]+\s*\*\/\}/gm,
+    /^(\s*)\/\*\s*[-=]+\s*\*\/\r?\n\s*\/\*\s*(.*?)\s*\*\/\r?\n\s*\/\*\s*[-=]+\s*\*\//gm,
     (match, indentation, label) => {
       const normalizedLabel = label.replace(/\s+/g, " ").trim();
 
       if (!normalizedLabel) return match;
 
       commentsInFile += 1;
-      return `${indentation}{/*===== ${normalizedLabel} =====*/}`;
+      return `${indentation}//===== ${normalizedLabel.toUpperCase()} =====//`;
     },
   );
 
@@ -57,8 +57,8 @@ for (const directory of sourceDirectories) {
 }
 
 const mode = writeChanges ? "updated" : "would update";
-console.log(`\n${changedFiles} file(s) ${mode}; ${changedComments} JSX comment block(s) found.`);
+console.log(`\n${changedFiles} file(s) ${mode}; ${changedComments} code comment block(s) found.`);
 
 if (!writeChanges) {
-  console.log("Run npm run clean:jsx-comments:write to apply these formatting-only changes.");
+  console.log("Run npm run clean:code-comments:write to apply these formatting-only changes.");
 }

@@ -96,9 +96,7 @@ export const HeroSection = () => {
         {/*===== Main layout =====*/}
 
         <div className="grid gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-20">
-          {/* -------------------------------------------------------------- */}
-          {/* Left                                                           */}
-          {/* -------------------------------------------------------------- */}
+          {/*===== Left =====*/}
 
           <div>
             <motion.div
@@ -236,9 +234,7 @@ export const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* -------------------------------------------------------------- */}
-          {/* Right editorial panel                                          */}
-          {/* -------------------------------------------------------------- */}
+          {/*===== Right editorial panel =====*/}
 
           <motion.div
             initial={{
