@@ -471,7 +471,6 @@ export const RequestProjectForm = () => {
               <div className="border-t border-primary-foreground/10 p-5">
                 <Button
                   type="submit"
-                  variant="secondary"
                   size="md"
                   disabled={submitting}
                   className="group w-full !justify-between !rounded-md"

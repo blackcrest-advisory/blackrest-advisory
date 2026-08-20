@@ -1,6 +1,6 @@
 "use client";
 
-//===== imports =====//
+//===== Imports =====//
 import { useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -25,7 +25,7 @@ import {
   updateInvoice,
 } from "@/lib/actions/projects/invoice.action";
 
-//===== types =====//
+//===== Types =====//
 interface Invoice {
   id: string;
   invoiceNumber: string;
@@ -48,11 +48,10 @@ export function InvoiceList({
   projectId,
   readonly = false,
 }: InvoiceListProps) {
-  //===== state =====//
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
 
-  //===== send =====//
+  //===== Send =====//
   const handleSend = (invoiceId: string) => {
     startTransition(async () => {
       const result = await sendInvoice(invoiceId);
@@ -66,7 +65,7 @@ export function InvoiceList({
     });
   };
 
-  //===== delete =====//
+  //===== Delete =====//
   const handleDelete = (invoiceId: string) => {
     if (!confirm("Delete this invoice?")) return;
 
@@ -82,7 +81,7 @@ export function InvoiceList({
     });
   };
 
-  //===== status =====//
+  //===== Status =====//
   const handleStatusChange = (invoiceId: string, newStatus: InvoiceStatus) => {
     startTransition(async () => {
       const result = await updateInvoice(invoiceId, {
@@ -98,16 +97,16 @@ export function InvoiceList({
     });
   };
 
-  //===== empty state =====//
+  //===== Empty state =====//
   if (invoices.length === 0) {
     return (
-      <div className="flex min-h-[170px] flex-col items-center justify-center border border-dashed border-border bg-background/20 px-6 py-8 text-center">
-        <div className="flex h-10 w-10 items-center justify-center rounded-md border border-border bg-card text-muted-foreground">
+      <div className="flex min-h-[160px] flex-col items-center justify-center border border-dashed border-border bg-muted/[0.06] px-6 py-8 text-center">
+        <div className="flex h-9 w-9 items-center justify-center border border-secondary/15 bg-secondary/[0.04] text-secondary">
           <ReceiptText className="h-4 w-4" />
         </div>
 
         <span className="mt-4 font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
-          Commercial records
+          Commercial Records
         </span>
 
         <p className="mt-1.5 text-sm font-semibold text-heading">
@@ -122,12 +121,11 @@ export function InvoiceList({
   }
 
   return (
-    <div className="overflow-hidden border border-border bg-background/15">
-      {/*===== DESKTOP HEADER =====*/}
-
-      <div className="hidden grid-cols-[minmax(170px,1.4fr)_minmax(120px,0.8fr)_130px_150px_auto] items-center gap-4 border-b border-border bg-muted/10 px-4 py-3 lg:grid">
+    <div className="min-w-0 max-w-full border border-border bg-card">
+      {/*===== Desktop heading =====*/}
+      <div className="hidden grid-cols-[minmax(210px,1.4fr)_minmax(135px,0.8fr)_minmax(110px,0.65fr)_105px_minmax(160px,auto)] items-center gap-4 border-b border-border bg-muted/[0.08] px-4 py-3 xl:grid">
         <ColumnLabel>Invoice</ColumnLabel>
-        <ColumnLabel>Schedule</ColumnLabel>
+        <ColumnLabel>Timeline</ColumnLabel>
         <ColumnLabel>Amount</ColumnLabel>
         <ColumnLabel>Status</ColumnLabel>
 
@@ -136,20 +134,18 @@ export function InvoiceList({
         </span>
       </div>
 
-      {/*===== INVOICES =====*/}
-
+      {/*===== Records =====*/}
       <div className="divide-y divide-border">
         {invoices.map((invoice, index) => (
           <article
             key={invoice.id}
-            className="relative transition-colors duration-200 hover:bg-secondary/[0.018]"
+            className="relative transition-colors duration-200 hover:bg-muted/[0.06]"
           >
-            {/*===== DESKTOP =====*/}
-
-            <div className="hidden min-h-[84px] grid-cols-[minmax(170px,1.4fr)_minmax(120px,0.8fr)_130px_150px_auto] items-center gap-4 px-4 py-4 lg:grid">
-              {/* invoice */}
-              <div className="flex min-w-0 items-start gap-3">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border bg-card font-mono text-[8px] font-semibold text-muted-foreground/35">
+            {/*===== Desktop =====*/}
+            <div className="hidden grid-cols-[minmax(210px,1.4fr)_minmax(135px,0.8fr)_minmax(110px,0.65fr)_105px_minmax(160px,auto)] items-center gap-4 px-4 py-5 xl:grid">
+              {/*===== Invoice identity =====*/}
+              <div className="flex min-w-0 items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.04] font-mono text-[8px] font-semibold text-secondary">
                   {String(index + 1).padStart(2, "0")}
                 </div>
 
@@ -161,24 +157,44 @@ export function InvoiceList({
                     {invoice.invoiceNumber}
                   </p>
 
-                  <p className="mt-1 text-[10px] text-muted-foreground">
-                    Created {format(new Date(invoice.createdAt), "MMM d, yyyy")}
-                  </p>
+                  <div className="mt-1.5 flex min-w-0 items-center gap-2">
+                    <span className="shrink-0 font-mono text-[7px] uppercase tracking-[0.11em] text-muted-foreground/35">
+                      Created
+                    </span>
+
+                    <span className="truncate text-[10px] text-muted-foreground">
+                      {format(new Date(invoice.createdAt), "MMM d, yyyy")}
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              {/* schedule */}
+              {/*===== Timeline =====*/}
               <div className="min-w-0">
-                {invoice.dueDate ? (
-                  <div className="flex items-center gap-2">
+                {invoice.paidAt ? (
+                  <div className="flex min-w-0 items-center gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success" />
+
+                    <div className="min-w-0">
+                      <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.11em] text-success">
+                        Paid
+                      </span>
+
+                      <p className="mt-0.5 truncate text-xs font-medium text-heading">
+                        {format(new Date(invoice.paidAt), "MMM d, yyyy")}
+                      </p>
+                    </div>
+                  </div>
+                ) : invoice.dueDate ? (
+                  <div className="flex min-w-0 items-center gap-2">
                     <Clock3 className="h-3.5 w-3.5 shrink-0 text-secondary" />
 
                     <div className="min-w-0">
-                      <p className="font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/40">
+                      <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.11em] text-muted-foreground/40">
                         Due
-                      </p>
+                      </span>
 
-                      <p className="mt-1 whitespace-nowrap text-xs font-medium text-heading">
+                      <p className="mt-0.5 truncate text-xs font-medium text-heading">
                         {format(new Date(invoice.dueDate), "MMM d, yyyy")}
                       </p>
                     </div>
@@ -188,59 +204,52 @@ export function InvoiceList({
                     No due date
                   </span>
                 )}
-
-                {invoice.paidAt && (
-                  <p className="mt-1.5 text-[10px] text-success">
-                    Paid {format(new Date(invoice.paidAt), "MMM d, yyyy")}
-                  </p>
-                )}
               </div>
 
-              {/* amount */}
-              <div>
-                <p className="whitespace-nowrap text-sm font-semibold text-heading">
-                  {invoice.amount} {invoice.currency}
+              {/*===== Amount =====*/}
+              <div className="min-w-0">
+                <p className="truncate text-base font-semibold tracking-[-0.02em] text-heading">
+                  {invoice.amount}{" "}
+                  <span className="text-xs font-medium text-muted-foreground">
+                    {invoice.currency}
+                  </span>
                 </p>
 
-                <span className="mt-1 block font-mono text-[7px] uppercase tracking-[0.12em] text-muted-foreground/35">
+                <span className="mt-1 block font-mono text-[6px] uppercase tracking-[0.12em] text-muted-foreground/30">
                   Invoice value
                 </span>
               </div>
 
-              {/* status */}
-              <div>
+              {/*===== Status =====*/}
+              <div className="min-w-0">
                 <InvoiceStatusBadge status={invoice.status} />
               </div>
 
-              {/* actions */}
-              <div className="flex items-center justify-end gap-1">
+              {/*===== Actions =====*/}
+              <div className="flex min-w-0 flex-wrap items-center justify-end gap-1.5">
                 {!readonly && (
                   <>
-                    {/* Send - DRAFT */}
                     {invoice.status === "DRAFT" && (
-                      <ActionButton
-                        label="Send invoice"
+                      <DesktopTextAction
+                        label="Send"
+                        icon={Mail}
                         onClick={() => handleSend(invoice.id)}
                         disabled={isPending}
-                      >
-                        <Mail className="h-3.5 w-3.5" />
-                      </ActionButton>
+                        tone="primary"
+                      />
                     )}
 
-                    {/* Paid - SENT / OVERDUE */}
                     {(invoice.status === "SENT" ||
                       invoice.status === "OVERDUE") && (
-                      <ActionButton
-                        label="Mark as paid"
-                        tone="success"
+                      <DesktopTextAction
+                        label="Mark Paid"
+                        icon={CheckCircle2}
                         onClick={() => handleStatusChange(invoice.id, "PAID")}
                         disabled={isPending}
-                      >
-                        <CheckCircle2 className="h-3.5 w-3.5" />
-                      </ActionButton>
+                        tone="success"
+                      />
                     )}
 
-                    {/* Overdue - SENT */}
                     {invoice.status === "SENT" && (
                       <ActionButton
                         label="Mark as overdue"
@@ -254,7 +263,6 @@ export function InvoiceList({
                       </ActionButton>
                     )}
 
-                    {/* Cancelled - DRAFT */}
                     {invoice.status === "DRAFT" && (
                       <ActionButton
                         label="Cancel invoice"
@@ -268,7 +276,6 @@ export function InvoiceList({
                       </ActionButton>
                     )}
 
-                    {/* Delete - DRAFT */}
                     {invoice.status === "DRAFT" && (
                       <ActionButton
                         label="Delete invoice"
@@ -282,26 +289,23 @@ export function InvoiceList({
                   </>
                 )}
 
-                {/* PDF */}
                 <Link
                   href={`/api/invoices/${invoice.id}/pdf`}
                   target="_blank"
                   aria-label="Download invoice PDF"
                   title="Download PDF"
-                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-transparent text-muted-foreground transition-colors hover:border-border hover:bg-muted/30 hover:text-heading"
+                  className="flex h-8 w-8 shrink-0 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-secondary/25 hover:bg-secondary/[0.04] hover:text-secondary"
                 >
                   <FileDown className="h-3.5 w-3.5" />
                 </Link>
               </div>
             </div>
 
-            {/*===== MOBILE + TABLET =====*/}
-
-            <div className="px-4 py-4 lg:hidden">
-              {/* header */}
+            {/*===== Mobile and tablet =====*/}
+            <div className="px-4 py-5 xl:hidden">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex min-w-0 items-start gap-3">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-card font-mono text-[8px] font-semibold text-muted-foreground/35">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.04] font-mono text-[8px] font-semibold text-secondary">
                     {String(index + 1).padStart(2, "0")}
                   </div>
 
@@ -320,33 +324,29 @@ export function InvoiceList({
                 <InvoiceStatusBadge status={invoice.status} />
               </div>
 
-              {/* commercial summary */}
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {/*===== Commercial summary =====*/}
+              <div className="mt-5 grid grid-cols-2 border-y border-border">
                 <MobileDetail
                   label="Invoice value"
                   value={`${invoice.amount} ${invoice.currency}`}
                 />
 
                 <MobileDetail
-                  label="Due date"
+                  label={invoice.paidAt ? "Paid" : "Due date"}
                   value={
-                    invoice.dueDate
-                      ? format(new Date(invoice.dueDate), "MMM d, yyyy")
-                      : "No due date"
+                    invoice.paidAt
+                      ? format(new Date(invoice.paidAt), "MMM d, yyyy")
+                      : invoice.dueDate
+                        ? format(new Date(invoice.dueDate), "MMM d, yyyy")
+                        : "No due date"
                   }
+                  tone={invoice.paidAt ? "success" : "default"}
+                  bordered
                 />
-
-                {invoice.paidAt && (
-                  <MobileDetail
-                    label="Paid"
-                    value={format(new Date(invoice.paidAt), "MMM d, yyyy")}
-                    tone="success"
-                  />
-                )}
               </div>
 
-              {/* actions */}
-              <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-border pt-4">
+              {/*===== Mobile actions =====*/}
+              <div className="mt-4 flex flex-wrap items-center gap-2">
                 {!readonly && (
                   <>
                     {invoice.status === "DRAFT" && (
@@ -354,6 +354,7 @@ export function InvoiceList({
                         onClick={() => handleSend(invoice.id)}
                         disabled={isPending}
                         icon={Mail}
+                        tone="primary"
                       >
                         Send
                       </MobileAction>
@@ -412,7 +413,7 @@ export function InvoiceList({
                 <Link
                   href={`/api/invoices/${invoice.id}/pdf`}
                   target="_blank"
-                  className="inline-flex h-8 items-center gap-1.5 rounded-md border border-border bg-card px-2.5 text-[11px] font-medium text-muted-foreground transition-colors hover:border-secondary/25 hover:text-heading"
+                  className="inline-flex h-8 items-center gap-1.5 border border-border bg-card px-2.5 text-[11px] font-medium text-muted-foreground transition-colors hover:border-secondary/25 hover:text-heading"
                 >
                   <FileDown className="h-3.5 w-3.5" />
                   PDF
@@ -423,9 +424,8 @@ export function InvoiceList({
         ))}
       </div>
 
-      {/*===== FOOTER =====*/}
-
-      <div className="flex flex-col gap-2 border-t border-border bg-muted/10 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+      {/*===== Footer =====*/}
+      <div className="flex flex-col gap-2 border-t border-border bg-muted/[0.06] px-5 py-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-2">
           <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
@@ -443,52 +443,27 @@ export function InvoiceList({
   );
 }
 
-//==============================================================//
-// INVOICE STATUS BADGE
-//==============================================================//
-
+//===== Invoice status badge =====//
 function InvoiceStatusBadge({ status }: { status: InvoiceStatus }) {
   const styles: Record<InvoiceStatus, string> = {
     DRAFT: "border-border bg-muted/30 text-muted-foreground",
-
     SENT: "border-info/20 bg-info/[0.06] text-info",
-
     PAID: "border-success/20 bg-success/[0.06] text-success",
-
     OVERDUE: "border-destructive/20 bg-destructive/[0.06] text-destructive",
-
     CANCELLED: "border-border bg-muted/20 text-muted-foreground",
   };
 
   return (
     <span
-      className={`
-        inline-flex
-        w-fit
-        items-center
-        gap-1.5
-        rounded-md
-        border
-        px-2.5 py-1
-        font-mono
-        text-[8px]
-        font-semibold
-        uppercase
-        tracking-[0.1em]
-        ${styles[status]}
-      `}
+      className={`inline-flex w-fit items-center gap-1.5 rounded-md border px-2.5 py-1 font-mono text-[8px] font-semibold uppercase tracking-[0.1em] ${styles[status]}`}
     >
-      <span className="h-1.5 w-1.5 rounded-full bg-current opacity-70"/>
-
+      <span className="h-1.5 w-1.5 rounded-full bg-current opacity-70" />
       {status}
     </span>
   );
 }
 
-//==============================================================//
-// COLUMN LABEL
-//==============================================================//
-
+//===== Column label =====//
 function ColumnLabel({ children }: { children: React.ReactNode }) {
   return (
     <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40">
@@ -497,10 +472,41 @@ function ColumnLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-//==============================================================//
-// DESKTOP ACTION
-//==============================================================//
+//===== Primary desktop action =====//
+function DesktopTextAction({
+  label,
+  icon: Icon,
+  tone = "primary",
+  disabled,
+  onClick,
+}: {
+  label: string;
+  icon: typeof Mail;
+  tone?: "primary" | "success";
+  disabled?: boolean;
+  onClick: () => void;
+}) {
+  const styles = {
+    primary:
+      "border-secondary/20 bg-secondary/[0.05] text-secondary hover:bg-secondary/[0.09]",
+    success:
+      "border-success/20 bg-success/[0.05] text-success hover:bg-success/[0.09]",
+  };
 
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      className={`inline-flex h-8 items-center gap-1.5 rounded-md border px-2.5 text-[10px] font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${styles[tone]}`}
+    >
+      <Icon className="h-3.5 w-3.5" />
+      {label}
+    </button>
+  );
+}
+
+//===== Desktop icon action =====//
 function ActionButton({
   label,
   tone = "default",
@@ -517,14 +523,10 @@ function ActionButton({
   const styles = {
     default:
       "text-muted-foreground hover:border-secondary/20 hover:bg-secondary/[0.05] hover:text-secondary",
-
     success: "text-success hover:border-success/20 hover:bg-success/[0.06]",
-
     warning: "text-warning hover:border-warning/20 hover:bg-warning/[0.06]",
-
     muted:
       "text-muted-foreground hover:border-border hover:bg-muted/40 hover:text-heading",
-
     danger:
       "text-destructive hover:border-destructive/20 hover:bg-destructive/[0.06]",
   };
@@ -538,47 +540,35 @@ function ActionButton({
       disabled={disabled}
       aria-label={label}
       title={label}
-      className={`
-        h-8
-        w-8
-        !rounded-md
-        border border-transparent
-        !p-0
-        ${styles[tone]}
-      `}
+      className={`h-8 w-8 !rounded-md border border-transparent !p-0 ${styles[tone]}`}
     >
       {children}
     </Button>
   );
 }
 
-//==============================================================//
-// MOBILE DETAIL
-//==============================================================//
-
+//===== Mobile detail =====//
 function MobileDetail({
   label,
   value,
   tone = "default",
+  bordered = false,
 }: {
   label: string;
   value: string;
   tone?: "default" | "success";
+  bordered?: boolean;
 }) {
   return (
-    <div className="border border-border bg-background/30 p-3">
+    <div
+      className={`min-w-0 py-4 ${bordered ? "border-l border-border pl-4" : "pr-4"}`}
+    >
       <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40">
         {label}
       </span>
 
       <p
-        className={`
-          mt-1.5
-          text-xs
-          font-semibold
-
-          ${tone === "success" ? "text-success" : "text-heading"}
-        `}
+        className={`mt-1.5 truncate text-xs font-semibold ${tone === "success" ? "text-success" : "text-heading"}`}
       >
         {value}
       </p>
@@ -586,10 +576,7 @@ function MobileDetail({
   );
 }
 
-//==============================================================//
-// MOBILE ACTION
-//==============================================================//
-
+//===== Mobile action =====//
 function MobileAction({
   icon: Icon,
   children,
@@ -599,18 +586,17 @@ function MobileAction({
 }: {
   icon: typeof Mail;
   children: React.ReactNode;
-  tone?: "default" | "success" | "warning" | "danger";
+  tone?: "default" | "primary" | "success" | "warning" | "danger";
   onClick: () => void;
   disabled?: boolean;
 }) {
   const styles = {
     default:
       "border-border text-muted-foreground hover:bg-muted/30 hover:text-heading",
-
+    primary:
+      "border-secondary/20 bg-secondary/[0.04] text-secondary hover:bg-secondary/[0.08]",
     success: "border-success/20 text-success hover:bg-success/[0.05]",
-
     warning: "border-warning/20 text-warning hover:bg-warning/[0.05]",
-
     danger:
       "border-destructive/20 text-destructive hover:bg-destructive/[0.05]",
   };
@@ -620,25 +606,9 @@ function MobileAction({
       type="button"
       onClick={onClick}
       disabled={disabled}
-      className={`
-        inline-flex
-        h-8
-        items-center
-        gap-1.5
-        rounded-md
-        border
-        bg-card
-        px-2.5
-        text-[11px]
-        font-medium
-        transition-colors
-        disabled:cursor-not-allowed
-        disabled:opacity-50
-        ${styles[tone]}
-      `}
+      className={`inline-flex h-8 items-center gap-1.5 rounded-md border bg-card px-2.5 text-[11px] font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${styles[tone]}`}
     >
       <Icon className="h-3.5 w-3.5" />
-
       {children}
     </button>
   );

@@ -18,7 +18,7 @@ const actions = [
     label: "Request Project",
     description: "Start a new engagement with Blackcrest.",
     icon: FileText,
-    href: "/client/dashboard/request",
+    href: "/client/dashboard/projects/request",
   },
   {
     label: "Upload Files",
@@ -58,7 +58,7 @@ export const QuickActions = () => {
       />
 
       {/* top line */}
-      <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"/>
+      <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent" />
 
       {/* header */}
       <div className="relative z-10 border-b border-border px-5 py-5 sm:px-6">
@@ -106,7 +106,7 @@ export const QuickActions = () => {
                 </p>
               </div>
 
-              <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground/30 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-secondary"/>
+              <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground/30 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-secondary" />
             </>
           );
 
