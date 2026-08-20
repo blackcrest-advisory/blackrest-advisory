@@ -449,7 +449,7 @@ export default async function AdminProjectDetailPage({
             </div>
 
             <div className="px-5 py-5 sm:px-6">
-              <InvoiceList invoices={project.invoices} projectId={project.id} />
+              <InvoiceList invoices={project.invoices} />
             </div>
           </section>
         </div>

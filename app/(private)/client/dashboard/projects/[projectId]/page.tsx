@@ -484,7 +484,6 @@ export default async function ClientProjectDetailPage({
             <div className="px-5 py-5 sm:px-6">
               <InvoiceList
                 invoices={project.invoices}
-                projectId={project.id}
                 readonly={true}
               />
             </div>

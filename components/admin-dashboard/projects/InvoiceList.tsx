@@ -1,7 +1,7 @@
 "use client";
 
 //===== Imports =====//
-import { useTransition } from "react";
+import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { format } from "date-fns";
@@ -18,6 +18,7 @@ import {
 import toast from "react-hot-toast";
 
 import { Button } from "@/components/ui/Button";
+import ConfirmationModal from "@/components/ui/ConfirmationModal";
 
 import {
   deleteInvoice,
@@ -39,63 +40,65 @@ interface Invoice {
 
 interface InvoiceListProps {
   invoices: Invoice[];
-  projectId: string;
   readonly?: boolean;
 }
 
+type PendingInvoiceAction =
+  | { invoiceId: string; type: "send" }
+  | { invoiceId: string; type: "status"; status: InvoiceStatus }
+  | { invoiceId: string; type: "delete" };
+
 export function InvoiceList({
   invoices,
-  projectId,
   readonly = false,
 }: InvoiceListProps) {
   const [isPending, startTransition] = useTransition();
+  const [pendingAction, setPendingAction] =
+    useState<PendingInvoiceAction | null>(null);
   const router = useRouter();
 
-  //===== Send =====//
-  const handleSend = (invoiceId: string) => {
+  //===== Confirm selected invoice action =====//
+  const handleConfirmAction = () => {
+    if (!pendingAction) return;
+
     startTransition(async () => {
-      const result = await sendInvoice(invoiceId);
+      const result =
+        pendingAction.type === "send"
+          ? await sendInvoice(pendingAction.invoiceId)
+          : pendingAction.type === "delete"
+            ? await deleteInvoice(pendingAction.invoiceId)
+            : await updateInvoice(pendingAction.invoiceId, {
+                status: pendingAction.status,
+              });
 
       if (result.success) {
-        toast.success("Invoice sent");
+        const successMessage =
+          pendingAction.type === "send"
+            ? "Invoice sent"
+            : pendingAction.type === "delete"
+              ? "Invoice deleted"
+              : `Status updated to ${pendingAction.status}`;
+
+        toast.success(successMessage);
+        setPendingAction(null);
         router.refresh();
       } else {
-        toast.error(result.error || "Failed to send");
+        toast.error(
+          result.error ||
+            (pendingAction.type === "delete"
+              ? "Failed to delete invoice"
+              : "Failed to update invoice"),
+        );
       }
     });
   };
 
-  //===== Delete =====//
-  const handleDelete = (invoiceId: string) => {
-    if (!confirm("Delete this invoice?")) return;
+  const pendingInvoice = pendingAction
+    ? (invoices.find((invoice) => invoice.id === pendingAction.invoiceId) ??
+      null)
+    : null;
 
-    startTransition(async () => {
-      const result = await deleteInvoice(invoiceId);
-
-      if (result.success) {
-        toast.success("Invoice deleted");
-        router.refresh();
-      } else {
-        toast.error(result.error || "Failed to delete");
-      }
-    });
-  };
-
-  //===== Status =====//
-  const handleStatusChange = (invoiceId: string, newStatus: InvoiceStatus) => {
-    startTransition(async () => {
-      const result = await updateInvoice(invoiceId, {
-        status: newStatus,
-      });
-
-      if (result.success) {
-        toast.success(`Status updated to ${newStatus}`);
-        router.refresh();
-      } else {
-        toast.error(result.error || "Failed to update status");
-      }
-    });
-  };
+  const confirmation = getConfirmationContent(pendingAction, pendingInvoice);
 
   //===== Empty state =====//
   if (invoices.length === 0) {
@@ -122,8 +125,10 @@ export function InvoiceList({
 
   return (
     <div className="min-w-0 max-w-full border border-border bg-card">
+      <div className="max-w-full overflow-x-auto">
+        <div className="min-w-[760px]">
       {/*===== Desktop heading =====*/}
-      <div className="hidden grid-cols-[minmax(210px,1.4fr)_minmax(135px,0.8fr)_minmax(110px,0.65fr)_105px_minmax(160px,auto)] items-center gap-4 border-b border-border bg-muted/[0.08] px-4 py-3 xl:grid">
+      <div className="grid grid-cols-[minmax(160px,1.35fr)_minmax(120px,0.85fr)_minmax(100px,0.62fr)_minmax(96px,0.62fr)_minmax(132px,auto)] items-center gap-3 border-b border-border bg-muted/[0.08] px-4 py-3">
         <ColumnLabel>Invoice</ColumnLabel>
         <ColumnLabel>Timeline</ColumnLabel>
         <ColumnLabel>Amount</ColumnLabel>
@@ -142,7 +147,7 @@ export function InvoiceList({
             className="relative transition-colors duration-200 hover:bg-muted/[0.06]"
           >
             {/*===== Desktop =====*/}
-            <div className="hidden grid-cols-[minmax(210px,1.4fr)_minmax(135px,0.8fr)_minmax(110px,0.65fr)_105px_minmax(160px,auto)] items-center gap-4 px-4 py-5 xl:grid">
+            <div className="grid grid-cols-[minmax(160px,1.35fr)_minmax(120px,0.85fr)_minmax(100px,0.62fr)_minmax(96px,0.62fr)_minmax(132px,auto)] items-center gap-3 px-4 py-5">
               {/*===== Invoice identity =====*/}
               <div className="flex min-w-0 items-center gap-3">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.04] font-mono text-[8px] font-semibold text-secondary">
@@ -233,7 +238,9 @@ export function InvoiceList({
                       <DesktopTextAction
                         label="Send"
                         icon={Mail}
-                        onClick={() => handleSend(invoice.id)}
+                        onClick={() =>
+                          setPendingAction({ invoiceId: invoice.id, type: "send" })
+                        }
                         disabled={isPending}
                         tone="primary"
                       />
@@ -244,7 +251,13 @@ export function InvoiceList({
                       <DesktopTextAction
                         label="Mark Paid"
                         icon={CheckCircle2}
-                        onClick={() => handleStatusChange(invoice.id, "PAID")}
+                        onClick={() =>
+                          setPendingAction({
+                            invoiceId: invoice.id,
+                            type: "status",
+                            status: "PAID",
+                          })
+                        }
                         disabled={isPending}
                         tone="success"
                       />
@@ -255,7 +268,11 @@ export function InvoiceList({
                         label="Mark as overdue"
                         tone="warning"
                         onClick={() =>
-                          handleStatusChange(invoice.id, "OVERDUE")
+                          setPendingAction({
+                            invoiceId: invoice.id,
+                            type: "status",
+                            status: "OVERDUE",
+                          })
                         }
                         disabled={isPending}
                       >
@@ -268,7 +285,11 @@ export function InvoiceList({
                         label="Cancel invoice"
                         tone="muted"
                         onClick={() =>
-                          handleStatusChange(invoice.id, "CANCELLED")
+                          setPendingAction({
+                            invoiceId: invoice.id,
+                            type: "status",
+                            status: "CANCELLED",
+                          })
                         }
                         disabled={isPending}
                       >
@@ -280,7 +301,9 @@ export function InvoiceList({
                       <ActionButton
                         label="Delete invoice"
                         tone="danger"
-                        onClick={() => handleDelete(invoice.id)}
+                        onClick={() =>
+                          setPendingAction({ invoiceId: invoice.id, type: "delete" })
+                        }
                         disabled={isPending}
                       >
                         <Trash2 className="h-3.5 w-3.5" />
@@ -301,127 +324,10 @@ export function InvoiceList({
               </div>
             </div>
 
-            {/*===== Mobile and tablet =====*/}
-            <div className="px-4 py-5 xl:hidden">
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex min-w-0 items-start gap-3">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.04] font-mono text-[8px] font-semibold text-secondary">
-                    {String(index + 1).padStart(2, "0")}
-                  </div>
-
-                  <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold text-heading">
-                      {invoice.invoiceNumber}
-                    </p>
-
-                    <p className="mt-1 text-[10px] text-muted-foreground">
-                      Created{" "}
-                      {format(new Date(invoice.createdAt), "MMM d, yyyy")}
-                    </p>
-                  </div>
-                </div>
-
-                <InvoiceStatusBadge status={invoice.status} />
-              </div>
-
-              {/*===== Commercial summary =====*/}
-              <div className="mt-5 grid grid-cols-2 border-y border-border">
-                <MobileDetail
-                  label="Invoice value"
-                  value={`${invoice.amount} ${invoice.currency}`}
-                />
-
-                <MobileDetail
-                  label={invoice.paidAt ? "Paid" : "Due date"}
-                  value={
-                    invoice.paidAt
-                      ? format(new Date(invoice.paidAt), "MMM d, yyyy")
-                      : invoice.dueDate
-                        ? format(new Date(invoice.dueDate), "MMM d, yyyy")
-                        : "No due date"
-                  }
-                  tone={invoice.paidAt ? "success" : "default"}
-                  bordered
-                />
-              </div>
-
-              {/*===== Mobile actions =====*/}
-              <div className="mt-4 flex flex-wrap items-center gap-2">
-                {!readonly && (
-                  <>
-                    {invoice.status === "DRAFT" && (
-                      <MobileAction
-                        onClick={() => handleSend(invoice.id)}
-                        disabled={isPending}
-                        icon={Mail}
-                        tone="primary"
-                      >
-                        Send
-                      </MobileAction>
-                    )}
-
-                    {(invoice.status === "SENT" ||
-                      invoice.status === "OVERDUE") && (
-                      <MobileAction
-                        onClick={() => handleStatusChange(invoice.id, "PAID")}
-                        disabled={isPending}
-                        icon={CheckCircle2}
-                        tone="success"
-                      >
-                        Mark Paid
-                      </MobileAction>
-                    )}
-
-                    {invoice.status === "SENT" && (
-                      <MobileAction
-                        onClick={() =>
-                          handleStatusChange(invoice.id, "OVERDUE")
-                        }
-                        disabled={isPending}
-                        icon={Clock3}
-                        tone="warning"
-                      >
-                        Overdue
-                      </MobileAction>
-                    )}
-
-                    {invoice.status === "DRAFT" && (
-                      <MobileAction
-                        onClick={() =>
-                          handleStatusChange(invoice.id, "CANCELLED")
-                        }
-                        disabled={isPending}
-                        icon={XCircle}
-                      >
-                        Cancel
-                      </MobileAction>
-                    )}
-
-                    {invoice.status === "DRAFT" && (
-                      <MobileAction
-                        onClick={() => handleDelete(invoice.id)}
-                        disabled={isPending}
-                        icon={Trash2}
-                        tone="danger"
-                      >
-                        Delete
-                      </MobileAction>
-                    )}
-                  </>
-                )}
-
-                <Link
-                  href={`/api/invoices/${invoice.id}/pdf`}
-                  target="_blank"
-                  className="inline-flex h-8 items-center gap-1.5 border border-border bg-card px-2.5 text-[11px] font-medium text-muted-foreground transition-colors hover:border-secondary/25 hover:text-heading"
-                >
-                  <FileDown className="h-3.5 w-3.5" />
-                  PDF
-                </Link>
-              </div>
-            </div>
           </article>
         ))}
+      </div>
+        </div>
       </div>
 
       {/*===== Footer =====*/}
@@ -439,8 +345,69 @@ export function InvoiceList({
           {invoices.length === 1 ? "invoice" : "invoices"}
         </span>
       </div>
+
+      <ConfirmationModal
+        isOpen={Boolean(pendingAction && pendingInvoice)}
+        onClose={() => setPendingAction(null)}
+        onConfirm={handleConfirmAction}
+        title={confirmation.title}
+        description={confirmation.description}
+        confirmLabel={confirmation.confirmLabel}
+        tone={confirmation.tone}
+        isPending={isPending}
+      />
     </div>
   );
+}
+
+function getConfirmationContent(
+  action: PendingInvoiceAction | null,
+  invoice: Invoice | null,
+) {
+  const invoiceLabel = invoice?.invoiceNumber ?? "this invoice";
+
+  if (action?.type === "delete") {
+    return {
+      title: "Delete invoice",
+      description: `Delete ${invoiceLabel}? This action cannot be undone.`,
+      confirmLabel: "Delete invoice",
+      tone: "danger" as const,
+    };
+  }
+
+  if (action?.type === "send") {
+    return {
+      title: "Send invoice",
+      description: `Send ${invoiceLabel} to the client? The invoice status will change from draft to sent.`,
+      confirmLabel: "Send invoice",
+      tone: "default" as const,
+    };
+  }
+
+  if (action?.status === "PAID") {
+    return {
+      title: "Mark invoice as paid",
+      description: `Mark ${invoiceLabel} as paid? This updates the invoice payment status.`,
+      confirmLabel: "Mark as paid",
+      tone: "success" as const,
+    };
+  }
+
+  if (action?.status === "OVERDUE") {
+    return {
+      title: "Mark invoice as overdue",
+      description: `Mark ${invoiceLabel} as overdue?`,
+      confirmLabel: "Mark overdue",
+      tone: "warning" as const,
+    };
+  }
+
+  return {
+    title: "Cancel invoice",
+    description: `Cancel ${invoiceLabel}? The invoice will no longer be available for payment.`,
+    confirmLabel: "Cancel invoice",
+    tone: "warning" as const,
+  };
 }
 
 //===== Invoice status badge =====//
@@ -547,69 +514,3 @@ function ActionButton({
   );
 }
 
-//===== Mobile detail =====//
-function MobileDetail({
-  label,
-  value,
-  tone = "default",
-  bordered = false,
-}: {
-  label: string;
-  value: string;
-  tone?: "default" | "success";
-  bordered?: boolean;
-}) {
-  return (
-    <div
-      className={`min-w-0 py-4 ${bordered ? "border-l border-border pl-4" : "pr-4"}`}
-    >
-      <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40">
-        {label}
-      </span>
-
-      <p
-        className={`mt-1.5 truncate text-xs font-semibold ${tone === "success" ? "text-success" : "text-heading"}`}
-      >
-        {value}
-      </p>
-    </div>
-  );
-}
-
-//===== Mobile action =====//
-function MobileAction({
-  icon: Icon,
-  children,
-  tone = "default",
-  onClick,
-  disabled,
-}: {
-  icon: typeof Mail;
-  children: React.ReactNode;
-  tone?: "default" | "primary" | "success" | "warning" | "danger";
-  onClick: () => void;
-  disabled?: boolean;
-}) {
-  const styles = {
-    default:
-      "border-border text-muted-foreground hover:bg-muted/30 hover:text-heading",
-    primary:
-      "border-secondary/20 bg-secondary/[0.04] text-secondary hover:bg-secondary/[0.08]",
-    success: "border-success/20 text-success hover:bg-success/[0.05]",
-    warning: "border-warning/20 text-warning hover:bg-warning/[0.05]",
-    danger:
-      "border-destructive/20 text-destructive hover:bg-destructive/[0.05]",
-  };
-
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      disabled={disabled}
-      className={`inline-flex h-8 items-center gap-1.5 rounded-md border bg-card px-2.5 text-[11px] font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${styles[tone]}`}
-    >
-      <Icon className="h-3.5 w-3.5" />
-      {children}
-    </button>
-  );
-}
