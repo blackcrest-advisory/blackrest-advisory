@@ -16,7 +16,7 @@ import {
 import { format } from "date-fns";
 
 import { getAdminUser } from "@/lib/utils/admin-utils";
-import { prisma } from "@/lib/db/client";
+import { getAdminProjectRequestById } from "@/lib/data/briefs";
 
 import { StatusBadge } from "@/components/ui/StatusBadge";
 
@@ -55,33 +55,7 @@ export default async function AdminProjectRequestDetailPage({
   const { id } = await params;
 
   //===== data =====//
-  const brief = await prisma.brief.findUnique({
-    where: {
-      id,
-    },
-    select: {
-      id: true,
-      title: true,
-      problem: true,
-      pillar: true,
-      budget: true,
-      currency: true,
-      deadline: true,
-      attachments: true,
-      status: true,
-      createdAt: true,
-      assignedTo: true,
-      user: {
-        select: {
-          id: true,
-          name: true,
-          email: true,
-          companyName: true,
-        },
-      },
-      proposal: true,
-    },
-  });
+  const brief = await getAdminProjectRequestById(id);
 
   if (!brief) {
     notFound();

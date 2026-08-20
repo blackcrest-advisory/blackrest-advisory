@@ -6,7 +6,7 @@ import { SecuritySection } from "@/components/client-dashboard/settings/Security
 import { NotificationsSection } from "@/components/client-dashboard/settings/NotificationsSection";
 
 import { getCurrentUser } from "@/lib/utils/auth-utils";
-import { prisma } from "@/lib/db/client";
+import { getClientSettingsUser } from "@/lib/data/users";
 
 import type {
   ClientProfile,
@@ -20,20 +20,7 @@ export default async function SettingsPage() {
     redirect("/login");
   }
 
-  const user = await prisma.user.findUnique({
-    where: {
-      id: currentUser.id,
-    },
-    select: {
-      name: true,
-      email: true,
-      phone: true,
-      companyName: true,
-      jobTitle: true,
-      avatarUrl: true,
-      notificationPreferences: true,
-    },
-  });
+  const user = await getClientSettingsUser(currentUser.id);
 
   if (!user) {
     redirect("/login");

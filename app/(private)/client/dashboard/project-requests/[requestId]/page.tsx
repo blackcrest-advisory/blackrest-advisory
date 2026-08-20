@@ -17,8 +17,8 @@ import {
   WalletCards,
 } from "lucide-react";
 
-import { prisma } from "@/lib/db/client";
 import { getCurrentUser } from "@/lib/utils/auth-utils";
+import { getClientProjectRequestById } from "@/lib/data/briefs";
 
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { Button } from "@/components/ui/Button";
@@ -43,42 +43,7 @@ export default async function ProjectRequestDetailsPage({
   const { requestId } = await params;
 
   //===== fetch brief with explicit select =====//
-  const brief = await prisma.brief.findUnique({
-    where: { id: requestId },
-    select: {
-      id: true,
-      title: true,
-      problem: true,
-      pillar: true,
-      budget: true,
-      currency: true,
-      deadline: true,
-      attachments: true,
-      status: true,
-      createdAt: true,
-      updatedAt: true,
-      projectGoals: true,
-      targetAudience: true,
-      referenceLinks: true,
-      userId: true,
-      proposal: {
-        select: {
-          id: true,
-          status: true,
-          scope: true,
-          deliverables: true,
-          timeline: true,
-          amount: true,
-          currency: true,
-          terms: true,
-          sentAt: true,
-          viewedAt: true,
-          acceptedAt: true,
-          declinedAt: true,
-        },
-      },
-    },
-  });
+  const brief = await getClientProjectRequestById(requestId);
 
   console.log(brief);
 

@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { prisma } from "@/lib/db/client";
 import { getCurrentUser } from "@/lib/utils/auth-utils";
+import { getClientInvoices } from "@/lib/data/invoices";
 import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
@@ -37,31 +37,7 @@ export default async function ClientInvoicesPage({
   const search = params?.search || "";
   const statusFilter = params?.status || "";
 
-  // Build where clause
-  const where: any = { userId: user.id };
-
-  if (statusFilter) {
-    where.status = statusFilter;
-  }
-
-  if (search) {
-    where.OR = [
-      { invoiceNumber: { contains: search, mode: "insensitive" } },
-      { project: { title: { contains: search, mode: "insensitive" } } },
-    ];
-  }
-
-  const invoices = await prisma.invoice.findMany({
-    where,
-    orderBy: { createdAt: "desc" },
-    include: {
-      project: {
-        select: {
-          title: true,
-        },
-      },
-    },
-  });
+  const invoices = await getClientInvoices(user.id, search, statusFilter);
 
   return (
     <PageWrapper>

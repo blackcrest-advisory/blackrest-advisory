@@ -4,7 +4,7 @@ import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { getCurrentUser } from "@/lib/utils/auth-utils";
-import { prisma } from "@/lib/db/client";
+import { getClientPayments } from "@/lib/data/invoices";
 import type { Payment } from "@/types/dashboard/client/paymentTypes";
 
 //===== Map database status to frontend status =====//
@@ -27,29 +27,7 @@ export default async function PaymentsPage() {
   }
 
   //===== Fetch paid/overdue invoices =====//
-  const invoiceRecords = await prisma.invoice.findMany({
-    where: {
-      userId: user.id,
-      status: {
-        in: ["PAID", "OVERDUE"],
-      },
-    },
-    include: {
-      user: {
-        select: {
-          name: true,
-        },
-      },
-      project: {
-        select: {
-          title: true,
-        },
-      },
-    },
-    orderBy: {
-      updatedAt: "desc",
-    },
-  });
+  const invoiceRecords = await getClientPayments(user.id);
 
   //===== Transform to frontend type =====//
   const payments: Payment[] = invoiceRecords.map((invoice) => ({

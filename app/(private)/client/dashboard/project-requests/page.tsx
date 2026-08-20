@@ -11,8 +11,8 @@ import {
   WalletCards,
 } from "lucide-react";
 
-import { prisma } from "@/lib/db/client";
 import { getCurrentUser } from "@/lib/utils/auth-utils";
+import { getClientProjectRequests } from "@/lib/data/briefs";
 
 import { Button } from "@/components/ui/Button";
 import { StatusBadge } from "@/components/ui/StatusBadge";
@@ -33,23 +33,7 @@ export default async function page() {
   }
 
   //===== Fetch requests =====//
-  const briefs = await prisma.brief.findMany({
-    where: {
-      userId: user.id,
-    },
-    orderBy: {
-      createdAt: "desc",
-    },
-    select: {
-      id: true,
-      title: true,
-      pillar: true,
-      budget: true,
-      currency: true,
-      status: true,
-      createdAt: true,
-    },
-  });
+  const briefs = await getClientProjectRequests(user.id);
 
   return (
     <div className="relative space-y-6">

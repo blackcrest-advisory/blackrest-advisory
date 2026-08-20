@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { Activity, BriefcaseBusiness, CircleDot, Layers3 } from "lucide-react";
 
 import { getAdminUser } from "@/lib/utils/admin-utils";
-import { prisma } from "@/lib/db/client";
+import { getAdminProjects } from "@/lib/data/projects";
 
 import { ProjectStats } from "@/components/admin-dashboard/projects/ProjectStats";
 import { AdminProjectsClient } from "@/components/admin-dashboard/projects/AdminProjectsClient";
@@ -17,31 +17,7 @@ export default async function AdminProjectsPage() {
   }
 
   //===== fetch all projects with user and proposal data =====//
-  const projects = await prisma.project.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-    include: {
-      user: {
-        select: {
-          id: true,
-          name: true,
-          email: true,
-        },
-      },
-      proposal: {
-        select: {
-          id: true,
-          brief: {
-            select: {
-              title: true,
-              pillar: true,
-            },
-          },
-        },
-      },
-    },
-  });
+  const projects = await getAdminProjects();
 
   //===== stats =====//
   const total = projects.length;

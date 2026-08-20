@@ -1,7 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 import { format } from "date-fns";
-import { prisma } from "@/lib/db/client";
 import { getCurrentUser } from "@/lib/utils/auth-utils";
+import { getClientInvoiceById } from "@/lib/data/invoices";
 import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
@@ -12,11 +12,6 @@ import Link from "next/link";
 import {
   ArrowLeft,
   Download,
-  Printer,
-  Calendar,
-  DollarSign,
-  User,
-  FileText,
 } from "lucide-react";
 import { PrintButton } from "@/components/client-dashboard/invoices/PrintButton";
 
@@ -25,6 +20,11 @@ interface InvoiceDetailPageProps {
     id: string;
   }>;
 }
+
+type InvoiceLineItem = {
+  description?: React.ReactNode;
+  amount?: React.ReactNode;
+};
 
 export default async function InvoiceDetailPage({
   params,
@@ -36,23 +36,14 @@ export default async function InvoiceDetailPage({
 
   const { id } = await params;
 
-  const invoice = await prisma.invoice.findUnique({
-    where: { id },
-    include: {
-      project: {
-        include: {
-          user: true,
-        },
-      },
-    },
-  });
+  const invoice = await getClientInvoiceById(id);
 
   if (!invoice || invoice.project.userId !== user.id) {
     notFound();
   }
 
   // Parse line items if they exist
-  const lineItems = invoice.lineItems as any[] | null;
+  const lineItems = invoice.lineItems as InvoiceLineItem[] | null;
 
   return (
     <PageWrapper>
@@ -172,7 +163,7 @@ export default async function InvoiceDetailPage({
                             className={`border-b border-border ${index % 2 === 0 ? "bg-background" : "bg-muted/5"}`}
                           >
                             <td className="px-4 py-3 text-muted-foreground">
-                              {item.description || item}
+                              {item.description || (item as React.ReactNode)}
                             </td>
                             <td className="px-4 py-3 text-right font-medium text-foreground">
                               {item.amount || invoice.amount} {invoice.currency}

@@ -2,8 +2,8 @@
 import { redirect } from "next/navigation";
 import { ClipboardList, CircleDot, Layers3 } from "lucide-react";
 
-import { prisma } from "@/lib/db/client";
 import { getCurrentUser } from "@/lib/utils/auth-utils";
+import { getAdminProjectRequests } from "@/lib/data/briefs";
 
 import { AdminProjectRequestsClient } from "@/components/admin-dashboard/project-requests/AdminProjectRequestsClient";
 
@@ -16,28 +16,7 @@ export default async function AdminRequestsPage() {
   }
 
   //===== data =====//
-  const briefs = await prisma.brief.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-    select: {
-      id: true,
-      title: true,
-      pillar: true,
-      budget: true,
-      status: true,
-      currency: true,
-      createdAt: true,
-      deadline: true,
-      assignedTo: true,
-      user: {
-        select: {
-          name: true,
-          email: true,
-        },
-      },
-    },
-  });
+  const briefs = await getAdminProjectRequests();
 
   //===== render =====//
   return (

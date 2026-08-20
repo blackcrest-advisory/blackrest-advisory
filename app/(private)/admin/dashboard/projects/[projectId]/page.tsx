@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 
 import { getAdminUser } from "@/lib/utils/admin-utils";
-import { prisma } from "@/lib/db/client";
+import { getAdminProjectById } from "@/lib/data/projects";
 
 import { Button } from "@/components/ui/Button";
 import { StatusBadge } from "@/components/ui/StatusBadge";
@@ -54,41 +54,7 @@ export default async function AdminProjectDetailPage({
   const { projectId: id } = await params;
 
   //===== fetch project with all relations =====//
-  const project = await prisma.project.findUnique({
-    where: {
-      id,
-    },
-    include: {
-      user: {
-        select: {
-          id: true,
-          name: true,
-          email: true,
-          companyName: true,
-        },
-      },
-      proposal: {
-        include: {
-          brief: true,
-        },
-      },
-      milestones: {
-        orderBy: {
-          sortOrder: "asc",
-        },
-      },
-      invoices: {
-        orderBy: {
-          createdAt: "desc",
-        },
-      },
-      files: {
-        orderBy: {
-          createdAt: "desc",
-        },
-      },
-    },
-  });
+  const project = await getAdminProjectById(id);
 
   if (!project) {
     notFound();
