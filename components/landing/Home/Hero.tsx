@@ -6,7 +6,7 @@ import {
   useState,
   type MouseEvent as ReactMouseEvent,
 } from "react";
-
+import { ArrowUpRight } from "lucide-react";
 import { Fraunces } from "next/font/google";
 
 import {
@@ -561,15 +561,12 @@ function NetworkMap({
   );
 }
 
-//===== HERO =====//
-
+//===== Hero =====//
 const Hero = () => {
   const shouldReduceMotion = Boolean(useReducedMotion());
-
   const initial = shouldReduceMotion ? "visible" : "hidden";
 
-  //===== STATS =====//
-
+  //===== Stats =====//
   const statsRef = useRef<HTMLDivElement>(null);
 
   const statsInView = useInView(statsRef, {
@@ -577,8 +574,7 @@ const Hero = () => {
     margin: "-80px",
   });
 
-  //===== POINTER INTERACTION =====//
-
+  //===== Pointer interaction =====//
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -594,21 +590,13 @@ const Hero = () => {
     mass: 0.5,
   });
 
-  /*
-   * Background and foreground intentionally move in opposite directions.
-   * This creates a subtle depth/parallax effect.
-   */
-
   const networkX = useTransform(smoothX, [-0.5, 0.5], [-14, 14]);
-
   const networkY = useTransform(smoothY, [-0.5, 0.5], [-10, 10]);
 
   const gridX = useTransform(smoothX, [-0.5, 0.5], [6, -6]);
-
   const gridY = useTransform(smoothY, [-0.5, 0.5], [4, -4]);
 
   const spotlightX = useTransform(smoothX, [-0.5, 0.5], ["4%", "66%"]);
-
   const spotlightY = useTransform(smoothY, [-0.5, 0.5], ["-4%", "54%"]);
 
   const [networkActive, setNetworkActive] = useState(false);
@@ -619,7 +607,6 @@ const Hero = () => {
     const rect = event.currentTarget.getBoundingClientRect();
 
     const x = (event.clientX - rect.left) / rect.width - 0.5;
-
     const y = (event.clientY - rect.top) / rect.height - 0.5;
 
     mouseX.set(x);
@@ -640,7 +627,6 @@ const Hero = () => {
       className="group/hero relative isolate overflow-hidden py-12 sm:py-16 lg:py-24"
     >
       {/*===== Interactive cursor spotlight =====*/}
-
       {!shouldReduceMotion && (
         <motion.div
           aria-hidden="true"
@@ -657,14 +643,12 @@ const Hero = () => {
       )}
 
       {/*===== Blueprint grid =====*/}
-
       <motion.div
         aria-hidden="true"
         className="pointer-events-none absolute inset-[-12px] -z-30 opacity-70"
         style={{
           x: shouldReduceMotion ? 0 : gridX,
           y: shouldReduceMotion ? 0 : gridY,
-
           backgroundImage: `
             linear-gradient(
               to right,
@@ -695,40 +679,31 @@ const Hero = () => {
               transparent 72%
             )
           `,
-
           backgroundPosition: "center center",
-
           backgroundSize: "72px 72px, 72px 72px, 100% 100%",
-
           maskImage:
             "linear-gradient(to bottom, transparent, black 16%, black 78%, transparent)",
-
           WebkitMaskImage:
             "linear-gradient(to bottom, transparent, black 16%, black 78%, transparent)",
         }}
       />
 
       {/*===== Dot field =====*/}
-
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-20 opacity-[0.45]"
         style={{
           backgroundImage:
             "radial-gradient(color-mix(in srgb, var(--color-body) 35%, transparent) 1px, transparent 1px)",
-
           backgroundSize: "28px 28px",
-
           maskImage:
             "radial-gradient(60rem 34rem at 30% 20%, black 30%, transparent 75%)",
-
           WebkitMaskImage:
             "radial-gradient(60rem 34rem at 30% 20%, black 30%, transparent 75%)",
         }}
       />
 
       {/*===== Traveling blueprint signals =====*/}
-
       <motion.div
         aria-hidden="true"
         className="pointer-events-none absolute left-[-8rem] top-[calc(50%-72px)] -z-10 h-px w-28 bg-linear-to-r from-transparent via-secondary to-transparent shadow-[0_0_14px_var(--color-secondary)]"
@@ -781,7 +756,6 @@ const Hero = () => {
       />
 
       {/*===== Network stage glow =====*/}
-
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-10 top-1/2 -z-10 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full opacity-60 blur-3xl"
@@ -825,7 +799,6 @@ const Hero = () => {
       />
 
       {/*===== Drafting marks =====*/}
-
       <div
         aria-hidden="true"
         className="pointer-events-none absolute left-[7%] top-12 -z-10 hidden h-20 w-px bg-linear-to-b from-transparent via-secondary/45 to-transparent lg:block"
@@ -839,205 +812,232 @@ const Hero = () => {
       </div>
 
       {/*===== Main content =====*/}
-
       <Container>
-        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-          {/*===== Left =====*/}
-
-          <div>
-            {/* Eyebrow */}
-
+        <div className="grid items-center gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16">
+          {/*===== Left — editorial statement =====*/}
+          <div className="relative min-w-0">
+            {/*===== Intro rail =====*/}
             <motion.div
-              className="flex items-center gap-3"
               variants={fade}
               initial={initial}
               animate="visible"
+              className="grid grid-cols-[54px_minmax(0,1fr)] items-start gap-4 sm:grid-cols-[68px_minmax(0,1fr)] sm:gap-6"
             >
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-secondary">
-                Europe · Technology · Growth
-              </span>
-
-              <motion.span
-                className="h-px flex-1 bg-secondary/40"
-                style={{
-                  transformOrigin: "left",
-                }}
-                initial={
-                  shouldReduceMotion
-                    ? {
-                        scaleX: 1,
-                      }
-                    : {
-                        scaleX: 0,
-                      }
-                }
-                animate={{
-                  scaleX: 1,
-                }}
-                transition={{
-                  duration: 0.9,
-                  delay: 0.1,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              />
-            </motion.div>
-
-            {/*===== Headline =====*/}
-
-            <motion.h1
-              className={`
-                ${fraunces.className}
-                mt-6
-                max-w-3xl
-                text-4xl
-                leading-[1.08]
-                tracking-tight
-                text-heading
-                sm:text-5xl
-                md:text-[3.4rem]
-              `}
-              variants={headlineContainer}
-              initial={initial}
-              animate="visible"
-            >
-              {headlineWords.map((word) => (
-                <span
-                  key={word.text}
-                  className="mr-[0.28em] inline-block overflow-hidden align-bottom"
-                >
-                  <motion.span
-                    variants={wordReveal}
-                    whileHover={
-                      word.accent && !shouldReduceMotion
-                        ? {
-                            y: -3,
-                            skewX: -3,
-                          }
-                        : undefined
-                    }
-                    transition={{
-                      duration: 0.25,
-                    }}
-                    className={`
-                      inline-block
-                      ${
-                        word.accent
-                          ? "cursor-default text-gold-gradient italic"
-                          : ""
-                      }
-                    `}
-                  >
-                    {word.text}
-                  </motion.span>
+              <div className="border-t border-secondary pt-3">
+                <span className="font-mono text-[9px] font-semibold text-secondary">
+                  01
                 </span>
-              ))}
-            </motion.h1>
 
-            {/* Description */}
+                <span className="mt-1 block font-mono text-[6px] uppercase tracking-[0.16em] text-body/40">
+                  BCR
+                </span>
+              </div>
 
-            <motion.p
-              className="mt-6 max-w-lg text-base leading-8 text-body sm:text-lg"
-              variants={fadeUp}
-              initial={initial}
-              animate="visible"
-              transition={{
-                delay: 0.55,
-              }}
-            >
-              Blackcrest Advisory combines strategic thinking with hands-on
-              execution across technology, marketing, and sales to drive
-              measurable growth for startups, SMEs, and enterprises.
-            </motion.p>
+              <div className="flex items-center gap-3 border-t border-border pt-3">
+                <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-secondary">
+                  Europe · Technology · Growth
+                </span>
 
-            {/*===== Buttons =====*/}
-
-            <motion.div
-              className="mt-8 flex flex-wrap gap-4"
-              variants={fadeUp}
-              initial={initial}
-              animate="visible"
-              transition={{
-                delay: 0.7,
-              }}
-            >
-              <motion.span
-                whileHover={
-                  shouldReduceMotion
-                    ? undefined
-                    : {
-                        y: -3,
-                      }
-                }
-                whileTap={
-                  shouldReduceMotion
-                    ? undefined
-                    : {
-                        scale: 0.98,
-                      }
-                }
-                className="inline-block"
-              >
-                <Button
-                  variant="primary"
-                  size="md"
-                  href="/signup"
-                  className="shadow-[var(--shadow-action)] hover:shadow-[var(--shadow-action-hover)]"
-                >
-                  Get Started
-                </Button>
-              </motion.span>
-
-              <motion.span
-                whileHover={
-                  shouldReduceMotion
-                    ? undefined
-                    : {
-                        y: -3,
-                      }
-                }
-                whileTap={
-                  shouldReduceMotion
-                    ? undefined
-                    : {
-                        scale: 0.98,
-                      }
-                }
-                className="inline-block"
-              >
-                <Button variant="outline" size="md" href="/about">
-                  Learn More
-                </Button>
-              </motion.span>
+                <span className="hidden h-px flex-1 bg-border sm:block" />
+              </div>
             </motion.div>
 
-            {/*===== Stats =====*/}
+            {/*===== Statement =====*/}
+            <div className="mt-7 grid grid-cols-[54px_minmax(0,1fr)] gap-4 sm:grid-cols-[68px_minmax(0,1fr)] sm:gap-6">
+              <div className="relative hidden sm:block">
+                <span className="absolute bottom-0 left-1/2 top-0 w-px -translate-x-1/2 bg-border/70" />
+                <span className="absolute left-1/2 top-0 h-12 w-px -translate-x-1/2 bg-secondary" />
+              </div>
 
-            <motion.div
-              ref={statsRef}
-              className="mt-12 flex flex-wrap border-t border-border/60 pt-8"
-              variants={fadeUp}
-              initial={initial}
-              animate="visible"
-              transition={{
-                delay: 0.85,
-              }}
-            >
-              {stats.map((stat, index) => (
-                <div
-                  key={stat.label}
-                  className={index > 0 ? "border-l border-border/60" : ""}
+              <div>
+                <motion.h1
+                  className={`${fraunces.className} max-w-3xl text-4xl leading-[1.04] tracking-[-0.035em] text-heading sm:text-5xl md:text-[3.65rem] lg:text-[3.8rem] xl:text-[4.2rem]`}
+                  variants={headlineContainer}
+                  initial={initial}
+                  animate="visible"
                 >
-                  <StatItem
-                    {...stat}
-                    active={shouldReduceMotion || statsInView}
-                  />
-                </div>
-              ))}
-            </motion.div>
+                  {headlineWords.map((word) => (
+                    <span
+                      key={word.text}
+                      className="mr-[0.25em] inline-block overflow-hidden align-bottom"
+                    >
+                      <motion.span
+                        variants={wordReveal}
+                        whileHover={
+                          word.accent && !shouldReduceMotion
+                            ? {
+                                y: -3,
+                                skewX: -3,
+                              }
+                            : undefined
+                        }
+                        transition={{
+                          duration: 0.25,
+                        }}
+                        className={`inline-block ${word.accent ? "cursor-default text-gold-gradient italic" : ""}`}
+                      >
+                        {word.text}
+                      </motion.span>
+                    </span>
+                  ))}
+                </motion.h1>
+
+                {/*===== Strategic note =====*/}
+                <motion.div
+                  variants={fadeUp}
+                  initial={initial}
+                  animate="visible"
+                  transition={{
+                    delay: 0.55,
+                  }}
+                  className="mt-7 grid gap-5 border-t border-border pt-6 sm:grid-cols-[minmax(0,1fr)_150px]"
+                >
+                  <p className="max-w-xl text-base leading-8 text-body sm:text-lg">
+                    Blackcrest Advisory combines strategic thinking with
+                    hands-on execution across technology, marketing, and sales
+                    to drive measurable growth for startups, SMEs, and
+                    enterprises.
+                  </p>
+
+                  <div className="border-l border-border pl-4">
+                    <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-secondary">
+                      Operating model
+                    </span>
+
+                    <p className="mt-2 text-xs font-medium leading-5 text-heading">
+                      Strategy connected directly to execution.
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/*===== Action console =====*/}
+                <motion.div
+                  variants={fadeUp}
+                  initial={initial}
+                  animate="visible"
+                  transition={{
+                    delay: 0.7,
+                  }}
+                  className="mt-7 grid gap-2 sm:grid-cols-[1.15fr_0.85fr]"
+                >
+                  <motion.div
+                    whileHover={
+                      shouldReduceMotion
+                        ? undefined
+                        : {
+                            y: -2,
+                          }
+                    }
+                    whileTap={
+                      shouldReduceMotion
+                        ? undefined
+                        : {
+                            scale: 0.99,
+                          }
+                    }
+                  >
+                    <Button
+                      variant="primary"
+                      size="md"
+                      href="/signup"
+                      className="group min-h-[64px] w-full !justify-between !rounded-none px-5 text-left shadow-[var(--shadow-action)] hover:shadow-[var(--shadow-action-hover)]"
+                    >
+                      <span className="flex flex-col items-start gap-1">
+                        <span className="font-mono text-[6px] font-semibold uppercase tracking-[0.16em] text-primary-foreground/55">
+                          01 / Begin
+                        </span>
+
+                        <span className="text-sm font-semibold">
+                          Get Started
+                        </span>
+                      </span>
+
+                      <span className="flex h-8 w-8 items-center justify-center border border-primary-foreground/15 transition-transform duration-300 group-hover:translate-x-1">
+                        <ArrowUpRight className="h-3.5 w-3.5" />
+                      </span>
+                    </Button>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={
+                      shouldReduceMotion
+                        ? undefined
+                        : {
+                            y: -2,
+                          }
+                    }
+                    whileTap={
+                      shouldReduceMotion
+                        ? undefined
+                        : {
+                            scale: 0.99,
+                          }
+                    }
+                  >
+                    <Button
+                      variant="outline"
+                      size="md"
+                      href="/about"
+                      className="group min-h-[64px] w-full !justify-between !rounded-none border-border px-5 text-left"
+                    >
+                      <span className="flex flex-col items-start gap-1">
+                        <span className="font-mono text-[6px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/40">
+                          02 / Explore
+                        </span>
+
+                        <span className="text-sm font-semibold">
+                          Learn More
+                        </span>
+                      </span>
+
+                      <ArrowUpRight className="h-4 w-4 text-secondary transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    </Button>
+                  </motion.div>
+                </motion.div>
+
+                {/*===== Evidence rail =====*/}
+                <motion.div
+                  ref={statsRef}
+                  variants={fadeUp}
+                  initial={initial}
+                  animate="visible"
+                  transition={{
+                    delay: 0.85,
+                  }}
+                  className="mt-8 border-y border-border/70"
+                >
+                  <div className="flex items-center justify-between border-b border-border/60 px-1 py-2">
+                    <span className="font-mono text-[6px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/35">
+                      Blackcrest footprint
+                    </span>
+
+                    <span className="flex items-center gap-2 font-mono text-[6px] font-semibold uppercase tracking-[0.14em] text-secondary">
+                      <span className="h-1 w-1 rounded-full bg-success" />
+                      Active
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-3">
+                    {stats.map((stat, index) => (
+                      <div
+                        key={stat.label}
+                        className={index > 0 ? "border-l border-border/60" : ""}
+                      >
+                        <div className="py-4">
+                          <StatItem
+                            {...stat}
+                            active={shouldReduceMotion || statsInView}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+            </div>
           </div>
 
           {/*===== Right — interactive network =====*/}
-
           <motion.div
             variants={fade}
             initial={initial}
@@ -1057,7 +1057,6 @@ const Hero = () => {
             className="relative mx-auto aspect-square w-full max-w-md"
           >
             {/*===== Outer responsive field =====*/}
-
             <motion.div
               aria-hidden="true"
               className="pointer-events-none absolute inset-[5%] rounded-full border border-secondary/10"
@@ -1066,7 +1065,6 @@ const Hero = () => {
                   ? undefined
                   : {
                       scale: networkActive ? [1, 1.04, 1] : 1,
-
                       opacity: networkActive ? [0.3, 0.75, 0.3] : 0.3,
                     }
               }
@@ -1077,8 +1075,7 @@ const Hero = () => {
               }}
             />
 
-            {/* Rotating coordinate ring */}
-
+            {/*===== Rotating coordinate ring =====*/}
             {!shouldReduceMotion && (
               <motion.div
                 aria-hidden="true"
@@ -1095,7 +1092,6 @@ const Hero = () => {
             )}
 
             {/*===== Corner coordinates =====*/}
-
             <motion.div
               aria-hidden="true"
               animate={{
@@ -1117,7 +1113,6 @@ const Hero = () => {
             </motion.div>
 
             {/*===== Map =====*/}
-
             <motion.div
               animate={{
                 filter: networkActive
@@ -1135,8 +1130,7 @@ const Hero = () => {
               />
             </motion.div>
 
-            {/*===== Active state label =====*/}
-
+            {/*===== Active state =====*/}
             <motion.div
               initial={{
                 opacity: 0,
@@ -1167,7 +1161,6 @@ const Hero = () => {
             </motion.div>
 
             {/*===== Caption =====*/}
-
             <motion.p
               animate={{
                 color: networkActive
