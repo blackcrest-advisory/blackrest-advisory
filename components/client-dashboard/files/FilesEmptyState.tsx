@@ -35,18 +35,14 @@ export const FilesEmptyState = ({
       animate={shouldReduceMotion ? undefined : "visible"}
       className="relative flex min-h-[320px] flex-col items-center justify-center overflow-hidden border border-dashed border-border bg-background/20 px-6 py-12 text-center sm:px-10 sm:py-14"
     >
-      {/* ====================================================== */}
-      {/* AMBIENT DETAIL                                        */}
-      {/* ====================================================== */}
+      {/*===== AMBIENT DETAIL =====*/}
 
       <div
         aria-hidden="true"
         className="pointer-events-none absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/[0.035] blur-[70px]"
       />
 
-      {/* ====================================================== */}
-      {/* ICON                                                  */}
-      {/* ====================================================== */}
+      {/*===== ICON =====*/}
 
       <div
         className="relative flex h-14 w-14 items-center justify-center rounded-md border border-secondary/15 bg-secondary/[0.045] text-secondary"
@@ -63,9 +59,7 @@ export const FilesEmptyState = ({
         />
       </div>
 
-      {/* ====================================================== */}
-      {/* COPY                                                  */}
-      {/* ====================================================== */}
+      {/*===== COPY =====*/}
 
       <span
         className="relative mt-5 font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-secondary"
@@ -87,9 +81,7 @@ export const FilesEmptyState = ({
           : "Upload your first project file to keep documents, designs, and deliverables organized in one place."}
       </p>
 
-      {/* ====================================================== */}
-      {/* ACTION                                                */}
-      {/* ====================================================== */}
+      {/*===== ACTION =====*/}
 
       <div className="relative mt-6">
         {isNoResults ? (
@@ -114,9 +106,7 @@ export const FilesEmptyState = ({
         )}
       </div>
 
-      {/* ====================================================== */}
-      {/* FOOTNOTE                                              */}
-      {/* ====================================================== */}
+      {/*===== FOOTNOTE =====*/}
 
       <div
         className="relative mt-7 flex items-center gap-2"

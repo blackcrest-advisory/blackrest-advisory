@@ -78,9 +78,7 @@ const ProfileDropdown = () => {
           before:right-5
         "
       >
-        {/* ================================================ */}
-        {/* PROFILE HEADER                                   */}
-        {/* ================================================ */}
+        {/*===== PROFILE HEADER =====*/}
 
         <div
           className="relative overflow-hidden border-b border-border px-4 py-4"
@@ -118,9 +116,7 @@ const ProfileDropdown = () => {
           </div>
         </div>
 
-        {/* ================================================ */}
-        {/* MENU                                             */}
-        {/* ================================================ */}
+        {/*===== MENU =====*/}
 
         <div className="py-2">
           <div className="px-4 pb-2 pt-1">
@@ -143,9 +139,7 @@ const ProfileDropdown = () => {
           ))}
         </div>
 
-        {/* ================================================ */}
-        {/* LOGOUT                                           */}
-        {/* ================================================ */}
+        {/*===== LOGOUT =====*/}
 
         <div
           className="border-t border-border bg-muted/15 p-2"

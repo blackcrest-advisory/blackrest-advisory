@@ -34,9 +34,7 @@ export default function ClientFilesLoading() {
       className="relative min-w-0 max-w-full space-y-6"
       aria-label="Loading client files"
     >
-      {/* ====================================================== */}
-      {/* FILES HEADER                                          */}
-      {/* ====================================================== */}
+      {/*===== FILES HEADER =====*/}
 
       <header
         className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -56,9 +54,7 @@ export default function ClientFilesLoading() {
         <div
           className="relative z-10 grid min-w-0 gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_310px] xl:items-center"
         >
-          {/* ================================================== */}
-          {/* TITLE                                              */}
-          {/* ================================================== */}
+          {/*===== TITLE =====*/}
 
           <div className="min-w-0">
             <div
@@ -97,9 +93,7 @@ export default function ClientFilesLoading() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* UPLOAD PANEL                                       */}
-          {/* ================================================== */}
+          {/*===== UPLOAD PANEL =====*/}
 
           <div
             className="min-w-0 border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
@@ -123,9 +117,7 @@ export default function ClientFilesLoading() {
         </div>
       </header>
 
-      {/* ====================================================== */}
-      {/* FILES OVERVIEW                                        */}
-      {/* ====================================================== */}
+      {/*===== FILES OVERVIEW =====*/}
 
       <section
         className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -168,9 +160,7 @@ export default function ClientFilesLoading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* DOCUMENT WORKSPACE                                    */}
-      {/* ====================================================== */}
+      {/*===== DOCUMENT WORKSPACE =====*/}
 
       <section
         className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -181,9 +171,7 @@ export default function ClientFilesLoading() {
           className="absolute left-0 top-0 h-[2px] w-32 bg-gradient-to-r from-secondary/30 to-transparent"
         />
 
-        {/* ==================================================== */}
-        {/* WORKSPACE HEADER                                    */}
-        {/* ==================================================== */}
+        {/*===== WORKSPACE HEADER =====*/}
 
         <div
           className="flex flex-col gap-3 border-b border-border px-5 py-4 sm:flex-row sm:items-end sm:justify-between sm:px-6"
@@ -200,9 +188,7 @@ export default function ClientFilesLoading() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* FILTER BAR                                          */}
-        {/* ==================================================== */}
+        {/*===== FILTER BAR =====*/}
 
         <div
           className="border-b border-border bg-background/20 px-5 py-4 sm:px-6"
@@ -230,9 +216,7 @@ export default function ClientFilesLoading() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* DESKTOP TABLE                                       */}
-        {/* ==================================================== */}
+        {/*===== DESKTOP TABLE =====*/}
 
         <div
           className="hidden min-w-0 max-w-full overflow-x-auto md:block"
@@ -273,9 +257,7 @@ export default function ClientFilesLoading() {
           </table>
         </div>
 
-        {/* ==================================================== */}
-        {/* MOBILE RECORDS                                      */}
-        {/* ==================================================== */}
+        {/*===== MOBILE RECORDS =====*/}
 
         <div className="divide-y divide-border md:hidden">
           {Array.from({
@@ -285,9 +267,7 @@ export default function ClientFilesLoading() {
           ))}
         </div>
 
-        {/* ==================================================== */}
-        {/* WORKSPACE FOOTER                                    */}
-        {/* ==================================================== */}
+        {/*===== WORKSPACE FOOTER =====*/}
 
         <div
           className="flex flex-col gap-2 border-t border-border bg-muted/10 px-5 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6"

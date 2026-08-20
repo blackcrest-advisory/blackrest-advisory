@@ -27,9 +27,7 @@ export default function AdminSettingsLoading() {
       className="relative min-w-0 max-w-full space-y-6"
       aria-label="Loading admin settings"
     >
-      {/* ====================================================== */}
-      {/* SETTINGS HEADER                                       */}
-      {/* ====================================================== */}
+      {/*===== SETTINGS HEADER =====*/}
 
       <header
         className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -49,9 +47,7 @@ export default function AdminSettingsLoading() {
         <div
           className="relative z-10 grid min-w-0 gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_360px] xl:items-stretch"
         >
-          {/* ================================================== */}
-          {/* TITLE                                              */}
-          {/* ================================================== */}
+          {/*===== TITLE =====*/}
 
           <div className="min-w-0">
             <div
@@ -89,9 +85,7 @@ export default function AdminSettingsLoading() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* SECURE ACCOUNT PANEL                               */}
-          {/* ================================================== */}
+          {/*===== SECURE ACCOUNT PANEL =====*/}
 
           <div
             className="min-w-0 border border-secondary/15 bg-secondary/[0.025] px-5 py-5"
@@ -133,25 +127,19 @@ export default function AdminSettingsLoading() {
         </div>
       </header>
 
-      {/* ====================================================== */}
-      {/* SETTINGS WORKSPACE                                    */}
-      {/* ====================================================== */}
+      {/*===== SETTINGS WORKSPACE =====*/}
 
       <div
         className="grid min-w-0 max-w-full gap-6 xl:grid-cols-[minmax(0,1.45fr)_minmax(300px,0.55fr)] xl:items-start"
       >
-        {/* ==================================================== */}
-        {/* MAIN COLUMN                                         */}
-        {/* ==================================================== */}
+        {/*===== MAIN COLUMN =====*/}
 
         <div className="min-w-0 space-y-6">
           <ProfileSectionSkeleton />
           <NotificationsSectionSkeleton />
         </div>
 
-        {/* ==================================================== */}
-        {/* SECURITY RAIL                                       */}
-        {/* ==================================================== */}
+        {/*===== SECURITY RAIL =====*/}
 
         <aside
           className="min-w-0 xl:sticky xl:top-4"

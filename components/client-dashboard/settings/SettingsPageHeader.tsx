@@ -10,9 +10,7 @@ export const SettingsPageHeader = () => {
     <header
       className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
-      {/* ====================================================== */}
-      {/* AMBIENT BACKDROP                                      */}
-      {/* ====================================================== */}
+      {/*===== AMBIENT BACKDROP =====*/}
 
       <div
         aria-hidden="true"
@@ -24,9 +22,7 @@ export const SettingsPageHeader = () => {
         className="pointer-events-none absolute -left-16 -top-20 h-56 w-56 rounded-full bg-secondary/[0.045] blur-[95px]"
       />
 
-      {/* ====================================================== */}
-      {/* MAIN HEADER                                           */}
-      {/* ====================================================== */}
+      {/*===== MAIN HEADER =====*/}
 
       <div
         className="relative z-10 px-6 py-7 sm:px-7 lg:px-9 lg:py-9"
@@ -74,9 +70,7 @@ export const SettingsPageHeader = () => {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* ACCOUNT AREAS                                         */}
-      {/* ====================================================== */}
+      {/*===== ACCOUNT AREAS =====*/}
 
       <div
         className="relative z-10 grid border-t border-border bg-background/20 sm:grid-cols-3"
@@ -100,9 +94,7 @@ export const SettingsPageHeader = () => {
         />
       </div>
 
-      {/* ====================================================== */}
-      {/* STATUS FOOTER                                         */}
-      {/* ====================================================== */}
+      {/*===== STATUS FOOTER =====*/}
 
       <div
         className="relative z-10 flex flex-col gap-2 border-t border-border bg-muted/10 px-6 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-7 lg:px-9"

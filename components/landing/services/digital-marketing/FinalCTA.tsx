@@ -21,9 +21,7 @@ export default function FinalCTA() {
     <Section
       className="relative isolate overflow-hidden bg-primary py-16 text-primary-foreground sm:py-20 lg:py-28"
     >
-      {/* ====================================================== */}
-      {/* BACKGROUND                                            */}
-      {/* ====================================================== */}
+      {/*===== BACKGROUND =====*/}
 
       <div
         aria-hidden="true"
@@ -65,9 +63,7 @@ export default function FinalCTA() {
           }}
           className="relative border-y border-white/10"
         >
-          {/* ================================================== */}
-          {/* TOP STATUS                                        */}
-          {/* ================================================== */}
+          {/*===== TOP STATUS =====*/}
 
           <div
             className="flex flex-col gap-3 border-b border-white/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"
@@ -109,16 +105,12 @@ export default function FinalCTA() {
             </span>
           </div>
 
-          {/* ================================================== */}
-          {/* MAIN CTA                                          */}
-          {/* ================================================== */}
+          {/*===== MAIN CTA =====*/}
 
           <div
             className="grid min-w-0 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)]"
           >
-            {/* ================================================ */}
-            {/* MESSAGE                                         */}
-            {/* ================================================ */}
+            {/*===== MESSAGE =====*/}
 
             <div
               className="relative min-w-0 px-5 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16"
@@ -179,9 +171,7 @@ export default function FinalCTA() {
               </div>
             </div>
 
-            {/* ================================================ */}
-            {/* ACTION PANEL                                    */}
-            {/* ================================================ */}
+            {/*===== ACTION PANEL =====*/}
 
             <div
               className="flex min-w-0 flex-col justify-between border-t border-white/10 bg-navy-deep/40 px-5 py-8 sm:px-6 lg:border-l lg:border-t-0 lg:px-8 lg:py-10"
@@ -249,9 +239,7 @@ export default function FinalCTA() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* BOTTOM CLOSE                                      */}
-          {/* ================================================== */}
+          {/*===== BOTTOM CLOSE =====*/}
 
           <div
             className="flex flex-col gap-3 border-t border-white/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"

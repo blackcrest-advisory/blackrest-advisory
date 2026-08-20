@@ -88,23 +88,17 @@ export default function FilesPage() {
     <div
       className="relative min-w-0 max-w-full space-y-6"
     >
-      {/* ====================================================== */}
-      {/* FILES HEADER                                          */}
-      {/* ====================================================== */}
+      {/*===== FILES HEADER =====*/}
 
       <FilesPageHeader onUploadClick={handleUploadClick} />
 
-      {/* ====================================================== */}
-      {/* FILES OVERVIEW                                        */}
-      {/* ====================================================== */}
+      {/*===== FILES OVERVIEW =====*/}
 
       <div className="min-w-0">
         <FilesStatsGrid stats={stats} />
       </div>
 
-      {/* ====================================================== */}
-      {/* DOCUMENT WORKSPACE                                    */}
-      {/* ====================================================== */}
+      {/*===== DOCUMENT WORKSPACE =====*/}
 
       <section
         className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -115,9 +109,7 @@ export default function FilesPage() {
           className="absolute left-0 top-0 h-[2px] w-32 bg-gradient-to-r from-secondary/55 to-transparent"
         />
 
-        {/* ==================================================== */}
-        {/* WORKSPACE HEADER                                    */}
-        {/* ==================================================== */}
+        {/*===== WORKSPACE HEADER =====*/}
 
         <div
           className="flex flex-col gap-3 border-b border-border px-5 py-4 sm:flex-row sm:items-end sm:justify-between sm:px-6"
@@ -159,9 +151,7 @@ export default function FilesPage() {
           )}
         </div>
 
-        {/* ==================================================== */}
-        {/* FILTER BAR                                          */}
-        {/* ==================================================== */}
+        {/*===== FILTER BAR =====*/}
 
         {hasAnyFiles && (
           <div
@@ -178,9 +168,7 @@ export default function FilesPage() {
           </div>
         )}
 
-        {/* ==================================================== */}
-        {/* EMPTY: NO FILES                                     */}
-        {/* ==================================================== */}
+        {/*===== EMPTY: NO FILES =====*/}
 
         {!hasAnyFiles && (
           <div
@@ -193,9 +181,7 @@ export default function FilesPage() {
           </div>
         )}
 
-        {/* ==================================================== */}
-        {/* FILE TABLE                                          */}
-        {/* ==================================================== */}
+        {/*===== FILE TABLE =====*/}
 
         {hasAnyFiles && hasFilteredResults && (
           <div className="min-w-0">
@@ -203,9 +189,7 @@ export default function FilesPage() {
           </div>
         )}
 
-        {/* ==================================================== */}
-        {/* EMPTY: FILTER RESULTS                               */}
-        {/* ==================================================== */}
+        {/*===== EMPTY: FILTER RESULTS =====*/}
 
         {hasAnyFiles && !hasFilteredResults && (
           <div
@@ -218,9 +202,7 @@ export default function FilesPage() {
           </div>
         )}
 
-        {/* ==================================================== */}
-        {/* WORKSPACE FOOTER                                    */}
-        {/* ==================================================== */}
+        {/*===== WORKSPACE FOOTER =====*/}
 
         {hasAnyFiles && (
           <div

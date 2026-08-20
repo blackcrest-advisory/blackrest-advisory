@@ -175,9 +175,7 @@ export function AdminBriefActions({
       <div
         className="flex w-full flex-col gap-3"
       >
-        {/* ==================================================== */}
-        {/* STATUS                                               */}
-        {/* ==================================================== */}
+        {/*===== STATUS =====*/}
 
         <div
           className="border border-border bg-background/35 p-3"
@@ -220,9 +218,7 @@ export function AdminBriefActions({
           </p>
         </div>
 
-        {/* ==================================================== */}
-        {/* ASSIGNMENT                                           */}
-        {/* ==================================================== */}
+        {/*===== ASSIGNMENT =====*/}
 
         <div
           className="flex items-center gap-3 border border-border bg-background/35 px-3 py-3"
@@ -249,9 +245,7 @@ export function AdminBriefActions({
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* DELETE                                               */}
-        {/* ==================================================== */}
+        {/*===== DELETE =====*/}
 
         <div
           className="border-t border-border pt-3"
@@ -276,9 +270,7 @@ export function AdminBriefActions({
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* CONFIRMATION MODAL                                     */}
-      {/* ====================================================== */}
+      {/*===== CONFIRMATION MODAL =====*/}
 
       <ConfirmationModal
         isOpen={pendingAction !== null}

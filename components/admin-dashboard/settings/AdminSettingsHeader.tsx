@@ -25,9 +25,7 @@ export const AdminSettingsHeader = () => {
       <div
         className="relative z-10 grid gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_360px] xl:items-stretch"
       >
-        {/* ================================================== */}
-        {/* TITLE                                              */}
-        {/* ================================================== */}
+        {/*===== TITLE =====*/}
 
         <div className="min-w-0">
           <div
@@ -74,9 +72,7 @@ export const AdminSettingsHeader = () => {
           </div>
         </div>
 
-        {/* ================================================== */}
-        {/* SECURE ACCOUNT PANEL                               */}
-        {/* ================================================== */}
+        {/*===== SECURE ACCOUNT PANEL =====*/}
 
         <div
           className="relative border border-secondary/15 bg-secondary/[0.035] px-5 py-5"

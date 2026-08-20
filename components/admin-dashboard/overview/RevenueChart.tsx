@@ -202,9 +202,7 @@ export const RevenueChart = ({ revenue }: { revenue: RevenuePoint[] }) => {
       }}
       className="group relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
-      {/* ====================================================== */}
-      {/* BACKGROUND DETAILS                                     */}
-      {/* ====================================================== */}
+      {/*===== BACKGROUND DETAILS =====*/}
 
       <div
         aria-hidden="true"
@@ -215,9 +213,7 @@ export const RevenueChart = ({ revenue }: { revenue: RevenuePoint[] }) => {
         className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
       />
 
-      {/* ====================================================== */}
-      {/* HEADER                                                 */}
-      {/* ====================================================== */}
+      {/*===== HEADER =====*/}
 
       <div
         className="relative z-10 flex flex-col gap-5 border-b border-border px-5 py-5 sm:px-6 lg:flex-row lg:items-center lg:justify-between"
@@ -305,9 +301,7 @@ export const RevenueChart = ({ revenue }: { revenue: RevenuePoint[] }) => {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* CHART                                                  */}
-      {/* ====================================================== */}
+      {/*===== CHART =====*/}
 
       <div
         className="relative z-10 px-3 pb-4 pt-5 sm:px-5 lg:px-6"
@@ -319,9 +313,7 @@ export const RevenueChart = ({ revenue }: { revenue: RevenuePoint[] }) => {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* FOOTER STRIP                                           */}
-      {/* ====================================================== */}
+      {/*===== FOOTER STRIP =====*/}
 
       <div
         className="relative z-10 grid border-t border-border bg-muted/20 sm:grid-cols-3"

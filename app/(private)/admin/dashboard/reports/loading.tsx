@@ -33,9 +33,7 @@ export default function ReportsLoading() {
       className="relative min-w-0 max-w-full space-y-6"
       aria-label="Loading reports"
     >
-      {/* ====================================================== */}
-      {/* EXECUTIVE INTELLIGENCE HEADER                         */}
-      {/* ====================================================== */}
+      {/*===== EXECUTIVE INTELLIGENCE HEADER =====*/}
 
       <header
         className="relative min-w-0 max-w-full border border-border bg-card shadow-[var(--shadow-card)]"
@@ -55,9 +53,7 @@ export default function ReportsLoading() {
         <div
           className="relative z-10 grid min-w-0 gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_330px]"
         >
-          {/* ================================================== */}
-          {/* TITLE                                              */}
-          {/* ================================================== */}
+          {/*===== TITLE =====*/}
 
           <div className="min-w-0">
             <div
@@ -89,9 +85,7 @@ export default function ReportsLoading() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* REPORT CONTROL                                     */}
-          {/* ================================================== */}
+          {/*===== REPORT CONTROL =====*/}
 
           <div
             className="min-w-0 border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
@@ -116,9 +110,7 @@ export default function ReportsLoading() {
         </div>
       </header>
 
-      {/* ====================================================== */}
-      {/* KPI STRIP                                             */}
-      {/* ====================================================== */}
+      {/*===== KPI STRIP =====*/}
 
       <section
         className="min-w-0 max-w-full overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -134,16 +126,12 @@ export default function ReportsLoading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* ANALYTICAL CANVAS                                     */}
-      {/* ====================================================== */}
+      {/*===== ANALYTICAL CANVAS =====*/}
 
       <section
         className="grid min-w-0 max-w-full gap-5 xl:grid-cols-[minmax(0,1.55fr)_minmax(280px,0.45fr)]"
       >
-        {/* ==================================================== */}
-        {/* REVENUE TREND                                       */}
-        {/* ==================================================== */}
+        {/*===== REVENUE TREND =====*/}
 
         <div
           className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -218,9 +206,7 @@ export default function ReportsLoading() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* SALES PIPELINE                                      */}
-        {/* ==================================================== */}
+        {/*===== SALES PIPELINE =====*/}
 
         <div
           className="min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -270,25 +256,19 @@ export default function ReportsLoading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* BUSINESS INTELLIGENCE                                 */}
-      {/* ====================================================== */}
+      {/*===== BUSINESS INTELLIGENCE =====*/}
 
       <section
         className="grid min-w-0 max-w-full gap-5 xl:grid-cols-[minmax(0,1.55fr)_minmax(280px,0.45fr)]"
       >
-        {/* ==================================================== */}
-        {/* SERVICE PERFORMANCE                                 */}
-        {/* ==================================================== */}
+        {/*===== SERVICE PERFORMANCE =====*/}
 
         <div
           className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
         >
           <PanelHeaderSkeleton icon={BriefcaseBusiness} />
 
-          {/* ================================================== */}
-          {/* DESKTOP TABLE                                      */}
-          {/* ================================================== */}
+          {/*===== DESKTOP TABLE =====*/}
 
           <div
             className="hidden min-w-0 max-w-full overflow-x-auto lg:block"
@@ -352,9 +332,7 @@ export default function ReportsLoading() {
             </table>
           </div>
 
-          {/* ================================================== */}
-          {/* MOBILE / TABLET                                    */}
-          {/* ================================================== */}
+          {/*===== MOBILE / TABLET =====*/}
 
           <div
             className="divide-y divide-border lg:hidden"
@@ -395,9 +373,7 @@ export default function ReportsLoading() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* EXECUTIVE INSIGHTS                                  */}
-        {/* ==================================================== */}
+        {/*===== EXECUTIVE INSIGHTS =====*/}
 
         <div
           className="min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"

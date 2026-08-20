@@ -110,18 +110,14 @@ export const SecuritySection = () => {
     <section
       className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
-      {/* ====================================================== */}
-      {/* TOP SIGNAL                                            */}
-      {/* ====================================================== */}
+      {/*===== TOP SIGNAL =====*/}
 
       <div
         aria-hidden="true"
         className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/60 via-secondary/20 to-transparent"
       />
 
-      {/* ====================================================== */}
-      {/* HEADER                                                */}
-      {/* ====================================================== */}
+      {/*===== HEADER =====*/}
 
       <div
         className="border-b border-border px-5 py-5"
@@ -157,9 +153,7 @@ export const SecuritySection = () => {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* SECURITY STATUS                                      */}
-      {/* ====================================================== */}
+      {/*===== SECURITY STATUS =====*/}
 
       <div
         className="border-b border-border bg-background/20 px-5 py-4"
@@ -189,9 +183,7 @@ export const SecuritySection = () => {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* PASSWORD FORM                                        */}
-      {/* ====================================================== */}
+      {/*===== PASSWORD FORM =====*/}
 
       <div className="space-y-5 px-5 py-5">
         <SecurityField label="Current Password" icon={LockKeyhole}>
@@ -224,9 +216,7 @@ export const SecuritySection = () => {
           />
         </SecurityField>
 
-        {/* ==================================================== */}
-        {/* PASSWORD NOTE                                       */}
-        {/* ==================================================== */}
+        {/*===== PASSWORD NOTE =====*/}
 
         <div
           className="flex items-start gap-2.5 border-l-2 border-secondary/35 bg-secondary/[0.025] px-3 py-3"
@@ -249,9 +239,7 @@ export const SecuritySection = () => {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* FOOTER                                                */}
-      {/* ====================================================== */}
+      {/*===== FOOTER =====*/}
 
       <div
         className="border-t border-border bg-muted/10 px-5 py-4"

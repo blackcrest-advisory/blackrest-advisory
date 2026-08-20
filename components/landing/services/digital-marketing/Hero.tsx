@@ -82,9 +82,7 @@ export default function Hero() {
     <Section
       className="relative isolate overflow-hidden bg-background pb-10 pt-8 sm:pb-12 sm:pt-10 lg:min-h-[calc(100svh-80px)] lg:pb-14 lg:pt-12"
     >
-      {/* ====================================================== */}
-      {/* ARCHITECTURAL BACKGROUND                              */}
-      {/* ====================================================== */}
+      {/*===== ARCHITECTURAL BACKGROUND =====*/}
 
       <div
         aria-hidden="true"
@@ -115,9 +113,7 @@ export default function Hero() {
         <div
           className="grid min-w-0 items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(440px,1.05fr)] lg:gap-10 xl:gap-16"
         >
-          {/* ================================================== */}
-          {/* CONTENT                                            */}
-          {/* ================================================== */}
+          {/*===== CONTENT =====*/}
 
           <motion.div
             variants={shouldReduceMotion ? undefined : staggerContainer}
@@ -153,9 +149,7 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            {/* ================================================== */}
-            {/* HEADLINE                                           */}
-            {/* ================================================== */}
+            {/*===== HEADLINE =====*/}
 
             <motion.div
               variants={shouldReduceMotion ? undefined : fadeInUp}
@@ -181,9 +175,7 @@ export default function Hero() {
               </p>
             </motion.div>
 
-            {/* ================================================== */}
-            {/* CAPABILITIES                                       */}
-            {/* ================================================== */}
+            {/*===== CAPABILITIES =====*/}
 
             <motion.div
               variants={shouldReduceMotion ? undefined : fadeInUp}
@@ -207,9 +199,7 @@ export default function Hero() {
               ))}
             </motion.div>
 
-            {/* ================================================== */}
-            {/* CTA                                                */}
-            {/* ================================================== */}
+            {/*===== CTA =====*/}
 
             <motion.div
               variants={shouldReduceMotion ? undefined : fadeInUp}
@@ -235,9 +225,7 @@ export default function Hero() {
               </Button>
             </motion.div>
 
-            {/* ================================================== */}
-            {/* GROWTH SYSTEM                                     */}
-            {/* ================================================== */}
+            {/*===== GROWTH SYSTEM =====*/}
 
             <motion.div
               variants={shouldReduceMotion ? undefined : fadeInUp}
@@ -289,9 +277,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* ================================================== */}
-          {/* VISUAL SYSTEM                                      */}
-          {/* ================================================== */}
+          {/*===== VISUAL SYSTEM =====*/}
 
           <motion.div
             initial={
@@ -317,9 +303,7 @@ export default function Hero() {
             }}
             className="relative mx-auto w-full max-w-2xl lg:max-w-none"
           >
-            {/* ================================================== */}
-            {/* FRAME INDEX                                        */}
-            {/* ================================================== */}
+            {/*===== FRAME INDEX =====*/}
 
             <div
               className="mb-3 flex items-center justify-between gap-4"
@@ -345,9 +329,7 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* ================================================== */}
-            {/* IMAGE FRAME                                        */}
-            {/* ================================================== */}
+            {/*===== IMAGE FRAME =====*/}
 
             <div
               className="relative aspect-[5/5.4] min-w-0 overflow-hidden border border-border bg-primary shadow-[var(--shadow-overlay)] sm:aspect-[5/4.5] lg:aspect-[5/5.1] xl:aspect-[5/4.7]"
@@ -396,9 +378,7 @@ export default function Hero() {
                 className="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px)] [background-size:64px_64px] [mask-image:linear-gradient(to_bottom,transparent,black_35%,black)]"
               />
 
-              {/* ================================================== */}
-              {/* SIGNAL PATH                                        */}
-              {/* ================================================== */}
+              {/*===== SIGNAL PATH =====*/}
 
               <div
                 aria-hidden="true"
@@ -474,9 +454,7 @@ export default function Hero() {
                 </svg>
               </div>
 
-              {/* ================================================== */}
-              {/* TOP SIGNAL                                         */}
-              {/* ================================================== */}
+              {/*===== TOP SIGNAL =====*/}
 
               <div
                 className="absolute left-4 top-4 border border-white/15 bg-navy-deep/70 px-3 py-2.5 backdrop-blur-md sm:left-5 sm:top-5"
@@ -502,9 +480,7 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* ================================================== */}
-              {/* INTELLIGENCE PANEL                                 */}
-              {/* ================================================== */}
+              {/*===== INTELLIGENCE PANEL =====*/}
 
               <div
                 className="absolute bottom-0 left-0 right-0 border-t border-white/15 bg-navy-deep/80 px-4 py-4 backdrop-blur-xl sm:px-5 sm:py-5"
@@ -558,9 +534,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* ================================================== */}
-            {/* EXTERNAL FRAME DETAILS                              */}
-            {/* ================================================== */}
+            {/*===== EXTERNAL FRAME DETAILS =====*/}
 
             <div
               aria-hidden="true"
@@ -574,9 +548,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* ====================================================== */}
-        {/* BOTTOM INDEX                                         */}
-        {/* ====================================================== */}
+        {/*===== BOTTOM INDEX =====*/}
 
         <div
           className="mt-10 flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between lg:mt-12"

@@ -16,9 +16,7 @@ export default function AdminRequestsLoading() {
 
   return (
     <div className="relative space-y-6" aria-label="Loading project requests">
-      {/* ====================================================== */}
-      {/* PROJECT REQUESTS HEADER SKELETON                       */}
-      {/* ====================================================== */}
+      {/*===== PROJECT REQUESTS HEADER SKELETON =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -68,9 +66,7 @@ export default function AdminRequestsLoading() {
         <div
           className="relative z-10 grid gap-7 px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-stretch lg:px-8 lg:py-7"
         >
-          {/* ================================================== */}
-          {/* LEFT                                               */}
-          {/* ================================================== */}
+          {/*===== LEFT =====*/}
 
           <div className="flex flex-col justify-between">
             <div>
@@ -107,9 +103,7 @@ export default function AdminRequestsLoading() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* REQUEST SUMMARY                                    */}
-          {/* ================================================== */}
+          {/*===== REQUEST SUMMARY =====*/}
 
           <div
             className="relative overflow-hidden border border-secondary/15 bg-secondary/[0.025] p-5 sm:p-6"
@@ -144,9 +138,7 @@ export default function AdminRequestsLoading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* CONTROL WORKSPACE                                      */}
-      {/* ====================================================== */}
+      {/*===== CONTROL WORKSPACE =====*/}
 
       <section className="relative">
         <div
@@ -158,9 +150,7 @@ export default function AdminRequestsLoading() {
             className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"
           />
 
-          {/* ================================================== */}
-          {/* CONTROL BAR                                        */}
-          {/* ================================================== */}
+          {/*===== CONTROL BAR =====*/}
 
           <div
             className="flex flex-col gap-3 px-4 py-4 sm:px-5 lg:px-6 xl:flex-row xl:items-center"
@@ -178,9 +168,7 @@ export default function AdminRequestsLoading() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* RESULT METADATA                                    */}
-          {/* ================================================== */}
+          {/*===== RESULT METADATA =====*/}
 
           <div
             className="flex min-h-11 flex-wrap items-center justify-between gap-3 border-t border-border bg-muted/10 px-4 py-2.5 sm:px-5 lg:px-6"
@@ -194,9 +182,7 @@ export default function AdminRequestsLoading() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* REQUEST RECORDS                                     */}
-        {/* ==================================================== */}
+        {/*===== REQUEST RECORDS =====*/}
 
         <div className="relative z-10 mt-3 min-w-0">
           <div
@@ -208,9 +194,7 @@ export default function AdminRequestsLoading() {
               className="absolute left-0 top-0 z-10 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/15 to-transparent"
             />
 
-            {/* ================================================= */}
-            {/* DESKTOP TABLE                                    */}
-            {/* ================================================= */}
+            {/*===== DESKTOP TABLE =====*/}
 
             <div className="hidden overflow-x-auto lg:block">
               <table className="w-full border-collapse text-left text-sm">
@@ -310,9 +294,7 @@ export default function AdminRequestsLoading() {
               </table>
             </div>
 
-            {/* ================================================= */}
-            {/* MOBILE + TABLET                                  */}
-            {/* ================================================= */}
+            {/*===== MOBILE + TABLET =====*/}
 
             <div className="divide-y divide-border lg:hidden">
               {rows.map((index) => (
@@ -371,9 +353,7 @@ export default function AdminRequestsLoading() {
               ))}
             </div>
 
-            {/* ================================================= */}
-            {/* TABLE FOOTER                                     */}
-            {/* ================================================= */}
+            {/*===== TABLE FOOTER =====*/}
 
             <div
               className="flex flex-col gap-2 border-t border-border bg-muted/10 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
@@ -388,9 +368,7 @@ export default function AdminRequestsLoading() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* PAGINATION SKELETON                                 */}
-        {/* ==================================================== */}
+        {/*===== PAGINATION SKELETON =====*/}
 
         <div
           className="mt-3 border border-border bg-card px-4 py-4 shadow-[var(--shadow-card)] sm:px-5 lg:px-6"

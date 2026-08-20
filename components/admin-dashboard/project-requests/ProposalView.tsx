@@ -85,9 +85,7 @@ export function ProposalView({ proposal, briefStatus }: ProposalViewProps) {
     <section
       className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
-      {/* ====================================================== */}
-      {/* TOP SIGNAL                                             */}
-      {/* ====================================================== */}
+      {/*===== TOP SIGNAL =====*/}
 
       <div
         aria-hidden="true"
@@ -100,9 +98,7 @@ export function ProposalView({ proposal, briefStatus }: ProposalViewProps) {
         className="pointer-events-none absolute -right-24 -top-24 h-52 w-52 rounded-full bg-secondary/[0.06] blur-[90px]"
       />
 
-      {/* ====================================================== */}
-      {/* HEADER                                                 */}
-      {/* ====================================================== */}
+      {/*===== HEADER =====*/}
 
       <div
         className="relative z-10 flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-start sm:justify-between sm:px-6"
@@ -141,9 +137,7 @@ export function ProposalView({ proposal, briefStatus }: ProposalViewProps) {
         />
       </div>
 
-      {/* ====================================================== */}
-      {/* SUMMARY STRIP                                          */}
-      {/* ====================================================== */}
+      {/*===== SUMMARY STRIP =====*/}
 
       <div
         className="relative z-10 grid border-b border-border bg-muted/10 sm:grid-cols-3"
@@ -167,16 +161,12 @@ export function ProposalView({ proposal, briefStatus }: ProposalViewProps) {
         />
       </div>
 
-      {/* ====================================================== */}
-      {/* BODY                                                   */}
-      {/* ====================================================== */}
+      {/*===== BODY =====*/}
 
       <div
         className="relative z-10 grid gap-6 px-5 py-6 sm:px-6 xl:grid-cols-[minmax(0,1.5fr)_minmax(280px,0.5fr)]"
       >
-        {/* ==================================================== */}
-        {/* MAIN                                                */}
-        {/* ==================================================== */}
+        {/*===== MAIN =====*/}
 
         <div className="space-y-5">
           <ProposalBlock icon={FileText} eyebrow="Engagement" title="Scope">
@@ -214,9 +204,7 @@ export function ProposalView({ proposal, briefStatus }: ProposalViewProps) {
           )}
         </div>
 
-        {/* ==================================================== */}
-        {/* SIDEBAR                                             */}
-        {/* ==================================================== */}
+        {/*===== SIDEBAR =====*/}
 
         <aside className="space-y-5">
           <section
@@ -287,9 +275,7 @@ export function ProposalView({ proposal, briefStatus }: ProposalViewProps) {
             </dl>
           </section>
 
-          {/* ================================================== */}
-          {/* STATE MESSAGE                                     */}
-          {/* ================================================== */}
+          {/*===== STATE MESSAGE =====*/}
 
           {isSentOrViewed && (
             <StatusMessage
@@ -320,9 +306,7 @@ export function ProposalView({ proposal, briefStatus }: ProposalViewProps) {
         </aside>
       </div>
 
-      {/* ====================================================== */}
-      {/* ACTION BAR                                             */}
-      {/* ====================================================== */}
+      {/*===== ACTION BAR =====*/}
 
       {isDraft && briefStatus !== "CLOSED" && (
         <div

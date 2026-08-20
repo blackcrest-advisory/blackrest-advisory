@@ -88,9 +88,7 @@ export function ProposalForm({
   //===== render =====//
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {/* ====================================================== */}
-      {/* FORM INTRO                                             */}
-      {/* ====================================================== */}
+      {/*===== FORM INTRO =====*/}
 
       <div
         className="flex flex-col gap-4 border-b border-border pb-5 sm:flex-row sm:items-start sm:justify-between"
@@ -141,9 +139,7 @@ export function ProposalForm({
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* SCOPE + DELIVERABLES                                  */}
-      {/* ====================================================== */}
+      {/*===== SCOPE + DELIVERABLES =====*/}
 
       <FormSection
         icon={BriefcaseBusiness}
@@ -178,9 +174,7 @@ export function ProposalForm({
         </div>
       </FormSection>
 
-      {/* ====================================================== */}
-      {/* TIMELINE                                              */}
-      {/* ====================================================== */}
+      {/*===== TIMELINE =====*/}
 
       <FormSection
         icon={Clock3}
@@ -200,9 +194,7 @@ export function ProposalForm({
         </Field>
       </FormSection>
 
-      {/* ====================================================== */}
-      {/* COMMERCIAL                                            */}
-      {/* ====================================================== */}
+      {/*===== COMMERCIAL =====*/}
 
       <FormSection
         icon={Banknote}
@@ -246,9 +238,7 @@ export function ProposalForm({
         </div>
       </FormSection>
 
-      {/* ====================================================== */}
-      {/* TERMS                                                 */}
-      {/* ====================================================== */}
+      {/*===== TERMS =====*/}
 
       <FormSection
         icon={ReceiptText}
@@ -267,9 +257,7 @@ export function ProposalForm({
         </Field>
       </FormSection>
 
-      {/* ====================================================== */}
-      {/* ACTION BAR                                            */}
-      {/* ====================================================== */}
+      {/*===== ACTION BAR =====*/}
 
       <div
         className="flex flex-col gap-4 border-t border-border pt-5 sm:flex-row sm:items-center sm:justify-between"

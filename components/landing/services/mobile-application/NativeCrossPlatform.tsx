@@ -70,9 +70,7 @@ const NativeCrossPlatform = () => {
       className="relative bg-background py-16 sm:py-20 lg:py-28"
     >
       <Container>
-        {/* ==================================================== */}
-        {/* HEADER                                              */}
-        {/* ==================================================== */}
+        {/*===== HEADER =====*/}
 
         <div
           className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-end lg:gap-16 lg:pb-14"
@@ -116,16 +114,12 @@ const NativeCrossPlatform = () => {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* MAIN STORY                                          */}
-        {/* ==================================================== */}
+        {/*===== MAIN STORY =====*/}
 
         <div
           className="mt-10 grid overflow-hidden border border-border bg-card shadow-[var(--shadow-card)] lg:mt-14 lg:grid-cols-[minmax(0,0.8fr)_minmax(300px,0.65fr)_minmax(0,0.8fr)]"
         >
-          {/* ================================================== */}
-          {/* LEFT / CODEBASE                                   */}
-          {/* ================================================== */}
+          {/*===== LEFT / CODEBASE =====*/}
 
           <div
             className="border-b border-border px-5 py-7 sm:px-6 lg:border-b-0 lg:border-r lg:px-8 lg:py-9"
@@ -187,9 +181,7 @@ const NativeCrossPlatform = () => {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* CENTER / PLATFORM BRIDGE                          */}
-          {/* ================================================== */}
+          {/*===== CENTER / PLATFORM BRIDGE =====*/}
 
           <div
             className="relative flex min-h-[330px] flex-col justify-center border-b border-border bg-muted/10 px-5 py-8 sm:px-6 lg:border-b-0 lg:border-r"
@@ -258,9 +250,7 @@ const NativeCrossPlatform = () => {
             </p>
           </div>
 
-          {/* ================================================== */}
-          {/* RIGHT / BENEFITS                                  */}
-          {/* ================================================== */}
+          {/*===== RIGHT / BENEFITS =====*/}
 
           <div
             className="px-5 py-7 sm:px-6 lg:px-8 lg:py-9"
@@ -323,9 +313,7 @@ const NativeCrossPlatform = () => {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* SIMPLE VALUE STRIP                                  */}
-        {/* ==================================================== */}
+        {/*===== SIMPLE VALUE STRIP =====*/}
 
         <div
           className="mt-6 grid overflow-hidden border border-border bg-muted/10 sm:grid-cols-3"
@@ -350,9 +338,7 @@ const NativeCrossPlatform = () => {
           />
         </div>
 
-        {/* ==================================================== */}
-        {/* CLOSING                                             */}
-        {/* ==================================================== */}
+        {/*===== CLOSING =====*/}
 
         <div
           className="mt-8 flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between"

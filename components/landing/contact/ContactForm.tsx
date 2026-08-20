@@ -101,9 +101,7 @@ export const ContactForm = () => {
     <Section
       className="relative overflow-hidden bg-background py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-28"
     >
-      {/* ====================================================== */}
-      {/* Background                                             */}
-      {/* ====================================================== */}
+      {/*===== Background =====*/}
 
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -124,9 +122,7 @@ export const ContactForm = () => {
       </div>
 
       <Container className="relative">
-        {/* ====================================================== */}
-        {/* Section intro                                          */}
-        {/* ====================================================== */}
+        {/*===== Section intro =====*/}
 
         <div
           className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
@@ -189,16 +185,12 @@ export const ContactForm = () => {
           </motion.p>
         </div>
 
-        {/* ====================================================== */}
-        {/* Main workspace                                         */}
-        {/* ====================================================== */}
+        {/*===== Main workspace =====*/}
 
         <div
           className="grid border-b border-border lg:grid-cols-[1.12fr_0.88fr]"
         >
-          {/* ==================================================== */}
-          {/* FORM                                                 */}
-          {/* ==================================================== */}
+          {/*===== FORM =====*/}
 
           <motion.div
             initial={{
@@ -450,9 +442,7 @@ export const ContactForm = () => {
             )}
           </motion.div>
 
-          {/* ==================================================== */}
-          {/* CONTACT PROFILE                                      */}
-          {/* ==================================================== */}
+          {/*===== CONTACT PROFILE =====*/}
 
           <motion.aside
             initial={{
@@ -628,9 +618,7 @@ export const ContactForm = () => {
           </motion.aside>
         </div>
 
-        {/* ====================================================== */}
-        {/* Bottom strip                                            */}
-        {/* ====================================================== */}
+        {/*===== Bottom strip =====*/}
 
         <motion.div
           initial={{

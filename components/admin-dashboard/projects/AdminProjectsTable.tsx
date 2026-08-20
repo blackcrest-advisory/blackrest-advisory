@@ -108,18 +108,14 @@ export function AdminProjectsTable({
     <div
       className="relative border border-border bg-card shadow-[var(--shadow-card)]"
     >
-      {/* ====================================================== */}
-      {/* TOP SIGNAL                                             */}
-      {/* ====================================================== */}
+      {/*===== TOP SIGNAL =====*/}
 
       <div
         aria-hidden="true"
         className="absolute left-0 top-0 z-10 h-[2px] w-full bg-gradient-to-r from-secondary/45 via-secondary/15 to-transparent"
       />
 
-      {/* ====================================================== */}
-      {/* DESKTOP TABLE                                          */}
-      {/* ====================================================== */}
+      {/*===== DESKTOP TABLE =====*/}
 
       <div className="hidden overflow-x-auto lg:block">
         <Table>
@@ -151,9 +147,7 @@ export function AdminProjectsTable({
                 key={project.id}
                 className="border-border transition-colors duration-200 hover:bg-secondary/[0.025]"
               >
-                {/* ================================================== */}
-                {/* PROJECT                                            */}
-                {/* ================================================== */}
+                {/*===== PROJECT =====*/}
 
                 <TableCell className="py-4 pl-5">
                   <div className="max-w-[220px]">
@@ -171,9 +165,7 @@ export function AdminProjectsTable({
                   </div>
                 </TableCell>
 
-                {/* ================================================== */}
-                {/* CLIENT                                             */}
-                {/* ================================================== */}
+                {/*===== CLIENT =====*/}
 
                 <TableCell>
                   <div className="max-w-[160px]">
@@ -193,9 +185,7 @@ export function AdminProjectsTable({
                   </div>
                 </TableCell>
 
-                {/* ================================================== */}
-                {/* SERVICE                                            */}
-                {/* ================================================== */}
+                {/*===== SERVICE =====*/}
 
                 <TableCell>
                   <span
@@ -207,9 +197,7 @@ export function AdminProjectsTable({
                   </span>
                 </TableCell>
 
-                {/* ================================================== */}
-                {/* BUDGET                                             */}
-                {/* ================================================== */}
+                {/*===== BUDGET =====*/}
 
                 <TableCell>
                   {project.budget ? (
@@ -223,25 +211,19 @@ export function AdminProjectsTable({
                   )}
                 </TableCell>
 
-                {/* ================================================== */}
-                {/* PROGRESS                                           */}
-                {/* ================================================== */}
+                {/*===== PROGRESS =====*/}
 
                 <TableCell>
                   <ProjectProgress progress={project.progress} />
                 </TableCell>
 
-                {/* ================================================== */}
-                {/* STATUS                                             */}
-                {/* ================================================== */}
+                {/*===== STATUS =====*/}
 
                 <TableCell>
                   <StatusBadge status={project.status.toLowerCase()} />
                 </TableCell>
 
-                {/* ================================================== */}
-                {/* ASSIGNED                                           */}
-                {/* ================================================== */}
+                {/*===== ASSIGNED =====*/}
 
                 <TableCell>
                   <div className="max-w-[150px]">
@@ -254,9 +236,7 @@ export function AdminProjectsTable({
                   </div>
                 </TableCell>
 
-                {/* ================================================== */}
-                {/* ACTION                                             */}
-                {/* ================================================== */}
+                {/*===== ACTION =====*/}
 
                 <TableCell className="pr-5 text-right">
                   <AdminProjectActions
@@ -270,9 +250,7 @@ export function AdminProjectsTable({
         </Table>
       </div>
 
-      {/* ====================================================== */}
-      {/* MOBILE + TABLET RECORDS                                */}
-      {/* ====================================================== */}
+      {/*===== MOBILE + TABLET RECORDS =====*/}
 
       <div className="divide-y divide-border lg:hidden">
         {projects.map((project, index) => (
@@ -280,9 +258,7 @@ export function AdminProjectsTable({
             key={project.id}
             className="relative px-5 py-5 transition-colors duration-200 hover:bg-secondary/[0.02] sm:px-6"
           >
-            {/* ================================================== */}
-            {/* HEADER                                             */}
-            {/* ================================================== */}
+            {/*===== HEADER =====*/}
 
             <div className="flex items-start gap-3">
               <div
@@ -323,9 +299,7 @@ export function AdminProjectsTable({
               </div>
             </div>
 
-            {/* ================================================== */}
-            {/* PROGRESS                                           */}
-            {/* ================================================== */}
+            {/*===== PROGRESS =====*/}
 
             <div
               className="mt-4 border border-border bg-background/40 p-3"
@@ -358,9 +332,7 @@ export function AdminProjectsTable({
               </div>
             </div>
 
-            {/* ================================================== */}
-            {/* RECORD DATA                                        */}
-            {/* ================================================== */}
+            {/*===== RECORD DATA =====*/}
 
             <div
               className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2"
@@ -386,9 +358,7 @@ export function AdminProjectsTable({
               </RecordItem>
             </div>
 
-            {/* ================================================== */}
-            {/* FOOTER                                             */}
-            {/* ================================================== */}
+            {/*===== FOOTER =====*/}
 
             <div
               className="mt-4 flex items-center justify-between gap-4 border-t border-border pt-4"
@@ -415,9 +385,7 @@ export function AdminProjectsTable({
         ))}
       </div>
 
-      {/* ====================================================== */}
-      {/* FOOTER                                                 */}
-      {/* ====================================================== */}
+      {/*===== FOOTER =====*/}
 
       <div
         className="flex flex-col gap-2 border-t border-border bg-muted/10 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6"

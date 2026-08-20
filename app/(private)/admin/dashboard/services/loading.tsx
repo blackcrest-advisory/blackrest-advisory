@@ -24,9 +24,7 @@ function Skeleton({ className = "" }: { className?: string }) {
 export default function AdminServicesLoading() {
   return (
     <div className="relative space-y-6" aria-label="Loading services">
-      {/* ====================================================== */}
-      {/* CAPABILITY HEADER                                     */}
-      {/* ====================================================== */}
+      {/*===== CAPABILITY HEADER =====*/}
 
       <header
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -46,9 +44,7 @@ export default function AdminServicesLoading() {
         <div
           className="relative grid gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_310px]"
         >
-          {/* ================================================== */}
-          {/* TITLE AREA                                         */}
-          {/* ================================================== */}
+          {/*===== TITLE AREA =====*/}
 
           <div className="min-w-0">
             <div
@@ -85,9 +81,7 @@ export default function AdminServicesLoading() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* PORTFOLIO INDEX                                    */}
-          {/* ================================================== */}
+          {/*===== PORTFOLIO INDEX =====*/}
 
           <div
             className="border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
@@ -132,21 +126,15 @@ export default function AdminServicesLoading() {
         </div>
       </header>
 
-      {/* ====================================================== */}
-      {/* WORKSPACE                                             */}
-      {/* ====================================================== */}
+      {/*===== WORKSPACE =====*/}
 
       <div
         className="grid gap-5 xl:grid-cols-[290px_minmax(0,1fr)] xl:items-start"
       >
-        {/* ==================================================== */}
-        {/* LEFT CONTROL RAIL                                   */}
-        {/* ==================================================== */}
+        {/*===== LEFT CONTROL RAIL =====*/}
 
         <aside className="space-y-4">
-          {/* ================================================== */}
-          {/* SERVICES STATS                                     */}
-          {/* ================================================== */}
+          {/*===== SERVICES STATS =====*/}
 
           <div
             className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -196,9 +184,7 @@ export default function AdminServicesLoading() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* FILTERS                                            */}
-          {/* ================================================== */}
+          {/*===== FILTERS =====*/}
 
           <div
             className="relative border border-border bg-card shadow-[var(--shadow-card)]"
@@ -247,9 +233,7 @@ export default function AdminServicesLoading() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* REGISTRY STATE                                     */}
-          {/* ================================================== */}
+          {/*===== REGISTRY STATE =====*/}
 
           <div
             className="border border-border bg-card shadow-[var(--shadow-card)]"
@@ -272,16 +256,12 @@ export default function AdminServicesLoading() {
           </div>
         </aside>
 
-        {/* ==================================================== */}
-        {/* CAPABILITY REGISTER                                 */}
-        {/* ==================================================== */}
+        {/*===== CAPABILITY REGISTER =====*/}
 
         <main
           className="min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
         >
-          {/* ================================================== */}
-          {/* REGISTER HEADER                                    */}
-          {/* ================================================== */}
+          {/*===== REGISTER HEADER =====*/}
 
           <div
             className="flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-end sm:justify-between sm:px-6"
@@ -301,9 +281,7 @@ export default function AdminServicesLoading() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* SERVICE RECORDS                                    */}
-          {/* ================================================== */}
+          {/*===== SERVICE RECORDS =====*/}
 
           <div className="divide-y divide-border">
             {Array.from({
@@ -313,9 +291,7 @@ export default function AdminServicesLoading() {
             ))}
           </div>
 
-          {/* ================================================== */}
-          {/* REGISTER FOOTER                                    */}
-          {/* ================================================== */}
+          {/*===== REGISTER FOOTER =====*/}
 
           <div
             className="flex items-center justify-between gap-4 bg-muted/10 px-5 py-3 sm:px-6"
@@ -344,9 +320,7 @@ function ServiceRecordSkeleton({ index }: { index: number }) {
       <div
         className="grid gap-5 px-5 py-6 sm:px-6 lg:grid-cols-[64px_minmax(0,1fr)_220px] lg:gap-6 lg:py-7"
       >
-        {/* ==================================================== */}
-        {/* INDEX                                               */}
-        {/* ==================================================== */}
+        {/*===== INDEX =====*/}
 
         <div className="hidden lg:block">
           <Skeleton className="h-3 w-5" />
@@ -354,9 +328,7 @@ function ServiceRecordSkeleton({ index }: { index: number }) {
           <Skeleton className="mt-3 h-px w-8" />
         </div>
 
-        {/* ==================================================== */}
-        {/* CONTENT                                             */}
-        {/* ==================================================== */}
+        {/*===== CONTENT =====*/}
 
         <div className="min-w-0">
           {/* labels */}
@@ -395,9 +367,7 @@ function ServiceRecordSkeleton({ index }: { index: number }) {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* COMMAND                                             */}
-        {/* ==================================================== */}
+        {/*===== COMMAND =====*/}
 
         <div
           className="border-t border-border pt-4 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0"

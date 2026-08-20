@@ -73,9 +73,7 @@ export function ProjectProgressUpdate({
       onSubmit={handleSubmit}
       className="border border-border bg-background/40 p-3"
     >
-      {/* ====================================================== */}
-      {/* LABEL                                                  */}
-      {/* ====================================================== */}
+      {/*===== LABEL =====*/}
 
       <div
         className="mb-2.5 flex items-center justify-between gap-3"
@@ -99,9 +97,7 @@ export function ProjectProgressUpdate({
         />
       </div>
 
-      {/* ====================================================== */}
-      {/* CONTROL                                                */}
-      {/* ====================================================== */}
+      {/*===== CONTROL =====*/}
 
       <div
         className="flex flex-col gap-2 sm:flex-row sm:items-center"
@@ -154,9 +150,7 @@ export function ProjectProgressUpdate({
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* RANGE                                                  */}
-      {/* ====================================================== */}
+      {/*===== RANGE =====*/}
 
       <div
         className="mt-3 flex items-center justify-between gap-3 border-t border-border pt-2.5"

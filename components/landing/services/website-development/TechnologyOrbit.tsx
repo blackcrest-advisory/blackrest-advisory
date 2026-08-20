@@ -211,9 +211,7 @@ export default function TechnologyOrbit() {
     <Section
       className="relative isolate overflow-hidden bg-navy-deep py-16 text-white sm:py-20 lg:py-28"
     >
-      {/* ====================================================== */}
-      {/* ENVIRONMENT                                           */}
-      {/* ====================================================== */}
+      {/*===== ENVIRONMENT =====*/}
 
       <div
         aria-hidden="true"
@@ -249,9 +247,7 @@ export default function TechnologyOrbit() {
       </div>
 
       <Container>
-        {/* ==================================================== */}
-        {/* SECTION BAR                                         */}
-        {/* ==================================================== */}
+        {/*===== SECTION BAR =====*/}
 
         <motion.div
           initial={
@@ -323,9 +319,7 @@ export default function TechnologyOrbit() {
           </div>
         </motion.div>
 
-        {/* ==================================================== */}
-        {/* INTRO                                               */}
-        {/* ==================================================== */}
+        {/*===== INTRO =====*/}
 
         <div
           className="grid gap-8 py-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-end lg:gap-16 lg:py-14"
@@ -416,9 +410,7 @@ export default function TechnologyOrbit() {
           </motion.div>
         </div>
 
-        {/* ==================================================== */}
-        {/* RUNTIME BOARD                                       */}
-        {/* ==================================================== */}
+        {/*===== RUNTIME BOARD =====*/}
 
         <motion.div
           initial={
@@ -447,9 +439,7 @@ export default function TechnologyOrbit() {
           }}
           className="relative overflow-hidden border border-white/10 bg-white/[0.018]"
         >
-          {/* ================================================== */}
-          {/* BOARD HEADER                                      */}
-          {/* ================================================== */}
+          {/*===== BOARD HEADER =====*/}
 
           <div
             className="flex flex-col gap-3 border-b border-white/10 bg-white/[0.015] px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
@@ -479,16 +469,12 @@ export default function TechnologyOrbit() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* MAIN RUNTIME                                      */}
-          {/* ================================================== */}
+          {/*===== MAIN RUNTIME =====*/}
 
           <div
             className="grid min-w-0 xl:grid-cols-[minmax(0,1fr)_310px]"
           >
-            {/* ================================================= */}
-            {/* STACK PIPELINE                                   */}
-            {/* ================================================= */}
+            {/*===== STACK PIPELINE =====*/}
 
             <div
               className="relative min-w-0 border-b border-white/10 xl:border-b-0 xl:border-r"
@@ -499,9 +485,7 @@ export default function TechnologyOrbit() {
                 className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:42px_42px]"
               />
 
-              {/* =============================================== */}
-              {/* CENTRAL SIGNAL SPINE                           */}
-              {/* =============================================== */}
+              {/*===== CENTRAL SIGNAL SPINE =====*/}
 
               <div
                 aria-hidden="true"
@@ -523,9 +507,7 @@ export default function TechnologyOrbit() {
                 />
               )}
 
-              {/* =============================================== */}
-              {/* STACK ROWS                                     */}
-              {/* =============================================== */}
+              {/*===== STACK ROWS =====*/}
 
               <div className="relative z-10">
                 {stackLayers.map((layer, layerIndex) => (
@@ -539,9 +521,7 @@ export default function TechnologyOrbit() {
               </div>
             </div>
 
-            {/* ================================================= */}
-            {/* RUNTIME MONITOR                                  */}
-            {/* ================================================= */}
+            {/*===== RUNTIME MONITOR =====*/}
 
             <aside className="min-w-0">
               <div
@@ -560,9 +540,7 @@ export default function TechnologyOrbit() {
                 <CircleDot className="h-3 w-3 text-success" />
               </div>
 
-              {/* =============================================== */}
-              {/* CORE                                           */}
-              {/* =============================================== */}
+              {/*===== CORE =====*/}
 
               <div
                 className="relative overflow-hidden border-b border-white/10 px-5 py-8 text-center"
@@ -635,9 +613,7 @@ export default function TechnologyOrbit() {
                 </p>
               </div>
 
-              {/* =============================================== */}
-              {/* OUTPUTS                                        */}
-              {/* =============================================== */}
+              {/*===== OUTPUTS =====*/}
 
               <div>
                 {outputs.map((output, index) => {
@@ -696,9 +672,7 @@ export default function TechnologyOrbit() {
             </aside>
           </div>
 
-          {/* ================================================== */}
-          {/* SYSTEM FOOTER                                     */}
-          {/* ================================================== */}
+          {/*===== SYSTEM FOOTER =====*/}
 
           <div
             className="grid border-t border-white/10 md:grid-cols-[minmax(0,1fr)_auto] md:items-center"
@@ -729,9 +703,7 @@ export default function TechnologyOrbit() {
           </div>
         </motion.div>
 
-        {/* ==================================================== */}
-        {/* DELIVERY PIPELINE                                   */}
-        {/* ==================================================== */}
+        {/*===== DELIVERY PIPELINE =====*/}
 
         <motion.div
           initial={
@@ -815,9 +787,7 @@ export default function TechnologyOrbit() {
           </div>
         </motion.div>
 
-        {/* ==================================================== */}
-        {/* CLOSING LINE                                        */}
-        {/* ==================================================== */}
+        {/*===== CLOSING LINE =====*/}
 
         <div
           className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-4 sm:flex-row sm:items-center sm:justify-between"
@@ -836,9 +806,7 @@ export default function TechnologyOrbit() {
         </div>
       </Container>
 
-      {/* ====================================================== */}
-      {/* GLOBAL SCAN                                          */}
-      {/* ====================================================== */}
+      {/*===== GLOBAL SCAN =====*/}
 
       {!shouldReduceMotion && (
         <motion.div

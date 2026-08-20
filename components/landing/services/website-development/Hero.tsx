@@ -74,9 +74,7 @@ const Hero = () => {
     <Section
       className="relative isolate overflow-hidden bg-navy-deep py-0 text-white"
     >
-      {/* ====================================================== */}
-      {/* BLUEPRINT BACKGROUND                                  */}
-      {/* ====================================================== */}
+      {/*===== BLUEPRINT BACKGROUND =====*/}
 
       <div
         aria-hidden="true"
@@ -117,9 +115,7 @@ const Hero = () => {
       </div>
 
       <Container>
-        {/* ==================================================== */}
-        {/* TOP SYSTEM BAR                                      */}
-        {/* ==================================================== */}
+        {/*===== TOP SYSTEM BAR =====*/}
 
         <div
           className="flex flex-col gap-3 border-x border-b border-white/10 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"
@@ -173,16 +169,12 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* HERO                                                */}
-        {/* ==================================================== */}
+        {/*===== HERO =====*/}
 
         <div
           className="grid min-w-0 border-x border-white/10 lg:min-h-[720px] lg:grid-cols-[minmax(0,0.92fr)_minmax(500px,1.08fr)]"
         >
-          {/* ================================================== */}
-          {/* LEFT CONTENT                                      */}
-          {/* ================================================== */}
+          {/*===== LEFT CONTENT =====*/}
 
           <motion.div
             variants={shouldReduceMotion ? undefined : staggerContainer}
@@ -218,9 +210,7 @@ const Hero = () => {
               </span>
             </motion.div>
 
-            {/* ================================================== */}
-            {/* HEADLINE                                          */}
-            {/* ================================================== */}
+            {/*===== HEADLINE =====*/}
 
             <motion.div
               variants={shouldReduceMotion ? undefined : fadeInUp}
@@ -246,9 +236,7 @@ const Hero = () => {
               </p>
             </motion.div>
 
-            {/* ================================================== */}
-            {/* CTA                                               */}
-            {/* ================================================== */}
+            {/*===== CTA =====*/}
 
             <motion.div
               variants={shouldReduceMotion ? undefined : fadeInUp}
@@ -275,9 +263,7 @@ const Hero = () => {
               </Button>
             </motion.div>
 
-            {/* ================================================== */}
-            {/* ENGINEERING PRINCIPLES                            */}
-            {/* ================================================== */}
+            {/*===== ENGINEERING PRINCIPLES =====*/}
 
             <motion.div
               variants={shouldReduceMotion ? undefined : fadeInUp}
@@ -326,9 +312,7 @@ const Hero = () => {
               </div>
             </motion.div>
 
-            {/* ================================================== */}
-            {/* TECHNOLOGY RAIL                                  */}
-            {/* ================================================== */}
+            {/*===== TECHNOLOGY RAIL =====*/}
 
             <motion.div
               variants={shouldReduceMotion ? undefined : fadeInUp}
@@ -355,9 +339,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* ================================================== */}
-          {/* RIGHT / LIVE ARCHITECTURE                         */}
-          {/* ================================================== */}
+          {/*===== RIGHT / LIVE ARCHITECTURE =====*/}
 
           <motion.div
             initial={
@@ -383,25 +365,19 @@ const Hero = () => {
             }}
             className="relative min-h-[620px] overflow-hidden px-4 py-8 sm:px-6 sm:py-10 lg:min-h-0 lg:px-8 lg:py-12"
           >
-            {/* ================================================ */}
-            {/* VISUAL AMBIENCE                                 */}
-            {/* ================================================ */}
+            {/*===== VISUAL AMBIENCE =====*/}
 
             <div
               aria-hidden="true"
               className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-light/[0.07] blur-[120px]"
             />
 
-            {/* ================================================ */}
-            {/* SYSTEM FRAME                                    */}
-            {/* ================================================ */}
+            {/*===== SYSTEM FRAME =====*/}
 
             <div
               className="relative mx-auto flex h-full min-h-[540px] w-full max-w-[650px] flex-col border border-white/10 bg-white/[0.018]"
             >
-              {/* ============================================== */}
-              {/* ANIMATED BORDER BEAM                          */}
-              {/* ============================================== */}
+              {/*===== ANIMATED BORDER BEAM =====*/}
 
               {!shouldReduceMotion && (
                 <>
@@ -435,9 +411,7 @@ const Hero = () => {
                 </>
               )}
 
-              {/* ============================================== */}
-              {/* FRAME HEADER                                  */}
-              {/* ============================================== */}
+              {/*===== FRAME HEADER =====*/}
 
               <div
                 className="flex items-center justify-between gap-4 border-b border-white/10 px-4 py-3 sm:px-5"
@@ -469,9 +443,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* ============================================== */}
-              {/* ARCHITECTURE CANVAS                           */}
-              {/* ============================================== */}
+              {/*===== ARCHITECTURE CANVAS =====*/}
 
               <div
                 className="relative flex-1 overflow-hidden px-4 py-8 sm:px-6"
@@ -482,9 +454,7 @@ const Hero = () => {
                   className="absolute inset-0 opacity-[0.1] [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:40px_40px]"
                 />
 
-                {/* ============================================ */}
-                {/* NETWORK SVG                                 */}
-                {/* ============================================ */}
+                {/*===== NETWORK SVG =====*/}
 
                 <svg
                   aria-hidden="true"
@@ -591,9 +561,7 @@ const Hero = () => {
                   )}
                 </svg>
 
-                {/* ============================================ */}
-                {/* NODES                                       */}
-                {/* ============================================ */}
+                {/*===== NODES =====*/}
 
                 <div
                   className="relative z-10 mx-auto flex h-full max-w-[430px] flex-col justify-between py-2"
@@ -685,9 +653,7 @@ const Hero = () => {
                   })}
                 </div>
 
-                {/* ============================================ */}
-                {/* SIDE SIGNALS                                */}
-                {/* ============================================ */}
+                {/*===== SIDE SIGNALS =====*/}
 
                 <motion.div
                   initial={
@@ -752,9 +718,7 @@ const Hero = () => {
                 </motion.div>
               </div>
 
-              {/* ============================================== */}
-              {/* PERFORMANCE FOOTER                            */}
-              {/* ============================================== */}
+              {/*===== PERFORMANCE FOOTER =====*/}
 
               <div
                 className="grid grid-cols-3 border-t border-white/10"
@@ -779,9 +743,7 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* ================================================ */}
-            {/* FRAME DETAILS                                   */}
-            {/* ================================================ */}
+            {/*===== FRAME DETAILS =====*/}
 
             <span
               aria-hidden="true"
@@ -795,9 +757,7 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* ==================================================== */}
-        {/* BOTTOM ENGINEERING RAIL                             */}
-        {/* ==================================================== */}
+        {/*===== BOTTOM ENGINEERING RAIL =====*/}
 
         <div
           className="grid border-x border-t border-white/10 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center"
@@ -830,9 +790,7 @@ const Hero = () => {
         </div>
       </Container>
 
-      {/* ====================================================== */}
-      {/* MOVING SCAN LINE                                     */}
-      {/* ====================================================== */}
+      {/*===== MOVING SCAN LINE =====*/}
 
       {!shouldReduceMotion && (
         <motion.div

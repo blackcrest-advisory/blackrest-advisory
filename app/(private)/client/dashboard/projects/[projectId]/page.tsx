@@ -65,9 +65,7 @@ export default async function ClientProjectDetailPage({
 
   return (
     <div className="relative space-y-6">
-      {/* ====================================================== */}
-      {/* BACK NAVIGATION                                        */}
-      {/* ====================================================== */}
+      {/*===== BACK NAVIGATION =====*/}
 
       <div>
         <Link
@@ -81,9 +79,7 @@ export default async function ClientProjectDetailPage({
         </Link>
       </div>
 
-      {/* ====================================================== */}
-      {/* PROJECT HERO                                           */}
-      {/* ====================================================== */}
+      {/*===== PROJECT HERO =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -133,9 +129,7 @@ export default async function ClientProjectDetailPage({
         <div
           className="relative z-10 grid gap-8 px-5 py-7 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-stretch lg:px-8 lg:py-8 xl:grid-cols-[minmax(0,1fr)_360px]"
         >
-          {/* ================================================== */}
-          {/* LEFT                                               */}
-          {/* ================================================== */}
+          {/*===== LEFT =====*/}
 
           <div className="flex flex-col justify-between">
             <div>
@@ -261,9 +255,7 @@ export default async function ClientProjectDetailPage({
             )}
           </div>
 
-          {/* ================================================== */}
-          {/* RIGHT — DELIVERY PROGRESS                          */}
-          {/* ================================================== */}
+          {/*===== RIGHT — DELIVERY PROGRESS =====*/}
 
           <div
             className="relative overflow-hidden border border-secondary/15 bg-secondary/[0.035] p-5 sm:p-6"
@@ -376,9 +368,7 @@ export default async function ClientProjectDetailPage({
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* PROJECT INFORMATION STRIP                              */}
-      {/* ====================================================== */}
+      {/*===== PROJECT INFORMATION STRIP =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -496,16 +486,12 @@ export default async function ClientProjectDetailPage({
         </dl>
       </section>
 
-      {/* ====================================================== */}
-      {/* MAIN CONTENT GRID                                      */}
-      {/* ====================================================== */}
+      {/*===== MAIN CONTENT GRID =====*/}
 
       <div
         className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.45fr)]"
       >
-        {/* ==================================================== */}
-        {/* LEFT COLUMN                                          */}
-        {/* ==================================================== */}
+        {/*===== LEFT COLUMN =====*/}
 
         <div className="space-y-6">
           {/* Milestones */}
@@ -623,9 +609,7 @@ export default async function ClientProjectDetailPage({
           </section>
         </div>
 
-        {/* ==================================================== */}
-        {/* RIGHT SIDEBAR                                        */}
-        {/* ==================================================== */}
+        {/*===== RIGHT SIDEBAR =====*/}
 
         <aside className="space-y-6">
           {/* Files */}

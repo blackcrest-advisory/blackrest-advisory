@@ -81,9 +81,7 @@ export function AdminServicesDashboard({
 
   return (
     <div className="relative space-y-6">
-      {/* ====================================================== */}
-      {/* CAPABILITY HEADER                                     */}
-      {/* ====================================================== */}
+      {/*===== CAPABILITY HEADER =====*/}
 
       <motion.header
         variants={shouldReduceMotion ? undefined : fadeInUp}
@@ -112,9 +110,7 @@ export function AdminServicesDashboard({
         <div
           className="relative z-10 grid gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_310px]"
         >
-          {/* ================================================== */}
-          {/* TITLE AREA                                         */}
-          {/* ================================================== */}
+          {/*===== TITLE AREA =====*/}
 
           <div className="min-w-0">
             <div
@@ -142,9 +138,7 @@ export function AdminServicesDashboard({
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* PORTFOLIO INDEX                                    */}
-          {/* ================================================== */}
+          {/*===== PORTFOLIO INDEX =====*/}
 
           <div
             className="border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
@@ -221,16 +215,12 @@ export function AdminServicesDashboard({
         </div>
       </motion.header>
 
-      {/* ====================================================== */}
-      {/* WORKSPACE                                             */}
-      {/* ====================================================== */}
+      {/*===== WORKSPACE =====*/}
 
       <div
         className="grid gap-5 xl:grid-cols-[290px_minmax(0,1fr)] xl:items-start"
       >
-        {/* ==================================================== */}
-        {/* LEFT CONTROL RAIL                                   */}
-        {/* ==================================================== */}
+        {/*===== LEFT CONTROL RAIL =====*/}
 
         <aside
           className="space-y-4 xl:sticky xl:top-4"
@@ -300,9 +290,7 @@ export function AdminServicesDashboard({
           </div>
         </aside>
 
-        {/* ==================================================== */}
-        {/* CAPABILITY REGISTER                                 */}
-        {/* ==================================================== */}
+        {/*===== CAPABILITY REGISTER =====*/}
 
         <motion.main
           variants={shouldReduceMotion ? undefined : fadeInUp}

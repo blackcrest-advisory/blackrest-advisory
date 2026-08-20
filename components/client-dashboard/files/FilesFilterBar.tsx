@@ -87,9 +87,7 @@ export const FilesFilterBar = ({
     <div
       className="grid min-w-0 gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end"
     >
-      {/* ====================================================== */}
-      {/* SEARCH                                                 */}
-      {/* ====================================================== */}
+      {/*===== SEARCH =====*/}
 
       <div className="min-w-0">
         <div
@@ -114,9 +112,7 @@ export const FilesFilterBar = ({
         />
       </div>
 
-      {/* ====================================================== */}
-      {/* FILTER CONTROLS                                        */}
-      {/* ====================================================== */}
+      {/*===== FILTER CONTROLS =====*/}
 
       <div
         className="grid gap-3 sm:grid-cols-2 lg:flex lg:items-end"

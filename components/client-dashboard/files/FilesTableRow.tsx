@@ -24,9 +24,7 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
     <TableRow
       className="group border-b border-border transition-colors hover:bg-secondary/[0.018]"
     >
-      {/* ====================================================== */}
-      {/* FILE                                                  */}
-      {/* ====================================================== */}
+      {/*===== FILE =====*/}
 
       <TableCell className="px-4 py-4 first:pl-6">
         <div
@@ -53,9 +51,7 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
         </div>
       </TableCell>
 
-      {/* ====================================================== */}
-      {/* PROJECT                                               */}
-      {/* ====================================================== */}
+      {/*===== PROJECT =====*/}
 
       <TableCell className="px-4 py-4">
         <span
@@ -66,17 +62,13 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
         </span>
       </TableCell>
 
-      {/* ====================================================== */}
-      {/* TYPE                                                  */}
-      {/* ====================================================== */}
+      {/*===== TYPE =====*/}
 
       <TableCell className="px-4 py-4">
         <FileCategoryBadge category={file.category} />
       </TableCell>
 
-      {/* ====================================================== */}
-      {/* SIZE                                                  */}
-      {/* ====================================================== */}
+      {/*===== SIZE =====*/}
 
       <TableCell className="px-4 py-4">
         <span
@@ -86,9 +78,7 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
         </span>
       </TableCell>
 
-      {/* ====================================================== */}
-      {/* UPLOADED BY                                           */}
-      {/* ====================================================== */}
+      {/*===== UPLOADED BY =====*/}
 
       <TableCell className="px-4 py-4">
         <span
@@ -99,9 +89,7 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
         </span>
       </TableCell>
 
-      {/* ====================================================== */}
-      {/* UPLOADED AT                                           */}
-      {/* ====================================================== */}
+      {/*===== UPLOADED AT =====*/}
 
       <TableCell className="px-4 py-4">
         <span
@@ -111,9 +99,7 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
         </span>
       </TableCell>
 
-      {/* ====================================================== */}
-      {/* ACTIONS                                               */}
-      {/* ====================================================== */}
+      {/*===== ACTIONS =====*/}
 
       <TableCell className="px-4 py-4 pr-6">
         <div

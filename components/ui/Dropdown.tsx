@@ -80,9 +80,7 @@ const Dropdown = ({
             className,
           )}
         >
-          {/* ================================================== */}
-          {/* DROPDOWN SURFACE                                   */}
-          {/* ================================================== */}
+          {/*===== DROPDOWN SURFACE =====*/}
 
           <div
             className={cn(
@@ -115,42 +113,32 @@ const Dropdown = ({
               showArrow && contentClassName,
             )}
           >
-            {/* ================================================ */}
-            {/* GOLD SIGNAL LINE                                 */}
-            {/* ================================================ */}
+            {/*===== GOLD SIGNAL LINE =====*/}
 
             <div
               aria-hidden="true"
               className="pointer-events-none absolute left-0 top-0 z-10 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/45 to-transparent"
             />
 
-            {/* ================================================ */}
-            {/* AMBIENT GLOW                                     */}
-            {/* ================================================ */}
+            {/*===== AMBIENT GLOW =====*/}
 
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -right-10 -top-12 h-28 w-28 rounded-full bg-secondary/[0.07] blur-[55px]"
             />
 
-            {/* ================================================ */}
-            {/* SUBTLE INNER HIGHLIGHT                           */}
-            {/* ================================================ */}
+            {/*===== SUBTLE INNER HIGHLIGHT =====*/}
 
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-x-0 top-[2px] h-px bg-foreground/[0.035]"
             />
 
-            {/* ================================================ */}
-            {/* CONTENT                                          */}
-            {/* ================================================ */}
+            {/*===== CONTENT =====*/}
 
             <div className="relative z-10">{children}</div>
 
-            {/* ================================================ */}
-            {/* BOTTOM DETAIL                                    */}
-            {/* ================================================ */}
+            {/*===== BOTTOM DETAIL =====*/}
 
             <div
               aria-hidden="true"

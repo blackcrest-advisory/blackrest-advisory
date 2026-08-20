@@ -40,9 +40,7 @@ export const DashboardWrapper = ({
 
   return (
     <div className="relative">
-      {/* ====================================================== */}
-      {/* CLIENT WELCOME EXPERIENCE                              */}
-      {/* ====================================================== */}
+      {/*===== CLIENT WELCOME EXPERIENCE =====*/}
 
       <motion.section
         variants={fadeInUp}
@@ -99,9 +97,7 @@ export const DashboardWrapper = ({
         <div
           className="relative z-10 grid gap-8 px-5 py-7 sm:px-6 sm:py-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-stretch lg:px-8 lg:py-8 xl:grid-cols-[minmax(0,1fr)_360px] xl:px-9"
         >
-          {/* ================================================== */}
-          {/* LEFT                                               */}
-          {/* ================================================== */}
+          {/*===== LEFT =====*/}
 
           <div className="flex flex-col justify-between">
             <div>
@@ -187,9 +183,7 @@ export const DashboardWrapper = ({
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* RIGHT — CLIENT PORTAL PANEL                        */}
-          {/* ================================================== */}
+          {/*===== RIGHT — CLIENT PORTAL PANEL =====*/}
 
           <div
             className="relative overflow-hidden border border-secondary/15 bg-secondary/[0.035] p-5 sm:p-6"
@@ -280,9 +274,7 @@ export const DashboardWrapper = ({
         </div>
       </motion.section>
 
-      {/* ====================================================== */}
-      {/* CLIENT DASHBOARD CONTENT                               */}
-      {/* ====================================================== */}
+      {/*===== CLIENT DASHBOARD CONTENT =====*/}
 
       <motion.div
         variants={staggerContainer}

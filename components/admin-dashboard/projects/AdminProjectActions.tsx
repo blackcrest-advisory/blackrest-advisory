@@ -275,9 +275,7 @@ export function AdminProjectActions({
   //===== dropdown content =====//
   const dropdownContent = (
     <div className="py-1.5">
-      {/* ====================================================== */}
-      {/* VIEW DETAILS                                           */}
-      {/* ====================================================== */}
+      {/*===== VIEW DETAILS =====*/}
 
       <div className="px-1.5">
         <Link
@@ -293,9 +291,7 @@ export function AdminProjectActions({
         </Link>
       </div>
 
-      {/* ====================================================== */}
-      {/* STATUS                                                */}
-      {/* ====================================================== */}
+      {/*===== STATUS =====*/}
 
       <div className="my-1.5 border-t border-border" />
 
@@ -406,9 +402,7 @@ export function AdminProjectActions({
         })}
       </div>
 
-      {/* ====================================================== */}
-      {/* DELETE                                                */}
-      {/* ====================================================== */}
+      {/*===== DELETE =====*/}
 
       <div className="my-1.5 border-t border-border" />
 
@@ -429,9 +423,7 @@ export function AdminProjectActions({
 
   return (
     <div className="relative inline-block">
-      {/* ====================================================== */}
-      {/* TRIGGER                                                */}
-      {/* ====================================================== */}
+      {/*===== TRIGGER =====*/}
 
       <Button
         ref={buttonRef}
@@ -476,9 +468,7 @@ export function AdminProjectActions({
         <MoreHorizontal className="h-4 w-4" />
       </Button>
 
-      {/* ====================================================== */}
-      {/* PORTALED DROPDOWN                                      */}
-      {/* ====================================================== */}
+      {/*===== PORTALED DROPDOWN =====*/}
 
       {isOpen &&
         createPortal(
@@ -511,9 +501,7 @@ export function AdminProjectActions({
           document.body,
         )}
 
-      {/* ====================================================== */}
-      {/* CONFIRMATION                                           */}
-      {/* ====================================================== */}
+      {/*===== CONFIRMATION =====*/}
 
       <ConfirmationModal
         isOpen={pendingAction !== null}

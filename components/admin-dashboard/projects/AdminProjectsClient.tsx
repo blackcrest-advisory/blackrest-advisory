@@ -150,9 +150,7 @@ export function AdminProjectsClient({
   //===== render =====//
   return (
     <section className="relative">
-      {/* ====================================================== */}
-      {/* PROJECT DIRECTORY CONTROLS                            */}
-      {/* ====================================================== */}
+      {/*===== PROJECT DIRECTORY CONTROLS =====*/}
 
       <div
         className="relative z-20 border border-border bg-card shadow-[var(--shadow-card)]"
@@ -194,9 +192,7 @@ export function AdminProjectsClient({
           </span>
         </div>
 
-        {/* ==================================================== */}
-        {/* FILTERS                                             */}
-        {/* ==================================================== */}
+        {/*===== FILTERS =====*/}
 
         <div
           className="flex flex-col gap-3 px-5 py-4 sm:px-6 xl:flex-row xl:items-center"
@@ -239,9 +235,7 @@ export function AdminProjectsClient({
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* FILTER STATE                                        */}
-        {/* ==================================================== */}
+        {/*===== FILTER STATE =====*/}
 
         <div
           className="flex min-h-10 flex-wrap items-center justify-between gap-3 border-t border-border bg-muted/10 px-5 py-2.5 sm:px-6"
@@ -272,9 +266,7 @@ export function AdminProjectsClient({
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* PROJECT TABLE                                         */}
-      {/* ====================================================== */}
+      {/*===== PROJECT TABLE =====*/}
 
       <div className="relative z-10 mt-3 min-w-0">
         <AdminProjectsTable
@@ -283,9 +275,7 @@ export function AdminProjectsClient({
         />
       </div>
 
-      {/* ====================================================== */}
-      {/* PAGINATION                                            */}
-      {/* ====================================================== */}
+      {/*===== PAGINATION =====*/}
 
       {totalPages > 1 && (
         <div

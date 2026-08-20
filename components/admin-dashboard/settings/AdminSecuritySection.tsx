@@ -74,9 +74,7 @@ export const AdminSecuritySection = () => {
         className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/55 via-secondary/15 to-transparent"
       />
 
-      {/* ==================================================== */}
-      {/* HEADER                                              */}
-      {/* ==================================================== */}
+      {/*===== HEADER =====*/}
 
       <div
         className="border-b border-border px-5 py-5"
@@ -113,9 +111,7 @@ export const AdminSecuritySection = () => {
         </p>
       </div>
 
-      {/* ==================================================== */}
-      {/* SECURITY STATE                                     */}
-      {/* ==================================================== */}
+      {/*===== SECURITY STATE =====*/}
 
       <div
         className="flex items-center gap-3 border-b border-border bg-success/[0.025] px-5 py-3"
@@ -129,9 +125,7 @@ export const AdminSecuritySection = () => {
         </span>
       </div>
 
-      {/* ==================================================== */}
-      {/* PASSWORD FIELDS                                    */}
-      {/* ==================================================== */}
+      {/*===== PASSWORD FIELDS =====*/}
 
       <div className="space-y-4 px-5 py-5">
         {(["currentPassword", "newPassword", "confirmPassword"] as const).map(
@@ -173,9 +167,7 @@ export const AdminSecuritySection = () => {
         </div>
       </div>
 
-      {/* ==================================================== */}
-      {/* FOOTER                                              */}
-      {/* ==================================================== */}
+      {/*===== FOOTER =====*/}
 
       <div
         className="border-t border-border bg-muted/10 px-5 py-4"

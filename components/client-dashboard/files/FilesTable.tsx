@@ -38,9 +38,7 @@ const tableColumns = [
 export const FilesTable = ({ files }: FilesTableProps) => {
   return (
     <>
-      {/* ====================================================== */}
-      {/* DESKTOP / TABLET REGISTER                             */}
-      {/* ====================================================== */}
+      {/*===== DESKTOP / TABLET REGISTER =====*/}
 
       <div
         className="hidden min-w-0 max-w-full overflow-x-auto md:block"
@@ -69,9 +67,7 @@ export const FilesTable = ({ files }: FilesTableProps) => {
         </Table>
       </div>
 
-      {/* ====================================================== */}
-      {/* MOBILE DOCUMENT RECORDS                              */}
-      {/* ====================================================== */}
+      {/*===== MOBILE DOCUMENT RECORDS =====*/}
 
       <div
         className="divide-y divide-border md:hidden"

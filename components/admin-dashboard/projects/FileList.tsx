@@ -142,9 +142,7 @@ export function FileList({
       <div
         className="overflow-hidden border border-border bg-background/15"
       >
-        {/* ==================================================== */}
-        {/* DOCUMENT LIST                                       */}
-        {/* ==================================================== */}
+        {/*===== DOCUMENT LIST =====*/}
 
         <div
           className="max-h-[340px] divide-y divide-border overflow-y-auto overscroll-contain"
@@ -154,9 +152,7 @@ export function FileList({
               key={file.id}
               className="group flex items-center gap-3 px-3 py-3 transition-colors hover:bg-secondary/[0.025]"
             >
-              {/* ================================================= */}
-              {/* FILE ICON                                         */}
-              {/* ================================================= */}
+              {/*===== FILE ICON =====*/}
 
               <div
                 className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-card text-secondary"
@@ -164,9 +160,7 @@ export function FileList({
                 {getIcon(file.category)}
               </div>
 
-              {/* ================================================= */}
-              {/* FILE INFO                                         */}
-              {/* ================================================= */}
+              {/*===== FILE INFO =====*/}
 
               <div className="min-w-0 flex-1">
                 <p
@@ -194,9 +188,7 @@ export function FileList({
                 </div>
               </div>
 
-              {/* ================================================= */}
-              {/* ACTIONS                                           */}
-              {/* ================================================= */}
+              {/*===== ACTIONS =====*/}
 
               <div
                 className="flex shrink-0 items-center gap-0.5"
@@ -229,9 +221,7 @@ export function FileList({
           ))}
         </div>
 
-        {/* ==================================================== */}
-        {/* FOOTER                                              */}
-        {/* ==================================================== */}
+        {/*===== FOOTER =====*/}
 
         <div
           className="flex items-center justify-between gap-3 border-t border-border bg-muted/10 px-3 py-2.5"
@@ -261,9 +251,7 @@ export function FileList({
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* DELETE CONFIRMATION                                    */}
-      {/* ====================================================== */}
+      {/*===== DELETE CONFIRMATION =====*/}
 
       <ConfirmationModal
         isOpen={deleteTarget !== null}

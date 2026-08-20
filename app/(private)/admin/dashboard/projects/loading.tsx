@@ -19,9 +19,7 @@ export default function AdminProjectsLoading() {
 
   return (
     <div className="relative space-y-6" aria-label="Loading projects">
-      {/* ====================================================== */}
-      {/* PORTFOLIO HEADER                                       */}
-      {/* ====================================================== */}
+      {/*===== PORTFOLIO HEADER =====*/}
 
       <header
         className="relative overflow-hidden border-y border-border bg-card"
@@ -47,9 +45,7 @@ export default function AdminProjectsLoading() {
         <div
           className="relative z-10 grid gap-6 px-5 py-7 sm:px-6 lg:px-8 xl:grid-cols-[minmax(0,1fr)_260px] xl:items-stretch"
         >
-          {/* ================================================== */}
-          {/* TITLE                                              */}
-          {/* ================================================== */}
+          {/*===== TITLE =====*/}
 
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-3">
@@ -94,9 +90,7 @@ export default function AdminProjectsLoading() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* PORTFOLIO INDEX                                    */}
-          {/* ================================================== */}
+          {/*===== PORTFOLIO INDEX =====*/}
 
           <div
             className="flex flex-col justify-between border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
@@ -129,9 +123,7 @@ export default function AdminProjectsLoading() {
         </div>
       </header>
 
-      {/* ====================================================== */}
-      {/* PROJECT STATS                                          */}
-      {/* ====================================================== */}
+      {/*===== PROJECT STATS =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -181,14 +173,10 @@ export default function AdminProjectsLoading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* PROJECT DIRECTORY                                      */}
-      {/* ====================================================== */}
+      {/*===== PROJECT DIRECTORY =====*/}
 
       <section className="relative">
-        {/* ==================================================== */}
-        {/* DIRECTORY CONTROLS                                  */}
-        {/* ==================================================== */}
+        {/*===== DIRECTORY CONTROLS =====*/}
 
         <div
           className="relative z-20 border border-border bg-card shadow-[var(--shadow-card)]"
@@ -239,9 +227,7 @@ export default function AdminProjectsLoading() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* PROJECT RECORDS                                     */}
-        {/* ==================================================== */}
+        {/*===== PROJECT RECORDS =====*/}
 
         <div className="relative z-10 mt-3 min-w-0">
           <div
@@ -253,9 +239,7 @@ export default function AdminProjectsLoading() {
               className="absolute left-0 top-0 z-10 h-[2px] w-full bg-gradient-to-r from-secondary/35 via-secondary/10 to-transparent"
             />
 
-            {/* ================================================= */}
-            {/* DESKTOP TABLE                                    */}
-            {/* ================================================= */}
+            {/*===== DESKTOP TABLE =====*/}
 
             <div className="hidden overflow-x-auto lg:block">
               <table className="w-full border-collapse text-left text-sm">
@@ -353,9 +337,7 @@ export default function AdminProjectsLoading() {
               </table>
             </div>
 
-            {/* ================================================= */}
-            {/* MOBILE + TABLET                                  */}
-            {/* ================================================= */}
+            {/*===== MOBILE + TABLET =====*/}
 
             <div className="divide-y divide-border lg:hidden">
               {rows.map((row) => (
@@ -420,9 +402,7 @@ export default function AdminProjectsLoading() {
               ))}
             </div>
 
-            {/* ================================================= */}
-            {/* TABLE FOOTER                                     */}
-            {/* ================================================= */}
+            {/*===== TABLE FOOTER =====*/}
 
             <div
               className="flex flex-col gap-2 border-t border-border bg-muted/10 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
@@ -437,9 +417,7 @@ export default function AdminProjectsLoading() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* PAGINATION                                          */}
-        {/* ==================================================== */}
+        {/*===== PAGINATION =====*/}
 
         <div
           className="mt-3 border border-border bg-card px-5 py-4 shadow-[var(--shadow-card)] sm:px-6"

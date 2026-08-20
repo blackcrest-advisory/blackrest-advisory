@@ -158,9 +158,7 @@ export function ReportsDashboard({
 
   return (
     <div className="relative min-w-0 max-w-full space-y-6">
-      {/* ====================================================== */}
-      {/* EXECUTIVE INTELLIGENCE HEADER                         */}
-      {/* ====================================================== */}
+      {/*===== EXECUTIVE INTELLIGENCE HEADER =====*/}
 
       <motion.header
         variants={shouldReduceMotion ? undefined : fadeInUp}
@@ -183,9 +181,7 @@ export function ReportsDashboard({
         <div
           className="relative z-10 grid gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_330px]"
         >
-          {/* ================================================== */}
-          {/* TITLE                                              */}
-          {/* ================================================== */}
+          {/*===== TITLE =====*/}
 
           <div className="min-w-0">
             <div
@@ -234,9 +230,7 @@ export function ReportsDashboard({
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* REPORT CONTROL                                     */}
-          {/* ================================================== */}
+          {/*===== REPORT CONTROL =====*/}
 
           <div
             className="border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
@@ -299,9 +293,7 @@ export function ReportsDashboard({
         </div>
       </motion.header>
 
-      {/* ====================================================== */}
-      {/* KPI STRIP                                             */}
-      {/* ====================================================== */}
+      {/*===== KPI STRIP =====*/}
 
       <motion.section
         variants={shouldReduceMotion ? undefined : staggerContainer}
@@ -324,9 +316,7 @@ export function ReportsDashboard({
         </div>
       </motion.section>
 
-      {/* ====================================================== */}
-      {/* ANALYTICAL CANVAS                                     */}
-      {/* ====================================================== */}
+      {/*===== ANALYTICAL CANVAS =====*/}
 
       <motion.section
         variants={shouldReduceMotion ? undefined : fadeInUp}
@@ -334,9 +324,7 @@ export function ReportsDashboard({
         animate={shouldReduceMotion ? undefined : "visible"}
         className="grid min-w-0 max-w-full gap-5 xl:grid-cols-[minmax(0,1.55fr)_minmax(280px,0.45fr)]"
       >
-        {/* ==================================================== */}
-        {/* REVENUE TREND                                       */}
-        {/* ==================================================== */}
+        {/*===== REVENUE TREND =====*/}
 
         <div
           className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -421,9 +409,7 @@ export function ReportsDashboard({
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* SALES PIPELINE                                      */}
-        {/* ==================================================== */}
+        {/*===== SALES PIPELINE =====*/}
 
         <div
           className="min-w-0 border border-border bg-card shadow-[var(--shadow-card)]"
@@ -493,9 +479,7 @@ export function ReportsDashboard({
         </div>
       </motion.section>
 
-      {/* ====================================================== */}
-      {/* BUSINESS INTELLIGENCE                                 */}
-      {/* ====================================================== */}
+      {/*===== BUSINESS INTELLIGENCE =====*/}
 
       <motion.section
         variants={shouldReduceMotion ? undefined : fadeInUp}
@@ -503,9 +487,7 @@ export function ReportsDashboard({
         animate={shouldReduceMotion ? undefined : "visible"}
         className="grid min-w-0 max-w-full gap-5 xl:grid-cols-[minmax(0,1.55fr)_minmax(280px,0.45fr)]"
       >
-        {/* ==================================================== */}
-        {/* SERVICE PERFORMANCE                                 */}
-        {/* ==================================================== */}
+        {/*===== SERVICE PERFORMANCE =====*/}
 
         <div
           className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -649,9 +631,7 @@ export function ReportsDashboard({
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* EXECUTIVE INSIGHTS                                  */}
-        {/* ==================================================== */}
+        {/*===== EXECUTIVE INSIGHTS =====*/}
 
         <div
           className="min-w-0 border border-border bg-card shadow-[var(--shadow-card)]"

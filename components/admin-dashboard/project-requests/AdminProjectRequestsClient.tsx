@@ -143,9 +143,7 @@ export function AdminProjectRequestsClient({
   //===== render =====//
   return (
     <section className="relative">
-      {/* ====================================================== */}
-      {/* CONTROL WORKSPACE                                      */}
-      {/* ====================================================== */}
+      {/*===== CONTROL WORKSPACE =====*/}
 
       <div
         className="relative z-20 border border-border bg-card shadow-[var(--shadow-card)]"
@@ -156,16 +154,12 @@ export function AdminProjectRequestsClient({
           className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
         />
 
-        {/* ==================================================== */}
-        {/* CONTROL BAR                                          */}
-        {/* ==================================================== */}
+        {/*===== CONTROL BAR =====*/}
 
         <div
           className="flex flex-col gap-3 px-4 py-4 sm:px-5 lg:px-6 xl:flex-row xl:items-center"
         >
-          {/* ================================================== */}
-          {/* SEARCH                                             */}
-          {/* ================================================== */}
+          {/*===== SEARCH =====*/}
 
           <div className="min-w-0 flex-1">
             <Input
@@ -177,9 +171,7 @@ export function AdminProjectRequestsClient({
             />
           </div>
 
-          {/* ================================================== */}
-          {/* FILTERS                                            */}
-          {/* ================================================== */}
+          {/*===== FILTERS =====*/}
 
           <div
             className="flex flex-col gap-2 sm:grid sm:grid-cols-2 xl:flex xl:flex-row xl:items-center"
@@ -207,9 +199,7 @@ export function AdminProjectRequestsClient({
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* RESULT METADATA                                      */}
-        {/* ==================================================== */}
+        {/*===== RESULT METADATA =====*/}
 
         <div
           className="flex min-h-11 flex-wrap items-center justify-between gap-3 border-t border-border bg-muted/10 px-4 py-2.5 sm:px-5 lg:px-6"
@@ -247,9 +237,7 @@ export function AdminProjectRequestsClient({
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* REQUEST RECORDS                                       */}
-      {/* ====================================================== */}
+      {/*===== REQUEST RECORDS =====*/}
 
       <div className="relative z-10 mt-3 min-w-0">
         <ProjectRequestsTable
@@ -260,9 +248,7 @@ export function AdminProjectRequestsClient({
         />
       </div>
 
-      {/* ====================================================== */}
-      {/* PAGINATION                                             */}
-      {/* ====================================================== */}
+      {/*===== PAGINATION =====*/}
 
       {totalPages > 1 && (
         <div

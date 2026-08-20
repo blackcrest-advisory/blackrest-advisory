@@ -162,9 +162,7 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
 
   return (
     <div className="relative space-y-6">
-      {/* ====================================================== */}
-      {/* LEADS COMMAND HEADER                                   */}
-      {/* ====================================================== */}
+      {/*===== LEADS COMMAND HEADER =====*/}
 
       <motion.section
         initial={
@@ -224,9 +222,7 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
         <div
           className="relative z-10 grid gap-8 px-5 py-7 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-stretch lg:px-8 lg:py-8"
         >
-          {/* ================================================== */}
-          {/* LEFT                                               */}
-          {/* ================================================== */}
+          {/*===== LEFT =====*/}
 
           <div className="flex flex-col justify-between">
             <div>
@@ -303,9 +299,7 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* COMMAND PANEL                                      */}
-          {/* ================================================== */}
+          {/*===== COMMAND PANEL =====*/}
 
           <div
             className="relative overflow-hidden border border-secondary/15 bg-secondary/[0.025] p-5 sm:p-6"
@@ -388,17 +382,13 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
         </div>
       </motion.section>
 
-      {/* ====================================================== */}
-      {/* LEAD STATS                                             */}
-      {/* ====================================================== */}
+      {/*===== LEAD STATS =====*/}
 
       <motion.section initial="hidden" animate="visible">
         <LeadStats leads={leads} />
       </motion.section>
 
-      {/* ====================================================== */}
-      {/* PIPELINE WORKSPACE                                     */}
-      {/* ====================================================== */}
+      {/*===== PIPELINE WORKSPACE =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -408,9 +398,7 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
           className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
         />
 
-        {/* ==================================================== */}
-        {/* FILTER HEADER                                        */}
-        {/* ==================================================== */}
+        {/*===== FILTER HEADER =====*/}
 
         <div
           className="border-b border-border px-5 py-5 sm:px-6"
@@ -463,9 +451,7 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* FILTERS                                              */}
-        {/* ==================================================== */}
+        {/*===== FILTERS =====*/}
 
         <div
           className="border-b border-border bg-muted/10 px-5 py-4 sm:px-6"
@@ -476,9 +462,7 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
           />
         </div>
 
-        {/* ==================================================== */}
-        {/* TABLE                                                */}
-        {/* ==================================================== */}
+        {/*===== TABLE =====*/}
 
         <div>
           <LeadTable
@@ -492,9 +476,7 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
           />
         </div>
 
-        {/* ==================================================== */}
-        {/* PAGINATION FOOTER                                    */}
-        {/* ==================================================== */}
+        {/*===== PAGINATION FOOTER =====*/}
 
         <div
           className="border-t border-border bg-muted/15 px-5 py-4 sm:px-6"
@@ -509,9 +491,7 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* DELETE CONFIRMATION                                    */}
-      {/* ====================================================== */}
+      {/*===== DELETE CONFIRMATION =====*/}
 
       <ConfirmationModal
         isOpen={Boolean(leadToDelete)}

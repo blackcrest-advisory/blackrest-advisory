@@ -28,9 +28,7 @@ export default function ClientProjectsLoading() {
 
   return (
     <div className="relative">
-      {/* ====================================================== */}
-      {/* PAGE INTRO SKELETON                                    */}
-      {/* ====================================================== */}
+      {/*===== PAGE INTRO SKELETON =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -119,9 +117,7 @@ export default function ClientProjectsLoading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* STATS SKELETON                                        */}
-      {/* ====================================================== */}
+      {/*===== STATS SKELETON =====*/}
 
       <section
         className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4"
@@ -157,9 +153,7 @@ export default function ClientProjectsLoading() {
         ))}
       </section>
 
-      {/* ====================================================== */}
-      {/* PROJECT PORTFOLIO SKELETON                             */}
-      {/* ====================================================== */}
+      {/*===== PROJECT PORTFOLIO SKELETON =====*/}
 
       <section
         className="relative mt-6 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -169,9 +163,7 @@ export default function ClientProjectsLoading() {
           className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/30 via-secondary/10 to-transparent"
         />
 
-        {/* ==================================================== */}
-        {/* PORTFOLIO HEADER                                     */}
-        {/* ==================================================== */}
+        {/*===== PORTFOLIO HEADER =====*/}
 
         <div
           className="flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
@@ -201,9 +193,7 @@ export default function ClientProjectsLoading() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* DESKTOP TABLE SKELETON                               */}
-        {/* ==================================================== */}
+        {/*===== DESKTOP TABLE SKELETON =====*/}
 
         <div className="hidden overflow-x-auto lg:block">
           <Table>
@@ -311,9 +301,7 @@ export default function ClientProjectsLoading() {
           </Table>
         </div>
 
-        {/* ==================================================== */}
-        {/* MOBILE + TABLET SKELETON                             */}
-        {/* ==================================================== */}
+        {/*===== MOBILE + TABLET SKELETON =====*/}
 
         <div className="divide-y divide-border lg:hidden">
           {rows.map((row) => (
@@ -375,9 +363,7 @@ export default function ClientProjectsLoading() {
           ))}
         </div>
 
-        {/* ==================================================== */}
-        {/* FOOTER SKELETON                                      */}
-        {/* ==================================================== */}
+        {/*===== FOOTER SKELETON =====*/}
 
         <div
           className="flex flex-col gap-2 border-t border-border bg-muted/15 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6"

@@ -17,9 +17,7 @@ export const FilesPageHeader = ({ onUploadClick }: FilesPageHeaderProps) => {
     <header
       className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
-      {/* ====================================================== */}
-      {/* AMBIENT DETAIL                                        */}
-      {/* ====================================================== */}
+      {/*===== AMBIENT DETAIL =====*/}
 
       <div
         aria-hidden="true"
@@ -31,16 +29,12 @@ export const FilesPageHeader = ({ onUploadClick }: FilesPageHeaderProps) => {
         className="absolute bottom-0 left-0 top-0 w-[3px] bg-gradient-to-b from-secondary/70 via-secondary/25 to-transparent"
       />
 
-      {/* ====================================================== */}
-      {/* CONTENT                                               */}
-      {/* ====================================================== */}
+      {/*===== CONTENT =====*/}
 
       <div
         className="relative z-10 grid gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_310px] xl:items-center"
       >
-        {/* ==================================================== */}
-        {/* TITLE                                               */}
-        {/* ==================================================== */}
+        {/*===== TITLE =====*/}
 
         <div className="min-w-0">
           <div
@@ -76,9 +70,7 @@ export const FilesPageHeader = ({ onUploadClick }: FilesPageHeaderProps) => {
             from one secure workspace.
           </p>
 
-          {/* ================================================== */}
-          {/* TRUST SIGNALS                                      */}
-          {/* ================================================== */}
+          {/*===== TRUST SIGNALS =====*/}
 
           <div
             className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2"
@@ -89,9 +81,7 @@ export const FilesPageHeader = ({ onUploadClick }: FilesPageHeaderProps) => {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* UPLOAD PANEL                                        */}
-        {/* ==================================================== */}
+        {/*===== UPLOAD PANEL =====*/}
 
         <div
           className="border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"

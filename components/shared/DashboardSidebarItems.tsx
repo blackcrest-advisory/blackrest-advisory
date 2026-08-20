@@ -61,9 +61,7 @@ export default function DashboardSidebarItems({
             `,
         )}
       >
-        {/* ====================================================== */}
-        {/* ACTIVE BACKGROUND SIGNAL                               */}
-        {/* ====================================================== */}
+        {/*===== ACTIVE BACKGROUND SIGNAL =====*/}
 
         {isActive && (
           <motion.div
@@ -77,9 +75,7 @@ export default function DashboardSidebarItems({
           />
         )}
 
-        {/* ====================================================== */}
-        {/* ACTIVE LEFT INDICATOR                                  */}
-        {/* ====================================================== */}
+        {/*===== ACTIVE LEFT INDICATOR =====*/}
 
         {isActive && (
           <motion.div
@@ -93,9 +89,7 @@ export default function DashboardSidebarItems({
           />
         )}
 
-        {/* ====================================================== */}
-        {/* ICON                                                   */}
-        {/* ====================================================== */}
+        {/*===== ICON =====*/}
 
         <motion.div
           whileHover={
@@ -130,9 +124,7 @@ export default function DashboardSidebarItems({
           <Icon className="h-[18px] w-[18px]" />
         </motion.div>
 
-        {/* ====================================================== */}
-        {/* LABEL                                                  */}
-        {/* ====================================================== */}
+        {/*===== LABEL =====*/}
 
         {!isCollapsed && (
           <motion.span
@@ -165,9 +157,7 @@ export default function DashboardSidebarItems({
           </motion.span>
         )}
 
-        {/* ====================================================== */}
-        {/* RIGHT ACTIVE DOT                                       */}
-        {/* ====================================================== */}
+        {/*===== RIGHT ACTIVE DOT =====*/}
 
         {!isCollapsed && isActive && (
           <motion.span
@@ -183,9 +173,7 @@ export default function DashboardSidebarItems({
           />
         )}
 
-        {/* ====================================================== */}
-        {/* HOVER SWEEP                                            */}
-        {/* ====================================================== */}
+        {/*===== HOVER SWEEP =====*/}
 
         {!reduceMotion && !isActive && (
           <span
@@ -195,9 +183,7 @@ export default function DashboardSidebarItems({
         )}
       </Link>
 
-      {/* ======================================================== */}
-      {/* COLLAPSED TOOLTIP                                        */}
-      {/* ======================================================== */}
+      {/*===== COLLAPSED TOOLTIP =====*/}
 
       {isCollapsed && (
         <div

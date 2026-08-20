@@ -78,9 +78,7 @@ const IndustrySelector = () => {
 
   return (
     <div className="w-full">
-      {/* ====================================================== */}
-      {/* INDUSTRY GRID                                          */}
-      {/* ====================================================== */}
+      {/*===== INDUSTRY GRID =====*/}
 
       <motion.div
         variants={staggerContainer}
@@ -152,18 +150,14 @@ const IndustrySelector = () => {
                   `,
               )}
             >
-              {/* ================================================== */}
-              {/* SOFT HOVER GLOW                                    */}
-              {/* ================================================== */}
+              {/*===== SOFT HOVER GLOW =====*/}
 
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-secondary/[0.07] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
               />
 
-              {/* ================================================== */}
-              {/* LARGE DECORATIVE NUMBER                            */}
-              {/* ================================================== */}
+              {/*===== LARGE DECORATIVE NUMBER =====*/}
 
               <span
                 aria-hidden="true"
@@ -172,9 +166,7 @@ const IndustrySelector = () => {
                 0{index + 1}
               </span>
 
-              {/* ================================================== */}
-              {/* TOP META                                           */}
-              {/* ================================================== */}
+              {/*===== TOP META =====*/}
 
               <div
                 className="relative z-10 flex items-start justify-between gap-4"
@@ -225,9 +217,7 @@ const IndustrySelector = () => {
                 )}
               </div>
 
-              {/* ================================================== */}
-              {/* ICON                                               */}
-              {/* ================================================== */}
+              {/*===== ICON =====*/}
 
               <div
                 className={cn(
@@ -269,9 +259,7 @@ const IndustrySelector = () => {
                 />
               </div>
 
-              {/* ================================================== */}
-              {/* CONTENT                                            */}
-              {/* ================================================== */}
+              {/*===== CONTENT =====*/}
 
               <div className="relative z-10 mt-7">
                 <h3
@@ -299,9 +287,7 @@ const IndustrySelector = () => {
                 </p>
               </div>
 
-              {/* ================================================== */}
-              {/* BOTTOM ACTION                                      */}
-              {/* ================================================== */}
+              {/*===== BOTTOM ACTION =====*/}
 
               <div
                 className="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-between border-t border-border px-6 py-4 transition-colors duration-300 group-hover:border-secondary/20 group-hover:bg-secondary/[0.025] sm:px-7"
@@ -334,9 +320,7 @@ const IndustrySelector = () => {
                 </span>
               </div>
 
-              {/* ================================================== */}
-              {/* MOVING HOVER LIGHT                                 */}
-              {/* ================================================== */}
+              {/*===== MOVING HOVER LIGHT =====*/}
 
               {!reduceMotion && !isSelected && (
                 <div
@@ -345,9 +329,7 @@ const IndustrySelector = () => {
                 />
               )}
 
-              {/* ================================================== */}
-              {/* SELECTED CORNER ACCENT                             */}
-              {/* ================================================== */}
+              {/*===== SELECTED CORNER ACCENT =====*/}
 
               {isSelected && (
                 <motion.div
@@ -365,9 +347,7 @@ const IndustrySelector = () => {
         })}
       </motion.div>
 
-      {/* ====================================================== */}
-      {/* CONTINUE AREA                                         */}
-      {/* ====================================================== */}
+      {/*===== CONTINUE AREA =====*/}
 
       <motion.div
         initial={{

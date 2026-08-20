@@ -233,9 +233,7 @@ export const PerformanceChart = () => {
         className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
       />
 
-      {/* ====================================================== */}
-      {/* HEADER                                                 */}
-      {/* ====================================================== */}
+      {/*===== HEADER =====*/}
 
       <div
         className="relative z-10 grid gap-6 border-b border-border px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end xl:px-7"
@@ -288,9 +286,7 @@ export const PerformanceChart = () => {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* PERFORMANCE SUMMARY                                    */}
-      {/* ====================================================== */}
+      {/*===== PERFORMANCE SUMMARY =====*/}
 
       <div
         className="relative z-10 grid border-b border-border bg-muted/10 sm:grid-cols-3"
@@ -355,9 +351,7 @@ export const PerformanceChart = () => {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* LEGEND                                                 */}
-      {/* ====================================================== */}
+      {/*===== LEGEND =====*/}
 
       <div
         className="relative z-10 flex flex-wrap items-center gap-x-6 gap-y-2 px-5 pt-5 sm:px-6 xl:px-7"
@@ -385,9 +379,7 @@ export const PerformanceChart = () => {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* CHART                                                  */}
-      {/* ====================================================== */}
+      {/*===== CHART =====*/}
 
       <div
         className="relative z-10 px-3 pb-5 pt-4 sm:px-5 lg:px-6"
@@ -399,9 +391,7 @@ export const PerformanceChart = () => {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* FOOTER                                                 */}
-      {/* ====================================================== */}
+      {/*===== FOOTER =====*/}
 
       <div
         className="relative z-10 flex flex-col gap-3 border-t border-border bg-muted/15 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 xl:px-7"

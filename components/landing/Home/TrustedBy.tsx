@@ -62,9 +62,7 @@ export default function TrustedBy() {
     <Section
       className="relative overflow-hidden border-y border-border bg-background text-foreground transition-colors duration-300"
     >
-      {/* ============================================================= */}
-      {/* BACKGROUND ARCHITECTURE                                       */}
-      {/* ============================================================= */}
+      {/*===== BACKGROUND ARCHITECTURE =====*/}
 
       <div className="pointer-events-none absolute inset-0">
         {/* subtle gold atmosphere */}
@@ -111,9 +109,7 @@ export default function TrustedBy() {
       </div>
 
       <Container className="relative">
-        {/* ============================================================= */}
-        {/* SECTION INTRO                                                  */}
-        {/* ============================================================= */}
+        {/*===== SECTION INTRO =====*/}
 
         <div
           className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
@@ -222,9 +218,7 @@ export default function TrustedBy() {
           </motion.div>
         </div>
 
-        {/* ============================================================= */}
-        {/* PROOF LEDGER                                                  */}
-        {/* ============================================================= */}
+        {/*===== PROOF LEDGER =====*/}
 
         <div
           className="grid border-b border-border lg:grid-cols-4"
@@ -382,9 +376,7 @@ export default function TrustedBy() {
           })}
         </div>
 
-        {/* ============================================================= */}
-        {/* CLOSING TRUST STATEMENT                                       */}
-        {/* ============================================================= */}
+        {/*===== CLOSING TRUST STATEMENT =====*/}
 
         <motion.div
           initial={{

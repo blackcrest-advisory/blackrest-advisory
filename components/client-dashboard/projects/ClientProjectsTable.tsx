@@ -114,9 +114,7 @@ export function ClientProjectsTable({ projects }: ClientProjectsTableProps) {
         className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
       />
 
-      {/* ====================================================== */}
-      {/* TABLE HEADER                                           */}
-      {/* ====================================================== */}
+      {/*===== TABLE HEADER =====*/}
 
       <div
         className="flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
@@ -165,9 +163,7 @@ export function ClientProjectsTable({ projects }: ClientProjectsTableProps) {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* DESKTOP TABLE                                          */}
-      {/* ====================================================== */}
+      {/*===== DESKTOP TABLE =====*/}
 
       <div className="hidden overflow-x-auto lg:block">
         <Table>
@@ -374,9 +370,7 @@ export function ClientProjectsTable({ projects }: ClientProjectsTableProps) {
         </Table>
       </div>
 
-      {/* ====================================================== */}
-      {/* MOBILE + TABLET PORTFOLIO                              */}
-      {/* ====================================================== */}
+      {/*===== MOBILE + TABLET PORTFOLIO =====*/}
 
       <div className="divide-y divide-border lg:hidden">
         {projects.map((project, index) => {
@@ -540,9 +534,7 @@ export function ClientProjectsTable({ projects }: ClientProjectsTableProps) {
         })}
       </div>
 
-      {/* ====================================================== */}
-      {/* FOOTER                                                 */}
-      {/* ====================================================== */}
+      {/*===== FOOTER =====*/}
 
       <div
         className="flex flex-col gap-2 border-t border-border bg-muted/15 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6"

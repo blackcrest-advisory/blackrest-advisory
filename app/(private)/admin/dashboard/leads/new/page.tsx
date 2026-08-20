@@ -12,9 +12,7 @@ export default async function CreateLeadPage() {
 
   return (
     <div className="relative min-w-0 max-w-full space-y-6">
-      {/* ====================================================== */}
-      {/* BACK NAVIGATION                                       */}
-      {/* ====================================================== */}
+      {/*===== BACK NAVIGATION =====*/}
 
       <Link
         href="/admin/dashboard/leads"
@@ -26,9 +24,7 @@ export default async function CreateLeadPage() {
         All Leads
       </Link>
 
-      {/* ====================================================== */}
-      {/* LEAD INTAKE HEADER                                    */}
-      {/* ====================================================== */}
+      {/*===== LEAD INTAKE HEADER =====*/}
 
       <header
         className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -48,9 +44,7 @@ export default async function CreateLeadPage() {
         <div
           className="relative grid gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_330px] xl:items-center"
         >
-          {/* ================================================== */}
-          {/* TITLE                                              */}
-          {/* ================================================== */}
+          {/*===== TITLE =====*/}
 
           <div className="min-w-0">
             <div
@@ -87,9 +81,7 @@ export default async function CreateLeadPage() {
             </p>
           </div>
 
-          {/* ================================================== */}
-          {/* INTAKE STATUS                                     */}
-          {/* ================================================== */}
+          {/*===== INTAKE STATUS =====*/}
 
           <div
             className="border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
@@ -135,9 +127,7 @@ export default async function CreateLeadPage() {
         </div>
       </header>
 
-      {/* ====================================================== */}
-      {/* LEAD FORM                                             */}
-      {/* ====================================================== */}
+      {/*===== LEAD FORM =====*/}
 
       <CreateLeadForm />
     </div>

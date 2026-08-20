@@ -42,9 +42,7 @@ export default async function AdminRequestsPage() {
   //===== render =====//
   return (
     <div className="relative space-y-6">
-      {/* ====================================================== */}
-      {/* PROJECT REQUESTS HEADER                                */}
-      {/* ====================================================== */}
+      {/*===== PROJECT REQUESTS HEADER =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -94,9 +92,7 @@ export default async function AdminRequestsPage() {
         <div
           className="relative z-10 grid gap-7 px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-stretch lg:px-8 lg:py-7"
         >
-          {/* ================================================== */}
-          {/* LEFT                                               */}
-          {/* ================================================== */}
+          {/*===== LEFT =====*/}
 
           <div className="flex flex-col justify-between">
             <div>
@@ -174,9 +170,7 @@ export default async function AdminRequestsPage() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* REQUEST SUMMARY                                    */}
-          {/* ================================================== */}
+          {/*===== REQUEST SUMMARY =====*/}
 
           <div
             className="relative overflow-hidden border border-secondary/15 bg-secondary/[0.025] p-5 sm:p-6"
@@ -249,9 +243,7 @@ export default async function AdminRequestsPage() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* REQUEST WORKSPACE                                      */}
-      {/* ====================================================== */}
+      {/*===== REQUEST WORKSPACE =====*/}
 
       <AdminProjectRequestsClient briefs={briefs} />
     </div>

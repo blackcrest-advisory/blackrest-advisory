@@ -19,9 +19,7 @@ export default function page() {
 
   return (
     <div className="relative space-y-6" aria-label="Loading files">
-      {/* ====================================================== */}
-      {/* ASSET REGISTRY HEADER                                 */}
-      {/* ====================================================== */}
+      {/*===== ASSET REGISTRY HEADER =====*/}
 
       <header
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -97,9 +95,7 @@ export default function page() {
         </div>
       </header>
 
-      {/* ====================================================== */}
-      {/* METRICS                                               */}
-      {/* ====================================================== */}
+      {/*===== METRICS =====*/}
 
       <section
         className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -122,9 +118,7 @@ export default function page() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* DIRECTORY                                             */}
-      {/* ====================================================== */}
+      {/*===== DIRECTORY =====*/}
 
       <section className="relative">
         {/* controls */}
@@ -157,9 +151,7 @@ export default function page() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* FILE RECORDS                                        */}
-        {/* ==================================================== */}
+        {/*===== FILE RECORDS =====*/}
 
         <div className="relative z-10 mt-3">
           <div
@@ -171,9 +163,7 @@ export default function page() {
               className="absolute left-0 top-0 z-10 h-[2px] w-full bg-gradient-to-r from-secondary/30 via-secondary/10 to-transparent"
             />
 
-            {/* ================================================= */}
-            {/* DESKTOP TABLE                                    */}
-            {/* ================================================= */}
+            {/*===== DESKTOP TABLE =====*/}
 
             <div className="hidden overflow-x-auto lg:block">
               <table className="w-full border-collapse">
@@ -255,9 +245,7 @@ export default function page() {
               </table>
             </div>
 
-            {/* ================================================= */}
-            {/* MOBILE + TABLET                                  */}
-            {/* ================================================= */}
+            {/*===== MOBILE + TABLET =====*/}
 
             <div className="divide-y divide-border lg:hidden">
               {rows.map((row) => (
@@ -315,9 +303,7 @@ export default function page() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* PAGINATION                                          */}
-        {/* ==================================================== */}
+        {/*===== PAGINATION =====*/}
 
         <div
           className="mt-3 border border-border bg-card px-5 py-4 shadow-[var(--shadow-card)] sm:px-6"

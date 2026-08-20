@@ -22,9 +22,7 @@ export const WhoWeAreSection = () => {
       id="our-story"
       className="relative overflow-hidden bg-muted/35 py-16 sm:py-20 lg:py-28"
     >
-      {/* ================================================================ */}
-      {/* Background architecture                                          */}
-      {/* ================================================================ */}
+      {/*===== Background architecture =====*/}
 
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -62,9 +60,7 @@ export const WhoWeAreSection = () => {
       </div>
 
       <Container className="relative">
-        {/* ================================================================ */}
-        {/* Section heading                                                  */}
-        {/* ================================================================ */}
+        {/*===== Section heading =====*/}
 
         <div className="mb-12 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <motion.div
@@ -94,14 +90,10 @@ export const WhoWeAreSection = () => {
           </motion.p>
         </div>
 
-        {/* ================================================================ */}
-        {/* Main editorial composition                                       */}
-        {/* ================================================================ */}
+        {/*===== Main editorial composition =====*/}
 
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          {/* ============================================================ */}
-          {/* Visual                                                       */}
-          {/* ============================================================ */}
+          {/*===== Visual =====*/}
 
           <motion.div
             initial={{
@@ -243,9 +235,7 @@ export const WhoWeAreSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* ============================================================ */}
-          {/* Story                                                        */}
-          {/* ============================================================ */}
+          {/*===== Story =====*/}
 
           <motion.div
             initial={{

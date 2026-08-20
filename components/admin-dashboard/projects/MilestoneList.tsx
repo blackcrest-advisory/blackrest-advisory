@@ -127,9 +127,7 @@ export function MilestoneList({
   return (
     <>
       <div className="space-y-4">
-        {/* ====================================================== */}
-        {/* MILESTONE LIST                                        */}
-        {/* ====================================================== */}
+        {/*===== MILESTONE LIST =====*/}
 
         {milestones.length === 0 ? (
           <div
@@ -172,9 +170,7 @@ export function MilestoneList({
                 `}
               >
                 <div className="flex items-start gap-3">
-                  {/* ================================================== */}
-                  {/* SEQUENCE                                           */}
-                  {/* ================================================== */}
+                  {/*===== SEQUENCE =====*/}
 
                   <div
                     className="hidden w-7 shrink-0 pt-1 font-mono text-[8px] font-semibold text-muted-foreground/25 sm:block"
@@ -182,9 +178,7 @@ export function MilestoneList({
                     {String(index + 1).padStart(2, "0")}
                   </div>
 
-                  {/* ================================================== */}
-                  {/* TOGGLE                                             */}
-                  {/* ================================================== */}
+                  {/*===== TOGGLE =====*/}
 
                   {!readonly && (
                     <button
@@ -228,9 +222,7 @@ export function MilestoneList({
                     </button>
                   )}
 
-                  {/* ================================================== */}
-                  {/* CONTENT                                            */}
-                  {/* ================================================== */}
+                  {/*===== CONTENT =====*/}
 
                   <div className="min-w-0 flex-1">
                     <div
@@ -286,9 +278,7 @@ export function MilestoneList({
                       )}
                     </div>
 
-                    {/* ================================================== */}
-                    {/* META                                               */}
-                    {/* ================================================== */}
+                    {/*===== META =====*/}
 
                     {milestone.dueDate && (
                       <div
@@ -316,9 +306,7 @@ export function MilestoneList({
           </ul>
         )}
 
-        {/* ====================================================== */}
-        {/* ADD MILESTONE                                         */}
-        {/* ====================================================== */}
+        {/*===== ADD MILESTONE =====*/}
 
         {!readonly &&
           (isAdding ? (
@@ -464,9 +452,7 @@ export function MilestoneList({
           ))}
       </div>
 
-      {/* ====================================================== */}
-      {/* DELETE CONFIRMATION                                    */}
-      {/* ====================================================== */}
+      {/*===== DELETE CONFIRMATION =====*/}
 
       <ConfirmationModal
         isOpen={deleteId !== null}

@@ -95,18 +95,14 @@ export const AdminNotificationsSection = ({
     <section
       className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
-      {/* ====================================================== */}
-      {/* TOP SIGNAL                                             */}
-      {/* ====================================================== */}
+      {/*===== TOP SIGNAL =====*/}
 
       <div
         aria-hidden="true"
         className="absolute left-0 top-0 h-[2px] w-28 bg-secondary/45"
       />
 
-      {/* ====================================================== */}
-      {/* HEADER                                                 */}
-      {/* ====================================================== */}
+      {/*===== HEADER =====*/}
 
       <div
         className="flex items-start gap-3 border-b border-border px-5 py-4 sm:px-6"
@@ -138,9 +134,7 @@ export const AdminNotificationsSection = ({
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* ALERT LIST                                             */}
-      {/* ====================================================== */}
+      {/*===== ALERT LIST =====*/}
 
       <div className="divide-y divide-border">
         {items.map((item, index) => {
@@ -208,9 +202,7 @@ export const AdminNotificationsSection = ({
         })}
       </div>
 
-      {/* ====================================================== */}
-      {/* FOOTER                                                 */}
-      {/* ====================================================== */}
+      {/*===== FOOTER =====*/}
 
       <div
         className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"

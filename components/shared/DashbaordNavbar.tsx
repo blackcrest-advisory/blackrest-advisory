@@ -60,9 +60,7 @@ export default function DashboardNavbar({
       <div
         className="mx-auto flex h-full w-full max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-5 md:px-6 lg:px-7 xl:px-8 2xl:px-10"
       >
-        {/* ====================================================== */}
-        {/* LEFT                                                   */}
-        {/* ====================================================== */}
+        {/*===== LEFT =====*/}
 
         <div className="flex min-w-0 items-center gap-3">
           {/* mobile menu */}
@@ -101,9 +99,7 @@ export default function DashboardNavbar({
           </div>
         </div>
 
-        {/* ====================================================== */}
-        {/* RIGHT                                                  */}
-        {/* ====================================================== */}
+        {/*===== RIGHT =====*/}
 
         <div className="flex shrink-0 items-center gap-2">
           {/* utility group */}

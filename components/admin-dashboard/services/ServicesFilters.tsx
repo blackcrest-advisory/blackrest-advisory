@@ -49,9 +49,7 @@ export const ServicesFilters = ({
         className="absolute left-0 top-0 h-[2px] w-14 bg-secondary/60"
       />
 
-      {/* ====================================================== */}
-      {/* HEADER                                                 */}
-      {/* ====================================================== */}
+      {/*===== HEADER =====*/}
 
       <div
         className="flex items-center gap-3 border-b border-border px-4 py-4"
@@ -77,9 +75,7 @@ export const ServicesFilters = ({
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* FILTERS                                                */}
-      {/* ====================================================== */}
+      {/*===== FILTERS =====*/}
 
       <div className="space-y-4 px-4 py-4">
         <div>
@@ -115,9 +111,7 @@ export const ServicesFilters = ({
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* FILTER FOOTER                                         */}
-      {/* ====================================================== */}
+      {/*===== FILTER FOOTER =====*/}
 
       <div
         className="flex items-center gap-2 border-t border-border bg-muted/10 px-4 py-2.5"

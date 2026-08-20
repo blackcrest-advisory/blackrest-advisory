@@ -25,9 +25,7 @@ export const OfficeLocations = () => {
     <Section
       className="relative overflow-hidden bg-background text-foreground transition-colors duration-300"
     >
-      {/* ====================================================== */}
-      {/* Background                                             */}
-      {/* ====================================================== */}
+      {/*===== Background =====*/}
 
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -54,9 +52,7 @@ export const OfficeLocations = () => {
       </div>
 
       <Container className="relative">
-        {/* ====================================================== */}
-        {/* Header                                                 */}
-        {/* ====================================================== */}
+        {/*===== Header =====*/}
 
         <div
           className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
@@ -119,16 +115,12 @@ export const OfficeLocations = () => {
           </motion.p>
         </div>
 
-        {/* ====================================================== */}
-        {/* Interactive location atlas                             */}
-        {/* ====================================================== */}
+        {/*===== Interactive location atlas =====*/}
 
         <div
           className="grid border-b border-border lg:grid-cols-[0.42fr_0.58fr] xl:grid-cols-[0.36fr_0.64fr]"
         >
-          {/* ==================================================== */}
-          {/* LEFT — location selector                             */}
-          {/* ==================================================== */}
+          {/*===== LEFT — location selector =====*/}
 
           <div className="border-b border-border lg:border-b-0 lg:border-r">
             <div className="flex overflow-x-auto lg:block">
@@ -259,9 +251,7 @@ export const OfficeLocations = () => {
             </div>
           </div>
 
-          {/* ==================================================== */}
-          {/* RIGHT — active location image                        */}
-          {/* ==================================================== */}
+          {/*===== RIGHT — active location image =====*/}
 
           <div
             className="relative min-h-[500px] overflow-hidden bg-card sm:min-h-[560px] lg:min-h-[620px]"
@@ -322,9 +312,7 @@ export const OfficeLocations = () => {
               </motion.div>
             </AnimatePresence>
 
-            {/* ================================================== */}
-            {/* image overlay                                      */}
-            {/* ================================================== */}
+            {/*===== image overlay =====*/}
 
             <div
               className="absolute inset-0 z-10 flex flex-col justify-between p-6 sm:p-8 lg:p-10"
@@ -433,9 +421,7 @@ export const OfficeLocations = () => {
           </div>
         </div>
 
-        {/* ====================================================== */}
-        {/* Footer strip                                           */}
-        {/* ====================================================== */}
+        {/*===== Footer strip =====*/}
 
         <motion.div
           initial={{

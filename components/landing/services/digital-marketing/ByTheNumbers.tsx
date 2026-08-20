@@ -74,9 +74,7 @@ export default function ByTheNumbers() {
     <Section
       className="relative isolate overflow-hidden bg-background py-16 sm:py-20 lg:py-28"
     >
-      {/* ====================================================== */}
-      {/* BACKGROUND                                            */}
-      {/* ====================================================== */}
+      {/*===== BACKGROUND =====*/}
 
       <div
         aria-hidden="true"
@@ -99,9 +97,7 @@ export default function ByTheNumbers() {
 
       <Container>
         <div ref={ref}>
-          {/* ==================================================== */}
-          {/* EDITORIAL INTRO                                     */}
-          {/* ==================================================== */}
+          {/*===== EDITORIAL INTRO =====*/}
 
           <motion.div
             variants={shouldReduceMotion ? undefined : staggerContainer}
@@ -163,9 +159,7 @@ export default function ByTheNumbers() {
             </motion.div>
           </motion.div>
 
-          {/* ==================================================== */}
-          {/* PERFORMANCE BOARD                                   */}
-          {/* ==================================================== */}
+          {/*===== PERFORMANCE BOARD =====*/}
 
           <motion.div
             variants={shouldReduceMotion ? undefined : staggerContainer}
@@ -218,9 +212,7 @@ export default function ByTheNumbers() {
               </span>
             </div>
 
-            {/* ================================================== */}
-            {/* METRICS                                           */}
-            {/* ================================================== */}
+            {/*===== METRICS =====*/}
 
             <div
               className="grid min-w-0 sm:grid-cols-2 xl:grid-cols-4"
@@ -305,9 +297,7 @@ export default function ByTheNumbers() {
                       </p>
                     </div>
 
-                    {/* ================================================== */}
-                    {/* DATA TRACE                                         */}
-                    {/* ================================================== */}
+                    {/*===== DATA TRACE =====*/}
 
                     <div
                       aria-hidden="true"
@@ -374,9 +364,7 @@ export default function ByTheNumbers() {
               })}
             </div>
 
-            {/* ================================================== */}
-            {/* BOARD FOOTER                                      */}
-            {/* ================================================== */}
+            {/*===== BOARD FOOTER =====*/}
 
             <div
               className="grid border-t border-border bg-muted/10 md:grid-cols-[minmax(0,1fr)_auto] md:items-center"
@@ -416,9 +404,7 @@ export default function ByTheNumbers() {
             </div>
           </motion.div>
 
-          {/* ==================================================== */}
-          {/* BOTTOM INDEX                                        */}
-          {/* ==================================================== */}
+          {/*===== BOTTOM INDEX =====*/}
 
           <div
             className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"

@@ -13,18 +13,14 @@ function Skeleton({ className = "" }: { className?: string }) {
 export default function page() {
   return (
     <div className="relative space-y-6" aria-label="Loading lead details">
-      {/* ====================================================== */}
-      {/* BACK NAVIGATION                                        */}
-      {/* ====================================================== */}
+      {/*===== BACK NAVIGATION =====*/}
 
       <div className="flex items-center gap-2">
         <Skeleton className="h-4 w-4" />
         <Skeleton className="h-3 w-16" />
       </div>
 
-      {/* ====================================================== */}
-      {/* LEAD HEADER                                            */}
-      {/* ====================================================== */}
+      {/*===== LEAD HEADER =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -43,9 +39,7 @@ export default function page() {
         <div
           className="relative z-10 grid gap-7 px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start lg:px-8 lg:py-7"
         >
-          {/* ================================================== */}
-          {/* IDENTITY                                           */}
-          {/* ================================================== */}
+          {/*===== IDENTITY =====*/}
 
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-3">
@@ -85,9 +79,7 @@ export default function page() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* ACTIONS                                            */}
-          {/* ================================================== */}
+          {/*===== ACTIONS =====*/}
 
           <div
             className="flex flex-col gap-2 border-t border-border pt-5 sm:flex-row lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0"
@@ -100,9 +92,7 @@ export default function page() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* SUMMARY STRIP                                        */}
-        {/* ==================================================== */}
+        {/*===== SUMMARY STRIP =====*/}
 
         <div
           className="relative z-10 grid border-t border-border bg-muted/10 sm:grid-cols-3"
@@ -115,21 +105,15 @@ export default function page() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* DETAILS GRID                                           */}
-      {/* ====================================================== */}
+      {/*===== DETAILS GRID =====*/}
 
       <div
         className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.45fr)]"
       >
-        {/* ==================================================== */}
-        {/* MAIN COLUMN                                          */}
-        {/* ==================================================== */}
+        {/*===== MAIN COLUMN =====*/}
 
         <div className="space-y-6">
-          {/* ================================================== */}
-          {/* PROJECT INQUIRY                                    */}
-          {/* ================================================== */}
+          {/*===== PROJECT INQUIRY =====*/}
 
           <section
             className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -160,9 +144,7 @@ export default function page() {
             </div>
           </section>
 
-          {/* ================================================== */}
-          {/* PROJECT INFORMATION                                */}
-          {/* ================================================== */}
+          {/*===== PROJECT INFORMATION =====*/}
 
           <section
             className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -204,14 +186,10 @@ export default function page() {
           </section>
         </div>
 
-        {/* ==================================================== */}
-        {/* SIDEBAR                                              */}
-        {/* ==================================================== */}
+        {/*===== SIDEBAR =====*/}
 
         <aside className="space-y-6">
-          {/* ================================================== */}
-          {/* CONTACT INFORMATION                                */}
-          {/* ================================================== */}
+          {/*===== CONTACT INFORMATION =====*/}
 
           <section
             className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -245,9 +223,7 @@ export default function page() {
             </div>
           </section>
 
-          {/* ================================================== */}
-          {/* ATTACHMENT                                         */}
-          {/* ================================================== */}
+          {/*===== ATTACHMENT =====*/}
 
           <section
             className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"

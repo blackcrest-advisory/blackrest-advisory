@@ -85,9 +85,7 @@ export default function PerformanceDashboard() {
     <Section
       className="relative isolate overflow-hidden bg-background py-16 sm:py-20 lg:py-28"
     >
-      {/* ====================================================== */}
-      {/* BACKGROUND                                            */}
-      {/* ====================================================== */}
+      {/*===== BACKGROUND =====*/}
 
       <div
         aria-hidden="true"
@@ -105,9 +103,7 @@ export default function PerformanceDashboard() {
       </div>
 
       <Container>
-        {/* ==================================================== */}
-        {/* HEADER                                              */}
-        {/* ==================================================== */}
+        {/*===== HEADER =====*/}
 
         <div
           className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:items-end lg:gap-16 lg:pb-14"
@@ -153,9 +149,7 @@ export default function PerformanceDashboard() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* AUDIT BOARD                                         */}
-        {/* ==================================================== */}
+        {/*===== AUDIT BOARD =====*/}
 
         <div
           className="mt-10 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)] lg:mt-14"
@@ -181,9 +175,7 @@ export default function PerformanceDashboard() {
             </span>
           </div>
 
-          {/* ================================================== */}
-          {/* MAIN SCORE GRID                                   */}
-          {/* ================================================== */}
+          {/*===== MAIN SCORE GRID =====*/}
 
           <div
             className="grid md:grid-cols-2 xl:grid-cols-4"
@@ -284,9 +276,7 @@ export default function PerformanceDashboard() {
             })}
           </div>
 
-          {/* ================================================== */}
-          {/* WEB VITALS                                        */}
-          {/* ================================================== */}
+          {/*===== WEB VITALS =====*/}
 
           <div
             className="grid border-t border-border lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]"
@@ -366,9 +356,7 @@ export default function PerformanceDashboard() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* QUALITY SUMMARY                                     */}
-        {/* ==================================================== */}
+        {/*===== QUALITY SUMMARY =====*/}
 
         <div
           className="mt-6 grid overflow-hidden border border-border bg-card md:grid-cols-[minmax(0,1fr)_auto] md:items-stretch"
@@ -410,9 +398,7 @@ export default function PerformanceDashboard() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* FOOTER                                              */}
-        {/* ==================================================== */}
+        {/*===== FOOTER =====*/}
 
         <div
           className="mt-8 flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between"

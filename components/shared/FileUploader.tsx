@@ -196,9 +196,7 @@ export function FileUploader({
 
   return (
     <div className="space-y-3">
-      {/* ====================================================== */}
-      {/* HIDDEN INPUT                                           */}
-      {/* ====================================================== */}
+      {/*===== HIDDEN INPUT =====*/}
 
       <input
         ref={fileInputRef}
@@ -208,9 +206,7 @@ export function FileUploader({
         className="sr-only"
       />
 
-      {/* ====================================================== */}
-      {/* EMPTY / PICKER STATE                                   */}
-      {/* ====================================================== */}
+      {/*===== EMPTY / PICKER STATE =====*/}
 
       {!selectedFile && (
         <button
@@ -273,9 +269,7 @@ export function FileUploader({
         </button>
       )}
 
-      {/* ====================================================== */}
-      {/* SELECTED FILE                                          */}
-      {/* ====================================================== */}
+      {/*===== SELECTED FILE =====*/}
 
       {selectedFile && (
         <div
@@ -287,9 +281,7 @@ export function FileUploader({
             className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/70 via-secondary/20 to-transparent"
           />
 
-          {/* ================================================== */}
-          {/* FILE PREVIEW                                       */}
-          {/* ================================================== */}
+          {/*===== FILE PREVIEW =====*/}
 
           <div
             className="flex items-start gap-3 px-4 py-4"
@@ -355,9 +347,7 @@ export function FileUploader({
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* ACTION BAR                                         */}
-          {/* ================================================== */}
+          {/*===== ACTION BAR =====*/}
 
           <div
             className="flex flex-col-reverse gap-2 border-t border-border bg-muted/10 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
@@ -396,9 +386,7 @@ export function FileUploader({
         </div>
       )}
 
-      {/* ====================================================== */}
-      {/* STATUS FOOTER                                         */}
-      {/* ====================================================== */}
+      {/*===== STATUS FOOTER =====*/}
 
       <div
         className="flex items-center justify-between gap-3"

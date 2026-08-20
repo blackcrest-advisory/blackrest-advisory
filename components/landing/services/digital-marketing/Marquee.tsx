@@ -43,9 +43,7 @@ export default function Marquee() {
     <section
       className="relative isolate mt-4 overflow-hidden border-y border-border bg-primary py-7 text-primary-foreground lg:mt-8 lg:py-9"
     >
-      {/* ====================================================== */}
-      {/* BACKGROUND GRID                                       */}
-      {/* ====================================================== */}
+      {/*===== BACKGROUND GRID =====*/}
 
       <div
         aria-hidden="true"
@@ -58,9 +56,7 @@ export default function Marquee() {
         className="pointer-events-none absolute left-1/2 top-1/2 h-48 w-[70%] -translate-x-1/2 -translate-y-1/2 bg-secondary/[0.09] blur-[100px]"
       />
 
-      {/* ====================================================== */}
-      {/* TOP INDEX                                             */}
-      {/* ====================================================== */}
+      {/*===== TOP INDEX =====*/}
 
       <div
         className="relative z-10 mx-auto mb-5 flex max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8"
@@ -82,9 +78,7 @@ export default function Marquee() {
         </span>
       </div>
 
-      {/* ====================================================== */}
-      {/* PRIMARY MOTION RAIL                                   */}
-      {/* ====================================================== */}
+      {/*===== PRIMARY MOTION RAIL =====*/}
 
       <div className="relative overflow-hidden">
         <div
@@ -142,9 +136,7 @@ export default function Marquee() {
         </motion.div>
       </div>
 
-      {/* ====================================================== */}
-      {/* SECONDARY SIGNAL RAIL                                 */}
-      {/* ====================================================== */}
+      {/*===== SECONDARY SIGNAL RAIL =====*/}
 
       <div
         className="relative mt-5 overflow-hidden border-y border-white/10 bg-white/[0.025] py-3"
@@ -191,9 +183,7 @@ export default function Marquee() {
         </motion.div>
       </div>
 
-      {/* ====================================================== */}
-      {/* BOTTOM STATUS                                         */}
-      {/* ====================================================== */}
+      {/*===== BOTTOM STATUS =====*/}
 
       <div
         className="relative z-10 mx-auto mt-5 flex max-w-[1600px] flex-col gap-2 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"
@@ -217,9 +207,7 @@ export default function Marquee() {
         </span>
       </div>
 
-      {/* ====================================================== */}
-      {/* SCAN LINE                                             */}
-      {/* ====================================================== */}
+      {/*===== SCAN LINE =====*/}
 
       {!shouldReduceMotion && (
         <motion.div

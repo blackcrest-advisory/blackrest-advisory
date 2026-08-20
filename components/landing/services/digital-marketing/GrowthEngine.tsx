@@ -81,9 +81,7 @@ export default function GrowthEngine() {
     <Section
       className="relative isolate overflow-hidden bg-primary py-16 text-primary-foreground sm:py-20 lg:py-28"
     >
-      {/* ====================================================== */}
-      {/* BACKGROUND SYSTEM                                     */}
-      {/* ====================================================== */}
+      {/*===== BACKGROUND SYSTEM =====*/}
 
       <div
         aria-hidden="true"
@@ -115,9 +113,7 @@ export default function GrowthEngine() {
       </div>
 
       <Container>
-        {/* ==================================================== */}
-        {/* HEADER                                              */}
-        {/* ==================================================== */}
+        {/*===== HEADER =====*/}
 
         <motion.div
           variants={shouldReduceMotion ? undefined : staggerContainer}
@@ -176,9 +172,7 @@ export default function GrowthEngine() {
           </motion.div>
         </motion.div>
 
-        {/* ==================================================== */}
-        {/* DESKTOP ENGINE                                      */}
-        {/* ==================================================== */}
+        {/*===== DESKTOP ENGINE =====*/}
 
         <div
           className="relative mt-14 hidden min-w-0 lg:block xl:mt-16"
@@ -204,9 +198,7 @@ export default function GrowthEngine() {
             </span>
           </div>
 
-          {/* ================================================== */}
-          {/* SIGNAL LINE                                       */}
-          {/* ================================================== */}
+          {/*===== SIGNAL LINE =====*/}
 
           <div
             aria-hidden="true"
@@ -234,9 +226,7 @@ export default function GrowthEngine() {
             />
           )}
 
-          {/* ================================================== */}
-          {/* STEPS                                             */}
-          {/* ================================================== */}
+          {/*===== STEPS =====*/}
 
           <div
             className="relative z-10 grid min-w-0 grid-cols-5 border-x border-white/10"
@@ -388,9 +378,7 @@ export default function GrowthEngine() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* MOBILE / TABLET ENGINE                              */}
-        {/* ==================================================== */}
+        {/*===== MOBILE / TABLET ENGINE =====*/}
 
         <div
           className="relative mt-12 lg:hidden"
@@ -526,9 +514,7 @@ export default function GrowthEngine() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* SYSTEM OUTPUT                                       */}
-        {/* ==================================================== */}
+        {/*===== SYSTEM OUTPUT =====*/}
 
         <div
           className="mt-12 grid border-y border-white/10 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center lg:mt-16"

@@ -71,9 +71,7 @@ export function ServicesGrid({
           <div
             className="grid gap-5 px-5 py-6 sm:px-6 lg:grid-cols-[64px_minmax(0,1fr)_220px] lg:gap-6 lg:py-7"
           >
-            {/* ================================================= */}
-            {/* INDEX                                             */}
-            {/* ================================================= */}
+            {/*===== INDEX =====*/}
 
             <div className="hidden lg:block">
               <span
@@ -87,9 +85,7 @@ export function ServicesGrid({
               />
             </div>
 
-            {/* ================================================= */}
-            {/* SERVICE CONTENT                                   */}
-            {/* ================================================= */}
+            {/*===== SERVICE CONTENT =====*/}
 
             <div className="min-w-0">
               <div
@@ -151,9 +147,7 @@ export function ServicesGrid({
               </div>
             </div>
 
-            {/* ================================================= */}
-            {/* SERVICE COMMAND                                   */}
-            {/* ================================================= */}
+            {/*===== SERVICE COMMAND =====*/}
 
             <div
               className="border-t border-border pt-4 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0"
@@ -216,9 +210,7 @@ export function ServicesGrid({
         </article>
       ))}
 
-      {/* ====================================================== */}
-      {/* REGISTER FOOTER                                       */}
-      {/* ====================================================== */}
+      {/*===== REGISTER FOOTER =====*/}
 
       <div
         className="flex items-center justify-between gap-4 bg-muted/10 px-5 py-3 sm:px-6"

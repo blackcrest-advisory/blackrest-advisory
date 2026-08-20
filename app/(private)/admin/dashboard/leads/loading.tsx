@@ -13,9 +13,7 @@ function Skeleton({ className = "" }: { className?: string }) {
 export default function Loading() {
   return (
     <div className="relative space-y-6" aria-label="Loading leads">
-      {/* ====================================================== */}
-      {/* LEADS COMMAND HEADER SKELETON                          */}
-      {/* ====================================================== */}
+      {/*===== LEADS COMMAND HEADER SKELETON =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -132,9 +130,7 @@ export default function Loading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* LEAD STATS SKELETON                                    */}
-      {/* ====================================================== */}
+      {/*===== LEAD STATS SKELETON =====*/}
 
       <section
         className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5"
@@ -174,9 +170,7 @@ export default function Loading() {
         ))}
       </section>
 
-      {/* ====================================================== */}
-      {/* LEAD DIRECTORY WORKSPACE                               */}
-      {/* ====================================================== */}
+      {/*===== LEAD DIRECTORY WORKSPACE =====*/}
 
       <section
         className="relative overflow-visible border border-border bg-card shadow-[var(--shadow-card)]"
@@ -213,9 +207,7 @@ export default function Loading() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* SIMPLE FILTER BAR                                    */}
-        {/* ==================================================== */}
+        {/*===== SIMPLE FILTER BAR =====*/}
 
         <div
           className="relative z-20 border-b border-border bg-card px-5 py-4 sm:px-6"
@@ -236,9 +228,7 @@ export default function Loading() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* DESKTOP TABLE SKELETON                               */}
-        {/* ==================================================== */}
+        {/*===== DESKTOP TABLE SKELETON =====*/}
 
         <div className="hidden overflow-x-auto lg:block">
           <table className="w-full border-collapse text-left text-sm">
@@ -332,9 +322,7 @@ export default function Loading() {
           </table>
         </div>
 
-        {/* ==================================================== */}
-        {/* MOBILE + TABLET LEAD RECORDS                         */}
-        {/* ==================================================== */}
+        {/*===== MOBILE + TABLET LEAD RECORDS =====*/}
 
         <div className="divide-y divide-border lg:hidden">
           {Array.from({ length: 5 }).map((_, index) => (
@@ -408,9 +396,7 @@ export default function Loading() {
           ))}
         </div>
 
-        {/* ==================================================== */}
-        {/* PAGINATION SKELETON                                  */}
-        {/* ==================================================== */}
+        {/*===== PAGINATION SKELETON =====*/}
 
         <div
           className="border-t border-border bg-muted/15 px-5 py-4 sm:px-6"

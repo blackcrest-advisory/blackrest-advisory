@@ -178,9 +178,7 @@ export function AdminFilesClient({
   //===== render =====//
   return (
     <div className="relative space-y-6">
-      {/* ====================================================== */}
-      {/* ASSET REGISTRY HEADER                                 */}
-      {/* ====================================================== */}
+      {/*===== ASSET REGISTRY HEADER =====*/}
 
       <header
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -200,9 +198,7 @@ export function AdminFilesClient({
         <div
           className="relative z-10 grid gap-7 px-5 py-6 sm:px-6 lg:px-8 lg:py-7 xl:grid-cols-[minmax(0,1fr)_280px]"
         >
-          {/* ================================================== */}
-          {/* TITLE                                              */}
-          {/* ================================================== */}
+          {/*===== TITLE =====*/}
 
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-3">
@@ -259,9 +255,7 @@ export function AdminFilesClient({
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* STORAGE INDEX                                      */}
-          {/* ================================================== */}
+          {/*===== STORAGE INDEX =====*/}
 
           <div
             className="border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
@@ -313,9 +307,7 @@ export function AdminFilesClient({
         </div>
       </header>
 
-      {/* ====================================================== */}
-      {/* METRICS                                               */}
-      {/* ====================================================== */}
+      {/*===== METRICS =====*/}
 
       <section
         className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -346,14 +338,10 @@ export function AdminFilesClient({
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* FILE DIRECTORY                                        */}
-      {/* ====================================================== */}
+      {/*===== FILE DIRECTORY =====*/}
 
       <section className="relative">
-        {/* ==================================================== */}
-        {/* CONTROLS                                            */}
-        {/* ==================================================== */}
+        {/*===== CONTROLS =====*/}
 
         <div
           className="relative z-20 border border-border bg-card shadow-[var(--shadow-card)]"
@@ -426,9 +414,7 @@ export function AdminFilesClient({
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* TABLE / RECORDS                                     */}
-        {/* ==================================================== */}
+        {/*===== TABLE / RECORDS =====*/}
 
         <div className="relative z-10 mt-3">
           <div
@@ -440,9 +426,7 @@ export function AdminFilesClient({
               className="absolute left-0 top-0 z-10 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/10 to-transparent"
             />
 
-            {/* ================================================= */}
-            {/* DESKTOP TABLE                                    */}
-            {/* ================================================= */}
+            {/*===== DESKTOP TABLE =====*/}
 
             <div className="hidden overflow-x-auto lg:block">
               <Table>
@@ -568,9 +552,7 @@ export function AdminFilesClient({
               </Table>
             </div>
 
-            {/* ================================================= */}
-            {/* MOBILE + TABLET                                  */}
-            {/* ================================================= */}
+            {/*===== MOBILE + TABLET =====*/}
 
             <div className="divide-y divide-border lg:hidden">
               {visibleFiles.map((file) => {
@@ -665,9 +647,7 @@ export function AdminFilesClient({
               })}
             </div>
 
-            {/* ================================================= */}
-            {/* EMPTY                                             */}
-            {/* ================================================= */}
+            {/*===== EMPTY =====*/}
 
             {!visibleFiles.length && (
               <div
@@ -725,9 +705,7 @@ export function AdminFilesClient({
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* PAGINATION                                          */}
-        {/* ==================================================== */}
+        {/*===== PAGINATION =====*/}
 
         {totalPages > 1 && (
           <div

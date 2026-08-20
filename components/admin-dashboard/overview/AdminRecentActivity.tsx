@@ -50,17 +50,13 @@ export const AdminRecentActivity = ({
       }}
       className="relative h-full overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
-      {/* ====================================================== */}
-      {/* TOP ACCENT                                             */}
-      {/* ====================================================== */}
+      {/*===== TOP ACCENT =====*/}
 
       <div
         className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
       />
 
-      {/* ====================================================== */}
-      {/* HEADER                                                 */}
-      {/* ====================================================== */}
+      {/*===== HEADER =====*/}
 
       <div
         className="flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
@@ -106,9 +102,7 @@ export const AdminRecentActivity = ({
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* ACTIVITY STREAM                                        */}
-      {/* ====================================================== */}
+      {/*===== ACTIVITY STREAM =====*/}
 
       {activities.length > 0 ? (
         <div className="relative">
@@ -235,9 +229,7 @@ export const AdminRecentActivity = ({
         </div>
       )}
 
-      {/* ====================================================== */}
-      {/* FOOTER                                                 */}
-      {/* ====================================================== */}
+      {/*===== FOOTER =====*/}
 
       {activities.length > 0 && (
         <div

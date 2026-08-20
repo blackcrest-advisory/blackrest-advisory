@@ -67,9 +67,7 @@ export const SalesHero = () => {
     <Section
       className="relative isolate overflow-hidden bg-background py-0"
     >
-      {/* ====================================================== */}
-      {/* BACKGROUND                                            */}
-      {/* ====================================================== */}
+      {/*===== BACKGROUND =====*/}
 
       <div
         aria-hidden="true"
@@ -85,9 +83,7 @@ export const SalesHero = () => {
       </div>
 
       <Container>
-        {/* ==================================================== */}
-        {/* TOP BAR                                             */}
-        {/* ==================================================== */}
+        {/*===== TOP BAR =====*/}
 
         <div
           className="flex flex-col gap-3 border-x border-b border-border px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"
@@ -117,16 +113,12 @@ export const SalesHero = () => {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* HERO BODY                                           */}
-        {/* ==================================================== */}
+        {/*===== HERO BODY =====*/}
 
         <div
           className="grid min-w-0 border-x border-border lg:min-h-[700px] lg:grid-cols-[minmax(0,0.95fr)_minmax(480px,1.05fr)]"
         >
-          {/* ================================================== */}
-          {/* LEFT CONTENT                                      */}
-          {/* ================================================== */}
+          {/*===== LEFT CONTENT =====*/}
 
           <div
             className="flex min-w-0 flex-col justify-center border-b border-border px-5 py-14 sm:px-7 sm:py-16 lg:border-b-0 lg:border-r lg:px-8 lg:py-20 xl:px-10"
@@ -148,9 +140,7 @@ export const SalesHero = () => {
               <span className="h-px w-10 bg-secondary/35" />
             </div>
 
-            {/* ================================================== */}
-            {/* HEADLINE                                          */}
-            {/* ================================================== */}
+            {/*===== HEADLINE =====*/}
 
             <h1
               className="mt-8 max-w-[760px] text-[42px] font-semibold leading-[0.97] tracking-[-0.06em] text-heading sm:text-[56px] lg:text-[60px] xl:text-[68px]"
@@ -169,9 +159,7 @@ export const SalesHero = () => {
               conversion, account management and long-term client retention.
             </p>
 
-            {/* ================================================== */}
-            {/* CAPABILITIES                                      */}
-            {/* ================================================== */}
+            {/*===== CAPABILITIES =====*/}
 
             <div
               className="mt-7 grid max-w-lg grid-cols-1 gap-3 sm:grid-cols-2"
@@ -196,9 +184,7 @@ export const SalesHero = () => {
               ))}
             </div>
 
-            {/* ================================================== */}
-            {/* CTA                                               */}
-            {/* ================================================== */}
+            {/*===== CTA =====*/}
 
             <div
               className="mt-8 flex flex-col gap-3 sm:flex-row"
@@ -225,9 +211,7 @@ export const SalesHero = () => {
               </Button>
             </div>
 
-            {/* ================================================== */}
-            {/* COMMERCIAL PRINCIPLES                             */}
-            {/* ================================================== */}
+            {/*===== COMMERCIAL PRINCIPLES =====*/}
 
             <div
               className="mt-10 grid grid-cols-3 border-y border-border"
@@ -240,9 +224,7 @@ export const SalesHero = () => {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* RIGHT / PIPELINE BOARD                            */}
-          {/* ================================================== */}
+          {/*===== RIGHT / PIPELINE BOARD =====*/}
 
           <div
             className="relative min-h-[600px] overflow-hidden bg-primary px-5 py-8 text-white sm:px-7 sm:py-10 lg:min-h-0 lg:px-8 lg:py-12"
@@ -255,9 +237,7 @@ export const SalesHero = () => {
               SALES
             </span>
 
-            {/* ================================================= */}
-            {/* BOARD HEADER                                    */}
-            {/* ================================================= */}
+            {/*===== BOARD HEADER =====*/}
 
             <div
               className="relative z-10 flex items-center justify-between gap-4 border-b border-white/10 pb-5"
@@ -289,9 +269,7 @@ export const SalesHero = () => {
               </div>
             </div>
 
-            {/* ================================================= */}
-            {/* PIPELINE                                        */}
-            {/* ================================================= */}
+            {/*===== PIPELINE =====*/}
 
             <div
               className="relative z-10 mt-7"
@@ -366,9 +344,7 @@ export const SalesHero = () => {
               })}
             </div>
 
-            {/* ================================================= */}
-            {/* COMMERCIAL OUTCOME                              */}
-            {/* ================================================= */}
+            {/*===== COMMERCIAL OUTCOME =====*/}
 
             <div
               className="relative z-10 mt-8 border border-gold-light/15 bg-white/[0.025] p-5"
@@ -399,9 +375,7 @@ export const SalesHero = () => {
               </div>
             </div>
 
-            {/* ================================================= */}
-            {/* BOTTOM STRIP                                    */}
-            {/* ================================================= */}
+            {/*===== BOTTOM STRIP =====*/}
 
             <div
               className="relative z-10 mt-8 grid grid-cols-3 border-y border-white/10"
@@ -415,9 +389,7 @@ export const SalesHero = () => {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* BOTTOM RAIL                                         */}
-        {/* ==================================================== */}
+        {/*===== BOTTOM RAIL =====*/}
 
         <div
           className="grid border-x border-t border-border sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center"

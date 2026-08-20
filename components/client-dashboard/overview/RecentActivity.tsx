@@ -50,9 +50,7 @@ export const RecentActivity = ({ activities }: RecentActivityProps) => {
         className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
       />
 
-      {/* ====================================================== */}
-      {/* HEADER                                                 */}
-      {/* ====================================================== */}
+      {/*===== HEADER =====*/}
 
       <div
         className="relative z-10 flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
@@ -99,9 +97,7 @@ export const RecentActivity = ({ activities }: RecentActivityProps) => {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* ACTIVITY FEED                                          */}
-      {/* ====================================================== */}
+      {/*===== ACTIVITY FEED =====*/}
 
       {activities.length > 0 ? (
         <div className="relative z-10">
@@ -162,9 +158,7 @@ export const RecentActivity = ({ activities }: RecentActivityProps) => {
         </div>
       )}
 
-      {/* ====================================================== */}
-      {/* FOOTER                                                 */}
-      {/* ====================================================== */}
+      {/*===== FOOTER =====*/}
 
       {activities.length > 0 && (
         <div

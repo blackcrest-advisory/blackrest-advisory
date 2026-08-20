@@ -34,9 +34,7 @@ export const FilesStatsGrid = ({ stats }: FilesStatsGridProps) => {
       animate={shouldReduceMotion ? undefined : "visible"}
       className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
-      {/* ====================================================== */}
-      {/* SECTION LABEL                                         */}
-      {/* ====================================================== */}
+      {/*===== SECTION LABEL =====*/}
 
       <div
         className="flex flex-col gap-2 border-b border-border px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
@@ -62,9 +60,7 @@ export const FilesStatsGrid = ({ stats }: FilesStatsGridProps) => {
         </span>
       </div>
 
-      {/* ====================================================== */}
-      {/* METRIC STRIP                                          */}
-      {/* ====================================================== */}
+      {/*===== METRIC STRIP =====*/}
 
       <div
         className="grid min-w-0 sm:grid-cols-2 xl:grid-cols-4"
@@ -120,9 +116,7 @@ export const FilesStatsGrid = ({ stats }: FilesStatsGridProps) => {
         </motion.div>
       </div>
 
-      {/* ====================================================== */}
-      {/* FOOTER                                                */}
-      {/* ====================================================== */}
+      {/*===== FOOTER =====*/}
 
       <div
         className="flex flex-col gap-2 border-t border-border bg-muted/10 px-5 py-2.5 sm:flex-row sm:items-center sm:justify-between sm:px-6"

@@ -14,9 +14,7 @@ function Skeleton({ className = "" }: { className?: string }) {
 export default function Loading() {
   return (
     <div className="relative">
-      {/* ====================================================== */}
-      {/* ADMIN COMMAND HEADER                                   */}
-      {/* ====================================================== */}
+      {/*===== ADMIN COMMAND HEADER =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -175,9 +173,7 @@ export default function Loading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* ADMIN KPI STATS                                        */}
-      {/* ====================================================== */}
+      {/*===== ADMIN KPI STATS =====*/}
 
       <section
         className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5"
@@ -218,9 +214,7 @@ export default function Loading() {
         ))}
       </section>
 
-      {/* ====================================================== */}
-      {/* REVENUE CHART                                          */}
-      {/* ====================================================== */}
+      {/*===== REVENUE CHART =====*/}
 
       <section
         className="relative mt-6 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -311,16 +305,12 @@ export default function Loading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* ACTIVE PROJECTS + DEADLINES                            */}
-      {/* ====================================================== */}
+      {/*===== ACTIVE PROJECTS + DEADLINES =====*/}
 
       <section
         className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.65fr)_minmax(300px,0.35fr)]"
       >
-        {/* ==================================================== */}
-        {/* ACTIVE PROJECTS                                      */}
-        {/* ==================================================== */}
+        {/*===== ACTIVE PROJECTS =====*/}
 
         <div
           className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -436,9 +426,7 @@ export default function Loading() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* UPCOMING DEADLINES                                   */}
-        {/* ==================================================== */}
+        {/*===== UPCOMING DEADLINES =====*/}
 
         <div
           className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -490,16 +478,12 @@ export default function Loading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* QUICK ACTIONS + RECENT ACTIVITY                        */}
-      {/* ====================================================== */}
+      {/*===== QUICK ACTIONS + RECENT ACTIVITY =====*/}
 
       <section
         className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-[minmax(280px,0.38fr)_minmax(0,1.62fr)]"
       >
-        {/* ==================================================== */}
-        {/* QUICK ACTIONS                                        */}
-        {/* ==================================================== */}
+        {/*===== QUICK ACTIONS =====*/}
 
         <div
           className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -542,9 +526,7 @@ export default function Loading() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* RECENT ACTIVITY                                      */}
-        {/* ==================================================== */}
+        {/*===== RECENT ACTIVITY =====*/}
 
         <div
           className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"

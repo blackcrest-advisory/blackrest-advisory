@@ -56,9 +56,7 @@ export default function DashboardMobileSidebar({
 
   return (
     <>
-      {/* ====================================================== */}
-      {/* BACKDROP                                               */}
-      {/* ====================================================== */}
+      {/*===== BACKDROP =====*/}
 
       <motion.div
         initial={{ opacity: 0 }}
@@ -71,9 +69,7 @@ export default function DashboardMobileSidebar({
         onClick={onClose}
       />
 
-      {/* ====================================================== */}
-      {/* DRAWER                                                 */}
-      {/* ====================================================== */}
+      {/*===== DRAWER =====*/}
 
       <motion.aside
         initial={{
@@ -121,9 +117,7 @@ export default function DashboardMobileSidebar({
           }}
         />
 
-        {/* ==================================================== */}
-        {/* HEADER                                               */}
-        {/* ==================================================== */}
+        {/*===== HEADER =====*/}
 
         <div
           className="relative z-10 flex h-[72px] shrink-0 items-center justify-between border-b border-border px-4"
@@ -150,9 +144,7 @@ export default function DashboardMobileSidebar({
           </button>
         </div>
 
-        {/* ==================================================== */}
-        {/* WORKSPACE STATUS                                     */}
-        {/* ==================================================== */}
+        {/*===== WORKSPACE STATUS =====*/}
 
         <div className="relative z-10 px-4 pt-4">
           <div
@@ -182,9 +174,7 @@ export default function DashboardMobileSidebar({
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* NAVIGATION                                           */}
-        {/* ==================================================== */}
+        {/*===== NAVIGATION =====*/}
 
         <nav
           className="dashboard-nav-scroll relative z-10 flex-1 overflow-y-auto overscroll-contain px-3 py-5"
@@ -217,9 +207,7 @@ export default function DashboardMobileSidebar({
           </div>
         </nav>
 
-        {/* ==================================================== */}
-        {/* FOOTER                                               */}
-        {/* ==================================================== */}
+        {/*===== FOOTER =====*/}
 
         <div
           className="relative z-10 shrink-0 border-t border-border bg-card/95 pb-[env(safe-area-inset-bottom)]"

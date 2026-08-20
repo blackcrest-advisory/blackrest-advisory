@@ -69,9 +69,7 @@ export default function WhatWeDo() {
     <Section
       className="relative isolate overflow-hidden bg-background py-16 sm:py-20 lg:py-28"
     >
-      {/* ====================================================== */}
-      {/* BACKGROUND ARCHITECTURE                               */}
-      {/* ====================================================== */}
+      {/*===== BACKGROUND ARCHITECTURE =====*/}
 
       <div
         aria-hidden="true"
@@ -95,9 +93,7 @@ export default function WhatWeDo() {
       </div>
 
       <Container>
-        {/* ==================================================== */}
-        {/* SECTION INTRO                                       */}
-        {/* ==================================================== */}
+        {/*===== SECTION INTRO =====*/}
 
         <motion.div
           variants={shouldReduceMotion ? undefined : staggerContainer}
@@ -152,16 +148,12 @@ export default function WhatWeDo() {
           </motion.div>
         </motion.div>
 
-        {/* ==================================================== */}
-        {/* MAIN SYSTEM                                         */}
-        {/* ==================================================== */}
+        {/*===== MAIN SYSTEM =====*/}
 
         <div
           className="grid min-w-0 gap-10 pt-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(500px,1.1fr)] lg:gap-14 lg:pt-14 xl:gap-20"
         >
-          {/* ================================================== */}
-          {/* CONTENT                                            */}
-          {/* ================================================== */}
+          {/*===== CONTENT =====*/}
 
           <motion.div
             initial={
@@ -260,9 +252,7 @@ export default function WhatWeDo() {
             </div>
           </motion.div>
 
-          {/* ================================================== */}
-          {/* MARKETING SYSTEM VISUAL                            */}
-          {/* ================================================== */}
+          {/*===== MARKETING SYSTEM VISUAL =====*/}
 
           <motion.div
             initial={
@@ -342,9 +332,7 @@ export default function WhatWeDo() {
                 className="absolute inset-0 opacity-[0.17] [background-image:linear-gradient(rgba(255,255,255,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.14)_1px,transparent_1px)] [background-size:72px_72px]"
               />
 
-              {/* ================================================== */}
-              {/* TOP SIGNAL                                         */}
-              {/* ================================================== */}
+              {/*===== TOP SIGNAL =====*/}
 
               <div
                 className="absolute left-4 right-4 top-4 flex items-center justify-between gap-4 border-b border-white/15 pb-3 sm:left-6 sm:right-6 sm:top-6"
@@ -385,9 +373,7 @@ export default function WhatWeDo() {
                 <BarChart3 className="h-4 w-4 text-gold-light" />
               </div>
 
-              {/* ================================================== */}
-              {/* CENTER NETWORK                                     */}
-              {/* ================================================== */}
+              {/*===== CENTER NETWORK =====*/}
 
               <div
                 className="absolute inset-x-5 top-[22%] sm:inset-x-8"
@@ -436,9 +422,7 @@ export default function WhatWeDo() {
                 />
               </div>
 
-              {/* ================================================== */}
-              {/* CHANNEL GRID                                       */}
-              {/* ================================================== */}
+              {/*===== CHANNEL GRID =====*/}
 
               <div
                 className="absolute bottom-5 left-4 right-4 grid grid-cols-2 gap-px border border-white/10 bg-white/10 sm:bottom-6 sm:left-6 sm:right-6 lg:grid-cols-4"
@@ -494,9 +478,7 @@ export default function WhatWeDo() {
           </motion.div>
         </div>
 
-        {/* ==================================================== */}
-        {/* SECTION FOOTER                                      */}
-        {/* ==================================================== */}
+        {/*===== SECTION FOOTER =====*/}
 
         <div
           className="mt-12 flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between lg:mt-16"

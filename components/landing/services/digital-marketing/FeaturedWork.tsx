@@ -71,9 +71,7 @@ export default function FeaturedWork() {
     <Section
       className="relative isolate overflow-hidden bg-background py-16 sm:py-20 lg:py-28"
     >
-      {/* ====================================================== */}
-      {/* BACKGROUND ARCHITECTURE                               */}
-      {/* ====================================================== */}
+      {/*===== BACKGROUND ARCHITECTURE =====*/}
 
       <div
         aria-hidden="true"
@@ -93,9 +91,7 @@ export default function FeaturedWork() {
       </div>
 
       <Container>
-        {/* ==================================================== */}
-        {/* EDITORIAL HEADER                                    */}
-        {/* ==================================================== */}
+        {/*===== EDITORIAL HEADER =====*/}
 
         <motion.div
           initial={
@@ -161,9 +157,7 @@ export default function FeaturedWork() {
           </div>
         </motion.div>
 
-        {/* ==================================================== */}
-        {/* CASE STUDY REEL                                     */}
-        {/* ==================================================== */}
+        {/*===== CASE STUDY REEL =====*/}
 
         <div className="mt-10 lg:mt-14">
           {/* top controls */}
@@ -201,9 +195,7 @@ export default function FeaturedWork() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* MAIN CANVAS                                       */}
-          {/* ================================================== */}
+          {/*===== MAIN CANVAS =====*/}
 
           <div
             className="relative min-w-0 overflow-hidden border border-border bg-primary shadow-[var(--shadow-overlay)]"
@@ -219,9 +211,7 @@ export default function FeaturedWork() {
                     <article
                       className="grid min-h-[640px] lg:grid-cols-[minmax(0,1.3fr)_minmax(370px,0.7fr)]"
                     >
-                      {/* ==================================== */}
-                      {/* IMAGE STAGE                          */}
-                      {/* ==================================== */}
+                      {/*===== IMAGE STAGE =====*/}
 
                       <div
                         className="relative min-h-[430px] overflow-hidden lg:min-h-[640px]"
@@ -298,9 +288,7 @@ export default function FeaturedWork() {
                           </div>
                         </div>
 
-                        {/* ==================================== */}
-                        {/* IMAGE BOTTOM TITLE                   */}
-                        {/* ==================================== */}
+                        {/*===== IMAGE BOTTOM TITLE =====*/}
 
                         <div
                           className="absolute bottom-0 left-0 right-0 px-5 pb-6 sm:px-7 sm:pb-7 lg:px-8 lg:pb-8"
@@ -325,9 +313,7 @@ export default function FeaturedWork() {
                         </div>
                       </div>
 
-                      {/* ==================================== */}
-                      {/* PROJECT INTELLIGENCE                 */}
-                      {/* ==================================== */}
+                      {/*===== PROJECT INTELLIGENCE =====*/}
 
                       <div
                         className="relative flex min-w-0 flex-col border-t border-white/10 bg-navy-deep lg:border-l lg:border-t-0"
@@ -432,9 +418,7 @@ export default function FeaturedWork() {
                           </div>
                         </div>
 
-                        {/* ================================== */}
-                        {/* METRICS                            */}
-                        {/* ================================== */}
+                        {/*===== METRICS =====*/}
 
                         <div
                           className="border-t border-white/10"
@@ -506,9 +490,7 @@ export default function FeaturedWork() {
               </div>
             </div>
 
-            {/* ================================================== */}
-            {/* AUTOPLAY PROGRESS                                  */}
-            {/* ================================================== */}
+            {/*===== AUTOPLAY PROGRESS =====*/}
 
             {!shouldReduceMotion && (
               <motion.div
@@ -540,9 +522,7 @@ export default function FeaturedWork() {
             />
           </div>
 
-          {/* ==================================================== */}
-          {/* CONTROLS                                            */}
-          {/* ==================================================== */}
+          {/*===== CONTROLS =====*/}
 
           <div
             className="mt-5 grid gap-4 border-b border-border pb-5 md:grid-cols-[auto_minmax(0,1fr)_auto] md:items-center"
@@ -574,9 +554,7 @@ export default function FeaturedWork() {
               </button>
             </div>
 
-            {/* ================================================== */}
-            {/* PROJECT NAVIGATION                                 */}
-            {/* ================================================== */}
+            {/*===== PROJECT NAVIGATION =====*/}
 
             <div
               className="flex min-w-0 items-center gap-2 overflow-x-auto py-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -693,9 +671,7 @@ export default function FeaturedWork() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* FOOTER SIGNAL                                       */}
-        {/* ==================================================== */}
+        {/*===== FOOTER SIGNAL =====*/}
 
         <div
           className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"

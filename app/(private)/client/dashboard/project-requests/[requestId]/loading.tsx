@@ -14,18 +14,14 @@ function Skeleton({ className = "" }: { className?: string }) {
 export default function ProjectRequestDetailsLoading() {
   return (
     <div className="relative space-y-6">
-      {/* ====================================================== */}
-      {/* BACK NAVIGATION SKELETON                               */}
-      {/* ====================================================== */}
+      {/*===== BACK NAVIGATION SKELETON =====*/}
 
       <div className="flex items-center gap-2">
         <Skeleton className="h-4 w-4" />
         <Skeleton className="h-3 w-36" />
       </div>
 
-      {/* ====================================================== */}
-      {/* REQUEST HERO SKELETON                                  */}
-      {/* ====================================================== */}
+      {/*===== REQUEST HERO SKELETON =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -136,9 +132,7 @@ export default function ProjectRequestDetailsLoading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* PROPOSAL SKELETON                                      */}
-      {/* ====================================================== */}
+      {/*===== PROPOSAL SKELETON =====*/}
 
       <section
         className="relative overflow-hidden border border-secondary/20 bg-card shadow-[var(--shadow-card)]"
@@ -249,16 +243,12 @@ export default function ProjectRequestDetailsLoading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* CONTENT GRID                                           */}
-      {/* ====================================================== */}
+      {/*===== CONTENT GRID =====*/}
 
       <div
         className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.45fr)]"
       >
-        {/* ==================================================== */}
-        {/* LEFT COLUMN                                          */}
-        {/* ==================================================== */}
+        {/*===== LEFT COLUMN =====*/}
 
         <div className="space-y-6">
           {/* Project Description */}
@@ -316,9 +306,7 @@ export default function ProjectRequestDetailsLoading() {
           </section>
         </div>
 
-        {/* ==================================================== */}
-        {/* SIDEBAR                                              */}
-        {/* ==================================================== */}
+        {/*===== SIDEBAR =====*/}
 
         <aside className="space-y-6">
           {/* Request Information */}

@@ -100,9 +100,7 @@ export default async function ProjectRequestDetailsPage({
 
   return (
     <div className="relative space-y-6">
-      {/* ====================================================== */}
-      {/* BACK NAVIGATION                                        */}
-      {/* ====================================================== */}
+      {/*===== BACK NAVIGATION =====*/}
 
       <div>
         <Link
@@ -116,9 +114,7 @@ export default async function ProjectRequestDetailsPage({
         </Link>
       </div>
 
-      {/* ====================================================== */}
-      {/* REQUEST HERO                                           */}
-      {/* ====================================================== */}
+      {/*===== REQUEST HERO =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -283,9 +279,7 @@ export default async function ProjectRequestDetailsPage({
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* PROPOSAL                                               */}
-      {/* ====================================================== */}
+      {/*===== PROPOSAL =====*/}
 
       {hasProposal ? (
         <section
@@ -499,16 +493,12 @@ export default async function ProjectRequestDetailsPage({
         </section>
       )}
 
-      {/* ====================================================== */}
-      {/* CONTENT GRID                                           */}
-      {/* ====================================================== */}
+      {/*===== CONTENT GRID =====*/}
 
       <div
         className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.45fr)]"
       >
-        {/* ==================================================== */}
-        {/* MAIN CONTENT                                         */}
-        {/* ==================================================== */}
+        {/*===== MAIN CONTENT =====*/}
 
         <div className="space-y-6">
           {/* Project Description */}
@@ -739,9 +729,7 @@ export default async function ProjectRequestDetailsPage({
           )}
         </div>
 
-        {/* ==================================================== */}
-        {/* SIDEBAR                                              */}
-        {/* ==================================================== */}
+        {/*===== SIDEBAR =====*/}
 
         <aside className="space-y-6">
           {/* Request Information */}

@@ -62,9 +62,7 @@ export function Pagination({
     <div
       className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
     >
-      {/* ====================================================== */}
-      {/* RESULT INFO                                            */}
-      {/* ====================================================== */}
+      {/*===== RESULT INFO =====*/}
 
       <div className="flex items-center gap-3">
         <span className="h-1.5 w-1.5 rounded-full bg-success" />
@@ -88,9 +86,7 @@ export function Pagination({
         </p>
       </div>
 
-      {/* ====================================================== */}
-      {/* PAGE CONTROLS                                          */}
-      {/* ====================================================== */}
+      {/*===== PAGE CONTROLS =====*/}
 
       <nav
         aria-label={`${itemLabel} pagination`}

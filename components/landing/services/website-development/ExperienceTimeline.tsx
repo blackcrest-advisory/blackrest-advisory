@@ -82,9 +82,7 @@ export default function ExperienceTimeline() {
       className="relative bg-background py-16 sm:py-20 lg:py-28"
     >
       <Container>
-        {/* ==================================================== */}
-        {/* HEADER                                              */}
-        {/* ==================================================== */}
+        {/*===== HEADER =====*/}
 
         <div
           className="grid gap-8 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-end lg:gap-16"
@@ -179,9 +177,7 @@ export default function ExperienceTimeline() {
           </motion.div>
         </div>
 
-        {/* ==================================================== */}
-        {/* JOURNEY                                             */}
-        {/* ==================================================== */}
+        {/*===== JOURNEY =====*/}
 
         <div
           className="relative mt-12 lg:mt-16"
@@ -233,9 +229,7 @@ export default function ExperienceTimeline() {
                   }}
                   className="group relative min-w-0"
                 >
-                  {/* ========================================== */}
-                  {/* TOP NODE                                   */}
-                  {/* ========================================== */}
+                  {/*===== TOP NODE =====*/}
 
                   <div
                     className="relative z-10 flex items-center gap-3 lg:flex-col lg:items-center lg:text-center"
@@ -255,9 +249,7 @@ export default function ExperienceTimeline() {
                     </div>
                   </div>
 
-                  {/* ========================================== */}
-                  {/* CARD                                       */}
-                  {/* ========================================== */}
+                  {/*===== CARD =====*/}
 
                   <div
                     className="mt-4 border border-border bg-card px-5 py-5 transition-all duration-300 group-hover:border-secondary/25 group-hover:shadow-[var(--shadow-card)] lg:mt-5 lg:min-h-[190px] lg:px-4"
@@ -302,9 +294,7 @@ export default function ExperienceTimeline() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* COMMUNICATION STATEMENT                             */}
-        {/* ==================================================== */}
+        {/*===== COMMUNICATION STATEMENT =====*/}
 
         <div
           className="mt-10 grid overflow-hidden border border-border bg-card md:grid-cols-[minmax(0,1fr)_auto] md:items-center"
@@ -362,9 +352,7 @@ export default function ExperienceTimeline() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* FOOTER                                              */}
-        {/* ==================================================== */}
+        {/*===== FOOTER =====*/}
 
         <div
           className="mt-7 flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between"

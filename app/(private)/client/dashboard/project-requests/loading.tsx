@@ -15,9 +15,7 @@ export default function Loading() {
 
   return (
     <div className="relative space-y-6">
-      {/* ====================================================== */}
-      {/* PAGE HERO SKELETON                                     */}
-      {/* ====================================================== */}
+      {/*===== PAGE HERO SKELETON =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -93,9 +91,7 @@ export default function Loading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* REQUESTS TABLE SKELETON                                */}
-      {/* ====================================================== */}
+      {/*===== REQUESTS TABLE SKELETON =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -105,9 +101,7 @@ export default function Loading() {
           className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"
         />
 
-        {/* ==================================================== */}
-        {/* TABLE HEADER SKELETON                                */}
-        {/* ==================================================== */}
+        {/*===== TABLE HEADER SKELETON =====*/}
 
         <div
           className="flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
@@ -137,9 +131,7 @@ export default function Loading() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* DESKTOP TABLE                                        */}
-        {/* ==================================================== */}
+        {/*===== DESKTOP TABLE =====*/}
 
         <div className="hidden overflow-x-auto lg:block">
           <table className="w-full border-collapse text-left text-sm">
@@ -224,9 +216,7 @@ export default function Loading() {
           </table>
         </div>
 
-        {/* ==================================================== */}
-        {/* MOBILE + TABLET                                      */}
-        {/* ==================================================== */}
+        {/*===== MOBILE + TABLET =====*/}
 
         <div className="divide-y divide-border lg:hidden">
           {rows.map((_, index) => (
@@ -287,9 +277,7 @@ export default function Loading() {
           ))}
         </div>
 
-        {/* ==================================================== */}
-        {/* FOOTER                                               */}
-        {/* ==================================================== */}
+        {/*===== FOOTER =====*/}
 
         <div
           className="flex flex-col gap-2 border-t border-border bg-muted/15 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6"

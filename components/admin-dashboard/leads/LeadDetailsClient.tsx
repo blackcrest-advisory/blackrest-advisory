@@ -129,9 +129,7 @@ export function LeadDetailsClient({
 
   return (
     <div className="relative space-y-6">
-      {/* ====================================================== */}
-      {/* BACK                                                   */}
-      {/* ====================================================== */}
+      {/*===== BACK =====*/}
 
       <div>
         <Link
@@ -145,9 +143,7 @@ export function LeadDetailsClient({
         </Link>
       </div>
 
-      {/* ====================================================== */}
-      {/* LEAD HEADER                                            */}
-      {/* ====================================================== */}
+      {/*===== LEAD HEADER =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -301,16 +297,12 @@ export function LeadDetailsClient({
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* DETAIL GRID                                            */}
-      {/* ====================================================== */}
+      {/*===== DETAIL GRID =====*/}
 
       <div
         className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.45fr)]"
       >
-        {/* ==================================================== */}
-        {/* MAIN COLUMN                                          */}
-        {/* ==================================================== */}
+        {/*===== MAIN COLUMN =====*/}
 
         <div className="space-y-6">
           {/* Project Inquiry */}
@@ -459,9 +451,7 @@ export function LeadDetailsClient({
           </section>
         </div>
 
-        {/* ==================================================== */}
-        {/* SIDEBAR                                              */}
-        {/* ==================================================== */}
+        {/*===== SIDEBAR =====*/}
 
         <aside className="space-y-6">
           {/* Contact Information */}
@@ -592,9 +582,7 @@ export function LeadDetailsClient({
         </aside>
       </div>
 
-      {/* ====================================================== */}
-      {/* EDIT MODAL                                             */}
-      {/* ====================================================== */}
+      {/*===== EDIT MODAL =====*/}
 
       <LeadDetailModal
         lead={lead}
@@ -604,9 +592,7 @@ export function LeadDetailsClient({
         mode="edit"
       />
 
-      {/* ====================================================== */}
-      {/* DELETE MODAL                                           */}
-      {/* ====================================================== */}
+      {/*===== DELETE MODAL =====*/}
 
       <ConfirmationModal
         isOpen={isDeleteModalOpen}

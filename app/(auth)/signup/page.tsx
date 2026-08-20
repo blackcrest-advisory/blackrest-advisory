@@ -128,9 +128,7 @@ function SignupContent() {
       <Section
         className="relative isolate flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-background py-10 text-foreground transition-colors duration-300 sm:py-14 lg:py-16"
       >
-        {/* ====================================================== */}
-        {/* BACKGROUND                                             */}
-        {/* ====================================================== */}
+        {/*===== BACKGROUND =====*/}
 
         <div className="pointer-events-none absolute inset-0 -z-20">
           {/* grid */}
@@ -198,9 +196,7 @@ function SignupContent() {
           <div
             className="mx-auto grid max-w-5xl overflow-hidden border border-border bg-card text-card-foreground shadow-[var(--shadow-overlay)] lg:grid-cols-[0.92fr_1.08fr]"
           >
-            {/* ================================================== */}
-            {/* LEFT — BRAND STORY                                 */}
-            {/* ================================================== */}
+            {/*===== LEFT — BRAND STORY =====*/}
 
             <motion.aside
               initial={{
@@ -373,9 +369,7 @@ function SignupContent() {
               </div>
             </motion.aside>
 
-            {/* ================================================== */}
-            {/* RIGHT — SIGNUP FORM                                */}
-            {/* ================================================== */}
+            {/*===== RIGHT — SIGNUP FORM =====*/}
 
             <motion.main
               initial={{
@@ -475,9 +469,7 @@ function SignupContent() {
                   </motion.div>
                 )}
 
-                {/* ================================================= */}
-                {/* FORM — functionality preserved                    */}
-                {/* ================================================= */}
+                {/*===== FORM — functionality preserved =====*/}
 
                 <form onSubmit={handleSubmit} className="mt-8 space-y-5">
                   {/* Full Name */}
@@ -703,9 +695,7 @@ function SignupContent() {
                   </div>
                 </div>
 
-                {/* ================================================= */}
-                {/* GOOGLE — same functionality, correct logo          */}
-                {/* ================================================= */}
+                {/*===== GOOGLE — same functionality, correct logo =====*/}
 
                 <button
                   type="button"

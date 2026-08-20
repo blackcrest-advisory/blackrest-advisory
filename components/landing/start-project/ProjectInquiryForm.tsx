@@ -313,9 +313,7 @@ export const ProjectInquiryForm = () => {
       </div>
 
       <form onSubmit={handleSubmit}>
-        {/* ====================================================== */}
-        {/* 01 BUSINESS INFORMATION                                */}
-        {/* ====================================================== */}
+        {/*===== 01 BUSINESS INFORMATION =====*/}
 
         <FormSection
           number="01"
@@ -366,9 +364,7 @@ export const ProjectInquiryForm = () => {
           </div>
         </FormSection>
 
-        {/* ====================================================== */}
-        {/* 02 PROJECT INFORMATION                                 */}
-        {/* ====================================================== */}
+        {/*===== 02 PROJECT INFORMATION =====*/}
 
         <FormSection
           number="02"
@@ -443,9 +439,7 @@ export const ProjectInquiryForm = () => {
           </div>
         </FormSection>
 
-        {/* ====================================================== */}
-        {/* 03 SUPPORTING MATERIAL                                 */}
-        {/* ====================================================== */}
+        {/*===== 03 SUPPORTING MATERIAL =====*/}
 
         <FormSection
           number="03"
@@ -473,9 +467,7 @@ export const ProjectInquiryForm = () => {
           </div>
         </FormSection>
 
-        {/* ====================================================== */}
-        {/* AGREEMENT + SUBMIT                                     */}
-        {/* ====================================================== */}
+        {/*===== AGREEMENT + SUBMIT =====*/}
 
         <div
           className="border-t border-border bg-muted/25 px-6 py-6 sm:px-8"

@@ -117,9 +117,7 @@ export default function StickyScroll() {
     <Section
       className="relative isolate bg-background py-16 sm:py-20 lg:py-28"
     >
-      {/* ====================================================== */}
-      {/* BACKGROUND ARCHITECTURE                               */}
-      {/* ====================================================== */}
+      {/*===== BACKGROUND ARCHITECTURE =====*/}
 
       <div
         aria-hidden="true"
@@ -147,9 +145,7 @@ export default function StickyScroll() {
       </div>
 
       <Container>
-        {/* ==================================================== */}
-        {/* SECTION TOP                                         */}
-        {/* ==================================================== */}
+        {/*===== SECTION TOP =====*/}
 
         <motion.div
           initial={
@@ -203,24 +199,18 @@ export default function StickyScroll() {
           </span>
         </motion.div>
 
-        {/* ==================================================== */}
-        {/* STICKY EXPERIENCE                                   */}
-        {/* ==================================================== */}
+        {/*===== STICKY EXPERIENCE =====*/}
 
         <div
           className="grid min-w-0 items-start gap-12 lg:grid-cols-[minmax(270px,0.36fr)_minmax(0,0.64fr)] lg:gap-12 xl:grid-cols-[minmax(320px,0.34fr)_minmax(0,0.66fr)] xl:gap-20"
         >
-          {/* ================================================== */}
-          {/* LEFT / STICKY INDEX                                */}
-          {/* ================================================== */}
+          {/*===== LEFT / STICKY INDEX =====*/}
 
           <aside
             className="min-w-0 self-start lg:sticky lg:top-28"
           >
             <div>
-              {/* ============================================== */}
-              {/* INTRO                                         */}
-              {/* ============================================== */}
+              {/*===== INTRO =====*/}
 
               <div>
                 <span
@@ -249,9 +239,7 @@ export default function StickyScroll() {
                 </p>
               </div>
 
-              {/* ============================================== */}
-              {/* ACTIVE INDEX                                  */}
-              {/* ============================================== */}
+              {/*===== ACTIVE INDEX =====*/}
 
               <div
                 className="mt-9 hidden border-y border-border lg:block"
@@ -350,9 +338,7 @@ export default function StickyScroll() {
                 })}
               </div>
 
-              {/* ============================================== */}
-              {/* PROGRESS                                      */}
-              {/* ============================================== */}
+              {/*===== PROGRESS =====*/}
 
               <div
                 className="mt-6 hidden lg:block"
@@ -394,9 +380,7 @@ export default function StickyScroll() {
             </div>
           </aside>
 
-          {/* ================================================== */}
-          {/* RIGHT / CAPABILITY CHAPTERS                        */}
-          {/* ================================================== */}
+          {/*===== RIGHT / CAPABILITY CHAPTERS =====*/}
 
           <div className="min-w-0">
             {services.map((service, index) => (
@@ -411,9 +395,7 @@ export default function StickyScroll() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* BOTTOM STATEMENT                                    */}
-        {/* ==================================================== */}
+        {/*===== BOTTOM STATEMENT =====*/}
 
         <div
           className="mt-12 grid border-y border-border bg-card md:grid-cols-[minmax(0,1fr)_auto] md:items-center lg:mt-20"
@@ -517,9 +499,7 @@ function CapabilityChapter({
       }}
       className="relative min-w-0 border-b border-border py-8 first:pt-0 last:border-b-0 lg:min-h-[76vh] lg:py-14 xl:min-h-[82vh]"
     >
-      {/* ====================================================== */}
-      {/* MOBILE INDEX                                          */}
-      {/* ====================================================== */}
+      {/*===== MOBILE INDEX =====*/}
 
       <div
         className="mb-4 flex items-center justify-between gap-4 lg:hidden"
@@ -538,9 +518,7 @@ function CapabilityChapter({
         </span>
       </div>
 
-      {/* ====================================================== */}
-      {/* IMAGE STAGE                                           */}
-      {/* ====================================================== */}
+      {/*===== IMAGE STAGE =====*/}
 
       <div
         className="relative min-h-[380px] overflow-hidden border border-border bg-primary shadow-[var(--shadow-card)] sm:min-h-[480px] xl:min-h-[520px]"
@@ -609,9 +587,7 @@ function CapabilityChapter({
           className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.14)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,transparent,black_35%,black)]"
         />
 
-        {/* ==================================================== */}
-        {/* TOP STATUS                                          */}
-        {/* ==================================================== */}
+        {/*===== TOP STATUS =====*/}
 
         <div
           className="absolute left-5 right-5 top-5 flex items-start justify-between gap-4 sm:left-6 sm:right-6 sm:top-6"
@@ -647,9 +623,7 @@ function CapabilityChapter({
           </span>
         </div>
 
-        {/* ==================================================== */}
-        {/* TITLE                                               */}
-        {/* ==================================================== */}
+        {/*===== TITLE =====*/}
 
         <div
           className="absolute bottom-5 left-5 right-5 sm:bottom-7 sm:left-7 sm:right-7"
@@ -693,9 +667,7 @@ function CapabilityChapter({
         />
       </div>
 
-      {/* ====================================================== */}
-      {/* DESCRIPTION                                           */}
-      {/* ====================================================== */}
+      {/*===== DESCRIPTION =====*/}
 
       <div
         className="grid min-w-0 gap-5 border-x border-b border-border bg-card px-5 py-5 sm:px-6 lg:grid-cols-[auto_minmax(0,1fr)] lg:gap-8 lg:px-7 lg:py-6"

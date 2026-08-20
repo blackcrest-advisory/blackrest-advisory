@@ -135,9 +135,7 @@ export function InvoiceList({
     <div
       className="overflow-hidden border border-border bg-background/15"
     >
-      {/* ====================================================== */}
-      {/* DESKTOP HEADER                                         */}
-      {/* ====================================================== */}
+      {/*===== DESKTOP HEADER =====*/}
 
       <div
         className="hidden grid-cols-[minmax(170px,1.4fr)_minmax(120px,0.8fr)_130px_150px_auto] items-center gap-4 border-b border-border bg-muted/10 px-4 py-3 lg:grid"
@@ -154,9 +152,7 @@ export function InvoiceList({
         </span>
       </div>
 
-      {/* ====================================================== */}
-      {/* INVOICES                                               */}
-      {/* ====================================================== */}
+      {/*===== INVOICES =====*/}
 
       <div className="divide-y divide-border">
         {invoices.map((invoice, index) => (
@@ -164,9 +160,7 @@ export function InvoiceList({
             key={invoice.id}
             className="relative transition-colors duration-200 hover:bg-secondary/[0.018]"
           >
-            {/* ================================================== */}
-            {/* DESKTOP                                            */}
-            {/* ================================================== */}
+            {/*===== DESKTOP =====*/}
 
             <div
               className="hidden min-h-[84px] grid-cols-[minmax(170px,1.4fr)_minmax(120px,0.8fr)_130px_150px_auto] items-center gap-4 px-4 py-4 lg:grid"
@@ -335,9 +329,7 @@ export function InvoiceList({
               </div>
             </div>
 
-            {/* ================================================== */}
-            {/* MOBILE + TABLET                                    */}
-            {/* ================================================== */}
+            {/*===== MOBILE + TABLET =====*/}
 
             <div className="px-4 py-4 lg:hidden">
               {/* header */}
@@ -477,9 +469,7 @@ export function InvoiceList({
         ))}
       </div>
 
-      {/* ====================================================== */}
-      {/* FOOTER                                                 */}
-      {/* ====================================================== */}
+      {/*===== FOOTER =====*/}
 
       <div
         className="flex flex-col gap-2 border-t border-border bg-muted/10 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"

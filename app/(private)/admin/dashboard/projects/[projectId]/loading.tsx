@@ -29,9 +29,7 @@ function Skeleton({ className = "" }: { className?: string }) {
 export default function AdminProjectDetailLoading() {
   return (
     <div className="relative space-y-6" aria-label="Loading project details">
-      {/* ====================================================== */}
-      {/* BACK NAVIGATION                                       */}
-      {/* ====================================================== */}
+      {/*===== BACK NAVIGATION =====*/}
 
       <div>
         <div
@@ -47,9 +45,7 @@ export default function AdminProjectDetailLoading() {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* PROJECT DELIVERY HEADER                               */}
-      {/* ====================================================== */}
+      {/*===== PROJECT DELIVERY HEADER =====*/}
 
       <header
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -69,9 +65,7 @@ export default function AdminProjectDetailLoading() {
         <div
           className="relative z-10 grid gap-7 px-5 py-6 sm:px-6 lg:px-8 lg:py-7 xl:grid-cols-[minmax(0,1fr)_300px]"
         >
-          {/* ================================================== */}
-          {/* PROJECT IDENTITY                                   */}
-          {/* ================================================== */}
+          {/*===== PROJECT IDENTITY =====*/}
 
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-3">
@@ -116,9 +110,7 @@ export default function AdminProjectDetailLoading() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* PROGRESS COMMAND                                   */}
-          {/* ================================================== */}
+          {/*===== PROGRESS COMMAND =====*/}
 
           <div
             className="border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
@@ -158,9 +150,7 @@ export default function AdminProjectDetailLoading() {
         </div>
       </header>
 
-      {/* ====================================================== */}
-      {/* DELIVERY SNAPSHOT                                     */}
-      {/* ====================================================== */}
+      {/*===== DELIVERY SNAPSHOT =====*/}
 
       <section
         className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -175,21 +165,15 @@ export default function AdminProjectDetailLoading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* CONTENT GRID                                          */}
-      {/* ====================================================== */}
+      {/*===== CONTENT GRID =====*/}
 
       <div
         className="grid gap-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(300px,0.45fr)]"
       >
-        {/* ==================================================== */}
-        {/* MAIN COLUMN                                         */}
-        {/* ==================================================== */}
+        {/*===== MAIN COLUMN =====*/}
 
         <div className="space-y-6">
-          {/* ================================================== */}
-          {/* PROJECT INFORMATION                                */}
-          {/* ================================================== */}
+          {/*===== PROJECT INFORMATION =====*/}
 
           <section
             className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -227,9 +211,7 @@ export default function AdminProjectDetailLoading() {
             </div>
           </section>
 
-          {/* ================================================== */}
-          {/* MILESTONES                                         */}
-          {/* ================================================== */}
+          {/*===== MILESTONES =====*/}
 
           <section
             className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -299,9 +281,7 @@ export default function AdminProjectDetailLoading() {
             </div>
           </section>
 
-          {/* ================================================== */}
-          {/* INVOICES                                           */}
-          {/* ================================================== */}
+          {/*===== INVOICES =====*/}
 
           <section
             className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -415,14 +395,10 @@ export default function AdminProjectDetailLoading() {
           </section>
         </div>
 
-        {/* ==================================================== */}
-        {/* SIDEBAR                                             */}
-        {/* ==================================================== */}
+        {/*===== SIDEBAR =====*/}
 
         <aside className="space-y-6">
-          {/* ================================================== */}
-          {/* CLIENT RECORD                                      */}
-          {/* ================================================== */}
+          {/*===== CLIENT RECORD =====*/}
 
           <section
             className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -454,9 +430,7 @@ export default function AdminProjectDetailLoading() {
             </div>
           </section>
 
-          {/* ================================================== */}
-          {/* FILES                                              */}
-          {/* ================================================== */}
+          {/*===== FILES =====*/}
 
           <section
             className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -527,9 +501,7 @@ export default function AdminProjectDetailLoading() {
             </div>
           </section>
 
-          {/* ================================================== */}
-          {/* FILE UPLOADER                                      */}
-          {/* ================================================== */}
+          {/*===== FILE UPLOADER =====*/}
 
           <section
             className="border border-border bg-card p-4 shadow-[var(--shadow-card)]"
@@ -565,9 +537,7 @@ export default function AdminProjectDetailLoading() {
             </div>
           </section>
 
-          {/* ================================================== */}
-          {/* ORIGINAL BRIEF                                     */}
-          {/* ================================================== */}
+          {/*===== ORIGINAL BRIEF =====*/}
 
           <section
             className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"

@@ -28,9 +28,7 @@ export const ActiveProjects = ({ projects }: ActiveProjectsProps) => {
       }}
       className="relative h-full overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
-      {/* ====================================================== */}
-      {/* BACKGROUND                                             */}
-      {/* ====================================================== */}
+      {/*===== BACKGROUND =====*/}
 
       <div
         aria-hidden="true"
@@ -57,9 +55,7 @@ export const ActiveProjects = ({ projects }: ActiveProjectsProps) => {
         className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
       />
 
-      {/* ====================================================== */}
-      {/* HEADER                                                 */}
-      {/* ====================================================== */}
+      {/*===== HEADER =====*/}
 
       <div
         className="relative z-10 flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
@@ -112,9 +108,7 @@ export const ActiveProjects = ({ projects }: ActiveProjectsProps) => {
         </Button>
       </div>
 
-      {/* ====================================================== */}
-      {/* PROJECTS                                               */}
-      {/* ====================================================== */}
+      {/*===== PROJECTS =====*/}
 
       {projects.length === 0 ? (
         <div
@@ -181,9 +175,7 @@ export const ActiveProjects = ({ projects }: ActiveProjectsProps) => {
         </div>
       )}
 
-      {/* ====================================================== */}
-      {/* FOOTER                                                 */}
-      {/* ====================================================== */}
+      {/*===== FOOTER =====*/}
 
       {projects.length > 0 && (
         <div

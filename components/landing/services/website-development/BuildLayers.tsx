@@ -92,9 +92,7 @@ export default function BuildLayers() {
       className="relative bg-background py-16 sm:py-20 lg:py-28"
     >
       <Container>
-        {/* ==================================================== */}
-        {/* HEADER                                              */}
-        {/* ==================================================== */}
+        {/*===== HEADER =====*/}
 
         <div
           className="grid gap-7 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-end lg:gap-16"
@@ -146,9 +144,7 @@ export default function BuildLayers() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* PROCESS CARDS                                       */}
-        {/* ==================================================== */}
+        {/*===== PROCESS CARDS =====*/}
 
         <div
           className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4"
@@ -186,18 +182,14 @@ export default function BuildLayers() {
                 }}
                 className="group relative min-w-0 overflow-hidden border border-border bg-card px-5 py-6 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:border-secondary/30 hover:shadow-[var(--shadow-card-hover)] sm:px-6 sm:py-7"
               >
-                {/* ============================================ */}
-                {/* TOP GOLD SIGNAL                             */}
-                {/* ============================================ */}
+                {/*===== TOP GOLD SIGNAL =====*/}
 
                 <span
                   aria-hidden="true"
                   className="absolute left-0 top-0 h-[2px] w-10 bg-secondary transition-all duration-500 group-hover:w-full"
                 />
 
-                {/* ============================================ */}
-                {/* CARD TOP                                    */}
-                {/* ============================================ */}
+                {/*===== CARD TOP =====*/}
 
                 <div
                   className="flex items-start justify-between gap-4"
@@ -215,9 +207,7 @@ export default function BuildLayers() {
                   </span>
                 </div>
 
-                {/* ============================================ */}
-                {/* CONTENT                                     */}
-                {/* ============================================ */}
+                {/*===== CONTENT =====*/}
 
                 <div className="mt-8">
                   <span
@@ -239,9 +229,7 @@ export default function BuildLayers() {
                   </p>
                 </div>
 
-                {/* ============================================ */}
-                {/* CARD FOOTER                                 */}
-                {/* ============================================ */}
+                {/*===== CARD FOOTER =====*/}
 
                 <div
                   className="mt-8 flex items-center justify-between gap-3 border-t border-border pt-4"
@@ -264,9 +252,7 @@ export default function BuildLayers() {
           })}
         </div>
 
-        {/* ==================================================== */}
-        {/* PROCESS SUMMARY                                     */}
-        {/* ==================================================== */}
+        {/*===== PROCESS SUMMARY =====*/}
 
         <div
           className="mt-6 overflow-hidden border border-border bg-muted/15"
@@ -286,9 +272,7 @@ export default function BuildLayers() {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* CLOSING MESSAGE                                     */}
-        {/* ==================================================== */}
+        {/*===== CLOSING MESSAGE =====*/}
 
         <div
           className="mt-10 flex flex-col gap-5 border-t border-border pt-7 lg:flex-row lg:items-end lg:justify-between"

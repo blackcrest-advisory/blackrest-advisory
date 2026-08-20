@@ -111,9 +111,7 @@ export const NotificationsSection = ({
     <section
       className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
-      {/* ====================================================== */}
-      {/* HEADER                                                 */}
-      {/* ====================================================== */}
+      {/*===== HEADER =====*/}
 
       <div
         className="grid gap-5 border-b border-border px-5 py-5 sm:px-6 lg:grid-cols-[minmax(0,1fr)_220px] lg:items-end"
@@ -167,9 +165,7 @@ export const NotificationsSection = ({
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* PREFERENCES                                            */}
-      {/* ====================================================== */}
+      {/*===== PREFERENCES =====*/}
 
       <div
         className="grid min-w-0 md:grid-cols-2"
@@ -285,9 +281,7 @@ export const NotificationsSection = ({
         })}
       </div>
 
-      {/* ====================================================== */}
-      {/* FOOTER                                                 */}
-      {/* ====================================================== */}
+      {/*===== FOOTER =====*/}
 
       <div
         className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"

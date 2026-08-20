@@ -92,9 +92,7 @@ const Hero = () => {
     <Section
       className="relative isolate overflow-hidden bg-background py-0"
     >
-      {/* ====================================================== */}
-      {/* BACKGROUND                                            */}
-      {/* ====================================================== */}
+      {/*===== BACKGROUND =====*/}
 
       <div
         aria-hidden="true"
@@ -125,9 +123,7 @@ const Hero = () => {
       </div>
 
       <Container>
-        {/* ==================================================== */}
-        {/* TOP RAIL                                            */}
-        {/* ==================================================== */}
+        {/*===== TOP RAIL =====*/}
 
         <div
           className="flex flex-col gap-3 border-x border-b border-border px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"
@@ -163,16 +159,12 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* HERO                                                */}
-        {/* ==================================================== */}
+        {/*===== HERO =====*/}
 
         <div
           className="grid min-w-0 border-x border-border lg:min-h-[720px] lg:grid-cols-[minmax(0,0.9fr)_minmax(500px,1.1fr)]"
         >
-          {/* ================================================== */}
-          {/* LEFT CONTENT                                      */}
-          {/* ================================================== */}
+          {/*===== LEFT CONTENT =====*/}
 
           <motion.div
             initial={
@@ -218,9 +210,7 @@ const Hero = () => {
               />
             </div>
 
-            {/* ================================================== */}
-            {/* HEADLINE                                          */}
-            {/* ================================================== */}
+            {/*===== HEADLINE =====*/}
 
             <h1
               className="mt-8 max-w-[760px] text-[42px] font-semibold leading-[0.97] tracking-[-0.06em] text-heading sm:text-[56px] lg:text-[60px] xl:text-[68px]"
@@ -241,9 +231,7 @@ const Hero = () => {
               and create meaningful experiences on every screen.
             </p>
 
-            {/* ================================================== */}
-            {/* CAPABILITIES                                      */}
-            {/* ================================================== */}
+            {/*===== CAPABILITIES =====*/}
 
             <div
               className="mt-7 grid max-w-lg grid-cols-2 gap-x-5 gap-y-3"
@@ -268,9 +256,7 @@ const Hero = () => {
               ))}
             </div>
 
-            {/* ================================================== */}
-            {/* CTA                                               */}
-            {/* ================================================== */}
+            {/*===== CTA =====*/}
 
             <div
               className="mt-8 flex flex-col gap-3 sm:flex-row"
@@ -296,9 +282,7 @@ const Hero = () => {
               </Button>
             </div>
 
-            {/* ================================================== */}
-            {/* PRODUCT SIGNALS                                   */}
-            {/* ================================================== */}
+            {/*===== PRODUCT SIGNALS =====*/}
 
             <div
               className="mt-9 grid grid-cols-2 border-y border-border"
@@ -374,9 +358,7 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* ================================================== */}
-          {/* RIGHT / INTERACTION LAB                           */}
-          {/* ================================================== */}
+          {/*===== RIGHT / INTERACTION LAB =====*/}
 
           <motion.div
             initial={
@@ -402,9 +384,7 @@ const Hero = () => {
             }}
             className="relative min-h-[650px] overflow-hidden bg-muted/10 px-4 py-8 sm:px-6 sm:py-10 lg:min-h-0 lg:px-8 lg:py-12"
           >
-            {/* ================================================= */}
-            {/* LAB GRID                                         */}
-            {/* ================================================= */}
+            {/*===== LAB GRID =====*/}
 
             <div
               aria-hidden="true"
@@ -417,16 +397,12 @@ const Hero = () => {
               className="absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/[0.07] blur-[110px]"
             />
 
-            {/* ================================================= */}
-            {/* MAIN INTERACTION FRAME                           */}
-            {/* ================================================= */}
+            {/*===== MAIN INTERACTION FRAME =====*/}
 
             <div
               className="relative mx-auto h-full min-h-[570px] max-w-[650px] border border-border bg-background/60 backdrop-blur-sm"
             >
-              {/* =============================================== */}
-              {/* FRAME HEADER                                    */}
-              {/* =============================================== */}
+              {/*===== FRAME HEADER =====*/}
 
               <div
                 className="flex items-center justify-between gap-4 border-b border-border bg-background/70 px-4 py-3 sm:px-5"
@@ -458,9 +434,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* =============================================== */}
-              {/* PHONE STAGE                                     */}
-              {/* =============================================== */}
+              {/*===== PHONE STAGE =====*/}
 
               <div
                 className="relative flex min-h-[510px] items-center justify-center overflow-hidden px-4 py-12"
@@ -533,9 +507,7 @@ const Hero = () => {
                   );
                 })}
 
-                {/* ============================================= */}
-                {/* CONNECTOR LINES                               */}
-                {/* ============================================= */}
+                {/*===== CONNECTOR LINES =====*/}
 
                 <svg
                   aria-hidden="true"
@@ -594,9 +566,7 @@ const Hero = () => {
                   )}
                 </svg>
 
-                {/* ============================================= */}
-                {/* PHONE                                         */}
-                {/* ============================================= */}
+                {/*===== PHONE =====*/}
 
                 <div
                   className="relative z-10 flex items-center justify-center"
@@ -674,9 +644,7 @@ const Hero = () => {
                   </motion.div>
                 </div>
 
-                {/* ============================================= */}
-                {/* MOBILE FEATURES                               */}
-                {/* ============================================= */}
+                {/*===== MOBILE FEATURES =====*/}
 
                 <div
                   className="absolute bottom-5 left-4 right-4 z-20 grid grid-cols-3 gap-2 sm:hidden"
@@ -689,9 +657,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* =============================================== */}
-              {/* SYSTEM FOOTER                                   */}
-              {/* =============================================== */}
+              {/*===== SYSTEM FOOTER =====*/}
 
               <div
                 className="grid grid-cols-3 border-t border-border"
@@ -717,9 +683,7 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* ==================================================== */}
-        {/* BOTTOM PRODUCT RAIL                                 */}
-        {/* ==================================================== */}
+        {/*===== BOTTOM PRODUCT RAIL =====*/}
 
         <div
           className="grid border-x border-t border-border sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center"

@@ -43,9 +43,7 @@ export default function Loading() {
       className="relative min-w-0 max-w-full space-y-6"
       aria-label="Loading client settings"
     >
-      {/* ====================================================== */}
-      {/* SETTINGS HEADER                                       */}
-      {/* ====================================================== */}
+      {/*===== SETTINGS HEADER =====*/}
 
       <header
         className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -113,25 +111,19 @@ export default function Loading() {
         </div>
       </header>
 
-      {/* ====================================================== */}
-      {/* SETTINGS WORKSPACE                                    */}
-      {/* ====================================================== */}
+      {/*===== SETTINGS WORKSPACE =====*/}
 
       <div
         className="grid min-w-0 max-w-full gap-6 xl:grid-cols-[minmax(0,1.4fr)_minmax(300px,0.6fr)] xl:items-start"
       >
-        {/* ==================================================== */}
-        {/* MAIN COLUMN                                         */}
-        {/* ==================================================== */}
+        {/*===== MAIN COLUMN =====*/}
 
         <div className="min-w-0 space-y-6">
           <ProfileSectionSkeleton />
           <NotificationsSectionSkeleton />
         </div>
 
-        {/* ==================================================== */}
-        {/* SECURITY RAIL                                       */}
-        {/* ==================================================== */}
+        {/*===== SECURITY RAIL =====*/}
 
         <aside
           className="min-w-0 xl:sticky xl:top-4"

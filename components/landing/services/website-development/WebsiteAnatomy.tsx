@@ -130,9 +130,7 @@ export default function WebsiteAnatomy() {
     <Section
       className="relative isolate overflow-hidden bg-background py-16 sm:py-20 lg:py-28"
     >
-      {/* ====================================================== */}
-      {/* BACKGROUND                                            */}
-      {/* ====================================================== */}
+      {/*===== BACKGROUND =====*/}
 
       <div
         aria-hidden="true"
@@ -164,9 +162,7 @@ export default function WebsiteAnatomy() {
       </div>
 
       <Container>
-        {/* ==================================================== */}
-        {/* SECTION INTRO                                       */}
-        {/* ==================================================== */}
+        {/*===== SECTION INTRO =====*/}
 
         <motion.div
           variants={shouldReduceMotion ? undefined : staggerContainer}
@@ -222,16 +218,12 @@ export default function WebsiteAnatomy() {
           </motion.div>
         </motion.div>
 
-        {/* ==================================================== */}
-        {/* ARCHITECTURE BOARD                                  */}
-        {/* ==================================================== */}
+        {/*===== ARCHITECTURE BOARD =====*/}
 
         <div
           className="mt-10 grid min-w-0 gap-6 lg:mt-14 xl:grid-cols-[minmax(0,1fr)_290px]"
         >
-          {/* ================================================== */}
-          {/* SYSTEM MAP                                        */}
-          {/* ================================================== */}
+          {/*===== SYSTEM MAP =====*/}
 
           <motion.div
             initial={
@@ -260,9 +252,7 @@ export default function WebsiteAnatomy() {
             }}
             className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
           >
-            {/* ================================================ */}
-            {/* MAP HEADER                                      */}
-            {/* ================================================ */}
+            {/*===== MAP HEADER =====*/}
 
             <div
               className="flex flex-col gap-3 border-b border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
@@ -306,9 +296,7 @@ export default function WebsiteAnatomy() {
               </span>
             </div>
 
-            {/* ================================================ */}
-            {/* DESKTOP NETWORK                                 */}
-            {/* ================================================ */}
+            {/*===== DESKTOP NETWORK =====*/}
 
             <div
               className="relative hidden min-h-[720px] overflow-hidden md:block"
@@ -325,9 +313,7 @@ export default function WebsiteAnatomy() {
                 className="absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/[0.045] blur-[110px]"
               />
 
-              {/* ============================================== */}
-              {/* CONNECTION LINES                              */}
-              {/* ============================================== */}
+              {/*===== CONNECTION LINES =====*/}
 
               <svg
                 aria-hidden="true"
@@ -465,9 +451,7 @@ export default function WebsiteAnatomy() {
                 )}
               </svg>
 
-              {/* ============================================== */}
-              {/* CORE NODE                                     */}
-              {/* ============================================== */}
+              {/*===== CORE NODE =====*/}
 
               <motion.div
                 initial={
@@ -540,9 +524,7 @@ export default function WebsiteAnatomy() {
                 </div>
               </motion.div>
 
-              {/* ============================================== */}
-              {/* SYSTEM NODES                                  */}
-              {/* ============================================== */}
+              {/*===== SYSTEM NODES =====*/}
 
               {nodes.map((node, index) => {
                 const Icon = node.icon;
@@ -623,9 +605,7 @@ export default function WebsiteAnatomy() {
                 );
               })}
 
-              {/* ============================================== */}
-              {/* COORDINATE LABELS                             */}
-              {/* ============================================== */}
+              {/*===== COORDINATE LABELS =====*/}
 
               <span
                 className="absolute bottom-4 left-5 font-mono text-[6px] uppercase tracking-[0.15em] text-muted-foreground/25"
@@ -640,9 +620,7 @@ export default function WebsiteAnatomy() {
               </span>
             </div>
 
-            {/* ================================================ */}
-            {/* MOBILE / TABLET NODE SYSTEM                     */}
-            {/* ================================================ */}
+            {/*===== MOBILE / TABLET NODE SYSTEM =====*/}
 
             <div
               className="grid md:hidden"
@@ -740,9 +718,7 @@ export default function WebsiteAnatomy() {
             </div>
           </motion.div>
 
-          {/* ================================================== */}
-          {/* SYSTEM READOUT                                    */}
-          {/* ================================================== */}
+          {/*===== SYSTEM READOUT =====*/}
 
           <motion.aside
             initial={
@@ -870,9 +846,7 @@ export default function WebsiteAnatomy() {
           </motion.aside>
         </div>
 
-        {/* ==================================================== */}
-        {/* REQUEST LIFECYCLE                                   */}
-        {/* ==================================================== */}
+        {/*===== REQUEST LIFECYCLE =====*/}
 
         <motion.div
           initial={
@@ -976,9 +950,7 @@ export default function WebsiteAnatomy() {
           </div>
         </motion.div>
 
-        {/* ==================================================== */}
-        {/* SECTION FOOTER                                      */}
-        {/* ==================================================== */}
+        {/*===== SECTION FOOTER =====*/}
 
         <div
           className="mt-8 flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between"

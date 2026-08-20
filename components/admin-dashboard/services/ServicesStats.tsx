@@ -40,9 +40,7 @@ export function ServicesStats({ services }: { services: AdminService[] }) {
     <div
       className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
-      {/* ====================================================== */}
-      {/* HEADER                                                 */}
-      {/* ====================================================== */}
+      {/*===== HEADER =====*/}
 
       <div
         className="border-b border-border px-4 py-4"
@@ -60,9 +58,7 @@ export function ServicesStats({ services }: { services: AdminService[] }) {
         </p>
       </div>
 
-      {/* ====================================================== */}
-      {/* STATS                                                 */}
-      {/* ====================================================== */}
+      {/*===== STATS =====*/}
 
       <div className="divide-y divide-border">
         {stats.map((stat) => {
@@ -119,9 +115,7 @@ export function ServicesStats({ services }: { services: AdminService[] }) {
         })}
       </div>
 
-      {/* ====================================================== */}
-      {/* FOOTER                                                */}
-      {/* ====================================================== */}
+      {/*===== FOOTER =====*/}
 
       <div
         className="flex items-center justify-between gap-3 border-t border-border bg-muted/10 px-4 py-2.5"

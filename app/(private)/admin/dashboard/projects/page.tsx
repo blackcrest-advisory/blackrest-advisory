@@ -64,9 +64,7 @@ export default async function AdminProjectsPage() {
   //===== render =====//
   return (
     <div className="relative space-y-6">
-      {/* ====================================================== */}
-      {/* PORTFOLIO HEADER                                       */}
-      {/* ====================================================== */}
+      {/*===== PORTFOLIO HEADER =====*/}
 
       <header
         className="relative overflow-hidden border-y border-border bg-card"
@@ -92,9 +90,7 @@ export default async function AdminProjectsPage() {
         <div
           className="relative z-10 grid gap-6 px-5 py-7 sm:px-6 lg:px-8 xl:grid-cols-[minmax(0,1fr)_260px] xl:items-stretch"
         >
-          {/* ================================================== */}
-          {/* TITLE                                              */}
-          {/* ================================================== */}
+          {/*===== TITLE =====*/}
 
           <div className="min-w-0">
             <div
@@ -168,9 +164,7 @@ export default async function AdminProjectsPage() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* PORTFOLIO INDEX                                    */}
-          {/* ================================================== */}
+          {/*===== PORTFOLIO INDEX =====*/}
 
           <div
             className="flex flex-col justify-between border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
@@ -225,9 +219,7 @@ export default async function AdminProjectsPage() {
         </div>
       </header>
 
-      {/* ====================================================== */}
-      {/* PORTFOLIO STATS                                        */}
-      {/* ====================================================== */}
+      {/*===== PORTFOLIO STATS =====*/}
 
       <ProjectStats
         total={total}
@@ -236,9 +228,7 @@ export default async function AdminProjectsPage() {
         onHold={onHold}
       />
 
-      {/* ====================================================== */}
-      {/* PROJECT DIRECTORY                                      */}
-      {/* ====================================================== */}
+      {/*===== PROJECT DIRECTORY =====*/}
 
       <AdminProjectsClient projects={projects} />
     </div>

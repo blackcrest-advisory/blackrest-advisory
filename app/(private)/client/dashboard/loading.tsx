@@ -13,9 +13,7 @@ function Skeleton({ className = "" }: { className?: string }) {
 export default function Loading() {
   return (
     <div className="relative">
-      {/* ====================================================== */}
-      {/* CLIENT WELCOME SKELETON                                */}
-      {/* ====================================================== */}
+      {/*===== CLIENT WELCOME SKELETON =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -151,9 +149,7 @@ export default function Loading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* STATS SKELETON                                        */}
-      {/* ====================================================== */}
+      {/*===== STATS SKELETON =====*/}
 
       <section
         className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4"
@@ -193,9 +189,7 @@ export default function Loading() {
         ))}
       </section>
 
-      {/* ====================================================== */}
-      {/* PERFORMANCE CHART SKELETON                             */}
-      {/* ====================================================== */}
+      {/*===== PERFORMANCE CHART SKELETON =====*/}
 
       <section
         className="relative mt-6 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -318,9 +312,7 @@ export default function Loading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* PROJECTS + MILESTONES                                  */}
-      {/* ====================================================== */}
+      {/*===== PROJECTS + MILESTONES =====*/}
 
       <section
         className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.6fr)_minmax(300px,0.4fr)]"
@@ -439,9 +431,7 @@ export default function Loading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* QUICK ACTIONS + ACTIVITY                               */}
-      {/* ====================================================== */}
+      {/*===== QUICK ACTIONS + ACTIVITY =====*/}
 
       <section
         className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-[minmax(280px,0.38fr)_minmax(0,1.62fr)]"
@@ -543,9 +533,7 @@ export default function Loading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* SUPPORT SKELETON                                       */}
-      {/* ====================================================== */}
+      {/*===== SUPPORT SKELETON =====*/}
 
       <section
         className="relative mt-6 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -607,9 +595,7 @@ export default function Loading() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* FOOTER STATS SKELETON                                  */}
-      {/* ====================================================== */}
+      {/*===== FOOTER STATS SKELETON =====*/}
 
       <section
         className="relative mt-6 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"

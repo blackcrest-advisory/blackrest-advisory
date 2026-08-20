@@ -62,9 +62,7 @@ export const SupportSection = () => {
       <div
         className="relative z-10 grid gap-6 px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:px-7 lg:py-7 xl:px-8"
       >
-        {/* ==================================================== */}
-        {/* RELATIONSHIP SIDE                                    */}
-        {/* ==================================================== */}
+        {/*===== RELATIONSHIP SIDE =====*/}
 
         <div className="flex min-w-0 items-start gap-4 sm:gap-5">
           {/* avatar */}
@@ -157,9 +155,7 @@ export const SupportSection = () => {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* ACTION PANEL                                         */}
-        {/* ==================================================== */}
+        {/*===== ACTION PANEL =====*/}
 
         <div
           className="border-t border-border pt-5 lg:min-w-[310px] lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0"

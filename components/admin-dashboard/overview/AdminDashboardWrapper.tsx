@@ -40,9 +40,7 @@ export const AdminDashboardWrapper = ({
 }: AdminDashboardWrapperProps) => {
   return (
     <div className="relative">
-      {/* ====================================================== */}
-      {/* PAGE HEADER                                             */}
-      {/* ====================================================== */}
+      {/*===== PAGE HEADER =====*/}
 
       <motion.div
         variants={fadeInUp}
@@ -54,9 +52,7 @@ export const AdminDashboardWrapper = ({
         }}
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
-        {/* ====================================================== */}
-        {/* AMBIENT BACKGROUND                                     */}
-        {/* ====================================================== */}
+        {/*===== AMBIENT BACKGROUND =====*/}
 
         <div
           aria-hidden="true"
@@ -83,9 +79,7 @@ export const AdminDashboardWrapper = ({
           className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/45 to-transparent"
         />
 
-        {/* ====================================================== */}
-        {/* MAIN CONTENT                                           */}
-        {/* ====================================================== */}
+        {/*===== MAIN CONTENT =====*/}
 
         <div
           className="relative z-10 grid gap-6 p-6 sm:p-7 lg:grid-cols-[1fr_auto] lg:items-center xl:p-8"
@@ -176,9 +170,7 @@ export const AdminDashboardWrapper = ({
             </div>
           </div>
 
-          {/* ====================================================== */}
-          {/* RIGHT COMMAND PANEL                                    */}
-          {/* ====================================================== */}
+          {/*===== RIGHT COMMAND PANEL =====*/}
 
           <div
             className="w-full border-t border-border pt-5 lg:w-[310px] lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0"
@@ -261,9 +253,7 @@ export const AdminDashboardWrapper = ({
           </div>
         </div>
 
-        {/* ====================================================== */}
-        {/* BOTTOM SYSTEM STRIP                                    */}
-        {/* ====================================================== */}
+        {/*===== BOTTOM SYSTEM STRIP =====*/}
 
         <div
           className="relative z-10 grid border-t border-border bg-muted/20 sm:grid-cols-3"
@@ -309,9 +299,7 @@ export const AdminDashboardWrapper = ({
         </div>
       </motion.div>
 
-      {/* ====================================================== */}
-      {/* DASHBOARD CONTENT                                       */}
-      {/* ====================================================== */}
+      {/*===== DASHBOARD CONTENT =====*/}
 
       <div className="mt-6 space-y-6">
         {/* stats */}

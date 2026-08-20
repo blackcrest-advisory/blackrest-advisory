@@ -270,9 +270,7 @@ export function ProjectActionsDropdown({
   //===== dropdown content =====//
   const dropdownContent = (
     <div className="py-1.5">
-      {/* ====================================================== */}
-      {/* VIEW DETAILS                                           */}
-      {/* ====================================================== */}
+      {/*===== VIEW DETAILS =====*/}
 
       <div className="px-1.5">
         <Link
@@ -288,9 +286,7 @@ export function ProjectActionsDropdown({
         </Link>
       </div>
 
-      {/* ====================================================== */}
-      {/* ADMIN ACTIONS                                          */}
-      {/* ====================================================== */}
+      {/*===== ADMIN ACTIONS =====*/}
 
       {isAdmin && (
         <>
@@ -311,9 +307,7 @@ export function ProjectActionsDropdown({
             />
           </div>
 
-          {/* ================================================== */}
-          {/* STATUS ACTIONS                                     */}
-          {/* ================================================== */}
+          {/*===== STATUS ACTIONS =====*/}
 
           <div className="px-1.5">
             {STATUS_OPTIONS.map((option) => {
@@ -415,9 +409,7 @@ export function ProjectActionsDropdown({
             })}
           </div>
 
-          {/* ================================================== */}
-          {/* DELETE                                             */}
-          {/* ================================================== */}
+          {/*===== DELETE =====*/}
 
           <div className="my-1.5 border-t border-border" />
 
@@ -440,9 +432,7 @@ export function ProjectActionsDropdown({
 
   return (
     <div className="relative inline-block">
-      {/* ====================================================== */}
-      {/* TRIGGER                                                */}
-      {/* ====================================================== */}
+      {/*===== TRIGGER =====*/}
 
       <Button
         ref={buttonRef}
@@ -487,9 +477,7 @@ export function ProjectActionsDropdown({
         <MoreHorizontal className="h-4 w-4" />
       </Button>
 
-      {/* ====================================================== */}
-      {/* PORTALED DROPDOWN                                      */}
-      {/* ====================================================== */}
+      {/*===== PORTALED DROPDOWN =====*/}
 
       {isOpen &&
         createPortal(
@@ -522,9 +510,7 @@ export function ProjectActionsDropdown({
           document.body,
         )}
 
-      {/* ====================================================== */}
-      {/* ACTION CONFIRMATION                                    */}
-      {/* ====================================================== */}
+      {/*===== ACTION CONFIRMATION =====*/}
 
       <ConfirmationModal
         isOpen={pendingAction !== null}

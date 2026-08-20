@@ -53,9 +53,7 @@ export default async function page() {
 
   return (
     <div className="relative space-y-6">
-      {/* ====================================================== */}
-      {/* PAGE HERO                                              */}
-      {/* ====================================================== */}
+      {/*===== PAGE HERO =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -164,9 +162,7 @@ export default async function page() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* REQUESTS                                               */}
-      {/* ====================================================== */}
+      {/*===== REQUESTS =====*/}
 
       {briefs.length === 0 ? (
         /* ==================================================== */
@@ -218,9 +214,7 @@ export default async function page() {
             className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
           />
 
-          {/* ================================================== */}
-          {/* TABLE HEADER                                       */}
-          {/* ================================================== */}
+          {/*===== TABLE HEADER =====*/}
 
           <div
             className="flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
@@ -269,9 +263,7 @@ export default async function page() {
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* DESKTOP TABLE                                      */}
-          {/* ================================================== */}
+          {/*===== DESKTOP TABLE =====*/}
 
           <div className="hidden overflow-x-auto lg:block">
             <Table>
@@ -413,9 +405,7 @@ export default async function page() {
             </Table>
           </div>
 
-          {/* ================================================== */}
-          {/* MOBILE + TABLET                                    */}
-          {/* ================================================== */}
+          {/*===== MOBILE + TABLET =====*/}
 
           <div className="divide-y divide-border lg:hidden">
             {briefs.map((brief, index) => (
@@ -532,9 +522,7 @@ export default async function page() {
             ))}
           </div>
 
-          {/* ================================================== */}
-          {/* FOOTER                                             */}
-          {/* ================================================== */}
+          {/*===== FOOTER =====*/}
 
           <div
             className="flex flex-col gap-2 border-t border-border bg-muted/15 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6"

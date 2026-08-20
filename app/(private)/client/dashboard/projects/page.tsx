@@ -65,9 +65,7 @@ export default async function ClientProjectsPage() {
 
   return (
     <div className="relative">
-      {/* ====================================================== */}
-      {/* PAGE INTRO                                             */}
-      {/* ====================================================== */}
+      {/*===== PAGE INTRO =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -181,9 +179,7 @@ export default async function ClientProjectsPage() {
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* STATS                                                  */}
-      {/* ====================================================== */}
+      {/*===== STATS =====*/}
 
       <section
         className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4"
@@ -242,9 +238,7 @@ export default async function ClientProjectsPage() {
         })}
       </section>
 
-      {/* ====================================================== */}
-      {/* PROJECT WORKSPACE                                      */}
-      {/* ====================================================== */}
+      {/*===== PROJECT WORKSPACE =====*/}
 
       <section className="mt-6">
         <ClientProjectsTable projects={projects} />

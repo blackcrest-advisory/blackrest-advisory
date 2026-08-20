@@ -103,18 +103,14 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
     <section
       className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
-      {/* ====================================================== */}
-      {/* TOP SIGNAL                                            */}
-      {/* ====================================================== */}
+      {/*===== TOP SIGNAL =====*/}
 
       <div
         aria-hidden="true"
         className="absolute left-0 top-0 h-[2px] w-28 bg-gradient-to-r from-secondary/60 to-transparent"
       />
 
-      {/* ====================================================== */}
-      {/* HEADER                                                */}
-      {/* ====================================================== */}
+      {/*===== HEADER =====*/}
 
       <div
         className="flex items-start gap-3 border-b border-border px-5 py-4 sm:px-6"
@@ -146,9 +142,7 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* IDENTITY PANEL                                       */}
-      {/* ====================================================== */}
+      {/*===== IDENTITY PANEL =====*/}
 
       <div
         className="border-b border-border bg-background/20 px-5 py-5 sm:px-6"
@@ -203,9 +197,7 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* PROFILE FIELDS                                       */}
-      {/* ====================================================== */}
+      {/*===== PROFILE FIELDS =====*/}
 
       <div
         className="grid min-w-0 gap-5 px-5 py-5 sm:grid-cols-2 sm:px-6"
@@ -256,9 +248,7 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* FOOTER                                                */}
-      {/* ====================================================== */}
+      {/*===== FOOTER =====*/}
 
       <div
         className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"

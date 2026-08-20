@@ -105,9 +105,7 @@ export function CreateInvoiceModal({
         aria-labelledby="create-invoice-title"
         className="relative max-h-[calc(100vh-2rem)] w-full max-w-xl overflow-y-auto border border-border bg-card shadow-[var(--shadow-overlay)]"
       >
-        {/* ====================================================== */}
-        {/* TOP SIGNAL                                             */}
-        {/* ====================================================== */}
+        {/*===== TOP SIGNAL =====*/}
 
         <div
           aria-hidden="true"
@@ -120,9 +118,7 @@ export function CreateInvoiceModal({
           className="pointer-events-none absolute -right-24 -top-24 h-48 w-48 rounded-full bg-secondary/[0.06] blur-[90px]"
         />
 
-        {/* ====================================================== */}
-        {/* HEADER                                                 */}
-        {/* ====================================================== */}
+        {/*===== HEADER =====*/}
 
         <div
           className="relative z-10 flex items-start justify-between gap-4 border-b border-border px-5 py-5 sm:px-6"
@@ -167,17 +163,13 @@ export function CreateInvoiceModal({
           </button>
         </div>
 
-        {/* ====================================================== */}
-        {/* FORM                                                   */}
-        {/* ====================================================== */}
+        {/*===== FORM =====*/}
 
         <form onSubmit={handleSubmit}>
           <div
             className="relative z-10 space-y-5 px-5 py-5 sm:px-6 sm:py-6"
           >
-            {/* ================================================== */}
-            {/* AMOUNT + CURRENCY                                  */}
-            {/* ================================================== */}
+            {/*===== AMOUNT + CURRENCY =====*/}
 
             <div
               className="border border-border bg-background/25"
@@ -223,9 +215,7 @@ export function CreateInvoiceModal({
               </div>
             </div>
 
-            {/* ================================================== */}
-            {/* DUE DATE                                          */}
-            {/* ================================================== */}
+            {/*===== DUE DATE =====*/}
 
             <div
               className="border border-border bg-background/25"
@@ -249,9 +239,7 @@ export function CreateInvoiceModal({
               </div>
             </div>
 
-            {/* ================================================== */}
-            {/* NOTES                                             */}
-            {/* ================================================== */}
+            {/*===== NOTES =====*/}
 
             <div
               className="border border-border bg-background/25"
@@ -284,9 +272,7 @@ export function CreateInvoiceModal({
             </div>
           </div>
 
-          {/* ==================================================== */}
-          {/* ACTION BAR                                          */}
-          {/* ==================================================== */}
+          {/*===== ACTION BAR =====*/}
 
           <div
             className="relative z-10 flex flex-col-reverse gap-2 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"

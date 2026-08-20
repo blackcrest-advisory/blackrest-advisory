@@ -39,17 +39,13 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
       }}
       className="relative h-full overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
-      {/* ====================================================== */}
-      {/* TOP ACCENT                                             */}
-      {/* ====================================================== */}
+      {/*===== TOP ACCENT =====*/}
 
       <div
         className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
       />
 
-      {/* ====================================================== */}
-      {/* HEADER                                                 */}
-      {/* ====================================================== */}
+      {/*===== HEADER =====*/}
 
       <div
         className="relative flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
@@ -101,9 +97,7 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
         </Button>
       </div>
 
-      {/* ====================================================== */}
-      {/* DESKTOP TABLE                                          */}
-      {/* ====================================================== */}
+      {/*===== DESKTOP TABLE =====*/}
 
       <div className="hidden overflow-x-auto md:block">
         <Table>
@@ -242,9 +236,7 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
         </Table>
       </div>
 
-      {/* ====================================================== */}
-      {/* MOBILE / SMALL TABLET                                  */}
-      {/* ====================================================== */}
+      {/*===== MOBILE / SMALL TABLET =====*/}
 
       <div className="divide-y divide-border md:hidden">
         {projects.map((project, index) => (
@@ -359,9 +351,7 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
         ))}
       </div>
 
-      {/* ====================================================== */}
-      {/* EMPTY STATE                                            */}
-      {/* ====================================================== */}
+      {/*===== EMPTY STATE =====*/}
 
       {projects.length === 0 && (
         <div

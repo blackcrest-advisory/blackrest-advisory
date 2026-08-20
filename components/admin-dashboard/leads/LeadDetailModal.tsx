@@ -103,17 +103,13 @@ export const LeadDetailModal = ({
       <div
         className="relative flex max-h-[92vh] w-full max-w-3xl flex-col overflow-hidden border border-border bg-card shadow-[var(--shadow-overlay)]"
       >
-        {/* ==================================================== */}
-        {/* TOP SIGNAL                                           */}
-        {/* ==================================================== */}
+        {/*===== TOP SIGNAL =====*/}
 
         <div
           className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
         />
 
-        {/* ==================================================== */}
-        {/* HEADER                                               */}
-        {/* ==================================================== */}
+        {/*===== HEADER =====*/}
 
         <div
           className="flex shrink-0 items-start justify-between gap-5 border-b border-border px-5 py-5 sm:px-6"
@@ -152,16 +148,12 @@ export const LeadDetailModal = ({
           </button>
         </div>
 
-        {/* ==================================================== */}
-        {/* SCROLLABLE CONTENT                                   */}
-        {/* ==================================================== */}
+        {/*===== SCROLLABLE CONTENT =====*/}
 
         <div
           className="min-h-0 flex-1 overflow-y-auto overscroll-contain"
         >
-          {/* ================================================== */}
-          {/* CONTACT                                            */}
-          {/* ================================================== */}
+          {/*===== CONTACT =====*/}
 
           <FormSection
             eyebrow="Identity"
@@ -249,9 +241,7 @@ export const LeadDetailModal = ({
             </div>
           </FormSection>
 
-          {/* ================================================== */}
-          {/* PIPELINE                                           */}
-          {/* ================================================== */}
+          {/*===== PIPELINE =====*/}
 
           <FormSection
             eyebrow="Qualification"
@@ -329,9 +319,7 @@ export const LeadDetailModal = ({
             </div>
           </FormSection>
 
-          {/* ================================================== */}
-          {/* COMMERCIAL                                         */}
-          {/* ================================================== */}
+          {/*===== COMMERCIAL =====*/}
 
           <FormSection
             eyebrow="Commercial"
@@ -365,9 +353,7 @@ export const LeadDetailModal = ({
             </div>
           </FormSection>
 
-          {/* ================================================== */}
-          {/* NOTES                                              */}
-          {/* ================================================== */}
+          {/*===== NOTES =====*/}
 
           <FormSection
             eyebrow="Internal record"
@@ -397,9 +383,7 @@ export const LeadDetailModal = ({
           </FormSection>
         </div>
 
-        {/* ==================================================== */}
-        {/* FOOTER                                               */}
-        {/* ==================================================== */}
+        {/*===== FOOTER =====*/}
 
         <div
           className="flex shrink-0 flex-col-reverse gap-2 border-t border-border bg-muted/15 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"

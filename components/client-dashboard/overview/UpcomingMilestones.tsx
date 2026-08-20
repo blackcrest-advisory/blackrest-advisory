@@ -37,9 +37,7 @@ export const UpcomingMilestones = ({ milestones }: UpcomingMilestonesProps) => {
         className="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full bg-secondary/[0.08] blur-[80px]"
       />
 
-      {/* ====================================================== */}
-      {/* HEADER                                                 */}
-      {/* ====================================================== */}
+      {/*===== HEADER =====*/}
 
       <div
         className="relative z-10 border-b border-border px-5 py-5 sm:px-6"
@@ -79,9 +77,7 @@ export const UpcomingMilestones = ({ milestones }: UpcomingMilestonesProps) => {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* MILESTONES                                             */}
-      {/* ====================================================== */}
+      {/*===== MILESTONES =====*/}
 
       {milestones.length > 0 ? (
         <div className="relative z-10">
@@ -156,9 +152,7 @@ export const UpcomingMilestones = ({ milestones }: UpcomingMilestonesProps) => {
         </div>
       )}
 
-      {/* ====================================================== */}
-      {/* FOOTER                                                 */}
-      {/* ====================================================== */}
+      {/*===== FOOTER =====*/}
 
       <div
         className="relative z-10 border-t border-border bg-muted/15 px-5 py-4 sm:px-6"

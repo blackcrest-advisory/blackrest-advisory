@@ -33,9 +33,7 @@ export const HeroSection = () => {
 
   return (
     <Section className="relative isolate overflow-hidden py-14 sm:py-20 lg:py-28">
-      {/* ================================================================ */}
-      {/* Background                                                       */}
-      {/* ================================================================ */}
+      {/*===== Background =====*/}
 
       <div className="pointer-events-none absolute inset-0 -z-20">
         {/* asymmetric warm glow */}
@@ -95,9 +93,7 @@ export const HeroSection = () => {
       </div>
 
       <Container className="relative">
-        {/* ================================================================ */}
-        {/* Main layout                                                      */}
-        {/* ================================================================ */}
+        {/*===== Main layout =====*/}
 
         <div className="grid gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-20">
           {/* -------------------------------------------------------------- */}
@@ -416,9 +412,7 @@ export const HeroSection = () => {
           </motion.div>
         </div>
 
-        {/* ================================================================ */}
-        {/* Bottom positioning statement                                     */}
-        {/* ================================================================ */}
+        {/*===== Bottom positioning statement =====*/}
 
         <motion.div
           initial={{

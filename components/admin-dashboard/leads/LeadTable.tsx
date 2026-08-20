@@ -64,9 +64,7 @@ export const LeadTable = ({
 
   return (
     <>
-      {/* ====================================================== */}
-      {/* DESKTOP TABLE                                          */}
-      {/* ====================================================== */}
+      {/*===== DESKTOP TABLE =====*/}
 
       <div className="hidden overflow-x-auto lg:block">
         <Table>
@@ -174,9 +172,7 @@ export const LeadTable = ({
         </Table>
       </div>
 
-      {/* ====================================================== */}
-      {/* MOBILE + TABLET                                        */}
-      {/* ====================================================== */}
+      {/*===== MOBILE + TABLET =====*/}
 
       <div className="divide-y divide-border lg:hidden">
         {leads.map((lead, index) => (

@@ -30,9 +30,7 @@ export const FileStatCard = ({
     <div
       className="group relative h-full min-w-0 px-5 py-5 transition-colors hover:bg-secondary/[0.018] sm:px-6"
     >
-      {/* ====================================================== */}
-      {/* METRIC                                                */}
-      {/* ====================================================== */}
+      {/*===== METRIC =====*/}
 
       <div
         className="flex items-start justify-between gap-4"
@@ -67,9 +65,7 @@ export const FileStatCard = ({
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* STORAGE PROGRESS                                     */}
-      {/* ====================================================== */}
+      {/*===== STORAGE PROGRESS =====*/}
 
       {safeProgress !== null && (
         <div className="mt-5">
@@ -102,9 +98,7 @@ export const FileStatCard = ({
         </div>
       )}
 
-      {/* ====================================================== */}
-      {/* DECORATIVE DETAIL                                    */}
-      {/* ====================================================== */}
+      {/*===== DECORATIVE DETAIL =====*/}
 
       <div
         aria-hidden="true"

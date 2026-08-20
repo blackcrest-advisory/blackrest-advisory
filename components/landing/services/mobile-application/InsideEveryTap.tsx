@@ -84,9 +84,7 @@ const InsideEveryTap = () => {
       className="relative overflow-hidden bg-muted/20 py-16 sm:py-20 lg:py-28"
     >
       <Container>
-        {/* ==================================================== */}
-        {/* HEADER                                              */}
-        {/* ==================================================== */}
+        {/*===== HEADER =====*/}
 
         <div
           className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end lg:gap-16 lg:pb-14"
@@ -130,23 +128,17 @@ const InsideEveryTap = () => {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* EXPERIENCE LAYOUT                                   */}
-        {/* ==================================================== */}
+        {/*===== EXPERIENCE LAYOUT =====*/}
 
         <div
           className="mt-10 grid overflow-hidden border border-border bg-card shadow-[var(--shadow-card)] lg:mt-14 lg:grid-cols-[minmax(320px,0.8fr)_minmax(0,1.35fr)]"
         >
-          {/* ================================================== */}
-          {/* PHONE STAGE                                       */}
-          {/* ================================================== */}
+          {/*===== PHONE STAGE =====*/}
 
           <div
             className="relative flex min-h-[520px] items-center justify-center overflow-hidden border-b border-border bg-primary px-6 py-12 lg:min-h-[680px] lg:border-b-0 lg:border-r"
           >
-            {/* ================================================ */}
-            {/* BACKGROUND TYPE                                 */}
-            {/* ================================================ */}
+            {/*===== BACKGROUND TYPE =====*/}
 
             <span
               aria-hidden="true"
@@ -155,9 +147,7 @@ const InsideEveryTap = () => {
               MOBILE
             </span>
 
-            {/* ================================================ */}
-            {/* TOP LABEL                                       */}
-            {/* ================================================ */}
+            {/*===== TOP LABEL =====*/}
 
             <div
               className="absolute left-5 right-5 top-5 flex items-center justify-between gap-4 lg:left-6 lg:right-6 lg:top-6"
@@ -179,9 +169,7 @@ const InsideEveryTap = () => {
               </span>
             </div>
 
-            {/* ================================================ */}
-            {/* PHONE                                           */}
-            {/* ================================================ */}
+            {/*===== PHONE =====*/}
 
             <div
               className="relative z-10 flex flex-col items-center"
@@ -217,9 +205,7 @@ const InsideEveryTap = () => {
               </div>
             </div>
 
-            {/* ================================================ */}
-            {/* BOTTOM LABEL                                    */}
-            {/* ================================================ */}
+            {/*===== BOTTOM LABEL =====*/}
 
             <span
               className="absolute bottom-5 left-5 font-mono text-[7px] uppercase tracking-[0.14em] text-white/20 lg:bottom-6 lg:left-6"
@@ -228,16 +214,12 @@ const InsideEveryTap = () => {
             </span>
           </div>
 
-          {/* ================================================== */}
-          {/* EXPERIENCE GRID                                   */}
-          {/* ================================================== */}
+          {/*===== EXPERIENCE GRID =====*/}
 
           <div
             className="grid min-w-0 sm:grid-cols-2"
           >
-            {/* ================================================ */}
-            {/* FEATURE 01 - FEATURED                           */}
-            {/* ================================================ */}
+            {/*===== FEATURE 01 - FEATURED =====*/}
 
             <article
               className="group relative min-w-0 border-b border-border bg-secondary/[0.035] p-6 sm:col-span-2 sm:p-7 lg:p-8"
@@ -300,9 +282,7 @@ const InsideEveryTap = () => {
               </div>
             </article>
 
-            {/* ================================================ */}
-            {/* REMAINING FEATURES                              */}
-            {/* ================================================ */}
+            {/*===== REMAINING FEATURES =====*/}
 
             {features.slice(1).map((feature, index) => {
               const Icon = feature.icon;
@@ -372,9 +352,7 @@ const InsideEveryTap = () => {
           </div>
         </div>
 
-        {/* ==================================================== */}
-        {/* EXPERIENCE PRINCIPLES                               */}
-        {/* ==================================================== */}
+        {/*===== EXPERIENCE PRINCIPLES =====*/}
 
         <div
           className="mt-6 grid overflow-hidden border border-border bg-card sm:grid-cols-3"
@@ -399,9 +377,7 @@ const InsideEveryTap = () => {
           />
         </div>
 
-        {/* ==================================================== */}
-        {/* CLOSING LINE                                        */}
-        {/* ==================================================== */}
+        {/*===== CLOSING LINE =====*/}
 
         <div
           className="mt-9 flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between"

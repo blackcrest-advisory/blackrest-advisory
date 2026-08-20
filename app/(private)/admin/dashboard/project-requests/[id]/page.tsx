@@ -93,9 +93,7 @@ export default async function AdminProjectRequestDetailPage({
   //===== render =====//
   return (
     <div className="relative space-y-6">
-      {/* ====================================================== */}
-      {/* BACK NAVIGATION                                       */}
-      {/* ====================================================== */}
+      {/*===== BACK NAVIGATION =====*/}
 
       <div>
         <Link
@@ -111,9 +109,7 @@ export default async function AdminProjectRequestDetailPage({
         </Link>
       </div>
 
-      {/* ====================================================== */}
-      {/* REQUEST COMMAND HEADER                                */}
-      {/* ====================================================== */}
+      {/*===== REQUEST COMMAND HEADER =====*/}
 
       <section
         className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -164,9 +160,7 @@ export default async function AdminProjectRequestDetailPage({
         <div
           className="relative z-10 grid gap-7 px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start lg:px-8 lg:py-7"
         >
-          {/* ================================================== */}
-          {/* IDENTITY                                           */}
-          {/* ================================================== */}
+          {/*===== IDENTITY =====*/}
 
           <div className="min-w-0">
             <div
@@ -259,9 +253,7 @@ export default async function AdminProjectRequestDetailPage({
             </div>
           </div>
 
-          {/* ================================================== */}
-          {/* ACTION AREA                                        */}
-          {/* ================================================== */}
+          {/*===== ACTION AREA =====*/}
 
           <div
             className="flex shrink-0 flex-col gap-3 border-t border-border pt-5 lg:min-w-[220px] lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0"
@@ -303,9 +295,7 @@ export default async function AdminProjectRequestDetailPage({
         </div>
       </section>
 
-      {/* ====================================================== */}
-      {/* PROPOSAL                                              */}
-      {/* ====================================================== */}
+      {/*===== PROPOSAL =====*/}
 
       <ProposalSection
         briefId={brief.id}
@@ -332,21 +322,15 @@ export default async function AdminProjectRequestDetailPage({
         briefStatus={brief.status}
       />
 
-      {/* ====================================================== */}
-      {/* REQUEST CONTENT GRID                                  */}
-      {/* ====================================================== */}
+      {/*===== REQUEST CONTENT GRID =====*/}
 
       <div
         className="grid gap-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(300px,0.45fr)]"
       >
-        {/* ==================================================== */}
-        {/* MAIN COLUMN                                         */}
-        {/* ==================================================== */}
+        {/*===== MAIN COLUMN =====*/}
 
         <div className="space-y-6">
-          {/* ================================================== */}
-          {/* PROJECT SUMMARY                                   */}
-          {/* ================================================== */}
+          {/*===== PROJECT SUMMARY =====*/}
 
           <section
             className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -416,9 +400,7 @@ export default async function AdminProjectRequestDetailPage({
             </div>
           </section>
 
-          {/* ================================================== */}
-          {/* ATTACHMENTS                                       */}
-          {/* ================================================== */}
+          {/*===== ATTACHMENTS =====*/}
 
           <section
             className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -513,14 +495,10 @@ export default async function AdminProjectRequestDetailPage({
           </section>
         </div>
 
-        {/* ==================================================== */}
-        {/* SIDEBAR                                             */}
-        {/* ==================================================== */}
+        {/*===== SIDEBAR =====*/}
 
         <aside className="space-y-6">
-          {/* ================================================== */}
-          {/* REQUEST DETAILS                                   */}
-          {/* ================================================== */}
+          {/*===== REQUEST DETAILS =====*/}
 
           <section
             className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
@@ -573,9 +551,7 @@ export default async function AdminProjectRequestDetailPage({
             </dl>
           </section>
 
-          {/* ================================================== */}
-          {/* CLIENT RECORD                                     */}
-          {/* ================================================== */}
+          {/*===== CLIENT RECORD =====*/}
 
           <section
             className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"

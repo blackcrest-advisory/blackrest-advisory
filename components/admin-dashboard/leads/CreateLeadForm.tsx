@@ -208,9 +208,7 @@ export function CreateLeadForm() {
       onSubmit={handleSubmit}
       className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
-      {/* ====================================================== */}
-      {/* FORM HEADER                                           */}
-      {/* ====================================================== */}
+      {/*===== FORM HEADER =====*/}
 
       <div
         className="flex flex-col gap-3 border-b border-border px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
@@ -236,16 +234,12 @@ export function CreateLeadForm() {
         </span>
       </div>
 
-      {/* ====================================================== */}
-      {/* PRIMARY INFORMATION                                  */}
-      {/* ====================================================== */}
+      {/*===== PRIMARY INFORMATION =====*/}
 
       <div
         className="grid min-w-0 lg:grid-cols-2"
       >
-        {/* ==================================================== */}
-        {/* CONTACT INFORMATION                                 */}
-        {/* ==================================================== */}
+        {/*===== CONTACT INFORMATION =====*/}
 
         <FormSection
           icon={ContactRound}
@@ -305,9 +299,7 @@ export function CreateLeadForm() {
           </FormField>
         </FormSection>
 
-        {/* ==================================================== */}
-        {/* LEAD DETAILS                                        */}
-        {/* ==================================================== */}
+        {/*===== LEAD DETAILS =====*/}
 
         <FormSection
           icon={Target}
@@ -387,9 +379,7 @@ export function CreateLeadForm() {
         </FormSection>
       </div>
 
-      {/* ====================================================== */}
-      {/* QUALIFICATION NOTES                                   */}
-      {/* ====================================================== */}
+      {/*===== QUALIFICATION NOTES =====*/}
 
       <div
         className="border-t border-border bg-background/15 px-5 py-5 sm:px-6"
@@ -444,9 +434,7 @@ export function CreateLeadForm() {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* COMMERCIAL SUMMARY STRIP                              */}
-      {/* ====================================================== */}
+      {/*===== COMMERCIAL SUMMARY STRIP =====*/}
 
       <div
         className="grid border-t border-border bg-muted/10 sm:grid-cols-3"
@@ -471,9 +459,7 @@ export function CreateLeadForm() {
         />
       </div>
 
-      {/* ====================================================== */}
-      {/* ACTIONS                                               */}
-      {/* ====================================================== */}
+      {/*===== ACTIONS =====*/}
 
       <div
         className="flex flex-col-reverse gap-3 border-t border-border px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"

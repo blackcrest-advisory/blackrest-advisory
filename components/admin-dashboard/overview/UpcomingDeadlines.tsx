@@ -43,17 +43,13 @@ export const UpcomingDeadlines = ({ deadlines }: UpcomingDeadlinesProps) => {
       }}
       className="relative h-full overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
-      {/* ====================================================== */}
-      {/* TOP ACCENT                                             */}
-      {/* ====================================================== */}
+      {/*===== TOP ACCENT =====*/}
 
       <div
         className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
       />
 
-      {/* ====================================================== */}
-      {/* HEADER                                                 */}
-      {/* ====================================================== */}
+      {/*===== HEADER =====*/}
 
       <div
         className="relative border-b border-border px-5 py-5 sm:px-6"
@@ -93,9 +89,7 @@ export const UpcomingDeadlines = ({ deadlines }: UpcomingDeadlinesProps) => {
         </div>
       </div>
 
-      {/* ====================================================== */}
-      {/* DEADLINE LIST                                          */}
-      {/* ====================================================== */}
+      {/*===== DEADLINE LIST =====*/}
 
       {deadlines.length > 0 ? (
         <div className="divide-y divide-border">
@@ -210,9 +204,7 @@ export const UpcomingDeadlines = ({ deadlines }: UpcomingDeadlinesProps) => {
         </div>
       )}
 
-      {/* ====================================================== */}
-      {/* FOOTER                                                 */}
-      {/* ====================================================== */}
+      {/*===== FOOTER =====*/}
 
       {deadlines.length > 0 && (
         <div

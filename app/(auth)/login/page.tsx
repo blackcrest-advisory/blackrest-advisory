@@ -90,9 +90,7 @@ export default function LoginPage() {
       <Section
         className="relative isolate flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-background py-10 text-foreground transition-colors duration-300 sm:py-14 lg:py-16"
       >
-        {/* ====================================================== */}
-        {/* Background architecture                               */}
-        {/* ====================================================== */}
+        {/*===== Background architecture =====*/}
 
         <div className="pointer-events-none absolute inset-0 -z-20">
           <div
@@ -156,9 +154,7 @@ export default function LoginPage() {
           <div
             className="mx-auto grid max-w-5xl overflow-hidden border border-border bg-card text-card-foreground shadow-[var(--shadow-overlay)] lg:grid-cols-[0.92fr_1.08fr]"
           >
-            {/* ================================================== */}
-            {/* LEFT — Brand / workspace context                   */}
-            {/* ================================================== */}
+            {/*===== LEFT — Brand / workspace context =====*/}
 
             <motion.div
               initial={{
@@ -298,9 +294,7 @@ export default function LoginPage() {
               </div>
             </motion.div>
 
-            {/* ================================================== */}
-            {/* RIGHT — Login workspace                            */}
-            {/* ================================================== */}
+            {/*===== RIGHT — Login workspace =====*/}
 
             <motion.div
               initial={{
@@ -369,9 +363,7 @@ export default function LoginPage() {
                   </p>
                 </div>
 
-                {/* ================================================= */}
-                {/* Existing form functionality                       */}
-                {/* ================================================= */}
+                {/*===== Existing form functionality =====*/}
 
                 <form onSubmit={handleSubmit} className="mt-8 space-y-5">
                   {/* Email */}
@@ -531,9 +523,7 @@ export default function LoginPage() {
                   </div>
                 </div>
 
-                {/* ================================================= */}
-                {/* Google — functionality unchanged                  */}
-                {/* ================================================= */}
+                {/*===== Google — functionality unchanged =====*/}
 
                 <button
                   type="button"

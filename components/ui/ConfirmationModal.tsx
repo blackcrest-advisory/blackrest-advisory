@@ -95,9 +95,7 @@ export default function ConfirmationModal({
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-[100]" onClose={onClose}>
-        {/* ==================================================== */}
-        {/* BACKDROP                                             */}
-        {/* ==================================================== */}
+        {/*===== BACKDROP =====*/}
 
         <Transition.Child
           as={Fragment}
@@ -113,9 +111,7 @@ export default function ConfirmationModal({
           />
         </Transition.Child>
 
-        {/* ==================================================== */}
-        {/* MODAL                                                */}
-        {/* ==================================================== */}
+        {/*===== MODAL =====*/}
 
         <div className="fixed inset-0 overflow-y-auto">
           <div
@@ -160,9 +156,7 @@ export default function ConfirmationModal({
                   )}
                 />
 
-                {/* ================================================== */}
-                {/* HEADER                                             */}
-                {/* ================================================== */}
+                {/*===== HEADER =====*/}
 
                 <div
                   className="relative z-10 flex items-start gap-4 border-b border-border px-5 py-5 sm:px-6"
@@ -225,9 +219,7 @@ export default function ConfirmationModal({
                   </button>
                 </div>
 
-                {/* ================================================== */}
-                {/* BODY                                               */}
-                {/* ================================================== */}
+                {/*===== BODY =====*/}
 
                 <div
                   className="relative z-10 px-5 py-5 sm:px-6"
@@ -253,9 +245,7 @@ export default function ConfirmationModal({
                   </div>
                 </div>
 
-                {/* ================================================== */}
-                {/* ACTIONS                                            */}
-                {/* ================================================== */}
+                {/*===== ACTIONS =====*/}
 
                 <div
                   className="relative z-10 flex flex-col-reverse gap-2 border-t border-border bg-muted/15 px-5 py-4 sm:flex-row sm:items-center sm:justify-end sm:px-6"
