@@ -173,65 +173,34 @@ export function AdminBriefActions({
   return (
     <>
       <div
-        className="
-          flex
-          w-full
-          flex-col
-          gap-3
-        "
+        className="flex w-full flex-col gap-3"
       >
         {/* ==================================================== */}
         {/* STATUS                                               */}
         {/* ==================================================== */}
 
         <div
-          className="
-            border border-border
-            bg-background/35
-            p-3
-          "
+          className="border border-border bg-background/35 p-3"
         >
           <div
-            className="
-              mb-2.5
-              flex
-              items-center
-              justify-between
-              gap-3
-            "
+            className="mb-2.5 flex items-center justify-between gap-3"
           >
             <div>
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.15em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-muted-foreground/40"
               >
                 Workflow state
               </span>
 
               <p
-                className="
-                  mt-0.5
-                  text-xs
-                  font-medium
-                  text-heading
-                "
+                className="mt-0.5 text-xs font-medium text-heading"
               >
                 Status
               </p>
             </div>
 
             <span
-              className="
-                h-1.5 w-1.5
-                rounded-full
-                bg-secondary
-              "
+              className="h-1.5 w-1.5 rounded-full bg-secondary"
             />
           </div>
 
@@ -245,12 +214,7 @@ export function AdminBriefActions({
           />
 
           <p
-            className="
-              mt-2
-              text-[10px]
-              leading-4
-              text-muted-foreground
-            "
+            className="mt-2 text-[10px] leading-4 text-muted-foreground"
           >
             Select a new workflow state to update this request.
           </p>
@@ -261,52 +225,23 @@ export function AdminBriefActions({
         {/* ==================================================== */}
 
         <div
-          className="
-            flex
-            items-center
-            gap-3
-            border border-border
-            bg-background/35
-            px-3 py-3
-          "
+          className="flex items-center gap-3 border border-border bg-background/35 px-3 py-3"
         >
           <div
-            className="
-              flex h-8 w-8
-              shrink-0
-              items-center
-              justify-center
-              rounded-md
-              border border-border
-              bg-card
-              text-muted-foreground
-            "
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border bg-card text-muted-foreground"
           >
             <UserRound className="h-3.5 w-3.5" />
           </div>
 
           <div className="min-w-0 flex-1">
             <span
-              className="
-                font-mono
-                text-[7px]
-                font-semibold
-                uppercase
-                tracking-[0.14em]
-                text-muted-foreground/40
-              "
+              className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40"
             >
               Assigned to
             </span>
 
             <p
-              className="
-                mt-0.5
-                truncate
-                text-xs
-                font-medium
-                text-heading
-              "
+              className="mt-0.5 truncate text-xs font-medium text-heading"
               title={assignedTo || "Unassigned"}
             >
               {assignedTo || "Unassigned"}
@@ -319,32 +254,18 @@ export function AdminBriefActions({
         {/* ==================================================== */}
 
         <div
-          className="
-            border-t border-border
-            pt-3
-          "
+          className="border-t border-border pt-3"
         >
           <Button
             variant="outline"
             size="sm"
             onClick={handleDelete}
             disabled={isPending}
-            className="
-              w-full
-              !rounded-md
-              border-destructive/20
-              text-destructive
-              hover:border-destructive/30
-              hover:bg-destructive/[0.06]
-              hover:text-destructive
-            "
+            className="w-full !rounded-md border-destructive/20 text-destructive hover:border-destructive/30 hover:bg-destructive/[0.06] hover:text-destructive"
           >
             {isPending && pendingAction?.type === "delete" ? (
               <Loader2
-                className="
-                  h-4 w-4
-                  animate-spin
-                "
+                className="h-4 w-4 animate-spin"
               />
             ) : (
               <Trash2 className="h-4 w-4" />

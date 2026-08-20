@@ -22,12 +22,7 @@ interface FilesTableRowProps {
 export const FilesTableRow = ({ file }: FilesTableRowProps) => {
   return (
     <TableRow
-      className="
-        group
-        border-b border-border
-        transition-colors
-        hover:bg-secondary/[0.018]
-      "
+      className="group border-b border-border transition-colors hover:bg-secondary/[0.018]"
     >
       {/* ====================================================== */}
       {/* FILE                                                  */}
@@ -35,12 +30,7 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
 
       <TableCell className="px-4 py-4 first:pl-6">
         <div
-          className="
-            flex
-            min-w-0
-            items-center
-            gap-3
-          "
+          className="flex min-w-0 items-center gap-3"
         >
           <div className="shrink-0">
             <FileTypeIcon category={file.category} />
@@ -48,29 +38,14 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
 
           <div className="min-w-0">
             <span
-              className="
-                block
-                max-w-[220px]
-                truncate
-                text-sm
-                font-semibold
-                text-heading
-              "
+              className="block max-w-[220px] truncate text-sm font-semibold text-heading"
               title={file.name}
             >
               {file.name}
             </span>
 
             <span
-              className="
-                mt-1
-                block
-                font-mono
-                text-[7px]
-                uppercase
-                tracking-[0.12em]
-                text-muted-foreground/35
-              "
+              className="mt-1 block font-mono text-[7px] uppercase tracking-[0.12em] text-muted-foreground/35"
             >
               Project document
             </span>
@@ -84,14 +59,7 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
 
       <TableCell className="px-4 py-4">
         <span
-          className="
-            block
-            max-w-[180px]
-            truncate
-            text-xs
-            font-medium
-            text-body
-          "
+          className="block max-w-[180px] truncate text-xs font-medium text-body"
           title={file.projectName}
         >
           {file.projectName}
@@ -112,13 +80,7 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
 
       <TableCell className="px-4 py-4">
         <span
-          className="
-            whitespace-nowrap
-            font-mono
-            text-[10px]
-            font-medium
-            text-muted-foreground
-          "
+          className="whitespace-nowrap font-mono text-[10px] font-medium text-muted-foreground"
         >
           {formatFileSize(file.sizeInBytes)}
         </span>
@@ -130,13 +92,7 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
 
       <TableCell className="px-4 py-4">
         <span
-          className="
-            block
-            max-w-[150px]
-            truncate
-            text-xs
-            text-body
-          "
+          className="block max-w-[150px] truncate text-xs text-body"
           title={file.uploadedBy}
         >
           {file.uploadedBy}
@@ -149,11 +105,7 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
 
       <TableCell className="px-4 py-4">
         <span
-          className="
-            whitespace-nowrap
-            text-xs
-            text-muted-foreground
-          "
+          className="whitespace-nowrap text-xs text-muted-foreground"
         >
           {formatFileDate(file.uploadedAt)}
         </span>
@@ -165,31 +117,12 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
 
       <TableCell className="px-4 py-4 pr-6">
         <div
-          className="
-            flex
-            items-center
-            justify-end
-            gap-1
-          "
+          className="flex items-center justify-end gap-1"
         >
           <button
             type="button"
             aria-label={`Preview ${file.name}`}
-            className="
-              flex h-8 w-8
-              items-center
-              justify-center
-              rounded-md
-              border border-transparent
-              text-muted-foreground
-              transition-colors
-              hover:border-secondary/15
-              hover:bg-secondary/[0.05]
-              hover:text-secondary
-              focus:outline-none
-              focus:ring-2
-              focus:ring-secondary/30
-            "
+            className="flex h-8 w-8 items-center justify-center rounded-md border border-transparent text-muted-foreground transition-colors hover:border-secondary/15 hover:bg-secondary/[0.05] hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary/30"
           >
             <Eye className="h-3.5 w-3.5" />
           </button>
@@ -197,21 +130,7 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
           <button
             type="button"
             aria-label={`Download ${file.name}`}
-            className="
-              flex h-8 w-8
-              items-center
-              justify-center
-              rounded-md
-              border border-transparent
-              text-muted-foreground
-              transition-colors
-              hover:border-secondary/15
-              hover:bg-secondary/[0.05]
-              hover:text-secondary
-              focus:outline-none
-              focus:ring-2
-              focus:ring-secondary/30
-            "
+            className="flex h-8 w-8 items-center justify-center rounded-md border border-transparent text-muted-foreground transition-colors hover:border-secondary/15 hover:bg-secondary/[0.05] hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary/30"
           >
             <Download className="h-3.5 w-3.5" />
           </button>

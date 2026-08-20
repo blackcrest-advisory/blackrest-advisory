@@ -125,13 +125,7 @@ export const EngagementModels = () => {
   return (
     <Section
       id="engagement-models"
-      className="
-        relative overflow-hidden
-        bg-background
-        py-16 text-foreground
-        transition-colors duration-300
-        sm:py-20 lg:py-28
-      "
+      className="relative overflow-hidden bg-background py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-28"
     >
       {/* ========================================
           BACKGROUND
@@ -139,11 +133,7 @@ export const EngagementModels = () => {
 
       <div className="pointer-events-none absolute inset-0">
         <div
-          className="
-            absolute right-[-16rem] top-[-15rem]
-            h-[38rem] w-[38rem]
-            opacity-60
-          "
+          className="absolute right-[-16rem] top-[-15rem] h-[38rem] w-[38rem] opacity-60"
           style={{
             background:
               "radial-gradient(circle, color-mix(in srgb, var(--color-secondary) 8%, transparent), transparent 68%)",
@@ -151,11 +141,7 @@ export const EngagementModels = () => {
         />
 
         <div
-          className="
-            absolute bottom-[-18rem] left-[-14rem]
-            h-[36rem] w-[36rem]
-            opacity-30
-          "
+          className="absolute bottom-[-18rem] left-[-14rem] h-[36rem] w-[36rem] opacity-30"
           style={{
             background:
               "radial-gradient(circle, color-mix(in srgb, var(--color-primary) 7%, transparent), transparent 70%)",
@@ -169,13 +155,7 @@ export const EngagementModels = () => {
         ======================================== */}
 
         <div
-          className="
-            grid gap-8
-            border-b border-border
-            pb-10
-            lg:grid-cols-[1fr_0.8fr]
-            lg:items-end
-          "
+          className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[1fr_0.8fr] lg:items-end"
         >
           <motion.div
             initial={{
@@ -205,13 +185,7 @@ export const EngagementModels = () => {
             </div>
 
             <h2
-              className="
-                mt-5 max-w-2xl
-                text-4xl font-semibold
-                tracking-[-0.045em]
-                text-heading
-                sm:text-5xl
-              "
+              className="mt-5 max-w-2xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl"
             >
               Different needs.
               <span className="block text-muted-foreground">
@@ -325,11 +299,7 @@ export const EngagementModels = () => {
 
                   <div>
                     <span
-                      className="
-                        font-mono text-[8px]
-                        uppercase tracking-[0.16em]
-                        text-secondary
-                      "
+                      className="font-mono text-[8px] uppercase tracking-[0.16em] text-secondary"
                     >
                       Model {model.number}
                     </span>
@@ -342,14 +312,7 @@ export const EngagementModels = () => {
 
                 {model.popular && (
                   <span
-                    className="
-                      hidden
-                      font-mono text-[7px]
-                      font-semibold uppercase
-                      tracking-[0.15em]
-                      text-secondary
-                      lg:block
-                    "
+                    className="hidden font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary lg:block"
                   >
                     Preferred
                   </span>
@@ -358,11 +321,7 @@ export const EngagementModels = () => {
                 {isActive && (
                   <motion.div
                     layoutId="engagement-model-active"
-                    className="
-                      absolute bottom-[-1px] left-0
-                      h-[2px] w-full
-                      bg-secondary
-                    "
+                    className="absolute bottom-[-1px] left-0 h-[2px] w-full bg-secondary"
                     transition={{
                       type: "spring",
                       stiffness: 320,
@@ -380,22 +339,11 @@ export const EngagementModels = () => {
         ======================================== */}
 
         <div
-          className="
-            relative
-            grid min-h-[520px]
-            border-b border-border
-            lg:grid-cols-[1.15fr_0.85fr]
-          "
+          className="relative grid min-h-[520px] border-b border-border lg:grid-cols-[1.15fr_0.85fr]"
         >
           {/* LEFT */}
           <div
-            className="
-              relative overflow-hidden
-              border-b border-border
-              py-10
-              lg:border-b-0 lg:border-r
-              lg:py-14 lg:pr-14
-            "
+            className="relative overflow-hidden border-b border-border py-10 lg:border-b-0 lg:border-r lg:py-14 lg:pr-14"
           >
             {/* Giant model number */}
             <AnimatePresence mode="wait">
@@ -417,17 +365,7 @@ export const EngagementModels = () => {
                   duration: 0.3,
                 }}
                 aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute -right-5 -top-10
-                  font-mono
-                  text-[12rem]
-                  font-semibold
-                  leading-none
-                  tracking-[-0.1em]
-                  text-secondary/[0.045]
-                  sm:text-[16rem]
-                "
+                className="pointer-events-none absolute -right-5 -top-10 font-mono text-[12rem] font-semibold leading-none tracking-[-0.1em] text-secondary/[0.045] sm:text-[16rem]"
               >
                 {activeModel.number}
               </motion.span>
@@ -468,24 +406,14 @@ export const EngagementModels = () => {
                       scale: 1,
                       rotate: 0,
                     }}
-                    className="
-                      flex h-12 w-12
-                      items-center justify-center
-                      border border-secondary/20
-                      bg-secondary/[0.07]
-                      text-secondary
-                    "
+                    className="flex h-12 w-12 items-center justify-center border border-secondary/20 bg-secondary/[0.07] text-secondary"
                   >
                     <ActiveIcon className="h-5 w-5" />
                   </motion.div>
 
                   <div>
                     <p
-                      className="
-                        font-mono text-[8px]
-                        uppercase tracking-[0.18em]
-                        text-muted-foreground/50
-                      "
+                      className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted-foreground/50"
                     >
                       Engagement model
                     </p>
@@ -497,14 +425,7 @@ export const EngagementModels = () => {
                 </div>
 
                 <h3
-                  className="
-                    mt-8 max-w-2xl
-                    text-3xl font-semibold
-                    tracking-[-0.04em]
-                    text-heading
-                    sm:text-4xl
-                    lg:text-5xl
-                  "
+                  className="mt-8 max-w-2xl text-3xl font-semibold tracking-[-0.04em] text-heading sm:text-4xl lg:text-5xl"
                 >
                   {activeModel.title}
                 </h3>
@@ -512,14 +433,7 @@ export const EngagementModels = () => {
                 {/* Best for */}
                 <div className="mt-6 flex max-w-2xl items-start gap-3">
                   <span
-                    className="
-                      mt-0.5
-                      shrink-0
-                      font-mono text-[8px]
-                      font-semibold uppercase
-                      tracking-[0.17em]
-                      text-secondary
-                    "
+                    className="mt-0.5 shrink-0 font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
                   >
                     Best for
                   </span>
@@ -532,12 +446,7 @@ export const EngagementModels = () => {
                 </div>
 
                 <p
-                  className="
-                    mt-7 max-w-2xl
-                    text-sm leading-7
-                    text-body
-                    sm:text-base sm:leading-8
-                  "
+                  className="mt-7 max-w-2xl text-sm leading-7 text-body sm:text-base sm:leading-8"
                 >
                   {activeModel.description}
                 </p>
@@ -558,22 +467,10 @@ export const EngagementModels = () => {
                       transition={{
                         delay: 0.08 + index * 0.06,
                       }}
-                      className="
-                        group/feature
-                        flex items-center gap-3
-                        bg-background
-                        p-4
-                        transition-colors duration-300
-                        hover:bg-secondary/[0.045]
-                      "
+                      className="group/feature flex items-center gap-3 bg-background p-4 transition-colors duration-300 hover:bg-secondary/[0.045]"
                     >
                       <div
-                        className="
-                          flex h-6 w-6
-                          shrink-0 items-center justify-center
-                          rounded-full
-                          bg-secondary/[0.08]
-                        "
+                        className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-secondary/[0.08]"
                       >
                         <Check className="h-3 w-3 text-secondary" />
                       </div>
@@ -583,11 +480,7 @@ export const EngagementModels = () => {
                       </span>
 
                       <span
-                        className="
-                          ml-auto
-                          font-mono text-[7px]
-                          text-muted-foreground/30
-                        "
+                        className="ml-auto font-mono text-[7px] text-muted-foreground/30"
                       >
                         0{index + 1}
                       </span>
@@ -605,11 +498,7 @@ export const EngagementModels = () => {
                     {activeModel.cta}
 
                     <ArrowRight
-                      className="
-                        ml-2 h-4 w-4
-                        transition-transform duration-300
-                        group-hover:translate-x-1
-                      "
+                      className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
                     />
                   </Button>
                 </div>
@@ -622,13 +511,7 @@ export const EngagementModels = () => {
           ======================================== */}
 
           <div
-            className="
-              relative flex flex-col
-              bg-card
-              py-10
-              text-card-foreground
-              lg:py-14 lg:pl-12
-            "
+            className="relative flex flex-col bg-card py-10 text-card-foreground lg:py-14 lg:pl-12"
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -652,11 +535,7 @@ export const EngagementModels = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <p
-                      className="
-                        font-mono text-[8px]
-                        uppercase tracking-[0.18em]
-                        text-muted-foreground/50
-                      "
+                      className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted-foreground/50"
                     >
                       Model profile
                     </p>
@@ -683,11 +562,7 @@ export const EngagementModels = () => {
                     />
 
                     <span
-                      className="
-                        font-mono text-[8px]
-                        uppercase tracking-[0.15em]
-                        text-success
-                      "
+                      className="font-mono text-[8px] uppercase tracking-[0.15em] text-success"
                     >
                       Available
                     </span>
@@ -710,24 +585,11 @@ export const EngagementModels = () => {
                       transition={{
                         delay: 0.08 + index * 0.07,
                       }}
-                      className="
-          grid
-          grid-cols-[minmax(0,1fr)_minmax(90px,auto)]
-          items-center
-          gap-6
-          border-b border-border
-          py-5
-          pr-4
-          sm:pr-6
-        "
+                      className="grid grid-cols-[minmax(0,1fr)_minmax(90px,auto)] items-center gap-6 border-b border-border py-5 pr-4 sm:pr-6"
                     >
                       <div className="min-w-0">
                         <span
-                          className="
-              font-mono text-[8px]
-              uppercase tracking-[0.16em]
-              text-muted-foreground/50
-            "
+                          className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/50"
                         >
                           0{index + 1}
                         </span>
@@ -738,13 +600,7 @@ export const EngagementModels = () => {
                       </div>
 
                       <p
-                        className="
-            min-w-0
-            text-right
-            text-sm font-semibold
-            text-heading
-            sm:text-base
-          "
+                        className="min-w-0 text-right text-sm font-semibold text-heading sm:text-base"
                       >
                         {characteristic.value}
                       </p>
@@ -756,11 +612,7 @@ export const EngagementModels = () => {
                 <div className="mt-9">
                   <div className="flex items-center justify-between">
                     <span
-                      className="
-                        font-mono text-[8px]
-                        uppercase tracking-[0.16em]
-                        text-muted-foreground/50
-                      "
+                      className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/50"
                     >
                       Flexibility
                     </span>
@@ -819,21 +671,11 @@ export const EngagementModels = () => {
                     transition={{
                       delay: 0.2,
                     }}
-                    className="
-                      mt-9
-                      border border-secondary/20
-                      bg-secondary/[0.055]
-                      p-5
-                    "
+                    className="mt-9 border border-secondary/20 bg-secondary/[0.055] p-5"
                   >
                     <div className="flex items-start gap-4">
                       <div
-                        className="
-                          flex h-9 w-9
-                          shrink-0 items-center justify-center
-                          bg-secondary/[0.1]
-                          text-secondary
-                        "
+                        className="flex h-9 w-9 shrink-0 items-center justify-center bg-secondary/[0.1] text-secondary"
                       >
                         <Sparkles className="h-4 w-4" />
                       </div>
@@ -858,32 +700,18 @@ export const EngagementModels = () => {
             <div className="mt-auto pt-10">
               <div className="flex items-center justify-between border-t border-border pt-5">
                 <span
-                  className="
-                    font-mono text-[8px]
-                    uppercase tracking-[0.16em]
-                    text-muted-foreground/40
-                  "
+                  className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40"
                 >
                   Not sure which model fits?
                 </span>
 
                 <a
                   href="/contact"
-                  className="
-                    group flex items-center gap-2
-                    text-xs font-semibold
-                    text-foreground
-                    transition-colors
-                    hover:text-secondary
-                  "
+                  className="group flex items-center gap-2 text-xs font-semibold text-foreground transition-colors hover:text-secondary"
                 >
                   Talk to us
                   <MoveRight
-                    className="
-                      h-3.5 w-3.5
-                      transition-transform duration-300
-                      group-hover:translate-x-1
-                    "
+                    className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1"
                   />
                 </a>
               </div>
@@ -905,13 +733,7 @@ export const EngagementModels = () => {
             y: 0,
           }}
           viewport={{ once: true }}
-          className="
-            flex flex-col gap-4
-            py-5
-            sm:flex-row
-            sm:items-center
-            sm:justify-between
-          "
+          className="flex flex-col gap-4 py-5 sm:flex-row sm:items-center sm:justify-between"
         >
           <p className="max-w-xl text-xs leading-6 text-muted-foreground">
             Not every engagement needs to start large. We can begin with a
@@ -920,11 +742,7 @@ export const EngagementModels = () => {
           </p>
 
           <span
-            className="
-              font-mono text-[8px]
-              uppercase tracking-[0.16em]
-              text-muted-foreground/40
-            "
+            className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40"
           >
             Choose → Validate → Engage → Evolve
           </span>

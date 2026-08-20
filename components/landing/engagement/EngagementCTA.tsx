@@ -26,14 +26,7 @@ export const EngagementCTA = () => {
 
   return (
     <Section
-      className="
-        relative overflow-hidden
-        bg-background
-        py-16
-        text-foreground
-        transition-colors duration-300
-        sm:py-20 lg:py-28
-      "
+      className="relative overflow-hidden bg-background py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-28"
     >
       {/* Background */}
       <div className="pointer-events-none absolute inset-0">
@@ -56,15 +49,7 @@ export const EngagementCTA = () => {
         {!reduceMotion && (
           <motion.div
             aria-hidden="true"
-            className="
-              absolute left-[-8rem] top-[46%]
-              h-px w-28
-              bg-gradient-to-r
-              from-transparent
-              via-secondary
-              to-transparent
-              shadow-[0_0_14px_var(--color-secondary)]
-            "
+            className="absolute left-[-8rem] top-[46%] h-px w-28 bg-gradient-to-r from-transparent via-secondary to-transparent shadow-[0_0_14px_var(--color-secondary)]"
             animate={{
               x: ["0vw", "115vw"],
               opacity: [0, 1, 1, 0],
@@ -94,13 +79,7 @@ export const EngagementCTA = () => {
             duration: 0.65,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="
-            relative overflow-hidden
-            border border-border
-            bg-card
-            text-card-foreground
-            shadow-[var(--shadow-overlay)]
-          "
+          className="relative overflow-hidden border border-border bg-card text-card-foreground shadow-[var(--shadow-overlay)]"
         >
           {/* Top accent */}
           <motion.div
@@ -115,15 +94,7 @@ export const EngagementCTA = () => {
               duration: 0.9,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="
-              absolute left-0 top-0
-              h-[2px] w-full
-              origin-left
-              bg-gradient-to-r
-              from-secondary
-              via-secondary/50
-              to-transparent
-            "
+            className="absolute left-0 top-0 h-[2px] w-full origin-left bg-gradient-to-r from-secondary via-secondary/50 to-transparent"
           />
 
           <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
@@ -153,15 +124,7 @@ export const EngagementCTA = () => {
                   delay: 0.08,
                   duration: 0.6,
                 }}
-                className="
-                  mt-6 max-w-3xl
-                  text-4xl font-semibold
-                  tracking-[-0.045em]
-                  text-heading
-                  sm:text-5xl
-                  lg:text-[3.8rem]
-                  lg:leading-[1.04]
-                "
+                className="mt-6 max-w-3xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.8rem] lg:leading-[1.04]"
               >
                 The next step should
                 <span className="block text-muted-foreground">
@@ -298,25 +261,12 @@ export const EngagementCTA = () => {
                         x: 4,
                       }
                 }
-                className="
-                  group mt-8
-                  border-t border-border
-                  py-6
-                "
+                className="group mt-8 border-t border-border py-6"
               >
                 <div className="flex items-start justify-between gap-5">
                   <div className="flex items-start gap-4">
                     <div
-                      className="
-                        flex h-10 w-10 shrink-0
-                        items-center justify-center
-                        border border-secondary/20
-                        bg-secondary/[0.07]
-                        text-secondary
-                        transition-all duration-300
-                        group-hover:bg-secondary
-                        group-hover:text-secondary-foreground
-                      "
+                      className="flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.07] text-secondary transition-all duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground"
                     >
                       <MessageSquareText className="h-4 w-4" />
                     </div>
@@ -347,25 +297,12 @@ export const EngagementCTA = () => {
                         x: 4,
                       }
                 }
-                className="
-                  group
-                  border-t border-border
-                  py-6
-                "
+                className="group border-t border-border py-6"
               >
                 <div className="flex items-start justify-between gap-5">
                   <div className="flex items-start gap-4">
                     <div
-                      className="
-                        flex h-10 w-10 shrink-0
-                        items-center justify-center
-                        border border-secondary/20
-                        bg-secondary/[0.07]
-                        text-secondary
-                        transition-all duration-300
-                        group-hover:bg-secondary
-                        group-hover:text-secondary-foreground
-                      "
+                      className="flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.07] text-secondary transition-all duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground"
                     >
                       <Mail className="h-4 w-4" />
                     </div>

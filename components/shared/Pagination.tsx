@@ -60,15 +60,7 @@ export function Pagination({
 
   return (
     <div
-      className="
-        flex
-        flex-col
-        gap-4
-
-        sm:flex-row
-        sm:items-center
-        sm:justify-between
-      "
+      className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
     >
       {/* ====================================================== */}
       {/* RESULT INFO                                            */}
@@ -78,26 +70,17 @@ export function Pagination({
         <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
         <p
-          className="
-            text-xs
-            text-muted-foreground
-          "
+          className="text-xs text-muted-foreground"
         >
           Showing{" "}
           <span
-            className="
-              font-semibold
-              text-heading
-            "
+            className="font-semibold text-heading"
           >
             {startItem}–{endItem}
           </span>{" "}
           of{" "}
           <span
-            className="
-              font-semibold
-              text-heading
-            "
+            className="font-semibold text-heading"
           >
             {totalItems}
           </span>{" "}
@@ -111,13 +94,7 @@ export function Pagination({
 
       <nav
         aria-label={`${itemLabel} pagination`}
-        className="
-          flex
-          items-center
-          gap-1
-          self-start
-          sm:self-auto
-        "
+        className="flex items-center gap-1 self-start sm:self-auto"
       >
         {/* previous */}
         <Button
@@ -125,16 +102,7 @@ export function Pagination({
           size="sm"
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="
-            h-9
-            w-9
-            !rounded-none
-            !p-0
-            border border-transparent
-
-            hover:border-border
-            hover:bg-background
-          "
+          className="h-9 w-9 !rounded-none !p-0 border border-transparent hover:border-border hover:bg-background"
           aria-label="Previous page"
         >
           <ChevronLeft className="h-4 w-4" />
@@ -184,29 +152,14 @@ export function Pagination({
               {item === currentPage && (
                 <span
                   aria-hidden="true"
-                  className="
-                    absolute
-                    bottom-0
-                    left-1/2
-                    h-[2px]
-                    w-4
-                    -translate-x-1/2
-                    bg-secondary
-                  "
+                  className="absolute bottom-0 left-1/2 h-[2px] w-4 -translate-x-1/2 bg-secondary"
                 />
               )}
             </Button>
           ) : (
             <span
               key={item}
-              className="
-                flex
-                h-9
-                w-7
-                items-center
-                justify-center
-                text-muted-foreground/50
-              "
+              className="flex h-9 w-7 items-center justify-center text-muted-foreground/50"
               aria-hidden="true"
             >
               <MoreHorizontal className="h-4 w-4" />
@@ -220,16 +173,7 @@ export function Pagination({
           size="sm"
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="
-            h-9
-            w-9
-            !rounded-none
-            !p-0
-            border border-transparent
-
-            hover:border-border
-            hover:bg-background
-          "
+          className="h-9 w-9 !rounded-none !p-0 border border-transparent hover:border-border hover:bg-background"
           aria-label="Next page"
         >
           <ChevronRight className="h-4 w-4" />

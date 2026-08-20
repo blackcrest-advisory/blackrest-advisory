@@ -20,17 +20,7 @@ export default function SelectIndustryPage() {
   return (
     <PageWrapper>
       <Section
-        className="
-          relative isolate
-          flex min-h-[calc(100vh-4rem)]
-          items-center
-          overflow-hidden
-          bg-background
-          py-12
-          text-foreground
-          sm:py-16
-          lg:py-20
-        "
+        className="relative isolate flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-background py-12 text-foreground sm:py-16 lg:py-20"
       >
         {/* Background */}
         <div className="pointer-events-none absolute inset-0 -z-20">
@@ -49,12 +39,7 @@ export default function SelectIndustryPage() {
           />
 
           <div
-            className="
-              absolute
-              -right-44 -top-36
-              h-[36rem] w-[36rem]
-              opacity-55
-            "
+            className="absolute -right-44 -top-36 h-[36rem] w-[36rem] opacity-55"
             style={{
               background:
                 "radial-gradient(circle, color-mix(in srgb, var(--color-secondary) 9%, transparent), transparent 70%)",
@@ -64,15 +49,7 @@ export default function SelectIndustryPage() {
           {!reduceMotion && (
             <motion.div
               aria-hidden="true"
-              className="
-                absolute left-[-10rem] top-[38%]
-                h-px w-32
-                bg-gradient-to-r
-                from-transparent
-                via-secondary
-                to-transparent
-                shadow-[0_0_12px_var(--color-secondary)]
-              "
+              className="absolute left-[-10rem] top-[38%] h-px w-32 bg-gradient-to-r from-transparent via-secondary to-transparent shadow-[0_0_12px_var(--color-secondary)]"
               animate={{
                 x: ["0vw", "115vw"],
                 opacity: [0, 0.7, 0.7, 0],
@@ -89,14 +66,7 @@ export default function SelectIndustryPage() {
 
         <Container className="relative">
           <div
-            className="
-              mx-auto grid
-              max-w-6xl
-              border border-border
-              bg-card
-              shadow-[var(--shadow-overlay)]
-              lg:grid-cols-[0.82fr_1.18fr]
-            "
+            className="mx-auto grid max-w-6xl border border-border bg-card shadow-[var(--shadow-overlay)] lg:grid-cols-[0.82fr_1.18fr]"
           >
             {/* Left */}
             <motion.aside
@@ -112,29 +82,10 @@ export default function SelectIndustryPage() {
                 duration: 0.65,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="
-                relative
-                overflow-hidden
-                border-b border-border
-                bg-primary
-                p-8
-                text-primary-foreground
-                lg:min-h-[650px]
-                lg:border-b-0
-                lg:border-r
-                lg:p-10
-              "
+              className="relative overflow-hidden border-b border-border bg-primary p-8 text-primary-foreground lg:min-h-[650px] lg:border-b-0 lg:border-r lg:p-10"
             >
               <div
-                className="
-                  pointer-events-none
-                  absolute
-                  -right-28 -top-20
-                  h-72 w-72
-                  rounded-full
-                  bg-secondary/15
-                  blur-[90px]
-                "
+                className="pointer-events-none absolute -right-28 -top-20 h-72 w-72 rounded-full bg-secondary/15 blur-[90px]"
               />
 
               <div className="relative z-10">
@@ -142,29 +93,14 @@ export default function SelectIndustryPage() {
                   <CircleDot className="h-4 w-4 text-secondary" />
 
                   <span
-                    className="
-                      font-mono
-                      text-[9px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.2em]
-                      text-secondary
-                    "
+                    className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary"
                   >
                     Personalise your experience
                   </span>
                 </div>
 
                 <h1
-                  className="
-                    mt-8
-                    text-4xl
-                    font-semibold
-                    leading-[1.05]
-                    tracking-[-0.045em]
-                    text-primary-foreground
-                    sm:text-5xl
-                  "
+                  className="mt-8 text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-primary-foreground sm:text-5xl"
                 >
                   Start with
                   <span className="block text-primary-foreground/45">
@@ -176,13 +112,7 @@ export default function SelectIndustryPage() {
                 </h1>
 
                 <p
-                  className="
-                    mt-6
-                    max-w-md
-                    text-sm
-                    leading-7
-                    text-primary-foreground/55
-                  "
+                  className="mt-6 max-w-md text-sm leading-7 text-primary-foreground/55"
                 >
                   Choose the sector that best represents your business. It helps
                   Blackcrest shape more relevant recommendations, services, and
@@ -204,42 +134,24 @@ export default function SelectIndustryPage() {
                       transition={{
                         delay: 0.3 + index * 0.08,
                       }}
-                      className="
-                        flex items-center
-                        justify-between
-                        border-b border-primary-foreground/10
-                        py-4
-                      "
+                      className="flex items-center justify-between border-b border-primary-foreground/10 py-4"
                     >
                       <div className="flex items-center gap-3">
                         <div
-                          className="
-                            flex h-5 w-5
-                            items-center justify-center
-                            rounded-full
-                            bg-secondary/10
-                          "
+                          className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary/10"
                         >
                           <Check className="h-3 w-3 text-secondary" />
                         </div>
 
                         <span
-                          className="
-                            text-xs
-                            font-medium
-                            text-primary-foreground/65
-                          "
+                          className="text-xs font-medium text-primary-foreground/65"
                         >
                           {benefit}
                         </span>
                       </div>
 
                       <span
-                        className="
-                          font-mono
-                          text-[7px]
-                          text-primary-foreground/25
-                        "
+                        className="font-mono text-[7px] text-primary-foreground/25"
                       >
                         0{index + 1}
                       </span>
@@ -251,13 +163,7 @@ export default function SelectIndustryPage() {
               <div className="relative z-10 mt-12 lg:absolute lg:bottom-10 lg:left-10 lg:right-10">
                 <div className="flex items-center justify-between border-t border-primary-foreground/10 pt-5">
                   <span
-                    className="
-                      font-mono
-                      text-[8px]
-                      uppercase
-                      tracking-[0.16em]
-                      text-primary-foreground/30
-                    "
+                    className="font-mono text-[8px] uppercase tracking-[0.16em] text-primary-foreground/30"
                   >
                     Step 01 / Industry
                   </span>
@@ -282,30 +188,14 @@ export default function SelectIndustryPage() {
                 duration: 0.65,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="
-                relative
-                px-6 py-8
-                sm:px-8 sm:py-10
-                lg:flex
-                lg:min-h-[650px]
-                lg:flex-col
-                lg:justify-center
-                lg:px-12
-              "
+              className="relative px-6 py-8 sm:px-8 sm:py-10 lg:flex lg:min-h-[650px] lg:flex-col lg:justify-center lg:px-12"
             >
               <div className="mx-auto w-full max-w-2xl">
                 <div className="flex items-center gap-3">
                   <Sparkles className="h-4 w-4 text-secondary" />
 
                   <span
-                    className="
-                      font-mono
-                      text-[9px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.18em]
-                      text-secondary
-                    "
+                    className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-secondary"
                   >
                     Industry selection
                   </span>
@@ -314,69 +204,35 @@ export default function SelectIndustryPage() {
                 </div>
 
                 <h2
-                  className="
-                    mt-4
-                    text-3xl
-                    font-semibold
-                    tracking-[-0.04em]
-                    text-heading
-                    sm:text-4xl
-                  "
+                  className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-heading sm:text-4xl"
                 >
                   Which sector best describes your business?
                 </h2>
 
                 <p
-                  className="
-                    mt-3
-                    max-w-xl
-                    text-sm
-                    leading-7
-                    text-muted-foreground
-                  "
+                  className="mt-3 max-w-xl text-sm leading-7 text-muted-foreground"
                 >
                   Pick the closest match. You can always clarify your exact
                   business model later during onboarding.
                 </p>
 
                 <div
-                  className="
-                    mt-8
-                    border-t border-border
-                    pt-8
-                  "
+                  className="mt-8 border-t border-border pt-8"
                 >
                   <IndustrySelector />
                 </div>
 
                 <div
-                  className="
-                    mt-8
-                    flex flex-wrap
-                    items-center
-                    justify-between
-                    gap-4
-                    border-t border-border
-                    pt-5
-                  "
+                  className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5"
                 >
                   <span
-                    className="
-                      font-mono
-                      text-[8px]
-                      uppercase
-                      tracking-[0.16em]
-                      text-muted-foreground/40
-                    "
+                    className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40"
                   >
                     Select → Continue → Personalise
                   </span>
 
                   <span
-                    className="
-                      text-xs
-                      text-muted-foreground
-                    "
+                    className="text-xs text-muted-foreground"
                   >
                     Choose the closest fit
                   </span>

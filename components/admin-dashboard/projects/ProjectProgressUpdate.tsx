@@ -58,16 +58,7 @@ export function ProjectProgressUpdate({
         variant="outline"
         size="sm"
         onClick={() => setIsEditing(true)}
-        className="
-          w-full
-          !rounded-md
-          border-secondary/20
-          bg-secondary/[0.025]
-          text-heading
-          hover:border-secondary/30
-          hover:bg-secondary/[0.06]
-          sm:w-auto
-        "
+        className="w-full !rounded-md border-secondary/20 bg-secondary/[0.025] text-heading hover:border-secondary/30 hover:bg-secondary/[0.06] sm:w-auto"
       >
         <Pencil className="h-3.5 w-3.5" />
 
@@ -80,56 +71,31 @@ export function ProjectProgressUpdate({
   return (
     <form
       onSubmit={handleSubmit}
-      className="
-        border border-border
-        bg-background/40
-        p-3
-      "
+      className="border border-border bg-background/40 p-3"
     >
       {/* ====================================================== */}
       {/* LABEL                                                  */}
       {/* ====================================================== */}
 
       <div
-        className="
-          mb-2.5
-          flex
-          items-center
-          justify-between
-          gap-3
-        "
+        className="mb-2.5 flex items-center justify-between gap-3"
       >
         <div>
           <span
-            className="
-              font-mono
-              text-[7px]
-              font-semibold
-              uppercase
-              tracking-[0.15em]
-              text-secondary
-            "
+            className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
           >
             Manual update
           </span>
 
           <p
-            className="
-              mt-0.5
-              text-xs
-              text-muted-foreground
-            "
+            className="mt-0.5 text-xs text-muted-foreground"
           >
             Set project completion
           </p>
         </div>
 
         <span
-          className="
-            h-1.5 w-1.5
-            rounded-full
-            bg-secondary
-          "
+          className="h-1.5 w-1.5 rounded-full bg-secondary"
         />
       </div>
 
@@ -138,22 +104,10 @@ export function ProjectProgressUpdate({
       {/* ====================================================== */}
 
       <div
-        className="
-          flex
-          flex-col
-          gap-2
-          sm:flex-row
-          sm:items-center
-        "
+        className="flex flex-col gap-2 sm:flex-row sm:items-center"
       >
         <div
-          className="
-            flex
-            min-w-0
-            flex-1
-            items-center
-            gap-2
-          "
+          className="flex min-w-0 flex-1 items-center gap-2"
         >
           <Input
             type="number"
@@ -161,24 +115,12 @@ export function ProjectProgressUpdate({
             max="100"
             value={progress}
             onChange={(e) => setProgress(Number(e.target.value))}
-            className="
-              h-9
-              min-w-0
-              flex-1
-              text-sm
-              sm:w-20
-              sm:flex-none
-            "
+            className="h-9 min-w-0 flex-1 text-sm sm:w-20 sm:flex-none"
             disabled={isPending}
           />
 
           <span
-            className="
-              shrink-0
-              text-xs
-              font-medium
-              text-muted-foreground
-            "
+            className="shrink-0 text-xs font-medium text-muted-foreground"
           >
             %
           </span>
@@ -190,11 +132,7 @@ export function ProjectProgressUpdate({
             variant="primary"
             size="sm"
             disabled={isPending}
-            className="
-              flex-1
-              !rounded-md
-              sm:flex-none
-            "
+            className="flex-1 !rounded-md sm:flex-none"
           >
             <Check className="h-3.5 w-3.5" />
 
@@ -207,12 +145,7 @@ export function ProjectProgressUpdate({
             size="sm"
             onClick={handleCancel}
             disabled={isPending}
-            className="
-              flex-1
-              !rounded-md
-              text-muted-foreground
-              sm:flex-none
-            "
+            className="flex-1 !rounded-md text-muted-foreground sm:flex-none"
           >
             <X className="h-3.5 w-3.5" />
 
@@ -226,36 +159,16 @@ export function ProjectProgressUpdate({
       {/* ====================================================== */}
 
       <div
-        className="
-          mt-3
-          flex
-          items-center
-          justify-between
-          gap-3
-          border-t border-border
-          pt-2.5
-        "
+        className="mt-3 flex items-center justify-between gap-3 border-t border-border pt-2.5"
       >
         <span
-          className="
-            font-mono
-            text-[7px]
-            uppercase
-            tracking-[0.13em]
-            text-muted-foreground/35
-          "
+          className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/35"
         >
           Minimum 0%
         </span>
 
         <span
-          className="
-            font-mono
-            text-[7px]
-            uppercase
-            tracking-[0.13em]
-            text-muted-foreground/35
-          "
+          className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/35"
         >
           Maximum 100%
         </span>

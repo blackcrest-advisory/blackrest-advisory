@@ -109,11 +109,7 @@ export default function ConfirmationModal({
           leaveTo="opacity-0"
         >
           <div
-            className="
-              fixed inset-0
-              bg-navy-deep/70
-              backdrop-blur-[3px]
-            "
+            className="fixed inset-0 bg-navy-deep/70 backdrop-blur-[3px]"
           />
         </Transition.Child>
 
@@ -123,13 +119,7 @@ export default function ConfirmationModal({
 
         <div className="fixed inset-0 overflow-y-auto">
           <div
-            className="
-              flex min-h-full
-              items-center
-              justify-center
-              p-4
-              sm:p-6
-            "
+            className="flex min-h-full items-center justify-center p-4 sm:p-6"
           >
             <Transition.Child
               as={Fragment}
@@ -141,17 +131,7 @@ export default function ConfirmationModal({
               leaveTo="opacity-0 translate-y-2 scale-[0.98]"
             >
               <Dialog.Panel
-                className="
-                  relative
-                  w-full
-                  max-w-md
-                  transform
-                  overflow-hidden
-                  border border-border
-                  bg-card
-                  shadow-[var(--shadow-overlay)]
-                  transition-all
-                "
+                className="relative w-full max-w-md transform overflow-hidden border border-border bg-card shadow-[var(--shadow-overlay)] transition-all"
               >
                 {/* top signal */}
                 <div
@@ -185,15 +165,7 @@ export default function ConfirmationModal({
                 {/* ================================================== */}
 
                 <div
-                  className="
-                    relative z-10
-                    flex
-                    items-start
-                    gap-4
-                    border-b border-border
-                    px-5 py-5
-                    sm:px-6
-                  "
+                  className="relative z-10 flex items-start gap-4 border-b border-border px-5 py-5 sm:px-6"
                 >
                   <div
                     className={cn(
@@ -236,13 +208,7 @@ export default function ConfirmationModal({
 
                     <Dialog.Title
                       as="h3"
-                      className="
-                        mt-2
-                        text-lg
-                        font-semibold
-                        tracking-[-0.025em]
-                        text-heading
-                      "
+                      className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading"
                     >
                       {title}
                     </Dialog.Title>
@@ -253,20 +219,7 @@ export default function ConfirmationModal({
                     onClick={onClose}
                     disabled={isPending}
                     aria-label="Close confirmation dialog"
-                    className="
-                      flex h-8 w-8
-                      shrink-0
-                      items-center
-                      justify-center
-                      border border-transparent
-                      text-muted-foreground
-                      transition-colors
-                      hover:border-border
-                      hover:bg-muted/30
-                      hover:text-heading
-                      disabled:cursor-not-allowed
-                      disabled:opacity-50
-                    "
+                    className="flex h-8 w-8 shrink-0 items-center justify-center border border-transparent text-muted-foreground transition-colors hover:border-border hover:bg-muted/30 hover:text-heading disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     <X className="h-4 w-4" />
                   </button>
@@ -277,45 +230,23 @@ export default function ConfirmationModal({
                 {/* ================================================== */}
 
                 <div
-                  className="
-                    relative z-10
-                    px-5 py-5
-                    sm:px-6
-                  "
+                  className="relative z-10 px-5 py-5 sm:px-6"
                 >
                   <p
-                    className="
-                      max-w-prose
-                      text-sm
-                      leading-6
-                      text-muted-foreground
-                    "
+                    className="max-w-prose text-sm leading-6 text-muted-foreground"
                   >
                     {description}
                   </p>
 
                   <div
-                    className="
-                      mt-5
-                      flex
-                      items-center
-                      gap-2
-                      border-t border-border
-                      pt-4
-                    "
+                    className="mt-5 flex items-center gap-2 border-t border-border pt-4"
                   >
                     <span
                       className={cn("h-1.5 w-1.5 rounded-full", config.dot)}
                     />
 
                     <span
-                      className="
-                        font-mono
-                        text-[7px]
-                        uppercase
-                        tracking-[0.15em]
-                        text-muted-foreground/40
-                      "
+                      className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
                     >
                       Review before continuing
                     </span>
@@ -327,19 +258,7 @@ export default function ConfirmationModal({
                 {/* ================================================== */}
 
                 <div
-                  className="
-                    relative z-10
-                    flex
-                    flex-col-reverse
-                    gap-2
-                    border-t border-border
-                    bg-muted/15
-                    px-5 py-4
-                    sm:flex-row
-                    sm:items-center
-                    sm:justify-end
-                    sm:px-6
-                  "
+                  className="relative z-10 flex flex-col-reverse gap-2 border-t border-border bg-muted/15 px-5 py-4 sm:flex-row sm:items-center sm:justify-end sm:px-6"
                 >
                   <Button
                     variant="outline"

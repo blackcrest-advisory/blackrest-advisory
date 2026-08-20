@@ -69,64 +69,28 @@ export default async function AdminProjectsPage() {
       {/* ====================================================== */}
 
       <header
-        className="
-          relative
-          overflow-hidden
-          border-y border-border
-          bg-card
-        "
+        className="relative overflow-hidden border-y border-border bg-card"
       >
         {/* left architectural rail */}
         <div
           aria-hidden="true"
-          className="
-            absolute
-            bottom-0 left-0 top-0
-            w-[3px]
-            bg-gradient-to-b
-            from-secondary
-            via-secondary/40
-            to-transparent
-          "
+          className="absolute bottom-0 left-0 top-0 w-[3px] bg-gradient-to-b from-secondary via-secondary/40 to-transparent"
         />
 
         {/* ambient field */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -right-28 top-1/2
-            h-64 w-64
-            -translate-y-1/2
-            rounded-full
-            bg-secondary/[0.055]
-            blur-[100px]
-          "
+          className="pointer-events-none absolute -right-28 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-secondary/[0.055] blur-[100px]"
         />
 
         {/* fine vertical architecture */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute right-[290px] top-0
-            hidden h-full w-px
-            bg-border/70
-            xl:block
-          "
+          className="pointer-events-none absolute right-[290px] top-0 hidden h-full w-px bg-border/70 xl:block"
         />
 
         <div
-          className="
-            relative z-10
-            grid
-            gap-6
-            px-5 py-7
-            sm:px-6
-            lg:px-8
-            xl:grid-cols-[minmax(0,1fr)_260px]
-            xl:items-stretch
-          "
+          className="relative z-10 grid gap-6 px-5 py-7 sm:px-6 lg:px-8 xl:grid-cols-[minmax(0,1fr)_260px] xl:items-stretch"
         >
           {/* ================================================== */}
           {/* TITLE                                              */}
@@ -134,25 +98,13 @@ export default async function AdminProjectsPage() {
 
           <div className="min-w-0">
             <div
-              className="
-                flex
-                flex-wrap
-                items-center
-                gap-3
-              "
+              className="flex flex-wrap items-center gap-3"
             >
               <div className="flex items-center gap-2">
                 <BriefcaseBusiness className="h-3.5 w-3.5 text-secondary" />
 
                 <span
-                  className="
-                    font-mono
-                    text-[8px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.18em]
-                    text-secondary
-                  "
+                  className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
                 >
                   Delivery portfolio
                 </span>
@@ -161,13 +113,7 @@ export default async function AdminProjectsPage() {
               <span className="h-px w-8 bg-secondary/30" />
 
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  uppercase
-                  tracking-[0.14em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40"
               >
                 Admin operations
               </span>
@@ -175,26 +121,13 @@ export default async function AdminProjectsPage() {
 
             <div className="mt-5">
               <h1
-                className="
-                  text-3xl
-                  font-semibold
-                  tracking-[-0.05em]
-                  text-heading
-                  sm:text-[38px]
-                  lg:text-[42px]
-                "
+                className="text-3xl font-semibold tracking-[-0.05em] text-heading sm:text-[38px] lg:text-[42px]"
               >
                 Projects
               </h1>
 
               <p
-                className="
-                  mt-3
-                  max-w-2xl
-                  text-sm
-                  leading-7
-                  text-muted-foreground
-                "
+                className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground"
               >
                 Manage active client engagements, monitor delivery health, and
                 maintain visibility across the complete project portfolio.
@@ -203,28 +136,13 @@ export default async function AdminProjectsPage() {
 
             {/* operational rail */}
             <div
-              className="
-                mt-7
-                flex
-                flex-wrap
-                items-center
-                gap-x-6
-                gap-y-3
-                border-t border-border
-                pt-4
-              "
+              className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border pt-4"
             >
               <div className="flex items-center gap-2">
                 <CircleDot className="h-3.5 w-3.5 text-success" />
 
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    uppercase
-                    tracking-[0.14em]
-                    text-muted-foreground/45
-                  "
+                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/45"
                 >
                   Portfolio online
                 </span>
@@ -255,50 +173,24 @@ export default async function AdminProjectsPage() {
           {/* ================================================== */}
 
           <div
-            className="
-              flex
-              flex-col
-              justify-between
-              border-t border-border
-              pt-5
-              xl:border-l
-              xl:border-t-0
-              xl:pl-7
-              xl:pt-0
-            "
+            className="flex flex-col justify-between border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
           >
             <div>
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.17em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/40"
               >
                 Portfolio index
               </span>
 
               <div className="mt-4 flex items-end gap-3">
                 <span
-                  className="
-                    text-5xl
-                    font-semibold
-                    tracking-[-0.06em]
-                    text-heading
-                  "
+                  className="text-5xl font-semibold tracking-[-0.06em] text-heading"
                 >
                   {total}
                 </span>
 
                 <span
-                  className="
-                    pb-1
-                    text-xs
-                    text-muted-foreground
-                  "
+                  className="pb-1 text-xs text-muted-foreground"
                 >
                   engagements
                 </span>
@@ -306,34 +198,17 @@ export default async function AdminProjectsPage() {
             </div>
 
             <div
-              className="
-                mt-6
-                border-t border-border
-                pt-4
-              "
+              className="mt-6 border-t border-border pt-4"
             >
               <div className="flex items-center justify-between gap-4">
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    uppercase
-                    tracking-[0.14em]
-                    text-muted-foreground/40
-                  "
+                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
                 >
                   Delivery state
                 </span>
 
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.14em]
-                    text-secondary
-                  "
+                  className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-secondary"
                 >
                   Live
                 </span>

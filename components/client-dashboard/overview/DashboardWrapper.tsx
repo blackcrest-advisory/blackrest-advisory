@@ -52,49 +52,24 @@ export const DashboardWrapper = ({
           duration: 0.55,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="
-          relative
-          overflow-hidden
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
         {/* ambient gold light */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -right-32 -top-36
-            h-[360px] w-[360px]
-            rounded-full
-            bg-secondary/[0.10]
-            blur-[110px]
-          "
+          className="pointer-events-none absolute -right-32 -top-36 h-[360px] w-[360px] rounded-full bg-secondary/[0.10] blur-[110px]"
         />
 
         {/* secondary soft glow */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -bottom-40 left-[20%]
-            h-[280px] w-[280px]
-            rounded-full
-            bg-primary/[0.07]
-            blur-[110px]
-          "
+          className="pointer-events-none absolute -bottom-40 left-[20%] h-[280px] w-[280px] rounded-full bg-primary/[0.07] blur-[110px]"
         />
 
         {/* architectural grid */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute inset-0
-            hidden opacity-[0.08]
-            lg:block
-          "
+          className="pointer-events-none absolute inset-0 hidden opacity-[0.08] lg:block"
           style={{
             backgroundImage: `
               linear-gradient(
@@ -118,33 +93,11 @@ export const DashboardWrapper = ({
 
         {/* gold line */}
         <div
-          className="
-            absolute left-0 top-0
-            h-[2px] w-full
-            bg-gradient-to-r
-            from-secondary
-            via-secondary/40
-            to-transparent
-          "
+          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
         />
 
         <div
-          className="
-            relative z-10
-            grid
-            gap-8
-            px-5 py-7
-
-            sm:px-6 sm:py-8
-
-            lg:grid-cols-[minmax(0,1fr)_320px]
-            lg:items-stretch
-            lg:px-8
-            lg:py-8
-
-            xl:grid-cols-[minmax(0,1fr)_360px]
-            xl:px-9
-          "
+          className="relative z-10 grid gap-8 px-5 py-7 sm:px-6 sm:py-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-stretch lg:px-8 lg:py-8 xl:grid-cols-[minmax(0,1fr)_360px] xl:px-9"
         >
           {/* ================================================== */}
           {/* LEFT                                               */}
@@ -157,11 +110,7 @@ export const DashboardWrapper = ({
                 <div className="flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
                     <motion.span
-                      className="
-                        absolute inset-0
-                        rounded-full
-                        bg-success
-                      "
+                      className="absolute inset-0 rounded-full bg-success"
                       animate={{
                         scale: [1, 2, 1],
                         opacity: [0.5, 0, 0.5],
@@ -173,24 +122,12 @@ export const DashboardWrapper = ({
                     />
 
                     <span
-                      className="
-                        relative
-                        h-2 w-2
-                        rounded-full
-                        bg-success
-                      "
+                      className="relative h-2 w-2 rounded-full bg-success"
                     />
                   </span>
 
                   <span
-                    className="
-                      font-mono
-                      text-[8px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.18em]
-                      text-success
-                    "
+                    className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-success"
                   >
                     Account active
                   </span>
@@ -199,13 +136,7 @@ export const DashboardWrapper = ({
                 <span className="h-px w-8 bg-border" />
 
                 <span
-                  className="
-                    font-mono
-                    text-[8px]
-                    uppercase
-                    tracking-[0.16em]
-                    text-muted-foreground/45
-                  "
+                  className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45"
                 >
                   Client Workspace
                 </span>
@@ -213,18 +144,7 @@ export const DashboardWrapper = ({
 
               {/* heading */}
               <h1
-                className="
-                  mt-5
-                  max-w-3xl
-                  text-3xl
-                  font-semibold
-                  leading-[1.05]
-                  tracking-[-0.045em]
-                  text-heading
-
-                  sm:text-4xl
-                  xl:text-[2.8rem]
-                "
+                className="mt-5 max-w-3xl text-3xl font-semibold leading-[1.05] tracking-[-0.045em] text-heading sm:text-4xl xl:text-[2.8rem]"
               >
                 Welcome back,
                 <span className="ml-2 text-secondary">
@@ -234,15 +154,7 @@ export const DashboardWrapper = ({
               </h1>
 
               <p
-                className="
-                  mt-4
-                  max-w-2xl
-                  text-sm
-                  leading-7
-                  text-muted-foreground
-
-                  sm:text-base
-                "
+                className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base"
               >
                 Your Blackcrest workspace brings together current projects,
                 upcoming milestones, performance insights, and everything moving
@@ -252,12 +164,7 @@ export const DashboardWrapper = ({
 
             {/* contextual signals */}
             <div
-              className="
-                mt-7
-                grid
-                gap-3
-                sm:grid-cols-3
-              "
+              className="mt-7 grid gap-3 sm:grid-cols-3"
             >
               {[
                 "Project visibility",
@@ -266,21 +173,12 @@ export const DashboardWrapper = ({
               ].map((label) => (
                 <div
                   key={label}
-                  className="
-                    flex items-center
-                    gap-2
-                    border-t border-border
-                    pt-3
-                  "
+                  className="flex items-center gap-2 border-t border-border pt-3"
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
 
                   <span
-                    className="
-                      text-xs
-                      font-medium
-                      text-muted-foreground
-                    "
+                    className="text-xs font-medium text-muted-foreground"
                   >
                     {label}
                   </span>
@@ -294,26 +192,11 @@ export const DashboardWrapper = ({
           {/* ================================================== */}
 
           <div
-            className="
-              relative
-              overflow-hidden
-              border border-secondary/15
-              bg-secondary/[0.035]
-              p-5
-
-              sm:p-6
-            "
+            className="relative overflow-hidden border border-secondary/15 bg-secondary/[0.035] p-5 sm:p-6"
           >
             <div
               aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute -right-20 -top-20
-                h-40 w-40
-                rounded-full
-                bg-secondary/[0.12]
-                blur-3xl
-              "
+              className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-secondary/[0.12] blur-3xl"
             />
 
             <div className="relative z-10">
@@ -323,40 +206,21 @@ export const DashboardWrapper = ({
                     <Sparkles className="h-3.5 w-3.5 text-secondary" />
 
                     <span
-                      className="
-                        font-mono
-                        text-[8px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.17em]
-                        text-secondary
-                      "
+                      className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
                     >
                       Your workspace
                     </span>
                   </div>
 
                   <p
-                    className="
-                      mt-2
-                      text-lg
-                      font-semibold
-                      tracking-[-0.025em]
-                      text-heading
-                    "
+                    className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading"
                   >
                     Everything in one place
                   </p>
                 </div>
 
                 <span
-                  className="
-                    font-mono
-                    text-[8px]
-                    uppercase
-                    tracking-[0.14em]
-                    text-muted-foreground/35
-                  "
+                  className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/35"
                 >
                   BCR / CLIENT
                 </span>
@@ -379,34 +243,16 @@ export const DashboardWrapper = ({
                 ].map((item) => (
                   <div
                     key={item.label}
-                    className="
-                      flex items-center
-                      justify-between
-                      gap-4
-                      border-b border-border
-                      pb-3
-                      last:border-b-0
-                      last:pb-0
-                    "
+                    className="flex items-center justify-between gap-4 border-b border-border pb-3 last:border-b-0 last:pb-0"
                   >
                     <span
-                      className="
-                        font-mono
-                        text-[7px]
-                        uppercase
-                        tracking-[0.16em]
-                        text-muted-foreground/45
-                      "
+                      className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/45"
                     >
                       {item.label}
                     </span>
 
                     <span
-                      className="
-                        text-xs
-                        font-medium
-                        text-foreground
-                      "
+                      className="text-xs font-medium text-foreground"
                     >
                       {item.value}
                     </span>
@@ -415,25 +261,13 @@ export const DashboardWrapper = ({
               </div>
 
               <div
-                className="
-                  mt-6
-                  flex items-center
-                  justify-between
-                  border-t border-border
-                  pt-4
-                "
+                className="mt-6 flex items-center justify-between border-t border-border pt-4"
               >
                 <div className="flex items-center gap-2">
                   <CircleDot className="h-3 w-3 text-success" />
 
                   <span
-                    className="
-                      font-mono
-                      text-[7px]
-                      uppercase
-                      tracking-[0.15em]
-                      text-muted-foreground/45
-                    "
+                    className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/45"
                   >
                     Workspace synced
                   </span>
@@ -454,10 +288,7 @@ export const DashboardWrapper = ({
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
-        className="
-          mt-6
-          space-y-6
-        "
+        className="mt-6 space-y-6"
       >
         {/* stats */}
         <section>
@@ -471,11 +302,7 @@ export const DashboardWrapper = ({
 
         {/* projects + milestones */}
         <section
-          className="
-            grid grid-cols-1
-            gap-6
-            xl:grid-cols-[minmax(0,1.6fr)_minmax(300px,0.4fr)]
-          "
+          className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.6fr)_minmax(300px,0.4fr)]"
         >
           <ActiveProjects projects={projects} />
 
@@ -484,11 +311,7 @@ export const DashboardWrapper = ({
 
         {/* actions + activity */}
         <section
-          className="
-            grid grid-cols-1
-            gap-6
-            xl:grid-cols-[minmax(280px,0.38fr)_minmax(0,1.62fr)]
-          "
+          className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(280px,0.38fr)_minmax(0,1.62fr)]"
         >
           <QuickActions />
 

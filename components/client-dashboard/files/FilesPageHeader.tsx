@@ -15,14 +15,7 @@ interface FilesPageHeaderProps {
 export const FilesPageHeader = ({ onUploadClick }: FilesPageHeaderProps) => {
   return (
     <header
-      className="
-        relative
-        min-w-0
-        overflow-hidden
-        border border-border
-        bg-card
-        shadow-[var(--shadow-card)]
-      "
+      className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
       {/* ====================================================== */}
       {/* AMBIENT DETAIL                                        */}
@@ -30,28 +23,12 @@ export const FilesPageHeader = ({ onUploadClick }: FilesPageHeaderProps) => {
 
       <div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          -right-24 -top-24
-          h-72 w-72
-          rounded-full
-          bg-secondary/[0.055]
-          blur-[110px]
-        "
+        className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-secondary/[0.055] blur-[110px]"
       />
 
       <div
         aria-hidden="true"
-        className="
-          absolute
-          bottom-0 left-0 top-0
-          w-[3px]
-          bg-gradient-to-b
-          from-secondary/70
-          via-secondary/25
-          to-transparent
-        "
+        className="absolute bottom-0 left-0 top-0 w-[3px] bg-gradient-to-b from-secondary/70 via-secondary/25 to-transparent"
       />
 
       {/* ====================================================== */}
@@ -59,17 +36,7 @@ export const FilesPageHeader = ({ onUploadClick }: FilesPageHeaderProps) => {
       {/* ====================================================== */}
 
       <div
-        className="
-          relative z-10
-          grid
-          gap-7
-          px-6 py-7
-          sm:px-7
-          lg:px-9
-          lg:py-8
-          xl:grid-cols-[minmax(0,1fr)_310px]
-          xl:items-center
-        "
+        className="relative z-10 grid gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_310px] xl:items-center"
       >
         {/* ==================================================== */}
         {/* TITLE                                               */}
@@ -77,24 +44,12 @@ export const FilesPageHeader = ({ onUploadClick }: FilesPageHeaderProps) => {
 
         <div className="min-w-0">
           <div
-            className="
-              flex
-              flex-wrap
-              items-center
-              gap-3
-            "
+            className="flex flex-wrap items-center gap-3"
           >
             <FileStack className="h-3.5 w-3.5 text-secondary" />
 
             <span
-              className="
-                font-mono
-                text-[8px]
-                font-semibold
-                uppercase
-                tracking-[0.18em]
-                text-secondary
-              "
+              className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
             >
               Client documents
             </span>
@@ -102,40 +57,20 @@ export const FilesPageHeader = ({ onUploadClick }: FilesPageHeaderProps) => {
             <span className="h-px w-9 bg-secondary/30" />
 
             <span
-              className="
-                font-mono
-                text-[8px]
-                uppercase
-                tracking-[0.14em]
-                text-muted-foreground/40
-              "
+              className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40"
             >
               Private workspace
             </span>
           </div>
 
           <h1
-            className="
-              mt-5
-              text-3xl
-              font-semibold
-              tracking-[-0.05em]
-              text-heading
-              sm:text-[38px]
-              lg:text-[42px]
-            "
+            className="mt-5 text-3xl font-semibold tracking-[-0.05em] text-heading sm:text-[38px] lg:text-[42px]"
           >
             Files
           </h1>
 
           <p
-            className="
-              mt-3
-              max-w-2xl
-              text-sm
-              leading-7
-              text-body
-            "
+            className="mt-3 max-w-2xl text-sm leading-7 text-body"
           >
             Review and manage documents shared across your Blackcrest projects
             from one secure workspace.
@@ -146,14 +81,7 @@ export const FilesPageHeader = ({ onUploadClick }: FilesPageHeaderProps) => {
           {/* ================================================== */}
 
           <div
-            className="
-              mt-6
-              flex
-              flex-wrap
-              items-center
-              gap-x-5
-              gap-y-2
-            "
+            className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2"
           >
             <HeaderSignal icon={LockKeyhole} label="Private access" />
 
@@ -166,35 +94,16 @@ export const FilesPageHeader = ({ onUploadClick }: FilesPageHeaderProps) => {
         {/* ==================================================== */}
 
         <div
-          className="
-            border-t border-border
-            pt-5
-            xl:border-l
-            xl:border-t-0
-            xl:pl-7
-            xl:pt-0
-          "
+          className="border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
         >
           <span
-            className="
-              font-mono
-              text-[7px]
-              font-semibold
-              uppercase
-              tracking-[0.15em]
-              text-muted-foreground/40
-            "
+            className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-muted-foreground/40"
           >
             Document exchange
           </span>
 
           <p
-            className="
-              mt-2
-              text-xs
-              leading-5
-              text-muted-foreground
-            "
+            className="mt-2 text-xs leading-5 text-muted-foreground"
           >
             Add a document to your Blackcrest workspace when upload access is
             available.
@@ -204,12 +113,7 @@ export const FilesPageHeader = ({ onUploadClick }: FilesPageHeaderProps) => {
             variant="primary"
             size="md"
             onClick={onUploadClick}
-            className="
-              mt-5
-              w-full
-              !rounded-md
-              justify-between
-            "
+            className="mt-5 w-full !rounded-md justify-between"
           >
             <span>Upload File</span>
 
@@ -217,31 +121,14 @@ export const FilesPageHeader = ({ onUploadClick }: FilesPageHeaderProps) => {
           </Button>
 
           <div
-            className="
-              mt-4
-              flex
-              items-center
-              gap-2
-              border-t border-border
-              pt-4
-            "
+            className="mt-4 flex items-center gap-2 border-t border-border pt-4"
           >
             <span
-              className="
-                h-1.5 w-1.5
-                rounded-full
-                bg-success
-              "
+              className="h-1.5 w-1.5 rounded-full bg-success"
             />
 
             <span
-              className="
-                font-mono
-                text-[7px]
-                uppercase
-                tracking-[0.13em]
-                text-muted-foreground/40
-              "
+              className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40"
             >
               Secure client workspace
             </span>
@@ -265,23 +152,12 @@ function HeaderSignal({
 }) {
   return (
     <div
-      className="
-        flex
-        items-center
-        gap-2
-      "
+      className="flex items-center gap-2"
     >
       <Icon className="h-3.5 w-3.5 text-secondary" />
 
       <span
-        className="
-          font-mono
-          text-[7px]
-          font-semibold
-          uppercase
-          tracking-[0.13em]
-          text-muted-foreground/45
-        "
+        className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/45"
       >
         {label}
       </span>

@@ -140,14 +140,7 @@ export const StatusBadge = ({ status, className = "" }: StatusBadgeProps) => {
     >
       <span
         aria-hidden="true"
-        className="
-          h-1.5
-          w-1.5
-          shrink-0
-          rounded-full
-          bg-current
-          opacity-70
-        "
+        className="h-1.5 w-1.5 shrink-0 rounded-full bg-current opacity-70"
       />
 
       {statusLabels[normalizedLabel] ?? status}

@@ -155,63 +155,28 @@ export function AdminProjectsClient({
       {/* ====================================================== */}
 
       <div
-        className="
-          relative
-          z-20
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative z-20 border border-border bg-card shadow-[var(--shadow-card)]"
       >
         {/* directory heading */}
         <div
-          className="
-            flex
-            flex-col
-            gap-3
-            border-b border-border
-            px-5 py-4
-            sm:flex-row
-            sm:items-center
-            sm:justify-between
-            sm:px-6
-          "
+          className="flex flex-col gap-3 border-b border-border px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
         >
           <div className="flex items-center gap-3">
             <div
-              className="
-                flex h-8 w-8
-                items-center
-                justify-center
-                rounded-md
-                border border-secondary/15
-                bg-secondary/[0.05]
-                text-secondary
-              "
+              className="flex h-8 w-8 items-center justify-center rounded-md border border-secondary/15 bg-secondary/[0.05] text-secondary"
             >
               <FolderSearch2 className="h-3.5 w-3.5" />
             </div>
 
             <div>
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.15em]
-                  text-secondary
-                "
+                className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
               >
                 Project directory
               </span>
 
               <p
-                className="
-                  mt-0.5
-                  text-xs
-                  text-muted-foreground
-                "
+                className="mt-0.5 text-xs text-muted-foreground"
               >
                 Search and refine delivery records.
               </p>
@@ -219,10 +184,7 @@ export function AdminProjectsClient({
           </div>
 
           <span
-            className="
-              text-xs
-              text-muted-foreground
-            "
+            className="text-xs text-muted-foreground"
           >
             <span className="font-semibold text-heading">
               {filteredProjects.length}
@@ -237,15 +199,7 @@ export function AdminProjectsClient({
         {/* ==================================================== */}
 
         <div
-          className="
-            flex
-            flex-col
-            gap-3
-            px-5 py-4
-            sm:px-6
-            xl:flex-row
-            xl:items-center
-          "
+          className="flex flex-col gap-3 px-5 py-4 sm:px-6 xl:flex-row xl:items-center"
         >
           {/* search */}
           <div className="min-w-0 flex-1">
@@ -260,31 +214,11 @@ export function AdminProjectsClient({
 
           {/* filters */}
           <div
-            className="
-              flex
-              flex-col
-              gap-2
-              sm:grid
-              sm:grid-cols-2
-              xl:flex
-              xl:flex-row
-              xl:items-center
-            "
+            className="flex flex-col gap-2 sm:grid sm:grid-cols-2 xl:flex xl:flex-row xl:items-center"
           >
             <div
               aria-hidden="true"
-              className="
-                hidden
-                h-10 w-10
-                shrink-0
-                items-center
-                justify-center
-                rounded-md
-                border border-border
-                bg-background
-                text-muted-foreground
-                xl:flex
-              "
+              className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-background text-muted-foreground xl:flex"
             >
               <SlidersHorizontal className="h-4 w-4" />
             </div>
@@ -310,36 +244,15 @@ export function AdminProjectsClient({
         {/* ==================================================== */}
 
         <div
-          className="
-            flex
-            min-h-10
-            flex-wrap
-            items-center
-            justify-between
-            gap-3
-            border-t border-border
-            bg-muted/10
-            px-5 py-2.5
-            sm:px-6
-          "
+          className="flex min-h-10 flex-wrap items-center justify-between gap-3 border-t border-border bg-muted/10 px-5 py-2.5 sm:px-6"
         >
           <div className="flex items-center gap-2">
             <span
-              className="
-                h-1.5 w-1.5
-                rounded-full
-                bg-success
-              "
+              className="h-1.5 w-1.5 rounded-full bg-success"
             />
 
             <span
-              className="
-                font-mono
-                text-[7px]
-                uppercase
-                tracking-[0.14em]
-                text-muted-foreground/40
-              "
+              className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
             >
               Portfolio records available
             </span>
@@ -348,14 +261,7 @@ export function AdminProjectsClient({
           {hasActiveFilters && (
             <div className="flex items-center gap-2">
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.14em]
-                  text-secondary
-                "
+                className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-secondary"
               >
                 Filters active
               </span>
@@ -383,14 +289,7 @@ export function AdminProjectsClient({
 
       {totalPages > 1 && (
         <div
-          className="
-            mt-3
-            border border-border
-            bg-card
-            px-5 py-4
-            shadow-[var(--shadow-card)]
-            sm:px-6
-          "
+          className="mt-3 border border-border bg-card px-5 py-4 shadow-[var(--shadow-card)] sm:px-6"
         >
           <Pagination
             currentPage={activePage}

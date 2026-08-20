@@ -72,16 +72,7 @@ export const LeadFilters = ({ onFilterChange, onSearch }: LeadFiltersProps) => {
 
   return (
     <div
-      className="
-        relative
-        z-20
-        flex
-        flex-col
-        gap-3
-
-        xl:flex-row
-        xl:items-center
-      "
+      className="relative z-20 flex flex-col gap-3 xl:flex-row xl:items-center"
     >
       {/* ====================================================== */}
       {/* SEARCH                                                 */}
@@ -93,10 +84,7 @@ export const LeadFilters = ({ onFilterChange, onSearch }: LeadFiltersProps) => {
           placeholder="Search company or contact..."
           value={searchTerm}
           onChange={handleSearch}
-          className="
-            w-full
-            bg-background
-          "
+          className="w-full bg-background"
         />
       </div>
 
@@ -105,30 +93,10 @@ export const LeadFilters = ({ onFilterChange, onSearch }: LeadFiltersProps) => {
       {/* ====================================================== */}
 
       <div
-        className="
-          flex
-          flex-col
-          gap-2
-
-          sm:grid
-          sm:grid-cols-3
-
-          xl:flex
-          xl:flex-row
-          xl:items-center
-        "
+        className="flex flex-col gap-2 sm:grid sm:grid-cols-3 xl:flex xl:flex-row xl:items-center"
       >
         <div
-          className="
-            hidden
-            h-9 w-9
-            shrink-0
-            items-center
-            justify-center
-            border border-border
-            text-muted-foreground
-            xl:flex
-          "
+          className="hidden h-9 w-9 shrink-0 items-center justify-center border border-border text-muted-foreground xl:flex"
         >
           <SlidersHorizontal className="h-4 w-4" />
         </div>
@@ -137,33 +105,21 @@ export const LeadFilters = ({ onFilterChange, onSearch }: LeadFiltersProps) => {
           options={statusOptions}
           value={status}
           onChange={(value) => updateFilter("status", value)}
-          className="
-            w-full
-            sm:w-full
-            xl:w-40
-          "
+          className="w-full sm:w-full xl:w-40"
         />
 
         <Select
           options={serviceOptions}
           value={service}
           onChange={(value) => updateFilter("service", value)}
-          className="
-            w-full
-            sm:w-full
-            xl:w-44
-          "
+          className="w-full sm:w-full xl:w-44"
         />
 
         <Select
           options={priorityOptions}
           value={priority}
           onChange={(value) => updateFilter("priority", value)}
-          className="
-            w-full
-            sm:w-full
-            xl:w-40
-          "
+          className="w-full sm:w-full xl:w-40"
           align="center"
         />
       </div>

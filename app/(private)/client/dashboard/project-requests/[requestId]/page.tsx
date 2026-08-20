@@ -107,25 +107,10 @@ export default async function ProjectRequestDetailsPage({
       <div>
         <Link
           href="/client/dashboard/project-requests"
-          className="
-            group
-            inline-flex
-            items-center
-            gap-2
-            text-xs
-            font-medium
-            text-muted-foreground
-            transition-colors
-            hover:text-secondary
-          "
+          className="group inline-flex items-center gap-2 text-xs font-medium text-muted-foreground transition-colors hover:text-secondary"
         >
           <ChevronLeft
-            className="
-              h-4 w-4
-              transition-transform
-              duration-200
-              group-hover:-translate-x-0.5
-            "
+            className="h-4 w-4 transition-transform duration-200 group-hover:-translate-x-0.5"
           />
           Back to Project Requests
         </Link>
@@ -136,49 +121,24 @@ export default async function ProjectRequestDetailsPage({
       {/* ====================================================== */}
 
       <section
-        className="
-          relative
-          overflow-hidden
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
         {/* ambient glow */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -right-28 -top-32
-            h-72 w-72
-            rounded-full
-            bg-secondary/[0.09]
-            blur-[100px]
-          "
+          className="pointer-events-none absolute -right-28 -top-32 h-72 w-72 rounded-full bg-secondary/[0.09] blur-[100px]"
         />
 
         {/* soft glow */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -bottom-36 left-[20%]
-            h-64 w-64
-            rounded-full
-            bg-primary/[0.05]
-            blur-[100px]
-          "
+          className="pointer-events-none absolute -bottom-36 left-[20%] h-64 w-64 rounded-full bg-primary/[0.05] blur-[100px]"
         />
 
         {/* architectural grid */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute inset-0
-            hidden opacity-[0.05]
-            lg:block
-          "
+          className="pointer-events-none absolute inset-0 hidden opacity-[0.05] lg:block"
           style={{
             backgroundImage: `
               linear-gradient(
@@ -193,28 +153,11 @@ export default async function ProjectRequestDetailsPage({
 
         {/* top accent */}
         <div
-          className="
-            absolute left-0 top-0
-            h-[2px] w-full
-            bg-gradient-to-r
-            from-secondary
-            via-secondary/40
-            to-transparent
-          "
+          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
         />
 
         <div
-          className="
-            relative z-10
-            grid
-            gap-8
-            px-5 py-7
-            sm:px-6
-            lg:grid-cols-[minmax(0,1fr)_300px]
-            lg:items-end
-            lg:px-8
-            lg:py-8
-          "
+          className="relative z-10 grid gap-8 px-5 py-7 sm:px-6 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-end lg:px-8 lg:py-8"
         >
           {/* left */}
           <div>
@@ -223,14 +166,7 @@ export default async function ProjectRequestDetailsPage({
                 <CircleDot className="h-3.5 w-3.5 text-secondary" />
 
                 <span
-                  className="
-                    font-mono
-                    text-[8px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.18em]
-                    text-secondary
-                  "
+                  className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
                 >
                   Project request
                 </span>
@@ -239,39 +175,17 @@ export default async function ProjectRequestDetailsPage({
               <span className="h-px w-8 bg-secondary/30" />
 
               <span
-                className="
-                  max-w-[170px]
-                  truncate
-                  font-mono
-                  text-[8px]
-                  uppercase
-                  tracking-[0.13em]
-                  text-muted-foreground/40
-                "
+                className="max-w-[170px] truncate font-mono text-[8px] uppercase tracking-[0.13em] text-muted-foreground/40"
               >
                 #{brief.id}
               </span>
             </div>
 
             <div
-              className="
-                mt-5
-                flex flex-col
-                gap-3
-                sm:flex-row
-                sm:items-center
-              "
+              className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center"
             >
               <h1
-                className="
-                  min-w-0
-                  text-3xl
-                  font-semibold
-                  leading-[1.08]
-                  tracking-[-0.045em]
-                  text-heading
-                  sm:text-4xl
-                "
+                className="min-w-0 text-3xl font-semibold leading-[1.08] tracking-[-0.045em] text-heading sm:text-4xl"
               >
                 {brief.title}
               </h1>
@@ -280,49 +194,24 @@ export default async function ProjectRequestDetailsPage({
             </div>
 
             <p
-              className="
-                mt-4
-                max-w-2xl
-                text-sm
-                leading-7
-                text-muted-foreground
-                sm:text-base
-              "
+              className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base"
             >
               Review your submitted brief, proposal details, supporting files,
               and the current progress of your request.
             </p>
 
             <div
-              className="
-                mt-6
-                grid
-                gap-3
-                sm:grid-cols-2
-                xl:grid-cols-3
-              "
+              className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3"
             >
               <div className="border-t border-border pt-3">
                 <p
-                  className="
-                    font-mono
-                    text-[7px]
-                    uppercase
-                    tracking-[0.15em]
-                    text-muted-foreground/40
-                  "
+                  className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
                 >
                   Service
                 </p>
 
                 <p
-                  className="
-                    mt-1
-                    text-xs
-                    font-medium
-                    capitalize
-                    text-foreground
-                  "
+                  className="mt-1 text-xs font-medium capitalize text-foreground"
                 >
                   {brief.pillar.replace(/_/g, " ")}
                 </p>
@@ -330,13 +219,7 @@ export default async function ProjectRequestDetailsPage({
 
               <div className="border-t border-border pt-3">
                 <p
-                  className="
-                    font-mono
-                    text-[7px]
-                    uppercase
-                    tracking-[0.15em]
-                    text-muted-foreground/40
-                  "
+                  className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
                 >
                   Submitted
                 </p>
@@ -348,13 +231,7 @@ export default async function ProjectRequestDetailsPage({
 
               <div className="border-t border-border pt-3">
                 <p
-                  className="
-                    font-mono
-                    text-[7px]
-                    uppercase
-                    tracking-[0.15em]
-                    text-muted-foreground/40
-                  "
+                  className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
                 >
                   Last updated
                 </p>
@@ -368,27 +245,13 @@ export default async function ProjectRequestDetailsPage({
 
           {/* right status block */}
           <div
-            className="
-              border-t border-border
-              pt-5
-              lg:border-l
-              lg:border-t-0
-              lg:pl-7
-              lg:pt-0
-            "
+            className="border-t border-border pt-5 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0"
           >
             <div className="flex items-center gap-2">
               <Sparkles className="h-3.5 w-3.5 text-secondary" />
 
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.17em]
-                  text-secondary
-                "
+                className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
               >
                 Request status
               </span>
@@ -399,36 +262,19 @@ export default async function ProjectRequestDetailsPage({
             </div>
 
             <p
-              className="
-                mt-4
-                text-xs
-                leading-5
-                text-muted-foreground
-              "
+              className="mt-4 text-xs leading-5 text-muted-foreground"
             >
               Blackcrest will update this request as it moves through review,
               proposal, and approval.
             </p>
 
             <div
-              className="
-                mt-4
-                flex items-center
-                gap-2
-                border-t border-border
-                pt-4
-              "
+              className="mt-4 flex items-center gap-2 border-t border-border pt-4"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  uppercase
-                  tracking-[0.15em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
               >
                 Request tracking active
               </span>
@@ -443,77 +289,34 @@ export default async function ProjectRequestDetailsPage({
 
       {hasProposal ? (
         <section
-          className="
-            relative
-            overflow-hidden
-            border border-secondary/20
-            bg-card
-            shadow-[var(--shadow-card)]
-          "
+          className="relative overflow-hidden border border-secondary/20 bg-card shadow-[var(--shadow-card)]"
         >
           <div
             aria-hidden="true"
-            className="
-              pointer-events-none
-              absolute -right-24 -top-28
-              h-60 w-60
-              rounded-full
-              bg-secondary/[0.09]
-              blur-[100px]
-            "
+            className="pointer-events-none absolute -right-24 -top-28 h-60 w-60 rounded-full bg-secondary/[0.09] blur-[100px]"
           />
 
           <div
-            className="
-              absolute left-0 top-0
-              h-[2px] w-full
-              bg-gradient-to-r
-              from-secondary
-              via-secondary/50
-              to-transparent
-            "
+            className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/50 to-transparent"
           />
 
           {/* header */}
           <div
-            className="
-              relative z-10
-              flex flex-col
-              gap-4
-              border-b border-border
-              px-5 py-5
-              sm:flex-row
-              sm:items-center
-              sm:justify-between
-              sm:px-6
-            "
+            className="relative z-10 flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
           >
             <div>
               <div className="flex items-center gap-2">
                 <Sparkles className="h-3.5 w-3.5 text-secondary" />
 
                 <span
-                  className="
-                    font-mono
-                    text-[8px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.18em]
-                    text-secondary
-                  "
+                  className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
                 >
                   Blackcrest proposal
                 </span>
               </div>
 
               <h2
-                className="
-                  mt-2
-                  text-xl
-                  font-semibold
-                  tracking-[-0.025em]
-                  text-heading
-                "
+                className="mt-2 text-xl font-semibold tracking-[-0.025em] text-heading"
               >
                 Proposal
               </h2>
@@ -528,70 +331,33 @@ export default async function ProjectRequestDetailsPage({
 
           {/* proposal summary */}
           <div
-            className="
-              relative z-10
-              grid
-              grid-cols-1
-              border-b border-border
-              bg-muted/10
-              sm:grid-cols-2
-              lg:grid-cols-3
-            "
+            className="relative z-10 grid grid-cols-1 border-b border-border bg-muted/10 sm:grid-cols-2 lg:grid-cols-3"
           >
             <div className="px-5 py-4 sm:px-6">
               <p
-                className="
-                  font-mono
-                  text-[7px]
-                  uppercase
-                  tracking-[0.15em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
               >
                 Timeline
               </p>
 
               <p
-                className="
-                  mt-2
-                  whitespace-pre-wrap
-                  text-sm
-                  font-medium
-                  text-heading
-                "
+                className="mt-2 whitespace-pre-wrap text-sm font-medium text-heading"
               >
                 {brief.proposal!.timeline}
               </p>
             </div>
 
             <div
-              className="
-                border-t border-border
-                px-5 py-4
-                sm:border-l
-                sm:border-t-0
-                sm:px-6
-              "
+              className="border-t border-border px-5 py-4 sm:border-l sm:border-t-0 sm:px-6"
             >
               <p
-                className="
-                  font-mono
-                  text-[7px]
-                  uppercase
-                  tracking-[0.15em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
               >
                 Amount
               </p>
 
               <p
-                className="
-                  mt-2
-                  text-sm
-                  font-semibold
-                  text-heading
-                "
+                className="mt-2 text-sm font-semibold text-heading"
               >
                 {brief.proposal!.amount
                   ? `${brief.proposal!.amount} ${
@@ -602,24 +368,10 @@ export default async function ProjectRequestDetailsPage({
             </div>
 
             <div
-              className="
-                border-t border-border
-                px-5 py-4
-                sm:col-span-2
-                lg:col-span-1
-                lg:border-l
-                lg:border-t-0
-                lg:px-6
-              "
+              className="border-t border-border px-5 py-4 sm:col-span-2 lg:col-span-1 lg:border-l lg:border-t-0 lg:px-6"
             >
               <p
-                className="
-                  font-mono
-                  text-[7px]
-                  uppercase
-                  tracking-[0.15em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
               >
                 Proposal status
               </p>
@@ -632,43 +384,19 @@ export default async function ProjectRequestDetailsPage({
 
           {/* proposal content */}
           <div
-            className="
-              relative z-10
-              grid
-              gap-0
-              lg:grid-cols-2
-            "
+            className="relative z-10 grid gap-0 lg:grid-cols-2"
           >
             <div
-              className="
-                border-b border-border
-                px-5 py-6
-                sm:px-6
-                lg:border-b-0
-                lg:border-r
-              "
+              className="border-b border-border px-5 py-6 sm:px-6 lg:border-b-0 lg:border-r"
             >
               <p
-                className="
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.17em]
-                  text-secondary
-                "
+                className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
               >
                 Scope
               </p>
 
               <p
-                className="
-                  mt-3
-                  whitespace-pre-wrap
-                  text-sm
-                  leading-7
-                  text-muted-foreground
-                "
+                className="mt-3 whitespace-pre-wrap text-sm leading-7 text-muted-foreground"
               >
                 {brief.proposal!.scope}
               </p>
@@ -676,26 +404,13 @@ export default async function ProjectRequestDetailsPage({
 
             <div className="px-5 py-6 sm:px-6">
               <p
-                className="
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.17em]
-                  text-secondary
-                "
+                className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
               >
                 Deliverables
               </p>
 
               <p
-                className="
-                  mt-3
-                  whitespace-pre-wrap
-                  text-sm
-                  leading-7
-                  text-muted-foreground
-                "
+                className="mt-3 whitespace-pre-wrap text-sm leading-7 text-muted-foreground"
               >
                 {brief.proposal!.deliverables}
               </p>
@@ -704,34 +419,16 @@ export default async function ProjectRequestDetailsPage({
 
           {brief.proposal!.terms && (
             <div
-              className="
-                relative z-10
-                border-t border-border
-                px-5 py-6
-                sm:px-6
-              "
+              className="relative z-10 border-t border-border px-5 py-6 sm:px-6"
             >
               <p
-                className="
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.17em]
-                  text-secondary
-                "
+                className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
               >
                 Terms
               </p>
 
               <p
-                className="
-                  mt-3
-                  whitespace-pre-wrap
-                  text-sm
-                  leading-7
-                  text-muted-foreground
-                "
+                className="mt-3 whitespace-pre-wrap text-sm leading-7 text-muted-foreground"
               >
                 {brief.proposal!.terms}
               </p>
@@ -740,13 +437,7 @@ export default async function ProjectRequestDetailsPage({
 
           {/* actions */}
           <div
-            className="
-              relative z-10
-              border-t border-border
-              bg-muted/15
-              px-5 py-5
-              sm:px-6
-            "
+            className="relative z-10 border-t border-border bg-muted/15 px-5 py-5 sm:px-6"
           >
             <ClientProposalActions
               proposalId={brief.proposal!.id}
@@ -761,82 +452,33 @@ export default async function ProjectRequestDetailsPage({
         /* ==================================================== */
 
         <section
-          className="
-            relative
-            overflow-hidden
-            border border-dashed border-secondary/25
-            bg-secondary/[0.025]
-            px-6 py-12
-            text-center
-            shadow-[var(--shadow-card)]
-          "
+          className="relative overflow-hidden border border-dashed border-secondary/25 bg-secondary/[0.025] px-6 py-12 text-center shadow-[var(--shadow-card)]"
         >
           <div
             aria-hidden="true"
-            className="
-              pointer-events-none
-              absolute left-1/2 top-1/2
-              h-52 w-52
-              -translate-x-1/2
-              -translate-y-1/2
-              rounded-full
-              bg-secondary/[0.08]
-              blur-[90px]
-            "
+            className="pointer-events-none absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/[0.08] blur-[90px]"
           />
 
           <div
-            className="
-              relative z-10
-              mx-auto
-              flex h-12 w-12
-              items-center justify-center
-              border border-secondary/15
-              bg-secondary/[0.05]
-              text-secondary
-            "
+            className="relative z-10 mx-auto flex h-12 w-12 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary"
           >
             <FileText className="h-5 w-5" />
           </div>
 
           <p
-            className="
-              relative z-10
-              mt-5
-              font-mono
-              text-[8px]
-              font-semibold
-              uppercase
-              tracking-[0.18em]
-              text-secondary
-            "
+            className="relative z-10 mt-5 font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
           >
             Proposal preparation
           </p>
 
           <h2
-            className="
-              relative z-10
-              mt-2
-              text-xl
-              font-semibold
-              tracking-[-0.025em]
-              text-heading
-            "
+            className="relative z-10 mt-2 text-xl font-semibold tracking-[-0.025em] text-heading"
           >
             Proposal Being Prepared
           </h2>
 
           <p
-            className="
-              relative z-10
-              mx-auto
-              mt-3
-              max-w-lg
-              text-sm
-              leading-6
-              text-muted-foreground
-            "
+            className="relative z-10 mx-auto mt-3 max-w-lg text-sm leading-6 text-muted-foreground"
           >
             Our team is reviewing your request and will prepare a custom
             proposal for you. You will receive a notification as soon as it is
@@ -844,26 +486,12 @@ export default async function ProjectRequestDetailsPage({
           </p>
 
           <div
-            className="
-              relative z-10
-              mx-auto
-              mt-6
-              flex
-              w-fit
-              items-center
-              gap-2
-            "
+            className="relative z-10 mx-auto mt-6 flex w-fit items-center gap-2"
           >
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-secondary" />
 
             <span
-              className="
-                font-mono
-                text-[7px]
-                uppercase
-                tracking-[0.15em]
-                text-muted-foreground/40
-              "
+              className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
             >
               Blackcrest review in progress
             </span>
@@ -876,12 +504,7 @@ export default async function ProjectRequestDetailsPage({
       {/* ====================================================== */}
 
       <div
-        className="
-          grid
-          grid-cols-1
-          gap-6
-          xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.45fr)]
-        "
+        className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.45fr)]"
       >
         {/* ==================================================== */}
         {/* MAIN CONTENT                                         */}
@@ -890,58 +513,27 @@ export default async function ProjectRequestDetailsPage({
         <div className="space-y-6">
           {/* Project Description */}
           <section
-            className="
-              relative
-              overflow-hidden
-              border border-border
-              bg-card
-              shadow-[var(--shadow-card)]
-            "
+            className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
           >
             <div
-              className="
-                absolute left-0 top-0
-                h-[2px] w-full
-                bg-gradient-to-r
-                from-secondary
-                via-secondary/35
-                to-transparent
-              "
+              className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
             />
 
             <div
-              className="
-                border-b border-border
-                px-5 py-5
-                sm:px-6
-              "
+              className="border-b border-border px-5 py-5 sm:px-6"
             >
               <div className="flex items-center gap-2">
                 <FileText className="h-3.5 w-3.5 text-secondary" />
 
                 <span
-                  className="
-                    font-mono
-                    text-[8px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.18em]
-                    text-secondary
-                  "
+                  className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
                 >
                   Project context
                 </span>
               </div>
 
               <h2
-                className="
-                  mt-2
-                  text-lg
-                  font-semibold
-                  tracking-[-0.025em]
-                  text-heading
-                  sm:text-xl
-                "
+                className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl"
               >
                 Project Description
               </h2>
@@ -949,12 +541,7 @@ export default async function ProjectRequestDetailsPage({
 
             <div className="px-5 py-6 sm:px-6">
               <p
-                className="
-                  whitespace-pre-wrap
-                  text-sm
-                  leading-7
-                  text-muted-foreground
-                "
+                className="whitespace-pre-wrap text-sm leading-7 text-muted-foreground"
               >
                 {brief.problem}
               </p>
@@ -964,57 +551,27 @@ export default async function ProjectRequestDetailsPage({
           {/* Project Goals */}
           {brief.projectGoals && (
             <section
-              className="
-                relative
-                overflow-hidden
-                border border-border
-                bg-card
-                shadow-[var(--shadow-card)]
-              "
+              className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
             >
               <div
-                className="
-                  absolute left-0 top-0
-                  h-[2px] w-full
-                  bg-gradient-to-r
-                  from-secondary
-                  via-secondary/35
-                  to-transparent
-                "
+                className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
               />
 
               <div
-                className="
-                  border-b border-border
-                  px-5 py-5
-                  sm:px-6
-                "
+                className="border-b border-border px-5 py-5 sm:px-6"
               >
                 <div className="flex items-center gap-2">
                   <Target className="h-3.5 w-3.5 text-secondary" />
 
                   <span
-                    className="
-                      font-mono
-                      text-[8px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.18em]
-                      text-secondary
-                    "
+                    className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
                   >
                     Desired outcome
                   </span>
                 </div>
 
                 <h2
-                  className="
-                    mt-2
-                    text-lg
-                    font-semibold
-                    tracking-[-0.025em]
-                    text-heading
-                  "
+                  className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading"
                 >
                   Project Goals
                 </h2>
@@ -1022,12 +579,7 @@ export default async function ProjectRequestDetailsPage({
 
               <div className="px-5 py-6 sm:px-6">
                 <p
-                  className="
-                    whitespace-pre-wrap
-                    text-sm
-                    leading-7
-                    text-muted-foreground
-                  "
+                  className="whitespace-pre-wrap text-sm leading-7 text-muted-foreground"
                 >
                   {brief.projectGoals}
                 </p>
@@ -1038,57 +590,27 @@ export default async function ProjectRequestDetailsPage({
           {/* Target Audience */}
           {brief.targetAudience && (
             <section
-              className="
-                relative
-                overflow-hidden
-                border border-border
-                bg-card
-                shadow-[var(--shadow-card)]
-              "
+              className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
             >
               <div
-                className="
-                  absolute left-0 top-0
-                  h-[2px] w-full
-                  bg-gradient-to-r
-                  from-secondary
-                  via-secondary/35
-                  to-transparent
-                "
+                className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
               />
 
               <div
-                className="
-                  border-b border-border
-                  px-5 py-5
-                  sm:px-6
-                "
+                className="border-b border-border px-5 py-5 sm:px-6"
               >
                 <div className="flex items-center gap-2">
                   <Users className="h-3.5 w-3.5 text-secondary" />
 
                   <span
-                    className="
-                      font-mono
-                      text-[8px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.18em]
-                      text-secondary
-                    "
+                    className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
                   >
                     Audience profile
                   </span>
                 </div>
 
                 <h2
-                  className="
-                    mt-2
-                    text-lg
-                    font-semibold
-                    tracking-[-0.025em]
-                    text-heading
-                  "
+                  className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading"
                 >
                   Target Audience
                 </h2>
@@ -1096,12 +618,7 @@ export default async function ProjectRequestDetailsPage({
 
               <div className="px-5 py-6 sm:px-6">
                 <p
-                  className="
-                    whitespace-pre-wrap
-                    text-sm
-                    leading-7
-                    text-muted-foreground
-                  "
+                  className="whitespace-pre-wrap text-sm leading-7 text-muted-foreground"
                 >
                   {brief.targetAudience}
                 </p>
@@ -1112,72 +629,34 @@ export default async function ProjectRequestDetailsPage({
           {/* Reference Links */}
           {brief.referenceLinks && (
             <section
-              className="
-                relative
-                overflow-hidden
-                border border-border
-                bg-card
-                shadow-[var(--shadow-card)]
-              "
+              className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
             >
               <div
-                className="
-                  absolute left-0 top-0
-                  h-[2px] w-full
-                  bg-gradient-to-r
-                  from-secondary
-                  via-secondary/35
-                  to-transparent
-                "
+                className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
               />
 
               <div
-                className="
-                  border-b border-border
-                  px-5 py-5
-                  sm:px-6
-                "
+                className="border-b border-border px-5 py-5 sm:px-6"
               >
                 <div className="flex items-center gap-2">
                   <Link2 className="h-3.5 w-3.5 text-secondary" />
 
                   <span
-                    className="
-                      font-mono
-                      text-[8px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.18em]
-                      text-secondary
-                    "
+                    className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
                   >
                     Supporting material
                   </span>
                 </div>
 
                 <h2
-                  className="
-                    mt-2
-                    text-lg
-                    font-semibold
-                    tracking-[-0.025em]
-                    text-heading
-                  "
+                  className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading"
                 >
                   Reference Links
                 </h2>
               </div>
 
               <div
-                className="
-                  break-words
-                  whitespace-pre-wrap
-                  px-5 py-6
-                  text-sm
-                  leading-7
-                  text-muted-foreground
-                  sm:px-6
-                "
+                className="break-words whitespace-pre-wrap px-5 py-6 text-sm leading-7 text-muted-foreground sm:px-6"
               >
                 {brief.referenceLinks}
               </div>
@@ -1187,76 +666,35 @@ export default async function ProjectRequestDetailsPage({
           {/* Attachments */}
           {brief.attachments.length > 0 && (
             <section
-              className="
-                relative
-                overflow-hidden
-                border border-border
-                bg-card
-                shadow-[var(--shadow-card)]
-              "
+              className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
             >
               <div
-                className="
-                  absolute left-0 top-0
-                  h-[2px] w-full
-                  bg-gradient-to-r
-                  from-secondary
-                  via-secondary/35
-                  to-transparent
-                "
+                className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
               />
 
               <div
-                className="
-                  flex items-center
-                  justify-between
-                  gap-4
-                  border-b border-border
-                  px-5 py-5
-                  sm:px-6
-                "
+                className="flex items-center justify-between gap-4 border-b border-border px-5 py-5 sm:px-6"
               >
                 <div>
                   <div className="flex items-center gap-2">
                     <Paperclip className="h-3.5 w-3.5 text-secondary" />
 
                     <span
-                      className="
-                        font-mono
-                        text-[8px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.18em]
-                        text-secondary
-                      "
+                      className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
                     >
                       Supporting files
                     </span>
                   </div>
 
                   <h2
-                    className="
-                      mt-2
-                      text-lg
-                      font-semibold
-                      tracking-[-0.025em]
-                      text-heading
-                    "
+                    className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading"
                   >
                     Attachments
                   </h2>
                 </div>
 
                 <div
-                  className="
-                    border border-border
-                    bg-background/60
-                    px-3 py-2
-                    font-mono
-                    text-[8px]
-                    font-semibold
-                    text-heading
-                  "
+                  className="border border-border bg-background/60 px-3 py-2 font-mono text-[8px] font-semibold text-heading"
                 >
                   {brief.attachments.length}
                 </div>
@@ -1266,40 +704,17 @@ export default async function ProjectRequestDetailsPage({
                 {brief.attachments.map((attachment, index) => (
                   <div
                     key={attachment}
-                    className="
-                      group
-                      flex
-                      items-center
-                      gap-3
-                      px-5 py-4
-                      transition-colors
-                      duration-200
-                      hover:bg-secondary/[0.025]
-                      sm:px-6
-                    "
+                    className="group flex items-center gap-3 px-5 py-4 transition-colors duration-200 hover:bg-secondary/[0.025] sm:px-6"
                   >
                     <div
-                      className="
-                        flex h-9 w-9
-                        shrink-0
-                        items-center justify-center
-                        border border-secondary/15
-                        bg-secondary/[0.05]
-                        text-secondary
-                      "
+                      className="flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary"
                     >
                       <Paperclip className="h-4 w-4" />
                     </div>
 
                     <div className="min-w-0 flex-1">
                       <p
-                        className="
-                          font-mono
-                          text-[7px]
-                          uppercase
-                          tracking-[0.15em]
-                          text-muted-foreground/35
-                        "
+                        className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/35"
                       >
                         Attachment {String(index + 1).padStart(2, "0")}
                       </p>
@@ -1308,32 +723,14 @@ export default async function ProjectRequestDetailsPage({
                         href={attachment}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="
-                          mt-1
-                          block
-                          truncate
-                          text-sm
-                          font-medium
-                          text-heading
-                          transition-colors
-                          hover:text-secondary
-                        "
+                        className="mt-1 block truncate text-sm font-medium text-heading transition-colors hover:text-secondary"
                       >
                         {getFileName(attachment)}
                       </a>
                     </div>
 
                     <ArrowUpRight
-                      className="
-                        h-4 w-4
-                        shrink-0
-                        text-muted-foreground/35
-                        transition-all
-                        duration-200
-                        group-hover:-translate-y-0.5
-                        group-hover:translate-x-0.5
-                        group-hover:text-secondary
-                      "
+                      className="h-4 w-4 shrink-0 text-muted-foreground/35 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-secondary"
                     />
                   </div>
                 ))}
@@ -1349,53 +746,23 @@ export default async function ProjectRequestDetailsPage({
         <aside className="space-y-6">
           {/* Request Information */}
           <section
-            className="
-              relative
-              overflow-hidden
-              border border-border
-              bg-card
-              shadow-[var(--shadow-card)]
-            "
+            className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
           >
             <div
-              className="
-                absolute left-0 top-0
-                h-[2px] w-full
-                bg-gradient-to-r
-                from-secondary
-                via-secondary/35
-                to-transparent
-              "
+              className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
             />
 
             <div
-              className="
-                border-b border-border
-                px-5 py-5
-                sm:px-6
-              "
+              className="border-b border-border px-5 py-5 sm:px-6"
             >
               <p
-                className="
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.18em]
-                  text-secondary
-                "
+                className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
               >
                 Request record
               </p>
 
               <h2
-                className="
-                  mt-2
-                  text-lg
-                  font-semibold
-                  tracking-[-0.025em]
-                  text-heading
-                "
+                className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading"
               >
                 Request Information
               </h2>
@@ -1407,25 +774,13 @@ export default async function ProjectRequestDetailsPage({
 
                 <div>
                   <p
-                    className="
-                      font-mono
-                      text-[7px]
-                      uppercase
-                      tracking-[0.15em]
-                      text-muted-foreground/40
-                    "
+                    className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
                   >
                     Service
                   </p>
 
                   <p
-                    className="
-                      mt-1
-                      text-sm
-                      font-medium
-                      capitalize
-                      text-heading
-                    "
+                    className="mt-1 text-sm font-medium capitalize text-heading"
                   >
                     {brief.pillar.replace(/_/g, " ")}
                   </p>
@@ -1437,13 +792,7 @@ export default async function ProjectRequestDetailsPage({
 
                 <div>
                   <p
-                    className="
-                      font-mono
-                      text-[7px]
-                      uppercase
-                      tracking-[0.15em]
-                      text-muted-foreground/40
-                    "
+                    className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
                   >
                     Budget
                   </p>
@@ -1461,13 +810,7 @@ export default async function ProjectRequestDetailsPage({
 
                 <div>
                   <p
-                    className="
-                      font-mono
-                      text-[7px]
-                      uppercase
-                      tracking-[0.15em]
-                      text-muted-foreground/40
-                    "
+                    className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
                   >
                     Deadline
                   </p>
@@ -1485,13 +828,7 @@ export default async function ProjectRequestDetailsPage({
 
                 <div>
                   <p
-                    className="
-                      font-mono
-                      text-[7px]
-                      uppercase
-                      tracking-[0.15em]
-                      text-muted-foreground/40
-                    "
+                    className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
                   >
                     Submitted
                   </p>
@@ -1507,13 +844,7 @@ export default async function ProjectRequestDetailsPage({
 
                 <div>
                   <p
-                    className="
-                      font-mono
-                      text-[7px]
-                      uppercase
-                      tracking-[0.15em]
-                      text-muted-foreground/40
-                    "
+                    className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
                   >
                     Last Updated
                   </p>
@@ -1528,35 +859,15 @@ export default async function ProjectRequestDetailsPage({
 
           {/* Current Status */}
           <section
-            className="
-              relative
-              overflow-hidden
-              border border-secondary/20
-              bg-secondary/[0.025]
-              shadow-[var(--shadow-card)]
-            "
+            className="relative overflow-hidden border border-secondary/20 bg-secondary/[0.025] shadow-[var(--shadow-card)]"
           >
             <div
               aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute -right-16 -top-20
-                h-40 w-40
-                rounded-full
-                bg-secondary/[0.08]
-                blur-3xl
-              "
+              className="pointer-events-none absolute -right-16 -top-20 h-40 w-40 rounded-full bg-secondary/[0.08] blur-3xl"
             />
 
             <div
-              className="
-                absolute left-0 top-0
-                h-[2px] w-full
-                bg-gradient-to-r
-                from-secondary
-                via-secondary/40
-                to-transparent
-              "
+              className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
             />
 
             <div className="relative z-10 px-5 py-5 sm:px-6">
@@ -1564,27 +875,14 @@ export default async function ProjectRequestDetailsPage({
                 <Sparkles className="h-3.5 w-3.5 text-secondary" />
 
                 <span
-                  className="
-                    font-mono
-                    text-[8px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.17em]
-                    text-secondary
-                  "
+                  className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
                 >
                   Review progress
                 </span>
               </div>
 
               <h2
-                className="
-                  mt-3
-                  text-lg
-                  font-semibold
-                  tracking-[-0.025em]
-                  text-heading
-                "
+                className="mt-3 text-lg font-semibold tracking-[-0.025em] text-heading"
               >
                 Current Status
               </h2>
@@ -1594,36 +892,19 @@ export default async function ProjectRequestDetailsPage({
               </div>
 
               <p
-                className="
-                  mt-4
-                  text-sm
-                  leading-6
-                  text-muted-foreground
-                "
+                className="mt-4 text-sm leading-6 text-muted-foreground"
               >
                 Our team will update the status as your project request moves
                 through the review process.
               </p>
 
               <div
-                className="
-                  mt-5
-                  flex items-center
-                  gap-2
-                  border-t border-border
-                  pt-4
-                "
+                className="mt-5 flex items-center gap-2 border-t border-border pt-4"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    uppercase
-                    tracking-[0.15em]
-                    text-muted-foreground/40
-                  "
+                  className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
                 >
                   Request monitored
                 </span>
@@ -1636,11 +917,7 @@ export default async function ProjectRequestDetailsPage({
             href="/client/dashboard/project-requests"
             variant="outline"
             size="md"
-            className="
-              group
-              w-full
-              justify-between
-            "
+            className="group w-full justify-between"
           >
             <span className="flex items-center gap-2">
               <ChevronLeft className="h-4 w-4" />
@@ -1648,13 +925,7 @@ export default async function ProjectRequestDetailsPage({
             </span>
 
             <span
-              className="
-                font-mono
-                text-[7px]
-                uppercase
-                tracking-[0.14em]
-                text-muted-foreground/40
-              "
+              className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
             >
               Return
             </span>

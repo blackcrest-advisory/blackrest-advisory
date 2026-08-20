@@ -183,36 +183,18 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
           duration: 0.45,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="
-          relative
-          overflow-hidden
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
         {/* ambient glow */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -right-32 -top-36
-            h-[340px] w-[340px]
-            rounded-full
-            bg-secondary/[0.07]
-            blur-[110px]
-          "
+          className="pointer-events-none absolute -right-32 -top-36 h-[340px] w-[340px] rounded-full bg-secondary/[0.07] blur-[110px]"
         />
 
         {/* architectural grid */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute inset-0
-            hidden opacity-[0.05]
-            lg:block
-          "
+          className="pointer-events-none absolute inset-0 hidden opacity-[0.05] lg:block"
           style={{
             backgroundImage: `
               linear-gradient(
@@ -236,28 +218,11 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
 
         {/* top signal */}
         <div
-          className="
-            absolute left-0 top-0
-            h-[2px] w-full
-            bg-gradient-to-r
-            from-secondary
-            via-secondary/40
-            to-transparent
-          "
+          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
         />
 
         <div
-          className="
-            relative z-10
-            grid
-            gap-8
-            px-5 py-7
-            sm:px-6
-            lg:grid-cols-[minmax(0,1fr)_320px]
-            lg:items-stretch
-            lg:px-8
-            lg:py-8
-          "
+          className="relative z-10 grid gap-8 px-5 py-7 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-stretch lg:px-8 lg:py-8"
         >
           {/* ================================================== */}
           {/* LEFT                                               */}
@@ -270,14 +235,7 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
                   <Radar className="h-3.5 w-3.5 text-secondary" />
 
                   <span
-                    className="
-                      font-mono
-                      text-[8px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.18em]
-                      text-secondary
-                    "
+                    className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
                   >
                     Commercial pipeline
                   </span>
@@ -286,40 +244,20 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
                 <span className="h-px w-8 bg-secondary/30" />
 
                 <span
-                  className="
-                    font-mono
-                    text-[8px]
-                    uppercase
-                    tracking-[0.15em]
-                    text-muted-foreground/40
-                  "
+                  className="font-mono text-[8px] uppercase tracking-[0.15em] text-muted-foreground/40"
                 >
                   Admin / CRM
                 </span>
               </div>
 
               <h1
-                className="
-                  mt-5
-                  text-3xl
-                  font-semibold
-                  tracking-[-0.045em]
-                  text-heading
-                  sm:text-4xl
-                "
+                className="mt-5 text-3xl font-semibold tracking-[-0.045em] text-heading sm:text-4xl"
               >
                 Leads
               </h1>
 
               <p
-                className="
-                  mt-3
-                  max-w-2xl
-                  text-sm
-                  leading-7
-                  text-muted-foreground
-                  sm:text-base
-                "
+                className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base"
               >
                 Manage the Blackcrest acquisition pipeline, qualify incoming
                 opportunities, assign ownership, and convert qualified leads
@@ -329,25 +267,14 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
 
             {/* metadata */}
             <div
-              className="
-                mt-7
-                grid
-                gap-3
-                sm:grid-cols-3
-              "
+              className="mt-7 grid gap-3 sm:grid-cols-3"
             >
               <div className="border-t border-border pt-3">
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
                   <span
-                    className="
-                      font-mono
-                      text-[7px]
-                      uppercase
-                      tracking-[0.15em]
-                      text-muted-foreground/40
-                    "
+                    className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
                   >
                     Pipeline active
                   </span>
@@ -381,25 +308,11 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
           {/* ================================================== */}
 
           <div
-            className="
-              relative
-              overflow-hidden
-              border border-secondary/15
-              bg-secondary/[0.025]
-              p-5
-              sm:p-6
-            "
+            className="relative overflow-hidden border border-secondary/15 bg-secondary/[0.025] p-5 sm:p-6"
           >
             <div
               aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute -right-16 -top-20
-                h-40 w-40
-                rounded-full
-                bg-secondary/[0.08]
-                blur-3xl
-              "
+              className="pointer-events-none absolute -right-16 -top-20 h-40 w-40 rounded-full bg-secondary/[0.08] blur-3xl"
             />
 
             <div className="relative z-10">
@@ -409,52 +322,28 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
                     <Sparkles className="h-3.5 w-3.5 text-secondary" />
 
                     <span
-                      className="
-                        font-mono
-                        text-[8px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.17em]
-                        text-secondary
-                      "
+                      className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
                     >
                       Pipeline command
                     </span>
                   </div>
 
                   <h2
-                    className="
-                      mt-3
-                      text-lg
-                      font-semibold
-                      tracking-[-0.025em]
-                      text-heading
-                    "
+                    className="mt-3 text-lg font-semibold tracking-[-0.025em] text-heading"
                   >
                     Capture a new opportunity
                   </h2>
                 </div>
 
                 <div
-                  className="
-                    flex h-9 w-9
-                    items-center justify-center
-                    border border-secondary/15
-                    bg-secondary/[0.05]
-                    text-secondary
-                  "
+                  className="flex h-9 w-9 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary"
                 >
                   <BriefcaseBusiness className="h-4 w-4" />
                 </div>
               </div>
 
               <p
-                className="
-                  mt-3
-                  text-xs
-                  leading-5
-                  text-muted-foreground
-                "
+                className="mt-3 text-xs leading-5 text-muted-foreground"
               >
                 Add a lead manually and begin qualification immediately.
               </p>
@@ -463,12 +352,7 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
                 variant="primary"
                 size="sm"
                 onClick={() => router.push("/admin/dashboard/leads/new")}
-                className="
-                  group
-                  mt-5
-                  w-full
-                  justify-between
-                "
+                className="group mt-5 w-full justify-between"
               >
                 <span className="flex items-center gap-2">
                   <Plus className="h-4 w-4" />
@@ -476,49 +360,25 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
                 </span>
 
                 <ArrowUpRight
-                  className="
-                    h-4 w-4
-                    transition-transform
-                    duration-200
-                    group-hover:-translate-y-0.5
-                    group-hover:translate-x-0.5
-                  "
+                  className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 />
               </Button>
 
               <div
-                className="
-                  mt-5
-                  flex items-center
-                  justify-between
-                  border-t border-border
-                  pt-4
-                "
+                className="mt-5 flex items-center justify-between border-t border-border pt-4"
               >
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
                   <span
-                    className="
-                      font-mono
-                      text-[7px]
-                      uppercase
-                      tracking-[0.15em]
-                      text-muted-foreground/40
-                    "
+                    className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
                   >
                     CRM online
                   </span>
                 </div>
 
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    uppercase
-                    tracking-[0.14em]
-                    text-secondary
-                  "
+                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-secondary"
                 >
                   BCR
                 </span>
@@ -541,24 +401,11 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
       {/* ====================================================== */}
 
       <section
-        className="
-          relative
-          overflow-hidden
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
         {/* accent */}
         <div
-          className="
-            absolute left-0 top-0
-            h-[2px] w-full
-            bg-gradient-to-r
-            from-secondary
-            via-secondary/35
-            to-transparent
-          "
+          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
         />
 
         {/* ==================================================== */}
@@ -566,35 +413,17 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
         {/* ==================================================== */}
 
         <div
-          className="
-            border-b border-border
-            px-5 py-5
-            sm:px-6
-          "
+          className="border-b border-border px-5 py-5 sm:px-6"
         >
           <div
-            className="
-              flex
-              flex-col
-              gap-4
-              xl:flex-row
-              xl:items-end
-              xl:justify-between
-            "
+            className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between"
           >
             <div>
               <div className="flex items-center gap-2">
                 <Search className="h-3.5 w-3.5 text-secondary" />
 
                 <span
-                  className="
-                    font-mono
-                    text-[8px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.18em]
-                    text-secondary
-                  "
+                  className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
                 >
                   Pipeline control
                 </span>
@@ -603,25 +432,13 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
               </div>
 
               <h2
-                className="
-                  mt-2
-                  text-lg
-                  font-semibold
-                  tracking-[-0.025em]
-                  text-heading
-                  sm:text-xl
-                "
+                className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl"
               >
                 Lead Directory
               </h2>
 
               <p
-                className="
-                  mt-1
-                  text-xs
-                  leading-5
-                  text-muted-foreground
-                "
+                className="mt-1 text-xs leading-5 text-muted-foreground"
               >
                 Search, segment, qualify, convert, and manage leads from one
                 operational workspace.
@@ -629,24 +446,10 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
             </div>
 
             <div
-              className="
-                flex
-                w-fit
-                items-center
-                gap-2
-                border border-border
-                bg-background/60
-                px-3 py-2
-              "
+              className="flex w-fit items-center gap-2 border border-border bg-background/60 px-3 py-2"
             >
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  uppercase
-                  tracking-[0.15em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
               >
                 Showing
               </span>
@@ -665,12 +468,7 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
         {/* ==================================================== */}
 
         <div
-          className="
-            border-b border-border
-            bg-muted/10
-            px-5 py-4
-            sm:px-6
-          "
+          className="border-b border-border bg-muted/10 px-5 py-4 sm:px-6"
         >
           <LeadFilters
             onFilterChange={handleFilterChange}
@@ -699,12 +497,7 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
         {/* ==================================================== */}
 
         <div
-          className="
-            border-t border-border
-            bg-muted/15
-            px-5 py-4
-            sm:px-6
-          "
+          className="border-t border-border bg-muted/15 px-5 py-4 sm:px-6"
         >
           <Pagination
             currentPage={activePage}

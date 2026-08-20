@@ -24,12 +24,7 @@ function Skeleton({ className = "" }: { className?: string }) {
 export default function AdminSettingsLoading() {
   return (
     <div
-      className="
-        relative
-        min-w-0
-        max-w-full
-        space-y-6
-      "
+      className="relative min-w-0 max-w-full space-y-6"
       aria-label="Loading admin settings"
     >
       {/* ====================================================== */}
@@ -37,56 +32,22 @@ export default function AdminSettingsLoading() {
       {/* ====================================================== */}
 
       <header
-        className="
-          relative
-          min-w-0
-          overflow-hidden
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
         {/* architectural rail */}
         <div
           aria-hidden="true"
-          className="
-            absolute
-            bottom-0 left-0 top-0
-            w-[3px]
-            bg-gradient-to-b
-            from-secondary/40
-            via-secondary/20
-            to-transparent
-          "
+          className="absolute bottom-0 left-0 top-0 w-[3px] bg-gradient-to-b from-secondary/40 via-secondary/20 to-transparent"
         />
 
         {/* subtle ambient */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute
-            -right-20 -top-20
-            h-64 w-64
-            rounded-full
-            bg-secondary/[0.04]
-            blur-[100px]
-          "
+          className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-secondary/[0.04] blur-[100px]"
         />
 
         <div
-          className="
-            relative z-10
-            grid
-            min-w-0
-            gap-7
-            px-6 py-7
-            sm:px-7
-            lg:px-9
-            lg:py-8
-            xl:grid-cols-[minmax(0,1fr)_360px]
-            xl:items-stretch
-          "
+          className="relative z-10 grid min-w-0 gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_360px] xl:items-stretch"
         >
           {/* ================================================== */}
           {/* TITLE                                              */}
@@ -94,12 +55,7 @@ export default function AdminSettingsLoading() {
 
           <div className="min-w-0">
             <div
-              className="
-                flex
-                flex-wrap
-                items-center
-                gap-3
-              "
+              className="flex flex-wrap items-center gap-3"
             >
               <UserRoundCog className="h-3.5 w-3.5 text-muted-foreground/20" />
 
@@ -111,12 +67,7 @@ export default function AdminSettingsLoading() {
             </div>
 
             <Skeleton
-              className="
-                mt-6
-                h-10
-                w-56
-                sm:h-11
-              "
+              className="mt-6 h-10 w-56 sm:h-11"
             />
 
             <div className="mt-4 space-y-2.5">
@@ -125,14 +76,7 @@ export default function AdminSettingsLoading() {
             </div>
 
             <div
-              className="
-                mt-6
-                flex
-                flex-wrap
-                items-center
-                gap-x-5
-                gap-y-3
-              "
+              className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3"
             >
               {Array.from({
                 length: 3,
@@ -150,24 +94,11 @@ export default function AdminSettingsLoading() {
           {/* ================================================== */}
 
           <div
-            className="
-              min-w-0
-              border border-secondary/15
-              bg-secondary/[0.025]
-              px-5 py-5
-            "
+            className="min-w-0 border border-secondary/15 bg-secondary/[0.025] px-5 py-5"
           >
             <div className="flex items-start gap-3">
               <div
-                className="
-                  flex h-10 w-10
-                  shrink-0
-                  items-center
-                  justify-center
-                  rounded-md
-                  border border-border
-                  bg-background
-                "
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-background"
               >
                 <ShieldCheck className="h-4 w-4 text-muted-foreground/15" />
               </div>
@@ -184,26 +115,14 @@ export default function AdminSettingsLoading() {
             </div>
 
             <div
-              className="
-                mt-5
-                grid
-                grid-cols-3
-                divide-x divide-border
-                border-t border-border
-                pt-4
-              "
+              className="mt-5 grid grid-cols-3 divide-x divide-border border-t border-border pt-4"
             >
               {Array.from({
                 length: 3,
               }).map((_, index) => (
                 <div
                   key={index}
-                  className="
-                    min-w-0
-                    px-3
-                    first:pl-0
-                    last:pr-0
-                  "
+                  className="min-w-0 px-3 first:pl-0 last:pr-0"
                 >
                   <Skeleton className="h-2 w-12" />
                   <Skeleton className="mt-2 h-3 w-14" />
@@ -219,14 +138,7 @@ export default function AdminSettingsLoading() {
       {/* ====================================================== */}
 
       <div
-        className="
-          grid
-          min-w-0
-          max-w-full
-          gap-6
-          xl:grid-cols-[minmax(0,1.45fr)_minmax(300px,0.55fr)]
-          xl:items-start
-        "
+        className="grid min-w-0 max-w-full gap-6 xl:grid-cols-[minmax(0,1.45fr)_minmax(300px,0.55fr)] xl:items-start"
       >
         {/* ==================================================== */}
         {/* MAIN COLUMN                                         */}
@@ -242,11 +154,7 @@ export default function AdminSettingsLoading() {
         {/* ==================================================== */}
 
         <aside
-          className="
-            min-w-0
-            xl:sticky
-            xl:top-4
-          "
+          className="min-w-0 xl:sticky xl:top-4"
         >
           <SecuritySectionSkeleton />
         </aside>
@@ -262,24 +170,12 @@ export default function AdminSettingsLoading() {
 function ProfileSectionSkeleton() {
   return (
     <section
-      className="
-        relative
-        min-w-0
-        overflow-hidden
-        border border-border
-        bg-card
-        shadow-[var(--shadow-card)]
-      "
+      className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
       {/* top signal */}
       <div
         aria-hidden="true"
-        className="
-          absolute
-          left-0 top-0
-          h-[2px] w-24
-          bg-secondary/25
-        "
+        className="absolute left-0 top-0 h-[2px] w-24 bg-secondary/25"
       />
 
       {/* header */}
@@ -287,21 +183,10 @@ function ProfileSectionSkeleton() {
 
       {/* identity */}
       <div
-        className="
-          border-b border-border
-          bg-background/20
-          px-5 py-5
-          sm:px-6
-        "
+        className="border-b border-border bg-background/20 px-5 py-5 sm:px-6"
       >
         <div
-          className="
-            flex
-            flex-col
-            gap-4
-            sm:flex-row
-            sm:items-center
-          "
+          className="flex flex-col gap-4 sm:flex-row sm:items-center"
         >
           <Skeleton className="h-14 w-14 shrink-0 rounded-full" />
 
@@ -317,13 +202,7 @@ function ProfileSectionSkeleton() {
 
       {/* fields */}
       <div
-        className="
-          grid
-          gap-5
-          px-5 py-5
-          sm:grid-cols-2
-          sm:px-6
-        "
+        className="grid gap-5 px-5 py-5 sm:grid-cols-2 sm:px-6"
       >
         {Array.from({
           length: 4,
@@ -334,18 +213,7 @@ function ProfileSectionSkeleton() {
 
       {/* footer */}
       <div
-        className="
-          flex
-          flex-col
-          gap-3
-          border-t border-border
-          bg-muted/10
-          px-5 py-4
-          sm:flex-row
-          sm:items-center
-          sm:justify-between
-          sm:px-6
-        "
+        className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
       >
         <div className="flex items-center gap-2">
           <Skeleton className="h-1.5 w-1.5 rounded-full" />
@@ -365,47 +233,21 @@ function ProfileSectionSkeleton() {
 function SecuritySectionSkeleton() {
   return (
     <section
-      className="
-        relative
-        min-w-0
-        overflow-hidden
-        border border-border
-        bg-card
-        shadow-[var(--shadow-card)]
-      "
+      className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
       {/* top signal */}
       <div
         aria-hidden="true"
-        className="
-          absolute
-          left-0 top-0
-          h-[2px] w-full
-          bg-gradient-to-r
-          from-secondary/25
-          via-secondary/10
-          to-transparent
-        "
+        className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/25 via-secondary/10 to-transparent"
       />
 
       {/* header */}
       <div
-        className="
-          border-b border-border
-          px-5 py-5
-        "
+        className="border-b border-border px-5 py-5"
       >
         <div className="flex items-start gap-3">
           <div
-            className="
-              flex h-9 w-9
-              shrink-0
-              items-center
-              justify-center
-              rounded-md
-              border border-border
-              bg-background
-            "
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background"
           >
             <Fingerprint className="h-4 w-4 text-muted-foreground/15" />
           </div>
@@ -424,14 +266,7 @@ function SecuritySectionSkeleton() {
 
       {/* security state */}
       <div
-        className="
-          flex
-          items-center
-          gap-3
-          border-b border-border
-          bg-success/[0.02]
-          px-5 py-3
-        "
+        className="flex items-center gap-3 border-b border-border bg-success/[0.02] px-5 py-3"
       >
         <ShieldCheck className="h-3.5 w-3.5 text-muted-foreground/15" />
         <Skeleton className="h-2.5 w-40" />
@@ -446,12 +281,7 @@ function SecuritySectionSkeleton() {
         ))}
 
         <div
-          className="
-            border-l-2
-            border-border
-            bg-background/30
-            px-3 py-3
-          "
+          className="border-l-2 border-border bg-background/30 px-3 py-3"
         >
           <Skeleton className="h-3 w-full" />
           <Skeleton className="mt-2 h-3 w-[70%]" />
@@ -460,11 +290,7 @@ function SecuritySectionSkeleton() {
 
       {/* footer */}
       <div
-        className="
-          border-t border-border
-          bg-muted/10
-          px-5 py-4
-        "
+        className="border-t border-border bg-muted/10 px-5 py-4"
       >
         <Skeleton className="h-10 w-full rounded-md" />
       </div>
@@ -479,47 +305,20 @@ function SecuritySectionSkeleton() {
 function NotificationsSectionSkeleton() {
   return (
     <section
-      className="
-        relative
-        min-w-0
-        overflow-hidden
-        border border-border
-        bg-card
-        shadow-[var(--shadow-card)]
-      "
+      className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
       {/* top signal */}
       <div
         aria-hidden="true"
-        className="
-          absolute
-          left-0 top-0
-          h-[2px] w-28
-          bg-secondary/25
-        "
+        className="absolute left-0 top-0 h-[2px] w-28 bg-secondary/25"
       />
 
       {/* header */}
       <div
-        className="
-          flex
-          items-start
-          gap-3
-          border-b border-border
-          px-5 py-4
-          sm:px-6
-        "
+        className="flex items-start gap-3 border-b border-border px-5 py-4 sm:px-6"
       >
         <div
-          className="
-            flex h-9 w-9
-            shrink-0
-            items-center
-            justify-center
-            rounded-md
-            border border-border
-            bg-background
-          "
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background"
         >
           <BellRing className="h-4 w-4 text-muted-foreground/15" />
         </div>
@@ -538,15 +337,7 @@ function NotificationsSectionSkeleton() {
         }).map((_, index) => (
           <div
             key={index}
-            className="
-              grid
-              min-w-0
-              gap-4
-              px-5 py-4
-              sm:grid-cols-[44px_minmax(0,1fr)_auto]
-              sm:items-center
-              sm:px-6
-            "
+            className="grid min-w-0 gap-4 px-5 py-4 sm:grid-cols-[44px_minmax(0,1fr)_auto] sm:items-center sm:px-6"
           >
             <Skeleton className="h-9 w-9 rounded-md" />
 
@@ -574,18 +365,7 @@ function NotificationsSectionSkeleton() {
 
       {/* footer */}
       <div
-        className="
-          flex
-          flex-col
-          gap-3
-          border-t border-border
-          bg-muted/10
-          px-5 py-4
-          sm:flex-row
-          sm:items-center
-          sm:justify-between
-          sm:px-6
-        "
+        className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
       >
         <div className="flex items-center gap-2">
           <Skeleton className="h-1.5 w-1.5 rounded-full" />
@@ -605,14 +385,7 @@ function NotificationsSectionSkeleton() {
 function SectionHeaderSkeleton() {
   return (
     <div
-      className="
-        flex
-        items-start
-        gap-3
-        border-b border-border
-        px-5 py-4
-        sm:px-6
-      "
+      className="flex items-start gap-3 border-b border-border px-5 py-4 sm:px-6"
     >
       <Skeleton className="h-9 w-9 shrink-0 rounded-md" />
 

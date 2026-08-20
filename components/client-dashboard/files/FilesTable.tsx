@@ -43,40 +43,17 @@ export const FilesTable = ({ files }: FilesTableProps) => {
       {/* ====================================================== */}
 
       <div
-        className="
-          hidden
-          min-w-0
-          max-w-full
-          overflow-x-auto
-          md:block
-        "
+        className="hidden min-w-0 max-w-full overflow-x-auto md:block"
       >
         <Table className="min-w-[860px]">
           <TableHeader>
             <TableRow
-              className="
-                border-b border-border
-                bg-muted/15
-                hover:bg-muted/15
-              "
+              className="border-b border-border bg-muted/15 hover:bg-muted/15"
             >
               {tableColumns.map((column) => (
                 <TableHead
                   key={column}
-                  className="
-                      h-11
-                      whitespace-nowrap
-                      px-4
-                      font-mono
-                      text-[7px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.14em]
-                      text-muted-foreground/45
-                      first:pl-6
-                      last:pr-6
-                      last:text-right
-                    "
+                  className="h-11 whitespace-nowrap px-4 font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/45 first:pl-6 last:pr-6 last:text-right"
                 >
                   {column}
                 </TableHead>
@@ -97,18 +74,12 @@ export const FilesTable = ({ files }: FilesTableProps) => {
       {/* ====================================================== */}
 
       <div
-        className="
-          divide-y divide-border
-          md:hidden
-        "
+        className="divide-y divide-border md:hidden"
       >
         {files.map((file) => (
           <div
             key={file.id}
-            className="
-              px-4 py-4
-              sm:px-5
-            "
+            className="px-4 py-4 sm:px-5"
           >
             <FilesMobileCard file={file} />
           </div>

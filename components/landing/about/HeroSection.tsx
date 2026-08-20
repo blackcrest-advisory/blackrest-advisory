@@ -154,16 +154,7 @@ export const HeroSection = () => {
                 duration: 0.7,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="
-                mt-7 max-w-4xl
-                text-4xl font-semibold
-                leading-[1.02]
-                tracking-[-0.05em]
-                text-heading
-                sm:text-5xl
-                md:text-6xl
-                lg:text-[4.7rem]
-              "
+              className="mt-7 max-w-4xl text-4xl font-semibold leading-[1.02] tracking-[-0.05em] text-heading sm:text-5xl md:text-6xl lg:text-[4.7rem]"
             >
               Built for businesses
               <span className="block text-muted-foreground">
@@ -292,14 +283,7 @@ export const HeroSection = () => {
               transition={{
                 duration: 0.3,
               }}
-              className="
-                group relative overflow-hidden
-                border border-border
-                bg-card
-                p-7
-                shadow-[var(--shadow-card)]
-                sm:p-8
-              "
+              className="group relative overflow-hidden border border-border bg-card p-7 shadow-[var(--shadow-card)] sm:p-8"
             >
               {/* hover scan */}
               {!reduceMotion && (
@@ -384,12 +368,7 @@ export const HeroSection = () => {
                       transition={{
                         delay: 0.5 + index * 0.1,
                       }}
-                      className="
-                        flex items-center justify-between
-                        border-b border-border/70
-                        py-3
-                        last:border-none
-                      "
+                      className="flex items-center justify-between border-b border-border/70 py-3 last:border-none"
                     >
                       <div className="flex items-center gap-4">
                         <span className="font-mono text-[9px] text-secondary">
@@ -422,12 +401,7 @@ export const HeroSection = () => {
                 delay: 0.7,
                 duration: 0.5,
               }}
-              className="
-                relative mt-4
-                flex items-center justify-between
-                border-l border-secondary/30
-                pl-4
-              "
+              className="relative mt-4 flex items-center justify-between border-l border-secondary/30 pl-4"
             >
               <div className="flex items-center gap-3">
                 <Network className="h-4 w-4 text-secondary" strokeWidth={1.8} />
@@ -459,14 +433,7 @@ export const HeroSection = () => {
             delay: 0.75,
             duration: 0.6,
           }}
-          className="
-            mt-16
-            grid gap-6
-            border-t border-border
-            pt-7
-            sm:grid-cols-[auto_1fr]
-            sm:items-center
-          "
+          className="mt-16 grid gap-6 border-t border-border pt-7 sm:grid-cols-[auto_1fr] sm:items-center"
         >
           <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
             What defines us

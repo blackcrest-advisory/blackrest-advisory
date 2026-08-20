@@ -48,13 +48,7 @@ export const EngagementFAQ = () => {
   return (
     <Section
       id="faq"
-      className="
-        relative overflow-hidden
-        bg-background
-        py-16 text-foreground
-        transition-colors duration-300
-        sm:py-20 lg:py-28
-      "
+      className="relative overflow-hidden bg-background py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-28"
     >
       {/* Subtle architecture */}
       <div className="pointer-events-none absolute inset-0">
@@ -127,13 +121,7 @@ export const EngagementFAQ = () => {
                 duration: 0.6,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="
-                mt-6 max-w-md
-                text-4xl font-semibold
-                tracking-[-0.045em]
-                text-heading
-                sm:text-5xl
-              "
+              className="mt-6 max-w-md text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl"
             >
               Questions before
               <span className="block text-muted-foreground">
@@ -170,14 +158,7 @@ export const EngagementFAQ = () => {
               }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="
-                mt-10
-                border border-border
-                bg-card
-                p-5
-                text-card-foreground
-                shadow-[var(--shadow-card)]
-              "
+              className="mt-10 border border-border bg-card p-5 text-card-foreground shadow-[var(--shadow-card)]"
             >
               <div className="flex items-start gap-4">
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.07] text-secondary">
@@ -244,15 +225,7 @@ export const EngagementFAQ = () => {
                     onClick={() => setOpenIndex(isOpen ? null : index)}
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${index}`}
-                    className="
-                      group relative
-                      grid w-full
-                      grid-cols-[40px_1fr_auto]
-                      items-start gap-4
-                      py-6 text-left
-                      sm:grid-cols-[56px_1fr_auto]
-                      sm:py-7
-                    "
+                    className="group relative grid w-full grid-cols-[40px_1fr_auto] items-start gap-4 py-6 text-left sm:grid-cols-[56px_1fr_auto] sm:py-7"
                   >
                     {/* number */}
                     <span
@@ -372,12 +345,7 @@ export const EngagementFAQ = () => {
                           transition={{
                             duration: 0.35,
                           }}
-                          className="
-                            grid
-                            grid-cols-[40px_1fr]
-                            gap-4 pb-7
-                            sm:grid-cols-[56px_1fr]
-                          "
+                          className="grid grid-cols-[40px_1fr] gap-4 pb-7 sm:grid-cols-[56px_1fr]"
                         >
                           <div />
 
@@ -413,13 +381,7 @@ export const EngagementFAQ = () => {
                 y: 0,
               }}
               viewport={{ once: true }}
-              className="
-                flex flex-col gap-4
-                py-6
-                sm:flex-row
-                sm:items-center
-                sm:justify-between
-              "
+              className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between"
             >
               <p className="text-xs leading-6 text-muted-foreground">
                 Still unsure about scope, pricing, or the right engagement
@@ -428,14 +390,7 @@ export const EngagementFAQ = () => {
 
               <a
                 href="/contact"
-                className="
-                  group inline-flex
-                  items-center gap-2
-                  text-xs font-semibold
-                  text-foreground
-                  transition-colors
-                  hover:text-secondary
-                "
+                className="group inline-flex items-center gap-2 text-xs font-semibold text-foreground transition-colors hover:text-secondary"
               >
                 Start a conversation
                 <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

@@ -22,13 +22,7 @@ export default async function AdminSettingsPage() {
       {/* ====================================================== */}
 
       <div
-        className="
-          grid
-          min-w-0
-          gap-6
-          xl:grid-cols-[minmax(0,1.45fr)_minmax(320px,0.55fr)]
-          xl:items-start
-        "
+        className="grid min-w-0 gap-6 xl:grid-cols-[minmax(0,1.45fr)_minmax(320px,0.55fr)] xl:items-start"
       >
         {/* ==================================================== */}
         {/* MAIN SETTINGS                                       */}
@@ -45,12 +39,7 @@ export default async function AdminSettingsPage() {
         {/* ==================================================== */}
 
         <aside
-          className="
-            min-w-0
-            space-y-6
-            xl:sticky
-            xl:top-4
-          "
+          className="min-w-0 space-y-6 xl:sticky xl:top-4"
         >
           <AdminSecuritySection />
         </aside>

@@ -68,14 +68,7 @@ export default function DashboardSidebarItems({
         {isActive && (
           <motion.div
             layoutId="sidebar-active-bg"
-            className="
-              pointer-events-none
-              absolute inset-0
-              bg-gradient-to-r
-              from-secondary/[0.06]
-              via-secondary/[0.025]
-              to-transparent
-            "
+            className="pointer-events-none absolute inset-0 bg-gradient-to-r from-secondary/[0.06] via-secondary/[0.025] to-transparent"
             transition={{
               type: "spring",
               stiffness: 420,
@@ -91,16 +84,7 @@ export default function DashboardSidebarItems({
         {isActive && (
           <motion.div
             layoutId="activeIndicator"
-            className="
-              absolute
-              left-0
-              top-1/2
-              h-6
-              w-[2px]
-              -translate-y-1/2
-              bg-secondary
-              shadow-[0_0_10px_var(--color-secondary)]
-            "
+            className="absolute left-0 top-1/2 h-6 w-[2px] -translate-y-1/2 bg-secondary shadow-[0_0_10px_var(--color-secondary)]"
             transition={{
               type: "spring",
               stiffness: 500,
@@ -195,14 +179,7 @@ export default function DashboardSidebarItems({
               opacity: 1,
               scale: 1,
             }}
-            className="
-              relative z-10
-              h-1.5 w-1.5
-              shrink-0
-              rounded-full
-              bg-secondary
-              shadow-[0_0_8px_var(--color-secondary)]
-            "
+            className="relative z-10 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary shadow-[0_0_8px_var(--color-secondary)]"
           />
         )}
 
@@ -213,24 +190,7 @@ export default function DashboardSidebarItems({
         {!reduceMotion && !isActive && (
           <span
             aria-hidden="true"
-            className="
-              pointer-events-none
-              absolute inset-y-0
-              -left-[45%]
-              w-[30%]
-              rotate-[10deg]
-              bg-gradient-to-r
-              from-transparent
-              via-secondary/[0.035]
-              to-transparent
-              opacity-0
-              blur-lg
-              transition-all
-              duration-700
-
-              group-hover/item:left-[115%]
-              group-hover/item:opacity-100
-            "
+            className="pointer-events-none absolute inset-y-0 -left-[45%] w-[30%] rotate-[10deg] bg-gradient-to-r from-transparent via-secondary/[0.035] to-transparent opacity-0 blur-lg transition-all duration-700 group-hover/item:left-[115%] group-hover/item:opacity-100"
           />
         )}
       </Link>
@@ -241,53 +201,15 @@ export default function DashboardSidebarItems({
 
       {isCollapsed && (
         <div
-          className="
-            pointer-events-none
-            absolute
-            left-full
-            top-1/2
-            z-[60]
-            ml-3
-            hidden
-            -translate-y-1/2
-
-            opacity-0
-            transition-all
-            duration-150
-
-            group-hover/item:translate-x-0
-            group-hover/item:opacity-100
-
-            lg:block
-          "
+          className="pointer-events-none absolute left-full top-1/2 z-[60] ml-3 hidden -translate-y-1/2 opacity-0 transition-all duration-150 group-hover/item:translate-x-0 group-hover/item:opacity-100 lg:block"
         >
           <div
-            className="
-              relative
-              whitespace-nowrap
-              border border-border
-              bg-popover
-              px-3 py-2
-              text-xs
-              font-medium
-              text-foreground
-              shadow-[var(--shadow-overlay)]
-            "
+            className="relative whitespace-nowrap border border-border bg-popover px-3 py-2 text-xs font-medium text-foreground shadow-[var(--shadow-overlay)]"
           >
             {item.label}
 
             <span
-              className="
-                absolute
-                left-[-4px]
-                top-1/2
-                h-2 w-2
-                -translate-y-1/2
-                rotate-45
-                border-b border-l
-                border-border
-                bg-popover
-              "
+              className="absolute left-[-4px] top-1/2 h-2 w-2 -translate-y-1/2 rotate-45 border-b border-l border-border bg-popover"
             />
           </div>
         </div>

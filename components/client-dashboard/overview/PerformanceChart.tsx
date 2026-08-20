@@ -204,36 +204,18 @@ export const PerformanceChart = () => {
         duration: 0.55,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="
-        relative
-        overflow-hidden
-        border border-border
-        bg-card
-        shadow-[var(--shadow-card)]
-      "
+      className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
       {/* ambient glow */}
       <div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute -right-32 -top-36
-          h-[360px] w-[360px]
-          rounded-full
-          bg-secondary/[0.09]
-          blur-[110px]
-        "
+        className="pointer-events-none absolute -right-32 -top-36 h-[360px] w-[360px] rounded-full bg-secondary/[0.09] blur-[110px]"
       />
 
       {/* architectural background */}
       <div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute inset-0
-          hidden opacity-[0.06]
-          lg:block
-        "
+        className="pointer-events-none absolute inset-0 hidden opacity-[0.06] lg:block"
         style={{
           backgroundImage: `
             linear-gradient(
@@ -248,14 +230,7 @@ export const PerformanceChart = () => {
 
       {/* top gold line */}
       <div
-        className="
-          absolute left-0 top-0
-          h-[2px] w-full
-          bg-gradient-to-r
-          from-secondary
-          via-secondary/40
-          to-transparent
-        "
+        className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
       />
 
       {/* ====================================================== */}
@@ -263,18 +238,7 @@ export const PerformanceChart = () => {
       {/* ====================================================== */}
 
       <div
-        className="
-          relative z-10
-          grid
-          gap-6
-          border-b border-border
-          px-5 py-6
-
-          sm:px-6
-          lg:grid-cols-[minmax(0,1fr)_auto]
-          lg:items-end
-          xl:px-7
-        "
+        className="relative z-10 grid gap-6 border-b border-border px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end xl:px-7"
       >
         {/* left */}
         <div>
@@ -282,14 +246,7 @@ export const PerformanceChart = () => {
             <ChartNoAxesCombined className="h-3.5 w-3.5 text-secondary" />
 
             <span
-              className="
-                font-mono
-                text-[8px]
-                font-semibold
-                uppercase
-                tracking-[0.18em]
-                text-secondary
-              "
+              className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
             >
               Growth intelligence
             </span>
@@ -298,27 +255,13 @@ export const PerformanceChart = () => {
           </div>
 
           <h2
-            className="
-              mt-3
-              text-xl
-              font-semibold
-              tracking-[-0.03em]
-              text-heading
-
-              sm:text-2xl
-            "
+            className="mt-3 text-xl font-semibold tracking-[-0.03em] text-heading sm:text-2xl"
           >
             Performance Overview
           </h2>
 
           <p
-            className="
-              mt-2
-              max-w-xl
-              text-sm
-              leading-6
-              text-muted-foreground
-            "
+            className="mt-2 max-w-xl text-sm leading-6 text-muted-foreground"
           >
             A clear view of how your acquisition and conversion performance is
             progressing over time.
@@ -327,25 +270,10 @@ export const PerformanceChart = () => {
 
         {/* period */}
         <div
-          className="
-            flex items-center
-            gap-2
-            self-start
-            border border-border
-            bg-background/60
-            px-3 py-2
-            lg:self-auto
-          "
+          className="flex items-center gap-2 self-start border border-border bg-background/60 px-3 py-2 lg:self-auto"
         >
           <span
-            className="
-              font-mono
-              text-[8px]
-              font-semibold
-              uppercase
-              tracking-[0.15em]
-              text-muted-foreground/45
-            "
+            className="font-mono text-[8px] font-semibold uppercase tracking-[0.15em] text-muted-foreground/45"
           >
             Period
           </span>
@@ -353,11 +281,7 @@ export const PerformanceChart = () => {
           <span className="h-3 w-px bg-border" />
 
           <span
-            className="
-              text-xs
-              font-medium
-              text-foreground
-            "
+            className="text-xs font-medium text-foreground"
           >
             Last 30 days
           </span>
@@ -369,48 +293,24 @@ export const PerformanceChart = () => {
       {/* ====================================================== */}
 
       <div
-        className="
-          relative z-10
-          grid
-          border-b border-border
-          bg-muted/10
-
-          sm:grid-cols-3
-        "
+        className="relative z-10 grid border-b border-border bg-muted/10 sm:grid-cols-3"
       >
         <div className="px-5 py-4 sm:px-6">
           <p
-            className="
-              font-mono
-              text-[7px]
-              uppercase
-              tracking-[0.16em]
-              text-muted-foreground/40
-            "
+            className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/40"
           >
             Leads generated
           </p>
 
           <div className="mt-1.5 flex items-baseline gap-2">
             <span
-              className="
-                text-xl
-                font-semibold
-                tracking-[-0.035em]
-                text-heading
-              "
+              className="text-xl font-semibold tracking-[-0.035em] text-heading"
             >
               {latestLeads}
             </span>
 
             <span
-              className="
-                flex items-center
-                gap-1
-                text-[11px]
-                font-medium
-                text-success
-              "
+              className="flex items-center gap-1 text-[11px] font-medium text-success"
             >
               <ArrowUpRight className="h-3 w-3" />
               {leadGrowth.toFixed(1)}%
@@ -419,56 +319,26 @@ export const PerformanceChart = () => {
         </div>
 
         <div
-          className="
-            border-t border-border
-            px-5 py-4
-            sm:border-l
-            sm:border-t-0
-            sm:px-6
-          "
+          className="border-t border-border px-5 py-4 sm:border-l sm:border-t-0 sm:px-6"
         >
           <p
-            className="
-              font-mono
-              text-[7px]
-              uppercase
-              tracking-[0.16em]
-              text-muted-foreground/40
-            "
+            className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/40"
           >
             Conversions
           </p>
 
           <p
-            className="
-              mt-1.5
-              text-xl
-              font-semibold
-              tracking-[-0.035em]
-              text-heading
-            "
+            className="mt-1.5 text-xl font-semibold tracking-[-0.035em] text-heading"
           >
             {latestConversions}
           </p>
         </div>
 
         <div
-          className="
-            border-t border-border
-            px-5 py-4
-            sm:border-l
-            sm:border-t-0
-            sm:px-6
-          "
+          className="border-t border-border px-5 py-4 sm:border-l sm:border-t-0 sm:px-6"
         >
           <p
-            className="
-              font-mono
-              text-[7px]
-              uppercase
-              tracking-[0.16em]
-              text-muted-foreground/40
-            "
+            className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/40"
           >
             Growth signal
           </p>
@@ -477,11 +347,7 @@ export const PerformanceChart = () => {
             <Sparkles className="h-3.5 w-3.5 text-secondary" />
 
             <span
-              className="
-                text-sm
-                font-semibold
-                text-secondary
-              "
+              className="text-sm font-semibold text-secondary"
             >
               Positive momentum
             </span>
@@ -494,27 +360,13 @@ export const PerformanceChart = () => {
       {/* ====================================================== */}
 
       <div
-        className="
-          relative z-10
-          flex flex-wrap
-          items-center
-          gap-x-6
-          gap-y-2
-          px-5 pt-5
-
-          sm:px-6
-          xl:px-7
-        "
+        className="relative z-10 flex flex-wrap items-center gap-x-6 gap-y-2 px-5 pt-5 sm:px-6 xl:px-7"
       >
         <div className="flex items-center gap-2">
           <span className="h-2 w-2 rounded-full bg-secondary" />
 
           <span
-            className="
-              text-xs
-              font-medium
-              text-muted-foreground
-            "
+            className="text-xs font-medium text-muted-foreground"
           >
             Leads Generated
           </span>
@@ -522,20 +374,11 @@ export const PerformanceChart = () => {
 
         <div className="flex items-center gap-2">
           <span
-            className="
-              h-2 w-2
-              rounded-full
-              bg-primary
-              dark:bg-[#8ea7c5]
-            "
+            className="h-2 w-2 rounded-full bg-primary dark:bg-[#8ea7c5]"
           />
 
           <span
-            className="
-              text-xs
-              font-medium
-              text-muted-foreground
-            "
+            className="text-xs font-medium text-muted-foreground"
           >
             Conversions
           </span>
@@ -547,22 +390,10 @@ export const PerformanceChart = () => {
       {/* ====================================================== */}
 
       <div
-        className="
-          relative z-10
-          px-3 pb-5 pt-4
-
-          sm:px-5
-          lg:px-6
-        "
+        className="relative z-10 px-3 pb-5 pt-4 sm:px-5 lg:px-6"
       >
         <div
-          className="
-            h-[270px]
-            w-full
-
-            sm:h-[310px]
-            lg:h-[350px]
-          "
+          className="h-[270px] w-full sm:h-[310px] lg:h-[350px]"
         >
           <Line key={resolvedTheme} data={chartData} options={chartOptions} />
         </div>
@@ -573,42 +404,20 @@ export const PerformanceChart = () => {
       {/* ====================================================== */}
 
       <div
-        className="
-          relative z-10
-          flex flex-col
-          gap-3
-          border-t border-border
-          bg-muted/15
-          px-5 py-4
-
-          sm:flex-row
-          sm:items-center
-          sm:justify-between
-          sm:px-6
-          xl:px-7
-        "
+        className="relative z-10 flex flex-col gap-3 border-t border-border bg-muted/15 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 xl:px-7"
       >
         <div className="flex items-center gap-2">
           <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
           <span
-            className="
-              font-mono
-              text-[7px]
-              uppercase
-              tracking-[0.16em]
-              text-muted-foreground/40
-            "
+            className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/40"
           >
             Performance tracking active
           </span>
         </div>
 
         <span
-          className="
-            text-xs
-            text-muted-foreground
-          "
+          className="text-xs text-muted-foreground"
         >
           Updated from your latest campaign data
         </span>

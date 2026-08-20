@@ -8,7 +8,9 @@
     "build": "prisma generate && next build",
     "postinstall": "prisma generate",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "clean:classes": "node scripts/clean-tailwind-classes.mjs",
+    "clean:classes:write": "node scripts/clean-tailwind-classes.mjs --write"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.2",

@@ -70,36 +70,18 @@ export default async function ClientProjectsPage() {
       {/* ====================================================== */}
 
       <section
-        className="
-          relative
-          overflow-hidden
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
         {/* ambient glow */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -right-28 -top-32
-            h-72 w-72
-            rounded-full
-            bg-secondary/[0.09]
-            blur-[100px]
-          "
+          className="pointer-events-none absolute -right-28 -top-32 h-72 w-72 rounded-full bg-secondary/[0.09] blur-[100px]"
         />
 
         {/* architectural grid */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute inset-0
-            hidden opacity-[0.05]
-            lg:block
-          "
+          className="pointer-events-none absolute inset-0 hidden opacity-[0.05] lg:block"
           style={{
             backgroundImage: `
               linear-gradient(
@@ -114,28 +96,11 @@ export default async function ClientProjectsPage() {
 
         {/* top signal */}
         <div
-          className="
-            absolute left-0 top-0
-            h-[2px] w-full
-            bg-gradient-to-r
-            from-secondary
-            via-secondary/40
-            to-transparent
-          "
+          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
         />
 
         <div
-          className="
-            relative z-10
-            grid
-            gap-7
-            px-5 py-7
-            sm:px-6
-            lg:grid-cols-[minmax(0,1fr)_300px]
-            lg:items-end
-            lg:px-8
-            lg:py-8
-          "
+          className="relative z-10 grid gap-7 px-5 py-7 sm:px-6 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-end lg:px-8 lg:py-8"
         >
           {/* left */}
           <div>
@@ -143,14 +108,7 @@ export default async function ClientProjectsPage() {
               <FolderKanban className="h-3.5 w-3.5 text-secondary" />
 
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.18em]
-                  text-secondary
-                "
+                className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
               >
                 Project portfolio
               </span>
@@ -159,27 +117,13 @@ export default async function ClientProjectsPage() {
             </div>
 
             <h1
-              className="
-                mt-4
-                text-3xl
-                font-semibold
-                tracking-[-0.045em]
-                text-heading
-                sm:text-4xl
-              "
+              className="mt-4 text-3xl font-semibold tracking-[-0.045em] text-heading sm:text-4xl"
             >
               My Projects
             </h1>
 
             <p
-              className="
-                mt-3
-                max-w-2xl
-                text-sm
-                leading-7
-                text-muted-foreground
-                sm:text-base
-              "
+              className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base"
             >
               View every Blackcrest engagement in one place, follow delivery
               progress, and keep track of project status and commercial details.
@@ -188,27 +132,13 @@ export default async function ClientProjectsPage() {
 
           {/* right summary */}
           <div
-            className="
-              border-t border-border
-              pt-5
-              lg:border-l
-              lg:border-t-0
-              lg:pl-7
-              lg:pt-0
-            "
+            className="border-t border-border pt-5 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0"
           >
             <div className="flex items-center gap-2">
               <Sparkles className="h-3.5 w-3.5 text-secondary" />
 
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.17em]
-                  text-secondary
-                "
+                className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
               >
                 Portfolio status
               </span>
@@ -237,24 +167,12 @@ export default async function ClientProjectsPage() {
             </div>
 
             <div
-              className="
-                mt-4
-                flex items-center
-                gap-2
-                border-t border-border
-                pt-4
-              "
+              className="mt-4 flex items-center gap-2 border-t border-border pt-4"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  uppercase
-                  tracking-[0.15em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
               >
                 Portfolio synced
               </span>
@@ -268,14 +186,7 @@ export default async function ClientProjectsPage() {
       {/* ====================================================== */}
 
       <section
-        className="
-          mt-4
-          grid
-          grid-cols-1
-          gap-3
-          sm:grid-cols-2
-          xl:grid-cols-4
-        "
+        className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4"
       >
         {stats.map((stat, index) => {
           const Icon = stat.icon;
@@ -283,34 +194,12 @@ export default async function ClientProjectsPage() {
           return (
             <article
               key={stat.label}
-              className="
-                group
-                relative
-                min-h-[150px]
-                overflow-hidden
-                border border-border
-                bg-card
-                p-5
-                shadow-[var(--shadow-card)]
-                transition-all
-                duration-300
-                hover:border-secondary/25
-                hover:shadow-[var(--shadow-card-hover)]
-              "
+              className="group relative min-h-[150px] overflow-hidden border border-border bg-card p-5 shadow-[var(--shadow-card)] transition-all duration-300 hover:border-secondary/25 hover:shadow-[var(--shadow-card-hover)]"
             >
               {/* index */}
               <span
                 aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute -bottom-5 -right-1
-                  font-mono
-                  text-[5rem]
-                  font-semibold
-                  leading-none
-                  tracking-[-0.1em]
-                  text-foreground/[0.025]
-                "
+                className="pointer-events-none absolute -bottom-5 -right-1 font-mono text-[5rem] font-semibold leading-none tracking-[-0.1em] text-foreground/[0.025]"
               >
                 0{index + 1}
               </span>
@@ -319,71 +208,33 @@ export default async function ClientProjectsPage() {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p
-                      className="
-                        font-mono
-                        text-[7px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.16em]
-                        text-secondary
-                      "
+                      className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-secondary"
                     >
                       {stat.eyebrow}
                     </p>
 
                     <p
-                      className="
-                        mt-1
-                        text-xs
-                        font-medium
-                        text-muted-foreground
-                      "
+                      className="mt-1 text-xs font-medium text-muted-foreground"
                     >
                       {stat.label}
                     </p>
                   </div>
 
                   <div
-                    className="
-                      flex h-9 w-9
-                      items-center justify-center
-                      border border-secondary/15
-                      bg-secondary/[0.05]
-                      text-secondary
-                      transition-all
-                      duration-300
-                      group-hover:border-secondary/30
-                      group-hover:bg-secondary
-                      group-hover:text-secondary-foreground
-                    "
+                    className="flex h-9 w-9 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary group-hover:text-secondary-foreground"
                   >
                     <Icon className="h-4 w-4" strokeWidth={1.8} />
                   </div>
                 </div>
 
                 <p
-                  className="
-                    mt-6
-                    text-3xl
-                    font-semibold
-                    tracking-[-0.05em]
-                    text-heading
-                  "
+                  className="mt-6 text-3xl font-semibold tracking-[-0.05em] text-heading"
                 >
                   {stat.value}
                 </p>
 
                 <div
-                  className="
-                    mt-4
-                    h-px
-                    w-8
-                    bg-secondary/25
-                    transition-all
-                    duration-300
-                    group-hover:w-14
-                    group-hover:bg-secondary
-                  "
+                  className="mt-4 h-px w-8 bg-secondary/25 transition-all duration-300 group-hover:w-14 group-hover:bg-secondary"
                 />
               </div>
             </article>

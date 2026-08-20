@@ -79,16 +79,7 @@ export default function GrowthEngine() {
 
   return (
     <Section
-      className="
-        relative
-        isolate
-        overflow-hidden
-        bg-primary
-        py-16
-        text-primary-foreground
-        sm:py-20
-        lg:py-28
-      "
+      className="relative isolate overflow-hidden bg-primary py-16 text-primary-foreground sm:py-20 lg:py-28"
     >
       {/* ====================================================== */}
       {/* BACKGROUND SYSTEM                                     */}
@@ -96,63 +87,30 @@ export default function GrowthEngine() {
 
       <div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute inset-0
-          -z-20
-        "
+        className="pointer-events-none absolute inset-0 -z-20"
       >
         {/* grid */}
         <div
-          className="
-            absolute inset-0
-            opacity-[0.1]
-            [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)]
-            [background-size:72px_72px]
-          "
+          className="absolute inset-0 opacity-[0.1] [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:72px_72px]"
         />
 
         {/* gold glow */}
         <div
-          className="
-            absolute
-            left-[12%] top-[20%]
-            h-[340px] w-[340px]
-            rounded-full
-            bg-secondary/[0.09]
-            blur-[130px]
-          "
+          className="absolute left-[12%] top-[20%] h-[340px] w-[340px] rounded-full bg-secondary/[0.09] blur-[130px]"
         />
 
         {/* secondary ambience */}
         <div
-          className="
-            absolute
-            -right-32 bottom-[-80px]
-            h-[420px] w-[420px]
-            rounded-full
-            bg-white/[0.035]
-            blur-[140px]
-          "
+          className="absolute -right-32 bottom-[-80px] h-[420px] w-[420px] rounded-full bg-white/[0.035] blur-[140px]"
         />
 
         {/* vertical architecture */}
         <div
-          className="
-            absolute
-            left-[7%] top-0
-            h-full w-px
-            bg-white/[0.07]
-          "
+          className="absolute left-[7%] top-0 h-full w-px bg-white/[0.07]"
         />
 
         <div
-          className="
-            absolute
-            right-[7%] top-0
-            h-full w-px
-            bg-white/[0.07]
-          "
+          className="absolute right-[7%] top-0 h-full w-px bg-white/[0.07]"
         />
       </div>
 
@@ -169,16 +127,7 @@ export default function GrowthEngine() {
             once: true,
             amount: 0.3,
           }}
-          className="
-            grid
-            gap-8
-            border-b border-white/10
-            pb-10
-            lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]
-            lg:items-end
-            lg:gap-16
-            lg:pb-14
-          "
+          className="grid gap-8 border-b border-white/10 pb-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-end lg:gap-16 lg:pb-14"
         >
           {/* index */}
           <motion.div variants={shouldReduceMotion ? undefined : fadeInUp}>
@@ -186,14 +135,7 @@ export default function GrowthEngine() {
               <Sparkles className="h-3.5 w-3.5 text-gold-light" />
 
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.2em]
-                  text-gold-light
-                "
+                className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-gold-light"
               >
                 03 / Growth Engine
               </span>
@@ -202,13 +144,7 @@ export default function GrowthEngine() {
             </div>
 
             <p
-              className="
-                mt-4
-                max-w-sm
-                text-sm
-                leading-6
-                text-white/45
-              "
+              className="mt-4 max-w-sm text-sm leading-6 text-white/45"
             >
               Marketing becomes more valuable when every stage learns from the
               stage before it.
@@ -221,17 +157,7 @@ export default function GrowthEngine() {
             className="min-w-0"
           >
             <h2
-              className="
-                max-w-4xl
-                text-3xl
-                font-semibold
-                leading-[1.04]
-                tracking-[-0.045em]
-                text-white
-                sm:text-4xl
-                lg:text-5xl
-                xl:text-[58px]
-              "
+              className="max-w-4xl text-3xl font-semibold leading-[1.04] tracking-[-0.045em] text-white sm:text-4xl lg:text-5xl xl:text-[58px]"
             >
               A growth engine built
               <span className="block text-gold-light">
@@ -240,15 +166,7 @@ export default function GrowthEngine() {
             </h2>
 
             <p
-              className="
-                mt-5
-                max-w-2xl
-                text-sm
-                leading-7
-                text-white/50
-                sm:text-base
-                sm:leading-8
-              "
+              className="mt-5 max-w-2xl text-sm leading-7 text-white/50 sm:text-base sm:leading-8"
             >
               Instead of running disconnected marketing activities, Blackcrest
               builds a continuous system where research informs acquisition,
@@ -263,50 +181,24 @@ export default function GrowthEngine() {
         {/* ==================================================== */}
 
         <div
-          className="
-            relative
-            mt-14
-            hidden
-            min-w-0
-            lg:block
-            xl:mt-16
-          "
+          className="relative mt-14 hidden min-w-0 lg:block xl:mt-16"
         >
           {/* top technical row */}
           <div
-            className="
-              mb-5
-              flex
-              items-center
-              justify-between
-              gap-4
-            "
+            className="mb-5 flex items-center justify-between gap-4"
           >
             <div className="flex items-center gap-3">
               <span className="h-1.5 w-1.5 rounded-full bg-gold-light" />
 
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.16em]
-                  text-white/40
-                "
+                className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-white/40"
               >
                 Integrated marketing sequence
               </span>
             </div>
 
             <span
-              className="
-                font-mono
-                text-[7px]
-                uppercase
-                tracking-[0.15em]
-                text-white/25
-              "
+              className="font-mono text-[7px] uppercase tracking-[0.15em] text-white/25"
             >
               System / Continuous
             </span>
@@ -318,30 +210,13 @@ export default function GrowthEngine() {
 
           <div
             aria-hidden="true"
-            className="
-              absolute
-              left-[10%]
-              right-[10%]
-              top-[146px]
-              h-px
-              bg-white/10
-            "
+            className="absolute left-[10%] right-[10%] top-[146px] h-px bg-white/10"
           />
 
           {!shouldReduceMotion && (
             <motion.div
               aria-hidden="true"
-              className="
-                absolute
-                left-[10%]
-                top-[145px]
-                h-[2px]
-                bg-gradient-to-r
-                from-transparent
-                via-gold-light
-                to-transparent
-                shadow-[0_0_18px_rgba(232,207,143,0.38)]
-              "
+              className="absolute left-[10%] top-[145px] h-[2px] bg-gradient-to-r from-transparent via-gold-light to-transparent shadow-[0_0_18px_rgba(232,207,143,0.38)]"
               initial={{
                 width: "0%",
               }}
@@ -364,14 +239,7 @@ export default function GrowthEngine() {
           {/* ================================================== */}
 
           <div
-            className="
-              relative
-              z-10
-              grid
-              min-w-0
-              grid-cols-5
-              border-x border-white/10
-            "
+            className="relative z-10 grid min-w-0 grid-cols-5 border-x border-white/10"
           >
             {growthSteps.map((step, index) => {
               const Icon = step.icon;
@@ -404,47 +272,20 @@ export default function GrowthEngine() {
                     delay: index * 0.08,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="
-                    group
-                    relative
-                    min-w-0
-                    border-r border-white/10
-                    px-4
-                    pb-6
-                    pt-5
-                    last:border-r-0
-                    xl:px-5
-                  "
+                  className="group relative min-w-0 border-r border-white/10 px-4 pb-6 pt-5 last:border-r-0 xl:px-5"
                 >
                   {/* number */}
                   <div
-                    className="
-                      flex
-                      items-center
-                      justify-between
-                      gap-3
-                    "
+                    className="flex items-center justify-between gap-3"
                   >
                     <span
-                      className="
-                        font-mono
-                        text-[8px]
-                        font-semibold
-                        tracking-[0.15em]
-                        text-gold-light
-                      "
+                      className="font-mono text-[8px] font-semibold tracking-[0.15em] text-gold-light"
                     >
                       {step.number}
                     </span>
 
                     <span
-                      className="
-                        font-mono
-                        text-[7px]
-                        uppercase
-                        tracking-[0.13em]
-                        text-white/20
-                      "
+                      className="font-mono text-[7px] uppercase tracking-[0.13em] text-white/20"
                     >
                       Phase
                     </span>
@@ -452,88 +293,37 @@ export default function GrowthEngine() {
 
                   {/* node */}
                   <div
-                    className="
-                      relative
-                      mt-7
-                      flex
-                      h-12 w-12
-                      items-center
-                      justify-center
-                      border border-gold-light/25
-                      bg-navy-deep/70
-                      text-gold-light
-                      backdrop-blur
-                      transition-all
-                      duration-300
-                      group-hover:border-gold-light/45
-                      group-hover:bg-navy-deep/90
-                    "
+                    className="relative mt-7 flex h-12 w-12 items-center justify-center border border-gold-light/25 bg-navy-deep/70 text-gold-light backdrop-blur transition-all duration-300 group-hover:border-gold-light/45 group-hover:bg-navy-deep/90"
                   >
                     <Icon className="h-4 w-4" />
 
                     <span
                       aria-hidden="true"
-                      className="
-                        absolute
-                        -bottom-[29px]
-                        left-1/2
-                        h-[29px] w-px
-                        -translate-x-1/2
-                        bg-gold-light/35
-                      "
+                      className="absolute -bottom-[29px] left-1/2 h-[29px] w-px -translate-x-1/2 bg-gold-light/35"
                     />
 
                     <span
                       aria-hidden="true"
-                      className="
-                        absolute
-                        -bottom-[34px]
-                        left-1/2
-                        h-2 w-2
-                        -translate-x-1/2
-                        rounded-full
-                        border border-gold-light/50
-                        bg-primary
-                      "
+                      className="absolute -bottom-[34px] left-1/2 h-2 w-2 -translate-x-1/2 rounded-full border border-gold-light/50 bg-primary"
                     />
                   </div>
 
                   {/* content */}
                   <div className="mt-14">
                     <span
-                      className="
-                        font-mono
-                        text-[8px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.18em]
-                        text-gold-light
-                      "
+                      className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-gold-light"
                     >
                       {step.phase}
                     </span>
 
                     <h3
-                      className="
-                        mt-3
-                        text-base
-                        font-semibold
-                        leading-6
-                        tracking-[-0.02em]
-                        text-white
-                        xl:text-lg
-                      "
+                      className="mt-3 text-base font-semibold leading-6 tracking-[-0.02em] text-white xl:text-lg"
                     >
                       {step.title}
                     </h3>
 
                     <p
-                      className="
-                        mt-3
-                        text-xs
-                        leading-6
-                        text-white/42
-                      "
+                      className="mt-3 text-xs leading-6 text-white/42"
                     >
                       {step.description}
                     </p>
@@ -541,22 +331,10 @@ export default function GrowthEngine() {
 
                   {/* meta */}
                   <div
-                    className="
-                      mt-6
-                      border-t border-white/10
-                      pt-3
-                    "
+                    className="mt-6 border-t border-white/10 pt-3"
                   >
                     <span
-                      className="
-                        font-mono
-                        text-[7px]
-                        font-semibold
-                        uppercase
-                        leading-4
-                        tracking-[0.12em]
-                        text-white/28
-                      "
+                      className="font-mono text-[7px] font-semibold uppercase leading-4 tracking-[0.12em] text-white/28"
                     >
                       {step.meta}
                     </span>
@@ -565,15 +343,7 @@ export default function GrowthEngine() {
                   {/* hover bottom line */}
                   <span
                     aria-hidden="true"
-                    className="
-                      absolute
-                      bottom-0 left-0
-                      h-[2px] w-0
-                      bg-gold-light
-                      transition-all
-                      duration-500
-                      group-hover:w-full
-                    "
+                    className="absolute bottom-0 left-0 h-[2px] w-0 bg-gold-light transition-all duration-500 group-hover:w-full"
                   />
                 </motion.article>
               );
@@ -582,23 +352,10 @@ export default function GrowthEngine() {
 
           {/* continuation marker */}
           <div
-            className="
-              mt-5
-              flex
-              items-center
-              justify-end
-              gap-3
-            "
+            className="mt-5 flex items-center justify-end gap-3"
           >
             <span
-              className="
-                font-mono
-                text-[7px]
-                font-semibold
-                uppercase
-                tracking-[0.15em]
-                text-white/30
-              "
+              className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/30"
             >
               Learn → Improve → Repeat
             </span>
@@ -606,13 +363,7 @@ export default function GrowthEngine() {
             <ArrowRight className="h-3.5 w-3.5 text-gold-light" />
 
             <span
-              className="
-                flex h-7 w-7
-                items-center
-                justify-center
-                rounded-full
-                border border-gold-light/20
-              "
+              className="flex h-7 w-7 items-center justify-center rounded-full border border-gold-light/20"
             >
               <motion.span
                 animate={
@@ -631,11 +382,7 @@ export default function GrowthEngine() {
                         repeat: Infinity,
                       }
                 }
-                className="
-                  h-1.5 w-1.5
-                  rounded-full
-                  bg-gold-light
-                "
+                className="h-1.5 w-1.5 rounded-full bg-gold-light"
               />
             </span>
           </div>
@@ -646,20 +393,11 @@ export default function GrowthEngine() {
         {/* ==================================================== */}
 
         <div
-          className="
-            relative
-            mt-12
-            lg:hidden
-          "
+          className="relative mt-12 lg:hidden"
         >
           <div
             aria-hidden="true"
-            className="
-              absolute
-              bottom-8 left-[23px] top-8
-              w-px
-              bg-white/10
-            "
+            className="absolute bottom-8 left-[23px] top-8 w-px bg-white/10"
           />
 
           <motion.div
@@ -688,15 +426,7 @@ export default function GrowthEngine() {
               transformOrigin: "top",
             }}
             aria-hidden="true"
-            className="
-              absolute
-              bottom-8 left-[23px] top-8
-              w-px
-              bg-gradient-to-b
-              from-gold-light
-              via-gold-light/45
-              to-transparent
-            "
+            className="absolute bottom-8 left-[23px] top-8 w-px bg-gradient-to-b from-gold-light via-gold-light/45 to-transparent"
           />
 
           <div className="space-y-0">
@@ -730,28 +460,12 @@ export default function GrowthEngine() {
                     duration: 0.55,
                     delay: index * 0.06,
                   }}
-                  className="
-                    relative
-                    grid
-                    grid-cols-[48px_minmax(0,1fr)]
-                    gap-4
-                    border-b border-white/10
-                    py-6
-                    last:border-b-0
-                  "
+                  className="relative grid grid-cols-[48px_minmax(0,1fr)] gap-4 border-b border-white/10 py-6 last:border-b-0"
                 >
                   {/* node */}
                   <div className="relative z-10">
                     <div
-                      className="
-                        flex
-                        h-12 w-12
-                        items-center
-                        justify-center
-                        border border-gold-light/25
-                        bg-primary
-                        text-gold-light
-                      "
+                      className="flex h-12 w-12 items-center justify-center border border-gold-light/25 bg-primary text-gold-light"
                     >
                       <Icon className="h-4 w-4" />
                     </div>
@@ -760,81 +474,40 @@ export default function GrowthEngine() {
                   {/* content */}
                   <div className="min-w-0">
                     <div
-                      className="
-                        flex
-                        flex-wrap
-                        items-center
-                        justify-between
-                        gap-3
-                      "
+                      className="flex flex-wrap items-center justify-between gap-3"
                     >
                       <span
-                        className="
-                          font-mono
-                          text-[8px]
-                          font-semibold
-                          uppercase
-                          tracking-[0.18em]
-                          text-gold-light
-                        "
+                        className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-gold-light"
                       >
                         {step.phase}
                       </span>
 
                       <span
-                        className="
-                          font-mono
-                          text-[7px]
-                          font-semibold
-                          text-white/25
-                        "
+                        className="font-mono text-[7px] font-semibold text-white/25"
                       >
                         {step.number}
                       </span>
                     </div>
 
                     <h3
-                      className="
-                        mt-2
-                        text-lg
-                        font-semibold
-                        tracking-[-0.025em]
-                        text-white
-                      "
+                      className="mt-2 text-lg font-semibold tracking-[-0.025em] text-white"
                     >
                       {step.title}
                     </h3>
 
                     <p
-                      className="
-                        mt-3
-                        text-sm
-                        leading-6
-                        text-white/45
-                      "
+                      className="mt-3 text-sm leading-6 text-white/45"
                     >
                       {step.description}
                     </p>
 
                     <div
-                      className="
-                        mt-4
-                        flex
-                        items-center
-                        gap-3
-                      "
+                      className="mt-4 flex items-center gap-3"
                     >
                       <span className="h-px w-6 bg-gold-light/30" />
 
                       <span
-                        className="
-                          font-mono
-                          text-[7px]
-                          font-semibold
-                          uppercase
-                          tracking-[0.11em]
-                          text-white/30
-                        "
+                        className="font-mono text-[7px] font-semibold uppercase tracking-[0.11em] text-white/30"
                       >
                         {step.meta}
                       </span>
@@ -844,14 +517,7 @@ export default function GrowthEngine() {
                   {index < growthSteps.length - 1 && (
                     <ArrowDown
                       aria-hidden="true"
-                      className="
-                        absolute
-                        -bottom-2.5
-                        left-[18px]
-                        z-20
-                        h-3 w-3
-                        text-gold-light
-                      "
+                      className="absolute -bottom-2.5 left-[18px] z-20 h-3 w-3 text-gold-light"
                     />
                   )}
                 </motion.article>
@@ -865,43 +531,19 @@ export default function GrowthEngine() {
         {/* ==================================================== */}
 
         <div
-          className="
-            mt-12
-            grid
-            border-y border-white/10
-            sm:grid-cols-[minmax(0,1fr)_auto]
-            sm:items-center
-            lg:mt-16
-          "
+          className="mt-12 grid border-y border-white/10 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center lg:mt-16"
         >
           <div
-            className="
-              px-4 py-5
-              sm:px-5
-              lg:px-6
-            "
+            className="px-4 py-5 sm:px-5 lg:px-6"
           >
             <span
-              className="
-                font-mono
-                text-[7px]
-                font-semibold
-                uppercase
-                tracking-[0.17em]
-                text-gold-light
-              "
+              className="font-mono text-[7px] font-semibold uppercase tracking-[0.17em] text-gold-light"
             >
               The objective
             </span>
 
             <p
-              className="
-                mt-2
-                max-w-2xl
-                text-sm
-                leading-6
-                text-white/50
-              "
+              className="mt-2 max-w-2xl text-sm leading-6 text-white/50"
             >
               Build a marketing system that gets smarter over time — not a
               collection of campaigns competing for attention.
@@ -909,31 +551,14 @@ export default function GrowthEngine() {
           </div>
 
           <div
-            className="
-              flex
-              items-center
-              gap-3
-              border-t border-white/10
-              px-4 py-4
-              sm:border-l
-              sm:border-t-0
-              sm:px-5
-              lg:px-6
-            "
+            className="flex items-center gap-3 border-t border-white/10 px-4 py-4 sm:border-l sm:border-t-0 sm:px-5 lg:px-6"
           >
             <span
-              className="
-                relative
-                flex h-2 w-2
-              "
+              className="relative flex h-2 w-2"
             >
               {!shouldReduceMotion && (
                 <motion.span
-                  className="
-                    absolute inset-0
-                    rounded-full
-                    bg-gold-light
-                  "
+                  className="absolute inset-0 rounded-full bg-gold-light"
                   animate={{
                     scale: [1, 2.4, 1],
                     opacity: [0.7, 0, 0.7],
@@ -946,25 +571,12 @@ export default function GrowthEngine() {
               )}
 
               <span
-                className="
-                  relative
-                  h-2 w-2
-                  rounded-full
-                  bg-gold-light
-                "
+                className="relative h-2 w-2 rounded-full bg-gold-light"
               />
             </span>
 
             <span
-              className="
-                whitespace-nowrap
-                font-mono
-                text-[7px]
-                font-semibold
-                uppercase
-                tracking-[0.15em]
-                text-white/40
-              "
+              className="whitespace-nowrap font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/40"
             >
               Continuous optimization
             </span>

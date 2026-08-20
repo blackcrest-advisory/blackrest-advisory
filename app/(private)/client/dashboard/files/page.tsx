@@ -86,12 +86,7 @@ export default function FilesPage() {
 
   return (
     <div
-      className="
-        relative
-        min-w-0
-        max-w-full
-        space-y-6
-      "
+      className="relative min-w-0 max-w-full space-y-6"
     >
       {/* ====================================================== */}
       {/* FILES HEADER                                          */}
@@ -112,26 +107,12 @@ export default function FilesPage() {
       {/* ====================================================== */}
 
       <section
-        className="
-          relative
-          min-w-0
-          overflow-hidden
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
         {/* subtle top signal */}
         <div
           aria-hidden="true"
-          className="
-            absolute
-            left-0 top-0
-            h-[2px] w-32
-            bg-gradient-to-r
-            from-secondary/55
-            to-transparent
-          "
+          className="absolute left-0 top-0 h-[2px] w-32 bg-gradient-to-r from-secondary/55 to-transparent"
         />
 
         {/* ==================================================== */}
@@ -139,50 +120,23 @@ export default function FilesPage() {
         {/* ==================================================== */}
 
         <div
-          className="
-            flex
-            flex-col
-            gap-3
-            border-b border-border
-            px-5 py-4
-            sm:flex-row
-            sm:items-end
-            sm:justify-between
-            sm:px-6
-          "
+          className="flex flex-col gap-3 border-b border-border px-5 py-4 sm:flex-row sm:items-end sm:justify-between sm:px-6"
         >
           <div>
             <span
-              className="
-                font-mono
-                text-[7px]
-                font-semibold
-                uppercase
-                tracking-[0.15em]
-                text-secondary
-              "
+              className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
             >
               Document library
             </span>
 
             <h2
-              className="
-                mt-1
-                text-base
-                font-semibold
-                text-heading
-              "
+              className="mt-1 text-base font-semibold text-heading"
             >
               Project Files
             </h2>
 
             <p
-              className="
-                mt-1
-                text-xs
-                leading-5
-                text-muted-foreground
-              "
+              className="mt-1 text-xs leading-5 text-muted-foreground"
             >
               Access files shared across your active Blackcrest engagements.
             </p>
@@ -191,24 +145,13 @@ export default function FilesPage() {
           {hasAnyFiles && (
             <div className="text-left sm:text-right">
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  uppercase
-                  tracking-[0.13em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40"
               >
                 Available records
               </span>
 
               <p
-                className="
-                  mt-1
-                  text-sm
-                  font-semibold
-                  text-heading
-                "
+                className="mt-1 text-sm font-semibold text-heading"
               >
                 {filteredFiles.length}
               </p>
@@ -222,12 +165,7 @@ export default function FilesPage() {
 
         {hasAnyFiles && (
           <div
-            className="
-              border-b border-border
-              bg-background/20
-              px-5 py-4
-              sm:px-6
-            "
+            className="border-b border-border bg-background/20 px-5 py-4 sm:px-6"
           >
             <FilesFilterBar
               search={search}
@@ -246,11 +184,7 @@ export default function FilesPage() {
 
         {!hasAnyFiles && (
           <div
-            className="
-              px-5 py-6
-              sm:px-6
-              sm:py-8
-            "
+            className="px-5 py-6 sm:px-6 sm:py-8"
           >
             <FilesEmptyState
               variant="no-files"
@@ -275,11 +209,7 @@ export default function FilesPage() {
 
         {hasAnyFiles && !hasFilteredResults && (
           <div
-            className="
-                px-5 py-6
-                sm:px-6
-                sm:py-8
-              "
+            className="px-5 py-6 sm:px-6 sm:py-8"
           >
             <FilesEmptyState
               variant="no-results"
@@ -294,53 +224,24 @@ export default function FilesPage() {
 
         {hasAnyFiles && (
           <div
-            className="
-              flex
-              flex-col
-              gap-2
-              border-t border-border
-              bg-muted/10
-              px-5 py-3
-              sm:flex-row
-              sm:items-center
-              sm:justify-between
-              sm:px-6
-            "
+            className="flex flex-col gap-2 border-t border-border bg-muted/10 px-5 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6"
           >
             <div
-              className="
-                flex
-                items-center
-                gap-2
-              "
+              className="flex items-center gap-2"
             >
               <span
-                className="
-                  h-1.5 w-1.5
-                  rounded-full
-                  bg-success
-                "
+                className="h-1.5 w-1.5 rounded-full bg-success"
               />
 
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.13em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40"
               >
                 Client document access
               </span>
             </div>
 
             <span
-              className="
-                text-[11px]
-                text-muted-foreground
-              "
+              className="text-[11px] text-muted-foreground"
             >
               {filteredFiles.length} of {files.length} files shown
             </span>

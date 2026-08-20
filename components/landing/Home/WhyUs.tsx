@@ -169,13 +169,7 @@ export default function WhyUs() {
                     className="group relative"
                   >
                     <div
-                      className="
-                        relative grid gap-5 border-b border-border/70
-                        py-7 transition-colors duration-300
-                        sm:grid-cols-[48px_1fr_auto]
-                        sm:items-start
-                        group-hover:bg-background/55
-                      "
+                      className="relative grid gap-5 border-b border-border/70 py-7 transition-colors duration-300 sm:grid-cols-[48px_1fr_auto] sm:items-start group-hover:bg-background/55"
                     >
                       {/* Icon node */}
                       <div className="relative z-10">
@@ -189,18 +183,7 @@ export default function WhyUs() {
                             stiffness: 260,
                             damping: 18,
                           }}
-                          className="
-                            flex h-12 w-12 items-center justify-center
-                            border border-border
-                            bg-background
-                            text-secondary
-                            shadow-sm
-                            transition-[border-color,box-shadow,background-color]
-                            duration-300
-                            group-hover:border-secondary/30
-                            group-hover:bg-secondary/[0.055]
-                            group-hover:shadow-[var(--shadow-gold-glow)]
-                          "
+                          className="flex h-12 w-12 items-center justify-center border border-border bg-background text-secondary shadow-sm transition-[border-color,box-shadow,background-color] duration-300 group-hover:border-secondary/30 group-hover:bg-secondary/[0.055] group-hover:shadow-[var(--shadow-gold-glow)]"
                         >
                           <Icon className="h-5 w-5" strokeWidth={1.8} />
                         </motion.div>

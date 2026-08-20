@@ -136,25 +136,10 @@ export function LeadDetailsClient({
       <div>
         <Link
           href="/admin/dashboard/leads"
-          className="
-            group
-            inline-flex
-            items-center
-            gap-2
-            text-xs
-            font-medium
-            text-muted-foreground
-            transition-colors
-            hover:text-secondary
-          "
+          className="group inline-flex items-center gap-2 text-xs font-medium text-muted-foreground transition-colors hover:text-secondary"
         >
           <ChevronLeft
-            className="
-              h-4 w-4
-              transition-transform
-              duration-200
-              group-hover:-translate-x-0.5
-            "
+            className="h-4 w-4 transition-transform duration-200 group-hover:-translate-x-0.5"
           />
           All Leads
         </Link>
@@ -165,51 +150,21 @@ export function LeadDetailsClient({
       {/* ====================================================== */}
 
       <section
-        className="
-          relative
-          overflow-hidden
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
         {/* subtle glow */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -right-28 -top-32
-            h-72 w-72
-            rounded-full
-            bg-secondary/[0.07]
-            blur-[100px]
-          "
+          className="pointer-events-none absolute -right-28 -top-32 h-72 w-72 rounded-full bg-secondary/[0.07] blur-[100px]"
         />
 
         {/* top signal */}
         <div
-          className="
-            absolute left-0 top-0
-            h-[2px] w-full
-            bg-gradient-to-r
-            from-secondary
-            via-secondary/35
-            to-transparent
-          "
+          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
         />
 
         <div
-          className="
-            relative z-10
-            grid
-            gap-7
-            px-5 py-6
-            sm:px-6
-            lg:grid-cols-[minmax(0,1fr)_auto]
-            lg:items-start
-            lg:px-8
-            lg:py-7
-          "
+          className="relative z-10 grid gap-7 px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start lg:px-8 lg:py-7"
         >
           {/* identity */}
           <div className="min-w-0">
@@ -218,14 +173,7 @@ export function LeadDetailsClient({
                 <CircleDot className="h-3.5 w-3.5 text-secondary" />
 
                 <span
-                  className="
-                    font-mono
-                    text-[8px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.18em]
-                    text-secondary
-                  "
+                  className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
                 >
                   Lead record
                 </span>
@@ -234,38 +182,17 @@ export function LeadDetailsClient({
               <span className="h-px w-8 bg-secondary/30" />
 
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  uppercase
-                  tracking-[0.14em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40"
               >
                 #{lead.id.slice(-8)}
               </span>
             </div>
 
             <div
-              className="
-                mt-4
-                flex
-                flex-col
-                gap-3
-                sm:flex-row
-                sm:flex-wrap
-                sm:items-center
-              "
+              className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
             >
               <h1
-                className="
-                  min-w-0
-                  text-3xl
-                  font-semibold
-                  tracking-[-0.045em]
-                  text-heading
-                  sm:text-4xl
-                "
+                className="min-w-0 text-3xl font-semibold tracking-[-0.045em] text-heading sm:text-4xl"
               >
                 {lead.companyName || lead.contactPerson}
               </h1>
@@ -277,16 +204,7 @@ export function LeadDetailsClient({
             </div>
 
             <div
-              className="
-                mt-4
-                flex
-                flex-wrap
-                items-center
-                gap-x-5
-                gap-y-2
-                text-xs
-                text-muted-foreground
-              "
+              className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted-foreground"
             >
               <span className="flex items-center gap-2">
                 <UserRound className="h-3.5 w-3.5 text-secondary" />
@@ -303,20 +221,7 @@ export function LeadDetailsClient({
 
           {/* actions */}
           <div
-            className="
-              flex
-              flex-col
-              gap-2
-              border-t border-border
-              pt-5
-
-              sm:flex-row
-
-              lg:border-l
-              lg:border-t-0
-              lg:pl-6
-              lg:pt-0
-            "
+            className="flex flex-col gap-2 border-t border-border pt-5 sm:flex-row lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0"
           >
             <Button
               variant="outline"
@@ -342,12 +247,7 @@ export function LeadDetailsClient({
               variant="outline"
               size="sm"
               onClick={() => setIsDeleteModalOpen(true)}
-              className="
-                justify-center
-                hover:border-destructive/30
-                hover:bg-destructive/[0.05]
-                hover:text-destructive
-              "
+              className="justify-center hover:border-destructive/30 hover:bg-destructive/[0.05] hover:text-destructive"
             >
               <Trash2 className="mr-2 h-4 w-4" />
               Delete
@@ -357,23 +257,11 @@ export function LeadDetailsClient({
 
         {/* bottom summary */}
         <div
-          className="
-            relative z-10
-            grid
-            border-t border-border
-            bg-muted/10
-            sm:grid-cols-3
-          "
+          className="relative z-10 grid border-t border-border bg-muted/10 sm:grid-cols-3"
         >
           <div className="px-5 py-3.5 sm:px-6">
             <p
-              className="
-                font-mono
-                text-[7px]
-                uppercase
-                tracking-[0.15em]
-                text-muted-foreground/40
-              "
+              className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
             >
               Pipeline status
             </p>
@@ -384,22 +272,10 @@ export function LeadDetailsClient({
           </div>
 
           <div
-            className="
-              border-t border-border
-              px-5 py-3.5
-              sm:border-l
-              sm:border-t-0
-              sm:px-6
-            "
+            className="border-t border-border px-5 py-3.5 sm:border-l sm:border-t-0 sm:px-6"
           >
             <p
-              className="
-                font-mono
-                text-[7px]
-                uppercase
-                tracking-[0.15em]
-                text-muted-foreground/40
-              "
+              className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
             >
               Priority
             </p>
@@ -410,22 +286,10 @@ export function LeadDetailsClient({
           </div>
 
           <div
-            className="
-              border-t border-border
-              px-5 py-3.5
-              sm:border-l
-              sm:border-t-0
-              sm:px-6
-            "
+            className="border-t border-border px-5 py-3.5 sm:border-l sm:border-t-0 sm:px-6"
           >
             <p
-              className="
-                font-mono
-                text-[7px]
-                uppercase
-                tracking-[0.15em]
-                text-muted-foreground/40
-              "
+              className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
             >
               Assigned owner
             </p>
@@ -442,12 +306,7 @@ export function LeadDetailsClient({
       {/* ====================================================== */}
 
       <div
-        className="
-          grid
-          grid-cols-1
-          gap-6
-          xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.45fr)]
-        "
+        className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.45fr)]"
       >
         {/* ==================================================== */}
         {/* MAIN COLUMN                                          */}
@@ -456,57 +315,27 @@ export function LeadDetailsClient({
         <div className="space-y-6">
           {/* Project Inquiry */}
           <section
-            className="
-              relative
-              overflow-hidden
-              border border-border
-              bg-card
-              shadow-[var(--shadow-card)]
-            "
+            className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
           >
             <div
-              className="
-                absolute left-0 top-0
-                h-[2px] w-full
-                bg-gradient-to-r
-                from-secondary
-                via-secondary/30
-                to-transparent
-              "
+              className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/30 to-transparent"
             />
 
             <div
-              className="
-                border-b border-border
-                px-5 py-5
-                sm:px-6
-              "
+              className="border-b border-border px-5 py-5 sm:px-6"
             >
               <div className="flex items-center gap-2">
                 <FileText className="h-3.5 w-3.5 text-secondary" />
 
                 <span
-                  className="
-                    font-mono
-                    text-[8px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.18em]
-                    text-secondary
-                  "
+                  className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
                 >
                   Lead requirement
                 </span>
               </div>
 
               <h2
-                className="
-                  mt-2
-                  text-lg
-                  font-semibold
-                  tracking-[-0.025em]
-                  text-heading
-                "
+                className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading"
               >
                 Project Inquiry
               </h2>
@@ -514,12 +343,7 @@ export function LeadDetailsClient({
 
             <div className="px-5 py-6 sm:px-6">
               <p
-                className="
-                  whitespace-pre-wrap
-                  text-sm
-                  leading-7
-                  text-muted-foreground
-                "
+                className="whitespace-pre-wrap text-sm leading-7 text-muted-foreground"
               >
                 {lead.problem}
               </p>
@@ -528,85 +352,41 @@ export function LeadDetailsClient({
 
           {/* Project Information */}
           <section
-            className="
-              relative
-              overflow-hidden
-              border border-border
-              bg-card
-              shadow-[var(--shadow-card)]
-            "
+            className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
           >
             <div
-              className="
-                absolute left-0 top-0
-                h-[2px] w-full
-                bg-gradient-to-r
-                from-secondary
-                via-secondary/30
-                to-transparent
-              "
+              className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/30 to-transparent"
             />
 
             <div
-              className="
-                border-b border-border
-                px-5 py-5
-                sm:px-6
-              "
+              className="border-b border-border px-5 py-5 sm:px-6"
             >
               <div className="flex items-center gap-2">
                 <BriefcaseBusiness className="h-3.5 w-3.5 text-secondary" />
 
                 <span
-                  className="
-                    font-mono
-                    text-[8px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.18em]
-                    text-secondary
-                  "
+                  className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
                 >
                   Opportunity profile
                 </span>
               </div>
 
               <h2
-                className="
-                  mt-2
-                  text-lg
-                  font-semibold
-                  tracking-[-0.025em]
-                  text-heading
-                "
+                className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading"
               >
                 Project Information
               </h2>
             </div>
 
             <dl
-              className="
-                grid
-                grid-cols-1
-                sm:grid-cols-2
-                xl:grid-cols-3
-              "
+              className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
             >
               {/* Services */}
               <div
-                className="
-                  px-5 py-5
-                  sm:px-6
-                "
+                className="px-5 py-5 sm:px-6"
               >
                 <dt
-                  className="
-                    font-mono
-                    text-[7px]
-                    uppercase
-                    tracking-[0.15em]
-                    text-muted-foreground/40
-                  "
+                  className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
                 >
                   Services
                 </dt>
@@ -616,14 +396,7 @@ export function LeadDetailsClient({
                     lead.services.map((service) => (
                       <span
                         key={service}
-                        className="
-                          border border-border
-                          bg-muted/20
-                          px-2 py-1
-                          text-[10px]
-                          font-medium
-                          text-muted-foreground
-                        "
+                        className="border border-border bg-muted/20 px-2 py-1 text-[10px] font-medium text-muted-foreground"
                       >
                         {serviceLabels[service]}
                       </span>
@@ -693,57 +466,27 @@ export function LeadDetailsClient({
         <aside className="space-y-6">
           {/* Contact Information */}
           <section
-            className="
-              relative
-              overflow-hidden
-              border border-border
-              bg-card
-              shadow-[var(--shadow-card)]
-            "
+            className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
           >
             <div
-              className="
-                absolute left-0 top-0
-                h-[2px] w-full
-                bg-gradient-to-r
-                from-secondary
-                via-secondary/30
-                to-transparent
-              "
+              className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/30 to-transparent"
             />
 
             <div
-              className="
-                border-b border-border
-                px-5 py-5
-                sm:px-6
-              "
+              className="border-b border-border px-5 py-5 sm:px-6"
             >
               <div className="flex items-center gap-2">
                 <UserRound className="h-3.5 w-3.5 text-secondary" />
 
                 <span
-                  className="
-                    font-mono
-                    text-[8px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.18em]
-                    text-secondary
-                  "
+                  className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
                 >
                   Contact record
                 </span>
               </div>
 
               <h2
-                className="
-                  mt-2
-                  text-lg
-                  font-semibold
-                  tracking-[-0.025em]
-                  text-heading
-                "
+                className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading"
               >
                 Contact Information
               </h2>
@@ -783,25 +526,12 @@ export function LeadDetailsClient({
             </dl>
 
             <div
-              className="
-                flex items-center
-                gap-2
-                border-t border-border
-                bg-muted/15
-                px-5 py-3.5
-                sm:px-6
-              "
+              className="flex items-center gap-2 border-t border-border bg-muted/15 px-5 py-3.5 sm:px-6"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  uppercase
-                  tracking-[0.15em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
               >
                 Contact record available
               </span>
@@ -811,23 +541,10 @@ export function LeadDetailsClient({
           {/* Attachment */}
           {typeof metadata?.attachmentUrl === "string" && (
             <section
-              className="
-                relative
-                overflow-hidden
-                border border-border
-                bg-card
-                shadow-[var(--shadow-card)]
-              "
+              className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
             >
               <div
-                className="
-                  absolute left-0 top-0
-                  h-[2px] w-full
-                  bg-gradient-to-r
-                  from-secondary
-                  via-secondary/30
-                  to-transparent
-                "
+                className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/30 to-transparent"
               />
 
               <div className="px-5 py-5 sm:px-6">
@@ -837,40 +554,21 @@ export function LeadDetailsClient({
                       <Paperclip className="h-3.5 w-3.5 text-secondary" />
 
                       <span
-                        className="
-                          font-mono
-                          text-[8px]
-                          font-semibold
-                          uppercase
-                          tracking-[0.18em]
-                          text-secondary
-                        "
+                        className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
                       >
                         Supporting file
                       </span>
                     </div>
 
                     <h2
-                      className="
-                        mt-2
-                        text-lg
-                        font-semibold
-                        tracking-[-0.025em]
-                        text-heading
-                      "
+                      className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading"
                     >
                       Attachment
                     </h2>
                   </div>
 
                   <div
-                    className="
-                      flex h-9 w-9
-                      items-center justify-center
-                      border border-secondary/15
-                      bg-secondary/[0.05]
-                      text-secondary
-                    "
+                    className="flex h-9 w-9 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary"
                   >
                     <FileText className="h-4 w-4" />
                   </div>
@@ -880,35 +578,12 @@ export function LeadDetailsClient({
                   href={metadata.attachmentUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="
-                    group
-                    mt-5
-                    flex
-                    items-center
-                    justify-between
-                    gap-3
-                    border border-border
-                    bg-background/50
-                    px-4 py-3
-                    text-sm
-                    font-medium
-                    text-heading
-                    transition-colors
-                    duration-200
-                    hover:border-secondary/30
-                    hover:text-secondary
-                  "
+                  className="group mt-5 flex items-center justify-between gap-3 border border-border bg-background/50 px-4 py-3 text-sm font-medium text-heading transition-colors duration-200 hover:border-secondary/30 hover:text-secondary"
                 >
                   <span>View uploaded file</span>
 
                   <ArrowUpRight
-                    className="
-                      h-4 w-4
-                      transition-transform
-                      duration-200
-                      group-hover:-translate-y-0.5
-                      group-hover:translate-x-0.5
-                    "
+                    className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   />
                 </a>
               </div>
@@ -965,40 +640,20 @@ function InfoItem({
 }) {
   return (
     <div
-      className="
-        border-t border-border
-        px-5 py-5
-        sm:px-6
-        sm:[&:nth-child(2n)]:border-l
-        xl:border-t
-        xl:[&:nth-child(3n+1)]:border-l-0
-        xl:[&:not(:nth-child(3n+1))]:border-l
-      "
+      className="border-t border-border px-5 py-5 sm:px-6 sm:[&:nth-child(2n)]:border-l xl:border-t xl:[&:nth-child(3n+1)]:border-l-0 xl:[&:not(:nth-child(3n+1))]:border-l"
     >
       <div className="flex items-start gap-3">
         <Icon className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
 
         <div className="min-w-0">
           <dt
-            className="
-              font-mono
-              text-[7px]
-              uppercase
-              tracking-[0.15em]
-              text-muted-foreground/40
-            "
+            className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
           >
             {label}
           </dt>
 
           <dd
-            className="
-              mt-1.5
-              break-words
-              text-sm
-              font-medium
-              text-heading
-            "
+            className="mt-1.5 break-words text-sm font-medium text-heading"
           >
             {value}
           </dd>
@@ -1027,25 +682,13 @@ function ContactItem({
 }) {
   return (
     <div
-      className="
-        flex
-        items-start
-        gap-3
-        px-5 py-4
-        sm:px-6
-      "
+      className="flex items-start gap-3 px-5 py-4 sm:px-6"
     >
       <Icon className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
 
       <div className="min-w-0">
         <dt
-          className="
-            font-mono
-            text-[7px]
-            uppercase
-            tracking-[0.15em]
-            text-muted-foreground/40
-          "
+          className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
         >
           {label}
         </dt>

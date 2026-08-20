@@ -222,20 +222,7 @@ export const WhoWeAreSection = () => {
                 delay: 0.3,
                 duration: 0.5,
               }}
-              className="
-                relative
-                -mt-8
-                ml-5
-                mr-5
-                border border-border
-                bg-background/95
-                p-5
-                shadow-[var(--shadow-overlay)]
-                backdrop-blur-xl
-                sm:ml-auto
-                sm:mr-[-1.5rem]
-                sm:max-w-xs
-              "
+              className="relative -mt-8 ml-5 mr-5 border border-border bg-background/95 p-5 shadow-[var(--shadow-overlay)] backdrop-blur-xl sm:ml-auto sm:mr-[-1.5rem] sm:max-w-xs"
             >
               <div className="flex items-start gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-navy text-gold-light">
@@ -339,12 +326,7 @@ export const WhoWeAreSection = () => {
             {/* Mission / Vision */}
             <div
               id="values"
-              className="
-    mt-10 grid gap-px overflow-hidden
-    border border-[var(--color-border)]
-    bg-[var(--color-border)]
-    sm:grid-cols-2
-  "
+              className="mt-10 grid gap-px overflow-hidden border border-[var(--color-border)] bg-[var(--color-border)] sm:grid-cols-2"
             >
               <motion.div
                 whileHover={
@@ -355,12 +337,7 @@ export const WhoWeAreSection = () => {
                           "color-mix(in srgb, var(--color-secondary) 6%, var(--color-card))",
                       }
                 }
-                className="
-      bg-[var(--color-card)]
-      p-6
-      text-[var(--color-card-foreground)]
-      transition-colors duration-300
-    "
+                className="bg-[var(--color-card)] p-6 text-[var(--color-card-foreground)] transition-colors duration-300"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex h-9 w-9 items-center justify-center bg-secondary/[0.08] text-secondary">

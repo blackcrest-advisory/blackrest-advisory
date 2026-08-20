@@ -89,65 +89,28 @@ export function AdminServicesDashboard({
         variants={shouldReduceMotion ? undefined : fadeInUp}
         initial={shouldReduceMotion ? undefined : "hidden"}
         animate={shouldReduceMotion ? undefined : "visible"}
-        className="
-          relative
-          overflow-hidden
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
         {/* architectural rail */}
         <div
           aria-hidden="true"
-          className="
-            absolute
-            bottom-0 left-0 top-0
-            w-[3px]
-            bg-gradient-to-b
-            from-secondary
-            via-secondary/55
-            to-secondary/10
-          "
+          className="absolute bottom-0 left-0 top-0 w-[3px] bg-gradient-to-b from-secondary via-secondary/55 to-secondary/10"
         />
 
         {/* grid field */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute inset-0
-            opacity-[0.22]
-            [background-image:linear-gradient(to_right,var(--color-border)_1px,transparent_1px)]
-            [background-size:72px_100%]
-            [mask-image:linear-gradient(to_right,transparent_25%,black)]
-          "
+          className="pointer-events-none absolute inset-0 opacity-[0.22] [background-image:linear-gradient(to_right,var(--color-border)_1px,transparent_1px)] [background-size:72px_100%] [mask-image:linear-gradient(to_right,transparent_25%,black)]"
         />
 
         {/* ambient */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -right-24 -top-28
-            h-72 w-72
-            rounded-full
-            bg-secondary/[0.055]
-            blur-[110px]
-          "
+          className="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full bg-secondary/[0.055] blur-[110px]"
         />
 
         <div
-          className="
-            relative z-10
-            grid
-            gap-7
-            px-6 py-7
-            sm:px-7
-            lg:px-9
-            lg:py-8
-            xl:grid-cols-[minmax(0,1fr)_310px]
-          "
+          className="relative z-10 grid gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_310px]"
         >
           {/* ================================================== */}
           {/* TITLE AREA                                         */}
@@ -155,24 +118,12 @@ export function AdminServicesDashboard({
 
           <div className="min-w-0">
             <div
-              className="
-                flex
-                flex-wrap
-                items-center
-                gap-3
-              "
+              className="flex flex-wrap items-center gap-3"
             >
               <BriefcaseBusiness className="h-3.5 w-3.5 text-secondary" />
 
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.18em]
-                  text-secondary
-                "
+                className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
               >
                 Capability atlas
               </span>
@@ -180,13 +131,7 @@ export function AdminServicesDashboard({
               <span className="h-px w-9 bg-secondary/30" />
 
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  uppercase
-                  tracking-[0.14em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40"
               >
                 Advisory portfolio
               </span>
@@ -202,55 +147,27 @@ export function AdminServicesDashboard({
           {/* ================================================== */}
 
           <div
-            className="
-              border-t border-border
-              pt-5
-              xl:border-l
-              xl:border-t-0
-              xl:pl-7
-              xl:pt-0
-            "
+            className="border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
           >
             <span
-              className="
-                font-mono
-                text-[8px]
-                font-semibold
-                uppercase
-                tracking-[0.17em]
-                text-muted-foreground/40
-              "
+              className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/40"
             >
               Portfolio index
             </span>
 
             <div
-              className="
-                mt-5
-                flex
-                items-end
-                gap-3
-              "
+              className="mt-5 flex items-end gap-3"
             >
               <Layers3 className="mb-1 h-5 w-5 text-secondary" />
 
               <span
-                className="
-                  text-4xl
-                  font-semibold
-                  tracking-[-0.06em]
-                  text-heading
-                "
+                className="text-4xl font-semibold tracking-[-0.06em] text-heading"
               >
                 {services.length}
               </span>
 
               <span
-                className="
-                  pb-1
-                  text-xs
-                  text-muted-foreground
-                "
+                className="pb-1 text-xs text-muted-foreground"
               >
                 capabilities
               </span>
@@ -258,34 +175,17 @@ export function AdminServicesDashboard({
 
             {/* state distribution */}
             <div
-              className="
-                mt-6
-                grid
-                grid-cols-2
-                divide-x divide-border
-                border-y border-border
-              "
+              className="mt-6 grid grid-cols-2 divide-x divide-border border-y border-border"
             >
               <div className="py-3 pr-4">
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    uppercase
-                    tracking-[0.14em]
-                    text-muted-foreground/40
-                  "
+                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
                 >
                   Active
                 </span>
 
                 <p
-                  className="
-                    mt-1
-                    text-lg
-                    font-semibold
-                    text-heading
-                  "
+                  className="mt-1 text-lg font-semibold text-heading"
                 >
                   {activeServices}
                 </p>
@@ -293,24 +193,13 @@ export function AdminServicesDashboard({
 
               <div className="py-3 pl-4">
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    uppercase
-                    tracking-[0.14em]
-                    text-muted-foreground/40
-                  "
+                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
                 >
                   Paused
                 </span>
 
                 <p
-                  className="
-                    mt-1
-                    text-lg
-                    font-semibold
-                    text-heading
-                  "
+                  className="mt-1 text-lg font-semibold text-heading"
                 >
                   {pausedServices}
                 </p>
@@ -318,23 +207,12 @@ export function AdminServicesDashboard({
             </div>
 
             <div
-              className="
-                mt-4
-                flex
-                items-center
-                gap-2
-              "
+              className="mt-4 flex items-center gap-2"
             >
               <ShieldCheck className="h-3.5 w-3.5 text-success" />
 
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  uppercase
-                  tracking-[0.14em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
               >
                 Portfolio registry online
               </span>
@@ -348,23 +226,14 @@ export function AdminServicesDashboard({
       {/* ====================================================== */}
 
       <div
-        className="
-          grid
-          gap-5
-          xl:grid-cols-[290px_minmax(0,1fr)]
-          xl:items-start
-        "
+        className="grid gap-5 xl:grid-cols-[290px_minmax(0,1fr)] xl:items-start"
       >
         {/* ==================================================== */}
         {/* LEFT CONTROL RAIL                                   */}
         {/* ==================================================== */}
 
         <aside
-          className="
-            space-y-4
-            xl:sticky
-            xl:top-4
-          "
+          className="space-y-4 xl:sticky xl:top-4"
         >
           {/* stats */}
           <motion.div
@@ -385,58 +254,32 @@ export function AdminServicesDashboard({
 
           {/* registry state */}
           <div
-            className="
-              border border-border
-              bg-card
-              shadow-[var(--shadow-card)]
-            "
+            className="border border-border bg-card shadow-[var(--shadow-card)]"
           >
             <div
-              className="
-                px-4 py-4
-              "
+              className="px-4 py-4"
             >
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.15em]
-                  text-secondary
-                "
+                className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
               >
                 Registry state
               </span>
 
               <div
-                className="
-                  mt-3
-                  flex
-                  items-center
-                  justify-between
-                  gap-4
-                "
+                className="mt-3 flex items-center justify-between gap-4"
               >
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
                   <span
-                    className="
-                      text-xs
-                      text-muted-foreground
-                    "
+                    className="text-xs text-muted-foreground"
                   >
                     Services available
                   </span>
                 </div>
 
                 <span
-                  className="
-                    text-sm
-                    font-semibold
-                    text-heading
-                  "
+                  className="text-sm font-semibold text-heading"
                 >
                   {filteredServices.length}
                 </span>
@@ -445,21 +288,10 @@ export function AdminServicesDashboard({
 
             {(search || status !== "all") && (
               <div
-                className="
-                  border-t border-border
-                  bg-secondary/[0.035]
-                  px-4 py-2.5
-                "
+                className="border-t border-border bg-secondary/[0.035] px-4 py-2.5"
               >
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.13em]
-                    text-secondary
-                  "
+                  className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-secondary"
                 >
                   Filters active
                 </span>
@@ -479,59 +311,27 @@ export function AdminServicesDashboard({
           className="min-w-0"
         >
           <div
-            className="
-              border border-border
-              bg-card
-              shadow-[var(--shadow-card)]
-            "
+            className="border border-border bg-card shadow-[var(--shadow-card)]"
           >
             {/* directory heading */}
             <div
-              className="
-                flex
-                flex-col
-                gap-4
-                border-b border-border
-                px-5 py-5
-                sm:flex-row
-                sm:items-end
-                sm:justify-between
-                sm:px-6
-              "
+              className="flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-end sm:justify-between sm:px-6"
             >
               <div>
                 <span
-                  className="
-                    font-mono
-                    text-[8px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.17em]
-                    text-secondary
-                  "
+                  className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
                 >
                   Capability register
                 </span>
 
                 <h2
-                  className="
-                    mt-1.5
-                    text-lg
-                    font-semibold
-                    tracking-[-0.025em]
-                    text-heading
-                  "
+                  className="mt-1.5 text-lg font-semibold tracking-[-0.025em] text-heading"
                 >
                   Advisory Services
                 </h2>
 
                 <p
-                  className="
-                    mt-1
-                    text-xs
-                    leading-5
-                    text-muted-foreground
-                  "
+                  className="mt-1 text-xs leading-5 text-muted-foreground"
                 >
                   Review positioning, delivery structure, pricing and public
                   availability.
@@ -540,24 +340,13 @@ export function AdminServicesDashboard({
 
               <div className="text-left sm:text-right">
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    uppercase
-                    tracking-[0.13em]
-                    text-muted-foreground/40
-                  "
+                  className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40"
                 >
                   Visible records
                 </span>
 
                 <p
-                  className="
-                    mt-1
-                    text-xl
-                    font-semibold
-                    text-heading
-                  "
+                  className="mt-1 text-xl font-semibold text-heading"
                 >
                   {filteredServices.length}
                 </p>

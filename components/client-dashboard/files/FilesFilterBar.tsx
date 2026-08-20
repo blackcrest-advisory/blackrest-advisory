@@ -85,13 +85,7 @@ export const FilesFilterBar = ({
 }: FilesFilterBarProps) => {
   return (
     <div
-      className="
-        grid
-        min-w-0
-        gap-4
-        lg:grid-cols-[minmax(0,1fr)_auto]
-        lg:items-end
-      "
+      className="grid min-w-0 gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end"
     >
       {/* ====================================================== */}
       {/* SEARCH                                                 */}
@@ -99,24 +93,12 @@ export const FilesFilterBar = ({
 
       <div className="min-w-0">
         <div
-          className="
-            mb-2
-            flex
-            items-center
-            gap-2
-          "
+          className="mb-2 flex items-center gap-2"
         >
           <Search className="h-3.5 w-3.5 text-secondary" />
 
           <span
-            className="
-              font-mono
-              text-[7px]
-              font-semibold
-              uppercase
-              tracking-[0.14em]
-              text-muted-foreground/45
-            "
+            className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/45"
           >
             Search library
           </span>
@@ -128,10 +110,7 @@ export const FilesFilterBar = ({
           aria-label="Search files"
           value={search}
           onChange={(event) => onSearchChange(event.target.value)}
-          className="
-            w-full
-            lg:max-w-md
-          "
+          className="w-full lg:max-w-md"
         />
       </div>
 
@@ -140,35 +119,17 @@ export const FilesFilterBar = ({
       {/* ====================================================== */}
 
       <div
-        className="
-          grid
-          gap-3
-          sm:grid-cols-2
-          lg:flex
-          lg:items-end
-        "
+        className="grid gap-3 sm:grid-cols-2 lg:flex lg:items-end"
       >
         {/* type */}
         <div className="min-w-0">
           <div
-            className="
-              mb-2
-              flex
-              items-center
-              gap-2
-            "
+            className="mb-2 flex items-center gap-2"
           >
             <Filter className="h-3.5 w-3.5 text-secondary" />
 
             <span
-              className="
-                font-mono
-                text-[7px]
-                font-semibold
-                uppercase
-                tracking-[0.14em]
-                text-muted-foreground/45
-              "
+              className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/45"
             >
               File type
             </span>
@@ -178,34 +139,19 @@ export const FilesFilterBar = ({
             options={typeOptions}
             value={typeFilter}
             onChange={(value) => onTypeFilterChange(value as FileTypeFilter)}
-            className="
-              w-full
-              sm:min-w-44
-            "
+            className="w-full sm:min-w-44"
           />
         </div>
 
         {/* sort */}
         <div className="min-w-0">
           <div
-            className="
-              mb-2
-              flex
-              items-center
-              gap-2
-            "
+            className="mb-2 flex items-center gap-2"
           >
             <SlidersHorizontal className="h-3.5 w-3.5 text-secondary" />
 
             <span
-              className="
-                font-mono
-                text-[7px]
-                font-semibold
-                uppercase
-                tracking-[0.14em]
-                text-muted-foreground/45
-              "
+              className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/45"
             >
               Sort by
             </span>
@@ -215,10 +161,7 @@ export const FilesFilterBar = ({
             options={sortOptions}
             value={sortBy}
             onChange={(value) => onSortByChange(value as FilesSortOption)}
-            className="
-              w-full
-              sm:min-w-44
-            "
+            className="w-full sm:min-w-44"
           />
         </div>
       </div>

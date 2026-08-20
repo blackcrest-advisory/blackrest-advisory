@@ -283,32 +283,10 @@ export function AdminProjectActions({
         <Link
           href={`/admin/dashboard/projects/${projectId}`}
           onClick={() => setIsOpen(false)}
-          className="
-            group
-            flex
-            min-h-10
-            w-full
-            items-center
-            gap-2.5
-            rounded-md
-            px-2.5 py-2
-            text-sm
-            font-medium
-            text-foreground
-            transition-colors
-            duration-150
-            hover:bg-secondary/[0.05]
-            hover:text-heading
-          "
+          className="group flex min-h-10 w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-sm font-medium text-foreground transition-colors duration-150 hover:bg-secondary/[0.05] hover:text-heading"
         >
           <Eye
-            className="
-              h-4 w-4
-              shrink-0
-              text-muted-foreground
-              transition-colors
-              group-hover:text-secondary
-            "
+            className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-secondary"
           />
 
           <span className="flex-1 text-left">View Details</span>
@@ -322,22 +300,10 @@ export function AdminProjectActions({
       <div className="my-1.5 border-t border-border" />
 
       <div
-        className="
-          flex
-          items-center
-          justify-between
-          px-4 pb-1.5 pt-1
-        "
+        className="flex items-center justify-between px-4 pb-1.5 pt-1"
       >
         <span
-          className="
-            font-mono
-            text-[7px]
-            font-semibold
-            uppercase
-            tracking-[0.16em]
-            text-muted-foreground/40
-          "
+          className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/40"
         >
           Project status
         </span>
@@ -430,15 +396,7 @@ export function AdminProjectActions({
               {/* current */}
               {isCurrent && (
                 <span
-                  className="
-                      flex h-5 w-5
-                      shrink-0
-                      items-center
-                      justify-center
-                      rounded
-                      border border-secondary/20
-                      bg-secondary/[0.08]
-                    "
+                  className="flex h-5 w-5 shrink-0 items-center justify-center rounded border border-secondary/20 bg-secondary/[0.08]"
                 >
                   <Check className="h-3 w-3" />
                 </span>
@@ -459,25 +417,7 @@ export function AdminProjectActions({
           type="button"
           onClick={handleDelete}
           disabled={isPending}
-          className="
-            group
-            flex
-            min-h-10
-            w-full
-            items-center
-            gap-2.5
-            rounded-md
-            px-2.5 py-2
-            text-left
-            text-sm
-            font-medium
-            text-destructive
-            transition-colors
-            duration-150
-            hover:bg-destructive/[0.07]
-            disabled:cursor-not-allowed
-            disabled:opacity-60
-          "
+          className="group flex min-h-10 w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-left text-sm font-medium text-destructive transition-colors duration-150 hover:bg-destructive/[0.07] disabled:cursor-not-allowed disabled:opacity-60"
         >
           <Trash2 className="h-4 w-4 shrink-0" />
 
@@ -559,18 +499,10 @@ export function AdminProjectActions({
               align="start"
               showArrow={false}
               contentClassName=""
-              className="
-                !static
-                !w-56
-                !translate-x-0
-              "
+              className="!static !w-56 !translate-x-0"
             >
               <div
-                className="
-                  max-h-[min(400px,calc(100vh-24px))]
-                  overflow-y-auto
-                  overscroll-contain
-                "
+                className="max-h-[min(400px,calc(100vh-24px))] overflow-y-auto overscroll-contain"
               >
                 {dropdownContent}
               </div>

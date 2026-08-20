@@ -73,14 +73,7 @@ export const AdminStatsSection = ({ stats }: AdminStatsSectionProps) => {
       variants={staggerContainer}
       initial="hidden"
       animate="visible"
-      className="
-        grid
-        grid-cols-1
-        gap-3
-        sm:grid-cols-2
-        lg:grid-cols-3
-        xl:grid-cols-5
-      "
+      className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
     >
       {cards.map((card, index) => {
         const Icon = card.icon;
@@ -149,17 +142,7 @@ export const AdminStatsSection = ({ stats }: AdminStatsSectionProps) => {
             {/* large index */}
             <span
               aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute -bottom-5 -right-1
-                select-none
-                font-mono
-                text-[5.5rem]
-                font-semibold
-                leading-none
-                tracking-[-0.09em]
-                text-foreground/[0.025]
-              "
+              className="pointer-events-none absolute -bottom-5 -right-1 select-none font-mono text-[5.5rem] font-semibold leading-none tracking-[-0.09em] text-foreground/[0.025]"
             >
               0{index + 1}
             </span>
@@ -169,25 +152,13 @@ export const AdminStatsSection = ({ stats }: AdminStatsSectionProps) => {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p
-                    className="
-                      font-mono
-                      text-[7px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.17em]
-                      text-muted-foreground/45
-                    "
+                    className="font-mono text-[7px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/45"
                   >
                     {card.microLabel}
                   </p>
 
                   <p
-                    className="
-                      mt-1
-                      text-xs
-                      font-medium
-                      text-muted-foreground
-                    "
+                    className="mt-1 text-xs font-medium text-muted-foreground"
                   >
                     {card.label}
                   </p>
@@ -280,11 +251,7 @@ export const AdminStatsSection = ({ stats }: AdminStatsSectionProps) => {
                     />
 
                     <span
-                      className="
-                        text-xs
-                        font-medium
-                        text-muted-foreground
-                      "
+                      className="text-xs font-medium text-muted-foreground"
                     >
                       {isAttention ? "Review required" : "Current"}
                     </span>
@@ -292,13 +259,7 @@ export const AdminStatsSection = ({ stats }: AdminStatsSectionProps) => {
                 )}
 
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    uppercase
-                    tracking-[0.14em]
-                    text-muted-foreground/30
-                  "
+                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/30"
                 >
                   KPI
                 </span>

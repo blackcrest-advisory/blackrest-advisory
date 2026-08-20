@@ -25,24 +25,10 @@ export default function AdminProjectRequestDetailLoading() {
 
       <div>
         <div
-          className="
-            inline-flex
-            items-center
-            gap-2
-            text-xs
-            font-medium
-            text-muted-foreground
-          "
+          className="inline-flex items-center gap-2 text-xs font-medium text-muted-foreground"
         >
           <span
-            className="
-              flex h-7 w-7
-              items-center
-              justify-center
-              rounded-md
-              border border-border
-              bg-card
-            "
+            className="flex h-7 w-7 items-center justify-center rounded-md border border-border bg-card"
           >
             <ChevronLeft className="h-3.5 w-3.5" />
           </span>
@@ -55,49 +41,23 @@ export default function AdminProjectRequestDetailLoading() {
       {/* ====================================================== */}
 
       <section
-        className="
-          relative
-          overflow-hidden
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
         {/* ambient glow */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -right-32 -top-36
-            h-80 w-80
-            rounded-full
-            bg-secondary/[0.07]
-            blur-[110px]
-          "
+          className="pointer-events-none absolute -right-32 -top-36 h-80 w-80 rounded-full bg-secondary/[0.07] blur-[110px]"
         />
 
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -left-24 bottom-0
-            h-52 w-52
-            rounded-full
-            bg-primary/[0.04]
-            blur-[90px]
-            dark:bg-secondary/[0.025]
-          "
+          className="pointer-events-none absolute -left-24 bottom-0 h-52 w-52 rounded-full bg-primary/[0.04] blur-[90px] dark:bg-secondary/[0.025]"
         />
 
         {/* grid */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute inset-0
-            hidden opacity-[0.035]
-            lg:block
-          "
+          className="pointer-events-none absolute inset-0 hidden opacity-[0.035] lg:block"
           style={{
             backgroundImage: `
               linear-gradient(
@@ -122,29 +82,11 @@ export default function AdminProjectRequestDetailLoading() {
         {/* top signal */}
         <div
           aria-hidden="true"
-          className="
-            absolute
-            left-0 top-0
-            h-[2px] w-full
-            bg-gradient-to-r
-            from-secondary/40
-            via-secondary/20
-            to-transparent
-          "
+          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"
         />
 
         <div
-          className="
-            relative z-10
-            grid
-            gap-7
-            px-5 py-6
-            sm:px-6
-            lg:grid-cols-[minmax(0,1fr)_auto]
-            lg:items-start
-            lg:px-8
-            lg:py-7
-          "
+          className="relative z-10 grid gap-7 px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start lg:px-8 lg:py-7"
         >
           {/* ================================================== */}
           {/* IDENTITY                                           */}
@@ -161,14 +103,7 @@ export default function AdminProjectRequestDetailLoading() {
             </div>
 
             <div
-              className="
-                mt-5
-                flex
-                flex-col
-                gap-3
-                sm:flex-row
-                sm:items-center
-              "
+              className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center"
             >
               <Skeleton className="h-9 w-[68%] max-w-md" />
 
@@ -177,14 +112,7 @@ export default function AdminProjectRequestDetailLoading() {
 
             {/* client info */}
             <div
-              className="
-                mt-5
-                flex
-                flex-wrap
-                items-center
-                gap-x-5
-                gap-y-2
-              "
+              className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2"
             >
               <Skeleton className="h-3.5 w-28" />
               <Skeleton className="h-3.5 w-32" />
@@ -193,14 +121,7 @@ export default function AdminProjectRequestDetailLoading() {
 
             {/* metadata */}
             <div
-              className="
-                mt-7
-                grid
-                gap-3
-                border-t border-border
-                pt-4
-                sm:grid-cols-3
-              "
+              className="mt-7 grid gap-3 border-t border-border pt-4 sm:grid-cols-3"
             >
               <HeaderMetaSkeleton />
               <HeaderMetaSkeleton />
@@ -213,19 +134,7 @@ export default function AdminProjectRequestDetailLoading() {
           {/* ================================================== */}
 
           <div
-            className="
-              flex
-              shrink-0
-              flex-col
-              gap-3
-              border-t border-border
-              pt-5
-              lg:min-w-[220px]
-              lg:border-l
-              lg:border-t-0
-              lg:pl-6
-              lg:pt-0
-            "
+            className="flex shrink-0 flex-col gap-3 border-t border-border pt-5 lg:min-w-[220px] lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0"
           >
             <div>
               <Skeleton className="h-2.5 w-24" />
@@ -235,11 +144,7 @@ export default function AdminProjectRequestDetailLoading() {
 
             {/* status control */}
             <div
-              className="
-                border border-border
-                bg-background/35
-                p-3
-              "
+              className="border border-border bg-background/35 p-3"
             >
               <div className="mb-2.5 flex items-center justify-between">
                 <div>
@@ -256,14 +161,7 @@ export default function AdminProjectRequestDetailLoading() {
 
             {/* assignment */}
             <div
-              className="
-                flex
-                items-center
-                gap-3
-                border border-border
-                bg-background/35
-                px-3 py-3
-              "
+              className="flex items-center gap-3 border border-border bg-background/35 px-3 py-3"
             >
               <Skeleton className="h-8 w-8 shrink-0 rounded-md" />
 
@@ -279,14 +177,7 @@ export default function AdminProjectRequestDetailLoading() {
             </div>
 
             <div
-              className="
-                mt-1
-                flex
-                items-center
-                gap-2
-                border-t border-border
-                pt-3
-              "
+              className="mt-1 flex items-center gap-2 border-t border-border pt-3"
             >
               <Skeleton className="h-1.5 w-1.5 rounded-full" />
               <Skeleton className="h-2.5 w-28" />
@@ -300,40 +191,17 @@ export default function AdminProjectRequestDetailLoading() {
       {/* ====================================================== */}
 
       <section
-        className="
-          relative
-          overflow-hidden
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
         {/* top signal */}
         <div
           aria-hidden="true"
-          className="
-            absolute left-0 top-0
-            h-[2px] w-full
-            bg-gradient-to-r
-            from-secondary/40
-            via-secondary/20
-            to-transparent
-          "
+          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"
         />
 
         {/* header */}
         <div
-          className="
-            flex
-            flex-col
-            gap-4
-            border-b border-border
-            px-5 py-5
-            sm:flex-row
-            sm:items-start
-            sm:justify-between
-            sm:px-6
-          "
+          className="flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-start sm:justify-between sm:px-6"
         >
           <div className="flex items-start gap-3">
             <Skeleton className="h-10 w-10 shrink-0 rounded-md" />
@@ -350,24 +218,12 @@ export default function AdminProjectRequestDetailLoading() {
 
         {/* summary strip */}
         <div
-          className="
-            grid
-            border-b border-border
-            bg-muted/10
-            sm:grid-cols-3
-          "
+          className="grid border-b border-border bg-muted/10 sm:grid-cols-3"
         >
           {Array.from({ length: 3 }).map((_, index) => (
             <div
               key={index}
-              className="
-                border-b border-border
-                px-5 py-4
-                last:border-b-0
-                sm:border-b-0
-                sm:border-r
-                sm:last:border-r-0
-              "
+              className="border-b border-border px-5 py-4 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0"
             >
               <div className="flex items-center gap-2">
                 <Skeleton className="h-3.5 w-3.5" />
@@ -381,13 +237,7 @@ export default function AdminProjectRequestDetailLoading() {
 
         {/* proposal body */}
         <div
-          className="
-            grid
-            gap-6
-            px-5 py-6
-            sm:px-6
-            xl:grid-cols-[minmax(0,1.5fr)_minmax(280px,0.5fr)]
-          "
+          className="grid gap-6 px-5 py-6 sm:px-6 xl:grid-cols-[minmax(0,1.5fr)_minmax(280px,0.5fr)]"
         >
           {/* main */}
           <div className="space-y-5">
@@ -399,16 +249,10 @@ export default function AdminProjectRequestDetailLoading() {
           {/* sidebar */}
           <div className="space-y-5">
             <section
-              className="
-                border border-border
-                bg-background/30
-              "
+              className="border border-border bg-background/30"
             >
               <div
-                className="
-                  border-b border-border
-                  px-4 py-3.5
-                "
+                className="border-b border-border px-4 py-3.5"
               >
                 <Skeleton className="h-2.5 w-20" />
                 <Skeleton className="mt-2 h-4 w-28" />
@@ -418,13 +262,7 @@ export default function AdminProjectRequestDetailLoading() {
                 {Array.from({ length: 4 }).map((_, index) => (
                   <div
                     key={index}
-                    className="
-                      flex
-                      items-center
-                      justify-between
-                      gap-4
-                      px-4 py-3.5
-                    "
+                    className="flex items-center justify-between gap-4 px-4 py-3.5"
                   >
                     <Skeleton className="h-3 w-20" />
                     <Skeleton className="h-3 w-24" />
@@ -434,11 +272,7 @@ export default function AdminProjectRequestDetailLoading() {
             </section>
 
             <div
-              className="
-                border border-border
-                bg-secondary/[0.025]
-                p-4
-              "
+              className="border border-border bg-secondary/[0.025] p-4"
             >
               <div className="flex items-start gap-3">
                 <Skeleton className="mt-0.5 h-4 w-4 shrink-0" />
@@ -456,18 +290,7 @@ export default function AdminProjectRequestDetailLoading() {
 
         {/* action footer */}
         <div
-          className="
-            flex
-            flex-col
-            gap-3
-            border-t border-border
-            bg-muted/10
-            px-5 py-4
-            sm:flex-row
-            sm:items-center
-            sm:justify-between
-            sm:px-6
-          "
+          className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
         >
           <div className="flex items-center gap-2">
             <Skeleton className="h-1.5 w-1.5 rounded-full" />
@@ -483,11 +306,7 @@ export default function AdminProjectRequestDetailLoading() {
       {/* ====================================================== */}
 
       <div
-        className="
-          grid
-          gap-6
-          xl:grid-cols-[minmax(0,1.55fr)_minmax(300px,0.45fr)]
-        "
+        className="grid gap-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(300px,0.45fr)]"
       >
         {/* ==================================================== */}
         {/* MAIN COLUMN                                         */}
@@ -496,34 +315,15 @@ export default function AdminProjectRequestDetailLoading() {
         <div className="space-y-6">
           {/* project summary */}
           <section
-            className="
-              relative
-              overflow-hidden
-              border border-border
-              bg-card
-              shadow-[var(--shadow-card)]
-            "
+            className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
           >
             <div
               aria-hidden="true"
-              className="
-                absolute
-                left-0 top-0
-                h-[2px] w-24
-                bg-secondary/40
-              "
+              className="absolute left-0 top-0 h-[2px] w-24 bg-secondary/40"
             />
 
             <div
-              className="
-                flex
-                items-center
-                justify-between
-                gap-4
-                border-b border-border
-                px-5 py-4
-                sm:px-6
-              "
+              className="flex items-center justify-between gap-4 border-b border-border px-5 py-4 sm:px-6"
             >
               <div className="flex items-center gap-3">
                 <Skeleton className="h-9 w-9 rounded-md" />
@@ -538,11 +338,7 @@ export default function AdminProjectRequestDetailLoading() {
             </div>
 
             <div
-              className="
-                px-5 py-5
-                sm:px-6
-                sm:py-6
-              "
+              className="px-5 py-5 sm:px-6 sm:py-6"
             >
               <div className="space-y-3">
                 <Skeleton className="h-3.5 w-full" />
@@ -554,12 +350,7 @@ export default function AdminProjectRequestDetailLoading() {
             </div>
 
             <div
-              className="
-                border-t border-border
-                bg-muted/10
-                px-5 py-3
-                sm:px-6
-              "
+              className="border-t border-border bg-muted/10 px-5 py-3 sm:px-6"
             >
               <div className="flex items-center gap-2">
                 <Skeleton className="h-1.5 w-1.5 rounded-full" />
@@ -570,24 +361,10 @@ export default function AdminProjectRequestDetailLoading() {
 
           {/* attachments */}
           <section
-            className="
-              relative
-              overflow-hidden
-              border border-border
-              bg-card
-              shadow-[var(--shadow-card)]
-            "
+            className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
           >
             <div
-              className="
-                flex
-                items-center
-                justify-between
-                gap-4
-                border-b border-border
-                px-5 py-4
-                sm:px-6
-              "
+              className="flex items-center justify-between gap-4 border-b border-border px-5 py-4 sm:px-6"
             >
               <div className="flex items-center gap-3">
                 <Skeleton className="h-9 w-9 rounded-md" />
@@ -605,13 +382,7 @@ export default function AdminProjectRequestDetailLoading() {
               {Array.from({ length: 2 }).map((_, index) => (
                 <div
                   key={index}
-                  className="
-                    flex
-                    items-center
-                    gap-4
-                    px-5 py-4
-                    sm:px-6
-                  "
+                  className="flex items-center gap-4 px-5 py-4 sm:px-6"
                 >
                   <Skeleton className="h-9 w-9 shrink-0 rounded-md" />
 
@@ -634,32 +405,15 @@ export default function AdminProjectRequestDetailLoading() {
         <aside className="space-y-6">
           {/* request details */}
           <section
-            className="
-              relative
-              overflow-hidden
-              border border-border
-              bg-card
-              shadow-[var(--shadow-card)]
-            "
+            className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
           >
             <div
               aria-hidden="true"
-              className="
-                absolute
-                left-0 top-0
-                h-[2px] w-full
-                bg-gradient-to-r
-                from-secondary/40
-                via-secondary/20
-                to-transparent
-              "
+              className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"
             />
 
             <div
-              className="
-                border-b border-border
-                px-5 py-4
-              "
+              className="border-b border-border px-5 py-4"
             >
               <Skeleton className="h-2.5 w-24" />
               <Skeleton className="mt-2 h-4 w-16" />
@@ -669,13 +423,7 @@ export default function AdminProjectRequestDetailLoading() {
               {Array.from({ length: 4 }).map((_, index) => (
                 <div
                   key={index}
-                  className="
-                    flex
-                    items-center
-                    justify-between
-                    gap-5
-                    px-5 py-4
-                  "
+                  className="flex items-center justify-between gap-5 px-5 py-4"
                 >
                   <Skeleton className="h-3 w-20" />
                   <Skeleton className="h-3 w-24" />
@@ -686,19 +434,10 @@ export default function AdminProjectRequestDetailLoading() {
 
           {/* client */}
           <section
-            className="
-              relative
-              overflow-hidden
-              border border-border
-              bg-card
-              shadow-[var(--shadow-card)]
-            "
+            className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
           >
             <div
-              className="
-                border-b border-border
-                px-5 py-4
-              "
+              className="border-b border-border px-5 py-4"
             >
               <Skeleton className="h-2.5 w-20" />
               <Skeleton className="mt-2 h-4 w-16" />
@@ -716,15 +455,7 @@ export default function AdminProjectRequestDetailLoading() {
               </div>
 
               <div
-                className="
-                  mt-5
-                  flex
-                  items-center
-                  justify-between
-                  gap-3
-                  border-t border-border
-                  pt-4
-                "
+                className="mt-5 flex items-center justify-between gap-3 border-t border-border pt-4"
               >
                 <Skeleton className="h-2.5 w-14" />
                 <Skeleton className="h-2.5 w-28" />
@@ -761,21 +492,10 @@ function HeaderMetaSkeleton() {
 function ProposalBlockSkeleton({ lines }: { lines: number }) {
   return (
     <section
-      className="
-        border border-border
-        bg-background/20
-      "
+      className="border border-border bg-background/20"
     >
       <div
-        className="
-          flex
-          items-center
-          gap-3
-          border-b border-border
-          bg-muted/10
-          px-4 py-3.5
-          sm:px-5
-        "
+        className="flex items-center gap-3 border-b border-border bg-muted/10 px-4 py-3.5 sm:px-5"
       >
         <Skeleton className="h-8 w-8 rounded-md" />
 
@@ -786,11 +506,7 @@ function ProposalBlockSkeleton({ lines }: { lines: number }) {
       </div>
 
       <div
-        className="
-          space-y-3
-          px-4 py-4
-          sm:px-5
-        "
+        className="space-y-3 px-4 py-4 sm:px-5"
       >
         {Array.from({ length: lines }).map((_, index) => (
           <Skeleton

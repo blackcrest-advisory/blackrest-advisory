@@ -99,15 +99,7 @@ export const ContactForm = () => {
 
   return (
     <Section
-      className="
-        relative overflow-hidden
-        bg-background
-        py-16
-        text-foreground
-        transition-colors duration-300
-        sm:py-20
-        lg:py-28
-      "
+      className="relative overflow-hidden bg-background py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-28"
     >
       {/* ====================================================== */}
       {/* Background                                             */}
@@ -115,11 +107,7 @@ export const ContactForm = () => {
 
       <div className="pointer-events-none absolute inset-0">
         <div
-          className="
-            absolute left-[-14rem] top-[12%]
-            h-[36rem] w-[36rem]
-            opacity-50
-          "
+          className="absolute left-[-14rem] top-[12%] h-[36rem] w-[36rem] opacity-50"
           style={{
             background:
               "radial-gradient(circle, color-mix(in srgb, var(--color-secondary) 7%, transparent), transparent 70%)",
@@ -127,11 +115,7 @@ export const ContactForm = () => {
         />
 
         <div
-          className="
-            absolute right-[-16rem] bottom-[-14rem]
-            h-[38rem] w-[38rem]
-            opacity-35
-          "
+          className="absolute right-[-16rem] bottom-[-14rem] h-[38rem] w-[38rem] opacity-35"
           style={{
             background:
               "radial-gradient(circle, color-mix(in srgb, var(--color-primary) 6%, transparent), transparent 70%)",
@@ -145,13 +129,7 @@ export const ContactForm = () => {
         {/* ====================================================== */}
 
         <div
-          className="
-            grid gap-8
-            border-b border-border
-            pb-10
-            lg:grid-cols-[0.9fr_1.1fr]
-            lg:items-end
-          "
+          className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
         >
           <motion.div
             initial={{
@@ -172,14 +150,7 @@ export const ContactForm = () => {
               <CircleDot className="h-4 w-4 text-secondary" />
 
               <span
-                className="
-                  font-mono
-                  text-[9px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.2em]
-                  text-secondary
-                "
+                className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary"
               >
                 Send an enquiry
               </span>
@@ -188,13 +159,7 @@ export const ContactForm = () => {
             </div>
 
             <h2
-              className="
-                mt-5 max-w-xl
-                text-4xl font-semibold
-                tracking-[-0.045em]
-                text-heading
-                sm:text-5xl
-              "
+              className="mt-5 max-w-xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl"
             >
               Tell us what
               <span className="block text-muted-foreground">
@@ -216,13 +181,7 @@ export const ContactForm = () => {
             transition={{
               delay: 0.08,
             }}
-            className="
-              max-w-xl
-              text-sm leading-7
-              text-body
-              sm:text-base
-              lg:justify-self-end
-            "
+            className="max-w-xl text-sm leading-7 text-body sm:text-base lg:justify-self-end"
           >
             You don&apos;t need a perfect brief. Give us enough context to
             understand the challenge and we&apos;ll help you work out the right
@@ -235,11 +194,7 @@ export const ContactForm = () => {
         {/* ====================================================== */}
 
         <div
-          className="
-            grid
-            border-b border-border
-            lg:grid-cols-[1.12fr_0.88fr]
-          "
+          className="grid border-b border-border lg:grid-cols-[1.12fr_0.88fr]"
         >
           {/* ==================================================== */}
           {/* FORM                                                 */}
@@ -262,47 +217,25 @@ export const ContactForm = () => {
               duration: 0.6,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="
-              border-b border-border
-              py-10
-              lg:border-b-0
-              lg:border-r
-              lg:py-14
-              lg:pr-14
-            "
+            className="border-b border-border py-10 lg:border-b-0 lg:border-r lg:py-14 lg:pr-14"
           >
             <div className="flex items-center justify-between">
               <div>
                 <p
-                  className="
-                    font-mono
-                    text-[8px]
-                    uppercase
-                    tracking-[0.18em]
-                    text-muted-foreground/50
-                  "
+                  className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted-foreground/50"
                 >
                   Contact form
                 </p>
 
                 <p
-                  className="
-                    mt-2
-                    text-sm
-                    font-semibold
-                    text-heading
-                  "
+                  className="mt-2 text-sm font-semibold text-heading"
                 >
                   Project or partnership enquiry
                 </p>
               </div>
 
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  text-secondary
-                "
+                className="font-mono text-[8px] text-secondary"
               >
                 BCR / 01
               </span>
@@ -318,24 +251,11 @@ export const ContactForm = () => {
                   opacity: 1,
                   scale: 1,
                 }}
-                className="
-                  mt-8
-                  border border-success/25
-                  bg-success/[0.06]
-                  p-7
-                "
+                className="mt-8 border border-success/25 bg-success/[0.06] p-7"
               >
                 <div className="flex items-start gap-4">
                   <div
-                    className="
-                      flex h-10 w-10
-                      shrink-0
-                      items-center
-                      justify-center
-                      border border-success/25
-                      bg-success/[0.08]
-                      text-success
-                    "
+                    className="flex h-10 w-10 shrink-0 items-center justify-center border border-success/25 bg-success/[0.08] text-success"
                   >
                     <LuCheck className="h-5 w-5" />
                   </div>
@@ -353,14 +273,7 @@ export const ContactForm = () => {
                     <button
                       type="button"
                       onClick={() => setIsSubmitted(false)}
-                      className="
-                        mt-5
-                        text-sm
-                        font-semibold
-                        text-secondary
-                        transition-opacity
-                        hover:opacity-70
-                      "
+                      className="mt-5 text-sm font-semibold text-secondary transition-opacity hover:opacity-70"
                     >
                       Send another message →
                     </button>
@@ -374,14 +287,7 @@ export const ContactForm = () => {
                   <div>
                     <label
                       htmlFor="name"
-                      className="
-                        mb-2 block
-                        text-[10px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.14em]
-                        text-muted-foreground
-                      "
+                      className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground"
                     >
                       Full name
                       <span className="ml-1 text-secondary">*</span>
@@ -401,14 +307,7 @@ export const ContactForm = () => {
                   <div>
                     <label
                       htmlFor="email"
-                      className="
-                        mb-2 block
-                        text-[10px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.14em]
-                        text-muted-foreground
-                      "
+                      className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground"
                     >
                       Email address
                       <span className="ml-1 text-secondary">*</span>
@@ -431,14 +330,7 @@ export const ContactForm = () => {
                 <div className="mt-6">
                   <label
                     htmlFor="company"
-                    className="
-                      mb-2 block
-                      text-[10px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.14em]
-                      text-muted-foreground
-                    "
+                    className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground"
                   >
                     Company
                   </label>
@@ -456,37 +348,18 @@ export const ContactForm = () => {
                 {/* Message */}
                 <div className="mt-6">
                   <div
-                    className="
-                      mb-2 flex
-                      items-center
-                      justify-between
-                      gap-4
-                    "
+                    className="mb-2 flex items-center justify-between gap-4"
                   >
                     <label
                       htmlFor="message"
-                      className="
-                        text-[10px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.14em]
-                        text-muted-foreground
-                      "
+                      className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground"
                     >
                       What can we help with?
                       <span className="ml-1 text-secondary">*</span>
                     </label>
 
                     <span
-                      className="
-                        hidden
-                        font-mono
-                        text-[8px]
-                        uppercase
-                        tracking-[0.14em]
-                        text-muted-foreground/35
-                        sm:block
-                      "
+                      className="hidden font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/35 sm:block"
                     >
                       Context over perfection
                     </span>
@@ -507,36 +380,19 @@ export const ContactForm = () => {
 
                 {/* Support signals */}
                 <div
-                  className="
-                    mt-6
-                    flex flex-wrap
-                    gap-x-5
-                    gap-y-2
-                    border-t border-border
-                    pt-5
-                  "
+                  className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-border pt-5"
                 >
                   {formSignals.map((signal) => (
                     <div
                       key={signal}
-                      className="
-                        flex items-center
-                        gap-2
-                      "
+                      className="flex items-center gap-2"
                     >
                       <span
-                        className="
-                          h-1 w-1
-                          rounded-full
-                          bg-secondary
-                        "
+                        className="h-1 w-1 rounded-full bg-secondary"
                       />
 
                       <span
-                        className="
-                          text-xs
-                          text-muted-foreground
-                        "
+                        className="text-xs text-muted-foreground"
                       >
                         {signal}
                       </span>
@@ -576,14 +432,7 @@ export const ContactForm = () => {
                             repeat: Infinity,
                             ease: "linear",
                           }}
-                          className="
-                            mr-2
-                            h-4 w-4
-                            rounded-full
-                            border-2
-                            border-primary-foreground/30
-                            border-t-primary-foreground
-                          "
+                          className="mr-2 h-4 w-4 rounded-full border-2 border-primary-foreground/30 border-t-primary-foreground"
                         />
                         Sending enquiry...
                       </>
@@ -591,12 +440,7 @@ export const ContactForm = () => {
                       <>
                         Send enquiry
                         <LuSend
-                          className="
-                            ml-2 h-4 w-4
-                            transition-transform
-                            duration-300
-                            group-hover:translate-x-1
-                          "
+                          className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
                         />
                       </>
                     )}
@@ -628,37 +472,18 @@ export const ContactForm = () => {
               duration: 0.6,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="
-              relative
-              bg-card
-              py-10
-              text-card-foreground
-              lg:py-14
-              lg:pl-12
-            "
+            className="relative bg-card py-10 text-card-foreground lg:py-14 lg:pl-12"
           >
             <div className="flex items-start justify-between gap-5">
               <div>
                 <p
-                  className="
-                    font-mono
-                    text-[8px]
-                    uppercase
-                    tracking-[0.18em]
-                    text-muted-foreground/50
-                  "
+                  className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted-foreground/50"
                 >
                   Direct channels
                 </p>
 
                 <h3
-                  className="
-                    mt-2
-                    text-xl
-                    font-semibold
-                    tracking-[-0.025em]
-                    text-heading
-                  "
+                  className="mt-2 text-xl font-semibold tracking-[-0.025em] text-heading"
                 >
                   Prefer another way to connect?
                 </h3>
@@ -677,21 +502,11 @@ export const ContactForm = () => {
                     duration: 2,
                     repeat: Infinity,
                   }}
-                  className="
-                    h-1.5 w-1.5
-                    rounded-full
-                    bg-success
-                  "
+                  className="h-1.5 w-1.5 rounded-full bg-success"
                 />
 
                 <span
-                  className="
-                    font-mono
-                    text-[8px]
-                    uppercase
-                    tracking-[0.15em]
-                    text-success
-                  "
+                  className="font-mono text-[8px] uppercase tracking-[0.15em] text-success"
                 >
                   Available
                 </span>
@@ -715,57 +530,27 @@ export const ContactForm = () => {
                   transition={{
                     delay: 0.15 + index * 0.08,
                   }}
-                  className="
-                    group
-                    border-b border-border
-                    py-6
-                  "
+                  className="group border-b border-border py-6"
                 >
                   <div
-                    className="
-                      flex items-start
-                      justify-between
-                      gap-5
-                    "
+                    className="flex items-start justify-between gap-5"
                   >
                     <div className="flex items-start gap-4">
                       <div
-                        className="
-                          flex h-10 w-10
-                          shrink-0
-                          items-center
-                          justify-center
-                          border border-secondary/20
-                          bg-secondary/[0.06]
-                          text-secondary
-                          transition-all duration-300
-                          group-hover:bg-secondary
-                          group-hover:text-secondary-foreground
-                        "
+                        className="flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.06] text-secondary transition-all duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground"
                       >
                         {item.icon}
                       </div>
 
                       <div>
                         <p
-                          className="
-                            font-mono
-                            text-[8px]
-                            uppercase
-                            tracking-[0.16em]
-                            text-muted-foreground/45
-                          "
+                          className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45"
                         >
                           0{index + 1}
                         </p>
 
                         <h4
-                          className="
-                            mt-1
-                            text-sm
-                            font-semibold
-                            text-heading
-                          "
+                          className="mt-1 text-sm font-semibold text-heading"
                         >
                           {item.title}
                         </h4>
@@ -774,12 +559,7 @@ export const ContactForm = () => {
                           {item.details.map((detail, detailIndex) => (
                             <p
                               key={detailIndex}
-                              className="
-                                break-words
-                                text-sm
-                                leading-6
-                                text-muted-foreground
-                              "
+                              className="break-words text-sm leading-6 text-muted-foreground"
                             >
                               {detail}
                             </p>
@@ -789,16 +569,7 @@ export const ContactForm = () => {
                     </div>
 
                     <ArrowUpRight
-                      className="
-                        mt-1
-                        h-4 w-4
-                        shrink-0
-                        text-muted-foreground/20
-                        transition-all duration-300
-                        group-hover:-translate-y-0.5
-                        group-hover:translate-x-0.5
-                        group-hover:text-secondary
-                      "
+                      className="mt-1 h-4 w-4 shrink-0 text-muted-foreground/20 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-secondary"
                     />
                   </div>
                 </motion.div>
@@ -807,58 +578,30 @@ export const ContactForm = () => {
 
             {/* response panel */}
             <div
-              className="
-                mt-8
-                border border-secondary/20
-                bg-secondary/[0.05]
-                p-5
-              "
+              className="mt-8 border border-secondary/20 bg-secondary/[0.05] p-5"
             >
               <div className="flex items-start gap-4">
                 <div
-                  className="
-                    flex h-9 w-9
-                    shrink-0
-                    items-center
-                    justify-center
-                    bg-secondary/[0.09]
-                    text-secondary
-                  "
+                  className="flex h-9 w-9 shrink-0 items-center justify-center bg-secondary/[0.09] text-secondary"
                 >
                   <Clock3 className="h-4 w-4" />
                 </div>
 
                 <div>
                   <p
-                    className="
-                      text-[9px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.17em]
-                      text-secondary
-                    "
+                    className="text-[9px] font-semibold uppercase tracking-[0.17em] text-secondary"
                   >
                     Response expectation
                   </p>
 
                   <p
-                    className="
-                      mt-2
-                      text-sm
-                      font-semibold
-                      text-heading
-                    "
+                    className="mt-2 text-sm font-semibold text-heading"
                   >
                     We aim to reply quickly and clearly.
                   </p>
 
                   <p
-                    className="
-                      mt-1
-                      text-xs
-                      leading-6
-                      text-muted-foreground
-                    "
+                    className="mt-1 text-xs leading-6 text-muted-foreground"
                   >
                     Your first response should help you understand what happens
                     next — not leave you waiting for a generic sales follow-up.
@@ -869,31 +612,14 @@ export const ContactForm = () => {
 
             {/* micro statement */}
             <div
-              className="
-                mt-8
-                flex items-start
-                gap-3
-                border-l
-                border-secondary/30
-                pl-4
-              "
+              className="mt-8 flex items-start gap-3 border-l border-secondary/30 pl-4"
             >
               <Sparkles
-                className="
-                  mt-0.5
-                  h-4 w-4
-                  shrink-0
-                  text-secondary
-                "
+                className="mt-0.5 h-4 w-4 shrink-0 text-secondary"
               />
 
               <p
-                className="
-                  max-w-sm
-                  text-xs
-                  leading-6
-                  text-muted-foreground
-                "
+                className="max-w-sm text-xs leading-6 text-muted-foreground"
               >
                 Project scope, retained partnership, specialist support, or
                 simply an initial question — all are valid reasons to reach out.
@@ -916,13 +642,7 @@ export const ContactForm = () => {
             y: 0,
           }}
           viewport={{ once: true }}
-          className="
-            flex flex-col
-            gap-4 py-6
-            sm:flex-row
-            sm:items-center
-            sm:justify-between
-          "
+          className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between"
         >
           <div className="flex items-center gap-3">
             <MessageSquareText className="h-4 w-4 text-secondary" />
@@ -933,13 +653,7 @@ export const ContactForm = () => {
           </div>
 
           <span
-            className="
-              font-mono
-              text-[8px]
-              uppercase
-              tracking-[0.16em]
-              text-muted-foreground/40
-            "
+            className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40"
           >
             Enquire → Understand → Recommend → Move Forward
           </span>

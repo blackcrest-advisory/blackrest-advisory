@@ -225,11 +225,7 @@ export default function WhoWeServe() {
               <div>
                 <div className="flex items-center gap-4">
                   <div
-                    className="
-                      flex h-11 w-11 items-center justify-center
-                      rounded-[var(--radius-control)]
-                      border border-gold/20 bg-gold/10 text-gold-light
-                    "
+                    className="flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] border border-gold/20 bg-gold/10 text-gold-light"
                   >
                     <ActiveIcon className="h-5 w-5" strokeWidth={1.8} />
                   </div>
@@ -292,14 +288,7 @@ export default function WhoWeServe() {
 
               {/* Service panel */}
               <div
-                className="
-                  border border-white/10
-                  bg-white/[0.045]
-                  p-6
-                  shadow-[0_18px_50px_rgb(0_0_0/0.16)]
-                  backdrop-blur-sm
-                  sm:p-8
-                "
+                className="border border-white/10 bg-white/[0.045] p-6 shadow-[0_18px_50px_rgb(0_0_0/0.16)] backdrop-blur-sm sm:p-8"
                 style={{
                   borderRadius: "var(--radius-surface)",
                 }}
@@ -353,11 +342,7 @@ export default function WhoWeServe() {
 
                 <button
                   type="button"
-                  className="
-                    group mt-7 inline-flex items-center gap-2
-                    text-sm font-semibold text-gold-light
-                    transition-colors hover:text-white
-                  "
+                  className="group mt-7 inline-flex items-center gap-2 text-sm font-semibold text-gold-light transition-colors hover:text-white"
                 >
                   See how we can help
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

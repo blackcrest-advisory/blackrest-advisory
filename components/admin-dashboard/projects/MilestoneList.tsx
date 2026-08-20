@@ -133,51 +133,22 @@ export function MilestoneList({
 
         {milestones.length === 0 ? (
           <div
-            className="
-              flex
-              min-h-[150px]
-              flex-col
-              items-center
-              justify-center
-              border border-dashed border-border
-              bg-background/20
-              px-5 py-8
-              text-center
-            "
+            className="flex min-h-[150px] flex-col items-center justify-center border border-dashed border-border bg-background/20 px-5 py-8 text-center"
           >
             <div
-              className="
-                flex h-9 w-9
-                items-center
-                justify-center
-                rounded-md
-                border border-border
-                bg-card
-                text-muted-foreground
-              "
+              className="flex h-9 w-9 items-center justify-center rounded-md border border-border bg-card text-muted-foreground"
             >
               <Circle className="h-3.5 w-3.5" />
             </div>
 
             <p
-              className="
-                mt-3
-                text-sm
-                font-medium
-                text-heading
-              "
+              className="mt-3 text-sm font-medium text-heading"
             >
               No milestones yet
             </p>
 
             <p
-              className="
-                mt-1
-                max-w-sm
-                text-xs
-                leading-5
-                text-muted-foreground
-              "
+              className="mt-1 max-w-sm text-xs leading-5 text-muted-foreground"
             >
               Add delivery milestones to track the project through each stage.
             </p>
@@ -206,17 +177,7 @@ export function MilestoneList({
                   {/* ================================================== */}
 
                   <div
-                    className="
-                      hidden
-                      w-7
-                      shrink-0
-                      pt-1
-                      font-mono
-                      text-[8px]
-                      font-semibold
-                      text-muted-foreground/25
-                      sm:block
-                    "
+                    className="hidden w-7 shrink-0 pt-1 font-mono text-[8px] font-semibold text-muted-foreground/25 sm:block"
                   >
                     {String(index + 1).padStart(2, "0")}
                   </div>
@@ -273,14 +234,7 @@ export function MilestoneList({
 
                   <div className="min-w-0 flex-1">
                     <div
-                      className="
-                        flex
-                        flex-col
-                        gap-2
-                        sm:flex-row
-                        sm:items-start
-                        sm:justify-between
-                      "
+                      className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between"
                     >
                       <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-2">
@@ -301,21 +255,7 @@ export function MilestoneList({
 
                           {milestone.isCompleted && (
                             <span
-                              className="
-                                inline-flex
-                                items-center
-                                gap-1.5
-                                rounded-md
-                                border border-success/20
-                                bg-success/[0.06]
-                                px-2 py-0.5
-                                font-mono
-                                text-[7px]
-                                font-semibold
-                                uppercase
-                                tracking-[0.12em]
-                                text-success
-                              "
+                              className="inline-flex items-center gap-1.5 rounded-md border border-success/20 bg-success/[0.06] px-2 py-0.5 font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-success"
                             >
                               <span className="h-1 w-1 rounded-full bg-current" />
                               Complete
@@ -325,13 +265,7 @@ export function MilestoneList({
 
                         {milestone.description && (
                           <p
-                            className="
-                              mt-1.5
-                              whitespace-pre-wrap
-                              text-xs
-                              leading-5
-                              text-muted-foreground
-                            "
+                            className="mt-1.5 whitespace-pre-wrap text-xs leading-5 text-muted-foreground"
                           >
                             {milestone.description}
                           </p>
@@ -345,20 +279,7 @@ export function MilestoneList({
                           onClick={() => handleDelete(milestone.id)}
                           disabled={isPending}
                           aria-label="Delete milestone"
-                          className="
-                            flex h-8 w-8
-                            shrink-0
-                            items-center
-                            justify-center
-                            self-start
-                            rounded-md
-                            text-muted-foreground
-                            transition-colors
-                            hover:bg-destructive/[0.06]
-                            hover:text-destructive
-                            disabled:cursor-not-allowed
-                            disabled:opacity-60
-                          "
+                          className="flex h-8 w-8 shrink-0 items-center justify-center self-start rounded-md text-muted-foreground transition-colors hover:bg-destructive/[0.06] hover:text-destructive disabled:cursor-not-allowed disabled:opacity-60"
                         >
                           <Trash2 className="h-3.5 w-3.5" />
                         </button>
@@ -371,36 +292,18 @@ export function MilestoneList({
 
                     {milestone.dueDate && (
                       <div
-                        className="
-                          mt-3
-                          flex
-                          items-center
-                          gap-2
-                          border-t border-border
-                          pt-3
-                        "
+                        className="mt-3 flex items-center gap-2 border-t border-border pt-3"
                       >
                         <CalendarDays className="h-3.5 w-3.5 text-secondary" />
 
                         <span
-                          className="
-                            font-mono
-                            text-[7px]
-                            font-semibold
-                            uppercase
-                            tracking-[0.12em]
-                            text-muted-foreground/40
-                          "
+                          className="font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/40"
                         >
                           Due
                         </span>
 
                         <span
-                          className="
-                            text-[11px]
-                            font-medium
-                            text-muted-foreground
-                          "
+                          className="text-[11px] font-medium text-muted-foreground"
                         >
                           {format(new Date(milestone.dueDate), "MMM d, yyyy")}
                         </span>
@@ -421,68 +324,33 @@ export function MilestoneList({
           (isAdding ? (
             <form
               onSubmit={handleAdd}
-              className="
-                relative
-                border border-border
-                bg-background/30
-              "
+              className="relative border border-border bg-background/30"
             >
               {/* top signal */}
               <div
                 aria-hidden="true"
-                className="
-                  absolute left-0 top-0
-                  h-[2px] w-full
-                  bg-gradient-to-r
-                  from-secondary/60
-                  via-secondary/15
-                  to-transparent
-                "
+                className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/60 via-secondary/15 to-transparent"
               />
 
               {/* form header */}
               <div
-                className="
-                  flex
-                  items-start
-                  justify-between
-                  gap-4
-                  border-b border-border
-                  px-4 py-3.5
-                  sm:px-5
-                "
+                className="flex items-start justify-between gap-4 border-b border-border px-4 py-3.5 sm:px-5"
               >
                 <div>
                   <span
-                    className="
-                      font-mono
-                      text-[7px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.15em]
-                      text-secondary
-                    "
+                    className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
                   >
                     Delivery sequence
                   </span>
 
                   <h3
-                    className="
-                      mt-0.5
-                      text-sm
-                      font-semibold
-                      text-heading
-                    "
+                    className="mt-0.5 text-sm font-semibold text-heading"
                   >
                     Add Milestone
                   </h3>
 
                   <p
-                    className="
-                      mt-1
-                      text-xs
-                      text-muted-foreground
-                    "
+                    className="mt-1 text-xs text-muted-foreground"
                   >
                     Add another checkpoint to the project delivery plan.
                   </p>
@@ -493,18 +361,7 @@ export function MilestoneList({
                   onClick={cancelAdd}
                   disabled={isPending}
                   aria-label="Close milestone form"
-                  className="
-                    flex h-8 w-8
-                    shrink-0
-                    items-center
-                    justify-center
-                    rounded-md
-                    text-muted-foreground
-                    transition-colors
-                    hover:bg-muted/40
-                    hover:text-heading
-                    disabled:opacity-50
-                  "
+                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted/40 hover:text-heading disabled:opacity-50"
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -512,11 +369,7 @@ export function MilestoneList({
 
               {/* fields */}
               <div
-                className="
-                  space-y-4
-                  px-4 py-4
-                  sm:px-5
-                "
+                className="space-y-4 px-4 py-4 sm:px-5"
               >
                 <Field label="Milestone title" required>
                   <Input
@@ -551,17 +404,7 @@ export function MilestoneList({
 
               {/* actions */}
               <div
-                className="
-                  flex
-                  flex-col-reverse
-                  gap-2
-                  border-t border-border
-                  bg-muted/10
-                  px-4 py-3
-                  sm:flex-row
-                  sm:justify-end
-                  sm:px-5
-                "
+                className="flex flex-col-reverse gap-2 border-t border-border bg-muted/10 px-4 py-3 sm:flex-row sm:justify-end sm:px-5"
               >
                 <Button
                   type="button"
@@ -591,37 +434,17 @@ export function MilestoneList({
             </form>
           ) : (
             <div
-              className="
-                flex
-                flex-col
-                gap-3
-                border-t border-border
-                pt-4
-                sm:flex-row
-                sm:items-center
-                sm:justify-between
-              "
+              className="flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between"
             >
               <div>
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.14em]
-                    text-muted-foreground/40
-                  "
+                  className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40"
                 >
                   Delivery plan
                 </span>
 
                 <p
-                  className="
-                    mt-1
-                    text-xs
-                    text-muted-foreground
-                  "
+                  className="mt-1 text-xs text-muted-foreground"
                 >
                   Add another milestone to the project timeline.
                 </p>
@@ -631,14 +454,7 @@ export function MilestoneList({
                 variant="outline"
                 size="sm"
                 onClick={() => setIsAdding(true)}
-                className="
-                  w-full
-                  !rounded-md
-                  border-secondary/20
-                  hover:border-secondary/30
-                  hover:bg-secondary/[0.05]
-                  sm:w-auto
-                "
+                className="w-full !rounded-md border-secondary/20 hover:border-secondary/30 hover:bg-secondary/[0.05] sm:w-auto"
               >
                 <Plus className="h-3.5 w-3.5" />
 
@@ -687,15 +503,7 @@ function Field({
   return (
     <div>
       <div
-        className="
-          mb-2
-          flex
-          items-center
-          gap-1
-          text-xs
-          font-semibold
-          text-heading
-        "
+        className="mb-2 flex items-center gap-1 text-xs font-semibold text-heading"
       >
         {label}
 

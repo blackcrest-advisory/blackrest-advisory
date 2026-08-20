@@ -28,11 +28,7 @@ function SkeletonLine({ width = "w-full" }: { width?: string }) {
 function SkeletonInput() {
   return (
     <Skeleton
-      className="
-        h-10
-        w-full
-        rounded-md
-      "
+      className="h-10 w-full rounded-md"
     />
   );
 }
@@ -44,12 +40,7 @@ function SkeletonInput() {
 export default function Loading() {
   return (
     <div
-      className="
-        relative
-        min-w-0
-        max-w-full
-        space-y-6
-      "
+      className="relative min-w-0 max-w-full space-y-6"
       aria-label="Loading client settings"
     >
       {/* ====================================================== */}
@@ -57,48 +48,21 @@ export default function Loading() {
       {/* ====================================================== */}
 
       <header
-        className="
-          relative
-          min-w-0
-          overflow-hidden
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
         {/* ambient backdrop */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute
-            right-0 top-0
-            h-full w-[42%]
-            opacity-[0.14]
-            [background-image:linear-gradient(to_right,var(--color-border)_1px,transparent_1px)]
-            [background-size:56px_100%]
-            [mask-image:linear-gradient(to_left,black,transparent)]
-          "
+          className="pointer-events-none absolute right-0 top-0 h-full w-[42%] opacity-[0.14] [background-image:linear-gradient(to_right,var(--color-border)_1px,transparent_1px)] [background-size:56px_100%] [mask-image:linear-gradient(to_left,black,transparent)]"
         />
 
         {/* main title */}
         <div
-          className="
-            relative z-10
-            px-6 py-7
-            sm:px-7
-            lg:px-9
-            lg:py-9
-          "
+          className="relative z-10 px-6 py-7 sm:px-7 lg:px-9 lg:py-9"
         >
           <div className="max-w-3xl">
             <div
-              className="
-                flex
-                flex-wrap
-                items-center
-                gap-3
-              "
+              className="flex flex-wrap items-center gap-3"
             >
               <Skeleton className="h-7 w-7 rounded-md" />
               <Skeleton className="h-2.5 w-28" />
@@ -107,13 +71,7 @@ export default function Loading() {
             </div>
 
             <Skeleton
-              className="
-                mt-6
-                h-11
-                w-72
-                max-w-full
-                sm:h-12
-              "
+              className="mt-6 h-11 w-72 max-w-full sm:h-12"
             />
 
             <div className="mt-4 space-y-2">
@@ -125,28 +83,12 @@ export default function Loading() {
 
         {/* account areas */}
         <div
-          className="
-            relative z-10
-            grid
-            border-t border-border
-            bg-background/20
-            sm:grid-cols-3
-          "
+          className="relative z-10 grid border-t border-border bg-background/20 sm:grid-cols-3"
         >
           {Array.from({ length: 3 }).map((_, index) => (
             <div
               key={index}
-              className="
-                flex
-                items-start
-                gap-3
-                border-b border-border
-                px-6 py-4
-                sm:border-b-0
-                sm:border-r
-                sm:last:border-r-0
-                lg:px-9
-              "
+              className="flex items-start gap-3 border-b border-border px-6 py-4 sm:border-b-0 sm:border-r sm:last:border-r-0 lg:px-9"
             >
               <Skeleton className="h-8 w-8 shrink-0 rounded-md" />
 
@@ -160,20 +102,7 @@ export default function Loading() {
 
         {/* status footer */}
         <div
-          className="
-            relative z-10
-            flex
-            flex-col
-            gap-2
-            border-t border-border
-            bg-muted/10
-            px-6 py-3
-            sm:flex-row
-            sm:items-center
-            sm:justify-between
-            sm:px-7
-            lg:px-9
-          "
+          className="relative z-10 flex flex-col gap-2 border-t border-border bg-muted/10 px-6 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-7 lg:px-9"
         >
           <div className="flex items-center gap-2">
             <Skeleton className="h-1.5 w-1.5 rounded-full" />
@@ -189,14 +118,7 @@ export default function Loading() {
       {/* ====================================================== */}
 
       <div
-        className="
-          grid
-          min-w-0
-          max-w-full
-          gap-6
-          xl:grid-cols-[minmax(0,1.4fr)_minmax(300px,0.6fr)]
-          xl:items-start
-        "
+        className="grid min-w-0 max-w-full gap-6 xl:grid-cols-[minmax(0,1.4fr)_minmax(300px,0.6fr)] xl:items-start"
       >
         {/* ==================================================== */}
         {/* MAIN COLUMN                                         */}
@@ -212,11 +134,7 @@ export default function Loading() {
         {/* ==================================================== */}
 
         <aside
-          className="
-            min-w-0
-            xl:sticky
-            xl:top-4
-          "
+          className="min-w-0 xl:sticky xl:top-4"
         >
           <SecuritySectionSkeleton />
         </aside>
@@ -232,36 +150,17 @@ export default function Loading() {
 function ProfileSectionSkeleton() {
   return (
     <section
-      className="
-        relative
-        min-w-0
-        overflow-hidden
-        border border-border
-        bg-card
-        shadow-[var(--shadow-card)]
-      "
+      className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
       {/* top signal */}
       <div
         aria-hidden="true"
-        className="
-          absolute
-          left-0 top-0
-          h-[2px] w-28
-          bg-secondary/25
-        "
+        className="absolute left-0 top-0 h-[2px] w-28 bg-secondary/25"
       />
 
       {/* header */}
       <div
-        className="
-          flex
-          items-start
-          gap-3
-          border-b border-border
-          px-5 py-4
-          sm:px-6
-        "
+        className="flex items-start gap-3 border-b border-border px-5 py-4 sm:px-6"
       >
         <Skeleton className="h-9 w-9 shrink-0 rounded-md" />
 
@@ -274,21 +173,10 @@ function ProfileSectionSkeleton() {
 
       {/* identity */}
       <div
-        className="
-          border-b border-border
-          bg-background/20
-          px-5 py-5
-          sm:px-6
-        "
+        className="border-b border-border bg-background/20 px-5 py-5 sm:px-6"
       >
         <div
-          className="
-            flex
-            flex-col
-            gap-4
-            sm:flex-row
-            sm:items-center
-          "
+          className="flex flex-col gap-4 sm:flex-row sm:items-center"
         >
           <Skeleton className="h-14 w-14 shrink-0 rounded-full" />
 
@@ -304,14 +192,7 @@ function ProfileSectionSkeleton() {
 
       {/* fields */}
       <div
-        className="
-          grid
-          min-w-0
-          gap-5
-          px-5 py-5
-          sm:grid-cols-2
-          sm:px-6
-        "
+        className="grid min-w-0 gap-5 px-5 py-5 sm:grid-cols-2 sm:px-6"
       >
         <FieldSkeleton />
         <FieldSkeleton />
@@ -325,18 +206,7 @@ function ProfileSectionSkeleton() {
 
       {/* footer */}
       <div
-        className="
-          flex
-          flex-col
-          gap-3
-          border-t border-border
-          bg-muted/10
-          px-5 py-4
-          sm:flex-row
-          sm:items-center
-          sm:justify-between
-          sm:px-6
-        "
+        className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
       >
         <div className="flex items-center gap-2">
           <Skeleton className="h-1.5 w-1.5 rounded-full" />
@@ -356,26 +226,11 @@ function ProfileSectionSkeleton() {
 function NotificationsSectionSkeleton() {
   return (
     <section
-      className="
-        relative
-        min-w-0
-        overflow-hidden
-        border border-border
-        bg-card
-        shadow-[var(--shadow-card)]
-      "
+      className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
       {/* header */}
       <div
-        className="
-          grid
-          gap-5
-          border-b border-border
-          px-5 py-5
-          sm:px-6
-          lg:grid-cols-[minmax(0,1fr)_220px]
-          lg:items-end
-        "
+        className="grid gap-5 border-b border-border px-5 py-5 sm:px-6 lg:grid-cols-[minmax(0,1fr)_220px] lg:items-end"
       >
         <div>
           <div className="flex items-center gap-2">
@@ -392,14 +247,7 @@ function NotificationsSectionSkeleton() {
         </div>
 
         <div
-          className="
-            border-t border-border
-            pt-4
-            lg:border-l
-            lg:border-t-0
-            lg:pl-5
-            lg:pt-0
-          "
+          className="border-t border-border pt-4 lg:border-l lg:border-t-0 lg:pl-5 lg:pt-0"
         >
           <Skeleton className="h-2.5 w-24" />
           <Skeleton className="mt-2 h-7 w-12" />
@@ -408,11 +256,7 @@ function NotificationsSectionSkeleton() {
 
       {/* preferences */}
       <div
-        className="
-          grid
-          min-w-0
-          md:grid-cols-2
-        "
+        className="grid min-w-0 md:grid-cols-2"
       >
         {Array.from({ length: 5 }).map((_, index) => (
           <div
@@ -431,12 +275,7 @@ function NotificationsSectionSkeleton() {
 
               <div className="min-w-0 flex-1">
                 <div
-                  className="
-                    flex
-                    items-start
-                    justify-between
-                    gap-4
-                  "
+                  className="flex items-start justify-between gap-4"
                 >
                   <div className="min-w-0 flex-1">
                     <Skeleton className="h-2.5 w-20" />
@@ -463,18 +302,7 @@ function NotificationsSectionSkeleton() {
 
       {/* footer */}
       <div
-        className="
-          flex
-          flex-col
-          gap-3
-          border-t border-border
-          bg-muted/10
-          px-5 py-4
-          sm:flex-row
-          sm:items-center
-          sm:justify-between
-          sm:px-6
-        "
+        className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
       >
         <div className="min-w-0">
           <Skeleton className="h-3 w-48 max-w-full" />
@@ -494,35 +322,17 @@ function NotificationsSectionSkeleton() {
 function SecuritySectionSkeleton() {
   return (
     <section
-      className="
-        relative
-        min-w-0
-        overflow-hidden
-        border border-border
-        bg-card
-        shadow-[var(--shadow-card)]
-      "
+      className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
       {/* top signal */}
       <div
         aria-hidden="true"
-        className="
-          absolute
-          left-0 top-0
-          h-[2px] w-full
-          bg-gradient-to-r
-          from-secondary/25
-          via-secondary/10
-          to-transparent
-        "
+        className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/25 via-secondary/10 to-transparent"
       />
 
       {/* header */}
       <div
-        className="
-          border-b border-border
-          px-5 py-5
-        "
+        className="border-b border-border px-5 py-5"
       >
         <div className="flex items-start gap-3">
           <Skeleton className="h-10 w-10 shrink-0 rounded-md" />
@@ -537,11 +347,7 @@ function SecuritySectionSkeleton() {
 
       {/* status */}
       <div
-        className="
-          border-b border-border
-          bg-background/20
-          px-5 py-4
-        "
+        className="border-b border-border bg-background/20 px-5 py-4"
       >
         <div className="flex items-start gap-3">
           <Skeleton className="h-8 w-8 shrink-0 rounded-md" />
@@ -564,12 +370,7 @@ function SecuritySectionSkeleton() {
         <FieldSkeleton />
 
         <div
-          className="
-            border-l-2
-            border-border
-            bg-background/30
-            px-3 py-3
-          "
+          className="border-l-2 border-border bg-background/30 px-3 py-3"
         >
           <Skeleton className="h-2.5 w-28" />
           <Skeleton className="mt-2 h-3 w-full" />
@@ -579,22 +380,12 @@ function SecuritySectionSkeleton() {
 
       {/* footer */}
       <div
-        className="
-          border-t border-border
-          bg-muted/10
-          px-5 py-4
-        "
+        className="border-t border-border bg-muted/10 px-5 py-4"
       >
         <Skeleton className="h-10 w-full rounded-md" />
 
         <div
-          className="
-            mt-3
-            flex
-            items-center
-            justify-center
-            gap-2
-          "
+          className="mt-3 flex items-center justify-center gap-2"
         >
           <Skeleton className="h-1.5 w-1.5 rounded-full" />
           <Skeleton className="h-2.5 w-28" />

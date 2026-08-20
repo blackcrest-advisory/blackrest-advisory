@@ -131,14 +131,7 @@ export default function Navbar() {
             {/* Navigation capsule */}
             <nav
               aria-label="Primary navigation"
-              className="
-                flex items-center gap-1
-                border border-border/70
-                bg-card/70
-                p-1
-                shadow-[var(--shadow-control-inset)]
-                backdrop-blur-xl
-              "
+              className="flex items-center gap-1 border border-border/70 bg-card/70 p-1 shadow-[var(--shadow-control-inset)] backdrop-blur-xl"
             >
               {navLinks.map((link) => {
                 const hasChildren = Boolean(link.children?.length);
@@ -254,15 +247,7 @@ export default function Navbar() {
               onClick={() => setIsOpen((current) => !current)}
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"
-              className="
-                relative flex h-10 w-10 items-center justify-center
-                border border-border bg-card
-                text-foreground
-                transition-colors hover:bg-muted
-                focus-visible:outline-none
-                focus-visible:ring-2
-                focus-visible:ring-ring/60
-              "
+              className="relative flex h-10 w-10 items-center justify-center border border-border bg-card text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
             >
               <span className="sr-only">
                 {isOpen ? "Close menu" : "Open menu"}
@@ -409,15 +394,7 @@ export default function Navbar() {
                               onClick={() => toggleMobileSub(link.id)}
                               aria-expanded={submenuOpen}
                               aria-label={`Toggle ${link.name} submenu`}
-                              className="
-                                flex h-10 w-10 items-center justify-center
-                                text-muted-foreground
-                                transition-colors
-                                hover:bg-muted hover:text-heading
-                                focus-visible:outline-none
-                                focus-visible:ring-2
-                                focus-visible:ring-ring/60
-                              "
+                              className="flex h-10 w-10 items-center justify-center text-muted-foreground transition-colors hover:bg-muted hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
                             >
                               <ChevronDown
                                 className={`

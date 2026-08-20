@@ -121,17 +121,7 @@ const Dropdown = ({
 
             <div
               aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute
-                left-0 top-0
-                z-10
-                h-[2px] w-full
-                bg-gradient-to-r
-                from-secondary
-                via-secondary/45
-                to-transparent
-              "
+              className="pointer-events-none absolute left-0 top-0 z-10 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/45 to-transparent"
             />
 
             {/* ================================================ */}
@@ -140,15 +130,7 @@ const Dropdown = ({
 
             <div
               aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute
-                -right-10 -top-12
-                h-28 w-28
-                rounded-full
-                bg-secondary/[0.07]
-                blur-[55px]
-              "
+              className="pointer-events-none absolute -right-10 -top-12 h-28 w-28 rounded-full bg-secondary/[0.07] blur-[55px]"
             />
 
             {/* ================================================ */}
@@ -157,12 +139,7 @@ const Dropdown = ({
 
             <div
               aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute inset-x-0 top-[2px]
-                h-px
-                bg-foreground/[0.035]
-              "
+              className="pointer-events-none absolute inset-x-0 top-[2px] h-px bg-foreground/[0.035]"
             />
 
             {/* ================================================ */}
@@ -177,13 +154,7 @@ const Dropdown = ({
 
             <div
               aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute
-                bottom-0 left-4
-                h-px w-8
-                bg-secondary/35
-              "
+              className="pointer-events-none absolute bottom-0 left-4 h-px w-8 bg-secondary/35"
             />
           </div>
         </motion.div>

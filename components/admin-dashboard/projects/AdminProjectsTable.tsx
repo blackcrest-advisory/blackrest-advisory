@@ -62,100 +62,40 @@ export function AdminProjectsTable({
   if (projects.length === 0) {
     return (
       <div
-        className="
-          relative
-          flex
-          min-h-[300px]
-          flex-col
-          items-center
-          justify-center
-          overflow-hidden
-          border border-border
-          bg-card
-          px-6 py-12
-          text-center
-          shadow-[var(--shadow-card)]
-        "
+        className="relative flex min-h-[300px] flex-col items-center justify-center overflow-hidden border border-border bg-card px-6 py-12 text-center shadow-[var(--shadow-card)]"
       >
         {/* top signal */}
         <div
           aria-hidden="true"
-          className="
-            absolute left-0 top-0
-            h-[2px] w-full
-            bg-gradient-to-r
-            from-secondary/40
-            via-secondary/15
-            to-transparent
-          "
+          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/15 to-transparent"
         />
 
         {/* ambient glow */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -top-20 right-1/2
-            h-40 w-40
-            translate-x-1/2
-            rounded-full
-            bg-secondary/[0.05]
-            blur-[80px]
-          "
+          className="pointer-events-none absolute -top-20 right-1/2 h-40 w-40 translate-x-1/2 rounded-full bg-secondary/[0.05] blur-[80px]"
         />
 
         <div
-          className="
-            relative z-10
-            flex h-11 w-11
-            items-center
-            justify-center
-            rounded-md
-            border border-border
-            bg-muted/20
-            text-muted-foreground
-          "
+          className="relative z-10 flex h-11 w-11 items-center justify-center rounded-md border border-border bg-muted/20 text-muted-foreground"
         >
           <FolderKanban className="h-4 w-4" />
         </div>
 
         <span
-          className="
-            relative z-10
-            mt-4
-            font-mono
-            text-[8px]
-            font-semibold
-            uppercase
-            tracking-[0.18em]
-            text-secondary
-          "
+          className="relative z-10 mt-4 font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
         >
           Project portfolio
         </span>
 
         <h2
-          className="
-            relative z-10
-            mt-2
-            text-lg
-            font-semibold
-            tracking-[-0.02em]
-            text-heading
-          "
+          className="relative z-10 mt-2 text-lg font-semibold tracking-[-0.02em] text-heading"
         >
           No projects yet
         </h2>
 
         <p
-          className="
-            relative z-10
-            mt-2
-            max-w-md
-            text-sm
-            leading-6
-            text-muted-foreground
-          "
+          className="relative z-10 mt-2 max-w-md text-sm leading-6 text-muted-foreground"
         >
           {emptyMessage ??
             "Projects are automatically created when a client accepts a proposal."}
@@ -166,12 +106,7 @@ export function AdminProjectsTable({
 
   return (
     <div
-      className="
-        relative
-        border border-border
-        bg-card
-        shadow-[var(--shadow-card)]
-      "
+      className="relative border border-border bg-card shadow-[var(--shadow-card)]"
     >
       {/* ====================================================== */}
       {/* TOP SIGNAL                                             */}
@@ -179,15 +114,7 @@ export function AdminProjectsTable({
 
       <div
         aria-hidden="true"
-        className="
-          absolute left-0 top-0
-          z-10
-          h-[2px] w-full
-          bg-gradient-to-r
-          from-secondary/45
-          via-secondary/15
-          to-transparent
-        "
+        className="absolute left-0 top-0 z-10 h-[2px] w-full bg-gradient-to-r from-secondary/45 via-secondary/15 to-transparent"
       />
 
       {/* ====================================================== */}
@@ -198,11 +125,7 @@ export function AdminProjectsTable({
         <Table>
           <TableHeader>
             <TableRow
-              className="
-                border-border
-                bg-muted/15
-                hover:bg-muted/15
-              "
+              className="border-border bg-muted/15 hover:bg-muted/15"
             >
               <TableHead className="h-11 pl-5">Project</TableHead>
 
@@ -226,12 +149,7 @@ export function AdminProjectsTable({
             {projects.map((project) => (
               <TableRow
                 key={project.id}
-                className="
-                  border-border
-                  transition-colors
-                  duration-200
-                  hover:bg-secondary/[0.025]
-                "
+                className="border-border transition-colors duration-200 hover:bg-secondary/[0.025]"
               >
                 {/* ================================================== */}
                 {/* PROJECT                                            */}
@@ -240,25 +158,13 @@ export function AdminProjectsTable({
                 <TableCell className="py-4 pl-5">
                   <div className="max-w-[220px]">
                     <p
-                      className="
-                        truncate
-                        text-sm
-                        font-semibold
-                        text-heading
-                      "
+                      className="truncate text-sm font-semibold text-heading"
                     >
                       {project.title}
                     </p>
 
                     <p
-                      className="
-                        mt-1
-                        truncate
-                        font-mono
-                        text-[9px]
-                        tracking-[0.05em]
-                        text-muted-foreground/45
-                      "
+                      className="mt-1 truncate font-mono text-[9px] tracking-[0.05em] text-muted-foreground/45"
                     >
                       #{project.id.slice(-8)}
                     </p>
@@ -272,24 +178,14 @@ export function AdminProjectsTable({
                 <TableCell>
                   <div className="max-w-[160px]">
                     <p
-                      className="
-                        truncate
-                        text-sm
-                        font-medium
-                        text-heading
-                      "
+                      className="truncate text-sm font-medium text-heading"
                     >
                       {project.user.name || project.user.email}
                     </p>
 
                     {project.user.name && (
                       <p
-                        className="
-                          mt-1
-                          truncate
-                          text-[10px]
-                          text-muted-foreground
-                        "
+                        className="mt-1 truncate text-[10px] text-muted-foreground"
                       >
                         {project.user.email}
                       </p>
@@ -303,19 +199,7 @@ export function AdminProjectsTable({
 
                 <TableCell>
                   <span
-                    className="
-                      inline-flex
-                      max-w-[180px]
-                      truncate
-                      rounded-md
-                      border border-border
-                      bg-muted/20
-                      px-2.5 py-1
-                      text-[10px]
-                      font-medium
-                      capitalize
-                      text-muted-foreground
-                    "
+                    className="inline-flex max-w-[180px] truncate rounded-md border border-border bg-muted/20 px-2.5 py-1 text-[10px] font-medium capitalize text-muted-foreground"
                   >
                     {project.serviceType ||
                       project.proposal?.brief?.pillar ||
@@ -330,12 +214,7 @@ export function AdminProjectsTable({
                 <TableCell>
                   {project.budget ? (
                     <span
-                      className="
-                        whitespace-nowrap
-                        text-sm
-                        font-medium
-                        text-heading
-                      "
+                      className="whitespace-nowrap text-sm font-medium text-heading"
                     >
                       €{project.budget.toFixed(2)}
                     </span>
@@ -367,12 +246,7 @@ export function AdminProjectsTable({
                 <TableCell>
                   <div className="max-w-[150px]">
                     <span
-                      className="
-                        block
-                        truncate
-                        text-sm
-                        text-muted-foreground
-                      "
+                      className="block truncate text-sm text-muted-foreground"
                       title={project.assignedTo || "Unassigned"}
                     >
                       {project.assignedTo || "Unassigned"}
@@ -404,14 +278,7 @@ export function AdminProjectsTable({
         {projects.map((project, index) => (
           <article
             key={project.id}
-            className="
-              relative
-              px-5 py-5
-              transition-colors
-              duration-200
-              hover:bg-secondary/[0.02]
-              sm:px-6
-            "
+            className="relative px-5 py-5 transition-colors duration-200 hover:bg-secondary/[0.02] sm:px-6"
           >
             {/* ================================================== */}
             {/* HEADER                                             */}
@@ -419,52 +286,24 @@ export function AdminProjectsTable({
 
             <div className="flex items-start gap-3">
               <div
-                className="
-                  flex h-9 w-9
-                  shrink-0
-                  items-center
-                  justify-center
-                  rounded-md
-                  border border-border
-                  bg-background
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  text-muted-foreground/45
-                "
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background font-mono text-[8px] font-semibold text-muted-foreground/45"
               >
                 {String(index + 1).padStart(2, "0")}
               </div>
 
               <div className="min-w-0 flex-1">
                 <div
-                  className="
-                    flex
-                    items-start
-                    justify-between
-                    gap-3
-                  "
+                  className="flex items-start justify-between gap-3"
                 >
                   <div className="min-w-0">
                     <h3
-                      className="
-                        truncate
-                        text-sm
-                        font-semibold
-                        text-heading
-                      "
+                      className="truncate text-sm font-semibold text-heading"
                     >
                       {project.title}
                     </h3>
 
                     <p
-                      className="
-                        mt-1
-                        font-mono
-                        text-[8px]
-                        tracking-[0.05em]
-                        text-muted-foreground/40
-                      "
+                      className="mt-1 font-mono text-[8px] tracking-[0.05em] text-muted-foreground/40"
                     >
                       #{project.id.slice(-8)}
                     </p>
@@ -489,60 +328,29 @@ export function AdminProjectsTable({
             {/* ================================================== */}
 
             <div
-              className="
-                mt-4
-                border border-border
-                bg-background/40
-                p-3
-              "
+              className="mt-4 border border-border bg-background/40 p-3"
             >
               <div
-                className="
-                  flex
-                  items-center
-                  justify-between
-                  gap-3
-                "
+                className="flex items-center justify-between gap-3"
               >
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.14em]
-                    text-muted-foreground/40
-                  "
+                  className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40"
                 >
                   Delivery progress
                 </span>
 
                 <span
-                  className="
-                    text-xs
-                    font-semibold
-                    text-heading
-                  "
+                  className="text-xs font-semibold text-heading"
                 >
                   {project.progress}%
                 </span>
               </div>
 
               <div
-                className="
-                  mt-2
-                  h-1.5
-                  overflow-hidden
-                  bg-muted
-                "
+                className="mt-2 h-1.5 overflow-hidden bg-muted"
               >
                 <div
-                  className="
-                    h-full
-                    bg-secondary
-                    transition-all
-                    duration-500
-                  "
+                  className="h-full bg-secondary transition-all duration-500"
                   style={{
                     width: `${Math.min(project.progress, 100)}%`,
                   }}
@@ -555,13 +363,7 @@ export function AdminProjectsTable({
             {/* ================================================== */}
 
             <div
-              className="
-                mt-3
-                grid
-                grid-cols-1
-                gap-3
-                sm:grid-cols-2
-              "
+              className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2"
             >
               <RecordItem icon={UserRound} label="Client">
                 {project.user.name || project.user.email}
@@ -589,46 +391,22 @@ export function AdminProjectsTable({
             {/* ================================================== */}
 
             <div
-              className="
-                mt-4
-                flex
-                items-center
-                justify-between
-                gap-4
-                border-t border-border
-                pt-4
-              "
+              className="mt-4 flex items-center justify-between gap-4 border-t border-border pt-4"
             >
               <div className="flex items-center gap-2">
                 <span
-                  className="
-                    h-1.5 w-1.5
-                    rounded-full
-                    bg-secondary
-                  "
+                  className="h-1.5 w-1.5 rounded-full bg-secondary"
                 />
 
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    uppercase
-                    tracking-[0.14em]
-                    text-muted-foreground/40
-                  "
+                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
                 >
                   Delivery record
                 </span>
               </div>
 
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  uppercase
-                  tracking-[0.14em]
-                  text-secondary
-                "
+                className="font-mono text-[7px] uppercase tracking-[0.14em] text-secondary"
               >
                 Project
               </span>
@@ -642,36 +420,15 @@ export function AdminProjectsTable({
       {/* ====================================================== */}
 
       <div
-        className="
-          flex
-          flex-col
-          gap-2
-          border-t border-border
-          bg-muted/10
-          px-5 py-3.5
-          sm:flex-row
-          sm:items-center
-          sm:justify-between
-          sm:px-6
-        "
+        className="flex flex-col gap-2 border-t border-border bg-muted/10 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
       >
         <div className="flex items-center gap-2">
           <span
-            className="
-              h-1.5 w-1.5
-              rounded-full
-              bg-success
-            "
+            className="h-1.5 w-1.5 rounded-full bg-success"
           />
 
           <span
-            className="
-              font-mono
-              text-[7px]
-              uppercase
-              tracking-[0.15em]
-              text-muted-foreground/40
-            "
+            className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
           >
             Portfolio records available
           </span>
@@ -693,28 +450,13 @@ export function AdminProjectsTable({
 function ProjectProgress({ progress }: { progress: number }) {
   return (
     <div
-      className="
-        flex
-        min-w-[125px]
-        items-center
-        gap-2.5
-      "
+      className="flex min-w-[125px] items-center gap-2.5"
     >
       <div
-        className="
-          h-1.5
-          w-20
-          overflow-hidden
-          bg-muted
-        "
+        className="h-1.5 w-20 overflow-hidden bg-muted"
       >
         <div
-          className="
-            h-full
-            bg-secondary
-            transition-all
-            duration-500
-          "
+          className="h-full bg-secondary transition-all duration-500"
           style={{
             width: `${Math.min(progress, 100)}%`,
           }}
@@ -722,13 +464,7 @@ function ProjectProgress({ progress }: { progress: number }) {
       </div>
 
       <span
-        className="
-          min-w-[32px]
-          text-right
-          text-[11px]
-          font-semibold
-          text-heading
-        "
+        className="min-w-[32px] text-right text-[11px] font-semibold text-heading"
       >
         {progress}%
       </span>
@@ -751,44 +487,22 @@ function RecordItem({
 }) {
   return (
     <div
-      className="
-        rounded-md
-        border border-border
-        bg-background/40
-        p-3
-      "
+      className="rounded-md border border-border bg-background/40 p-3"
     >
       <div className="flex items-center gap-1.5">
         <Icon
-          className="
-            h-3.5 w-3.5
-            text-secondary
-          "
+          className="h-3.5 w-3.5 text-secondary"
         />
 
         <span
-          className="
-            font-mono
-            text-[7px]
-            font-semibold
-            uppercase
-            tracking-[0.14em]
-            text-muted-foreground/40
-          "
+          className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40"
         >
           {label}
         </span>
       </div>
 
       <div
-        className="
-          mt-2
-          min-w-0
-          break-words
-          text-xs
-          font-medium
-          text-heading
-        "
+        className="mt-2 min-w-0 break-words text-xs font-medium text-heading"
       >
         {children}
       </div>

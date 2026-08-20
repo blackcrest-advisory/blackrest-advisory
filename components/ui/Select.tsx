@@ -131,14 +131,7 @@ export const Select = ({
         <span className="flex min-w-0 items-center gap-2">
           {selectedOption?.icon && (
             <selectedOption.icon
-              className="
-                h-4 w-4
-                shrink-0
-                text-muted-foreground
-                transition-colors
-                duration-200
-                group-hover:text-secondary
-              "
+              className="h-4 w-4 shrink-0 text-muted-foreground transition-colors duration-200 group-hover:text-secondary"
             />
           )}
 
@@ -169,22 +162,13 @@ export const Select = ({
       <Dropdown
         isOpen={isOpen}
         align={align}
-        className="
-          z-[200]
-          !w-full
-          min-w-[180px]
-        "
+        className="z-[200] !w-full min-w-[180px]"
         contentClassName=""
         showArrow={false}
       >
         <ul
           role="listbox"
-          className="
-            max-h-64
-            overflow-y-auto
-            overscroll-contain
-            py-1.5
-          "
+          className="max-h-64 overflow-y-auto overscroll-contain py-1.5"
         >
           {options.map((option) => {
             const isSelected = option.value === value;
@@ -264,11 +248,7 @@ export const Select = ({
 
                   {/* label */}
                   <span
-                    className="
-                      min-w-0
-                      flex-1
-                      truncate
-                    "
+                    className="min-w-0 flex-1 truncate"
                   >
                     {option.label}
                   </span>
@@ -276,21 +256,10 @@ export const Select = ({
                   {/* selected indicator */}
                   {isSelected && (
                     <span
-                      className="
-                        flex h-5 w-5
-                        shrink-0
-                        items-center
-                        justify-center
-                        rounded
-                        border border-secondary/20
-                        bg-secondary/[0.08]
-                      "
+                      className="flex h-5 w-5 shrink-0 items-center justify-center rounded border border-secondary/20 bg-secondary/[0.08]"
                     >
                       <Check
-                        className="
-                          h-3 w-3
-                          text-secondary
-                        "
+                        className="h-3 w-3 text-secondary"
                         strokeWidth={2.5}
                       />
                     </span>
@@ -307,32 +276,16 @@ export const Select = ({
 
         <div
           aria-hidden="true"
-          className="
-            flex
-            items-center
-            justify-between
-            border-t border-border
-            bg-muted/10
-            px-3 py-2
-          "
+          className="flex items-center justify-between border-t border-border bg-muted/10 px-3 py-2"
         >
           <span
-            className="
-              font-mono
-              text-[7px]
-              uppercase
-              tracking-[0.14em]
-              text-muted-foreground/35
-            "
+            className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/35"
           >
             Select option
           </span>
 
           <span
-            className="
-              h-px w-6
-              bg-secondary/30
-            "
+            className="h-px w-6 bg-secondary/30"
           />
         </div>
       </Dropdown>

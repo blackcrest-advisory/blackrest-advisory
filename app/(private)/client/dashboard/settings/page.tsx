@@ -94,12 +94,7 @@ export default async function SettingsPage() {
 
   return (
     <div
-      className="
-        relative
-        min-w-0
-        max-w-full
-        space-y-6
-      "
+      className="relative min-w-0 max-w-full space-y-6"
     >
       {/* ====================================================== */}
       {/* SETTINGS HEADER                                       */}
@@ -112,24 +107,14 @@ export default async function SettingsPage() {
       {/* ====================================================== */}
 
       <div
-        className="
-          grid
-          min-w-0
-          max-w-full
-          gap-6
-          xl:grid-cols-[minmax(0,1.4fr)_minmax(300px,0.6fr)]
-          xl:items-start
-        "
+        className="grid min-w-0 max-w-full gap-6 xl:grid-cols-[minmax(0,1.4fr)_minmax(300px,0.6fr)] xl:items-start"
       >
         {/* ==================================================== */}
         {/* MAIN ACCOUNT AREA                                   */}
         {/* ==================================================== */}
 
         <div
-          className="
-            min-w-0
-            space-y-6
-          "
+          className="min-w-0 space-y-6"
         >
           <ProfileSection profile={profile} />
 
@@ -141,11 +126,7 @@ export default async function SettingsPage() {
         {/* ==================================================== */}
 
         <aside
-          className="
-            min-w-0
-            xl:sticky
-            xl:top-4
-          "
+          className="min-w-0 xl:sticky xl:top-4"
         >
           <SecuritySection />
         </aside>

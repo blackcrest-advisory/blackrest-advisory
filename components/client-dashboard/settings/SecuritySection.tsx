@@ -108,14 +108,7 @@ export const SecuritySection = () => {
 
   return (
     <section
-      className="
-        relative
-        min-w-0
-        overflow-hidden
-        border border-border
-        bg-card
-        shadow-[var(--shadow-card)]
-      "
+      className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
       {/* ====================================================== */}
       {/* TOP SIGNAL                                            */}
@@ -123,15 +116,7 @@ export const SecuritySection = () => {
 
       <div
         aria-hidden="true"
-        className="
-          absolute
-          left-0 top-0
-          h-[2px] w-full
-          bg-gradient-to-r
-          from-secondary/60
-          via-secondary/20
-          to-transparent
-        "
+        className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/60 via-secondary/20 to-transparent"
       />
 
       {/* ====================================================== */}
@@ -139,65 +124,32 @@ export const SecuritySection = () => {
       {/* ====================================================== */}
 
       <div
-        className="
-          border-b border-border
-          px-5 py-5
-        "
+        className="border-b border-border px-5 py-5"
       >
         <div
-          className="
-            flex
-            items-start
-            gap-3
-          "
+          className="flex items-start gap-3"
         >
           <div
-            className="
-              flex h-10 w-10
-              shrink-0
-              items-center
-              justify-center
-              rounded-md
-              border border-secondary/15
-              bg-secondary/[0.045]
-              text-secondary
-            "
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-secondary/15 bg-secondary/[0.045] text-secondary"
           >
             <Fingerprint className="h-4 w-4" />
           </div>
 
           <div className="min-w-0">
             <span
-              className="
-                font-mono
-                text-[7px]
-                font-semibold
-                uppercase
-                tracking-[0.15em]
-                text-secondary
-              "
+              className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
             >
               Private access
             </span>
 
             <h2
-              className="
-                mt-1
-                text-base
-                font-semibold
-                text-heading
-              "
+              className="mt-1 text-base font-semibold text-heading"
             >
               Security
             </h2>
 
             <p
-              className="
-                mt-1
-                text-xs
-                leading-5
-                text-muted-foreground
-              "
+              className="mt-1 text-xs leading-5 text-muted-foreground"
             >
               Change your password to keep your account secure.
             </p>
@@ -210,52 +162,26 @@ export const SecuritySection = () => {
       {/* ====================================================== */}
 
       <div
-        className="
-          border-b border-border
-          bg-background/20
-          px-5 py-4
-        "
+        className="border-b border-border bg-background/20 px-5 py-4"
       >
         <div
-          className="
-            flex
-            items-start
-            gap-3
-          "
+          className="flex items-start gap-3"
         >
           <div
-            className="
-              flex h-8 w-8
-              shrink-0
-              items-center
-              justify-center
-              rounded-md
-              border border-success/15
-              bg-success/[0.04]
-              text-success
-            "
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-success/15 bg-success/[0.04] text-success"
           >
             <ShieldCheck className="h-3.5 w-3.5" />
           </div>
 
           <div>
             <p
-              className="
-                text-xs
-                font-semibold
-                text-heading
-              "
+              className="text-xs font-semibold text-heading"
             >
               Password protected
             </p>
 
             <p
-              className="
-                mt-1
-                text-[10px]
-                leading-4
-                text-muted-foreground
-              "
+              className="mt-1 text-[10px] leading-4 text-muted-foreground"
             >
               Use a unique password that you do not use for other accounts.
             </p>
@@ -303,39 +229,19 @@ export const SecuritySection = () => {
         {/* ==================================================== */}
 
         <div
-          className="
-            flex
-            items-start
-            gap-2.5
-            border-l-2
-            border-secondary/35
-            bg-secondary/[0.025]
-            px-3 py-3
-          "
+          className="flex items-start gap-2.5 border-l-2 border-secondary/35 bg-secondary/[0.025] px-3 py-3"
         >
           <KeyRound className="mt-0.5 h-3.5 w-3.5 shrink-0 text-secondary" />
 
           <div>
             <p
-              className="
-                font-mono
-                text-[7px]
-                font-semibold
-                uppercase
-                tracking-[0.12em]
-                text-secondary
-              "
+              className="font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-secondary"
             >
               Password requirement
             </p>
 
             <p
-              className="
-                mt-1
-                text-[10px]
-                leading-4
-                text-muted-foreground
-              "
+              className="mt-1 text-[10px] leading-4 text-muted-foreground"
             >
               Your new password must contain at least 8 characters.
             </p>
@@ -348,21 +254,14 @@ export const SecuritySection = () => {
       {/* ====================================================== */}
 
       <div
-        className="
-          border-t border-border
-          bg-muted/10
-          px-5 py-4
-        "
+        className="border-t border-border bg-muted/10 px-5 py-4"
       >
         <Button
           variant="primary"
           size="md"
           onClick={handleSave}
           disabled={isUpdating}
-          className="
-            w-full
-            !rounded-md
-          "
+          className="w-full !rounded-md"
         >
           <Save className="h-4 w-4" />
 
@@ -370,31 +269,14 @@ export const SecuritySection = () => {
         </Button>
 
         <div
-          className="
-            mt-3
-            flex
-            items-center
-            justify-center
-            gap-2
-          "
+          className="mt-3 flex items-center justify-center gap-2"
         >
           <span
-            className="
-              h-1.5 w-1.5
-              rounded-full
-              bg-success
-            "
+            className="h-1.5 w-1.5 rounded-full bg-success"
           />
 
           <span
-            className="
-              font-mono
-              text-[7px]
-              font-semibold
-              uppercase
-              tracking-[0.12em]
-              text-muted-foreground/35
-            "
+            className="font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/35"
           >
             Secure client access
           </span>
@@ -419,27 +301,15 @@ function SecurityField({
 }) {
   return (
     <label
-      className="
-        block
-        min-w-0
-      "
+      className="block min-w-0"
     >
       <div
-        className="
-          mb-1.5
-          flex
-          items-center
-          gap-2
-        "
+        className="mb-1.5 flex items-center gap-2"
       >
         <Icon className="h-3 w-3 text-secondary" />
 
         <span
-          className="
-            text-xs
-            font-semibold
-            text-heading
-          "
+          className="text-xs font-semibold text-heading"
         >
           {label}
         </span>

@@ -278,33 +278,10 @@ export function ProjectActionsDropdown({
         <Link
           href={`${basePath}/${briefId}`}
           onClick={() => setIsOpen(false)}
-          className="
-            group
-            flex
-            min-h-10
-            w-full
-            items-center
-            gap-2.5
-            rounded-md
-            px-2.5
-            py-2
-            text-sm
-            font-medium
-            text-foreground
-            transition-colors
-            duration-150
-            hover:bg-secondary/[0.05]
-            hover:text-heading
-          "
+          className="group flex min-h-10 w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-sm font-medium text-foreground transition-colors duration-150 hover:bg-secondary/[0.05] hover:text-heading"
         >
           <Eye
-            className="
-              h-4 w-4
-              shrink-0
-              text-muted-foreground
-              transition-colors
-              group-hover:text-secondary
-            "
+            className="h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-secondary"
           />
 
           <span className="flex-1 text-left">View Details</span>
@@ -321,33 +298,16 @@ export function ProjectActionsDropdown({
 
           {/* status label */}
           <div
-            className="
-              flex
-              items-center
-              justify-between
-              px-4
-              pb-1.5
-              pt-1
-            "
+            className="flex items-center justify-between px-4 pb-1.5 pt-1"
           >
             <span
-              className="
-                font-mono
-                text-[7px]
-                font-semibold
-                uppercase
-                tracking-[0.16em]
-                text-muted-foreground/40
-              "
+              className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/40"
             >
               Update status
             </span>
 
             <span
-              className="
-                h-px w-6
-                bg-secondary/30
-              "
+              className="h-px w-6 bg-secondary/30"
             />
           </div>
 
@@ -443,21 +403,10 @@ export function ProjectActionsDropdown({
                   {/* current indicator */}
                   {isCurrent && (
                     <span
-                      className="
-                          flex h-5 w-5
-                          shrink-0
-                          items-center
-                          justify-center
-                          rounded
-                          border border-secondary/20
-                          bg-secondary/[0.08]
-                        "
+                      className="flex h-5 w-5 shrink-0 items-center justify-center rounded border border-secondary/20 bg-secondary/[0.08]"
                     >
                       <Check
-                        className="
-                            h-3 w-3
-                            text-secondary
-                          "
+                        className="h-3 w-3 text-secondary"
                       />
                     </span>
                   )}
@@ -477,26 +426,7 @@ export function ProjectActionsDropdown({
               type="button"
               onClick={requestDelete}
               disabled={isPending}
-              className="
-                group
-                flex
-                min-h-10
-                w-full
-                items-center
-                gap-2.5
-                rounded-md
-                px-2.5
-                py-2
-                text-left
-                text-sm
-                font-medium
-                text-destructive
-                transition-colors
-                duration-150
-                hover:bg-destructive/[0.07]
-                disabled:cursor-not-allowed
-                disabled:opacity-60
-              "
+              className="group flex min-h-10 w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-left text-sm font-medium text-destructive transition-colors duration-150 hover:bg-destructive/[0.07] disabled:cursor-not-allowed disabled:opacity-60"
             >
               <Trash2 className="h-4 w-4 shrink-0" />
 
@@ -578,20 +508,12 @@ export function ProjectActionsDropdown({
             <Dropdown
               isOpen
               align="start"
-              className="
-                !static
-                !w-56
-                !translate-x-0
-              "
+              className="!static !w-56 !translate-x-0"
               contentClassName=""
               showArrow={false}
             >
               <div
-                className="
-                  max-h-[min(330px,calc(100vh-24px))]
-                  overflow-y-auto
-                  overscroll-contain
-                "
+                className="max-h-[min(330px,calc(100vh-24px))] overflow-y-auto overscroll-contain"
               >
                 {dropdownContent}
               </div>

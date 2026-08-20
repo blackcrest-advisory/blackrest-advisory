@@ -667,11 +667,7 @@ const Hero = () => {
     <Section
       onMouseMove={handlePointerMove}
       onMouseLeave={handlePointerLeave}
-      className="
-        group/hero
-        relative isolate overflow-hidden
-        py-12 sm:py-16 lg:py-24
-      "
+      className="group/hero relative isolate overflow-hidden py-12 sm:py-16 lg:py-24"
     >
       {/* ------------------------------------------------------------------ */}
       {/* Interactive cursor spotlight                                       */}
@@ -680,17 +676,7 @@ const Hero = () => {
       {!shouldReduceMotion && (
         <motion.div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -z-20
-            h-[34rem] w-[34rem]
-            rounded-full
-            opacity-0
-            blur-[90px]
-            transition-opacity
-            duration-700
-            group-hover/hero:opacity-100
-          "
+          className="pointer-events-none absolute -z-20 h-[34rem] w-[34rem] rounded-full opacity-0 blur-[90px] transition-opacity duration-700 group-hover/hero:opacity-100"
           style={{
             left: spotlightX,
             top: spotlightY,
@@ -708,11 +694,7 @@ const Hero = () => {
 
       <motion.div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute inset-[-12px]
-          -z-30 opacity-70
-        "
+        className="pointer-events-none absolute inset-[-12px] -z-30 opacity-70"
         style={{
           x: shouldReduceMotion ? 0 : gridX,
           y: shouldReduceMotion ? 0 : gridY,
@@ -766,12 +748,7 @@ const Hero = () => {
 
       <div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute inset-0
-          -z-20
-          opacity-[0.45]
-        "
+        className="pointer-events-none absolute inset-0 -z-20 opacity-[0.45]"
         style={{
           backgroundImage:
             "radial-gradient(color-mix(in srgb, var(--color-body) 35%, transparent) 1px, transparent 1px)",
@@ -792,19 +769,7 @@ const Hero = () => {
 
       <motion.div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          left-[-8rem]
-          top-[calc(50%-72px)]
-          -z-10
-          h-px w-28
-          bg-linear-to-r
-          from-transparent
-          via-secondary
-          to-transparent
-          shadow-[0_0_14px_var(--color-secondary)]
-        "
+        className="pointer-events-none absolute left-[-8rem] top-[calc(50%-72px)] -z-10 h-px w-28 bg-linear-to-r from-transparent via-secondary to-transparent shadow-[0_0_14px_var(--color-secondary)]"
         animate={
           shouldReduceMotion
             ? undefined
@@ -829,19 +794,7 @@ const Hero = () => {
 
       <motion.div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          bottom-[-8rem]
-          left-[calc(50%+72px)]
-          -z-10
-          h-28 w-px
-          bg-linear-to-b
-          from-transparent
-          via-secondary/85
-          to-transparent
-          shadow-[0_0_14px_var(--color-secondary)]
-        "
+        className="pointer-events-none absolute bottom-[-8rem] left-[calc(50%+72px)] -z-10 h-28 w-px bg-linear-to-b from-transparent via-secondary/85 to-transparent shadow-[0_0_14px_var(--color-secondary)]"
         animate={
           shouldReduceMotion
             ? undefined
@@ -871,18 +824,7 @@ const Hero = () => {
 
       <div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          -right-10
-          top-1/2
-          -z-10
-          h-[28rem] w-[28rem]
-          -translate-y-1/2
-          rounded-full
-          opacity-60
-          blur-3xl
-        "
+        className="pointer-events-none absolute -right-10 top-1/2 -z-10 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full opacity-60 blur-3xl"
         style={{
           background: "var(--surface-glow)",
         }}
@@ -890,17 +832,7 @@ const Hero = () => {
 
       <motion.div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          -right-20
-          top-1/2
-          -z-10
-          h-[34rem] w-[34rem]
-          -translate-y-1/2
-          rounded-full
-          border border-secondary/15
-        "
+        className="pointer-events-none absolute -right-20 top-1/2 -z-10 h-[34rem] w-[34rem] -translate-y-1/2 rounded-full border border-secondary/15"
         animate={
           shouldReduceMotion
             ? undefined
@@ -917,17 +849,7 @@ const Hero = () => {
 
       <motion.div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          -right-6
-          top-1/2
-          -z-10
-          h-[26rem] w-[26rem]
-          -translate-y-1/2
-          rounded-full
-          border border-border/70
-        "
+        className="pointer-events-none absolute -right-6 top-1/2 -z-10 h-[26rem] w-[26rem] -translate-y-1/2 rounded-full border border-border/70"
         animate={
           shouldReduceMotion
             ? undefined
@@ -948,38 +870,12 @@ const Hero = () => {
 
       <div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          left-[7%]
-          top-12
-          -z-10
-          hidden
-          h-20 w-px
-          bg-linear-to-b
-          from-transparent
-          via-secondary/45
-          to-transparent
-          lg:block
-        "
+        className="pointer-events-none absolute left-[7%] top-12 -z-10 hidden h-20 w-px bg-linear-to-b from-transparent via-secondary/45 to-transparent lg:block"
       />
 
       <div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          bottom-14
-          left-[7%]
-          -z-10
-          hidden
-          font-mono
-          text-[10px]
-          uppercase
-          tracking-[0.22em]
-          text-body/45
-          lg:block
-        "
+        className="pointer-events-none absolute bottom-14 left-[7%] -z-10 hidden font-mono text-[10px] uppercase tracking-[0.22em] text-body/45 lg:block"
       >
         BCR / 01 — Growth systems
       </div>
@@ -1004,13 +900,7 @@ const Hero = () => {
               animate="visible"
             >
               <span
-                className="
-                  font-mono
-                  text-xs
-                  uppercase
-                  tracking-[0.2em]
-                  text-secondary
-                "
+                className="font-mono text-xs uppercase tracking-[0.2em] text-secondary"
               >
                 Europe · Technology · Growth
               </span>
@@ -1063,12 +953,7 @@ const Hero = () => {
               {headlineWords.map((word) => (
                 <span
                   key={word.text}
-                  className="
-                    mr-[0.28em]
-                    inline-block
-                    overflow-hidden
-                    align-bottom
-                  "
+                  className="mr-[0.28em] inline-block overflow-hidden align-bottom"
                 >
                   <motion.span
                     variants={wordReveal}
@@ -1101,14 +986,7 @@ const Hero = () => {
             {/* Description */}
 
             <motion.p
-              className="
-                mt-6
-                max-w-lg
-                text-base
-                leading-8
-                text-body
-                sm:text-lg
-              "
+              className="mt-6 max-w-lg text-base leading-8 text-body sm:text-lg"
               variants={fadeUp}
               initial={initial}
               animate="visible"
@@ -1155,10 +1033,7 @@ const Hero = () => {
                   variant="primary"
                   size="md"
                   href="/signup"
-                  className="
-                    shadow-[var(--shadow-action)]
-                    hover:shadow-[var(--shadow-action-hover)]
-                  "
+                  className="shadow-[var(--shadow-action)] hover:shadow-[var(--shadow-action-hover)]"
                 >
                   Get Started
                 </Button>
@@ -1193,14 +1068,7 @@ const Hero = () => {
 
             <motion.div
               ref={statsRef}
-              className="
-                mt-12
-                flex
-                flex-wrap
-                border-t
-                border-border/60
-                pt-8
-              "
+              className="mt-12 flex flex-wrap border-t border-border/60 pt-8"
               variants={fadeUp}
               initial={initial}
               animate="visible"
@@ -1242,13 +1110,7 @@ const Hero = () => {
             onMouseLeave={() => setNetworkActive(false)}
             onFocusCapture={() => setNetworkActive(true)}
             onBlurCapture={() => setNetworkActive(false)}
-            className="
-              relative
-              mx-auto
-              aspect-square
-              w-full
-              max-w-md
-            "
+            className="relative mx-auto aspect-square w-full max-w-md"
           >
             {/* -------------------------------------------------------------- */}
             {/* Outer responsive field                                         */}
@@ -1256,14 +1118,7 @@ const Hero = () => {
 
             <motion.div
               aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute
-                inset-[5%]
-                rounded-full
-                border
-                border-secondary/10
-              "
+              className="pointer-events-none absolute inset-[5%] rounded-full border border-secondary/10"
               animate={
                 shouldReduceMotion
                   ? undefined
@@ -1285,15 +1140,7 @@ const Hero = () => {
             {!shouldReduceMotion && (
               <motion.div
                 aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute
-                  inset-[1%]
-                  rounded-full
-                  border
-                  border-dashed
-                  border-secondary/[0.08]
-                "
+                className="pointer-events-none absolute inset-[1%] rounded-full border border-dashed border-secondary/[0.08]"
                 animate={{
                   rotate: networkActive ? 360 : 0,
                 }}
@@ -1314,19 +1161,7 @@ const Hero = () => {
               animate={{
                 opacity: networkActive ? 1 : 0.35,
               }}
-              className="
-                pointer-events-none
-                absolute
-                left-[7%]
-                top-[8%]
-                hidden
-                font-mono
-                text-[8px]
-                uppercase
-                tracking-[0.18em]
-                text-secondary
-                sm:block
-              "
+              className="pointer-events-none absolute left-[7%] top-[8%] hidden font-mono text-[8px] uppercase tracking-[0.18em] text-secondary sm:block"
             >
               52.5200° N
             </motion.div>
@@ -1336,19 +1171,7 @@ const Hero = () => {
               animate={{
                 opacity: networkActive ? 1 : 0.35,
               }}
-              className="
-                pointer-events-none
-                absolute
-                bottom-[12%]
-                right-[5%]
-                hidden
-                font-mono
-                text-[8px]
-                uppercase
-                tracking-[0.18em]
-                text-secondary
-                sm:block
-              "
+              className="pointer-events-none absolute bottom-[12%] right-[5%] hidden font-mono text-[8px] uppercase tracking-[0.18em] text-secondary sm:block"
             >
               13.4050° E
             </motion.div>
@@ -1389,16 +1212,7 @@ const Hero = () => {
               transition={{
                 duration: 0.3,
               }}
-              className="
-                pointer-events-none
-                absolute
-                bottom-[7%]
-                right-[5%]
-                hidden
-                items-center
-                gap-2
-                lg:flex
-              "
+              className="pointer-events-none absolute bottom-[7%] right-[5%] hidden items-center gap-2 lg:flex"
             >
               <motion.span
                 animate={{
@@ -1408,22 +1222,11 @@ const Hero = () => {
                   duration: 1.5,
                   repeat: networkActive ? Infinity : 0,
                 }}
-                className="
-                  h-1.5 w-1.5
-                  rounded-full
-                  bg-secondary
-                  shadow-[0_0_12px_var(--color-secondary)]
-                "
+                className="h-1.5 w-1.5 rounded-full bg-secondary shadow-[0_0_12px_var(--color-secondary)]"
               />
 
               <span
-                className="
-                  font-mono
-                  text-[9px]
-                  uppercase
-                  tracking-[0.18em]
-                  text-secondary
-                "
+                className="font-mono text-[9px] uppercase tracking-[0.18em] text-secondary"
               >
                 Network responding
               </span>
@@ -1442,14 +1245,7 @@ const Hero = () => {
               transition={{
                 duration: 0.3,
               }}
-              className="
-                mt-2
-                text-center
-                font-mono
-                text-xs
-                uppercase
-                tracking-[0.2em]
-              "
+              className="mt-2 text-center font-mono text-xs uppercase tracking-[0.2em]"
             >
               Active engagements across Europe
             </motion.p>

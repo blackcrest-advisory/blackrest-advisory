@@ -88,18 +88,7 @@ export default function LoginPage() {
   return (
     <PageWrapper>
       <Section
-        className="
-          relative isolate
-          flex min-h-[calc(100vh-4rem)]
-          items-center
-          overflow-hidden
-          bg-background
-          py-10
-          text-foreground
-          transition-colors duration-300
-          sm:py-14
-          lg:py-16
-        "
+        className="relative isolate flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-background py-10 text-foreground transition-colors duration-300 sm:py-14 lg:py-16"
       >
         {/* ====================================================== */}
         {/* Background architecture                               */}
@@ -107,10 +96,7 @@ export default function LoginPage() {
 
         <div className="pointer-events-none absolute inset-0 -z-20">
           <div
-            className="
-              absolute inset-0
-              opacity-[0.22]
-            "
+            className="absolute inset-0 opacity-[0.22]"
             style={{
               backgroundImage: `
                 linear-gradient(
@@ -133,12 +119,7 @@ export default function LoginPage() {
           />
 
           <div
-            className="
-              absolute
-              -right-40 -top-40
-              h-[34rem] w-[34rem]
-              opacity-60
-            "
+            className="absolute -right-40 -top-40 h-[34rem] w-[34rem] opacity-60"
             style={{
               background:
                 "radial-gradient(circle, color-mix(in srgb, var(--color-secondary) 10%, transparent), transparent 68%)",
@@ -146,12 +127,7 @@ export default function LoginPage() {
           />
 
           <div
-            className="
-              absolute
-              -bottom-48 -left-40
-              h-[36rem] w-[36rem]
-              opacity-40
-            "
+            className="absolute -bottom-48 -left-40 h-[36rem] w-[36rem] opacity-40"
             style={{
               background:
                 "radial-gradient(circle, color-mix(in srgb, var(--color-primary) 9%, transparent), transparent 70%)",
@@ -161,15 +137,7 @@ export default function LoginPage() {
           {!reduceMotion && (
             <motion.div
               aria-hidden="true"
-              className="
-                absolute left-[-10rem] top-[36%]
-                h-px w-32
-                bg-gradient-to-r
-                from-transparent
-                via-secondary
-                to-transparent
-                shadow-[0_0_14px_var(--color-secondary)]
-              "
+              className="absolute left-[-10rem] top-[36%] h-px w-32 bg-gradient-to-r from-transparent via-secondary to-transparent shadow-[0_0_14px_var(--color-secondary)]"
               animate={{
                 x: ["0vw", "115vw"],
                 opacity: [0, 0.75, 0.75, 0],
@@ -186,16 +154,7 @@ export default function LoginPage() {
 
         <Container className="relative">
           <div
-            className="
-              mx-auto grid
-              max-w-5xl
-              overflow-hidden
-              border border-border
-              bg-card
-              text-card-foreground
-              shadow-[var(--shadow-overlay)]
-              lg:grid-cols-[0.92fr_1.08fr]
-            "
+            className="mx-auto grid max-w-5xl overflow-hidden border border-border bg-card text-card-foreground shadow-[var(--shadow-overlay)] lg:grid-cols-[0.92fr_1.08fr]"
           >
             {/* ================================================== */}
             {/* LEFT — Brand / workspace context                   */}
@@ -214,38 +173,16 @@ export default function LoginPage() {
                 duration: 0.65,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="
-                relative hidden
-                overflow-hidden
-                border-r border-border
-                bg-primary
-                p-10
-                text-primary-foreground
-                lg:flex
-                lg:min-h-[650px]
-                lg:flex-col
-                lg:justify-between
-              "
+              className="relative hidden overflow-hidden border-r border-border bg-primary p-10 text-primary-foreground lg:flex lg:min-h-[650px] lg:flex-col lg:justify-between"
             >
               {/* glow */}
               <div
-                className="
-                  pointer-events-none
-                  absolute -right-32 -top-24
-                  h-80 w-80
-                  rounded-full
-                  bg-secondary/15
-                  blur-[100px]
-                "
+                className="pointer-events-none absolute -right-32 -top-24 h-80 w-80 rounded-full bg-secondary/15 blur-[100px]"
               />
 
               {/* subtle line system */}
               <div
-                className="
-                  pointer-events-none
-                  absolute inset-0
-                  opacity-[0.08]
-                "
+                className="pointer-events-none absolute inset-0 opacity-[0.08]"
                 style={{
                   backgroundImage: `
                     linear-gradient(
@@ -264,27 +201,14 @@ export default function LoginPage() {
                     <CircleDot className="h-4 w-4 text-secondary" />
 
                     <span
-                      className="
-                        font-mono
-                        text-[9px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.2em]
-                        text-secondary
-                      "
+                      className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary"
                     >
                       Client workspace
                     </span>
                   </div>
 
                   <span
-                    className="
-                      font-mono
-                      text-[8px]
-                      uppercase
-                      tracking-[0.17em]
-                      text-primary-foreground/35
-                    "
+                    className="font-mono text-[8px] uppercase tracking-[0.17em] text-primary-foreground/35"
                   >
                     BCR / ACCESS
                   </span>
@@ -292,21 +216,10 @@ export default function LoginPage() {
 
                 <Link
                   href="/"
-                  className="
-                    mt-10 inline-block
-                    rounded-[var(--radius-control)]
-                    focus-visible:outline-none
-                    focus-visible:ring-2
-                    focus-visible:ring-secondary/60
-                  "
+                  className="mt-10 inline-block rounded-[var(--radius-control)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60"
                 >
                   <span
-                    className="
-                      text-3xl
-                      font-semibold
-                      tracking-[-0.04em]
-                      text-primary-foreground
-                    "
+                    className="text-3xl font-semibold tracking-[-0.04em] text-primary-foreground"
                   >
                     Blackcrest
                     <span className="text-secondary">.</span>
@@ -314,15 +227,7 @@ export default function LoginPage() {
                 </Link>
 
                 <h1
-                  className="
-                    mt-12
-                    max-w-md
-                    text-4xl
-                    font-semibold
-                    leading-[1.05]
-                    tracking-[-0.045em]
-                    text-primary-foreground
-                  "
+                  className="mt-12 max-w-md text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-primary-foreground"
                 >
                   Your projects.
                   <span className="block text-primary-foreground/45">
@@ -332,13 +237,7 @@ export default function LoginPage() {
                 </h1>
 
                 <p
-                  className="
-                    mt-6
-                    max-w-sm
-                    text-sm
-                    leading-7
-                    text-primary-foreground/55
-                  "
+                  className="mt-6 max-w-sm text-sm leading-7 text-primary-foreground/55"
                 >
                   Sign in to access project updates, shared information, and
                   your Blackcrest client workspace.
@@ -362,42 +261,24 @@ export default function LoginPage() {
                       transition={{
                         delay: 0.35 + index * 0.08,
                       }}
-                      className="
-                        flex items-center
-                        justify-between
-                        border-b border-primary-foreground/10
-                        py-4
-                      "
+                      className="flex items-center justify-between border-b border-primary-foreground/10 py-4"
                     >
                       <div className="flex items-center gap-3">
                         <div
-                          className="
-                            flex h-5 w-5
-                            items-center justify-center
-                            rounded-full
-                            bg-secondary/10
-                          "
+                          className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary/10"
                         >
                           <Check className="h-3 w-3 text-secondary" />
                         </div>
 
                         <span
-                          className="
-                            text-xs
-                            font-medium
-                            text-primary-foreground/65
-                          "
+                          className="text-xs font-medium text-primary-foreground/65"
                         >
                           {signal}
                         </span>
                       </div>
 
                       <span
-                        className="
-                          font-mono
-                          text-[7px]
-                          text-primary-foreground/25
-                        "
+                        className="font-mono text-[7px] text-primary-foreground/25"
                       >
                         0{index + 1}
                       </span>
@@ -409,13 +290,7 @@ export default function LoginPage() {
                   <ShieldCheck className="h-4 w-4 text-secondary" />
 
                   <span
-                    className="
-                      font-mono
-                      text-[8px]
-                      uppercase
-                      tracking-[0.16em]
-                      text-primary-foreground/35
-                    "
+                    className="font-mono text-[8px] uppercase tracking-[0.16em] text-primary-foreground/35"
                   >
                     Secure Blackcrest access
                   </span>
@@ -441,36 +316,17 @@ export default function LoginPage() {
                 duration: 0.65,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="
-                relative
-                px-6 py-8
-                sm:px-9 sm:py-10
-                lg:flex
-                lg:min-h-[650px]
-                lg:flex-col
-                lg:justify-center
-                lg:px-12
-              "
+              className="relative px-6 py-8 sm:px-9 sm:py-10 lg:flex lg:min-h-[650px] lg:flex-col lg:justify-center lg:px-12"
             >
               {/* mobile branding */}
               <div className="mb-8 lg:hidden">
                 <div className="flex items-center justify-between">
                   <Link
                     href="/"
-                    className="
-                      rounded-[var(--radius-control)]
-                      focus-visible:outline-none
-                      focus-visible:ring-2
-                      focus-visible:ring-ring/60
-                    "
+                    className="rounded-[var(--radius-control)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
                   >
                     <span
-                      className="
-                        text-2xl
-                        font-semibold
-                        tracking-[-0.035em]
-                        text-heading
-                      "
+                      className="text-2xl font-semibold tracking-[-0.035em] text-heading"
                     >
                       Blackcrest
                       <span className="text-secondary">.</span>
@@ -478,13 +334,7 @@ export default function LoginPage() {
                   </Link>
 
                   <span
-                    className="
-                      font-mono
-                      text-[8px]
-                      uppercase
-                      tracking-[0.16em]
-                      text-muted-foreground/40
-                    "
+                    className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40"
                   >
                     Secure access
                   </span>
@@ -498,14 +348,7 @@ export default function LoginPage() {
                     <Sparkles className="h-4 w-4 text-secondary" />
 
                     <span
-                      className="
-                        font-mono
-                        text-[9px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.18em]
-                        text-secondary
-                      "
+                      className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-secondary"
                     >
                       Welcome back
                     </span>
@@ -514,24 +357,13 @@ export default function LoginPage() {
                   </div>
 
                   <h2
-                    className="
-                      mt-4
-                      text-3xl
-                      font-semibold
-                      tracking-[-0.04em]
-                      text-heading
-                    "
+                    className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-heading"
                   >
                     Sign in to your account
                   </h2>
 
                   <p
-                    className="
-                      mt-2
-                      text-sm
-                      leading-6
-                      text-muted-foreground
-                    "
+                    className="mt-2 text-sm leading-6 text-muted-foreground"
                   >
                     Enter your Blackcrest account credentials to continue.
                   </p>
@@ -546,14 +378,7 @@ export default function LoginPage() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="
-                        mb-2 block
-                        text-[9px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.14em]
-                        text-muted-foreground
-                      "
+                      className="mb-2 block text-[9px] font-semibold uppercase tracking-[0.14em] text-muted-foreground"
                     >
                       Email address
                     </label>
@@ -589,14 +414,7 @@ export default function LoginPage() {
                   <div>
                     <label
                       htmlFor="password"
-                      className="
-                        mb-2 block
-                        text-[9px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.14em]
-                        text-muted-foreground
-                      "
+                      className="mb-2 block text-[9px] font-semibold uppercase tracking-[0.14em] text-muted-foreground"
                     >
                       Password
                     </label>
@@ -615,18 +433,7 @@ export default function LoginPage() {
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="
-                          absolute inset-y-0 right-0
-                          flex items-center
-                          rounded-[var(--radius-control)]
-                          pr-3
-                          text-muted-foreground/45
-                          transition-colors
-                          hover:text-secondary
-                          focus-visible:outline-none
-                          focus-visible:ring-2
-                          focus-visible:ring-ring/60
-                        "
+                        className="absolute inset-y-0 right-0 flex items-center rounded-[var(--radius-control)] pr-3 text-muted-foreground/45 transition-colors hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
                         aria-label={
                           showPassword ? "Hide password" : "Show password"
                         }
@@ -658,39 +465,20 @@ export default function LoginPage() {
 
                   {/* Remember / forgot */}
                   <div
-                    className="
-                      flex flex-wrap
-                      items-center
-                      justify-between
-                      gap-3
-                    "
+                    className="flex flex-wrap items-center justify-between gap-3"
                   >
                     <label
                       htmlFor="remember"
-                      className="
-                        flex cursor-pointer
-                        items-center gap-2
-                      "
+                      className="flex cursor-pointer items-center gap-2"
                     >
                       <input
                         id="remember"
                         type="checkbox"
-                        className="
-                          h-4 w-4
-                          rounded-[3px]
-                          border-border
-                          bg-background
-                          accent-secondary
-                          focus:ring-2
-                          focus:ring-secondary/30
-                        "
+                        className="h-4 w-4 rounded-[3px] border-border bg-background accent-secondary focus:ring-2 focus:ring-secondary/30"
                       />
 
                       <span
-                        className="
-                          text-sm
-                          text-muted-foreground
-                        "
+                        className="text-sm text-muted-foreground"
                       >
                         Remember me
                       </span>
@@ -698,17 +486,7 @@ export default function LoginPage() {
 
                     <Link
                       href="/forgot-password"
-                      className="
-                        text-sm
-                        font-medium
-                        text-secondary
-                        underline-offset-4
-                        transition-opacity
-                        hover:opacity-70
-                        focus-visible:outline-none
-                        focus-visible:ring-2
-                        focus-visible:ring-ring/60
-                      "
+                      className="text-sm font-medium text-secondary underline-offset-4 transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
                     >
                       Forgot password?
                     </Link>
@@ -743,21 +521,10 @@ export default function LoginPage() {
                   </div>
 
                   <div
-                    className="
-                      relative
-                      flex justify-center
-                    "
+                    className="relative flex justify-center"
                   >
                     <span
-                      className="
-                        bg-card
-                        px-4
-                        font-mono
-                        text-[8px]
-                        uppercase
-                        tracking-[0.16em]
-                        text-muted-foreground/45
-                      "
+                      className="bg-card px-4 font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45"
                     >
                       Or continue with
                     </span>
@@ -771,29 +538,7 @@ export default function LoginPage() {
                 <button
                   type="button"
                   onClick={handleGoogleLogin}
-                  className="
-                    group
-                    flex min-h-12
-                    w-full
-                    items-center
-                    justify-center
-                    gap-3
-                    border border-border
-                    bg-background
-                    px-4 py-3
-                    text-sm
-                    font-medium
-                    text-foreground
-                    shadow-[var(--shadow-control-inset)]
-                    transition-all
-                    duration-300
-                    hover:border-secondary/25
-                    hover:bg-secondary/[0.035]
-                    hover:shadow-[var(--shadow-card)]
-                    focus-visible:outline-none
-                    focus-visible:ring-2
-                    focus-visible:ring-ring/60
-                  "
+                  className="group flex min-h-12 w-full items-center justify-center gap-3 border border-border bg-background px-4 py-3 text-sm font-medium text-foreground shadow-[var(--shadow-control-inset)] transition-all duration-300 hover:border-secondary/25 hover:bg-secondary/[0.035] hover:shadow-[var(--shadow-card)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
                 >
                   {/* Correct Google logo */}
                   <FcGoogle className="h-5 w-5 shrink-0" />
@@ -803,27 +548,13 @@ export default function LoginPage() {
 
                 {/* Signup */}
                 <div
-                  className="
-                    mt-7
-                    border-t border-border
-                    pt-6
-                    text-center
-                  "
+                  className="mt-7 border-t border-border pt-6 text-center"
                 >
                   <p className="text-sm text-muted-foreground">
                     Don&apos;t have an account?{" "}
                     <Link
                       href="/signup"
-                      className="
-                        font-semibold
-                        text-secondary
-                        underline-offset-4
-                        transition-opacity
-                        hover:opacity-70
-                        focus-visible:outline-none
-                        focus-visible:ring-2
-                        focus-visible:ring-ring/60
-                      "
+                      className="font-semibold text-secondary underline-offset-4 transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
                     >
                       Create one
                     </Link>
@@ -832,28 +563,14 @@ export default function LoginPage() {
 
                 {/* security footer */}
                 <div
-                  className="
-                    mt-6
-                    flex items-center
-                    justify-center
-                    gap-2
-                  "
+                  className="mt-6 flex items-center justify-center gap-2"
                 >
                   <ShieldCheck
-                    className="
-                      h-3.5 w-3.5
-                      text-success
-                    "
+                    className="h-3.5 w-3.5 text-success"
                   />
 
                   <span
-                    className="
-                      font-mono
-                      text-[8px]
-                      uppercase
-                      tracking-[0.14em]
-                      text-muted-foreground/40
-                    "
+                    className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40"
                   >
                     Protected Blackcrest workspace
                   </span>

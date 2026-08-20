@@ -32,65 +32,31 @@ export const FilesStatsGrid = ({ stats }: FilesStatsGridProps) => {
       variants={shouldReduceMotion ? undefined : staggerContainer}
       initial={shouldReduceMotion ? undefined : "hidden"}
       animate={shouldReduceMotion ? undefined : "visible"}
-      className="
-        relative
-        min-w-0
-        overflow-hidden
-        border border-border
-        bg-card
-        shadow-[var(--shadow-card)]
-      "
+      className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
       {/* ====================================================== */}
       {/* SECTION LABEL                                         */}
       {/* ====================================================== */}
 
       <div
-        className="
-          flex
-          flex-col
-          gap-2
-          border-b border-border
-          px-5 py-4
-          sm:flex-row
-          sm:items-center
-          sm:justify-between
-          sm:px-6
-        "
+        className="flex flex-col gap-2 border-b border-border px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
       >
         <div>
           <span
-            className="
-              font-mono
-              text-[7px]
-              font-semibold
-              uppercase
-              tracking-[0.15em]
-              text-secondary
-            "
+            className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
           >
             Workspace overview
           </span>
 
           <p
-            className="
-              mt-1
-              text-xs
-              text-muted-foreground
-            "
+            className="mt-1 text-xs text-muted-foreground"
           >
             A snapshot of your shared documents and project storage.
           </p>
         </div>
 
         <span
-          className="
-            font-mono
-            text-[7px]
-            uppercase
-            tracking-[0.13em]
-            text-muted-foreground/40
-          "
+          className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40"
         >
           Client file portfolio
         </span>
@@ -101,21 +67,11 @@ export const FilesStatsGrid = ({ stats }: FilesStatsGridProps) => {
       {/* ====================================================== */}
 
       <div
-        className="
-          grid
-          min-w-0
-          sm:grid-cols-2
-          xl:grid-cols-4
-        "
+        className="grid min-w-0 sm:grid-cols-2 xl:grid-cols-4"
       >
         <motion.div
           variants={shouldReduceMotion ? undefined : fadeInUp}
-          className="
-            min-w-0
-            border-b border-border
-            sm:border-r
-            xl:border-b-0
-          "
+          className="min-w-0 border-b border-border sm:border-r xl:border-b-0"
         >
           <FileStatCard
             icon={FileText}
@@ -126,12 +82,7 @@ export const FilesStatsGrid = ({ stats }: FilesStatsGridProps) => {
 
         <motion.div
           variants={shouldReduceMotion ? undefined : fadeInUp}
-          className="
-            min-w-0
-            border-b border-border
-            xl:border-b-0
-            xl:border-r
-          "
+          className="min-w-0 border-b border-border xl:border-b-0 xl:border-r"
         >
           <FileStatCard
             icon={HardDrive}
@@ -147,12 +98,7 @@ export const FilesStatsGrid = ({ stats }: FilesStatsGridProps) => {
 
         <motion.div
           variants={shouldReduceMotion ? undefined : fadeInUp}
-          className="
-            min-w-0
-            border-b border-border
-            sm:border-b-0
-            sm:border-r
-          "
+          className="min-w-0 border-b border-border sm:border-b-0 sm:border-r"
         >
           <FileStatCard
             icon={Layers}
@@ -179,53 +125,24 @@ export const FilesStatsGrid = ({ stats }: FilesStatsGridProps) => {
       {/* ====================================================== */}
 
       <div
-        className="
-          flex
-          flex-col
-          gap-2
-          border-t border-border
-          bg-muted/10
-          px-5 py-2.5
-          sm:flex-row
-          sm:items-center
-          sm:justify-between
-          sm:px-6
-        "
+        className="flex flex-col gap-2 border-t border-border bg-muted/10 px-5 py-2.5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
       >
         <div
-          className="
-            flex
-            items-center
-            gap-2
-          "
+          className="flex items-center gap-2"
         >
           <span
-            className="
-              h-1.5 w-1.5
-              rounded-full
-              bg-success
-            "
+            className="h-1.5 w-1.5 rounded-full bg-success"
           />
 
           <span
-            className="
-              font-mono
-              text-[7px]
-              font-semibold
-              uppercase
-              tracking-[0.13em]
-              text-muted-foreground/40
-            "
+            className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40"
           >
             Workspace synchronized
           </span>
         </div>
 
         <span
-          className="
-            text-[10px]
-            text-muted-foreground
-          "
+          className="text-[10px] text-muted-foreground"
         >
           {formatFileSize(stats.storageUsedInBytes)} currently stored
         </span>

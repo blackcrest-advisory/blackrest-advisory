@@ -114,50 +114,22 @@ export function FileList({
   if (files.length === 0) {
     return (
       <div
-        className="
-          flex
-          min-h-[140px]
-          flex-col
-          items-center
-          justify-center
-          border border-dashed border-border
-          bg-background/20
-          px-5 py-7
-          text-center
-        "
+        className="flex min-h-[140px] flex-col items-center justify-center border border-dashed border-border bg-background/20 px-5 py-7 text-center"
       >
         <div
-          className="
-            flex h-9 w-9
-            items-center
-            justify-center
-            rounded-md
-            border border-border
-            bg-card
-            text-muted-foreground
-          "
+          className="flex h-9 w-9 items-center justify-center rounded-md border border-border bg-card text-muted-foreground"
         >
           <File className="h-4 w-4" />
         </div>
 
         <p
-          className="
-            mt-3
-            text-sm
-            font-semibold
-            text-heading
-          "
+          className="mt-3 text-sm font-semibold text-heading"
         >
           No files yet
         </p>
 
         <p
-          className="
-            mt-1
-            text-xs
-            leading-5
-            text-muted-foreground
-          "
+          className="mt-1 text-xs leading-5 text-muted-foreground"
         >
           Uploaded project documents will appear here.
         </p>
@@ -168,52 +140,26 @@ export function FileList({
   return (
     <>
       <div
-        className="
-          overflow-hidden
-          border border-border
-          bg-background/15
-        "
+        className="overflow-hidden border border-border bg-background/15"
       >
         {/* ==================================================== */}
         {/* DOCUMENT LIST                                       */}
         {/* ==================================================== */}
 
         <div
-          className="
-            max-h-[340px]
-            divide-y divide-border
-            overflow-y-auto
-            overscroll-contain
-          "
+          className="max-h-[340px] divide-y divide-border overflow-y-auto overscroll-contain"
         >
           {files.map((file) => (
             <div
               key={file.id}
-              className="
-                group
-                flex
-                items-center
-                gap-3
-                px-3 py-3
-                transition-colors
-                hover:bg-secondary/[0.025]
-              "
+              className="group flex items-center gap-3 px-3 py-3 transition-colors hover:bg-secondary/[0.025]"
             >
               {/* ================================================= */}
               {/* FILE ICON                                         */}
               {/* ================================================= */}
 
               <div
-                className="
-                  flex h-9 w-9
-                  shrink-0
-                  items-center
-                  justify-center
-                  rounded-md
-                  border border-border
-                  bg-card
-                  text-secondary
-                "
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-card text-secondary"
               >
                 {getIcon(file.category)}
               </div>
@@ -224,27 +170,14 @@ export function FileList({
 
               <div className="min-w-0 flex-1">
                 <p
-                  className="
-                    truncate
-                    text-xs
-                    font-semibold
-                    text-heading
-                  "
+                  className="truncate text-xs font-semibold text-heading"
                   title={file.name}
                 >
                   {file.name}
                 </p>
 
                 <div
-                  className="
-                    mt-1
-                    flex
-                    min-w-0
-                    items-center
-                    gap-1.5
-                    text-[10px]
-                    text-muted-foreground
-                  "
+                  className="mt-1 flex min-w-0 items-center gap-1.5 text-[10px] text-muted-foreground"
                 >
                   <span className="shrink-0">
                     {formatSize(file.sizeInBytes)}
@@ -252,12 +185,7 @@ export function FileList({
 
                   <span
                     aria-hidden="true"
-                    className="
-                      h-1 w-1
-                      shrink-0
-                      rounded-full
-                      bg-border
-                    "
+                    className="h-1 w-1 shrink-0 rounded-full bg-border"
                   />
 
                   <span className="truncate">
@@ -271,12 +199,7 @@ export function FileList({
               {/* ================================================= */}
 
               <div
-                className="
-                  flex
-                  shrink-0
-                  items-center
-                  gap-0.5
-                "
+                className="flex shrink-0 items-center gap-0.5"
               >
                 <a
                   href={file.downloadUrl}
@@ -284,18 +207,7 @@ export function FileList({
                   rel="noopener noreferrer"
                   aria-label={`Download ${file.name}`}
                   title="Download file"
-                  className="
-                    flex h-8 w-8
-                    items-center
-                    justify-center
-                    rounded-md
-                    border border-transparent
-                    text-muted-foreground
-                    transition-colors
-                    hover:border-secondary/20
-                    hover:bg-secondary/[0.05]
-                    hover:text-secondary
-                  "
+                  className="flex h-8 w-8 items-center justify-center rounded-md border border-transparent text-muted-foreground transition-colors hover:border-secondary/20 hover:bg-secondary/[0.05] hover:text-secondary"
                 >
                   <Download className="h-3.5 w-3.5" />
                 </a>
@@ -307,20 +219,7 @@ export function FileList({
                     disabled={isPending}
                     aria-label={`Delete ${file.name}`}
                     title="Delete file"
-                    className="
-                      flex h-8 w-8
-                      items-center
-                      justify-center
-                      rounded-md
-                      border border-transparent
-                      text-muted-foreground
-                      transition-colors
-                      hover:border-destructive/20
-                      hover:bg-destructive/[0.06]
-                      hover:text-destructive
-                      disabled:cursor-not-allowed
-                      disabled:opacity-50
-                    "
+                    className="flex h-8 w-8 items-center justify-center rounded-md border border-transparent text-muted-foreground transition-colors hover:border-destructive/20 hover:bg-destructive/[0.06] hover:text-destructive disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     <Trash2 className="h-3.5 w-3.5" />
                   </button>
@@ -335,49 +234,25 @@ export function FileList({
         {/* ==================================================== */}
 
         <div
-          className="
-            flex
-            items-center
-            justify-between
-            gap-3
-            border-t border-border
-            bg-muted/10
-            px-3 py-2.5
-          "
+          className="flex items-center justify-between gap-3 border-t border-border bg-muted/10 px-3 py-2.5"
         >
           <div className="flex items-center gap-2">
             <span
-              className="
-                h-1.5 w-1.5
-                rounded-full
-                bg-success
-              "
+              className="h-1.5 w-1.5 rounded-full bg-success"
             />
 
             <span
-              className="
-                font-mono
-                text-[7px]
-                uppercase
-                tracking-[0.13em]
-                text-muted-foreground/40
-              "
+              className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40"
             >
               Documents
             </span>
           </div>
 
           <span
-            className="
-              text-[11px]
-              text-muted-foreground
-            "
+            className="text-[11px] text-muted-foreground"
           >
             <span
-              className="
-                font-semibold
-                text-heading
-              "
+              className="font-semibold text-heading"
             >
               {files.length}
             </span>{" "}

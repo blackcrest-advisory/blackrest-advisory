@@ -131,13 +131,7 @@ export const EngagementProcess = () => {
   return (
     <Section
       id="process"
-      className="
-        relative overflow-hidden
-        bg-background
-        py-16 text-foreground
-        transition-colors duration-300
-        sm:py-20 lg:py-28
-      "
+      className="relative overflow-hidden bg-background py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-28"
     >
       {/* =========================================
           BACKGROUND
@@ -394,16 +388,7 @@ export const EngagementProcess = () => {
                 }}
                 transition={{ duration: 0.3 }}
                 aria-hidden="true"
-                className="
-                  pointer-events-none absolute
-                  -right-2 -top-10
-                  font-mono text-[10rem]
-                  font-semibold leading-none
-                  tracking-[-0.1em]
-                  text-secondary/[0.045]
-                  sm:text-[13rem]
-                  lg:text-[16rem]
-                "
+                className="pointer-events-none absolute -right-2 -top-10 font-mono text-[10rem] font-semibold leading-none tracking-[-0.1em] text-secondary/[0.045] sm:text-[13rem] lg:text-[16rem]"
               >
                 {activeStep.number}
               </motion.span>
@@ -453,13 +438,7 @@ export const EngagementProcess = () => {
                     transition={{
                       duration: 0.3,
                     }}
-                    className="
-                      flex h-12 w-12 items-center
-                      justify-center
-                      border border-secondary/20
-                      bg-secondary/[0.07]
-                      text-secondary
-                    "
+                    className="flex h-12 w-12 items-center justify-center border border-secondary/20 bg-secondary/[0.07] text-secondary"
                   >
                     <ActiveIcon className="h-5 w-5" />
                   </motion.div>
@@ -545,13 +524,7 @@ export const EngagementProcess = () => {
                           transition={{
                             delay: 0.08 + index * 0.07,
                           }}
-                          className="
-                            group/output
-                            bg-background
-                            p-4
-                            transition-colors duration-300
-                            hover:bg-secondary/[0.045]
-                          "
+                          className="group/output bg-background p-4 transition-colors duration-300 hover:bg-secondary/[0.045]"
                         >
                           <div className="flex items-center justify-between">
                             <span className="font-mono text-[8px] text-secondary/70">
@@ -603,22 +576,11 @@ export const EngagementProcess = () => {
                           scale: 0.96,
                         }
                   }
-                  className="
-                    group flex items-center gap-3
-                    text-xs font-semibold text-foreground
-                    transition-colors hover:text-secondary
-                  "
+                  className="group flex items-center gap-3 text-xs font-semibold text-foreground transition-colors hover:text-secondary"
                 >
                   Next stage
                   <span
-                    className="
-                      flex h-9 w-9 items-center justify-center
-                      border border-border
-                      bg-background
-                      transition-all duration-300
-                      group-hover:border-secondary/30
-                      group-hover:bg-secondary/[0.06]
-                    "
+                    className="flex h-9 w-9 items-center justify-center border border-border bg-background transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary/[0.06]"
                   >
                     <ArrowRight className="h-4 w-4" />
                   </span>
@@ -642,12 +604,7 @@ export const EngagementProcess = () => {
           }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="
-            flex flex-col gap-4
-            border-b border-border py-5
-            sm:flex-row sm:items-center
-            sm:justify-between
-          "
+          className="flex flex-col gap-4 border-b border-border py-5 sm:flex-row sm:items-center sm:justify-between"
         >
           <p className="max-w-xl text-xs leading-6 text-muted-foreground">
             The exact activities change by engagement. The operating logic stays

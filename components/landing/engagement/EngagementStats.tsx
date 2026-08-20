@@ -146,14 +146,7 @@ export const EngagementStats = () => {
               duration: 0.65,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="
-              relative flex flex-col justify-between
-              border-b border-border
-              py-10
-              lg:min-h-[430px]
-              lg:border-b-0 lg:border-r
-              lg:py-14 lg:pr-12
-            "
+            className="relative flex flex-col justify-between border-b border-border py-10 lg:min-h-[430px] lg:border-b-0 lg:border-r lg:py-14 lg:pr-12"
           >
             <div>
               {/* eyebrow */}
@@ -261,40 +254,19 @@ export const EngagementStats = () => {
                 >
                   {/* hover surface */}
                   <div
-                    className="
-                      absolute inset-0
-                      bg-card
-                      opacity-0
-                      transition-opacity duration-500
-                      group-hover:opacity-100
-                    "
+                    className="absolute inset-0 bg-card opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   />
 
                   {/* hover gold glow */}
                   <div
-                    className="
-                      pointer-events-none
-                      absolute -right-16 -top-16
-                      h-40 w-40 rounded-full
-                      bg-secondary/[0.07]
-                      opacity-0 blur-3xl
-                      transition-all duration-500
-                      group-hover:opacity-100
-                    "
+                    className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-secondary/[0.07] opacity-0 blur-3xl transition-all duration-500 group-hover:opacity-100"
                   />
 
                   {/* animated scanning line */}
                   {!reduceMotion && (
                     <motion.div
                       aria-hidden="true"
-                      className="
-                        pointer-events-none absolute
-                        left-0 top-0 h-px w-20
-                        bg-gradient-to-r
-                        from-transparent
-                        via-secondary
-                        to-transparent
-                      "
+                      className="pointer-events-none absolute left-0 top-0 h-px w-20 bg-gradient-to-r from-transparent via-secondary to-transparent"
                       initial={{ x: "-120%" }}
                       whileHover={{
                         x: "700%",
@@ -322,16 +294,7 @@ export const EngagementStats = () => {
                                 scale: 1.06,
                               }
                         }
-                        className="
-                          flex h-9 w-9 items-center justify-center
-                          border border-border
-                          bg-background
-                          text-muted-foreground
-                          transition-all duration-300
-                          group-hover:border-secondary/30
-                          group-hover:bg-secondary/[0.07]
-                          group-hover:text-secondary
-                        "
+                        className="flex h-9 w-9 items-center justify-center border border-border bg-background text-muted-foreground transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary/[0.07] group-hover:text-secondary"
                       >
                         <Icon className="h-4 w-4" />
                       </motion.div>
@@ -340,14 +303,7 @@ export const EngagementStats = () => {
                     {/* number */}
                     <div className="mt-7">
                       <div
-                        className="
-                          font-mono
-                          text-[3.4rem] font-medium
-                          leading-none tracking-[-0.07em]
-                          text-heading
-                          sm:text-[4rem]
-                          lg:text-[4.5rem]
-                        "
+                        className="font-mono text-[3.4rem] font-medium leading-none tracking-[-0.07em] text-heading sm:text-[4rem] lg:text-[4.5rem]"
                       >
                         {isInView ? (
                           <AnimatedCounter
@@ -371,14 +327,7 @@ export const EngagementStats = () => {
                       </p>
 
                       <ArrowUpRight
-                        className="
-                          h-3.5 w-3.5 shrink-0
-                          text-muted-foreground/25
-                          transition-all duration-300
-                          group-hover:-translate-y-0.5
-                          group-hover:translate-x-0.5
-                          group-hover:text-secondary
-                        "
+                        className="h-3.5 w-3.5 shrink-0 text-muted-foreground/25 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-secondary"
                       />
                     </div>
 
@@ -393,16 +342,7 @@ export const EngagementStats = () => {
                           duration: 0.9,
                           ease: [0.22, 1, 0.36, 1],
                         }}
-                        className="
-                          h-full origin-left
-                          bg-gradient-to-r
-                          from-secondary
-                          via-secondary/40
-                          to-transparent
-                          opacity-0
-                          transition-opacity duration-300
-                          group-hover:opacity-100
-                        "
+                        className="h-full origin-left bg-gradient-to-r from-secondary via-secondary/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                       />
                     </div>
                   </div>
@@ -429,14 +369,7 @@ export const EngagementStats = () => {
             delay: 0.35,
             duration: 0.5,
           }}
-          className="
-            flex flex-col gap-4
-            border-t border-border
-            py-5
-            sm:flex-row
-            sm:items-center
-            sm:justify-between
-          "
+          className="flex flex-col gap-4 border-t border-border py-5 sm:flex-row sm:items-center sm:justify-between"
         >
           <div className="flex items-center gap-3">
             <span className="h-1 w-1 rounded-full bg-secondary" />

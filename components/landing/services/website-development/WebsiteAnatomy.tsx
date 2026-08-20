@@ -128,15 +128,7 @@ export default function WebsiteAnatomy() {
 
   return (
     <Section
-      className="
-        relative
-        isolate
-        overflow-hidden
-        bg-background
-        py-16
-        sm:py-20
-        lg:py-28
-      "
+      className="relative isolate overflow-hidden bg-background py-16 sm:py-20 lg:py-28"
     >
       {/* ====================================================== */}
       {/* BACKGROUND                                            */}
@@ -144,64 +136,30 @@ export default function WebsiteAnatomy() {
 
       <div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute inset-0
-          -z-20
-        "
+        className="pointer-events-none absolute inset-0 -z-20"
       >
         {/* blueprint grid */}
         <div
-          className="
-            absolute inset-0
-            opacity-[0.22]
-            [background-image:linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)]
-            [background-size:72px_72px]
-            [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]
-          "
+          className="absolute inset-0 opacity-[0.22] [background-image:linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]"
         />
 
         {/* ambient gold glow */}
         <div
-          className="
-            absolute
-            left-[15%] top-[16%]
-            h-[360px] w-[360px]
-            rounded-full
-            bg-secondary/[0.055]
-            blur-[130px]
-          "
+          className="absolute left-[15%] top-[16%] h-[360px] w-[360px] rounded-full bg-secondary/[0.055] blur-[130px]"
         />
 
         {/* ambient navy glow */}
         <div
-          className="
-            absolute
-            -right-40 bottom-[5%]
-            h-[420px] w-[420px]
-            rounded-full
-            bg-primary/[0.04]
-            blur-[150px]
-          "
+          className="absolute -right-40 bottom-[5%] h-[420px] w-[420px] rounded-full bg-primary/[0.04] blur-[150px]"
         />
 
         {/* architectural rails */}
         <div
-          className="
-            absolute
-            left-[7%] top-0
-            h-full w-px
-            bg-border/35
-          "
+          className="absolute left-[7%] top-0 h-full w-px bg-border/35"
         />
 
         <div
-          className="
-            absolute
-            right-[7%] top-0
-            h-full w-px
-            bg-border/35
-          "
+          className="absolute right-[7%] top-0 h-full w-px bg-border/35"
         />
       </div>
 
@@ -218,37 +176,17 @@ export default function WebsiteAnatomy() {
             once: true,
             amount: 0.25,
           }}
-          className="
-            grid
-            gap-8
-            border-b border-border
-            pb-10
-            lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]
-            lg:items-end
-            lg:gap-16
-            lg:pb-14
-          "
+          className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-end lg:gap-16 lg:pb-14"
         >
           {/* left intro */}
           <motion.div variants={shouldReduceMotion ? undefined : fadeInUp}>
             <div
-              className="
-                flex
-                items-center
-                gap-3
-              "
+              className="flex items-center gap-3"
             >
               <Cpu className="h-3.5 w-3.5 text-secondary" />
 
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.2em]
-                  text-secondary
-                "
+                className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-secondary"
               >
                 02 / Website Anatomy
               </span>
@@ -257,13 +195,7 @@ export default function WebsiteAnatomy() {
             </div>
 
             <p
-              className="
-                mt-4
-                max-w-sm
-                text-sm
-                leading-6
-                text-muted-foreground
-              "
+              className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground"
             >
               Modern websites are not isolated pages. They are interconnected
               systems where every technical layer supports the experience above
@@ -274,32 +206,14 @@ export default function WebsiteAnatomy() {
           {/* headline */}
           <motion.div variants={shouldReduceMotion ? undefined : fadeInUp}>
             <h2
-              className="
-                max-w-4xl
-                text-3xl
-                font-semibold
-                leading-[1.04]
-                tracking-[-0.045em]
-                text-heading
-                sm:text-4xl
-                lg:text-5xl
-                xl:text-[58px]
-              "
+              className="max-w-4xl text-3xl font-semibold leading-[1.04] tracking-[-0.045em] text-heading sm:text-4xl lg:text-5xl xl:text-[58px]"
             >
               A website is not a page.
               <span className="block text-secondary">It&apos;s a system.</span>
             </h2>
 
             <p
-              className="
-                mt-5
-                max-w-2xl
-                text-sm
-                leading-7
-                text-body
-                sm:text-base
-                sm:leading-8
-              "
+              className="mt-5 max-w-2xl text-sm leading-7 text-body sm:text-base sm:leading-8"
             >
               Every experience your customer sees is supported by interconnected
               layers of interface design, application logic, infrastructure,
@@ -313,14 +227,7 @@ export default function WebsiteAnatomy() {
         {/* ==================================================== */}
 
         <div
-          className="
-            mt-10
-            grid
-            min-w-0
-            gap-6
-            lg:mt-14
-            xl:grid-cols-[minmax(0,1fr)_290px]
-          "
+          className="mt-10 grid min-w-0 gap-6 lg:mt-14 xl:grid-cols-[minmax(0,1fr)_290px]"
         >
           {/* ================================================== */}
           {/* SYSTEM MAP                                        */}
@@ -351,53 +258,24 @@ export default function WebsiteAnatomy() {
               duration: 0.75,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="
-              relative
-              min-w-0
-              overflow-hidden
-              border border-border
-              bg-card
-              shadow-[var(--shadow-card)]
-            "
+            className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
           >
             {/* ================================================ */}
             {/* MAP HEADER                                      */}
             {/* ================================================ */}
 
             <div
-              className="
-                flex
-                flex-col
-                gap-3
-                border-b border-border
-                bg-muted/10
-                px-5 py-4
-                sm:flex-row
-                sm:items-center
-                sm:justify-between
-                sm:px-6
-              "
+              className="flex flex-col gap-3 border-b border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
             >
               <div
-                className="
-                  flex
-                  items-center
-                  gap-3
-                "
+                className="flex items-center gap-3"
               >
                 <span
-                  className="
-                    relative
-                    flex h-2 w-2
-                  "
+                  className="relative flex h-2 w-2"
                 >
                   {!shouldReduceMotion && (
                     <motion.span
-                      className="
-                        absolute inset-0
-                        rounded-full
-                        bg-secondary
-                      "
+                      className="absolute inset-0 rounded-full bg-secondary"
                       animate={{
                         scale: [1, 2.4, 1],
                         opacity: [0.7, 0, 0.7],
@@ -410,38 +288,19 @@ export default function WebsiteAnatomy() {
                   )}
 
                   <span
-                    className="
-                      relative
-                      h-2 w-2
-                      rounded-full
-                      bg-secondary
-                    "
+                    className="relative h-2 w-2 rounded-full bg-secondary"
                   />
                 </span>
 
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.16em]
-                    text-muted-foreground/45
-                  "
+                  className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
                 >
                   Architecture topology
                 </span>
               </div>
 
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.14em]
-                  text-secondary
-                "
+                className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-secondary"
               >
                 System / Connected
               </span>
@@ -452,38 +311,18 @@ export default function WebsiteAnatomy() {
             {/* ================================================ */}
 
             <div
-              className="
-                relative
-                hidden
-                min-h-[720px]
-                overflow-hidden
-                md:block
-              "
+              className="relative hidden min-h-[720px] overflow-hidden md:block"
             >
               {/* blueprint surface */}
               <div
                 aria-hidden="true"
-                className="
-                  absolute inset-0
-                  opacity-[0.22]
-                  [background-image:linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)]
-                  [background-size:44px_44px]
-                "
+                className="absolute inset-0 opacity-[0.22] [background-image:linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] [background-size:44px_44px]"
               />
 
               {/* radial focus */}
               <div
                 aria-hidden="true"
-                className="
-                  absolute
-                  left-1/2 top-1/2
-                  h-[420px] w-[420px]
-                  -translate-x-1/2
-                  -translate-y-1/2
-                  rounded-full
-                  bg-secondary/[0.045]
-                  blur-[110px]
-                "
+                className="absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/[0.045] blur-[110px]"
               />
 
               {/* ============================================== */}
@@ -494,11 +333,7 @@ export default function WebsiteAnatomy() {
                 aria-hidden="true"
                 viewBox="0 0 1000 720"
                 preserveAspectRatio="none"
-                className="
-                  pointer-events-none
-                  absolute inset-0
-                  h-full w-full
-                "
+                className="pointer-events-none absolute inset-0 h-full w-full"
               >
                 {/* static connections */}
                 {[
@@ -659,41 +494,15 @@ export default function WebsiteAnatomy() {
                   delay: 0.3,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="
-                  absolute
-                  left-1/2 top-1/2
-                  z-20
-                  -translate-x-1/2
-                  -translate-y-1/2
-                "
+                className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2"
               >
                 <div
-                  className="
-                    relative
-                    flex
-                    h-44 w-44
-                    flex-col
-                    items-center
-                    justify-center
-                    rounded-full
-                    border border-secondary/30
-                    bg-background/90
-                    text-center
-                    shadow-[0_0_70px_rgba(166,124,39,0.1)]
-                    backdrop-blur-xl
-                  "
+                  className="relative flex h-44 w-44 flex-col items-center justify-center rounded-full border border-secondary/30 bg-background/90 text-center shadow-[0_0_70px_rgba(166,124,39,0.1)] backdrop-blur-xl"
                 >
                   {!shouldReduceMotion && (
                     <motion.div
                       aria-hidden="true"
-                      className="
-                        absolute
-                        -inset-4
-                        rounded-full
-                        border
-                        border-dashed
-                        border-secondary/15
-                      "
+                      className="absolute -inset-4 rounded-full border border-dashed border-secondary/15"
                       animate={{
                         rotate: 360,
                       }}
@@ -706,52 +515,25 @@ export default function WebsiteAnatomy() {
                   )}
 
                   <div
-                    className="
-                      flex h-10 w-10
-                      items-center
-                      justify-center
-                      border border-secondary/20
-                      bg-secondary/[0.05]
-                      text-secondary
-                    "
+                    className="flex h-10 w-10 items-center justify-center border border-secondary/20 bg-secondary/[0.05] text-secondary"
                   >
                     <Cpu className="h-4 w-4" />
                   </div>
 
                   <span
-                    className="
-                      mt-3
-                      font-mono
-                      text-[7px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.16em]
-                      text-secondary
-                    "
+                    className="mt-3 font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-secondary"
                   >
                     Blackcrest
                   </span>
 
                   <h3
-                    className="
-                      mt-1
-                      text-sm
-                      font-semibold
-                      text-heading
-                    "
+                    className="mt-1 text-sm font-semibold text-heading"
                   >
                     Core System
                   </h3>
 
                   <span
-                    className="
-                      mt-2
-                      font-mono
-                      text-[6px]
-                      uppercase
-                      tracking-[0.13em]
-                      text-muted-foreground/35
-                    "
+                    className="mt-2 font-mono text-[6px] uppercase tracking-[0.13em] text-muted-foreground/35"
                   >
                     Connected Architecture
                   </span>
@@ -802,85 +584,37 @@ export default function WebsiteAnatomy() {
                     `}
                   >
                     <div
-                      className="
-                        relative
-                        overflow-hidden
-                        border border-border
-                        bg-card/95
-                        px-4 py-3.5
-                        shadow-[var(--shadow-card)]
-                        backdrop-blur
-                        transition-all
-                        duration-300
-                        hover:-translate-y-1
-                        hover:border-secondary/30
-                      "
+                      className="relative overflow-hidden border border-border bg-card/95 px-4 py-3.5 shadow-[var(--shadow-card)] backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-secondary/30"
                     >
                       <span
                         aria-hidden="true"
-                        className="
-                          absolute
-                          left-0 top-0
-                          h-[2px] w-0
-                          bg-secondary
-                          transition-all
-                          duration-500
-                          group-hover:w-full
-                        "
+                        className="absolute left-0 top-0 h-[2px] w-0 bg-secondary transition-all duration-500 group-hover:w-full"
                       />
 
                       <div
-                        className="
-                          flex
-                          items-start
-                          justify-between
-                          gap-3
-                        "
+                        className="flex items-start justify-between gap-3"
                       >
                         <div
-                          className="
-                            flex h-8 w-8
-                            shrink-0
-                            items-center
-                            justify-center
-                            border border-secondary/15
-                            bg-secondary/[0.045]
-                            text-secondary
-                          "
+                          className="flex h-8 w-8 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.045] text-secondary"
                         >
                           <Icon className="h-3.5 w-3.5" />
                         </div>
 
                         <span
-                          className="
-                            font-mono
-                            text-[7px]
-                            font-semibold
-                            text-secondary/45
-                          "
+                          className="font-mono text-[7px] font-semibold text-secondary/45"
                         >
                           {node.number}
                         </span>
                       </div>
 
                       <h4
-                        className="
-                          mt-3
-                          text-xs
-                          font-semibold
-                          text-heading
-                        "
+                        className="mt-3 text-xs font-semibold text-heading"
                       >
                         {node.label}
                       </h4>
 
                       <p
-                        className="
-                          mt-1.5
-                          text-[9px]
-                          leading-4
-                          text-muted-foreground
-                        "
+                        className="mt-1.5 text-[9px] leading-4 text-muted-foreground"
                       >
                         {node.description}
                       </p>
@@ -894,29 +628,13 @@ export default function WebsiteAnatomy() {
               {/* ============================================== */}
 
               <span
-                className="
-                  absolute
-                  bottom-4 left-5
-                  font-mono
-                  text-[6px]
-                  uppercase
-                  tracking-[0.15em]
-                  text-muted-foreground/25
-                "
+                className="absolute bottom-4 left-5 font-mono text-[6px] uppercase tracking-[0.15em] text-muted-foreground/25"
               >
                 X: 08 / Y: 24 / Architecture
               </span>
 
               <span
-                className="
-                  absolute
-                  bottom-4 right-5
-                  font-mono
-                  text-[6px]
-                  uppercase
-                  tracking-[0.15em]
-                  text-muted-foreground/25
-                "
+                className="absolute bottom-4 right-5 font-mono text-[6px] uppercase tracking-[0.15em] text-muted-foreground/25"
               >
                 Topology / 08 Nodes
               </span>
@@ -927,54 +645,25 @@ export default function WebsiteAnatomy() {
             {/* ================================================ */}
 
             <div
-              className="
-                grid
-                md:hidden
-              "
+              className="grid md:hidden"
             >
               <div
-                className="
-                  border-b border-border
-                  bg-secondary/[0.025]
-                  px-5 py-6
-                  text-center
-                "
+                className="border-b border-border bg-secondary/[0.025] px-5 py-6 text-center"
               >
                 <div
-                  className="
-                    mx-auto
-                    flex h-10 w-10
-                    items-center
-                    justify-center
-                    border border-secondary/20
-                    bg-secondary/[0.05]
-                    text-secondary
-                  "
+                  className="mx-auto flex h-10 w-10 items-center justify-center border border-secondary/20 bg-secondary/[0.05] text-secondary"
                 >
                   <Cpu className="h-4 w-4" />
                 </div>
 
                 <span
-                  className="
-                    mt-3
-                    block
-                    font-mono
-                    text-[7px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.16em]
-                    text-secondary
-                  "
+                  className="mt-3 block font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-secondary"
                 >
                   Core System
                 </span>
 
                 <p
-                  className="
-                    mt-1
-                    text-xs
-                    text-muted-foreground
-                  "
+                  className="mt-1 text-xs text-muted-foreground"
                 >
                   Every layer works as one connected architecture.
                 </p>
@@ -1009,72 +698,36 @@ export default function WebsiteAnatomy() {
                       transition={{
                         delay: index * 0.05,
                       }}
-                      className="
-                        min-w-0
-                        border-b border-border
-                        px-5 py-5
-                        sm:border-r
-                        sm:[&:nth-child(even)]:border-r-0
-                      "
+                      className="min-w-0 border-b border-border px-5 py-5 sm:border-r sm:[&:nth-child(even)]:border-r-0"
                     >
                       <div
-                        className="
-                          flex
-                          items-start
-                          gap-3
-                        "
+                        className="flex items-start gap-3"
                       >
                         <div
-                          className="
-                            flex h-9 w-9
-                            shrink-0
-                            items-center
-                            justify-center
-                            border border-secondary/15
-                            bg-secondary/[0.045]
-                            text-secondary
-                          "
+                          className="flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.045] text-secondary"
                         >
                           <Icon className="h-4 w-4" />
                         </div>
 
                         <div className="min-w-0 flex-1">
                           <div
-                            className="
-                              flex
-                              items-center
-                              justify-between
-                              gap-3
-                            "
+                            className="flex items-center justify-between gap-3"
                           >
                             <h4
-                              className="
-                                text-sm
-                                font-semibold
-                                text-heading
-                              "
+                              className="text-sm font-semibold text-heading"
                             >
                               {node.label}
                             </h4>
 
                             <span
-                              className="
-                                font-mono
-                                text-[7px]
-                                text-secondary/45
-                              "
+                              className="font-mono text-[7px] text-secondary/45"
                             >
                               {node.number}
                             </span>
                           </div>
 
                           <p
-                            className="
-                              mt-1
-                              text-xs
-                              leading-5
-                              text-muted-foreground
-                            "
+                            className="mt-1 text-xs leading-5 text-muted-foreground"
                           >
                             {node.description}
                           </p>
@@ -1116,68 +769,34 @@ export default function WebsiteAnatomy() {
               duration: 0.7,
               delay: 0.15,
             }}
-            className="
-              min-w-0
-              border border-border
-              bg-primary
-              text-white
-              shadow-[var(--shadow-card)]
-            "
+            className="min-w-0 border border-border bg-primary text-white shadow-[var(--shadow-card)]"
           >
             {/* header */}
             <div
-              className="
-                border-b border-white/10
-                px-5 py-4
-              "
+              className="border-b border-white/10 px-5 py-4"
             >
               <div
-                className="
-                  flex
-                  items-center
-                  justify-between
-                  gap-3
-                "
+                className="flex items-center justify-between gap-3"
               >
                 <div
-                  className="
-                    flex
-                    items-center
-                    gap-2
-                  "
+                  className="flex items-center gap-2"
                 >
                   <CircleDot className="h-3.5 w-3.5 text-gold-light" />
 
                   <span
-                    className="
-                      font-mono
-                      text-[7px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.16em]
-                      text-gold-light
-                    "
+                    className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-gold-light"
                   >
                     System Health
                   </span>
                 </div>
 
                 <span
-                  className="
-                    h-1.5 w-1.5
-                    rounded-full
-                    bg-success
-                  "
+                  className="h-1.5 w-1.5 rounded-full bg-success"
                 />
               </div>
 
               <p
-                className="
-                  mt-3
-                  text-xs
-                  leading-5
-                  text-white/40
-                "
+                className="mt-3 text-xs leading-5 text-white/40"
               >
                 Engineering quality is built across every layer, not added at
                 the end.
@@ -1192,44 +811,22 @@ export default function WebsiteAnatomy() {
                 return (
                   <div
                     key={item.label}
-                    className="
-                      flex
-                      items-center
-                      justify-between
-                      gap-4
-                      border-b border-white/10
-                      px-5 py-4
-                    "
+                    className="flex items-center justify-between gap-4 border-b border-white/10 px-5 py-4"
                   >
                     <div
-                      className="
-                        flex
-                        items-center
-                        gap-3
-                      "
+                      className="flex items-center gap-3"
                     >
                       <Icon className="h-3.5 w-3.5 text-gold-light" />
 
                       <span
-                        className="
-                          text-xs
-                          font-medium
-                          text-white/70
-                        "
+                        className="text-xs font-medium text-white/70"
                       >
                         {item.label}
                       </span>
                     </div>
 
                     <span
-                      className="
-                        font-mono
-                        text-[7px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.12em]
-                        text-success
-                      "
+                      className="font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-success"
                     >
                       {item.value}
                     </span>
@@ -1240,31 +837,18 @@ export default function WebsiteAnatomy() {
 
             {/* engineering note */}
             <div
-              className="
-                px-5 py-5
-              "
+              className="px-5 py-5"
             >
               <Sparkles className="h-4 w-4 text-gold-light" />
 
               <h3
-                className="
-                  mt-4
-                  text-lg
-                  font-semibold
-                  tracking-[-0.02em]
-                  text-white
-                "
+                className="mt-4 text-lg font-semibold tracking-[-0.02em] text-white"
               >
                 Every layer affects the whole.
               </h3>
 
               <p
-                className="
-                  mt-3
-                  text-xs
-                  leading-6
-                  text-white/42
-                "
+                className="mt-3 text-xs leading-6 text-white/42"
               >
                 Strong frontend work depends on reliable services. Strong
                 services depend on sound architecture. Performance, security,
@@ -1275,21 +859,10 @@ export default function WebsiteAnatomy() {
 
             {/* footer */}
             <div
-              className="
-                border-t border-white/10
-                bg-navy-deep/40
-                px-5 py-4
-              "
+              className="border-t border-white/10 bg-navy-deep/40 px-5 py-4"
             >
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.14em]
-                  text-white/30
-                "
+                className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-white/30"
               >
                 Architecture / Reliability / Growth
               </span>
@@ -1325,59 +898,26 @@ export default function WebsiteAnatomy() {
           transition={{
             duration: 0.7,
           }}
-          className="
-            mt-6
-            overflow-hidden
-            border border-border
-            bg-card
-          "
+          className="mt-6 overflow-hidden border border-border bg-card"
         >
           {/* rail header */}
           <div
-            className="
-              flex
-              flex-col
-              gap-3
-              border-b border-border
-              bg-muted/10
-              px-5 py-4
-              sm:flex-row
-              sm:items-center
-              sm:justify-between
-              sm:px-6
-            "
+            className="flex flex-col gap-3 border-b border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
           >
             <div
-              className="
-                flex
-                items-center
-                gap-3
-              "
+              className="flex items-center gap-3"
             >
               <CircleDot className="h-3 w-3 text-secondary" />
 
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.16em]
-                  text-secondary
-                "
+                className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-secondary"
               >
                 Request lifecycle
               </span>
             </div>
 
             <span
-              className="
-                font-mono
-                text-[7px]
-                uppercase
-                tracking-[0.14em]
-                text-muted-foreground/35
-              "
+              className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/35"
             >
               Input → Processing → Output
             </span>
@@ -1385,45 +925,21 @@ export default function WebsiteAnatomy() {
 
           {/* flow */}
           <div
-            className="
-              relative
-              grid
-              grid-cols-2
-              sm:grid-cols-3
-              lg:grid-cols-6
-            "
+            className="relative grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6"
           >
             {requestFlow.map((item, index) => (
               <div
                 key={item}
-                className="
-                  relative
-                  min-w-0
-                  border-b border-r border-border
-                  px-4 py-5
-                  last:border-r-0
-                  sm:px-5
-                  lg:border-b-0
-                "
+                className="relative min-w-0 border-b border-r border-border px-4 py-5 last:border-r-0 sm:px-5 lg:border-b-0"
               >
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    font-semibold
-                    text-secondary/45
-                  "
+                  className="font-mono text-[7px] font-semibold text-secondary/45"
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
                 <p
-                  className="
-                    mt-2
-                    text-xs
-                    font-semibold
-                    text-heading
-                  "
+                  className="mt-2 text-xs font-semibold text-heading"
                 >
                   {item}
                 </p>
@@ -1431,18 +947,7 @@ export default function WebsiteAnatomy() {
                 {index < requestFlow.length - 1 && (
                   <span
                     aria-hidden="true"
-                    className="
-                      absolute
-                      right-[-4px] top-1/2
-                      z-10
-                      hidden
-                      h-2 w-2
-                      -translate-y-1/2
-                      rotate-45
-                      border-r border-t
-                      border-secondary/50
-                      lg:block
-                    "
+                    className="absolute right-[-4px] top-1/2 z-10 hidden h-2 w-2 -translate-y-1/2 rotate-45 border-r border-t border-secondary/50 lg:block"
                   />
                 )}
               </div>
@@ -1452,19 +957,7 @@ export default function WebsiteAnatomy() {
             {!shouldReduceMotion && (
               <motion.div
                 aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute
-                  bottom-0
-                  hidden
-                  h-[2px]
-                  bg-gradient-to-r
-                  from-transparent
-                  via-secondary
-                  to-transparent
-                  shadow-[0_0_16px_rgba(166,124,39,0.3)]
-                  lg:block
-                "
+                className="pointer-events-none absolute bottom-0 hidden h-[2px] bg-gradient-to-r from-transparent via-secondary to-transparent shadow-[0_0_16px_rgba(166,124,39,0.3)] lg:block"
                 initial={{
                   left: "-12%",
                   width: "12%",
@@ -1488,39 +981,16 @@ export default function WebsiteAnatomy() {
         {/* ==================================================== */}
 
         <div
-          className="
-            mt-8
-            flex
-            flex-col
-            gap-3
-            border-t border-border
-            pt-4
-            sm:flex-row
-            sm:items-center
-            sm:justify-between
-          "
+          className="mt-8 flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between"
         >
           <span
-            className="
-              font-mono
-              text-[7px]
-              font-semibold
-              uppercase
-              tracking-[0.15em]
-              text-secondary
-            "
+            className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
           >
             Interface → Logic → Infrastructure → Performance
           </span>
 
           <span
-            className="
-              font-mono
-              text-[7px]
-              uppercase
-              tracking-[0.14em]
-              text-muted-foreground/30
-            "
+            className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/30"
           >
             Blackcrest / Web Engineering
           </span>

@@ -67,12 +67,7 @@ export default function DashboardMobileSidebar({
         transition={{
           duration: reduceMotion ? 0 : 0.2,
         }}
-        className="
-          fixed inset-0 z-40
-          bg-navy-deep/60
-          backdrop-blur-[3px]
-          lg:hidden
-        "
+        className="fixed inset-0 z-40 bg-navy-deep/60 backdrop-blur-[3px] lg:hidden"
         onClick={onClose}
       />
 
@@ -103,41 +98,17 @@ export default function DashboardMobileSidebar({
                 mass: 0.9,
               }
         }
-        className="
-          fixed left-0 top-0 z-50
-          flex h-dvh
-          w-[min(88vw,320px)]
-          flex-col
-          overflow-hidden
-          border-r border-border
-          bg-card/98
-          text-card-foreground
-          shadow-[var(--shadow-overlay)]
-          backdrop-blur-xl
-          lg:hidden
-        "
+        className="fixed left-0 top-0 z-50 flex h-dvh w-[min(88vw,320px)] flex-col overflow-hidden border-r border-border bg-card/98 text-card-foreground shadow-[var(--shadow-overlay)] backdrop-blur-xl lg:hidden"
       >
         {/* top brand signal */}
         <div
-          className="
-            pointer-events-none
-            absolute left-0 top-0
-            h-[2px] w-full
-            bg-gradient-to-r
-            from-secondary
-            via-secondary/45
-            to-transparent
-          "
+          className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/45 to-transparent"
         />
 
         {/* subtle workspace background */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute inset-0
-            opacity-[0.09]
-          "
+          className="pointer-events-none absolute inset-0 opacity-[0.09]"
           style={{
             backgroundImage: `
               linear-gradient(
@@ -155,30 +126,14 @@ export default function DashboardMobileSidebar({
         {/* ==================================================== */}
 
         <div
-          className="
-            relative z-10
-            flex h-[72px]
-            shrink-0
-            items-center
-            justify-between
-            border-b border-border
-            px-4
-          "
+          className="relative z-10 flex h-[72px] shrink-0 items-center justify-between border-b border-border px-4"
         >
           <div className="flex min-w-0 items-center gap-3">
             <Logo />
 
             <div className="hidden min-w-0 xs:block">
               <p
-                className="
-                  truncate
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.17em]
-                  text-muted-foreground/50
-                "
+                className="truncate font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/50"
               >
                 Workspace
               </p>
@@ -188,23 +143,7 @@ export default function DashboardMobileSidebar({
           <button
             type="button"
             onClick={onClose}
-            className="
-              flex h-9 w-9
-              shrink-0
-              items-center justify-center
-              border border-border
-              bg-background
-              text-muted-foreground
-              shadow-[var(--shadow-card)]
-              transition-all
-              duration-300
-              hover:border-secondary/30
-              hover:bg-secondary/[0.05]
-              hover:text-secondary
-              focus-visible:outline-none
-              focus-visible:ring-2
-              focus-visible:ring-ring/60
-            "
+            className="flex h-9 w-9 shrink-0 items-center justify-center border border-border bg-background text-muted-foreground shadow-[var(--shadow-card)] transition-all duration-300 hover:border-secondary/30 hover:bg-secondary/[0.05] hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
             aria-label="Close sidebar"
           >
             <X className="h-4 w-4" />
@@ -217,45 +156,24 @@ export default function DashboardMobileSidebar({
 
         <div className="relative z-10 px-4 pt-4">
           <div
-            className="
-              border border-secondary/15
-              bg-secondary/[0.035]
-              p-3
-            "
+            className="border border-secondary/15 bg-secondary/[0.035] p-3"
           >
             <div className="flex items-center gap-3">
               <div
-                className="
-                  flex h-7 w-7
-                  shrink-0
-                  items-center justify-center
-                  bg-secondary/[0.08]
-                "
+                className="flex h-7 w-7 shrink-0 items-center justify-center bg-secondary/[0.08]"
               >
                 <CircleDot className="h-3.5 w-3.5 text-secondary" />
               </div>
 
               <div className="min-w-0">
                 <p
-                  className="
-                    font-mono
-                    text-[7px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.15em]
-                    text-secondary
-                  "
+                  className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
                 >
                   Blackcrest workspace
                 </p>
 
                 <p
-                  className="
-                    mt-0.5
-                    truncate
-                    text-[11px]
-                    text-muted-foreground
-                  "
+                  className="mt-0.5 truncate text-[11px] text-muted-foreground"
                 >
                   Everything is operational
                 </p>
@@ -269,35 +187,16 @@ export default function DashboardMobileSidebar({
         {/* ==================================================== */}
 
         <nav
-          className="
-            dashboard-nav-scroll
-            relative z-10
-            flex-1
-            overflow-y-auto
-            overscroll-contain
-            px-3 py-5
-          "
+          className="dashboard-nav-scroll relative z-10 flex-1 overflow-y-auto overscroll-contain px-3 py-5"
         >
           <div className="space-y-7">
             {navGroups.map((group) => (
               <div key={group.label} className="space-y-1">
                 <div
-                  className="
-                    flex items-center
-                    gap-3
-                    px-3 pb-2
-                  "
+                  className="flex items-center gap-3 px-3 pb-2"
                 >
                   <p
-                    className="
-                      shrink-0
-                      font-mono
-                      text-[8px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.18em]
-                      text-muted-foreground/50
-                    "
+                    className="shrink-0 font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/50"
                   >
                     {group.label}
                   </p>
@@ -323,13 +222,7 @@ export default function DashboardMobileSidebar({
         {/* ==================================================== */}
 
         <div
-          className="
-            relative z-10
-            shrink-0
-            border-t border-border
-            bg-card/95
-            pb-[env(safe-area-inset-bottom)]
-          "
+          className="relative z-10 shrink-0 border-t border-border bg-card/95 pb-[env(safe-area-inset-bottom)]"
         >
           <SidebarFooter
             isCollapsed={false}

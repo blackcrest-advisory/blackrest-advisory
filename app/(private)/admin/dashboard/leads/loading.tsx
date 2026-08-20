@@ -18,34 +18,16 @@ export default function Loading() {
       {/* ====================================================== */}
 
       <section
-        className="
-          relative
-          overflow-hidden
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -right-32 -top-36
-            h-[340px] w-[340px]
-            rounded-full
-            bg-secondary/[0.07]
-            blur-[110px]
-          "
+          className="pointer-events-none absolute -right-32 -top-36 h-[340px] w-[340px] rounded-full bg-secondary/[0.07] blur-[110px]"
         />
 
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute inset-0
-            hidden opacity-[0.05]
-            lg:block
-          "
+          className="pointer-events-none absolute inset-0 hidden opacity-[0.05] lg:block"
           style={{
             backgroundImage: `
               linear-gradient(
@@ -68,28 +50,11 @@ export default function Loading() {
         />
 
         <div
-          className="
-            absolute left-0 top-0
-            h-[2px] w-full
-            bg-gradient-to-r
-            from-secondary/40
-            via-secondary/20
-            to-transparent
-          "
+          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"
         />
 
         <div
-          className="
-            relative z-10
-            grid
-            gap-8
-            px-5 py-7
-            sm:px-6
-            lg:grid-cols-[minmax(0,1fr)_320px]
-            lg:items-stretch
-            lg:px-8
-            lg:py-8
-          "
+          className="relative z-10 grid gap-8 px-5 py-7 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-stretch lg:px-8 lg:py-8"
         >
           {/* left */}
           <div className="flex flex-col justify-between">
@@ -104,11 +69,7 @@ export default function Loading() {
               </div>
 
               <Skeleton
-                className="
-                  mt-5
-                  h-10 w-40
-                  sm:h-11
-                "
+                className="mt-5 h-10 w-40 sm:h-11"
               />
 
               <div className="mt-4 space-y-2">
@@ -118,20 +79,12 @@ export default function Loading() {
             </div>
 
             <div
-              className="
-                mt-7
-                grid
-                gap-3
-                sm:grid-cols-3
-              "
+              className="mt-7 grid gap-3 sm:grid-cols-3"
             >
               {Array.from({ length: 3 }).map((_, index) => (
                 <div
                   key={index}
-                  className="
-                    border-t border-border
-                    pt-3
-                  "
+                  className="border-t border-border pt-3"
                 >
                   <div className="flex items-center gap-2">
                     <Skeleton className="h-1.5 w-1.5 rounded-full" />
@@ -144,25 +97,11 @@ export default function Loading() {
 
           {/* command panel */}
           <div
-            className="
-              relative
-              overflow-hidden
-              border border-secondary/15
-              bg-secondary/[0.025]
-              p-5
-              sm:p-6
-            "
+            className="relative overflow-hidden border border-secondary/15 bg-secondary/[0.025] p-5 sm:p-6"
           >
             <div
               aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute -right-16 -top-20
-                h-40 w-40
-                rounded-full
-                bg-secondary/[0.08]
-                blur-3xl
-              "
+              className="pointer-events-none absolute -right-16 -top-20 h-40 w-40 rounded-full bg-secondary/[0.08] blur-3xl"
             />
 
             <div className="relative z-10">
@@ -183,13 +122,7 @@ export default function Loading() {
               <Skeleton className="mt-5 h-9 w-full" />
 
               <div
-                className="
-                  mt-5
-                  flex items-center
-                  justify-between
-                  border-t border-border
-                  pt-4
-                "
+                className="mt-5 flex items-center justify-between border-t border-border pt-4"
               >
                 <Skeleton className="h-2.5 w-28" />
                 <Skeleton className="h-2.5 w-8" />
@@ -204,40 +137,16 @@ export default function Loading() {
       {/* ====================================================== */}
 
       <section
-        className="
-          grid
-          grid-cols-1
-          gap-3
-          sm:grid-cols-2
-          lg:grid-cols-3
-          2xl:grid-cols-5
-        "
+        className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5"
       >
         {Array.from({ length: 5 }).map((_, index) => (
           <article
             key={index}
-            className="
-              relative
-              min-h-[165px]
-              overflow-hidden
-              border border-border
-              bg-card
-              p-5
-              shadow-[var(--shadow-card)]
-            "
+            className="relative min-h-[165px] overflow-hidden border border-border bg-card p-5 shadow-[var(--shadow-card)]"
           >
             <span
               aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute -bottom-5 -right-1
-                font-mono
-                text-[5rem]
-                font-semibold
-                leading-none
-                tracking-[-0.1em]
-                text-foreground/[0.02]
-              "
+              className="pointer-events-none absolute -bottom-5 -right-1 font-mono text-[5rem] font-semibold leading-none tracking-[-0.1em] text-foreground/[0.02]"
             >
               0{index + 1}
             </span>
@@ -255,13 +164,7 @@ export default function Loading() {
               <Skeleton className="mt-6 h-8 w-14" />
 
               <div
-                className="
-                  mt-5
-                  flex items-center
-                  justify-between
-                  border-t border-border
-                  pt-3
-                "
+                className="mt-5 flex items-center justify-between border-t border-border pt-3"
               >
                 <Skeleton className="h-2 w-16" />
                 <Skeleton className="h-px w-8" />
@@ -276,42 +179,18 @@ export default function Loading() {
       {/* ====================================================== */}
 
       <section
-        className="
-          relative
-          overflow-visible
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative overflow-visible border border-border bg-card shadow-[var(--shadow-card)]"
       >
         <div
-          className="
-            absolute left-0 top-0
-            h-[2px] w-full
-            bg-gradient-to-r
-            from-secondary/40
-            via-secondary/20
-            to-transparent
-          "
+          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"
         />
 
         {/* header */}
         <div
-          className="
-            border-b border-border
-            px-5 py-5
-            sm:px-6
-          "
+          className="border-b border-border px-5 py-5 sm:px-6"
         >
           <div
-            className="
-              flex
-              flex-col
-              gap-4
-              sm:flex-row
-              sm:items-end
-              sm:justify-between
-            "
+            className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"
           >
             <div>
               <div className="flex items-center gap-2">
@@ -325,14 +204,7 @@ export default function Loading() {
             </div>
 
             <div
-              className="
-                flex
-                items-center
-                gap-2
-                border border-border
-                bg-background/60
-                px-3 py-2
-              "
+              className="flex items-center gap-2 border border-border bg-background/60 px-3 py-2"
             >
               <Skeleton className="h-2 w-12" />
               <span className="h-3 w-px bg-border" />
@@ -346,34 +218,15 @@ export default function Loading() {
         {/* ==================================================== */}
 
         <div
-          className="
-            relative
-            z-20
-            border-b border-border
-            bg-card
-            px-5 py-4
-            sm:px-6
-          "
+          className="relative z-20 border-b border-border bg-card px-5 py-4 sm:px-6"
         >
           <div
-            className="
-              flex
-              flex-col
-              gap-3
-              xl:flex-row
-              xl:items-center
-            "
+            className="flex flex-col gap-3 xl:flex-row xl:items-center"
           >
             <Skeleton className="h-10 min-w-0 flex-1" />
 
             <div
-              className="
-                grid
-                gap-2
-                sm:grid-cols-3
-                xl:flex
-                xl:items-center
-              "
+              className="grid gap-2 sm:grid-cols-3 xl:flex xl:items-center"
             >
               <Skeleton className="hidden h-9 w-9 xl:block" />
               <Skeleton className="h-10 w-full xl:w-40" />
@@ -390,10 +243,7 @@ export default function Loading() {
         <div className="hidden overflow-x-auto lg:block">
           <table className="w-full border-collapse text-left text-sm">
             <thead
-              className="
-                border-b border-border
-                bg-muted/15
-              "
+              className="border-b border-border bg-muted/15"
             >
               <tr>
                 {[
@@ -490,10 +340,7 @@ export default function Loading() {
           {Array.from({ length: 5 }).map((_, index) => (
             <article
               key={index}
-              className="
-                px-5 py-5
-                sm:px-6
-              "
+              className="px-5 py-5 sm:px-6"
             >
               {/* heading */}
               <div className="flex items-start gap-3">
@@ -528,22 +375,14 @@ export default function Loading() {
               {/* metadata */}
               <div className="mt-4 grid grid-cols-2 gap-3">
                 <div
-                  className="
-                    border border-border
-                    bg-background/40
-                    p-3
-                  "
+                  className="border border-border bg-background/40 p-3"
                 >
                   <Skeleton className="h-2 w-14" />
                   <Skeleton className="mt-2 h-6 w-20" />
                 </div>
 
                 <div
-                  className="
-                    border border-border
-                    bg-background/40
-                    p-3
-                  "
+                  className="border border-border bg-background/40 p-3"
                 >
                   <Skeleton className="h-2 w-14" />
 
@@ -556,15 +395,7 @@ export default function Loading() {
 
               {/* footer */}
               <div
-                className="
-                  mt-4
-                  flex
-                  items-center
-                  justify-between
-                  gap-4
-                  border-t border-border
-                  pt-4
-                "
+                className="mt-4 flex items-center justify-between gap-4 border-t border-border pt-4"
               >
                 <div className="flex items-center gap-2">
                   <Skeleton className="h-3.5 w-3.5" />
@@ -582,22 +413,10 @@ export default function Loading() {
         {/* ==================================================== */}
 
         <div
-          className="
-            border-t border-border
-            bg-muted/15
-            px-5 py-4
-            sm:px-6
-          "
+          className="border-t border-border bg-muted/15 px-5 py-4 sm:px-6"
         >
           <div
-            className="
-              flex
-              flex-col
-              gap-3
-              sm:flex-row
-              sm:items-center
-              sm:justify-between
-            "
+            className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
           >
             <Skeleton className="h-3 w-36" />
 

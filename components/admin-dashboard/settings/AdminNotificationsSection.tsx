@@ -93,13 +93,7 @@ export const AdminNotificationsSection = ({
 
   return (
     <section
-      className="
-        relative
-        overflow-hidden
-        border border-border
-        bg-card
-        shadow-[var(--shadow-card)]
-      "
+      className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
       {/* ====================================================== */}
       {/* TOP SIGNAL                                             */}
@@ -107,12 +101,7 @@ export const AdminNotificationsSection = ({
 
       <div
         aria-hidden="true"
-        className="
-          absolute
-          left-0 top-0
-          h-[2px] w-28
-          bg-secondary/45
-        "
+        className="absolute left-0 top-0 h-[2px] w-28 bg-secondary/45"
       />
 
       {/* ====================================================== */}
@@ -120,63 +109,29 @@ export const AdminNotificationsSection = ({
       {/* ====================================================== */}
 
       <div
-        className="
-          flex
-          items-start
-          gap-3
-          border-b border-border
-          px-5 py-4
-          sm:px-6
-        "
+        className="flex items-start gap-3 border-b border-border px-5 py-4 sm:px-6"
       >
         <div
-          className="
-            flex h-9 w-9
-            shrink-0
-            items-center
-            justify-center
-            rounded-md
-            border border-border
-            bg-background
-            text-secondary
-          "
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary"
         >
           <BellRing className="h-4 w-4" />
         </div>
 
         <div>
           <span
-            className="
-              font-mono
-              text-[7px]
-              font-semibold
-              uppercase
-              tracking-[0.15em]
-              text-secondary
-            "
+            className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
           >
             Alert matrix
           </span>
 
           <h2
-            className="
-              mt-1
-              text-base
-              font-semibold
-              text-heading
-            "
+            className="mt-1 text-base font-semibold text-heading"
           >
             Operational Alerts
           </h2>
 
           <p
-            className="
-              mt-1
-              max-w-xl
-              text-xs
-              leading-5
-              text-muted-foreground
-            "
+            className="mt-1 max-w-xl text-xs leading-5 text-muted-foreground"
           >
             Choose the activity that should reach you in the admin workspace.
           </p>
@@ -194,29 +149,11 @@ export const AdminNotificationsSection = ({
           return (
             <div
               key={item.key}
-              className="
-                grid
-                gap-4
-                px-5 py-4
-                transition-colors
-                hover:bg-secondary/[0.015]
-                sm:grid-cols-[44px_minmax(0,1fr)_auto]
-                sm:items-center
-                sm:px-6
-              "
+              className="grid gap-4 px-5 py-4 transition-colors hover:bg-secondary/[0.015] sm:grid-cols-[44px_minmax(0,1fr)_auto] sm:items-center sm:px-6"
             >
               {/* icon */}
               <div
-                className="
-                  flex h-9 w-9
-                  shrink-0
-                  items-center
-                  justify-center
-                  rounded-md
-                  border border-border
-                  bg-background/50
-                  text-secondary
-                "
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background/50 text-secondary"
               >
                 <Icon className="h-3.5 w-3.5" />
               </div>
@@ -224,43 +161,23 @@ export const AdminNotificationsSection = ({
               {/* content */}
               <div className="min-w-0">
                 <div
-                  className="
-                    flex
-                    flex-wrap
-                    items-center
-                    gap-2
-                  "
+                  className="flex flex-wrap items-center gap-2"
                 >
                   <span
-                    className="
-                      font-mono
-                      text-[7px]
-                      font-semibold
-                      text-muted-foreground/30
-                    "
+                    className="font-mono text-[7px] font-semibold text-muted-foreground/30"
                   >
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
                   <p
-                    className="
-                      text-sm
-                      font-semibold
-                      text-heading
-                    "
+                    className="text-sm font-semibold text-heading"
                   >
                     {item.label}
                   </p>
                 </div>
 
                 <p
-                  className="
-                    mt-1
-                    max-w-2xl
-                    text-xs
-                    leading-5
-                    text-body
-                  "
+                  className="mt-1 max-w-2xl text-xs leading-5 text-body"
                 >
                   {item.description}
                 </p>
@@ -268,24 +185,10 @@ export const AdminNotificationsSection = ({
 
               {/* control */}
               <div
-                className="
-                  flex
-                  items-center
-                  justify-between
-                  gap-3
-                  sm:justify-end
-                "
+                className="flex items-center justify-between gap-3 sm:justify-end"
               >
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.12em]
-                    text-muted-foreground/35
-                    sm:hidden
-                  "
+                  className="font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/35 sm:hidden"
                 >
                   {values[item.key] ? "Enabled" : "Disabled"}
                 </span>
@@ -310,36 +213,15 @@ export const AdminNotificationsSection = ({
       {/* ====================================================== */}
 
       <div
-        className="
-          flex
-          flex-col
-          gap-3
-          border-t border-border
-          bg-muted/10
-          px-5 py-4
-          sm:flex-row
-          sm:items-center
-          sm:justify-between
-          sm:px-6
-        "
+        className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
       >
         <div className="flex items-center gap-2">
           <span
-            className="
-              h-1.5 w-1.5
-              rounded-full
-              bg-success
-            "
+            className="h-1.5 w-1.5 rounded-full bg-success"
           />
 
           <span
-            className="
-              font-mono
-              text-[7px]
-              uppercase
-              tracking-[0.13em]
-              text-muted-foreground/40
-            "
+            className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40"
           >
             Notification controls available
           </span>

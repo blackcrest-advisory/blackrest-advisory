@@ -30,67 +30,29 @@ export function ServicesGrid({
   if (!services.length) {
     return (
       <div
-        className="
-          flex
-          min-h-[360px]
-          items-center
-          justify-center
-          px-6 py-14
-          text-center
-        "
+        className="flex min-h-[360px] items-center justify-center px-6 py-14 text-center"
       >
         <div className="max-w-sm">
           <div
-            className="
-              mx-auto
-              flex h-11 w-11
-              items-center
-              justify-center
-              rounded-md
-              border border-border
-              bg-muted/20
-              font-mono
-              text-[9px]
-              font-semibold
-              text-muted-foreground/40
-            "
+            className="mx-auto flex h-11 w-11 items-center justify-center rounded-md border border-border bg-muted/20 font-mono text-[9px] font-semibold text-muted-foreground/40"
           >
             00
           </div>
 
           <span
-            className="
-              mt-4
-              block
-              font-mono
-              text-[7px]
-              font-semibold
-              uppercase
-              tracking-[0.16em]
-              text-secondary
-            "
+            className="mt-4 block font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-secondary"
           >
             Capability register
           </span>
 
           <p
-            className="
-              mt-1.5
-              text-sm
-              font-semibold
-              text-heading
-            "
+            className="mt-1.5 text-sm font-semibold text-heading"
           >
             No services found
           </p>
 
           <p
-            className="
-              mt-1
-              text-xs
-              leading-5
-              text-muted-foreground
-            "
+            className="mt-1 text-xs leading-5 text-muted-foreground"
           >
             Try a different search or status filter.
           </p>
@@ -104,24 +66,10 @@ export function ServicesGrid({
       {services.map((service, index) => (
         <article
           key={service.id}
-          className="
-              group
-              relative
-              transition-colors
-              duration-200
-              hover:bg-secondary/[0.018]
-            "
+          className="group relative transition-colors duration-200 hover:bg-secondary/[0.018]"
         >
           <div
-            className="
-                grid
-                gap-5
-                px-5 py-6
-                sm:px-6
-                lg:grid-cols-[64px_minmax(0,1fr)_220px]
-                lg:gap-6
-                lg:py-7
-              "
+            className="grid gap-5 px-5 py-6 sm:px-6 lg:grid-cols-[64px_minmax(0,1fr)_220px] lg:gap-6 lg:py-7"
           >
             {/* ================================================= */}
             {/* INDEX                                             */}
@@ -129,27 +77,13 @@ export function ServicesGrid({
 
             <div className="hidden lg:block">
               <span
-                className="
-                    font-mono
-                    text-[10px]
-                    font-semibold
-                    tracking-[0.12em]
-                    text-secondary/45
-                  "
+                className="font-mono text-[10px] font-semibold tracking-[0.12em] text-secondary/45"
               >
                 {String(index + 1).padStart(2, "0")}
               </span>
 
               <div
-                className="
-                    mt-3
-                    h-px w-8
-                    bg-secondary/20
-                    transition-all
-                    duration-300
-                    group-hover:w-11
-                    group-hover:bg-secondary/45
-                  "
+                className="mt-3 h-px w-8 bg-secondary/20 transition-all duration-300 group-hover:w-11 group-hover:bg-secondary/45"
               />
             </div>
 
@@ -159,40 +93,15 @@ export function ServicesGrid({
 
             <div className="min-w-0">
               <div
-                className="
-                    flex
-                    flex-col
-                    gap-3
-                    sm:flex-row
-                    sm:items-start
-                    sm:justify-between
-                  "
+                className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between"
               >
                 <div className="min-w-0">
                   {/* labels */}
                   <div
-                    className="
-                        flex
-                        flex-wrap
-                        items-center
-                        gap-2
-                      "
+                    className="flex flex-wrap items-center gap-2"
                   >
                     <span
-                      className="
-                          inline-flex
-                          items-center
-                          border-l-2
-                          border-secondary
-                          bg-secondary/[0.055]
-                          px-2.5 py-1
-                          font-mono
-                          text-[7px]
-                          font-semibold
-                          uppercase
-                          tracking-[0.12em]
-                          text-secondary
-                        "
+                      className="inline-flex items-center border-l-2 border-secondary bg-secondary/[0.055] px-2.5 py-1 font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-secondary"
                     >
                       {service.pillar.replaceAll("_", " ")}
                     </span>
@@ -202,14 +111,7 @@ export function ServicesGrid({
 
                   {/* title */}
                   <h2
-                    className="
-                        mt-3
-                        text-lg
-                        font-semibold
-                        tracking-[-0.025em]
-                        text-heading
-                        sm:text-xl
-                      "
+                    className="mt-3 text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl"
                   >
                     {service.name}
                   </h2>
@@ -226,28 +128,14 @@ export function ServicesGrid({
 
               {/* description */}
               <p
-                className="
-                    mt-3
-                    max-w-3xl
-                    text-sm
-                    leading-6
-                    text-body
-                  "
+                className="mt-3 max-w-3xl text-sm leading-6 text-body"
               >
                 {service.description}
               </p>
 
               {/* service metrics */}
               <div
-                className="
-                    mt-5
-                    grid
-                    gap-px
-                    overflow-hidden
-                    border border-border
-                    bg-border
-                    sm:grid-cols-2
-                  "
+                className="mt-5 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2"
               >
                 <Metric
                   icon={Clock3}
@@ -268,34 +156,16 @@ export function ServicesGrid({
             {/* ================================================= */}
 
             <div
-              className="
-                  border-t border-border
-                  pt-4
-                  lg:border-l
-                  lg:border-t-0
-                  lg:pl-6
-                  lg:pt-0
-                "
+              className="border-t border-border pt-4 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0"
             >
               <span
-                className="
-                    font-mono
-                    text-[7px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.14em]
-                    text-muted-foreground/40
-                  "
+                className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40"
               >
                 Service command
               </span>
 
               <div
-                className="
-                    mt-3
-                    hidden
-                    sm:block
-                  "
+                className="mt-3 hidden sm:block"
               >
                 <ToggleButton
                   service={service}
@@ -304,21 +174,13 @@ export function ServicesGrid({
               </div>
 
               <div
-                className="
-                    mt-4
-                    border-t border-border
-                    pt-4
-                  "
+                className="mt-4 border-t border-border pt-4"
               >
                 <Button
                   href={`/services/${service.slug}`}
                   variant="outline"
                   size="sm"
-                  className="
-                      w-full
-                      !rounded-md
-                      justify-between
-                    "
+                  className="w-full !rounded-md justify-between"
                 >
                   View public page
                   <ArrowUpRight className="h-3.5 w-3.5" />
@@ -326,12 +188,7 @@ export function ServicesGrid({
               </div>
 
               <div
-                className="
-                    mt-4
-                    flex
-                    items-center
-                    gap-2
-                  "
+                className="mt-4 flex items-center gap-2"
               >
                 <span
                   className={`
@@ -347,13 +204,7 @@ export function ServicesGrid({
                 />
 
                 <span
-                  className="
-                      font-mono
-                      text-[7px]
-                      uppercase
-                      tracking-[0.12em]
-                      text-muted-foreground/40
-                    "
+                  className="font-mono text-[7px] uppercase tracking-[0.12em] text-muted-foreground/40"
                 >
                   {service.status === "active"
                     ? "Public availability"
@@ -370,43 +221,23 @@ export function ServicesGrid({
       {/* ====================================================== */}
 
       <div
-        className="
-          flex
-          items-center
-          justify-between
-          gap-4
-          bg-muted/10
-          px-5 py-3
-          sm:px-6
-        "
+        className="flex items-center justify-between gap-4 bg-muted/10 px-5 py-3 sm:px-6"
       >
         <div className="flex items-center gap-2">
           <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
           <span
-            className="
-              font-mono
-              text-[7px]
-              uppercase
-              tracking-[0.14em]
-              text-muted-foreground/40
-            "
+            className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
           >
             Capability records indexed
           </span>
         </div>
 
         <span
-          className="
-            text-xs
-            text-muted-foreground
-          "
+          className="text-xs text-muted-foreground"
         >
           <span
-            className="
-              font-semibold
-              text-heading
-            "
+            className="font-semibold text-heading"
           >
             {services.length}
           </span>{" "}
@@ -492,43 +323,22 @@ function Metric({
 }) {
   return (
     <div
-      className="
-        min-w-0
-        bg-background/45
-        px-3 py-3
-      "
+      className="min-w-0 bg-background/45 px-3 py-3"
     >
       <div
-        className="
-          flex
-          items-center
-          gap-2
-        "
+        className="flex items-center gap-2"
       >
         <Icon className="h-3.5 w-3.5 shrink-0 text-secondary" />
 
         <span
-          className="
-            font-mono
-            text-[7px]
-            font-semibold
-            uppercase
-            tracking-[0.12em]
-            text-muted-foreground/40
-          "
+          className="font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/40"
         >
           {label}
         </span>
       </div>
 
       <p
-        className="
-          mt-1.5
-          truncate
-          text-xs
-          font-semibold
-          text-heading
-        "
+        className="mt-1.5 truncate text-xs font-semibold text-heading"
         title={value}
       >
         {value}

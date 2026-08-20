@@ -58,36 +58,18 @@ export default async function page() {
       {/* ====================================================== */}
 
       <section
-        className="
-          relative
-          overflow-hidden
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
         {/* ambient glow */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -right-28 -top-32
-            h-72 w-72
-            rounded-full
-            bg-secondary/[0.09]
-            blur-[100px]
-          "
+          className="pointer-events-none absolute -right-28 -top-32 h-72 w-72 rounded-full bg-secondary/[0.09] blur-[100px]"
         />
 
         {/* architectural grid */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute inset-0
-            hidden opacity-[0.05]
-            lg:block
-          "
+          className="pointer-events-none absolute inset-0 hidden opacity-[0.05] lg:block"
           style={{
             backgroundImage: `
               linear-gradient(
@@ -102,28 +84,11 @@ export default async function page() {
 
         {/* top accent */}
         <div
-          className="
-            absolute left-0 top-0
-            h-[2px] w-full
-            bg-gradient-to-r
-            from-secondary
-            via-secondary/40
-            to-transparent
-          "
+          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
         />
 
         <div
-          className="
-            relative z-10
-            grid
-            gap-7
-            px-5 py-7
-            sm:px-6
-            lg:grid-cols-[minmax(0,1fr)_300px]
-            lg:items-end
-            lg:px-8
-            lg:py-8
-          "
+          className="relative z-10 grid gap-7 px-5 py-7 sm:px-6 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-end lg:px-8 lg:py-8"
         >
           {/* left */}
           <div>
@@ -131,14 +96,7 @@ export default async function page() {
               <FileText className="h-3.5 w-3.5 text-secondary" />
 
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.18em]
-                  text-secondary
-                "
+                className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
               >
                 Project requests
               </span>
@@ -147,27 +105,13 @@ export default async function page() {
             </div>
 
             <h1
-              className="
-                mt-4
-                text-3xl
-                font-semibold
-                tracking-[-0.045em]
-                text-heading
-                sm:text-4xl
-              "
+              className="mt-4 text-3xl font-semibold tracking-[-0.045em] text-heading sm:text-4xl"
             >
               My Project Requests
             </h1>
 
             <p
-              className="
-                mt-3
-                max-w-2xl
-                text-sm
-                leading-7
-                text-muted-foreground
-                sm:text-base
-              "
+              className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base"
             >
               Track the project requests you have submitted to Blackcrest and
               follow each request through review and approval.
@@ -176,50 +120,26 @@ export default async function page() {
 
           {/* right */}
           <div
-            className="
-              border-t border-border
-              pt-5
-              lg:border-l
-              lg:border-t-0
-              lg:pl-7
-              lg:pt-0
-            "
+            className="border-t border-border pt-5 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0"
           >
             <div className="flex items-center gap-2">
               <Sparkles className="h-3.5 w-3.5 text-secondary" />
 
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.17em]
-                  text-secondary
-                "
+                className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
               >
                 New engagement
               </span>
             </div>
 
             <p
-              className="
-                mt-3
-                text-sm
-                font-semibold
-                text-heading
-              "
+              className="mt-3 text-sm font-semibold text-heading"
             >
               Ready to start something new?
             </p>
 
             <p
-              className="
-                mt-1
-                text-xs
-                leading-5
-                text-muted-foreground
-              "
+              className="mt-1 text-xs leading-5 text-muted-foreground"
             >
               Submit a new request and Blackcrest will review your project
               requirements.
@@ -229,12 +149,7 @@ export default async function page() {
               href="/client/dashboard/projects/request"
               variant="primary"
               size="md"
-              className="
-                group
-                mt-5
-                w-full
-                justify-between
-              "
+              className="group mt-5 w-full justify-between"
             >
               <span className="flex items-center gap-2">
                 <Plus className="h-4 w-4" />
@@ -242,13 +157,7 @@ export default async function page() {
               </span>
 
               <ArrowUpRight
-                className="
-                  h-4 w-4
-                  transition-transform
-                  duration-200
-                  group-hover:-translate-y-0.5
-                  group-hover:translate-x-0.5
-                "
+                className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               />
             </Button>
           </div>
@@ -265,65 +174,27 @@ export default async function page() {
         /* ==================================================== */
 
         <section
-          className="
-            relative
-            overflow-hidden
-            border border-border
-            bg-card
-            px-6 py-16
-            text-center
-            shadow-[var(--shadow-card)]
-          "
+          className="relative overflow-hidden border border-border bg-card px-6 py-16 text-center shadow-[var(--shadow-card)]"
         >
           <div
             aria-hidden="true"
-            className="
-              pointer-events-none
-              absolute -right-24 -top-24
-              h-56 w-56
-              rounded-full
-              bg-secondary/[0.08]
-              blur-[90px]
-            "
+            className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-secondary/[0.08] blur-[90px]"
           />
 
           <div
-            className="
-              relative z-10
-              mx-auto
-              flex h-12 w-12
-              items-center justify-center
-              border border-secondary/15
-              bg-secondary/[0.05]
-              text-secondary
-            "
+            className="relative z-10 mx-auto flex h-12 w-12 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary"
           >
             <FolderKanban className="h-5 w-5" />
           </div>
 
           <h2
-            className="
-              relative z-10
-              mt-5
-              text-lg
-              font-semibold
-              tracking-[-0.02em]
-              text-heading
-            "
+            className="relative z-10 mt-5 text-lg font-semibold tracking-[-0.02em] text-heading"
           >
             No project requests yet
           </h2>
 
           <p
-            className="
-              relative z-10
-              mx-auto
-              mt-2
-              max-w-md
-              text-sm
-              leading-6
-              text-muted-foreground
-            "
+            className="relative z-10 mx-auto mt-2 max-w-md text-sm leading-6 text-muted-foreground"
           >
             You haven&apos;t submitted any project requests yet.
           </p>
@@ -340,24 +211,11 @@ export default async function page() {
         </section>
       ) : (
         <section
-          className="
-            relative
-            overflow-hidden
-            border border-border
-            bg-card
-            shadow-[var(--shadow-card)]
-          "
+          className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
         >
           {/* top line */}
           <div
-            className="
-              absolute left-0 top-0
-              h-[2px] w-full
-              bg-gradient-to-r
-              from-secondary
-              via-secondary/40
-              to-transparent
-            "
+            className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
           />
 
           {/* ================================================== */}
@@ -365,30 +223,14 @@ export default async function page() {
           {/* ================================================== */}
 
           <div
-            className="
-              flex flex-col
-              gap-4
-              border-b border-border
-              px-5 py-5
-              sm:flex-row
-              sm:items-center
-              sm:justify-between
-              sm:px-6
-            "
+            className="flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
           >
             <div>
               <div className="flex items-center gap-2">
                 <FolderKanban className="h-3.5 w-3.5 text-secondary" />
 
                 <span
-                  className="
-                    font-mono
-                    text-[8px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.18em]
-                    text-secondary
-                  "
+                  className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
                 >
                   Request history
                 </span>
@@ -397,25 +239,13 @@ export default async function page() {
               </div>
 
               <h2
-                className="
-                  mt-2
-                  text-lg
-                  font-semibold
-                  tracking-[-0.025em]
-                  text-heading
-                  sm:text-xl
-                "
+                className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl"
               >
                 Submitted Requests
               </h2>
 
               <p
-                className="
-                  mt-1
-                  text-xs
-                  leading-5
-                  text-muted-foreground
-                "
+                className="mt-1 text-xs leading-5 text-muted-foreground"
               >
                 Review your submitted briefs, budgets, services, and current
                 request status.
@@ -423,22 +253,10 @@ export default async function page() {
             </div>
 
             <div
-              className="
-                flex items-center
-                gap-2
-                border border-border
-                bg-background/60
-                px-3 py-2
-              "
+              className="flex items-center gap-2 border border-border bg-background/60 px-3 py-2"
             >
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  uppercase
-                  tracking-[0.15em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
               >
                 Requests
               </span>
@@ -459,95 +277,40 @@ export default async function page() {
             <Table>
               <TableHeader>
                 <TableRow
-                  className="
-                    border-border
-                    bg-muted/20
-                    hover:bg-muted/20
-                  "
+                  className="border-border bg-muted/20 hover:bg-muted/20"
                 >
                   <TableHead
-                    className="
-                      h-11
-                      pl-6
-                      font-mono
-                      text-[8px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.16em]
-                      text-muted-foreground/45
-                    "
+                    className="h-11 pl-6 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
                   >
                     Project
                   </TableHead>
 
                   <TableHead
-                    className="
-                      h-11
-                      font-mono
-                      text-[8px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.16em]
-                      text-muted-foreground/45
-                    "
+                    className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
                   >
                     Service
                   </TableHead>
 
                   <TableHead
-                    className="
-                      h-11
-                      font-mono
-                      text-[8px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.16em]
-                      text-muted-foreground/45
-                    "
+                    className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
                   >
                     Budget
                   </TableHead>
 
                   <TableHead
-                    className="
-                      h-11
-                      font-mono
-                      text-[8px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.16em]
-                      text-muted-foreground/45
-                    "
+                    className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
                   >
                     Submitted
                   </TableHead>
 
                   <TableHead
-                    className="
-                      h-11
-                      font-mono
-                      text-[8px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.16em]
-                      text-muted-foreground/45
-                    "
+                    className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
                   >
                     Status
                   </TableHead>
 
                   <TableHead
-                    className="
-                      h-11
-                      pr-6
-                      text-right
-                      font-mono
-                      text-[8px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.16em]
-                      text-muted-foreground/45
-                    "
+                    className="h-11 pr-6 text-right font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
                   >
                     Action
                   </TableHead>
@@ -558,33 +321,13 @@ export default async function page() {
                 {briefs.map((brief, index) => (
                   <TableRow
                     key={brief.id}
-                    className="
-                      group/row
-                      border-border
-                      transition-colors
-                      duration-200
-                      hover:bg-secondary/[0.025]
-                    "
+                    className="group/row border-border transition-colors duration-200 hover:bg-secondary/[0.025]"
                   >
                     {/* Project */}
                     <TableCell className="py-4 pl-6">
                       <div className="flex items-center gap-3">
                         <div
-                          className="
-                            flex h-9 w-9
-                            shrink-0
-                            items-center justify-center
-                            border border-border
-                            bg-background
-                            font-mono
-                            text-[8px]
-                            font-semibold
-                            text-muted-foreground/40
-                            transition-all
-                            duration-200
-                            group-hover/row:border-secondary/25
-                            group-hover/row:text-secondary
-                          "
+                          className="flex h-9 w-9 shrink-0 items-center justify-center border border-border bg-background font-mono text-[8px] font-semibold text-muted-foreground/40 transition-all duration-200 group-hover/row:border-secondary/25 group-hover/row:text-secondary"
                         >
                           {String(index + 1).padStart(2, "0")}
                         </div>
@@ -592,29 +335,13 @@ export default async function page() {
                         <div className="min-w-0 max-w-[260px]">
                           <Link
                             href={`/client/dashboard/project-requests/${brief.id}`}
-                            className="
-                              block
-                              truncate
-                              text-sm
-                              font-semibold
-                              text-heading
-                              transition-colors
-                              hover:text-secondary
-                            "
+                            className="block truncate text-sm font-semibold text-heading transition-colors hover:text-secondary"
                           >
                             {brief.title}
                           </Link>
 
                           <p
-                            className="
-                              mt-1
-                              truncate
-                              font-mono
-                              text-[8px]
-                              uppercase
-                              tracking-[0.1em]
-                              text-muted-foreground/35
-                            "
+                            className="mt-1 truncate font-mono text-[8px] uppercase tracking-[0.1em] text-muted-foreground/35"
                           >
                             #{brief.id}
                           </p>
@@ -625,11 +352,7 @@ export default async function page() {
                     {/* Service */}
                     <TableCell>
                       <span
-                        className="
-                          whitespace-nowrap
-                          text-sm
-                          text-muted-foreground
-                        "
+                        className="whitespace-nowrap text-sm text-muted-foreground"
                       >
                         {brief.pillar.replace(/_/g, " ")}
                       </span>
@@ -642,12 +365,7 @@ export default async function page() {
                           <WalletCards className="h-3.5 w-3.5 text-secondary" />
 
                           <span
-                            className="
-                              whitespace-nowrap
-                              text-sm
-                              font-medium
-                              text-foreground
-                            "
+                            className="whitespace-nowrap text-sm font-medium text-foreground"
                           >
                             {brief.budget || "—"} {brief.currency || ""}
                           </span>
@@ -665,11 +383,7 @@ export default async function page() {
                         <CalendarDays className="h-3.5 w-3.5 text-secondary" />
 
                         <span
-                          className="
-                            whitespace-nowrap
-                            text-sm
-                            text-muted-foreground
-                          "
+                          className="whitespace-nowrap text-sm text-muted-foreground"
                         >
                           {format(brief.createdAt, "MMM d, yyyy")}
                         </span>
@@ -685,27 +399,11 @@ export default async function page() {
                     <TableCell className="pr-6 text-right">
                       <Link
                         href={`/client/dashboard/project-requests/${brief.id}`}
-                        className="
-                          group/link
-                          inline-flex
-                          items-center
-                          gap-1.5
-                          text-xs
-                          font-semibold
-                          text-muted-foreground
-                          transition-colors
-                          hover:text-secondary
-                        "
+                        className="group/link inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:text-secondary"
                       >
                         View
                         <ArrowUpRight
-                          className="
-                            h-3.5 w-3.5
-                            transition-transform
-                            duration-200
-                            group-hover/link:-translate-y-0.5
-                            group-hover/link:translate-x-0.5
-                          "
+                          className="h-3.5 w-3.5 transition-transform duration-200 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5"
                         />
                       </Link>
                     </TableCell>
@@ -723,30 +421,12 @@ export default async function page() {
             {briefs.map((brief, index) => (
               <article
                 key={brief.id}
-                className="
-                  group
-                  relative
-                  px-5 py-5
-                  transition-colors
-                  duration-200
-                  hover:bg-secondary/[0.02]
-                  sm:px-6
-                "
+                className="group relative px-5 py-5 transition-colors duration-200 hover:bg-secondary/[0.02] sm:px-6"
               >
                 {/* heading */}
                 <div className="flex items-start gap-3">
                   <div
-                    className="
-                      flex h-9 w-9
-                      shrink-0
-                      items-center justify-center
-                      border border-border
-                      bg-background
-                      font-mono
-                      text-[8px]
-                      font-semibold
-                      text-muted-foreground/40
-                    "
+                    className="flex h-9 w-9 shrink-0 items-center justify-center border border-border bg-background font-mono text-[8px] font-semibold text-muted-foreground/40"
                   >
                     {String(index + 1).padStart(2, "0")}
                   </div>
@@ -756,29 +436,13 @@ export default async function page() {
                       <div className="min-w-0">
                         <Link
                           href={`/client/dashboard/project-requests/${brief.id}`}
-                          className="
-                            block
-                            truncate
-                            text-sm
-                            font-semibold
-                            text-heading
-                            transition-colors
-                            hover:text-secondary
-                          "
+                          className="block truncate text-sm font-semibold text-heading transition-colors hover:text-secondary"
                         >
                           {brief.title}
                         </Link>
 
                         <p
-                          className="
-                            mt-1
-                            truncate
-                            font-mono
-                            text-[8px]
-                            uppercase
-                            tracking-[0.1em]
-                            text-muted-foreground/35
-                          "
+                          className="mt-1 truncate font-mono text-[8px] uppercase tracking-[0.1em] text-muted-foreground/35"
                         >
                           #{brief.id}
                         </p>
@@ -791,73 +455,35 @@ export default async function page() {
 
                 {/* details */}
                 <div
-                  className="
-                    mt-5
-                    grid
-                    grid-cols-1
-                    gap-3
-                    sm:grid-cols-3
-                  "
+                  className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3"
                 >
                   <div
-                    className="
-                      border border-border
-                      bg-background/50
-                      p-3
-                    "
+                    className="border border-border bg-background/50 p-3"
                   >
                     <p
-                      className="
-                        font-mono
-                        text-[7px]
-                        uppercase
-                        tracking-[0.15em]
-                        text-muted-foreground/40
-                      "
+                      className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
                     >
                       Service
                     </p>
 
                     <p
-                      className="
-                        mt-1
-                        truncate
-                        text-xs
-                        font-medium
-                        text-foreground
-                      "
+                      className="mt-1 truncate text-xs font-medium text-foreground"
                     >
                       {brief.pillar.replace(/_/g, " ")}
                     </p>
                   </div>
 
                   <div
-                    className="
-                      border border-border
-                      bg-background/50
-                      p-3
-                    "
+                    className="border border-border bg-background/50 p-3"
                   >
                     <p
-                      className="
-                        font-mono
-                        text-[7px]
-                        uppercase
-                        tracking-[0.15em]
-                        text-muted-foreground/40
-                      "
+                      className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
                     >
                       Budget
                     </p>
 
                     <p
-                      className="
-                        mt-1
-                        truncate
-                        text-xs
-                        font-medium
-                        text-foreground
-                      "
+                      className="mt-1 truncate text-xs font-medium text-foreground"
                     >
                       {brief.budget || brief.currency
                         ? `${brief.budget || "—"} ${brief.currency || ""}`
@@ -866,32 +492,16 @@ export default async function page() {
                   </div>
 
                   <div
-                    className="
-                      border border-border
-                      bg-background/50
-                      p-3
-                    "
+                    className="border border-border bg-background/50 p-3"
                   >
                     <p
-                      className="
-                        font-mono
-                        text-[7px]
-                        uppercase
-                        tracking-[0.15em]
-                        text-muted-foreground/40
-                      "
+                      className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
                     >
                       Submitted
                     </p>
 
                     <p
-                      className="
-                        mt-1
-                        whitespace-nowrap
-                        text-xs
-                        font-medium
-                        text-foreground
-                      "
+                      className="mt-1 whitespace-nowrap text-xs font-medium text-foreground"
                     >
                       {format(brief.createdAt, "MMM d, yyyy")}
                     </p>
@@ -900,47 +510,21 @@ export default async function page() {
 
                 {/* action */}
                 <div
-                  className="
-                    mt-5
-                    flex items-center
-                    justify-between
-                    border-t border-border
-                    pt-4
-                  "
+                  className="mt-5 flex items-center justify-between border-t border-border pt-4"
                 >
                   <span
-                    className="
-                      font-mono
-                      text-[7px]
-                      uppercase
-                      tracking-[0.15em]
-                      text-muted-foreground/35
-                    "
+                    className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/35"
                   >
                     Request record
                   </span>
 
                   <Link
                     href={`/client/dashboard/project-requests/${brief.id}`}
-                    className="
-                      group/link
-                      inline-flex
-                      items-center
-                      gap-1.5
-                      text-xs
-                      font-semibold
-                      text-secondary
-                    "
+                    className="group/link inline-flex items-center gap-1.5 text-xs font-semibold text-secondary"
                   >
                     View request
                     <ArrowUpRight
-                      className="
-                        h-3.5 w-3.5
-                        transition-transform
-                        duration-200
-                        group-hover/link:-translate-y-0.5
-                        group-hover/link:translate-x-0.5
-                      "
+                      className="h-3.5 w-3.5 transition-transform duration-200 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5"
                     />
                   </Link>
                 </div>
@@ -953,29 +537,13 @@ export default async function page() {
           {/* ================================================== */}
 
           <div
-            className="
-              flex flex-col
-              gap-2
-              border-t border-border
-              bg-muted/15
-              px-5 py-3.5
-              sm:flex-row
-              sm:items-center
-              sm:justify-between
-              sm:px-6
-            "
+            className="flex flex-col gap-2 border-t border-border bg-muted/15 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
           >
             <div className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  uppercase
-                  tracking-[0.16em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/40"
               >
                 Request history synced
               </span>

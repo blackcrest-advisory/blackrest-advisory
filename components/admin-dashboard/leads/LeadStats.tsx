@@ -72,14 +72,7 @@ export const LeadStats = ({ leads }: LeadStatsProps) => {
       variants={staggerContainer}
       initial={shouldReduceMotion ? false : "hidden"}
       animate="visible"
-      className="
-        grid
-        grid-cols-1
-        gap-3
-        sm:grid-cols-2
-        lg:grid-cols-3
-        2xl:grid-cols-5
-      "
+      className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5"
     >
       {stats.map((stat, index) => {
         const Icon = stat.icon;
@@ -97,34 +90,12 @@ export const LeadStats = ({ leads }: LeadStatsProps) => {
           <motion.article
             key={stat.label}
             variants={fadeInUp}
-            className="
-              group
-              relative
-              min-h-[165px]
-              overflow-hidden
-              border border-border
-              bg-card
-              p-5
-              shadow-[var(--shadow-card)]
-              transition-all
-              duration-300
-              hover:border-secondary/25
-              hover:shadow-[var(--shadow-card-hover)]
-            "
+            className="group relative min-h-[165px] overflow-hidden border border-border bg-card p-5 shadow-[var(--shadow-card)] transition-all duration-300 hover:border-secondary/25 hover:shadow-[var(--shadow-card-hover)]"
           >
             {/* decorative index */}
             <span
               aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute -bottom-5 -right-1
-                font-mono
-                text-[5rem]
-                font-semibold
-                leading-none
-                tracking-[-0.1em]
-                text-foreground/[0.025]
-              "
+              className="pointer-events-none absolute -bottom-5 -right-1 font-mono text-[5rem] font-semibold leading-none tracking-[-0.1em] text-foreground/[0.025]"
             >
               0{index + 1}
             </span>
@@ -134,25 +105,13 @@ export const LeadStats = ({ leads }: LeadStatsProps) => {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p
-                    className="
-                      font-mono
-                      text-[7px]
-                      font-semibold
-                      uppercase
-                      tracking-[0.16em]
-                      text-muted-foreground/40
-                    "
+                    className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/40"
                   >
                     {stat.meta}
                   </p>
 
                   <p
-                    className="
-                      mt-1
-                      text-xs
-                      font-medium
-                      text-muted-foreground
-                    "
+                    className="mt-1 text-xs font-medium text-muted-foreground"
                   >
                     {stat.label}
                   </p>
@@ -176,58 +135,28 @@ export const LeadStats = ({ leads }: LeadStatsProps) => {
               {/* value */}
               <div className="mt-6 flex items-end gap-2">
                 <p
-                  className="
-                    text-3xl
-                    font-semibold
-                    leading-none
-                    tracking-[-0.05em]
-                    text-heading
-                  "
+                  className="text-3xl font-semibold leading-none tracking-[-0.05em] text-heading"
                 >
                   <CountUp end={stat.value} duration={1.2} />
                 </p>
 
                 <CircleDot
-                  className="
-                    mb-0.5
-                    h-3 w-3
-                    text-secondary/40
-                  "
+                  className="mb-0.5 h-3 w-3 text-secondary/40"
                 />
               </div>
 
               {/* footer line */}
               <div
-                className="
-                  mt-5
-                  flex items-center
-                  justify-between
-                  border-t border-border
-                  pt-3
-                "
+                className="mt-5 flex items-center justify-between border-t border-border pt-3"
               >
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    uppercase
-                    tracking-[0.15em]
-                    text-muted-foreground/35
-                  "
+                  className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/35"
                 >
                   Live count
                 </span>
 
                 <span
-                  className="
-                    h-px
-                    w-8
-                    bg-secondary/25
-                    transition-all
-                    duration-300
-                    group-hover:w-12
-                    group-hover:bg-secondary
-                  "
+                  className="h-px w-8 bg-secondary/25 transition-all duration-300 group-hover:w-12 group-hover:bg-secondary"
                 />
               </div>
             </div>

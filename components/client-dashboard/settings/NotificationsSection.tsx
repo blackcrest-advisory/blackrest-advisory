@@ -109,74 +109,36 @@ export const NotificationsSection = ({
 
   return (
     <section
-      className="
-        relative
-        min-w-0
-        overflow-hidden
-        border border-border
-        bg-card
-        shadow-[var(--shadow-card)]
-      "
+      className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
       {/* ====================================================== */}
       {/* HEADER                                                 */}
       {/* ====================================================== */}
 
       <div
-        className="
-          grid
-          gap-5
-          border-b border-border
-          px-5 py-5
-          sm:px-6
-          lg:grid-cols-[minmax(0,1fr)_220px]
-          lg:items-end
-        "
+        className="grid gap-5 border-b border-border px-5 py-5 sm:px-6 lg:grid-cols-[minmax(0,1fr)_220px] lg:items-end"
       >
         <div className="min-w-0">
           <div
-            className="
-              flex
-              items-center
-              gap-2
-            "
+            className="flex items-center gap-2"
           >
             <Mail className="h-3.5 w-3.5 text-secondary" />
 
             <span
-              className="
-                font-mono
-                text-[7px]
-                font-semibold
-                uppercase
-                tracking-[0.15em]
-                text-secondary
-              "
+              className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
             >
               Communication preferences
             </span>
           </div>
 
           <h2
-            className="
-              mt-2
-              text-lg
-              font-semibold
-              tracking-[-0.02em]
-              text-heading
-            "
+            className="mt-2 text-lg font-semibold tracking-[-0.02em] text-heading"
           >
             Stay informed on what matters
           </h2>
 
           <p
-            className="
-              mt-2
-              max-w-xl
-              text-xs
-              leading-5
-              text-muted-foreground
-            "
+            className="mt-2 max-w-xl text-xs leading-5 text-muted-foreground"
           >
             Choose the project, billing, document, and Blackcrest updates you
             want to receive.
@@ -184,44 +146,20 @@ export const NotificationsSection = ({
         </div>
 
         <div
-          className="
-            border-t border-border
-            pt-4
-            lg:border-l
-            lg:border-t-0
-            lg:pl-5
-            lg:pt-0
-          "
+          className="border-t border-border pt-4 lg:border-l lg:border-t-0 lg:pl-5 lg:pt-0"
         >
           <span
-            className="
-              font-mono
-              text-[7px]
-              uppercase
-              tracking-[0.13em]
-              text-muted-foreground/35
-            "
+            className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/35"
           >
             Active preferences
           </span>
 
           <p
-            className="
-              mt-1
-              text-2xl
-              font-semibold
-              tracking-[-0.04em]
-              text-heading
-            "
+            className="mt-1 text-2xl font-semibold tracking-[-0.04em] text-heading"
           >
             {Object.values(values).filter(Boolean).length}
             <span
-              className="
-                ml-1
-                text-sm
-                font-normal
-                text-muted-foreground
-              "
+              className="ml-1 text-sm font-normal text-muted-foreground"
             >
               / {notificationItems.length}
             </span>
@@ -234,11 +172,7 @@ export const NotificationsSection = ({
       {/* ====================================================== */}
 
       <div
-        className="
-          grid
-          min-w-0
-          md:grid-cols-2
-        "
+        className="grid min-w-0 md:grid-cols-2"
       >
         {notificationItems.map((item, index) => {
           const Icon = item.icon;
@@ -274,11 +208,7 @@ export const NotificationsSection = ({
               />
 
               <div
-                className="
-                    flex
-                    items-start
-                    gap-3
-                  "
+                className="flex items-start gap-3"
               >
                 <div
                   className={`
@@ -302,34 +232,17 @@ export const NotificationsSection = ({
 
                 <div className="min-w-0 flex-1">
                   <div
-                    className="
-                        flex
-                        items-start
-                        justify-between
-                        gap-4
-                      "
+                    className="flex items-start justify-between gap-4"
                   >
                     <div className="min-w-0">
                       <span
-                        className="
-                            font-mono
-                            text-[7px]
-                            font-semibold
-                            uppercase
-                            tracking-[0.13em]
-                            text-muted-foreground/35
-                          "
+                        className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/35"
                       >
                         {item.eyebrow}
                       </span>
 
                       <h3
-                        className="
-                            mt-1
-                            text-sm
-                            font-semibold
-                            text-heading
-                          "
+                        className="mt-1 text-sm font-semibold text-heading"
                       >
                         {item.label}
                       </h3>
@@ -342,24 +255,13 @@ export const NotificationsSection = ({
                   </div>
 
                   <p
-                    className="
-                        mt-2
-                        max-w-md
-                        text-xs
-                        leading-5
-                        text-body
-                      "
+                    className="mt-2 max-w-md text-xs leading-5 text-body"
                   >
                     {item.description}
                   </p>
 
                   <div
-                    className="
-                        mt-3
-                        flex
-                        items-center
-                        gap-2
-                      "
+                    className="mt-3 flex items-center gap-2"
                   >
                     <span
                       className={`
@@ -371,14 +273,7 @@ export const NotificationsSection = ({
                     />
 
                     <span
-                      className="
-                          font-mono
-                          text-[7px]
-                          font-semibold
-                          uppercase
-                          tracking-[0.12em]
-                          text-muted-foreground/35
-                        "
+                      className="font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/35"
                     >
                       {checked ? "Enabled" : "Disabled"}
                     </span>
@@ -395,36 +290,17 @@ export const NotificationsSection = ({
       {/* ====================================================== */}
 
       <div
-        className="
-          flex
-          flex-col
-          gap-3
-          border-t border-border
-          bg-muted/10
-          px-5 py-4
-          sm:flex-row
-          sm:items-center
-          sm:justify-between
-          sm:px-6
-        "
+        className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
       >
         <div className="min-w-0">
           <p
-            className="
-              text-xs
-              font-medium
-              text-heading
-            "
+            className="text-xs font-medium text-heading"
           >
             Your communication preferences
           </p>
 
           <p
-            className="
-              mt-1
-              text-[10px]
-              text-muted-foreground
-            "
+            className="mt-1 text-[10px] text-muted-foreground"
           >
             Changes to individual toggles are saved as you update them.
           </p>
@@ -434,11 +310,7 @@ export const NotificationsSection = ({
           variant="primary"
           size="md"
           onClick={handleSave}
-          className="
-    w-full
-    !rounded-md
-    sm:w-auto
-  "
+          className="w-full !rounded-md sm:w-auto"
         >
           <BellRing className="h-4 w-4" />
           Save Preferences

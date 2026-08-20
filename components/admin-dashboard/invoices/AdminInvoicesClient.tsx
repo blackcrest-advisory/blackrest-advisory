@@ -141,52 +141,22 @@ export function AdminInvoicesClient({
       {/* ====================================================== */}
 
       <header
-        className="
-          relative
-          overflow-hidden
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
         {/* top signal */}
         <div
           aria-hidden="true"
-          className="
-            absolute
-            left-0 top-0
-            h-[2px] w-full
-            bg-gradient-to-r
-            from-secondary
-            via-secondary/25
-            to-transparent
-          "
+          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/25 to-transparent"
         />
 
         {/* ambient */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -right-24 -top-28
-            h-64 w-64
-            rounded-full
-            bg-secondary/[0.055]
-            blur-[100px]
-          "
+          className="pointer-events-none absolute -right-24 -top-28 h-64 w-64 rounded-full bg-secondary/[0.055] blur-[100px]"
         />
 
         <div
-          className="
-            relative z-10
-            grid
-            gap-7
-            px-5 py-6
-            sm:px-6
-            lg:px-8
-            lg:py-7
-            xl:grid-cols-[minmax(0,1fr)_280px]
-          "
+          className="relative z-10 grid gap-7 px-5 py-6 sm:px-6 lg:px-8 lg:py-7 xl:grid-cols-[minmax(0,1fr)_280px]"
         >
           {/* ================================================== */}
           {/* TITLE                                              */}
@@ -194,24 +164,12 @@ export function AdminInvoicesClient({
 
           <div className="min-w-0">
             <div
-              className="
-                flex
-                flex-wrap
-                items-center
-                gap-3
-              "
+              className="flex flex-wrap items-center gap-3"
             >
               <ReceiptText className="h-3.5 w-3.5 text-secondary" />
 
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.18em]
-                  text-secondary
-                "
+                className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
               >
                 Billing ledger
               </span>
@@ -219,83 +177,43 @@ export function AdminInvoicesClient({
               <span className="h-px w-8 bg-secondary/30" />
 
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  uppercase
-                  tracking-[0.14em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40"
               >
                 Finance operations
               </span>
             </div>
 
             <h1
-              className="
-                mt-5
-                text-3xl
-                font-semibold
-                tracking-[-0.05em]
-                text-heading
-                sm:text-[38px]
-              "
+              className="mt-5 text-3xl font-semibold tracking-[-0.05em] text-heading sm:text-[38px]"
             >
               Invoices
             </h1>
 
             <p
-              className="
-                mt-3
-                max-w-2xl
-                text-sm
-                leading-7
-                text-muted-foreground
-              "
+              className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground"
             >
               Track billing activity, payment status, and invoice records across
               all client projects.
             </p>
 
             <div
-              className="
-                mt-7
-                flex
-                flex-wrap
-                items-center
-                gap-x-6
-                gap-y-3
-                border-t border-border
-                pt-4
-              "
+              className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border pt-4"
             >
               <div className="flex items-center gap-2">
                 <ShieldCheck className="h-3.5 w-3.5 text-success" />
 
                 <span
-                  className="
-                    font-mono
-                    text-[7px]
-                    uppercase
-                    tracking-[0.14em]
-                    text-muted-foreground/40
-                  "
+                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
                 >
                   Ledger available
                 </span>
               </div>
 
               <span
-                className="
-                  text-xs
-                  text-muted-foreground
-                "
+                className="text-xs text-muted-foreground"
               >
                 <span
-                  className="
-                    font-semibold
-                    text-heading
-                  "
+                  className="font-semibold text-heading"
                 >
                   {initialInvoices.length}
                 </span>{" "}
@@ -310,108 +228,56 @@ export function AdminInvoicesClient({
           {/* ================================================== */}
 
           <div
-            className="
-              border-t border-border
-              pt-5
-              xl:border-l
-              xl:border-t-0
-              xl:pl-7
-              xl:pt-0
-            "
+            className="border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
           >
             <span
-              className="
-                font-mono
-                text-[8px]
-                font-semibold
-                uppercase
-                tracking-[0.17em]
-                text-muted-foreground/40
-              "
+              className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/40"
             >
               Payment state
             </span>
 
             <div
-              className="
-                mt-4
-                flex
-                items-end
-                gap-3
-              "
+              className="mt-4 flex items-end gap-3"
             >
               <CircleDollarSign className="mb-1 h-5 w-5 text-secondary" />
 
               <span
-                className="
-                  text-4xl
-                  font-semibold
-                  tracking-[-0.06em]
-                  text-heading
-                "
+                className="text-4xl font-semibold tracking-[-0.06em] text-heading"
               >
                 {paid}
               </span>
 
               <span
-                className="
-                  pb-1
-                  text-xs
-                  text-muted-foreground
-                "
+                className="pb-1 text-xs text-muted-foreground"
               >
                 paid
               </span>
             </div>
 
             <p
-              className="
-                mt-2
-                text-xs
-                leading-5
-                text-muted-foreground
-              "
+              className="mt-2 text-xs leading-5 text-muted-foreground"
             >
               Paid invoices currently recorded across the project portfolio.
             </p>
 
             <div
-              className="
-                mt-5
-                border-t border-border
-                pt-4
-              "
+              className="mt-5 border-t border-border pt-4"
             >
               <div
-                className="
-                  flex
-                  items-center
-                  justify-between
-                  gap-4
-                "
+                className="flex items-center justify-between gap-4"
               >
                 <div className="flex items-center gap-2">
                   <TriangleAlert className="h-3.5 w-3.5 text-warning" />
 
                   <span
-                    className="
-                      font-mono
-                      text-[7px]
-                      uppercase
-                      tracking-[0.14em]
-                      text-muted-foreground/40
-                    "
+                    className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
                   >
                     Overdue
                   </span>
                 </div>
 
                 <span
-                  className="
-                    text-sm
-                    font-semibold
-                    text-heading
-                  "
+                  className="text-sm font-semibold text-heading"
                 >
                   {overdue}
                 </span>
@@ -426,12 +292,7 @@ export function AdminInvoicesClient({
       {/* ====================================================== */}
 
       <section
-        className="
-          overflow-hidden
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
         <div className="grid sm:grid-cols-3">
           <Metric
@@ -469,63 +330,30 @@ export function AdminInvoicesClient({
         {/* ==================================================== */}
 
         <div
-          className="
-            relative
-            z-20
-            border border-border
-            bg-card
-            shadow-[var(--shadow-card)]
-          "
+          className="relative z-20 border border-border bg-card shadow-[var(--shadow-card)]"
         >
           <div
-            className="
-              flex
-              flex-col
-              gap-3
-              border-b border-border
-              px-5 py-4
-              sm:flex-row
-              sm:items-center
-              sm:justify-between
-              sm:px-6
-            "
+            className="flex flex-col gap-3 border-b border-border px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
           >
             <div>
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.15em]
-                  text-secondary
-                "
+                className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
               >
                 Invoice directory
               </span>
 
               <p
-                className="
-                  mt-1
-                  text-xs
-                  text-muted-foreground
-                "
+                className="mt-1 text-xs text-muted-foreground"
               >
                 Search and refine billing records across all projects.
               </p>
             </div>
 
             <span
-              className="
-                text-xs
-                text-muted-foreground
-              "
+              className="text-xs text-muted-foreground"
             >
               <span
-                className="
-                  font-semibold
-                  text-heading
-                "
+                className="font-semibold text-heading"
               >
                 {invoices.length}
               </span>{" "}
@@ -535,15 +363,7 @@ export function AdminInvoicesClient({
           </div>
 
           <div
-            className="
-              flex
-              flex-col
-              gap-3
-              px-5 py-4
-              sm:flex-row
-              sm:items-center
-              sm:px-6
-            "
+            className="flex flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:px-6"
           >
             <div className="min-w-0 flex-1">
               <Input
@@ -559,42 +379,20 @@ export function AdminInvoicesClient({
               options={statuses}
               value={status}
               onChange={updateStatus}
-              className="
-                w-full
-                sm:w-48
-              "
+              className="w-full sm:w-48"
             />
           </div>
 
           <div
-            className="
-              flex
-              items-center
-              justify-between
-              gap-3
-              border-t border-border
-              bg-muted/10
-              px-5 py-2.5
-              sm:px-6
-            "
+            className="flex items-center justify-between gap-3 border-t border-border bg-muted/10 px-5 py-2.5 sm:px-6"
           >
             <div className="flex items-center gap-2">
               <span
-                className="
-                  h-1.5 w-1.5
-                  rounded-full
-                  bg-success
-                "
+                className="h-1.5 w-1.5 rounded-full bg-success"
               />
 
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  uppercase
-                  tracking-[0.14em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
               >
                 Billing records available
               </span>
@@ -602,14 +400,7 @@ export function AdminInvoicesClient({
 
             {(search || status !== "all") && (
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.13em]
-                  text-secondary
-                "
+                className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-secondary"
               >
                 Filters active
               </span>
@@ -622,34 +413,15 @@ export function AdminInvoicesClient({
         {/* ==================================================== */}
 
         <div
-          className="
-            relative
-            z-10
-            mt-3
-          "
+          className="relative z-10 mt-3"
         >
           <div
-            className="
-              relative
-              overflow-hidden
-              border border-border
-              bg-card
-              shadow-[var(--shadow-card)]
-            "
+            className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
           >
             {/* top signal */}
             <div
               aria-hidden="true"
-              className="
-                absolute
-                left-0 top-0
-                z-10
-                h-[2px] w-full
-                bg-gradient-to-r
-                from-secondary/40
-                via-secondary/10
-                to-transparent
-              "
+              className="absolute left-0 top-0 z-10 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/10 to-transparent"
             />
 
             {/* ================================================= */}
@@ -660,10 +432,7 @@ export function AdminInvoicesClient({
               <Table>
                 <TableHeader>
                   <TableRow
-                    className="
-                      bg-muted/15
-                      hover:bg-muted/15
-                    "
+                    className="bg-muted/15 hover:bg-muted/15"
                   >
                     <TableHead className="pl-5">Invoice</TableHead>
 
@@ -683,48 +452,26 @@ export function AdminInvoicesClient({
                   {visibleInvoices.map((invoice) => (
                     <TableRow
                       key={invoice.id}
-                      className="
-                          transition-colors
-                          duration-200
-                          hover:bg-secondary/[0.02]
-                        "
+                      className="transition-colors duration-200 hover:bg-secondary/[0.02]"
                     >
                       {/* invoice */}
                       <TableCell className="py-4 pl-5">
                         <div className="flex items-start gap-3">
                           <div
-                            className="
-                                flex h-9 w-9
-                                shrink-0
-                                items-center
-                                justify-center
-                                rounded-md
-                                border border-border
-                                bg-background
-                                text-secondary
-                              "
+                            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary"
                           >
                             <ReceiptText className="h-4 w-4" />
                           </div>
 
                           <div className="min-w-0">
                             <p
-                              className="
-                                  truncate
-                                  text-sm
-                                  font-semibold
-                                  text-heading
-                                "
+                              className="truncate text-sm font-semibold text-heading"
                             >
                               {invoice.invoiceNumber}
                             </p>
 
                             <p
-                              className="
-                                  mt-1
-                                  text-[10px]
-                                  text-muted-foreground
-                                "
+                              className="mt-1 text-[10px] text-muted-foreground"
                             >
                               Created {formatDate(invoice.createdAt)}
                             </p>
@@ -736,32 +483,16 @@ export function AdminInvoicesClient({
                       <TableCell>
                         <Link
                           href={`/admin/dashboard/projects/${invoice.project.id}`}
-                          className="
-                              group
-                              block
-                              max-w-[240px]
-                            "
+                          className="group block max-w-[240px]"
                         >
                           <p
-                            className="
-                                truncate
-                                text-sm
-                                font-medium
-                                text-heading
-                                transition-colors
-                                group-hover:text-secondary
-                              "
+                            className="truncate text-sm font-medium text-heading transition-colors group-hover:text-secondary"
                           >
                             {invoice.project.title}
                           </p>
 
                           <p
-                            className="
-                                mt-1
-                                truncate
-                                text-[10px]
-                                text-muted-foreground
-                              "
+                            className="mt-1 truncate text-[10px] text-muted-foreground"
                           >
                             {invoice.project.clientName}
                           </p>
@@ -771,12 +502,7 @@ export function AdminInvoicesClient({
                       {/* amount */}
                       <TableCell>
                         <span
-                          className="
-                              whitespace-nowrap
-                              text-sm
-                              font-semibold
-                              text-heading
-                            "
+                          className="whitespace-nowrap text-sm font-semibold text-heading"
                         >
                           {formatMoney(invoice.amount, invoice.currency)}
                         </span>
@@ -790,11 +516,7 @@ export function AdminInvoicesClient({
                       {/* due date */}
                       <TableCell>
                         <span
-                          className="
-                              whitespace-nowrap
-                              text-xs
-                              text-muted-foreground
-                            "
+                          className="whitespace-nowrap text-xs text-muted-foreground"
                         >
                           {formatDate(invoice.dueDate)}
                         </span>
@@ -808,19 +530,7 @@ export function AdminInvoicesClient({
                           rel="noopener noreferrer"
                           aria-label={`Download ${invoice.invoiceNumber}`}
                           title="Download invoice PDF"
-                          className="
-                              inline-flex
-                              h-8 w-8
-                              items-center
-                              justify-center
-                              rounded-md
-                              border border-transparent
-                              text-muted-foreground
-                              transition-colors
-                              hover:border-secondary/20
-                              hover:bg-secondary/[0.05]
-                              hover:text-secondary
-                            "
+                          className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-transparent text-muted-foreground transition-colors hover:border-secondary/20 hover:bg-secondary/[0.05] hover:text-secondary"
                         >
                           <Download className="h-3.5 w-3.5" />
                         </a>
@@ -839,63 +549,31 @@ export function AdminInvoicesClient({
               {visibleInvoices.map((invoice) => (
                 <article
                   key={invoice.id}
-                  className="
-                      px-5 py-5
-                      transition-colors
-                      hover:bg-secondary/[0.02]
-                      sm:px-6
-                    "
+                  className="px-5 py-5 transition-colors hover:bg-secondary/[0.02] sm:px-6"
                 >
                   {/* header */}
                   <div
-                    className="
-                        flex
-                        items-start
-                        gap-3
-                      "
+                    className="flex items-start gap-3"
                   >
                     <div
-                      className="
-                          flex h-10 w-10
-                          shrink-0
-                          items-center
-                          justify-center
-                          rounded-md
-                          border border-border
-                          bg-background
-                          text-secondary
-                        "
+                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary"
                     >
                       <ReceiptText className="h-4 w-4" />
                     </div>
 
                     <div className="min-w-0 flex-1">
                       <div
-                        className="
-                            flex
-                            items-start
-                            justify-between
-                            gap-3
-                          "
+                        className="flex items-start justify-between gap-3"
                       >
                         <div className="min-w-0">
                           <h3
-                            className="
-                                truncate
-                                text-sm
-                                font-semibold
-                                text-heading
-                              "
+                            className="truncate text-sm font-semibold text-heading"
                           >
                             {invoice.invoiceNumber}
                           </h3>
 
                           <p
-                            className="
-                                mt-1
-                                text-[10px]
-                                text-muted-foreground
-                              "
+                            className="mt-1 text-[10px] text-muted-foreground"
                           >
                             Created {formatDate(invoice.createdAt)}
                           </p>
@@ -906,19 +584,7 @@ export function AdminInvoicesClient({
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`Download ${invoice.invoiceNumber}`}
-                          className="
-                              flex h-8 w-8
-                              shrink-0
-                              items-center
-                              justify-center
-                              rounded-md
-                              border border-border
-                              bg-card
-                              text-muted-foreground
-                              transition-colors
-                              hover:border-secondary/20
-                              hover:text-secondary
-                            "
+                          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border bg-card text-muted-foreground transition-colors hover:border-secondary/20 hover:text-secondary"
                         >
                           <Download className="h-3.5 w-3.5" />
                         </a>
@@ -932,39 +598,17 @@ export function AdminInvoicesClient({
 
                   {/* amount */}
                   <div
-                    className="
-                        mt-4
-                        flex
-                        items-center
-                        justify-between
-                        gap-4
-                        border border-border
-                        bg-background/30
-                        px-3 py-3
-                      "
+                    className="mt-4 flex items-center justify-between gap-4 border border-border bg-background/30 px-3 py-3"
                   >
                     <div>
                       <span
-                        className="
-                            font-mono
-                            text-[7px]
-                            font-semibold
-                            uppercase
-                            tracking-[0.14em]
-                            text-muted-foreground/40
-                          "
+                        className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40"
                       >
                         Invoice value
                       </span>
 
                       <p
-                        className="
-                            mt-1
-                            text-base
-                            font-semibold
-                            tracking-[-0.02em]
-                            text-heading
-                          "
+                        className="mt-1 text-base font-semibold tracking-[-0.02em] text-heading"
                       >
                         {formatMoney(invoice.amount, invoice.currency)}
                       </p>
@@ -975,12 +619,7 @@ export function AdminInvoicesClient({
 
                   {/* details */}
                   <div
-                    className="
-                        mt-3
-                        grid
-                        gap-3
-                        sm:grid-cols-2
-                      "
+                    className="mt-3 grid gap-3 sm:grid-cols-2"
                   >
                     <RecordItem label="Project" value={invoice.project.title} />
 
@@ -1003,27 +642,13 @@ export function AdminInvoicesClient({
 
                   {/* footer */}
                   <div
-                    className="
-                        mt-4
-                        flex
-                        items-center
-                        justify-between
-                        gap-4
-                        border-t border-border
-                        pt-4
-                      "
+                    className="mt-4 flex items-center justify-between gap-4 border-t border-border pt-4"
                   >
                     <div className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
 
                       <span
-                        className="
-                            font-mono
-                            text-[7px]
-                            uppercase
-                            tracking-[0.13em]
-                            text-muted-foreground/40
-                          "
+                        className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40"
                       >
                         Billing record
                       </span>
@@ -1031,14 +656,7 @@ export function AdminInvoicesClient({
 
                     <Link
                       href={`/admin/dashboard/projects/${invoice.project.id}`}
-                      className="
-                          font-mono
-                          text-[7px]
-                          font-semibold
-                          uppercase
-                          tracking-[0.13em]
-                          text-secondary
-                        "
+                      className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-secondary"
                     >
                       Open project
                     </Link>
@@ -1053,61 +671,28 @@ export function AdminInvoicesClient({
 
             {!visibleInvoices.length && (
               <div
-                className="
-                  flex
-                  min-h-[260px]
-                  flex-col
-                  items-center
-                  justify-center
-                  px-6 py-12
-                  text-center
-                "
+                className="flex min-h-[260px] flex-col items-center justify-center px-6 py-12 text-center"
               >
                 <div
-                  className="
-                    flex h-11 w-11
-                    items-center
-                    justify-center
-                    rounded-md
-                    border border-border
-                    bg-muted/20
-                    text-muted-foreground
-                  "
+                  className="flex h-11 w-11 items-center justify-center rounded-md border border-border bg-muted/20 text-muted-foreground"
                 >
                   <FileText className="h-4 w-4" />
                 </div>
 
                 <span
-                  className="
-                    mt-4
-                    font-mono
-                    text-[7px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.15em]
-                    text-secondary
-                  "
+                  className="mt-4 font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
                 >
                   Billing ledger
                 </span>
 
                 <p
-                  className="
-                    mt-1.5
-                    text-sm
-                    font-semibold
-                    text-heading
-                  "
+                  className="mt-1.5 text-sm font-semibold text-heading"
                 >
                   No matching invoices
                 </p>
 
                 <p
-                  className="
-                    mt-1
-                    text-xs
-                    text-muted-foreground
-                  "
+                  className="mt-1 text-xs text-muted-foreground"
                 >
                   No invoices match your current filters.
                 </p>
@@ -1120,44 +705,23 @@ export function AdminInvoicesClient({
 
             {visibleInvoices.length > 0 && (
               <div
-                className="
-                  flex
-                  items-center
-                  justify-between
-                  gap-3
-                  border-t border-border
-                  bg-muted/10
-                  px-5 py-3
-                  sm:px-6
-                "
+                className="flex items-center justify-between gap-3 border-t border-border bg-muted/10 px-5 py-3 sm:px-6"
               >
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
                   <span
-                    className="
-                      font-mono
-                      text-[7px]
-                      uppercase
-                      tracking-[0.14em]
-                      text-muted-foreground/40
-                    "
+                    className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
                   >
                     Billing records indexed
                   </span>
                 </div>
 
                 <span
-                  className="
-                    text-xs
-                    text-muted-foreground
-                  "
+                  className="text-xs text-muted-foreground"
                 >
                   <span
-                    className="
-                      font-semibold
-                      text-heading
-                    "
+                    className="font-semibold text-heading"
                   >
                     {visibleInvoices.length}
                   </span>{" "}
@@ -1174,14 +738,7 @@ export function AdminInvoicesClient({
 
         {totalPages > 1 && (
           <div
-            className="
-              mt-3
-              border border-border
-              bg-card
-              px-5 py-4
-              shadow-[var(--shadow-card)]
-              sm:px-6
-            "
+            className="mt-3 border border-border bg-card px-5 py-4 shadow-[var(--shadow-card)] sm:px-6"
           >
             <Pagination
               currentPage={activePage}
@@ -1224,50 +781,23 @@ function Metric({
 
   return (
     <div
-      className="
-        flex
-        items-start
-        justify-between
-        gap-4
-        border-b border-border
-        px-5 py-5
-        sm:border-b-0
-        sm:border-r
-        sm:last:border-r-0
-      "
+      className="flex items-start justify-between gap-4 border-b border-border px-5 py-5 sm:border-b-0 sm:border-r sm:last:border-r-0"
     >
       <div>
         <span
-          className="
-            font-mono
-            text-[7px]
-            font-semibold
-            uppercase
-            tracking-[0.14em]
-            text-muted-foreground/40
-          "
+          className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40"
         >
           {eyebrow}
         </span>
 
         <p
-          className="
-            mt-1
-            text-xs
-            text-muted-foreground
-          "
+          className="mt-1 text-xs text-muted-foreground"
         >
           {label}
         </p>
 
         <p
-          className="
-            mt-2
-            text-2xl
-            font-semibold
-            tracking-[-0.04em]
-            text-heading
-          "
+          className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-heading"
         >
           {value}
         </p>
@@ -1305,22 +835,10 @@ function RecordItem({
 }) {
   return (
     <div
-      className="
-        min-w-0
-        border border-border
-        bg-background/30
-        p-3
-      "
+      className="min-w-0 border border-border bg-background/30 p-3"
     >
       <span
-        className="
-          font-mono
-          text-[7px]
-          font-semibold
-          uppercase
-          tracking-[0.13em]
-          text-muted-foreground/40
-        "
+        className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40"
       >
         {label}
       </span>

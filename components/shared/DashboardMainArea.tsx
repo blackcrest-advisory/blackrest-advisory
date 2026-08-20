@@ -36,26 +36,12 @@ export default function DashboardMainArea({
       />
 
       <main
-        className="
-          relative
-          flex-1
-          min-w-0
-          max-w-full
-          overflow-y-auto
-          overscroll-contain
-        "
+        className="relative flex-1 min-w-0 max-w-full overflow-y-auto overscroll-contain"
       >
         {/* top workspace glow */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute
-            left-1/2 top-[-12rem]
-            h-[30rem] w-[70%]
-            -translate-x-1/2
-            opacity-50
-          "
+          className="pointer-events-none absolute left-1/2 top-[-12rem] h-[30rem] w-[70%] -translate-x-1/2 opacity-50"
           style={{
             background:
               "radial-gradient(ellipse, color-mix(in srgb, var(--color-secondary) 6%, transparent), transparent 68%)",
@@ -75,20 +61,7 @@ export default function DashboardMainArea({
             duration: 0.3,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="
-            relative
-            mx-auto
-            w-full
-            min-w-0
-            max-w-[1600px]
-            px-4 py-5
-
-            sm:px-5
-            md:px-6 md:py-6
-            lg:px-7
-            xl:px-8
-            2xl:px-10
-          "
+          className="relative mx-auto w-full min-w-0 max-w-[1600px] px-4 py-5 sm:px-5 md:px-6 md:py-6 lg:px-7 xl:px-8 2xl:px-10"
         >
           {children}
         </motion.div>

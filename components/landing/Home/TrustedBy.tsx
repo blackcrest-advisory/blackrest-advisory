@@ -60,13 +60,7 @@ export default function TrustedBy() {
 
   return (
     <Section
-      className="
-        relative overflow-hidden
-        border-y border-border
-        bg-background
-        text-foreground
-        transition-colors duration-300
-      "
+      className="relative overflow-hidden border-y border-border bg-background text-foreground transition-colors duration-300"
     >
       {/* ============================================================= */}
       {/* BACKGROUND ARCHITECTURE                                       */}
@@ -75,14 +69,7 @@ export default function TrustedBy() {
       <div className="pointer-events-none absolute inset-0">
         {/* subtle gold atmosphere */}
         <div
-          className="
-            absolute
-            right-[-16rem]
-            top-[-14rem]
-            h-[40rem]
-            w-[40rem]
-            opacity-60
-          "
+          className="absolute right-[-16rem] top-[-14rem] h-[40rem] w-[40rem] opacity-60"
           style={{
             background:
               "radial-gradient(circle, color-mix(in srgb, var(--color-secondary) 8%, transparent), transparent 68%)",
@@ -91,11 +78,7 @@ export default function TrustedBy() {
 
         {/* architectural vertical guides */}
         <div
-          className="
-            absolute inset-0
-            hidden opacity-[0.22]
-            lg:block
-          "
+          className="absolute inset-0 hidden opacity-[0.22] lg:block"
           style={{
             backgroundImage: `
               linear-gradient(
@@ -112,18 +95,7 @@ export default function TrustedBy() {
         {!reduceMotion && (
           <motion.div
             aria-hidden="true"
-            className="
-              absolute
-              left-[-10rem]
-              top-[34%]
-              h-px
-              w-32
-              bg-gradient-to-r
-              from-transparent
-              via-secondary
-              to-transparent
-              shadow-[0_0_12px_var(--color-secondary)]
-            "
+            className="absolute left-[-10rem] top-[34%] h-px w-32 bg-gradient-to-r from-transparent via-secondary to-transparent shadow-[0_0_12px_var(--color-secondary)]"
             animate={{
               x: ["0vw", "115vw"],
               opacity: [0, 0.7, 0.7, 0],
@@ -144,13 +116,7 @@ export default function TrustedBy() {
         {/* ============================================================= */}
 
         <div
-          className="
-            grid gap-8
-            border-b border-border
-            pb-10
-            lg:grid-cols-[0.9fr_1.1fr]
-            lg:items-end
-          "
+          className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
         >
           <motion.div
             initial={{
@@ -171,11 +137,7 @@ export default function TrustedBy() {
               <span className="relative flex h-2 w-2">
                 {!reduceMotion && (
                   <motion.span
-                    className="
-                      absolute inset-0
-                      rounded-full
-                      bg-secondary
-                    "
+                    className="absolute inset-0 rounded-full bg-secondary"
                     animate={{
                       scale: [1, 2.2, 1],
                       opacity: [0.5, 0, 0.5],
@@ -188,47 +150,23 @@ export default function TrustedBy() {
                 )}
 
                 <span
-                  className="
-                    relative h-2 w-2
-                    rounded-full
-                    bg-secondary
-                  "
+                  className="relative h-2 w-2 rounded-full bg-secondary"
                 />
               </span>
 
               <span
-                className="
-                  font-mono
-                  text-[9px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.2em]
-                  text-secondary
-                "
+                className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary"
               >
                 Proven Partnership
               </span>
 
               <span
-                className="
-                  h-px w-10
-                  bg-secondary/40
-                "
+                className="h-px w-10 bg-secondary/40"
               />
             </div>
 
             <h2
-              className="
-                mt-6
-                max-w-2xl
-                text-4xl
-                font-semibold
-                tracking-[-0.045em]
-                text-heading
-                sm:text-5xl
-                lg:text-[3.6rem]
-                lg:leading-[1.04]
-              "
+              className="mt-6 max-w-2xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.6rem] lg:leading-[1.04]"
             >
               Trust is earned
               <span className="block text-muted-foreground">
@@ -254,13 +192,7 @@ export default function TrustedBy() {
             className="lg:justify-self-end"
           >
             <p
-              className="
-                max-w-xl
-                text-sm
-                leading-7
-                text-body
-                sm:text-base
-              "
+              className="max-w-xl text-sm leading-7 text-body sm:text-base"
             >
               Blackcrest is built around long-term relationships, accountable
               delivery, and measurable business progress — not simply completing
@@ -268,35 +200,19 @@ export default function TrustedBy() {
             </p>
 
             <div
-              className="
-                mt-5
-                flex flex-wrap
-                items-center
-                gap-x-5
-                gap-y-2
-              "
+              className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2"
             >
               {principles.map((principle) => (
                 <div
                   key={principle}
-                  className="
-                    flex items-center
-                    gap-2
-                  "
+                  className="flex items-center gap-2"
                 >
                   <Check
-                    className="
-                      h-3.5 w-3.5
-                      text-secondary
-                    "
+                    className="h-3.5 w-3.5 text-secondary"
                   />
 
                   <span
-                    className="
-                      text-xs
-                      font-medium
-                      text-muted-foreground
-                    "
+                    className="text-xs font-medium text-muted-foreground"
                   >
                     {principle}
                   </span>
@@ -311,11 +227,7 @@ export default function TrustedBy() {
         {/* ============================================================= */}
 
         <div
-          className="
-            grid
-            border-b border-border
-            lg:grid-cols-4
-          "
+          className="grid border-b border-border lg:grid-cols-4"
         >
           {stats.map((stat, index) => {
             const Icon = stat.icon;
@@ -361,33 +273,13 @@ export default function TrustedBy() {
                 {/* ----------------------------------------------------- */}
 
                 <div
-                  className="
-                    pointer-events-none
-                    absolute
-                    -right-16
-                    -top-20
-                    h-44
-                    w-44
-                    rounded-full
-                    bg-secondary/[0.08]
-                    opacity-0
-                    blur-3xl
-                    transition-all
-                    duration-500
-                    group-hover:opacity-100
-                  "
+                  className="pointer-events-none absolute -right-16 -top-20 h-44 w-44 rounded-full bg-secondary/[0.08] opacity-0 blur-3xl transition-all duration-500 group-hover:opacity-100"
                 />
 
                 {!reduceMotion && (
                   <motion.div
                     aria-hidden="true"
-                    className="
-                      pointer-events-none
-                      absolute
-                      inset-y-0
-                      left-0
-                      w-[30%]
-                    "
+                    className="pointer-events-none absolute inset-y-0 left-0 w-[30%]"
                     initial={{
                       x: "-150%",
                     }}
@@ -406,27 +298,14 @@ export default function TrustedBy() {
                 )}
 
                 <div
-                  className="
-                    relative z-10
-                    flex h-full
-                    flex-col
-                  "
+                  className="relative z-10 flex h-full flex-col"
                 >
                   {/* metadata */}
                   <div
-                    className="
-                      flex items-start
-                      justify-between
-                    "
+                    className="flex items-start justify-between"
                   >
                     <span
-                      className="
-                        font-mono
-                        text-[8px]
-                        font-semibold
-                        tracking-[0.18em]
-                        text-muted-foreground/40
-                      "
+                      className="font-mono text-[8px] font-semibold tracking-[0.18em] text-muted-foreground/40"
                     >
                       0{index + 1}
                     </span>
@@ -440,19 +319,7 @@ export default function TrustedBy() {
                               scale: 1.06,
                             }
                       }
-                      className="
-                        flex h-10 w-10
-                        items-center
-                        justify-center
-                        border border-border
-                        bg-card
-                        text-muted-foreground
-                        transition-all
-                        duration-300
-                        group-hover:border-secondary/30
-                        group-hover:bg-secondary/[0.07]
-                        group-hover:text-secondary
-                      "
+                      className="flex h-10 w-10 items-center justify-center border border-border bg-card text-muted-foreground transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary/[0.07] group-hover:text-secondary"
                     >
                       <Icon className="h-4 w-4" strokeWidth={1.8} />
                     </motion.div>
@@ -461,43 +328,19 @@ export default function TrustedBy() {
                   {/* metric */}
                   <div className="mt-10">
                     <p
-                      className="
-                        font-mono
-                        text-[3.6rem]
-                        font-medium
-                        leading-none
-                        tracking-[-0.075em]
-                        text-heading
-                        transition-colors
-                        duration-300
-                        group-hover:text-secondary
-                        sm:text-[4.5rem]
-                      "
+                      className="font-mono text-[3.6rem] font-medium leading-none tracking-[-0.075em] text-heading transition-colors duration-300 group-hover:text-secondary sm:text-[4.5rem]"
                     >
                       {stat.number}
                     </p>
 
                     <p
-                      className="
-                        mt-4
-                        text-base
-                        font-semibold
-                        tracking-[-0.02em]
-                        text-foreground
-                      "
+                      className="mt-4 text-base font-semibold tracking-[-0.02em] text-foreground"
                     >
                       {stat.label}
                     </p>
 
                     <p
-                      className="
-                        mt-1
-                        font-mono
-                        text-[8px]
-                        uppercase
-                        tracking-[0.16em]
-                        text-secondary
-                      "
+                      className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-secondary"
                     >
                       {stat.micro}
                     </p>
@@ -505,70 +348,32 @@ export default function TrustedBy() {
 
                   {/* description */}
                   <p
-                    className="
-                      mt-6
-                      max-w-xs
-                      text-sm
-                      leading-7
-                      text-muted-foreground
-                    "
+                    className="mt-6 max-w-xs text-sm leading-7 text-muted-foreground"
                   >
                     {stat.description}
                   </p>
 
                   {/* footer */}
                   <div
-                    className="
-                      mt-auto
-                      flex items-center
-                      justify-between
-                      pt-8
-                    "
+                    className="mt-auto flex items-center justify-between pt-8"
                   >
                     <span
-                      className="
-                        font-mono
-                        text-[8px]
-                        uppercase
-                        tracking-[0.16em]
-                        text-muted-foreground/35
-                      "
+                      className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/35"
                     >
                       Verified signal
                     </span>
 
                     <ArrowUpRight
-                      className="
-                        h-4 w-4
-                        text-muted-foreground/25
-                        transition-all
-                        duration-300
-                        group-hover:-translate-y-1
-                        group-hover:translate-x-1
-                        group-hover:text-secondary
-                      "
+                      className="h-4 w-4 text-muted-foreground/25 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-secondary"
                     />
                   </div>
 
                   {/* active bottom signal */}
                   <div
-                    className="
-                      absolute
-                      bottom-0 left-0
-                      h-[2px]
-                      w-full
-                      overflow-hidden
-                    "
+                    className="absolute bottom-0 left-0 h-[2px] w-full overflow-hidden"
                   >
                     <div
-                      className="
-                        h-full
-                        w-0
-                        bg-secondary
-                        transition-all
-                        duration-500
-                        group-hover:w-full
-                      "
+                      className="h-full w-0 bg-secondary transition-all duration-500 group-hover:w-full"
                     />
                   </div>
                 </div>
@@ -594,55 +399,26 @@ export default function TrustedBy() {
           transition={{
             duration: 0.55,
           }}
-          className="
-            grid
-            gap-8
-            py-8
-            lg:grid-cols-[1fr_auto]
-            lg:items-center
-          "
+          className="grid gap-8 py-8 lg:grid-cols-[1fr_auto] lg:items-center"
         >
           <div
-            className="
-              flex items-start
-              gap-4
-            "
+            className="flex items-start gap-4"
           >
             <div
-              className="
-                mt-0.5
-                flex h-9 w-9
-                shrink-0
-                items-center
-                justify-center
-                border
-                border-secondary/20
-                bg-secondary/[0.06]
-                text-secondary
-              "
+              className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.06] text-secondary"
             >
               <Check className="h-4 w-4" />
             </div>
 
             <div>
               <p
-                className="
-                  text-sm
-                  font-semibold
-                  text-heading
-                "
+                className="text-sm font-semibold text-heading"
               >
                 Relationships over transactions.
               </p>
 
               <p
-                className="
-                  mt-1
-                  max-w-xl
-                  text-sm
-                  leading-6
-                  text-muted-foreground
-                "
+                className="mt-1 max-w-xl text-sm leading-6 text-muted-foreground"
               >
                 We measure success through commercial impact, client confidence,
                 and the value created over the lifetime of the relationship.
@@ -651,16 +427,7 @@ export default function TrustedBy() {
           </div>
 
           <div
-            className="
-              flex flex-wrap
-              items-center
-              gap-3
-              font-mono
-              text-[8px]
-              uppercase
-              tracking-[0.17em]
-              text-muted-foreground/40
-            "
+            className="flex flex-wrap items-center gap-3 font-mono text-[8px] uppercase tracking-[0.17em] text-muted-foreground/40"
           >
             Strategy
             <span className="h-1 w-1 rounded-full bg-secondary" />

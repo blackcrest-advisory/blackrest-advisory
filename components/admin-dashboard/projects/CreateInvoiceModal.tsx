@@ -85,13 +85,7 @@ export function CreateInvoiceModal({
         variant="outline"
         size="sm"
         onClick={() => setIsOpen(true)}
-        className="
-          !rounded-md
-          border-secondary/20
-          bg-secondary/[0.025]
-          hover:border-secondary/30
-          hover:bg-secondary/[0.055]
-        "
+        className="!rounded-md border-secondary/20 bg-secondary/[0.025] hover:border-secondary/30 hover:bg-secondary/[0.055]"
       >
         <Plus className="h-3.5 w-3.5" />
 
@@ -103,32 +97,13 @@ export function CreateInvoiceModal({
   //===== modal =====//
   return (
     <div
-      className="
-        fixed inset-0
-        z-50
-        flex
-        items-center
-        justify-center
-        bg-primary/55
-        p-4
-        backdrop-blur-[3px]
-        dark:bg-background/75
-      "
+      className="fixed inset-0 z-50 flex items-center justify-center bg-primary/55 p-4 backdrop-blur-[3px] dark:bg-background/75"
     >
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby="create-invoice-title"
-        className="
-          relative
-          max-h-[calc(100vh-2rem)]
-          w-full
-          max-w-xl
-          overflow-y-auto
-          border border-border
-          bg-card
-          shadow-[var(--shadow-overlay)]
-        "
+        className="relative max-h-[calc(100vh-2rem)] w-full max-w-xl overflow-y-auto border border-border bg-card shadow-[var(--shadow-overlay)]"
       >
         {/* ====================================================== */}
         {/* TOP SIGNAL                                             */}
@@ -136,27 +111,13 @@ export function CreateInvoiceModal({
 
         <div
           aria-hidden="true"
-          className="
-            absolute left-0 top-0
-            h-[2px] w-full
-            bg-gradient-to-r
-            from-secondary
-            via-secondary/35
-            to-transparent
-          "
+          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
         />
 
         {/* ambient glow */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute -right-24 -top-24
-            h-48 w-48
-            rounded-full
-            bg-secondary/[0.06]
-            blur-[90px]
-          "
+          className="pointer-events-none absolute -right-24 -top-24 h-48 w-48 rounded-full bg-secondary/[0.06] blur-[90px]"
         />
 
         {/* ====================================================== */}
@@ -164,68 +125,31 @@ export function CreateInvoiceModal({
         {/* ====================================================== */}
 
         <div
-          className="
-            relative z-10
-            flex
-            items-start
-            justify-between
-            gap-4
-            border-b border-border
-            px-5 py-5
-            sm:px-6
-          "
+          className="relative z-10 flex items-start justify-between gap-4 border-b border-border px-5 py-5 sm:px-6"
         >
           <div className="flex items-start gap-3">
             <div
-              className="
-                flex h-10 w-10
-                shrink-0
-                items-center
-                justify-center
-                rounded-md
-                border border-secondary/15
-                bg-secondary/[0.05]
-                text-secondary
-              "
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-secondary/15 bg-secondary/[0.05] text-secondary"
             >
               <ReceiptText className="h-4 w-4" />
             </div>
 
             <div>
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.17em]
-                  text-secondary
-                "
+                className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
               >
                 Commercial record
               </span>
 
               <h2
                 id="create-invoice-title"
-                className="
-                  mt-1
-                  text-lg
-                  font-semibold
-                  tracking-[-0.025em]
-                  text-heading
-                "
+                className="mt-1 text-lg font-semibold tracking-[-0.025em] text-heading"
               >
                 Create Invoice
               </h2>
 
               <p
-                className="
-                  mt-1
-                  max-w-sm
-                  text-xs
-                  leading-5
-                  text-muted-foreground
-                "
+                className="mt-1 max-w-sm text-xs leading-5 text-muted-foreground"
               >
                 Create a new invoice for this client project.
               </p>
@@ -237,21 +161,7 @@ export function CreateInvoiceModal({
             onClick={() => setIsOpen(false)}
             disabled={isPending}
             aria-label="Close invoice form"
-            className="
-              flex h-8 w-8
-              shrink-0
-              items-center
-              justify-center
-              rounded-md
-              border border-transparent
-              text-muted-foreground
-              transition-colors
-              hover:border-border
-              hover:bg-muted/30
-              hover:text-heading
-              disabled:cursor-not-allowed
-              disabled:opacity-50
-            "
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-transparent text-muted-foreground transition-colors hover:border-border hover:bg-muted/30 hover:text-heading disabled:cursor-not-allowed disabled:opacity-50"
           >
             <X className="h-4 w-4" />
           </button>
@@ -263,23 +173,14 @@ export function CreateInvoiceModal({
 
         <form onSubmit={handleSubmit}>
           <div
-            className="
-              relative z-10
-              space-y-5
-              px-5 py-5
-              sm:px-6
-              sm:py-6
-            "
+            className="relative z-10 space-y-5 px-5 py-5 sm:px-6 sm:py-6"
           >
             {/* ================================================== */}
             {/* AMOUNT + CURRENCY                                  */}
             {/* ================================================== */}
 
             <div
-              className="
-                border border-border
-                bg-background/25
-              "
+              className="border border-border bg-background/25"
             >
               <FormSectionHeader
                 icon={CircleDollarSign}
@@ -288,13 +189,7 @@ export function CreateInvoiceModal({
               />
 
               <div
-                className="
-                  grid
-                  gap-4
-                  p-4
-                  sm:grid-cols-[minmax(0,1fr)_180px]
-                  sm:p-5
-                "
+                className="grid gap-4 p-4 sm:grid-cols-[minmax(0,1fr)_180px] sm:p-5"
               >
                 <Field label="Amount" htmlFor="amount" required>
                   <Input
@@ -316,25 +211,7 @@ export function CreateInvoiceModal({
                     value={currency}
                     onChange={(e) => setCurrency(e.target.value)}
                     disabled={isPending}
-                    className="
-                      h-10
-                      w-full
-                      rounded-md
-                      border border-border
-                      bg-background
-                      px-3
-                      text-sm
-                      text-foreground
-                      shadow-sm
-                      outline-none
-                      transition-colors
-                      hover:border-secondary/30
-                      focus:border-secondary/40
-                      focus:ring-2
-                      focus:ring-secondary/10
-                      disabled:cursor-not-allowed
-                      disabled:opacity-60
-                    "
+                    className="h-10 w-full rounded-md border border-border bg-background px-3 text-sm text-foreground shadow-sm outline-none transition-colors hover:border-secondary/30 focus:border-secondary/40 focus:ring-2 focus:ring-secondary/10 disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {CURRENCY_OPTIONS.map((option) => (
                       <option key={option.value} value={option.value}>
@@ -351,10 +228,7 @@ export function CreateInvoiceModal({
             {/* ================================================== */}
 
             <div
-              className="
-                border border-border
-                bg-background/25
-              "
+              className="border border-border bg-background/25"
             >
               <FormSectionHeader
                 icon={CalendarDays}
@@ -380,10 +254,7 @@ export function CreateInvoiceModal({
             {/* ================================================== */}
 
             <div
-              className="
-                border border-border
-                bg-background/25
-              "
+              className="border border-border bg-background/25"
             >
               <FormSectionHeader
                 icon={FileText}
@@ -400,20 +271,12 @@ export function CreateInvoiceModal({
                     placeholder="Add any notes for the client..."
                     rows={3}
                     disabled={isPending}
-                    className="
-                      min-h-[100px]
-                      resize-y
-                    "
+                    className="min-h-[100px] resize-y"
                   />
                 </Field>
 
                 <p
-                  className="
-                    mt-2
-                    text-[10px]
-                    leading-4
-                    text-muted-foreground
-                  "
+                  className="mt-2 text-[10px] leading-4 text-muted-foreground"
                 >
                   Optional information that should accompany this invoice.
                 </p>
@@ -426,43 +289,20 @@ export function CreateInvoiceModal({
           {/* ==================================================== */}
 
           <div
-            className="
-              relative z-10
-              flex
-              flex-col-reverse
-              gap-2
-              border-t border-border
-              bg-muted/10
-              px-5 py-4
-              sm:flex-row
-              sm:items-center
-              sm:justify-between
-              sm:px-6
-            "
+            className="relative z-10 flex flex-col-reverse gap-2 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
           >
             <div className="hidden items-center gap-2 sm:flex">
               <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
 
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  uppercase
-                  tracking-[0.14em]
-                  text-muted-foreground/40
-                "
+                className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
               >
                 New invoice draft
               </span>
             </div>
 
             <div
-              className="
-                flex
-                flex-col-reverse
-                gap-2
-                sm:flex-row
-              "
+              className="flex flex-col-reverse gap-2 sm:flex-row"
             >
               <Button
                 type="button"
@@ -511,52 +351,23 @@ function FormSectionHeader({
 }) {
   return (
     <div
-      className="
-        flex
-        items-center
-        gap-3
-        border-b border-border
-        bg-muted/10
-        px-4 py-3.5
-        sm:px-5
-      "
+      className="flex items-center gap-3 border-b border-border bg-muted/10 px-4 py-3.5 sm:px-5"
     >
       <div
-        className="
-          flex h-8 w-8
-          shrink-0
-          items-center
-          justify-center
-          rounded-md
-          border border-border
-          bg-card
-          text-secondary
-        "
+        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border bg-card text-secondary"
       >
         <Icon className="h-3.5 w-3.5" />
       </div>
 
       <div>
         <span
-          className="
-            font-mono
-            text-[7px]
-            font-semibold
-            uppercase
-            tracking-[0.14em]
-            text-muted-foreground/40
-          "
+          className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40"
         >
           {eyebrow}
         </span>
 
         <h3
-          className="
-            mt-0.5
-            text-sm
-            font-semibold
-            text-heading
-          "
+          className="mt-0.5 text-sm font-semibold text-heading"
         >
           {title}
         </h3>
@@ -584,15 +395,7 @@ function Field({
     <div>
       <label
         htmlFor={htmlFor}
-        className="
-          mb-2
-          flex
-          items-center
-          gap-1
-          text-xs
-          font-semibold
-          text-heading
-        "
+        className="mb-2 flex items-center gap-1 text-xs font-semibold text-heading"
       >
         {label}
 

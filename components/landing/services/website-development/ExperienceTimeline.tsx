@@ -79,13 +79,7 @@ export default function ExperienceTimeline() {
 
   return (
     <Section
-      className="
-        relative
-        bg-background
-        py-16
-        sm:py-20
-        lg:py-28
-      "
+      className="relative bg-background py-16 sm:py-20 lg:py-28"
     >
       <Container>
         {/* ==================================================== */}
@@ -93,13 +87,7 @@ export default function ExperienceTimeline() {
         {/* ==================================================== */}
 
         <div
-          className="
-            grid
-            gap-8
-            lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]
-            lg:items-end
-            lg:gap-16
-          "
+          className="grid gap-8 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-end lg:gap-16"
         >
           {/* left */}
           <motion.div
@@ -128,41 +116,21 @@ export default function ExperienceTimeline() {
             }}
           >
             <div
-              className="
-                flex
-                items-center
-                gap-3
-              "
+              className="flex items-center gap-3"
             >
               <span
-                className="
-                  font-mono
-                  text-[8px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.2em]
-                  text-secondary
-                "
+                className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-secondary"
               >
                 07 / Your Experience
               </span>
 
               <span
-                className="
-                  h-px w-10
-                  bg-secondary/35
-                "
+                className="h-px w-10 bg-secondary/35"
               />
             </div>
 
             <p
-              className="
-                mt-4
-                max-w-sm
-                text-sm
-                leading-6
-                text-muted-foreground
-              "
+              className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground"
             >
               Clear communication, visible progress and no mystery about what
               happens next.
@@ -196,32 +164,14 @@ export default function ExperienceTimeline() {
             }}
           >
             <h2
-              className="
-                max-w-4xl
-                text-3xl
-                font-semibold
-                leading-[1.03]
-                tracking-[-0.045em]
-                text-heading
-                sm:text-4xl
-                lg:text-5xl
-                xl:text-[56px]
-              "
+              className="max-w-4xl text-3xl font-semibold leading-[1.03] tracking-[-0.045em] text-heading sm:text-4xl lg:text-5xl xl:text-[56px]"
             >
               You always know
               <span className="block text-secondary">what happens next.</span>
             </h2>
 
             <p
-              className="
-                mt-5
-                max-w-2xl
-                text-sm
-                leading-7
-                text-body
-                sm:text-base
-                sm:leading-8
-              "
+              className="mt-5 max-w-2xl text-sm leading-7 text-body sm:text-base sm:leading-8"
             >
               From the first conversation to post-launch support, we keep the
               process clear, collaborative and easy to follow.
@@ -234,51 +184,22 @@ export default function ExperienceTimeline() {
         {/* ==================================================== */}
 
         <div
-          className="
-            relative
-            mt-12
-            lg:mt-16
-          "
+          className="relative mt-12 lg:mt-16"
         >
           {/* desktop line */}
           <div
             aria-hidden="true"
-            className="
-              absolute
-              left-[8%] right-[8%]
-              top-[25px]
-              hidden
-              h-px
-              bg-border
-              lg:block
-            "
+            className="absolute left-[8%] right-[8%] top-[25px] hidden h-px bg-border lg:block"
           />
 
           {/* active gold section */}
           <div
             aria-hidden="true"
-            className="
-              absolute
-              left-[8%] right-[8%]
-              top-[25px]
-              hidden
-              h-px
-              bg-gradient-to-r
-              from-transparent
-              via-secondary/50
-              to-transparent
-              lg:block
-            "
+            className="absolute left-[8%] right-[8%] top-[25px] hidden h-px bg-gradient-to-r from-transparent via-secondary/50 to-transparent lg:block"
           />
 
           <div
-            className="
-              grid
-              gap-4
-              sm:grid-cols-2
-              lg:grid-cols-6
-              lg:gap-3
-            "
+            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6 lg:gap-3"
           >
             {steps.map((step, index) => {
               const Icon = step.icon;
@@ -310,55 +231,24 @@ export default function ExperienceTimeline() {
                     duration: 0.4,
                     delay: index * 0.045,
                   }}
-                  className="
-                    group
-                    relative
-                    min-w-0
-                  "
+                  className="group relative min-w-0"
                 >
                   {/* ========================================== */}
                   {/* TOP NODE                                   */}
                   {/* ========================================== */}
 
                   <div
-                    className="
-                      relative z-10
-                      flex
-                      items-center
-                      gap-3
-                      lg:flex-col
-                      lg:items-center
-                      lg:text-center
-                    "
+                    className="relative z-10 flex items-center gap-3 lg:flex-col lg:items-center lg:text-center"
                   >
                     <div
-                      className="
-                        flex h-[50px] w-[50px]
-                        shrink-0
-                        items-center
-                        justify-center
-                        border border-border
-                        bg-background
-                        text-secondary
-                        transition-all
-                        duration-300
-                        group-hover:border-secondary/30
-                        group-hover:bg-secondary/[0.04]
-                      "
+                      className="flex h-[50px] w-[50px] shrink-0 items-center justify-center border border-border bg-background text-secondary transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary/[0.04]"
                     >
                       <Icon className="h-4.5 w-4.5" />
                     </div>
 
                     <div className="lg:hidden">
                       <span
-                        className="
-                          font-mono
-                          text-[7px]
-                          font-semibold
-                          uppercase
-                          tracking-[0.14em]
-                          text-secondary
-                        "
+                        className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-secondary"
                       >
                         {String(step.id).padStart(2, "0")} / {step.meta}
                       </span>
@@ -370,73 +260,32 @@ export default function ExperienceTimeline() {
                   {/* ========================================== */}
 
                   <div
-                    className="
-                      mt-4
-                      border border-border
-                      bg-card
-                      px-5 py-5
-                      transition-all
-                      duration-300
-                      group-hover:border-secondary/25
-                      group-hover:shadow-[var(--shadow-card)]
-                      lg:mt-5
-                      lg:min-h-[190px]
-                      lg:px-4
-                    "
+                    className="mt-4 border border-border bg-card px-5 py-5 transition-all duration-300 group-hover:border-secondary/25 group-hover:shadow-[var(--shadow-card)] lg:mt-5 lg:min-h-[190px] lg:px-4"
                   >
                     <div
-                      className="
-                        hidden
-                        items-center
-                        justify-between
-                        gap-2
-                        lg:flex
-                      "
+                      className="hidden items-center justify-between gap-2 lg:flex"
                     >
                       <span
-                        className="
-                          font-mono
-                          text-[7px]
-                          font-semibold
-                          text-secondary
-                        "
+                        className="font-mono text-[7px] font-semibold text-secondary"
                       >
                         {String(step.id).padStart(2, "0")}
                       </span>
 
                       <span
-                        className="
-                          font-mono
-                          text-[6px]
-                          font-semibold
-                          uppercase
-                          tracking-[0.13em]
-                          text-muted-foreground/30
-                        "
+                        className="font-mono text-[6px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/30"
                       >
                         {step.meta}
                       </span>
                     </div>
 
                     <h3
-                      className="
-                        text-base
-                        font-semibold
-                        tracking-[-0.02em]
-                        text-heading
-                        lg:mt-5
-                      "
+                      className="text-base font-semibold tracking-[-0.02em] text-heading lg:mt-5"
                     >
                       {step.label}
                     </h3>
 
                     <p
-                      className="
-                        mt-3
-                        text-xs
-                        leading-5
-                        text-muted-foreground
-                      "
+                      className="mt-3 text-xs leading-5 text-muted-foreground"
                     >
                       {step.description}
                     </p>
@@ -444,15 +293,7 @@ export default function ExperienceTimeline() {
                     {/* subtle bottom signal */}
                     <span
                       aria-hidden="true"
-                      className="
-                        absolute
-                        bottom-0 left-0
-                        h-[2px] w-0
-                        bg-secondary
-                        transition-all
-                        duration-500
-                        group-hover:w-10
-                      "
+                      className="absolute bottom-0 left-0 h-[2px] w-0 bg-secondary transition-all duration-500 group-hover:w-10"
                     />
                   </div>
                 </motion.article>
@@ -466,119 +307,54 @@ export default function ExperienceTimeline() {
         {/* ==================================================== */}
 
         <div
-          className="
-            mt-10
-            grid
-            overflow-hidden
-            border border-border
-            bg-card
-            md:grid-cols-[minmax(0,1fr)_auto]
-            md:items-center
-          "
+          className="mt-10 grid overflow-hidden border border-border bg-card md:grid-cols-[minmax(0,1fr)_auto] md:items-center"
         >
           <div
-            className="
-              px-5 py-5
-              sm:px-6
-            "
+            className="px-5 py-5 sm:px-6"
           >
             <span
-              className="
-                font-mono
-                text-[7px]
-                font-semibold
-                uppercase
-                tracking-[0.15em]
-                text-secondary
-              "
+              className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
             >
               Communication standard
             </span>
 
             <p
-              className="
-                mt-2
-                text-base
-                font-medium
-                tracking-[-0.015em]
-                text-heading
-              "
+              className="mt-2 text-base font-medium tracking-[-0.015em] text-heading"
             >
               Transparent process. Consistent communication. No surprises.
             </p>
           </div>
 
           <div
-            className="
-              flex
-              items-center
-              gap-6
-              border-t border-border
-              bg-muted/15
-              px-5 py-5
-              md:border-l
-              md:border-t-0
-              sm:px-6
-            "
+            className="flex items-center gap-6 border-t border-border bg-muted/15 px-5 py-5 md:border-l md:border-t-0 sm:px-6"
           >
             <div>
               <span
-                className="
-                  block
-                  font-mono
-                  text-[7px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.13em]
-                  text-muted-foreground/35
-                "
+                className="block font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/35"
               >
                 Updates
               </span>
 
               <span
-                className="
-                  mt-1
-                  block
-                  text-xs
-                  font-semibold
-                  text-heading
-                "
+                className="mt-1 block text-xs font-semibold text-heading"
               >
                 Weekly
               </span>
             </div>
 
             <span
-              className="
-                h-8 w-px
-                bg-border
-              "
+              className="h-8 w-px bg-border"
             />
 
             <div>
               <span
-                className="
-                  block
-                  font-mono
-                  text-[7px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.13em]
-                  text-muted-foreground/35
-                "
+                className="block font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/35"
               >
                 Support
               </span>
 
               <span
-                className="
-                  mt-1
-                  block
-                  text-xs
-                  font-semibold
-                  text-heading
-                "
+                className="mt-1 block text-xs font-semibold text-heading"
               >
                 Ongoing
               </span>
@@ -591,39 +367,16 @@ export default function ExperienceTimeline() {
         {/* ==================================================== */}
 
         <div
-          className="
-            mt-7
-            flex
-            flex-col
-            gap-3
-            border-t border-border
-            pt-4
-            sm:flex-row
-            sm:items-center
-            sm:justify-between
-          "
+          className="mt-7 flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between"
         >
           <span
-            className="
-              font-mono
-              text-[7px]
-              font-semibold
-              uppercase
-              tracking-[0.15em]
-              text-secondary
-            "
+            className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
           >
             Contact → Collaborate → Build → Launch → Support
           </span>
 
           <span
-            className="
-              font-mono
-              text-[7px]
-              uppercase
-              tracking-[0.14em]
-              text-muted-foreground/30
-            "
+            className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/30"
           >
             Blackcrest / Client Experience
           </span>

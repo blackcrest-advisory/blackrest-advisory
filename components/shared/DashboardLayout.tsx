@@ -16,23 +16,12 @@ export default function DashboardLayout({
 
   return (
     <div
-      className="
-        dashboard-shell
-        relative
-        h-screen
-        overflow-hidden
-        bg-background
-        text-foreground
-      "
+      className="dashboard-shell relative h-screen overflow-hidden bg-background text-foreground"
     >
       {/* subtle dashboard grid */}
       <div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute inset-0
-          opacity-[0.16]
-        "
+        className="pointer-events-none absolute inset-0 opacity-[0.16]"
         style={{
           backgroundImage: `
             linear-gradient(
@@ -55,11 +44,7 @@ export default function DashboardLayout({
 
       {/* Desktop sidebar */}
       <aside
-        className="
-          fixed left-0 top-0 z-40
-          hidden h-screen
-          lg:block
-        "
+        className="fixed left-0 top-0 z-40 hidden h-screen lg:block"
       >
         <DashboardDesktopSidebar />
       </aside>

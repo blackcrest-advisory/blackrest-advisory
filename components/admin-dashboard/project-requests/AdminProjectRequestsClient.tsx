@@ -148,27 +148,12 @@ export function AdminProjectRequestsClient({
       {/* ====================================================== */}
 
       <div
-        className="
-          relative
-          z-20
-          border border-border
-          bg-card
-          shadow-[var(--shadow-card)]
-        "
+        className="relative z-20 border border-border bg-card shadow-[var(--shadow-card)]"
       >
         {/* top signal */}
         <div
           aria-hidden="true"
-          className="
-            pointer-events-none
-            absolute
-            left-0 top-0
-            h-[2px] w-full
-            bg-gradient-to-r
-            from-secondary
-            via-secondary/35
-            to-transparent
-          "
+          className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
         />
 
         {/* ==================================================== */}
@@ -176,17 +161,7 @@ export function AdminProjectRequestsClient({
         {/* ==================================================== */}
 
         <div
-          className="
-            flex
-            flex-col
-            gap-3
-            px-4 py-4
-            sm:px-5
-            lg:px-6
-
-            xl:flex-row
-            xl:items-center
-          "
+          className="flex flex-col gap-3 px-4 py-4 sm:px-5 lg:px-6 xl:flex-row xl:items-center"
         >
           {/* ================================================== */}
           {/* SEARCH                                             */}
@@ -207,34 +182,11 @@ export function AdminProjectRequestsClient({
           {/* ================================================== */}
 
           <div
-            className="
-              flex
-              flex-col
-              gap-2
-
-              sm:grid
-              sm:grid-cols-2
-
-              xl:flex
-              xl:flex-row
-              xl:items-center
-            "
+            className="flex flex-col gap-2 sm:grid sm:grid-cols-2 xl:flex xl:flex-row xl:items-center"
           >
             <div
               aria-hidden="true"
-              className="
-                hidden
-                h-10 w-10
-                shrink-0
-                items-center
-                justify-center
-                rounded-md
-                border border-border
-                bg-background
-                text-muted-foreground
-
-                xl:flex
-              "
+              className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-background text-muted-foreground xl:flex"
             >
               <SlidersHorizontal className="h-4 w-4" />
             </div>
@@ -243,20 +195,14 @@ export function AdminProjectRequestsClient({
               options={statusOptions}
               value={status}
               onChange={updateStatus}
-              className="
-                w-full
-                xl:w-44
-              "
+              className="w-full xl:w-44"
             />
 
             <Select
               options={pillarOptions}
               value={pillar}
               onChange={updatePillar}
-              className="
-                w-full
-                xl:w-52
-              "
+              className="w-full xl:w-52"
             />
           </div>
         </div>
@@ -266,36 +212,17 @@ export function AdminProjectRequestsClient({
         {/* ==================================================== */}
 
         <div
-          className="
-            flex
-            min-h-11
-            flex-wrap
-            items-center
-            justify-between
-            gap-3
-            border-t border-border
-            bg-muted/10
-            px-4 py-2.5
-            sm:px-5
-            lg:px-6
-          "
+          className="flex min-h-11 flex-wrap items-center justify-between gap-3 border-t border-border bg-muted/10 px-4 py-2.5 sm:px-5 lg:px-6"
         >
           <div className="flex items-center gap-2">
             <span
-              className="
-                h-1.5 w-1.5
-                rounded-full
-                bg-success
-              "
+              className="h-1.5 w-1.5 rounded-full bg-success"
             />
 
             <span className="text-xs text-muted-foreground">
               Showing{" "}
               <span
-                className="
-                  font-semibold
-                  text-heading
-                "
+                className="font-semibold text-heading"
               >
                 {filteredBriefs.length}
               </span>{" "}
@@ -307,23 +234,13 @@ export function AdminProjectRequestsClient({
           {(searchTerm || status !== "all" || pillar !== "all") && (
             <div className="flex items-center gap-2">
               <span
-                className="
-                  font-mono
-                  text-[7px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.15em]
-                  text-secondary
-                "
+                className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
               >
                 Filters active
               </span>
 
               <span
-                className="
-                  h-px w-6
-                  bg-secondary/30
-                "
+                className="h-px w-6 bg-secondary/30"
               />
             </div>
           )}
@@ -349,15 +266,7 @@ export function AdminProjectRequestsClient({
 
       {totalPages > 1 && (
         <div
-          className="
-            mt-3
-            border border-border
-            bg-card
-            px-4 py-4
-            shadow-[var(--shadow-card)]
-            sm:px-5
-            lg:px-6
-          "
+          className="mt-3 border border-border bg-card px-4 py-4 shadow-[var(--shadow-card)] sm:px-5 lg:px-6"
         >
           <Pagination
             currentPage={activePage}

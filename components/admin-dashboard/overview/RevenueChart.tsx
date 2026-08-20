@@ -200,14 +200,7 @@ export const RevenueChart = ({ revenue }: { revenue: RevenuePoint[] }) => {
         duration: 0.5,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="
-        group
-        relative
-        overflow-hidden
-        border border-border
-        bg-card
-        shadow-[var(--shadow-card)]
-      "
+      className="group relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
     >
       {/* ====================================================== */}
       {/* BACKGROUND DETAILS                                     */}
@@ -215,25 +208,11 @@ export const RevenueChart = ({ revenue }: { revenue: RevenuePoint[] }) => {
 
       <div
         aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute -right-28 -top-32
-          h-72 w-72
-          rounded-full
-          bg-secondary/[0.07]
-          blur-[100px]
-        "
+        className="pointer-events-none absolute -right-28 -top-32 h-72 w-72 rounded-full bg-secondary/[0.07] blur-[100px]"
       />
 
       <div
-        className="
-          absolute left-0 top-0
-          h-[2px] w-full
-          bg-gradient-to-r
-          from-secondary
-          via-secondary/35
-          to-transparent
-        "
+        className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
       />
 
       {/* ====================================================== */}
@@ -241,18 +220,7 @@ export const RevenueChart = ({ revenue }: { revenue: RevenuePoint[] }) => {
       {/* ====================================================== */}
 
       <div
-        className="
-          relative z-10
-          flex flex-col
-          gap-5
-          border-b border-border
-          px-5 py-5
-
-          sm:px-6
-          lg:flex-row
-          lg:items-center
-          lg:justify-between
-        "
+        className="relative z-10 flex flex-col gap-5 border-b border-border px-5 py-5 sm:px-6 lg:flex-row lg:items-center lg:justify-between"
       >
         {/* left */}
         <div>
@@ -260,14 +228,7 @@ export const RevenueChart = ({ revenue }: { revenue: RevenuePoint[] }) => {
             <TrendingUp className="h-3.5 w-3.5 text-secondary" />
 
             <span
-              className="
-                font-mono
-                text-[8px]
-                font-semibold
-                uppercase
-                tracking-[0.18em]
-                text-secondary
-              "
+              className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
             >
               Financial performance
             </span>
@@ -277,25 +238,13 @@ export const RevenueChart = ({ revenue }: { revenue: RevenuePoint[] }) => {
 
           <div className="mt-2 flex items-baseline gap-3">
             <h3
-              className="
-                text-xl
-                font-semibold
-                tracking-[-0.025em]
-                text-heading
-                sm:text-2xl
-              "
+              className="text-xl font-semibold tracking-[-0.025em] text-heading sm:text-2xl"
             >
               Revenue Overview
             </h3>
 
             <span
-              className="
-                font-mono
-                text-[8px]
-                uppercase
-                tracking-[0.15em]
-                text-muted-foreground/40
-              "
+              className="font-mono text-[8px] uppercase tracking-[0.15em] text-muted-foreground/40"
             >
               Last {revenue.length} periods
             </span>
@@ -304,34 +253,17 @@ export const RevenueChart = ({ revenue }: { revenue: RevenuePoint[] }) => {
 
         {/* right summary */}
         <div
-          className="
-            flex flex-wrap
-            items-center
-            gap-4
-            sm:gap-6
-          "
+          className="flex flex-wrap items-center gap-4 sm:gap-6"
         >
           <div>
             <p
-              className="
-                font-mono
-                text-[7px]
-                uppercase
-                tracking-[0.15em]
-                text-muted-foreground/40
-              "
+              className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
             >
               Latest revenue
             </p>
 
             <p
-              className="
-                mt-1
-                text-xl
-                font-semibold
-                tracking-[-0.03em]
-                text-heading
-              "
+              className="mt-1 text-xl font-semibold tracking-[-0.03em] text-heading"
             >
               €{latestRevenue.toLocaleString()}
             </p>
@@ -341,13 +273,7 @@ export const RevenueChart = ({ revenue }: { revenue: RevenuePoint[] }) => {
 
           <div>
             <p
-              className="
-                font-mono
-                text-[7px]
-                uppercase
-                tracking-[0.15em]
-                text-muted-foreground/40
-              "
+              className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
             >
               Period change
             </p>
@@ -384,22 +310,10 @@ export const RevenueChart = ({ revenue }: { revenue: RevenuePoint[] }) => {
       {/* ====================================================== */}
 
       <div
-        className="
-          relative z-10
-          px-3 pb-4 pt-5
-          sm:px-5
-          lg:px-6
-        "
+        className="relative z-10 px-3 pb-4 pt-5 sm:px-5 lg:px-6"
       >
         <div
-          className="
-            relative
-            h-[260px]
-            w-full
-
-            sm:h-[300px]
-            lg:h-[340px]
-          "
+          className="relative h-[260px] w-full sm:h-[300px] lg:h-[340px]"
         >
           <Line data={data} options={options} />
         </div>
@@ -410,64 +324,29 @@ export const RevenueChart = ({ revenue }: { revenue: RevenuePoint[] }) => {
       {/* ====================================================== */}
 
       <div
-        className="
-          relative z-10
-          grid
-          border-t border-border
-          bg-muted/20
-          sm:grid-cols-3
-        "
+        className="relative z-10 grid border-t border-border bg-muted/20 sm:grid-cols-3"
       >
         <div
-          className="
-            flex items-center
-            justify-between
-            gap-4
-            px-5 py-3.5
-          "
+          className="flex items-center justify-between gap-4 px-5 py-3.5"
         >
           <span
-            className="
-              font-mono
-              text-[7px]
-              uppercase
-              tracking-[0.15em]
-              text-muted-foreground/40
-            "
+            className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
           >
             Total
           </span>
 
           <span
-            className="
-              text-xs
-              font-medium
-              text-foreground
-            "
+            className="text-xs font-medium text-foreground"
           >
             €{totalRevenue.toLocaleString()}
           </span>
         </div>
 
         <div
-          className="
-            flex items-center
-            justify-between
-            gap-4
-            border-t border-border
-            px-5 py-3.5
-            sm:border-l
-            sm:border-t-0
-          "
+          className="flex items-center justify-between gap-4 border-t border-border px-5 py-3.5 sm:border-l sm:border-t-0"
         >
           <span
-            className="
-              font-mono
-              text-[7px]
-              uppercase
-              tracking-[0.15em]
-              text-muted-foreground/40
-            "
+            className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
           >
             Trend
           </span>
@@ -484,34 +363,16 @@ export const RevenueChart = ({ revenue }: { revenue: RevenuePoint[] }) => {
         </div>
 
         <div
-          className="
-            flex items-center
-            justify-between
-            gap-4
-            border-t border-border
-            px-5 py-3.5
-            sm:border-l
-            sm:border-t-0
-          "
+          className="flex items-center justify-between gap-4 border-t border-border px-5 py-3.5 sm:border-l sm:border-t-0"
         >
           <span
-            className="
-              font-mono
-              text-[7px]
-              uppercase
-              tracking-[0.15em]
-              text-muted-foreground/40
-            "
+            className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
           >
             Dataset
           </span>
 
           <span
-            className="
-              text-xs
-              font-medium
-              text-foreground
-            "
+            className="text-xs font-medium text-foreground"
           >
             {revenue.length} points
           </span>
