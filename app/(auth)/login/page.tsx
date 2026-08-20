@@ -168,7 +168,7 @@ export default function LoginPage() {
               className="relative hidden overflow-hidden border-r border-border bg-primary p-10 text-primary-foreground lg:flex lg:min-h-[650px] lg:flex-col lg:justify-between"
             >
               {/* glow */}
-              <div className="pointer-events-none absolute -right-32 -top-24 h-80 w-80 rounded-full bg-secondary/15 blur-[100px]"/>
+              <div className="pointer-events-none absolute -right-32 -top-24 h-80 w-80 rounded-full bg-secondary/15 blur-[100px]" />
 
               {/* subtle line system */}
               <div
@@ -499,7 +499,7 @@ export default function LoginPage() {
                   <p className="text-sm text-muted-foreground">
                     Don&apos;t have an account?{" "}
                     <Link
-                      href="/signup"
+                      href="/select-industry"
                       className="font-semibold text-secondary underline-offset-4 transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
                     >
                       Create one
@@ -509,7 +509,7 @@ export default function LoginPage() {
 
                 {/* security footer */}
                 <div className="mt-6 flex items-center justify-center gap-2">
-                  <ShieldCheck className="h-3.5 w-3.5 text-success"/>
+                  <ShieldCheck className="h-3.5 w-3.5 text-success" />
 
                   <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40">
                     Protected Blackcrest workspace
