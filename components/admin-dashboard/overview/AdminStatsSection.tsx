@@ -151,15 +151,11 @@ export const AdminStatsSection = ({ stats }: AdminStatsSectionProps) => {
               {/* top row */}
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p
-                    className="font-mono text-[7px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/45"
-                  >
+                  <p className="font-mono text-[7px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/45">
                     {card.microLabel}
                   </p>
 
-                  <p
-                    className="mt-1 text-xs font-medium text-muted-foreground"
-                  >
+                  <p className="mt-1 text-xs font-medium text-muted-foreground">
                     {card.label}
                   </p>
                 </div>
@@ -250,17 +246,13 @@ export const AdminStatsSection = ({ stats }: AdminStatsSectionProps) => {
                       )}
                     />
 
-                    <span
-                      className="text-xs font-medium text-muted-foreground"
-                    >
+                    <span className="text-xs font-medium text-muted-foreground">
                       {isAttention ? "Review required" : "Current"}
                     </span>
                   </div>
                 )}
 
-                <span
-                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/30"
-                >
+                <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/30">
                   KPI
                 </span>
               </div>

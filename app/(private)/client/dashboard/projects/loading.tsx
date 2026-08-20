@@ -30,9 +30,7 @@ export default function ClientProjectsLoading() {
     <div className="relative">
       {/*===== PAGE INTRO SKELETON =====*/}
 
-      <section
-        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-      >
+      <section className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
         {/* ambient glow */}
         <div
           aria-hidden="true"
@@ -56,28 +54,20 @@ export default function ClientProjectsLoading() {
         />
 
         {/* top signal */}
-        <div
-          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
-        />
+        <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"/>
 
-        <div
-          className="relative z-10 grid gap-7 px-5 py-7 sm:px-6 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-end lg:px-8 lg:py-8"
-        >
+        <div className="relative z-10 grid gap-7 px-5 py-7 sm:px-6 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-end lg:px-8 lg:py-8">
           {/* left */}
           <div>
             <div className="flex items-center gap-2">
-              <FolderKanban
-                className="h-3.5 w-3.5 text-secondary/40"
-              />
+              <FolderKanban className="h-3.5 w-3.5 text-secondary/40"/>
 
               <Skeleton className="h-2.5 w-28" />
 
               <span className="h-px w-8 bg-border" />
             </div>
 
-            <Skeleton
-              className="mt-5 h-9 w-44 sm:h-10 sm:w-52"
-            />
+            <Skeleton className="mt-5 h-9 w-44 sm:h-10 sm:w-52"/>
 
             <div className="mt-4 space-y-2">
               <Skeleton className="h-4 w-full max-w-xl" />
@@ -86,9 +76,7 @@ export default function ClientProjectsLoading() {
           </div>
 
           {/* right */}
-          <div
-            className="border-t border-border pt-5 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0"
-          >
+          <div className="border-t border-border pt-5 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
             <div className="flex items-center gap-2">
               <Sparkles className="h-3.5 w-3.5 text-secondary/30" />
 
@@ -107,9 +95,7 @@ export default function ClientProjectsLoading() {
               </div>
             </div>
 
-            <div
-              className="mt-4 flex items-center gap-2 border-t border-border pt-4"
-            >
+            <div className="mt-4 flex items-center gap-2 border-t border-border pt-4">
               <Skeleton className="h-1.5 w-1.5 rounded-full" />
               <Skeleton className="h-2 w-24" />
             </div>
@@ -119,9 +105,7 @@ export default function ClientProjectsLoading() {
 
       {/*===== STATS SKELETON =====*/}
 
-      <section
-        className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4"
-      >
+      <section className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
         {[1, 2, 3, 4].map((item) => (
           <article
             key={item}
@@ -155,19 +139,13 @@ export default function ClientProjectsLoading() {
 
       {/*===== PROJECT PORTFOLIO SKELETON =====*/}
 
-      <section
-        className="relative mt-6 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-      >
+      <section className="relative mt-6 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
         {/* top signal */}
-        <div
-          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/30 via-secondary/10 to-transparent"
-        />
+        <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/30 via-secondary/10 to-transparent"/>
 
         {/*===== PORTFOLIO HEADER =====*/}
 
-        <div
-          className="flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-        >
+        <div className="flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <div>
             <div className="flex items-center gap-2">
               <FolderKanban className="h-3.5 w-3.5 text-secondary/30" />
@@ -182,9 +160,7 @@ export default function ClientProjectsLoading() {
             <Skeleton className="mt-2 h-3 w-80 max-w-full" />
           </div>
 
-          <div
-            className="flex items-center gap-2 border border-border bg-background/60 px-3 py-2"
-          >
+          <div className="flex items-center gap-2 border border-border bg-background/60 px-3 py-2">
             <Skeleton className="h-2 w-12" />
 
             <span className="h-3 w-px bg-border" />
@@ -198,48 +174,32 @@ export default function ClientProjectsLoading() {
         <div className="hidden overflow-x-auto lg:block">
           <Table>
             <TableHeader>
-              <TableRow
-                className="border-border bg-muted/20 hover:bg-muted/20"
-              >
-                <TableHead
-                  className="h-11 pl-6 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
-                >
+              <TableRow className="border-border bg-muted/20 hover:bg-muted/20">
+                <TableHead className="h-11 pl-6 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45">
                   Project
                 </TableHead>
 
-                <TableHead
-                  className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
-                >
+                <TableHead className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45">
                   Service
                 </TableHead>
 
-                <TableHead
-                  className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
-                >
+                <TableHead className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45">
                   Budget
                 </TableHead>
 
-                <TableHead
-                  className="h-11 min-w-[170px] font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
-                >
+                <TableHead className="h-11 min-w-[170px] font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45">
                   Progress
                 </TableHead>
 
-                <TableHead
-                  className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
-                >
+                <TableHead className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45">
                   Status
                 </TableHead>
 
-                <TableHead
-                  className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
-                >
+                <TableHead className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45">
                   Invoices
                 </TableHead>
 
-                <TableHead
-                  className="h-11 pr-6 text-right font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
-                >
+                <TableHead className="h-11 pr-6 text-right font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45">
                   Action
                 </TableHead>
               </TableRow>
@@ -327,16 +287,12 @@ export default function ClientProjectsLoading() {
 
               {/* service + budget */}
               <div className="mt-5 grid grid-cols-2 gap-3">
-                <div
-                  className="border border-border bg-background/50 p-3"
-                >
+                <div className="border border-border bg-background/50 p-3">
                   <Skeleton className="h-2 w-12" />
                   <Skeleton className="mt-2 h-3 w-20" />
                 </div>
 
-                <div
-                  className="border border-border bg-background/50 p-3"
-                >
+                <div className="border border-border bg-background/50 p-3">
                   <Skeleton className="h-2 w-12" />
                   <Skeleton className="mt-2 h-3 w-16" />
                 </div>
@@ -353,9 +309,7 @@ export default function ClientProjectsLoading() {
               </div>
 
               {/* bottom */}
-              <div
-                className="mt-5 flex items-center justify-between gap-4 border-t border-border pt-4"
-              >
+              <div className="mt-5 flex items-center justify-between gap-4 border-t border-border pt-4">
                 <Skeleton className="h-3 w-28" />
                 <Skeleton className="h-3 w-20" />
               </div>
@@ -365,9 +319,7 @@ export default function ClientProjectsLoading() {
 
         {/*===== FOOTER SKELETON =====*/}
 
-        <div
-          className="flex flex-col gap-2 border-t border-border bg-muted/15 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-        >
+        <div className="flex flex-col gap-2 border-t border-border bg-muted/15 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <div className="flex items-center gap-2">
             <Skeleton className="h-1.5 w-1.5 rounded-full" />
             <Skeleton className="h-2 w-28" />

@@ -48,18 +48,12 @@ export default function DashboardNavbar({
       )}
     >
       {/* subtle top brand signal */}
-      <div
-        className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/30 to-transparent"
-      />
+      <div className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/30 to-transparent"/>
 
       {/* subtle bottom signal */}
-      <div
-        className="pointer-events-none absolute bottom-[-1px] left-0 h-px w-28 bg-gradient-to-r from-secondary via-secondary/50 to-transparent"
-      />
+      <div className="pointer-events-none absolute bottom-[-1px] left-0 h-px w-28 bg-gradient-to-r from-secondary via-secondary/50 to-transparent"/>
 
-      <div
-        className="mx-auto flex h-full w-full max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-5 md:px-6 lg:px-7 xl:px-8 2xl:px-10"
-      >
+      <div className="mx-auto flex h-full w-full max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-5 md:px-6 lg:px-7 xl:px-8 2xl:px-10">
         {/*===== LEFT =====*/}
 
         <div className="flex min-w-0 items-center gap-3">
@@ -78,23 +72,17 @@ export default function DashboardNavbar({
             <div className="hidden items-center gap-2 sm:flex">
               <PanelTop className="h-3 w-3 text-secondary" />
 
-              <p
-                className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/45"
-              >
+              <p className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/45">
                 Blackcrest Workspace
               </p>
             </div>
 
             <div className="mt-0.5 flex items-center gap-3">
-              <h1
-                className="truncate text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl"
-              >
+              <h1 className="truncate text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl">
                 {pageTitle}
               </h1>
 
-              <span
-                className="hidden h-1.5 w-1.5 rounded-full bg-success sm:block"
-              />
+              <span className="hidden h-1.5 w-1.5 rounded-full bg-success sm:block"/>
             </div>
           </div>
         </div>
@@ -103,34 +91,24 @@ export default function DashboardNavbar({
 
         <div className="flex shrink-0 items-center gap-2">
           {/* utility group */}
-          <div
-            className="flex items-center gap-1 border border-border bg-background/70 p-1 shadow-[var(--shadow-control-inset)]"
-          >
+          <div className="flex items-center gap-1 border border-border bg-background/70 p-1 shadow-[var(--shadow-control-inset)]">
             {showNotifications && (
-              <div
-                className="flex h-9 w-9 items-center justify-center"
-              >
+              <div className="flex h-9 w-9 items-center justify-center">
                 <NotificationBell basePath={notificationPath} />
               </div>
             )}
 
-            <div
-              className="flex h-9 w-9 items-center justify-center"
-            >
+            <div className="flex h-9 w-9 items-center justify-center">
               <ThemeToggle />
             </div>
           </div>
 
           {/* separator */}
-          <span
-            className="mx-1 hidden h-8 w-px bg-border sm:block"
-          />
+          <span className="mx-1 hidden h-8 w-px bg-border sm:block"/>
 
           {/* profile */}
           {showProfile && (
-            <div
-              className="flex items-center rounded-[var(--radius-control)] transition-colors"
-            >
+            <div className="flex items-center rounded-[var(--radius-control)] transition-colors">
               <ProfileDropdown />
             </div>
           )}

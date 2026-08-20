@@ -37,23 +37,15 @@ export function ServicesStats({ services }: { services: AdminService[] }) {
   ];
 
   return (
-    <div
-      className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-    >
+    <div className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
       {/*===== HEADER =====*/}
 
-      <div
-        className="border-b border-border px-4 py-4"
-      >
-        <span
-          className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-        >
+      <div className="border-b border-border px-4 py-4">
+        <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
           Portfolio measure
         </span>
 
-        <p
-          className="mt-1 text-xs leading-5 text-muted-foreground"
-        >
+        <p className="mt-1 text-xs leading-5 text-muted-foreground">
           Current service catalog state.
         </p>
       </div>
@@ -78,21 +70,15 @@ export function ServicesStats({ services }: { services: AdminService[] }) {
               className="group flex items-start justify-between gap-4 px-4 py-4 transition-colors hover:bg-secondary/[0.018]"
             >
               <div className="min-w-0">
-                <span
-                  className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40"
-                >
+                <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40">
                   {stat.label}
                 </span>
 
-                <p
-                  className="mt-1.5 text-2xl font-semibold tracking-[-0.04em] text-heading"
-                >
+                <p className="mt-1.5 text-2xl font-semibold tracking-[-0.04em] text-heading">
                   {stat.value}
                 </p>
 
-                <p
-                  className="mt-1 text-[11px] leading-4 text-muted-foreground"
-                >
+                <p className="mt-1 text-[11px] leading-4 text-muted-foreground">
                   {stat.note}
                 </p>
               </div>
@@ -117,24 +103,16 @@ export function ServicesStats({ services }: { services: AdminService[] }) {
 
       {/*===== FOOTER =====*/}
 
-      <div
-        className="flex items-center justify-between gap-3 border-t border-border bg-muted/10 px-4 py-2.5"
-      >
+      <div className="flex items-center justify-between gap-3 border-t border-border bg-muted/10 px-4 py-2.5">
         <div className="flex items-center gap-2">
-          <span
-            className="h-1.5 w-1.5 rounded-full bg-success"
-          />
+          <span className="h-1.5 w-1.5 rounded-full bg-success"/>
 
-          <span
-            className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40"
-          >
+          <span className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40">
             Catalog indexed
           </span>
         </div>
 
-        <span
-          className="text-[11px] font-medium text-muted-foreground"
-        >
+        <span className="text-[11px] font-medium text-muted-foreground">
           {services.length} total
         </span>
       </div>

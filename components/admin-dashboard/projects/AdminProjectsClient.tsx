@@ -152,38 +152,26 @@ export function AdminProjectsClient({
     <section className="relative">
       {/*===== PROJECT DIRECTORY CONTROLS =====*/}
 
-      <div
-        className="relative z-20 border border-border bg-card shadow-[var(--shadow-card)]"
-      >
+      <div className="relative z-20 border border-border bg-card shadow-[var(--shadow-card)]">
         {/* directory heading */}
-        <div
-          className="flex flex-col gap-3 border-b border-border px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-        >
+        <div className="flex flex-col gap-3 border-b border-border px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <div className="flex items-center gap-3">
-            <div
-              className="flex h-8 w-8 items-center justify-center rounded-md border border-secondary/15 bg-secondary/[0.05] text-secondary"
-            >
+            <div className="flex h-8 w-8 items-center justify-center rounded-md border border-secondary/15 bg-secondary/[0.05] text-secondary">
               <FolderSearch2 className="h-3.5 w-3.5" />
             </div>
 
             <div>
-              <span
-                className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-              >
+              <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
                 Project directory
               </span>
 
-              <p
-                className="mt-0.5 text-xs text-muted-foreground"
-              >
+              <p className="mt-0.5 text-xs text-muted-foreground">
                 Search and refine delivery records.
               </p>
             </div>
           </div>
 
-          <span
-            className="text-xs text-muted-foreground"
-          >
+          <span className="text-xs text-muted-foreground">
             <span className="font-semibold text-heading">
               {filteredProjects.length}
             </span>{" "}
@@ -194,9 +182,7 @@ export function AdminProjectsClient({
 
         {/*===== FILTERS =====*/}
 
-        <div
-          className="flex flex-col gap-3 px-5 py-4 sm:px-6 xl:flex-row xl:items-center"
-        >
+        <div className="flex flex-col gap-3 px-5 py-4 sm:px-6 xl:flex-row xl:items-center">
           {/* search */}
           <div className="min-w-0 flex-1">
             <Input
@@ -209,9 +195,7 @@ export function AdminProjectsClient({
           </div>
 
           {/* filters */}
-          <div
-            className="flex flex-col gap-2 sm:grid sm:grid-cols-2 xl:flex xl:flex-row xl:items-center"
-          >
+          <div className="flex flex-col gap-2 sm:grid sm:grid-cols-2 xl:flex xl:flex-row xl:items-center">
             <div
               aria-hidden="true"
               className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-background text-muted-foreground xl:flex"
@@ -237,26 +221,18 @@ export function AdminProjectsClient({
 
         {/*===== FILTER STATE =====*/}
 
-        <div
-          className="flex min-h-10 flex-wrap items-center justify-between gap-3 border-t border-border bg-muted/10 px-5 py-2.5 sm:px-6"
-        >
+        <div className="flex min-h-10 flex-wrap items-center justify-between gap-3 border-t border-border bg-muted/10 px-5 py-2.5 sm:px-6">
           <div className="flex items-center gap-2">
-            <span
-              className="h-1.5 w-1.5 rounded-full bg-success"
-            />
+            <span className="h-1.5 w-1.5 rounded-full bg-success"/>
 
-            <span
-              className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
-            >
+            <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40">
               Portfolio records available
             </span>
           </div>
 
           {hasActiveFilters && (
             <div className="flex items-center gap-2">
-              <span
-                className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-secondary"
-              >
+              <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-secondary">
                 Filters active
               </span>
 
@@ -278,9 +254,7 @@ export function AdminProjectsClient({
       {/*===== PAGINATION =====*/}
 
       {totalPages > 1 && (
-        <div
-          className="mt-3 border border-border bg-card px-5 py-4 shadow-[var(--shadow-card)] sm:px-6"
-        >
+        <div className="mt-3 border border-border bg-card px-5 py-4 shadow-[var(--shadow-card)] sm:px-6">
           <Pagination
             currentPage={activePage}
             totalItems={filteredProjects.length}

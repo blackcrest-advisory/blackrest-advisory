@@ -145,9 +145,7 @@ export function AdminProjectRequestsClient({
     <section className="relative">
       {/*===== CONTROL WORKSPACE =====*/}
 
-      <div
-        className="relative z-20 border border-border bg-card shadow-[var(--shadow-card)]"
-      >
+      <div className="relative z-20 border border-border bg-card shadow-[var(--shadow-card)]">
         {/* top signal */}
         <div
           aria-hidden="true"
@@ -156,9 +154,7 @@ export function AdminProjectRequestsClient({
 
         {/*===== CONTROL BAR =====*/}
 
-        <div
-          className="flex flex-col gap-3 px-4 py-4 sm:px-5 lg:px-6 xl:flex-row xl:items-center"
-        >
+        <div className="flex flex-col gap-3 px-4 py-4 sm:px-5 lg:px-6 xl:flex-row xl:items-center">
           {/*===== SEARCH =====*/}
 
           <div className="min-w-0 flex-1">
@@ -173,9 +169,7 @@ export function AdminProjectRequestsClient({
 
           {/*===== FILTERS =====*/}
 
-          <div
-            className="flex flex-col gap-2 sm:grid sm:grid-cols-2 xl:flex xl:flex-row xl:items-center"
-          >
+          <div className="flex flex-col gap-2 sm:grid sm:grid-cols-2 xl:flex xl:flex-row xl:items-center">
             <div
               aria-hidden="true"
               className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-background text-muted-foreground xl:flex"
@@ -201,19 +195,13 @@ export function AdminProjectRequestsClient({
 
         {/*===== RESULT METADATA =====*/}
 
-        <div
-          className="flex min-h-11 flex-wrap items-center justify-between gap-3 border-t border-border bg-muted/10 px-4 py-2.5 sm:px-5 lg:px-6"
-        >
+        <div className="flex min-h-11 flex-wrap items-center justify-between gap-3 border-t border-border bg-muted/10 px-4 py-2.5 sm:px-5 lg:px-6">
           <div className="flex items-center gap-2">
-            <span
-              className="h-1.5 w-1.5 rounded-full bg-success"
-            />
+            <span className="h-1.5 w-1.5 rounded-full bg-success"/>
 
             <span className="text-xs text-muted-foreground">
               Showing{" "}
-              <span
-                className="font-semibold text-heading"
-              >
+              <span className="font-semibold text-heading">
                 {filteredBriefs.length}
               </span>{" "}
               matching request
@@ -223,15 +211,11 @@ export function AdminProjectRequestsClient({
 
           {(searchTerm || status !== "all" || pillar !== "all") && (
             <div className="flex items-center gap-2">
-              <span
-                className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-              >
+              <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
                 Filters active
               </span>
 
-              <span
-                className="h-px w-6 bg-secondary/30"
-              />
+              <span className="h-px w-6 bg-secondary/30"/>
             </div>
           )}
         </div>
@@ -251,9 +235,7 @@ export function AdminProjectRequestsClient({
       {/*===== PAGINATION =====*/}
 
       {totalPages > 1 && (
-        <div
-          className="mt-3 border border-border bg-card px-4 py-4 shadow-[var(--shadow-card)] sm:px-5 lg:px-6"
-        >
+        <div className="mt-3 border border-border bg-card px-4 py-4 shadow-[var(--shadow-card)] sm:px-5 lg:px-6">
           <Pagination
             currentPage={activePage}
             totalItems={filteredBriefs.length}

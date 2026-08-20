@@ -58,37 +58,27 @@ export const QuickActions = () => {
       />
 
       {/* top line */}
-      <div
-        className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
-      />
+      <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"/>
 
       {/* header */}
-      <div
-        className="relative z-10 border-b border-border px-5 py-5 sm:px-6"
-      >
+      <div className="relative z-10 border-b border-border px-5 py-5 sm:px-6">
         <div className="flex items-start justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
               <Sparkles className="h-3.5 w-3.5 text-secondary" />
 
-              <span
-                className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
-              >
+              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
                 Client concierge
               </span>
 
               <span className="h-px w-7 bg-secondary/30" />
             </div>
 
-            <h2
-              className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl"
-            >
+            <h2 className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl">
               Quick Actions
             </h2>
 
-            <p
-              className="mt-1 text-xs leading-5 text-muted-foreground"
-            >
+            <p className="mt-1 text-xs leading-5 text-muted-foreground">
               Access the services you&apos;re most likely to need.
             </p>
           </div>
@@ -102,29 +92,21 @@ export const QuickActions = () => {
 
           const content = (
             <>
-              <div
-                className="flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary group-hover:text-secondary-foreground"
-              >
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary group-hover:text-secondary-foreground">
                 <Icon className="h-4 w-4" strokeWidth={1.8} />
               </div>
 
               <div className="min-w-0 flex-1 text-left">
-                <p
-                  className="text-sm font-semibold text-heading transition-colors group-hover:text-secondary"
-                >
+                <p className="text-sm font-semibold text-heading transition-colors group-hover:text-secondary">
                   {action.label}
                 </p>
 
-                <p
-                  className="mt-0.5 text-[11px] leading-5 text-muted-foreground"
-                >
+                <p className="mt-0.5 text-[11px] leading-5 text-muted-foreground">
                   {action.description}
                 </p>
               </div>
 
-              <ArrowUpRight
-                className="h-4 w-4 shrink-0 text-muted-foreground/30 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-secondary"
-              />
+              <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground/30 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-secondary"/>
             </>
           );
 
@@ -182,18 +164,12 @@ export const QuickActions = () => {
       </div>
 
       {/* footer */}
-      <div
-        className="relative z-10 flex items-center justify-between border-t border-border bg-muted/15 px-5 py-3.5 sm:px-6"
-      >
-        <span
-          className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/40"
-        >
+      <div className="relative z-10 flex items-center justify-between border-t border-border bg-muted/15 px-5 py-3.5 sm:px-6">
+        <span className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/40">
           Blackcrest support access
         </span>
 
-        <span
-          className="font-mono text-[7px] uppercase tracking-[0.14em] text-secondary"
-        >
+        <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-secondary">
           BCR / CLIENT
         </span>
       </div>

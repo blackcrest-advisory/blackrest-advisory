@@ -25,9 +25,7 @@ export const EngagementCTA = () => {
   const reduceMotion = Boolean(useReducedMotion());
 
   return (
-    <Section
-      className="relative overflow-hidden bg-background py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-28"
-    >
+    <Section className="relative overflow-hidden bg-background py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-28">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -265,9 +263,7 @@ export const EngagementCTA = () => {
               >
                 <div className="flex items-start justify-between gap-5">
                   <div className="flex items-start gap-4">
-                    <div
-                      className="flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.07] text-secondary transition-all duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground"
-                    >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.07] text-secondary transition-all duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground">
                       <MessageSquareText className="h-4 w-4" />
                     </div>
 
@@ -301,9 +297,7 @@ export const EngagementCTA = () => {
               >
                 <div className="flex items-start justify-between gap-5">
                   <div className="flex items-start gap-4">
-                    <div
-                      className="flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.07] text-secondary transition-all duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground"
-                    >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.07] text-secondary transition-all duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground">
                       <Mail className="h-4 w-4" />
                     </div>
 

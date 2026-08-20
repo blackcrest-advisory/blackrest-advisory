@@ -18,9 +18,7 @@ export const MapSection = () => {
   const reduceMotion = Boolean(useReducedMotion());
 
   return (
-    <Section
-      className="relative overflow-hidden bg-background text-foreground transition-colors duration-300"
-    >
+    <Section className="relative overflow-hidden bg-background text-foreground transition-colors duration-300">
       {/* Background atmosphere */}
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -67,18 +65,14 @@ export const MapSection = () => {
             <div className="flex items-center gap-3">
               <MapPin className="h-4 w-4 text-secondary" />
 
-              <span
-                className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary"
-              >
+              <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary">
                 London / Headquarters
               </span>
 
               <span className="h-px w-12 bg-secondary/40" />
             </div>
 
-            <h2
-              className="mt-5 max-w-2xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl"
-            >
+            <h2 className="mt-5 max-w-2xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl">
               Find Blackcrest
               <span className="block text-muted-foreground">
                 in the heart of London.
@@ -108,9 +102,7 @@ export const MapSection = () => {
         </div>
 
         {/* Main locator */}
-        <div
-          className="grid border-b border-border lg:grid-cols-[0.38fr_0.62fr]"
-        >
+        <div className="grid border-b border-border lg:grid-cols-[0.38fr_0.62fr]">
           {/* Info panel */}
           <motion.div
             initial={{
@@ -130,22 +122,16 @@ export const MapSection = () => {
           >
             <div className="flex items-center justify-between">
               <div>
-                <p
-                  className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted-foreground/50"
-                >
+                <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted-foreground/50">
                   Office profile
                 </p>
 
-                <h3
-                  className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-heading"
-                >
+                <h3 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-heading">
                   London
                 </h3>
               </div>
 
-              <span
-                className="font-mono text-[8px] text-secondary"
-              >
+              <span className="font-mono text-[8px] text-secondary">
                 BCR / LDN
               </span>
             </div>
@@ -153,16 +139,12 @@ export const MapSection = () => {
             <div className="mt-8 border-t border-border">
               {/* Address */}
               <div className="flex gap-4 border-b border-border py-5">
-                <div
-                  className="flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.06] text-secondary"
-                >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.06] text-secondary">
                   <Building2 className="h-4 w-4" />
                 </div>
 
                 <div>
-                  <p
-                    className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45"
-                  >
+                  <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45">
                     Address
                   </p>
 
@@ -180,16 +162,12 @@ export const MapSection = () => {
 
               {/* Hours */}
               <div className="flex gap-4 border-b border-border py-5">
-                <div
-                  className="flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.06] text-secondary"
-                >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.06] text-secondary">
                   <Clock3 className="h-4 w-4" />
                 </div>
 
                 <div>
-                  <p
-                    className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45"
-                  >
+                  <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45">
                     Availability
                   </p>
 
@@ -205,16 +183,12 @@ export const MapSection = () => {
 
               {/* Phone */}
               <div className="flex gap-4 py-5">
-                <div
-                  className="flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.06] text-secondary"
-                >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.06] text-secondary">
                   <Phone className="h-4 w-4" />
                 </div>
 
                 <div>
-                  <p
-                    className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45"
-                  >
+                  <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45">
                     Contact
                   </p>
 
@@ -242,12 +216,8 @@ export const MapSection = () => {
               </Button>
             </div>
 
-            <div
-              className="mt-8 border-l border-secondary/30 pl-4"
-            >
-              <p
-                className="text-xs leading-6 text-muted-foreground"
-              >
+            <div className="mt-8 border-l border-secondary/30 pl-4">
+              <p className="text-xs leading-6 text-muted-foreground">
                 Visiting is optional. Blackcrest works with clients across
                 Europe through a remote-first, internationally connected model.
               </p>
@@ -287,23 +257,15 @@ export const MapSection = () => {
             {/* subtle map framing */}
             <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-border/50" />
 
-            <div
-              className="pointer-events-none absolute left-5 top-5 flex items-center gap-2 border border-border/70 bg-background/85 px-3 py-2 backdrop-blur-xl"
-            >
-              <span
-                className="h-1.5 w-1.5 rounded-full bg-secondary shadow-[0_0_10px_var(--color-secondary)]"
-              />
+            <div className="pointer-events-none absolute left-5 top-5 flex items-center gap-2 border border-border/70 bg-background/85 px-3 py-2 backdrop-blur-xl">
+              <span className="h-1.5 w-1.5 rounded-full bg-secondary shadow-[0_0_10px_var(--color-secondary)]"/>
 
-              <span
-                className="font-mono text-[8px] uppercase tracking-[0.16em] text-foreground"
-              >
+              <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-foreground">
                 London HQ
               </span>
             </div>
 
-            <div
-              className="pointer-events-none absolute bottom-5 right-5 hidden font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/60 sm:block"
-            >
+            <div className="pointer-events-none absolute bottom-5 right-5 hidden font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/60 sm:block">
               51.5151° N / 0.0818° W
             </div>
           </motion.div>
@@ -327,9 +289,7 @@ export const MapSection = () => {
             extend across Europe.
           </p>
 
-          <div
-            className="flex items-center gap-3 font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40"
-          >
+          <div className="flex items-center gap-3 font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40">
             London
             <span className="text-secondary">→</span>
             Europe

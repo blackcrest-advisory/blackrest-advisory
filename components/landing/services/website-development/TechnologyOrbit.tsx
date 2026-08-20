@@ -208,9 +208,7 @@ export default function TechnologyOrbit() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section
-      className="relative isolate overflow-hidden bg-navy-deep py-16 text-white sm:py-20 lg:py-28"
-    >
+    <Section className="relative isolate overflow-hidden bg-navy-deep py-16 text-white sm:py-20 lg:py-28">
       {/*===== ENVIRONMENT =====*/}
 
       <div
@@ -218,32 +216,20 @@ export default function TechnologyOrbit() {
         className="pointer-events-none absolute inset-0 -z-20"
       >
         {/* large technical grid */}
-        <div
-          className="absolute inset-0 opacity-[0.09] [background-image:linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:72px_72px]"
-        />
+        <div className="absolute inset-0 opacity-[0.09] [background-image:linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:72px_72px]"/>
 
         {/* micro dot field */}
-        <div
-          className="absolute inset-0 opacity-[0.04] [background-image:radial-gradient(rgba(255,255,255,0.75)_0.7px,transparent_0.7px)] [background-size:15px_15px]"
-        />
+        <div className="absolute inset-0 opacity-[0.04] [background-image:radial-gradient(rgba(255,255,255,0.75)_0.7px,transparent_0.7px)] [background-size:15px_15px]"/>
 
         {/* gold energy field */}
-        <div
-          className="absolute left-[34%] top-[25%] h-[420px] w-[420px] rounded-full bg-gold-light/[0.075] blur-[150px]"
-        />
+        <div className="absolute left-[34%] top-[25%] h-[420px] w-[420px] rounded-full bg-gold-light/[0.075] blur-[150px]"/>
 
-        <div
-          className="absolute -right-40 bottom-[-80px] h-[480px] w-[480px] rounded-full bg-white/[0.03] blur-[160px]"
-        />
+        <div className="absolute -right-40 bottom-[-80px] h-[480px] w-[480px] rounded-full bg-white/[0.03] blur-[160px]"/>
 
         {/* architectural rails */}
-        <div
-          className="absolute left-[7%] top-0 h-full w-px bg-white/[0.055]"
-        />
+        <div className="absolute left-[7%] top-0 h-full w-px bg-white/[0.055]"/>
 
-        <div
-          className="absolute right-[7%] top-0 h-full w-px bg-white/[0.055]"
-        />
+        <div className="absolute right-[7%] top-0 h-full w-px bg-white/[0.055]"/>
       </div>
 
       <Container>
@@ -279,9 +265,7 @@ export default function TechnologyOrbit() {
           <div className="flex items-center gap-3">
             <Cpu className="h-3.5 w-3.5 text-gold-light" />
 
-            <span
-              className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-gold-light"
-            >
+            <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-gold-light">
               05 / Technology Runtime
             </span>
 
@@ -289,9 +273,7 @@ export default function TechnologyOrbit() {
           </div>
 
           <div className="flex items-center gap-3">
-            <span
-              className="relative flex h-2 w-2"
-            >
+            <span className="relative flex h-2 w-2">
               {!shouldReduceMotion && (
                 <motion.span
                   className="absolute inset-0 rounded-full bg-success"
@@ -306,14 +288,10 @@ export default function TechnologyOrbit() {
                 />
               )}
 
-              <span
-                className="relative h-2 w-2 rounded-full bg-success"
-              />
+              <span className="relative h-2 w-2 rounded-full bg-success"/>
             </span>
 
-            <span
-              className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/30"
-            >
+            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/30">
               Runtime / Online
             </span>
           </div>
@@ -321,9 +299,7 @@ export default function TechnologyOrbit() {
 
         {/*===== INTRO =====*/}
 
-        <div
-          className="grid gap-8 py-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-end lg:gap-16 lg:py-14"
-        >
+        <div className="grid gap-8 py-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-end lg:gap-16 lg:py-14">
           <motion.div
             initial={
               shouldReduceMotion
@@ -349,15 +325,11 @@ export default function TechnologyOrbit() {
               duration: 0.65,
             }}
           >
-            <span
-              className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-gold-light"
-            >
+            <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-gold-light">
               The engineering stack
             </span>
 
-            <p
-              className="mt-4 max-w-sm text-sm leading-7 text-white/42"
-            >
+            <p className="mt-4 max-w-sm text-sm leading-7 text-white/42">
               Technology is selected around the product, not around trends.
               Every tool must earn its place in the architecture.
             </p>
@@ -391,18 +363,14 @@ export default function TechnologyOrbit() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <h2
-              className="max-w-4xl text-3xl font-semibold leading-[1.02] tracking-[-0.05em] text-white sm:text-4xl lg:text-5xl xl:text-[58px]"
-            >
+            <h2 className="max-w-4xl text-3xl font-semibold leading-[1.02] tracking-[-0.05em] text-white sm:text-4xl lg:text-5xl xl:text-[58px]">
               Not a stack of tools.
               <span className="block text-gold-light">
                 A working ecosystem.
               </span>
             </h2>
 
-            <p
-              className="mt-5 max-w-2xl text-sm leading-7 text-white/45 sm:text-base sm:leading-8"
-            >
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-white/45 sm:text-base sm:leading-8">
               Frontend, application logic, data, infrastructure and delivery
               operate as one engineering system — designed for speed,
               maintainability and long-term scalability.
@@ -441,29 +409,21 @@ export default function TechnologyOrbit() {
         >
           {/*===== BOARD HEADER =====*/}
 
-          <div
-            className="flex flex-col gap-3 border-b border-white/10 bg-white/[0.015] px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-          >
+          <div className="flex flex-col gap-3 border-b border-white/10 bg-white/[0.015] px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <div className="flex items-center gap-3">
               <Terminal className="h-3.5 w-3.5 text-gold-light" />
 
-              <span
-                className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-white/45"
-              >
+              <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-white/45">
                 blackcrest://technology/runtime
               </span>
             </div>
 
             <div className="flex items-center gap-5">
-              <span
-                className="font-mono text-[7px] uppercase tracking-[0.13em] text-white/25"
-              >
+              <span className="font-mono text-[7px] uppercase tracking-[0.13em] text-white/25">
                 Layers 04
               </span>
 
-              <span
-                className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-success"
-              >
+              <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-success">
                 Stable
               </span>
             </div>
@@ -471,14 +431,10 @@ export default function TechnologyOrbit() {
 
           {/*===== MAIN RUNTIME =====*/}
 
-          <div
-            className="grid min-w-0 xl:grid-cols-[minmax(0,1fr)_310px]"
-          >
+          <div className="grid min-w-0 xl:grid-cols-[minmax(0,1fr)_310px]">
             {/*===== STACK PIPELINE =====*/}
 
-            <div
-              className="relative min-w-0 border-b border-white/10 xl:border-b-0 xl:border-r"
-            >
+            <div className="relative min-w-0 border-b border-white/10 xl:border-b-0 xl:border-r">
               {/* internal grid */}
               <div
                 aria-hidden="true"
@@ -524,15 +480,11 @@ export default function TechnologyOrbit() {
             {/*===== RUNTIME MONITOR =====*/}
 
             <aside className="min-w-0">
-              <div
-                className="flex items-center justify-between gap-3 border-b border-white/10 px-5 py-4"
-              >
+              <div className="flex items-center justify-between gap-3 border-b border-white/10 px-5 py-4">
                 <div className="flex items-center gap-2">
                   <Activity className="h-3.5 w-3.5 text-gold-light" />
 
-                  <span
-                    className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-gold-light"
-                  >
+                  <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-gold-light">
                     Runtime Monitor
                   </span>
                 </div>
@@ -542,17 +494,13 @@ export default function TechnologyOrbit() {
 
               {/*===== CORE =====*/}
 
-              <div
-                className="relative overflow-hidden border-b border-white/10 px-5 py-8 text-center"
-              >
+              <div className="relative overflow-hidden border-b border-white/10 px-5 py-8 text-center">
                 <div
                   aria-hidden="true"
                   className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-light/[0.06] blur-[65px]"
                 />
 
-                <div
-                  className="relative mx-auto flex h-36 w-36 items-center justify-center"
-                >
+                <div className="relative mx-auto flex h-36 w-36 items-center justify-center">
                   {/* outer rotating ring */}
                   {!shouldReduceMotion && (
                     <motion.div
@@ -587,28 +535,20 @@ export default function TechnologyOrbit() {
                     className="absolute inset-5 rounded-full border border-gold-light/20"
                   />
 
-                  <div
-                    className="relative z-10 flex h-20 w-20 flex-col items-center justify-center border border-gold-light/25 bg-navy-deep shadow-[0_0_40px_rgba(232,207,143,0.1)]"
-                  >
+                  <div className="relative z-10 flex h-20 w-20 flex-col items-center justify-center border border-gold-light/25 bg-navy-deep shadow-[0_0_40px_rgba(232,207,143,0.1)]">
                     <Cpu className="h-5 w-5 text-gold-light" />
 
-                    <span
-                      className="mt-2 font-mono text-[6px] font-semibold uppercase tracking-[0.14em] text-white/35"
-                    >
+                    <span className="mt-2 font-mono text-[6px] font-semibold uppercase tracking-[0.14em] text-white/35">
                       Runtime
                     </span>
                   </div>
                 </div>
 
-                <span
-                  className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-gold-light"
-                >
+                <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-gold-light">
                   Blackcrest Core
                 </span>
 
-                <p
-                  className="mx-auto mt-3 max-w-[220px] text-xs leading-5 text-white/38"
-                >
+                <p className="mx-auto mt-3 max-w-[220px] text-xs leading-5 text-white/38">
                   Technologies orchestrated around the needs of the product.
                 </p>
               </div>
@@ -649,9 +589,7 @@ export default function TechnologyOrbit() {
                       <div className="flex items-center gap-3">
                         <Icon className="h-3.5 w-3.5 text-gold-light" />
 
-                        <span
-                          className="text-xs font-medium text-white/58"
-                        >
+                        <span className="text-xs font-medium text-white/58">
                           {output.label}
                         </span>
                       </div>
@@ -659,9 +597,7 @@ export default function TechnologyOrbit() {
                       <div className="flex items-center gap-2">
                         <Check className="h-3 w-3 text-success" />
 
-                        <span
-                          className="font-mono text-[6px] font-semibold uppercase tracking-[0.11em] text-success"
-                        >
+                        <span className="font-mono text-[6px] font-semibold uppercase tracking-[0.11em] text-success">
                           {output.value}
                         </span>
                       </div>
@@ -674,29 +610,19 @@ export default function TechnologyOrbit() {
 
           {/*===== SYSTEM FOOTER =====*/}
 
-          <div
-            className="grid border-t border-white/10 md:grid-cols-[minmax(0,1fr)_auto] md:items-center"
-          >
-            <div
-              className="flex items-center gap-3 px-5 py-4 sm:px-6"
-            >
+          <div className="grid border-t border-white/10 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
+            <div className="flex items-center gap-3 px-5 py-4 sm:px-6">
               <Braces className="h-3.5 w-3.5 text-gold-light" />
 
-              <span
-                className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-white/32"
-              >
+              <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-white/32">
                 Interface → Application → Data → Infrastructure
               </span>
             </div>
 
-            <div
-              className="flex items-center gap-3 border-t border-white/10 px-5 py-4 md:border-l md:border-t-0 sm:px-6"
-            >
+            <div className="flex items-center gap-3 border-t border-white/10 px-5 py-4 md:border-l md:border-t-0 sm:px-6">
               <Zap className="h-3.5 w-3.5 text-gold-light" />
 
-              <span
-                className="whitespace-nowrap font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-white/30"
-              >
+              <span className="whitespace-nowrap font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-white/30">
                 Built for production
               </span>
             </div>
@@ -731,29 +657,21 @@ export default function TechnologyOrbit() {
           }}
           className="relative mt-6 overflow-hidden border border-white/10"
         >
-          <div
-            className="flex flex-col gap-3 border-b border-white/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-          >
+          <div className="flex flex-col gap-3 border-b border-white/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <div className="flex items-center gap-3">
               <GitBranch className="h-3.5 w-3.5 text-gold-light" />
 
-              <span
-                className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-gold-light"
-              >
+              <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-gold-light">
                 Delivery Pipeline
               </span>
             </div>
 
-            <span
-              className="font-mono text-[7px] uppercase tracking-[0.13em] text-white/25"
-            >
+            <span className="font-mono text-[7px] uppercase tracking-[0.13em] text-white/25">
               Development → Production
             </span>
           </div>
 
-          <div
-            className="relative grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6"
-          >
+          <div className="relative grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
             <PipelineNode index="01" label="Design" icon={Layers3} />
 
             <PipelineNode index="02" label="Develop" icon={Code2} />
@@ -789,18 +707,12 @@ export default function TechnologyOrbit() {
 
         {/*===== CLOSING LINE =====*/}
 
-        <div
-          className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-4 sm:flex-row sm:items-center sm:justify-between"
-        >
-          <span
-            className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-gold-light"
-          >
+        <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-4 sm:flex-row sm:items-center sm:justify-between">
+          <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-gold-light">
             Technology follows architecture. Architecture follows the goal.
           </span>
 
-          <span
-            className="font-mono text-[7px] uppercase tracking-[0.14em] text-white/22"
-          >
+          <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-white/22">
             Blackcrest / Engineering Stack
           </span>
         </div>
@@ -882,44 +794,32 @@ function StackRow({
         className="absolute left-[34px] top-1/2 h-px w-6 -translate-y-1/2 bg-white/10 sm:left-[42px]"
       />
 
-      <div
-        className="grid min-w-0 gap-5 pl-10 sm:pl-12 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-center lg:gap-8"
-      >
+      <div className="grid min-w-0 gap-5 pl-10 sm:pl-12 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-center lg:gap-8">
         {/* metadata */}
         <div>
           <div className="flex items-center gap-3">
-            <div
-              className="flex h-9 w-9 items-center justify-center border border-gold-light/18 bg-gold-light/[0.045] text-gold-light"
-            >
+            <div className="flex h-9 w-9 items-center justify-center border border-gold-light/18 bg-gold-light/[0.045] text-gold-light">
               <Icon className="h-4 w-4" />
             </div>
 
             <div>
-              <span
-                className="block font-mono text-[7px] font-semibold text-gold-light"
-              >
+              <span className="block font-mono text-[7px] font-semibold text-gold-light">
                 {layer.index}
               </span>
 
-              <h3
-                className="mt-1 text-sm font-semibold text-white"
-              >
+              <h3 className="mt-1 text-sm font-semibold text-white">
                 {layer.title}
               </h3>
             </div>
           </div>
 
-          <p
-            className="mt-3 max-w-[230px] text-[10px] leading-5 text-white/32"
-          >
+          <p className="mt-3 max-w-[230px] text-[10px] leading-5 text-white/32">
             {layer.description}
           </p>
         </div>
 
         {/* technologies */}
-        <div
-          className="grid min-w-0 grid-cols-2 gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-3 xl:grid-cols-5"
-        >
+        <div className="grid min-w-0 grid-cols-2 gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-3 xl:grid-cols-5">
           {layer.technologies.map((technology, techIndex) => {
             const TechIcon = technology.icon;
 
@@ -950,13 +850,9 @@ function StackRow({
                 }}
                 className="group/tech relative min-w-0 bg-navy-deep/95 px-3 py-4 transition-colors duration-300 hover:bg-gold-light/[0.045]"
               >
-                <TechIcon
-                  className="h-5 w-5 text-white/60 transition-all duration-300 group-hover/tech:text-gold-light"
-                />
+                <TechIcon className="h-5 w-5 text-white/60 transition-all duration-300 group-hover/tech:text-gold-light"/>
 
-                <span
-                  className="mt-3 block truncate text-[10px] font-medium text-white/48 transition-colors group-hover/tech:text-white"
-                >
+                <span className="mt-3 block truncate text-[10px] font-medium text-white/48 transition-colors group-hover/tech:text-white">
                   {technology.label}
                 </span>
 
@@ -1001,20 +897,14 @@ function PipelineNode({
         ${isLast ? "lg:border-r-0" : ""}
       `}
     >
-      <span
-        className="font-mono text-[7px] font-semibold text-gold-light/55"
-      >
+      <span className="font-mono text-[7px] font-semibold text-gold-light/55">
         {index}
       </span>
 
-      <div
-        className="mt-3 flex items-center gap-3"
-      >
+      <div className="mt-3 flex items-center gap-3">
         <Icon className="h-3.5 w-3.5 text-gold-light" />
 
-        <span
-          className="text-xs font-medium text-white/55"
-        >
+        <span className="text-xs font-medium text-white/55">
           {label}
         </span>
       </div>

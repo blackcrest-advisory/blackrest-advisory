@@ -579,9 +579,7 @@ export const EngagementProcess = () => {
                   className="group flex items-center gap-3 text-xs font-semibold text-foreground transition-colors hover:text-secondary"
                 >
                   Next stage
-                  <span
-                    className="flex h-9 w-9 items-center justify-center border border-border bg-background transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary/[0.06]"
-                  >
+                  <span className="flex h-9 w-9 items-center justify-center border border-border bg-background transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary/[0.06]">
                     <ArrowRight className="h-4 w-4" />
                   </span>
                 </motion.button>

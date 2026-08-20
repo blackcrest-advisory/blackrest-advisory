@@ -178,53 +178,37 @@ export function ReportsDashboard({
           className="pointer-events-none absolute right-0 top-0 h-72 w-72 rounded-full bg-secondary/[0.055] blur-[110px]"
         />
 
-        <div
-          className="relative z-10 grid gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_330px]"
-        >
+        <div className="relative z-10 grid gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_330px]">
           {/*===== TITLE =====*/}
 
           <div className="min-w-0">
-            <div
-              className="flex flex-wrap items-center gap-3"
-            >
+            <div className="flex flex-wrap items-center gap-3">
               <FileBarChart className="h-3.5 w-3.5 text-secondary" />
 
-              <span
-                className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
-              >
+              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
                 Executive intelligence
               </span>
 
               <span className="h-px w-9 bg-secondary/30" />
 
-              <span
-                className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40"
-              >
+              <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40">
                 Performance brief
               </span>
             </div>
 
-            <h1
-              className="mt-5 text-3xl font-semibold tracking-[-0.05em] text-heading sm:text-[38px] lg:text-[42px]"
-            >
+            <h1 className="mt-5 text-3xl font-semibold tracking-[-0.05em] text-heading sm:text-[38px] lg:text-[42px]">
               Reports
             </h1>
 
-            <p
-              className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground"
-            >
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">
               Track paid revenue, lead conversion, service performance, and
               operational signals across the business.
             </p>
 
-            <div
-              className="mt-6 flex flex-wrap items-center gap-3"
-            >
+            <div className="mt-6 flex flex-wrap items-center gap-3">
               <span className="h-px w-10 bg-secondary/40" />
 
-              <span
-                className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/40"
-              >
+              <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/40">
                 Business performance index
               </span>
             </div>
@@ -232,19 +216,13 @@ export function ReportsDashboard({
 
           {/*===== REPORT CONTROL =====*/}
 
-          <div
-            className="border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
-          >
+          <div className="border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0">
             <div>
-              <span
-                className="font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/40"
-              >
+              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/40">
                 Reporting window
               </span>
 
-              <p
-                className="mt-2 text-xs leading-5 text-muted-foreground"
-              >
+              <p className="mt-2 text-xs leading-5 text-muted-foreground">
                 Adjust the reporting period or export the current
                 service-performance dataset.
               </p>
@@ -271,9 +249,7 @@ export function ReportsDashboard({
               </Button>
             </div>
 
-            <div
-              className="mt-5 flex items-center gap-2 border-t border-border pt-4"
-            >
+            <div className="mt-5 flex items-center gap-2 border-t border-border pt-4">
               <span
                 className={`
                   h-1.5 w-1.5
@@ -283,9 +259,7 @@ export function ReportsDashboard({
                 `}
               />
 
-              <span
-                className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40"
-              >
+              <span className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40">
                 {isPending ? "Refreshing intelligence" : "Report current"}
               </span>
             </div>
@@ -301,9 +275,7 @@ export function ReportsDashboard({
         animate={shouldReduceMotion ? undefined : "visible"}
         className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
       >
-        <div
-          className="grid sm:grid-cols-2 xl:grid-cols-4"
-        >
+        <div className="grid sm:grid-cols-2 xl:grid-cols-4">
           {stats.map((stat) => (
             <motion.div
               key={stat.label}
@@ -326,9 +298,7 @@ export function ReportsDashboard({
       >
         {/*===== REVENUE TREND =====*/}
 
-        <div
-          className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-        >
+        <div className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
           <div
             aria-hidden="true"
             className="absolute left-0 top-0 h-[2px] w-28 bg-secondary/50"
@@ -341,12 +311,8 @@ export function ReportsDashboard({
             icon={TrendingUp}
           />
 
-          <div
-            className="px-5 pb-5 pt-3 sm:px-6 sm:pb-6"
-          >
-            <div
-              className="relative h-64 border-b border-l border-border px-3 pt-5 sm:h-72 sm:px-5"
-            >
+          <div className="px-5 pb-5 pt-3 sm:px-6 sm:pb-6">
+            <div className="relative h-64 border-b border-l border-border px-3 pt-5 sm:h-72 sm:px-5">
               {/* horizontal guides */}
               <div
                 aria-hidden="true"
@@ -362,9 +328,7 @@ export function ReportsDashboard({
                 ))}
               </div>
 
-              <div
-                className="relative z-10 flex h-full items-end gap-2 sm:gap-3"
-              >
+              <div className="relative z-10 flex h-full items-end gap-2 sm:gap-3">
                 {reportData.revenueTrend.map((point) => (
                   <div
                     key={point.label}
@@ -376,16 +340,12 @@ export function ReportsDashboard({
                         height: `${(point.value / maxTrend) * 100}%`,
                       }}
                     >
-                      <span
-                        className="absolute -top-8 left-1/2 z-20 hidden w-max -translate-x-1/2 rounded-md border border-border bg-primary px-2 py-1 text-[10px] font-medium text-primary-foreground shadow-[var(--shadow-overlay)] group-hover:block"
-                      >
+                      <span className="absolute -top-8 left-1/2 z-20 hidden w-max -translate-x-1/2 rounded-md border border-border bg-primary px-2 py-1 text-[10px] font-medium text-primary-foreground shadow-[var(--shadow-overlay)] group-hover:block">
                         {point.display}
                       </span>
                     </div>
 
-                    <span
-                      className="mt-2 truncate text-center font-mono text-[7px] uppercase tracking-[0.08em] text-muted-foreground/45"
-                    >
+                    <span className="mt-2 truncate text-center font-mono text-[7px] uppercase tracking-[0.08em] text-muted-foreground/45">
                       {point.label}
                     </span>
                   </div>
@@ -393,15 +353,11 @@ export function ReportsDashboard({
               </div>
             </div>
 
-            <div
-              className="mt-4 flex items-center justify-between gap-3"
-            >
+            <div className="mt-4 flex items-center justify-between gap-3">
               <div className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
 
-                <span
-                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
-                >
+                <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40">
                   Paid revenue series
                 </span>
               </div>
@@ -411,9 +367,7 @@ export function ReportsDashboard({
 
         {/*===== SALES PIPELINE =====*/}
 
-        <div
-          className="min-w-0 border border-border bg-card shadow-[var(--shadow-card)]"
-        >
+        <div className="min-w-0 border border-border bg-card shadow-[var(--shadow-card)]">
           <PanelHeader
             eyebrow="Commercial funnel"
             title="Sales pipeline"
@@ -421,43 +375,29 @@ export function ReportsDashboard({
             icon={Target}
           />
 
-          <div
-            className="space-y-5 px-5 py-5 sm:px-6"
-          >
+          <div className="space-y-5 px-5 py-5 sm:px-6">
             {reportData.pipeline.map((stage, index) => (
               <div
                 key={stage.label}
                 className="border-b border-border pb-4 last:border-b-0 last:pb-0"
               >
-                <div
-                  className="flex items-start gap-3"
-                >
-                  <span
-                    className="mt-0.5 w-6 shrink-0 font-mono text-[8px] font-semibold text-secondary/40"
-                  >
+                <div className="flex items-start gap-3">
+                  <span className="mt-0.5 w-6 shrink-0 font-mono text-[8px] font-semibold text-secondary/40">
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
                   <div className="min-w-0 flex-1">
-                    <div
-                      className="flex items-center justify-between gap-3"
-                    >
-                      <span
-                        className="text-xs font-semibold text-heading"
-                      >
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="text-xs font-semibold text-heading">
                         {stage.label}
                       </span>
 
-                      <span
-                        className="text-[10px] text-muted-foreground"
-                      >
+                      <span className="text-[10px] text-muted-foreground">
                         {stage.count} leads
                       </span>
                     </div>
 
-                    <div
-                      className="mt-2.5 h-1.5 overflow-hidden bg-muted"
-                    >
+                    <div className="mt-2.5 h-1.5 overflow-hidden bg-muted">
                       <div
                         className="h-full bg-secondary"
                         style={{
@@ -466,9 +406,7 @@ export function ReportsDashboard({
                       />
                     </div>
 
-                    <p
-                      className="mt-1.5 text-right font-mono text-[7px] text-muted-foreground/40"
-                    >
+                    <p className="mt-1.5 text-right font-mono text-[7px] text-muted-foreground/40">
                       {stage.percentage}%
                     </p>
                   </div>
@@ -489,9 +427,7 @@ export function ReportsDashboard({
       >
         {/*===== SERVICE PERFORMANCE =====*/}
 
-        <div
-          className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-        >
+        <div className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
           <PanelHeader
             eyebrow="Portfolio intelligence"
             title="Service performance"
@@ -501,12 +437,8 @@ export function ReportsDashboard({
 
           {/* desktop */}
           <div className="hidden min-w-0 max-w-full overflow-x-auto lg:block">
-            <table
-              className="w-full min-w-[620px] border-collapse text-left"
-            >
-              <thead
-                className="border-y border-border bg-muted/15"
-              >
+            <table className="w-full min-w-[620px] border-collapse text-left">
+              <thead className="border-y border-border bg-muted/15">
                 <tr>
                   <TableHeading>Service</TableHeading>
 
@@ -526,35 +458,25 @@ export function ReportsDashboard({
                     key={service.service}
                     className="transition-colors hover:bg-secondary/[0.02]"
                   >
-                    <td
-                      className="px-6 py-4 text-sm font-semibold text-heading"
-                    >
+                    <td className="px-6 py-4 text-sm font-semibold text-heading">
                       {service.service}
                     </td>
 
-                    <td
-                      className="px-4 py-4 text-sm text-muted-foreground"
-                    >
+                    <td className="px-4 py-4 text-sm text-muted-foreground">
                       {service.leads}
                     </td>
 
-                    <td
-                      className="px-4 py-4 text-sm text-muted-foreground"
-                    >
+                    <td className="px-4 py-4 text-sm text-muted-foreground">
                       {service.won}
                     </td>
 
                     <td className="px-4 py-4">
-                      <span
-                        className="inline-flex border-l-2 border-secondary bg-secondary/[0.055] px-2.5 py-1 font-mono text-[8px] font-semibold uppercase tracking-[0.08em] text-secondary"
-                      >
+                      <span className="inline-flex border-l-2 border-secondary bg-secondary/[0.055] px-2.5 py-1 font-mono text-[8px] font-semibold uppercase tracking-[0.08em] text-secondary">
                         {service.rate}
                       </span>
                     </td>
 
-                    <td
-                      className="px-6 py-4 text-right text-sm font-semibold text-heading"
-                    >
+                    <td className="px-6 py-4 text-right text-sm font-semibold text-heading">
                       {service.revenue}
                     </td>
                   </tr>
@@ -570,25 +492,17 @@ export function ReportsDashboard({
                 key={service.service}
                 className="px-5 py-5 sm:px-6"
               >
-                <div
-                  className="flex items-start gap-3"
-                >
-                  <span
-                    className="w-6 shrink-0 font-mono text-[8px] font-semibold text-secondary/40"
-                  >
+                <div className="flex items-start gap-3">
+                  <span className="w-6 shrink-0 font-mono text-[8px] font-semibold text-secondary/40">
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
                   <div className="min-w-0 flex-1">
-                    <h3
-                      className="text-sm font-semibold text-heading"
-                    >
+                    <h3 className="text-sm font-semibold text-heading">
                       {service.service}
                     </h3>
 
-                    <div
-                      className="mt-4 grid grid-cols-2 gap-3"
-                    >
+                    <div className="mt-4 grid grid-cols-2 gap-3">
                       <ServiceRecord
                         label="Leads"
                         value={String(service.leads)}
@@ -609,21 +523,13 @@ export function ReportsDashboard({
             ))}
           </div>
 
-          <div
-            className="flex items-center justify-between gap-4 border-t border-border bg-muted/10 px-5 py-3 sm:px-6"
-          >
-            <span
-              className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
-            >
+          <div className="flex items-center justify-between gap-4 border-t border-border bg-muted/10 px-5 py-3 sm:px-6">
+            <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40">
               Service-level intelligence
             </span>
 
-            <span
-              className="text-xs text-muted-foreground"
-            >
-              <span
-                className="font-semibold text-heading"
-              >
+            <span className="text-xs text-muted-foreground">
+              <span className="font-semibold text-heading">
                 {reportData.services.length}
               </span>{" "}
               services
@@ -633,9 +539,7 @@ export function ReportsDashboard({
 
         {/*===== EXECUTIVE INSIGHTS =====*/}
 
-        <div
-          className="min-w-0 border border-border bg-card shadow-[var(--shadow-card)]"
-        >
+        <div className="min-w-0 border border-border bg-card shadow-[var(--shadow-card)]">
           <PanelHeader
             eyebrow="Decision signals"
             title="Executive insights"
@@ -643,22 +547,16 @@ export function ReportsDashboard({
             icon={Gauge}
           />
 
-          <div
-            className="divide-y divide-border"
-          >
+          <div className="divide-y divide-border">
             {reportData.insights.map((insight, index) => (
               <Insight key={insight.title} index={index} {...insight} />
             ))}
           </div>
 
-          <div
-            className="flex items-center gap-2 border-t border-border bg-muted/10 px-5 py-3 sm:px-6"
-          >
+          <div className="flex items-center gap-2 border-t border-border bg-muted/10 px-5 py-3 sm:px-6">
             <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
-            <span
-              className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
-            >
+            <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40">
               Intelligence signals available
             </span>
           </div>
@@ -698,19 +596,13 @@ function ReportMetric({
   };
 
   return (
-    <div
-      className="flex items-start justify-between gap-4"
-    >
+    <div className="flex items-start justify-between gap-4">
       <div className="min-w-0">
-        <span
-          className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40"
-        >
+        <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40">
           {label}
         </span>
 
-        <p
-          className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-heading"
-        >
+        <p className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-heading">
           {value}
         </p>
 
@@ -747,9 +639,7 @@ function ChangeDetail({
 }) {
   if (change === null) {
     return (
-      <p
-        className="mt-2 text-[10px] text-muted-foreground"
-      >
+      <p className="mt-2 text-[10px] text-muted-foreground">
         {note}
       </p>
     );
@@ -776,9 +666,7 @@ function ChangeDetail({
         <ArrowDownRight className="h-3 w-3" />
       )}
       {Math.abs(change)}%
-      <span
-        className="font-normal text-muted-foreground"
-      >
+      <span className="font-normal text-muted-foreground">
         {note}
       </span>
     </p>
@@ -801,31 +689,21 @@ function PanelHeader({
   icon: typeof TrendingUp;
 }) {
   return (
-    <div
-      className="flex items-start gap-3 border-b border-border px-5 py-4 sm:px-6"
-    >
-      <div
-        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary"
-      >
+    <div className="flex items-start gap-3 border-b border-border px-5 py-4 sm:px-6">
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary">
         <Icon className="h-4 w-4" />
       </div>
 
       <div>
-        <span
-          className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-        >
+        <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
           {eyebrow}
         </span>
 
-        <h2
-          className="mt-1 text-base font-semibold text-heading"
-        >
+        <h2 className="mt-1 text-base font-semibold text-heading">
           {title}
         </h2>
 
-        <p
-          className="mt-1 max-w-xl text-xs leading-5 text-muted-foreground"
-        >
+        <p className="mt-1 max-w-xl text-xs leading-5 text-muted-foreground">
           {detail}
         </p>
       </div>
@@ -869,12 +747,8 @@ function TableHeading({
 
 function ServiceRecord({ label, value }: { label: string; value: string }) {
   return (
-    <div
-      className="min-w-0 border border-border bg-background/30 p-3"
-    >
-      <span
-        className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40"
-      >
+    <div className="min-w-0 border border-border bg-background/30 p-3">
+      <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40">
         {label}
       </span>
 
@@ -915,9 +789,7 @@ function Insight({
   };
 
   return (
-    <div
-      className="px-5 py-5 sm:px-6"
-    >
+    <div className="px-5 py-5 sm:px-6">
       <div
         className={`
           border-l-2
@@ -925,19 +797,13 @@ function Insight({
           ${toneClasses[tone]}
         `}
       >
-        <div
-          className="flex items-start justify-between gap-3"
-        >
+        <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <span
-              className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/35"
-            >
+            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/35">
               Signal {String(index + 1).padStart(2, "0")}
             </span>
 
-            <p
-              className="mt-1 text-sm font-semibold text-heading"
-            >
+            <p className="mt-1 text-sm font-semibold text-heading">
               {title}
             </p>
           </div>
@@ -953,9 +819,7 @@ function Insight({
           />
         </div>
 
-        <p
-          className="mt-2 text-xs leading-5 text-muted-foreground"
-        >
+        <p className="mt-2 text-xs leading-5 text-muted-foreground">
           {description}
         </p>
       </div>

@@ -44,9 +44,7 @@ export const FilesEmptyState = ({
 
       {/*===== ICON =====*/}
 
-      <div
-        className="relative flex h-14 w-14 items-center justify-center rounded-md border border-secondary/15 bg-secondary/[0.045] text-secondary"
-      >
+      <div className="relative flex h-14 w-14 items-center justify-center rounded-md border border-secondary/15 bg-secondary/[0.045] text-secondary">
         {isNoResults ? (
           <SearchX className="h-5 w-5" />
         ) : (
@@ -61,21 +59,15 @@ export const FilesEmptyState = ({
 
       {/*===== COPY =====*/}
 
-      <span
-        className="relative mt-5 font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-secondary"
-      >
+      <span className="relative mt-5 font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-secondary">
         {isNoResults ? "No records found" : "Document library empty"}
       </span>
 
-      <h3
-        className="relative mt-2 text-lg font-semibold tracking-[-0.02em] text-heading"
-      >
+      <h3 className="relative mt-2 text-lg font-semibold tracking-[-0.02em] text-heading">
         {isNoResults ? "No matching files" : "No files yet"}
       </h3>
 
-      <p
-        className="relative mt-2 max-w-md text-sm leading-6 text-body"
-      >
+      <p className="relative mt-2 max-w-md text-sm leading-6 text-body">
         {isNoResults
           ? "Try a different search term or clear your filters to see all files."
           : "Upload your first project file to keep documents, designs, and deliverables organized in one place."}
@@ -108,22 +100,14 @@ export const FilesEmptyState = ({
 
       {/*===== FOOTNOTE =====*/}
 
-      <div
-        className="relative mt-7 flex items-center gap-2"
-      >
-        <span
-          className="h-px w-8 bg-secondary/25"
-        />
+      <div className="relative mt-7 flex items-center gap-2">
+        <span className="h-px w-8 bg-secondary/25"/>
 
-        <span
-          className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/35"
-        >
+        <span className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/35">
           Blackcrest document workspace
         </span>
 
-        <span
-          className="h-px w-8 bg-secondary/25"
-        />
+        <span className="h-px w-8 bg-secondary/25"/>
       </div>
     </motion.div>
   );

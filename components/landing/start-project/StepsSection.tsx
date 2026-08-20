@@ -59,9 +59,7 @@ export const StepsSection = () => {
   const reduceMotion = Boolean(useReducedMotion());
 
   return (
-    <Section
-      className="relative overflow-hidden bg-background py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-28"
-    >
+    <Section className="relative overflow-hidden bg-background py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-28">
       {/* Background architecture */}
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -89,9 +87,7 @@ export const StepsSection = () => {
 
       <Container className="relative">
         {/* Header */}
-        <div
-          className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end"
-        >
+        <div className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <motion.div
             initial={{
               opacity: 0,
@@ -110,18 +106,14 @@ export const StepsSection = () => {
             <div className="flex items-center gap-3">
               <CircleDot className="h-4 w-4 text-secondary" />
 
-              <span
-                className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary"
-              >
+              <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary">
                 Start a project / 04 stages
               </span>
 
               <span className="h-px w-12 bg-secondary/40" />
             </div>
 
-            <h1
-              className="mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.05em] text-heading sm:text-5xl lg:text-[3.8rem] lg:leading-[1.04]"
-            >
+            <h1 className="mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.05em] text-heading sm:text-5xl lg:text-[3.8rem] lg:leading-[1.04]">
               From first enquiry
               <span className="block text-muted-foreground">
                 to a confident start.
@@ -142,16 +134,12 @@ export const StepsSection = () => {
             transition={{ delay: 0.08 }}
             className="lg:justify-self-end"
           >
-            <p
-              className="max-w-xl text-sm leading-7 text-body sm:text-base"
-            >
+            <p className="max-w-xl text-sm leading-7 text-body sm:text-base">
               Starting a project should feel structured, transparent, and
               simple. Here&apos;s what happens after you send your enquiry.
             </p>
 
-            <div
-              className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2"
-            >
+            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
               <span className="text-xs text-muted-foreground">
                 Clear ownership
               </span>
@@ -174,9 +162,7 @@ export const StepsSection = () => {
         {/* Process rail */}
         <div className="relative border-b border-border">
           {/* Desktop connecting rail */}
-          <div
-            className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-[56px] hidden h-px bg-border lg:block"
-          />
+          <div className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-[56px] hidden h-px bg-border lg:block"/>
 
           <motion.div
             initial={{
@@ -230,9 +216,7 @@ export const StepsSection = () => {
                   `}
                 >
                   {/* Node */}
-                  <div
-                    className="relative z-10 flex items-center gap-4"
-                  >
+                  <div className="relative z-10 flex items-center gap-4">
                     <motion.div
                       whileHover={
                         reduceMotion
@@ -248,15 +232,11 @@ export const StepsSection = () => {
                     </motion.div>
 
                     <div>
-                      <span
-                        className="font-mono text-[8px] uppercase tracking-[0.18em] text-secondary"
-                      >
+                      <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-secondary">
                         Stage {step.number}
                       </span>
 
-                      <p
-                        className="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground"
-                      >
+                      <p className="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                         {step.label}
                       </p>
                     </div>
@@ -264,42 +244,28 @@ export const StepsSection = () => {
 
                   {/* Content */}
                   <div className="mt-8">
-                    <h2
-                      className="text-xl font-semibold tracking-[-0.025em] text-heading sm:text-2xl"
-                    >
+                    <h2 className="text-xl font-semibold tracking-[-0.025em] text-heading sm:text-2xl">
                       {step.title}
                     </h2>
 
-                    <p
-                      className="mt-4 max-w-sm text-sm leading-7 text-body"
-                    >
+                    <p className="mt-4 max-w-sm text-sm leading-7 text-body">
                       {step.description}
                     </p>
                   </div>
 
                   {/* Outcome */}
-                  <div
-                    className="mt-8 border-t border-border pt-5"
-                  >
-                    <div
-                      className="flex items-start gap-3"
-                    >
-                      <div
-                        className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-secondary/[0.08]"
-                      >
+                  <div className="mt-8 border-t border-border pt-5">
+                    <div className="flex items-start gap-3">
+                      <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-secondary/[0.08]">
                         <Check className="h-3 w-3 text-secondary" />
                       </div>
 
                       <div>
-                        <p
-                          className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45"
-                        >
+                        <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45">
                           Outcome
                         </p>
 
-                        <p
-                          className="mt-1 text-xs font-medium leading-5 text-foreground"
-                        >
+                        <p className="mt-1 text-xs font-medium leading-5 text-foreground">
                           {step.outcome}
                         </p>
                       </div>
@@ -307,12 +273,8 @@ export const StepsSection = () => {
                   </div>
 
                   {/* Hover signal */}
-                  <div
-                    className="absolute bottom-0 left-0 h-[2px] w-full overflow-hidden"
-                  >
-                    <div
-                      className="h-full w-0 bg-secondary transition-all duration-500 group-hover:w-full"
-                    />
+                  <div className="absolute bottom-0 left-0 h-[2px] w-full overflow-hidden">
+                    <div className="h-full w-0 bg-secondary transition-all duration-500 group-hover:w-full"/>
                   </div>
                 </motion.article>
               );
@@ -333,16 +295,12 @@ export const StepsSection = () => {
           viewport={{ once: true }}
           className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between"
         >
-          <p
-            className="max-w-xl text-xs leading-6 text-muted-foreground"
-          >
+          <p className="max-w-xl text-xs leading-6 text-muted-foreground">
             Once we understand the opportunity, we&apos;ll recommend the most
             sensible engagement structure — not automatically the largest one.
           </p>
 
-          <div
-            className="flex items-center gap-3 font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40"
-          >
+          <div className="flex items-center gap-3 font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40">
             Enquire
             <ArrowRight className="h-3 w-3 text-secondary" />
             Align

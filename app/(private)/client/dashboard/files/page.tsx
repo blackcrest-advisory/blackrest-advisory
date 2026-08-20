@@ -85,9 +85,7 @@ export default function FilesPage() {
   };
 
   return (
-    <div
-      className="relative min-w-0 max-w-full space-y-6"
-    >
+    <div className="relative min-w-0 max-w-full space-y-6">
       {/*===== FILES HEADER =====*/}
 
       <FilesPageHeader onUploadClick={handleUploadClick} />
@@ -100,9 +98,7 @@ export default function FilesPage() {
 
       {/*===== DOCUMENT WORKSPACE =====*/}
 
-      <section
-        className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-      >
+      <section className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
         {/* subtle top signal */}
         <div
           aria-hidden="true"
@@ -111,40 +107,28 @@ export default function FilesPage() {
 
         {/*===== WORKSPACE HEADER =====*/}
 
-        <div
-          className="flex flex-col gap-3 border-b border-border px-5 py-4 sm:flex-row sm:items-end sm:justify-between sm:px-6"
-        >
+        <div className="flex flex-col gap-3 border-b border-border px-5 py-4 sm:flex-row sm:items-end sm:justify-between sm:px-6">
           <div>
-            <span
-              className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-            >
+            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
               Document library
             </span>
 
-            <h2
-              className="mt-1 text-base font-semibold text-heading"
-            >
+            <h2 className="mt-1 text-base font-semibold text-heading">
               Project Files
             </h2>
 
-            <p
-              className="mt-1 text-xs leading-5 text-muted-foreground"
-            >
+            <p className="mt-1 text-xs leading-5 text-muted-foreground">
               Access files shared across your active Blackcrest engagements.
             </p>
           </div>
 
           {hasAnyFiles && (
             <div className="text-left sm:text-right">
-              <span
-                className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40"
-              >
+              <span className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40">
                 Available records
               </span>
 
-              <p
-                className="mt-1 text-sm font-semibold text-heading"
-              >
+              <p className="mt-1 text-sm font-semibold text-heading">
                 {filteredFiles.length}
               </p>
             </div>
@@ -154,9 +138,7 @@ export default function FilesPage() {
         {/*===== FILTER BAR =====*/}
 
         {hasAnyFiles && (
-          <div
-            className="border-b border-border bg-background/20 px-5 py-4 sm:px-6"
-          >
+          <div className="border-b border-border bg-background/20 px-5 py-4 sm:px-6">
             <FilesFilterBar
               search={search}
               onSearchChange={setSearch}
@@ -171,9 +153,7 @@ export default function FilesPage() {
         {/*===== EMPTY: NO FILES =====*/}
 
         {!hasAnyFiles && (
-          <div
-            className="px-5 py-6 sm:px-6 sm:py-8"
-          >
+          <div className="px-5 py-6 sm:px-6 sm:py-8">
             <FilesEmptyState
               variant="no-files"
               onUploadClick={handleUploadClick}
@@ -192,9 +172,7 @@ export default function FilesPage() {
         {/*===== EMPTY: FILTER RESULTS =====*/}
 
         {hasAnyFiles && !hasFilteredResults && (
-          <div
-            className="px-5 py-6 sm:px-6 sm:py-8"
-          >
+          <div className="px-5 py-6 sm:px-6 sm:py-8">
             <FilesEmptyState
               variant="no-results"
               onClearFilters={handleClearFilters}
@@ -205,26 +183,16 @@ export default function FilesPage() {
         {/*===== WORKSPACE FOOTER =====*/}
 
         {hasAnyFiles && (
-          <div
-            className="flex flex-col gap-2 border-t border-border bg-muted/10 px-5 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-          >
-            <div
-              className="flex items-center gap-2"
-            >
-              <span
-                className="h-1.5 w-1.5 rounded-full bg-success"
-              />
+          <div className="flex flex-col gap-2 border-t border-border bg-muted/10 px-5 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+            <div className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-success"/>
 
-              <span
-                className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40"
-              >
+              <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40">
                 Client document access
               </span>
             </div>
 
-            <span
-              className="text-[11px] text-muted-foreground"
-            >
+            <span className="text-[11px] text-muted-foreground">
               {filteredFiles.length} of {files.length} files shown
             </span>
           </div>

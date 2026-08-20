@@ -23,9 +23,7 @@ export const HeroSection = () => {
   const reduceMotion = Boolean(useReducedMotion());
 
   return (
-    <Section
-      className="relative overflow-hidden bg-background py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-28"
-    >
+    <Section className="relative overflow-hidden bg-background py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-28">
       {/* Background architecture */}
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -91,9 +89,7 @@ export const HeroSection = () => {
             >
               <CircleDot className="h-4 w-4 text-secondary" />
 
-              <span
-                className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary"
-              >
+              <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary">
                 Contact / Start here
               </span>
 
@@ -195,9 +191,7 @@ export const HeroSection = () => {
             className="relative"
           >
             <div className="mb-4 flex items-center justify-between">
-              <span
-                className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted-foreground/50"
-              >
+              <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted-foreground/50">
                 Enquiry workflow
               </span>
 
@@ -238,9 +232,7 @@ export const HeroSection = () => {
 
               <div className="relative z-10">
                 <div className="flex items-start justify-between gap-5">
-                  <div
-                    className="flex h-11 w-11 items-center justify-center bg-primary text-secondary"
-                  >
+                  <div className="flex h-11 w-11 items-center justify-center bg-primary text-secondary">
                     <MessageSquareText className="h-5 w-5" />
                   </div>
 
@@ -260,23 +252,17 @@ export const HeroSection = () => {
                       className="h-1.5 w-1.5 rounded-full bg-success"
                     />
 
-                    <span
-                      className="font-mono text-[8px] uppercase tracking-[0.16em] text-success"
-                    >
+                    <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-success">
                       Open
                     </span>
                   </div>
                 </div>
 
-                <p
-                  className="mt-8 text-[9px] font-semibold uppercase tracking-[0.18em] text-secondary"
-                >
+                <p className="mt-8 text-[9px] font-semibold uppercase tracking-[0.18em] text-secondary">
                   What happens next
                 </p>
 
-                <h2
-                  className="mt-3 max-w-lg text-2xl font-semibold tracking-[-0.035em] text-heading sm:text-3xl"
-                >
+                <h2 className="mt-3 max-w-lg text-2xl font-semibold tracking-[-0.035em] text-heading sm:text-3xl">
                   A simple first step, with no unnecessary friction.
                 </h2>
 
@@ -298,9 +284,7 @@ export const HeroSection = () => {
                       className="flex items-center justify-between border-b border-border py-4"
                     >
                       <div className="flex items-center gap-4">
-                        <span
-                          className="flex h-6 w-6 items-center justify-center rounded-full bg-secondary/[0.08]"
-                        >
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-secondary/[0.08]">
                           <Check className="h-3 w-3 text-secondary" />
                         </span>
 
@@ -309,18 +293,14 @@ export const HeroSection = () => {
                         </span>
                       </div>
 
-                      <span
-                        className="font-mono text-[8px] text-muted-foreground/30"
-                      >
+                      <span className="font-mono text-[8px] text-muted-foreground/30">
                         0{index + 1}
                       </span>
                     </motion.div>
                   ))}
                 </div>
 
-                <div
-                  className="mt-7 flex items-start gap-4 border border-secondary/20 bg-secondary/[0.05] p-4"
-                >
+                <div className="mt-7 flex items-start gap-4 border border-secondary/20 bg-secondary/[0.05] p-4">
                   <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
 
                   <p className="text-xs leading-6 text-muted-foreground">
@@ -374,9 +354,7 @@ export const HeroSection = () => {
             an initial conversation — start wherever makes sense.
           </p>
 
-          <div
-            className="flex items-center gap-3 font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40"
-          >
+          <div className="flex items-center gap-3 font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40">
             Context
             <span className="text-secondary">→</span>
             Conversation

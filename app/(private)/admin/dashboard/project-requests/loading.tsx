@@ -18,9 +18,7 @@ export default function AdminRequestsLoading() {
     <div className="relative space-y-6" aria-label="Loading project requests">
       {/*===== PROJECT REQUESTS HEADER SKELETON =====*/}
 
-      <section
-        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-      >
+      <section className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
         {/* ambient glow */}
         <div
           aria-hidden="true"
@@ -59,13 +57,9 @@ export default function AdminRequestsLoading() {
         />
 
         {/* top signal */}
-        <div
-          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"
-        />
+        <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"/>
 
-        <div
-          className="relative z-10 grid gap-7 px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-stretch lg:px-8 lg:py-7"
-        >
+        <div className="relative z-10 grid gap-7 px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-stretch lg:px-8 lg:py-7">
           {/*===== LEFT =====*/}
 
           <div className="flex flex-col justify-between">
@@ -79,9 +73,7 @@ export default function AdminRequestsLoading() {
                 <Skeleton className="h-2.5 w-24" />
               </div>
 
-              <Skeleton
-                className="mt-5 h-10 w-[72%] max-w-sm sm:h-11"
-              />
+              <Skeleton className="mt-5 h-10 w-[72%] max-w-sm sm:h-11"/>
 
               <div className="mt-4 space-y-2">
                 <Skeleton className="h-3.5 w-full max-w-2xl" />
@@ -89,9 +81,7 @@ export default function AdminRequestsLoading() {
               </div>
             </div>
 
-            <div
-              className="mt-7 grid gap-3 sm:grid-cols-3"
-            >
+            <div className="mt-7 grid gap-3 sm:grid-cols-3">
               {Array.from({ length: 3 }).map((_, index) => (
                 <div key={index} className="border-t border-border pt-3">
                   <div className="flex items-center gap-2">
@@ -105,9 +95,7 @@ export default function AdminRequestsLoading() {
 
           {/*===== REQUEST SUMMARY =====*/}
 
-          <div
-            className="relative overflow-hidden border border-secondary/15 bg-secondary/[0.025] p-5 sm:p-6"
-          >
+          <div className="relative overflow-hidden border border-secondary/15 bg-secondary/[0.025] p-5 sm:p-6">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -right-14 -top-16 h-36 w-36 rounded-full bg-secondary/[0.07] blur-3xl"
@@ -127,9 +115,7 @@ export default function AdminRequestsLoading() {
 
               <Skeleton className="mt-2 h-3 w-32" />
 
-              <div
-                className="mt-5 flex items-center justify-between border-t border-border pt-4"
-              >
+              <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
                 <Skeleton className="h-2.5 w-24" />
                 <Skeleton className="h-2.5 w-8" />
               </div>
@@ -141,9 +127,7 @@ export default function AdminRequestsLoading() {
       {/*===== CONTROL WORKSPACE =====*/}
 
       <section className="relative">
-        <div
-          className="relative z-20 border border-border bg-card shadow-[var(--shadow-card)]"
-        >
+        <div className="relative z-20 border border-border bg-card shadow-[var(--shadow-card)]">
           {/* top signal */}
           <div
             aria-hidden="true"
@@ -152,14 +136,10 @@ export default function AdminRequestsLoading() {
 
           {/*===== CONTROL BAR =====*/}
 
-          <div
-            className="flex flex-col gap-3 px-4 py-4 sm:px-5 lg:px-6 xl:flex-row xl:items-center"
-          >
+          <div className="flex flex-col gap-3 px-4 py-4 sm:px-5 lg:px-6 xl:flex-row xl:items-center">
             <Skeleton className="h-10 min-w-0 flex-1 rounded-md" />
 
-            <div
-              className="flex flex-col gap-2 sm:grid sm:grid-cols-2 xl:flex xl:flex-row xl:items-center"
-            >
+            <div className="flex flex-col gap-2 sm:grid sm:grid-cols-2 xl:flex xl:flex-row xl:items-center">
               <Skeleton className="hidden h-10 w-10 rounded-md xl:block" />
 
               <Skeleton className="h-10 w-full rounded-md xl:w-44" />
@@ -170,9 +150,7 @@ export default function AdminRequestsLoading() {
 
           {/*===== RESULT METADATA =====*/}
 
-          <div
-            className="flex min-h-11 flex-wrap items-center justify-between gap-3 border-t border-border bg-muted/10 px-4 py-2.5 sm:px-5 lg:px-6"
-          >
+          <div className="flex min-h-11 flex-wrap items-center justify-between gap-3 border-t border-border bg-muted/10 px-4 py-2.5 sm:px-5 lg:px-6">
             <div className="flex items-center gap-2">
               <Skeleton className="h-1.5 w-1.5 rounded-full" />
               <Skeleton className="h-3 w-40" />
@@ -185,9 +163,7 @@ export default function AdminRequestsLoading() {
         {/*===== REQUEST RECORDS =====*/}
 
         <div className="relative z-10 mt-3 min-w-0">
-          <div
-            className="relative border border-border bg-card shadow-[var(--shadow-card)]"
-          >
+          <div className="relative border border-border bg-card shadow-[var(--shadow-card)]">
             {/* top signal */}
             <div
               aria-hidden="true"
@@ -198,9 +174,7 @@ export default function AdminRequestsLoading() {
 
             <div className="hidden overflow-x-auto lg:block">
               <table className="w-full border-collapse text-left text-sm">
-                <thead
-                  className="border-b border-border bg-muted/15"
-                >
+                <thead className="border-b border-border bg-muted/15">
                   <tr>
                     {[
                       "Project",
@@ -307,9 +281,7 @@ export default function AdminRequestsLoading() {
                     <Skeleton className="h-9 w-9 shrink-0 rounded-md" />
 
                     <div className="min-w-0 flex-1">
-                      <div
-                        className="flex items-start justify-between gap-3"
-                      >
+                      <div className="flex items-start justify-between gap-3">
                         <div className="min-w-0 flex-1">
                           <Skeleton className="h-4 w-36" />
                           <Skeleton className="mt-2 h-2.5 w-24" />
@@ -323,25 +295,19 @@ export default function AdminRequestsLoading() {
                   </div>
 
                   {/* service + budget */}
-                  <div
-                    className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2"
-                  >
+                  <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
                     <RecordSkeleton />
                     <RecordSkeleton />
                   </div>
 
                   {/* client + deadline */}
-                  <div
-                    className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2"
-                  >
+                  <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
                     <RecordSkeleton />
                     <RecordSkeleton />
                   </div>
 
                   {/* footer */}
-                  <div
-                    className="mt-4 flex items-center justify-between gap-4 border-t border-border pt-4"
-                  >
+                  <div className="mt-4 flex items-center justify-between gap-4 border-t border-border pt-4">
                     <div className="flex items-center gap-2">
                       <Skeleton className="h-3.5 w-3.5" />
                       <Skeleton className="h-3 w-32" />
@@ -355,9 +321,7 @@ export default function AdminRequestsLoading() {
 
             {/*===== TABLE FOOTER =====*/}
 
-            <div
-              className="flex flex-col gap-2 border-t border-border bg-muted/10 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-            >
+            <div className="flex flex-col gap-2 border-t border-border bg-muted/10 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
               <div className="flex items-center gap-2">
                 <Skeleton className="h-1.5 w-1.5 rounded-full" />
                 <Skeleton className="h-2.5 w-32" />
@@ -370,12 +334,8 @@ export default function AdminRequestsLoading() {
 
         {/*===== PAGINATION SKELETON =====*/}
 
-        <div
-          className="mt-3 border border-border bg-card px-4 py-4 shadow-[var(--shadow-card)] sm:px-5 lg:px-6"
-        >
-          <div
-            className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
-          >
+        <div className="mt-3 border border-border bg-card px-4 py-4 shadow-[var(--shadow-card)] sm:px-5 lg:px-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
               <Skeleton className="h-1.5 w-1.5 rounded-full" />
               <Skeleton className="h-3 w-36" />
@@ -400,9 +360,7 @@ export default function AdminRequestsLoading() {
 
 function RecordSkeleton() {
   return (
-    <div
-      className="rounded-md border border-border bg-background/40 p-3"
-    >
+    <div className="rounded-md border border-border bg-background/40 p-3">
       <div className="flex items-center gap-2">
         <Skeleton className="h-3.5 w-3.5" />
         <Skeleton className="h-2.5 w-14" />

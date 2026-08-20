@@ -97,9 +97,7 @@ export default function DashboardMobileSidebar({
         className="fixed left-0 top-0 z-50 flex h-dvh w-[min(88vw,320px)] flex-col overflow-hidden border-r border-border bg-card/98 text-card-foreground shadow-[var(--shadow-overlay)] backdrop-blur-xl lg:hidden"
       >
         {/* top brand signal */}
-        <div
-          className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/45 to-transparent"
-        />
+        <div className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/45 to-transparent"/>
 
         {/* subtle workspace background */}
         <div
@@ -119,16 +117,12 @@ export default function DashboardMobileSidebar({
 
         {/*===== HEADER =====*/}
 
-        <div
-          className="relative z-10 flex h-[72px] shrink-0 items-center justify-between border-b border-border px-4"
-        >
+        <div className="relative z-10 flex h-[72px] shrink-0 items-center justify-between border-b border-border px-4">
           <div className="flex min-w-0 items-center gap-3">
             <Logo />
 
             <div className="hidden min-w-0 xs:block">
-              <p
-                className="truncate font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/50"
-              >
+              <p className="truncate font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/50">
                 Workspace
               </p>
             </div>
@@ -147,26 +141,18 @@ export default function DashboardMobileSidebar({
         {/*===== WORKSPACE STATUS =====*/}
 
         <div className="relative z-10 px-4 pt-4">
-          <div
-            className="border border-secondary/15 bg-secondary/[0.035] p-3"
-          >
+          <div className="border border-secondary/15 bg-secondary/[0.035] p-3">
             <div className="flex items-center gap-3">
-              <div
-                className="flex h-7 w-7 shrink-0 items-center justify-center bg-secondary/[0.08]"
-              >
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center bg-secondary/[0.08]">
                 <CircleDot className="h-3.5 w-3.5 text-secondary" />
               </div>
 
               <div className="min-w-0">
-                <p
-                  className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-                >
+                <p className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
                   Blackcrest workspace
                 </p>
 
-                <p
-                  className="mt-0.5 truncate text-[11px] text-muted-foreground"
-                >
+                <p className="mt-0.5 truncate text-[11px] text-muted-foreground">
                   Everything is operational
                 </p>
               </div>
@@ -176,18 +162,12 @@ export default function DashboardMobileSidebar({
 
         {/*===== NAVIGATION =====*/}
 
-        <nav
-          className="dashboard-nav-scroll relative z-10 flex-1 overflow-y-auto overscroll-contain px-3 py-5"
-        >
+        <nav className="dashboard-nav-scroll relative z-10 flex-1 overflow-y-auto overscroll-contain px-3 py-5">
           <div className="space-y-7">
             {navGroups.map((group) => (
               <div key={group.label} className="space-y-1">
-                <div
-                  className="flex items-center gap-3 px-3 pb-2"
-                >
-                  <p
-                    className="shrink-0 font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/50"
-                  >
+                <div className="flex items-center gap-3 px-3 pb-2">
+                  <p className="shrink-0 font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/50">
                     {group.label}
                   </p>
 
@@ -209,9 +189,7 @@ export default function DashboardMobileSidebar({
 
         {/*===== FOOTER =====*/}
 
-        <div
-          className="relative z-10 shrink-0 border-t border-border bg-card/95 pb-[env(safe-area-inset-bottom)]"
-        >
+        <div className="relative z-10 shrink-0 border-t border-border bg-card/95 pb-[env(safe-area-inset-bottom)]">
           <SidebarFooter
             isCollapsed={false}
             userName={user?.name ?? "Client"}

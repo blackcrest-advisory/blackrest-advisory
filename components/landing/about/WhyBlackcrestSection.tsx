@@ -196,9 +196,7 @@ export const WhyBlackcrestSection = () => {
                   >
                     {/* number / icon */}
                     <div className="relative">
-                      <div
-                        className="flex h-12 w-12 items-center justify-center border border-border bg-card text-xl shadow-[var(--shadow-card)] transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary/[0.06] group-hover:shadow-[var(--shadow-gold-glow)]"
-                      >
+                      <div className="flex h-12 w-12 items-center justify-center border border-border bg-card text-xl shadow-[var(--shadow-card)] transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary/[0.06] group-hover:shadow-[var(--shadow-gold-glow)]">
                         {item.icon}
                       </div>
 

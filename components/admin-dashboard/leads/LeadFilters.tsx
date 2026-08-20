@@ -71,9 +71,7 @@ export const LeadFilters = ({ onFilterChange, onSearch }: LeadFiltersProps) => {
   };
 
   return (
-    <div
-      className="relative z-20 flex flex-col gap-3 xl:flex-row xl:items-center"
-    >
+    <div className="relative z-20 flex flex-col gap-3 xl:flex-row xl:items-center">
       {/*===== SEARCH =====*/}
 
       <div className="min-w-0 flex-1">
@@ -88,12 +86,8 @@ export const LeadFilters = ({ onFilterChange, onSearch }: LeadFiltersProps) => {
 
       {/*===== FILTERS =====*/}
 
-      <div
-        className="flex flex-col gap-2 sm:grid sm:grid-cols-3 xl:flex xl:flex-row xl:items-center"
-      >
-        <div
-          className="hidden h-9 w-9 shrink-0 items-center justify-center border border-border text-muted-foreground xl:flex"
-        >
+      <div className="flex flex-col gap-2 sm:grid sm:grid-cols-3 xl:flex xl:flex-row xl:items-center">
+        <div className="hidden h-9 w-9 shrink-0 items-center justify-center border border-border text-muted-foreground xl:flex">
           <SlidersHorizontal className="h-4 w-4" />
         </div>
 

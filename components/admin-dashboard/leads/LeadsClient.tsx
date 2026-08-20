@@ -215,13 +215,9 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
         />
 
         {/* top signal */}
-        <div
-          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
-        />
+        <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"/>
 
-        <div
-          className="relative z-10 grid gap-8 px-5 py-7 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-stretch lg:px-8 lg:py-8"
-        >
+        <div className="relative z-10 grid gap-8 px-5 py-7 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-stretch lg:px-8 lg:py-8">
           {/*===== LEFT =====*/}
 
           <div className="flex flex-col justify-between">
@@ -230,31 +226,23 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
                 <div className="flex items-center gap-2">
                   <Radar className="h-3.5 w-3.5 text-secondary" />
 
-                  <span
-                    className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
-                  >
+                  <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
                     Commercial pipeline
                   </span>
                 </div>
 
                 <span className="h-px w-8 bg-secondary/30" />
 
-                <span
-                  className="font-mono text-[8px] uppercase tracking-[0.15em] text-muted-foreground/40"
-                >
+                <span className="font-mono text-[8px] uppercase tracking-[0.15em] text-muted-foreground/40">
                   Admin / CRM
                 </span>
               </div>
 
-              <h1
-                className="mt-5 text-3xl font-semibold tracking-[-0.045em] text-heading sm:text-4xl"
-              >
+              <h1 className="mt-5 text-3xl font-semibold tracking-[-0.045em] text-heading sm:text-4xl">
                 Leads
               </h1>
 
-              <p
-                className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base"
-              >
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
                 Manage the Blackcrest acquisition pipeline, qualify incoming
                 opportunities, assign ownership, and convert qualified leads
                 into clients.
@@ -262,16 +250,12 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
             </div>
 
             {/* metadata */}
-            <div
-              className="mt-7 grid gap-3 sm:grid-cols-3"
-            >
+            <div className="mt-7 grid gap-3 sm:grid-cols-3">
               <div className="border-t border-border pt-3">
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
-                  <span
-                    className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
-                  >
+                  <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40">
                     Pipeline active
                   </span>
                 </div>
@@ -301,9 +285,7 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
 
           {/*===== COMMAND PANEL =====*/}
 
-          <div
-            className="relative overflow-hidden border border-secondary/15 bg-secondary/[0.025] p-5 sm:p-6"
-          >
+          <div className="relative overflow-hidden border border-secondary/15 bg-secondary/[0.025] p-5 sm:p-6">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -right-16 -top-20 h-40 w-40 rounded-full bg-secondary/[0.08] blur-3xl"
@@ -315,30 +297,22 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
                   <div className="flex items-center gap-2">
                     <Sparkles className="h-3.5 w-3.5 text-secondary" />
 
-                    <span
-                      className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
-                    >
+                    <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary">
                       Pipeline command
                     </span>
                   </div>
 
-                  <h2
-                    className="mt-3 text-lg font-semibold tracking-[-0.025em] text-heading"
-                  >
+                  <h2 className="mt-3 text-lg font-semibold tracking-[-0.025em] text-heading">
                     Capture a new opportunity
                   </h2>
                 </div>
 
-                <div
-                  className="flex h-9 w-9 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary"
-                >
+                <div className="flex h-9 w-9 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary">
                   <BriefcaseBusiness className="h-4 w-4" />
                 </div>
               </div>
 
-              <p
-                className="mt-3 text-xs leading-5 text-muted-foreground"
-              >
+              <p className="mt-3 text-xs leading-5 text-muted-foreground">
                 Add a lead manually and begin qualification immediately.
               </p>
 
@@ -353,27 +327,19 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
                   Add Lead
                 </span>
 
-                <ArrowUpRight
-                  className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                />
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"/>
               </Button>
 
-              <div
-                className="mt-5 flex items-center justify-between border-t border-border pt-4"
-              >
+              <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
-                  <span
-                    className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
-                  >
+                  <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40">
                     CRM online
                   </span>
                 </div>
 
-                <span
-                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-secondary"
-                >
+                <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-secondary">
                   BCR
                 </span>
               </div>
@@ -390,55 +356,37 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
 
       {/*===== PIPELINE WORKSPACE =====*/}
 
-      <section
-        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-      >
+      <section className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
         {/* accent */}
-        <div
-          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
-        />
+        <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"/>
 
         {/*===== FILTER HEADER =====*/}
 
-        <div
-          className="border-b border-border px-5 py-5 sm:px-6"
-        >
-          <div
-            className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between"
-          >
+        <div className="border-b border-border px-5 py-5 sm:px-6">
+          <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
             <div>
               <div className="flex items-center gap-2">
                 <Search className="h-3.5 w-3.5 text-secondary" />
 
-                <span
-                  className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
-                >
+                <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
                   Pipeline control
                 </span>
 
                 <span className="h-px w-8 bg-secondary/30" />
               </div>
 
-              <h2
-                className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl"
-              >
+              <h2 className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl">
                 Lead Directory
               </h2>
 
-              <p
-                className="mt-1 text-xs leading-5 text-muted-foreground"
-              >
+              <p className="mt-1 text-xs leading-5 text-muted-foreground">
                 Search, segment, qualify, convert, and manage leads from one
                 operational workspace.
               </p>
             </div>
 
-            <div
-              className="flex w-fit items-center gap-2 border border-border bg-background/60 px-3 py-2"
-            >
-              <span
-                className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
-              >
+            <div className="flex w-fit items-center gap-2 border border-border bg-background/60 px-3 py-2">
+              <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40">
                 Showing
               </span>
 
@@ -453,9 +401,7 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
 
         {/*===== FILTERS =====*/}
 
-        <div
-          className="border-b border-border bg-muted/10 px-5 py-4 sm:px-6"
-        >
+        <div className="border-b border-border bg-muted/10 px-5 py-4 sm:px-6">
           <LeadFilters
             onFilterChange={handleFilterChange}
             onSearch={handleSearch}
@@ -478,9 +424,7 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
 
         {/*===== PAGINATION FOOTER =====*/}
 
-        <div
-          className="border-t border-border bg-muted/15 px-5 py-4 sm:px-6"
-        >
+        <div className="border-t border-border bg-muted/15 px-5 py-4 sm:px-6">
           <Pagination
             currentPage={activePage}
             totalItems={filteredLeads.length}

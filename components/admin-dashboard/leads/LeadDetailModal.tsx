@@ -97,43 +97,29 @@ export const LeadDetailModal = ({
   };
 
   return (
-    <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-navy-deep/70 p-3 backdrop-blur-[3px] sm:p-5"
-    >
-      <div
-        className="relative flex max-h-[92vh] w-full max-w-3xl flex-col overflow-hidden border border-border bg-card shadow-[var(--shadow-overlay)]"
-      >
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-navy-deep/70 p-3 backdrop-blur-[3px] sm:p-5">
+      <div className="relative flex max-h-[92vh] w-full max-w-3xl flex-col overflow-hidden border border-border bg-card shadow-[var(--shadow-overlay)]">
         {/*===== TOP SIGNAL =====*/}
 
-        <div
-          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
-        />
+        <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"/>
 
         {/*===== HEADER =====*/}
 
-        <div
-          className="flex shrink-0 items-start justify-between gap-5 border-b border-border px-5 py-5 sm:px-6"
-        >
+        <div className="flex shrink-0 items-start justify-between gap-5 border-b border-border px-5 py-5 sm:px-6">
           <div className="min-w-0">
             <div className="flex items-center gap-2">
               <CircleDot className="h-3.5 w-3.5 text-secondary" />
 
-              <span
-                className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
-              >
+              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
                 {isEditing ? "Lead management" : "Lead record"}
               </span>
             </div>
 
-            <h2
-              className="mt-2 text-xl font-semibold tracking-[-0.03em] text-heading sm:text-2xl"
-            >
+            <h2 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-heading sm:text-2xl">
               {isEditing ? "Edit Lead" : "Lead Details"}
             </h2>
 
-            <p
-              className="mt-1 text-xs text-muted-foreground"
-            >
+            <p className="mt-1 text-xs text-muted-foreground">
               {lead.companyName || lead.contactPerson}
             </p>
           </div>
@@ -150,9 +136,7 @@ export const LeadDetailModal = ({
 
         {/*===== SCROLLABLE CONTENT =====*/}
 
-        <div
-          className="min-h-0 flex-1 overflow-y-auto overscroll-contain"
-        >
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
           {/*===== CONTACT =====*/}
 
           <FormSection
@@ -160,9 +144,7 @@ export const LeadDetailModal = ({
             title="Lead Information"
             icon={UserRound}
           >
-            <div
-              className="grid grid-cols-1 gap-4 sm:grid-cols-2"
-            >
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <Field label="Company">
                 {isEditing ? (
                   <Input
@@ -248,9 +230,7 @@ export const LeadDetailModal = ({
             title="Pipeline Information"
             icon={BriefcaseBusiness}
           >
-            <div
-              className="grid grid-cols-1 gap-4 sm:grid-cols-2"
-            >
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <Field label="Status">
                 {isEditing ? (
                   <Select
@@ -326,9 +306,7 @@ export const LeadDetailModal = ({
             title="Budget & Activity"
             icon={WalletCards}
           >
-            <div
-              className="grid grid-cols-1 gap-4 sm:grid-cols-2"
-            >
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <Field label="Budget" icon={WalletCards}>
                 {isEditing ? (
                   <Input
@@ -370,12 +348,8 @@ export const LeadDetailModal = ({
                 className="w-full resize-y border border-border bg-background px-3 py-3 text-sm leading-6 text-foreground outline-none transition-colors placeholder:text-muted-foreground/50 focus:border-secondary/40 focus:ring-2 focus:ring-secondary/10"
               />
             ) : (
-              <div
-                className="border border-border bg-muted/10 px-4 py-4"
-              >
-                <p
-                  className="whitespace-pre-wrap text-sm leading-6 text-muted-foreground"
-                >
+              <div className="border border-border bg-muted/10 px-4 py-4">
+                <p className="whitespace-pre-wrap text-sm leading-6 text-muted-foreground">
                   {lead.notes || "No notes"}
                 </p>
               </div>
@@ -385,22 +359,16 @@ export const LeadDetailModal = ({
 
         {/*===== FOOTER =====*/}
 
-        <div
-          className="flex shrink-0 flex-col-reverse gap-2 border-t border-border bg-muted/15 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-        >
+        <div className="flex shrink-0 flex-col-reverse gap-2 border-t border-border bg-muted/15 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <div className="hidden items-center gap-2 sm:flex">
             <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
-            <span
-              className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
-            >
+            <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40">
               Lead record loaded
             </span>
           </div>
 
-          <div
-            className="flex flex-col-reverse gap-2 sm:flex-row sm:items-center"
-          >
+          <div className="flex flex-col-reverse gap-2 sm:flex-row sm:items-center">
             <Button
               variant="outline"
               onClick={onClose}
@@ -457,16 +425,12 @@ function FormSection({
         <div className="flex items-center gap-2">
           <Icon className="h-3.5 w-3.5 text-secondary" />
 
-          <span
-            className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
-          >
+          <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary">
             {eyebrow}
           </span>
         </div>
 
-        <h3
-          className="mt-2 text-base font-semibold tracking-[-0.02em] text-heading"
-        >
+        <h3 className="mt-2 text-base font-semibold tracking-[-0.02em] text-heading">
           {title}
         </h3>
       </div>
@@ -495,14 +459,10 @@ function Field({
 }) {
   return (
     <div className={className}>
-      <div
-        className="mb-2 flex items-center gap-1.5"
-      >
+      <div className="mb-2 flex items-center gap-1.5">
         {Icon && <Icon className="h-3.5 w-3.5 text-secondary/70" />}
 
-        <label
-          className="font-mono text-[8px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/50"
-        >
+        <label className="font-mono text-[8px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/50">
           {label}
         </label>
       </div>
@@ -526,9 +486,7 @@ function ReadValue({
   breakValue?: boolean;
 }) {
   return (
-    <div
-      className="min-h-10 border border-border bg-muted/10 px-3 py-2.5"
-    >
+    <div className="min-h-10 border border-border bg-muted/10 px-3 py-2.5">
       <p
         className={`
           text-sm

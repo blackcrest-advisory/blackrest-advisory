@@ -12,7 +12,9 @@
     "clean:classes": "node scripts/clean-tailwind-classes.mjs",
     "clean:classes:write": "node scripts/clean-tailwind-classes.mjs --write",
     "clean:jsx-comments": "node scripts/clean-jsx-comments.mjs",
-    "clean:jsx-comments:write": "node scripts/clean-jsx-comments.mjs --write"
+    "clean:jsx-comments:write": "node scripts/clean-jsx-comments.mjs --write",
+    "clean:jsx-tags": "node scripts/clean-jsx-opening-tags.mjs",
+    "clean:jsx-tags:write": "node scripts/clean-jsx-opening-tags.mjs --write"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.2",

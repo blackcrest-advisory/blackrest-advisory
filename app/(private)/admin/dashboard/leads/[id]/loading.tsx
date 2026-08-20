@@ -22,9 +22,7 @@ export default function page() {
 
       {/*===== LEAD HEADER =====*/}
 
-      <section
-        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-      >
+      <section className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
         {/* subtle glow */}
         <div
           aria-hidden="true"
@@ -32,13 +30,9 @@ export default function page() {
         />
 
         {/* top signal */}
-        <div
-          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"
-        />
+        <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"/>
 
-        <div
-          className="relative z-10 grid gap-7 px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start lg:px-8 lg:py-7"
-        >
+        <div className="relative z-10 grid gap-7 px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start lg:px-8 lg:py-7">
           {/*===== IDENTITY =====*/}
 
           <div className="min-w-0">
@@ -51,12 +45,8 @@ export default function page() {
               <Skeleton className="h-2.5 w-16" />
             </div>
 
-            <div
-              className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
-            >
-              <Skeleton
-                className="h-9 w-[70%] max-w-sm sm:h-10"
-              />
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+              <Skeleton className="h-9 w-[70%] max-w-sm sm:h-10"/>
 
               <div className="flex gap-2">
                 <Skeleton className="h-6 w-20" />
@@ -64,9 +54,7 @@ export default function page() {
               </div>
             </div>
 
-            <div
-              className="mt-4 flex flex-wrap gap-x-5 gap-y-2"
-            >
+            <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
               <div className="flex items-center gap-2">
                 <Skeleton className="h-3.5 w-3.5" />
                 <Skeleton className="h-3 w-28" />
@@ -81,9 +69,7 @@ export default function page() {
 
           {/*===== ACTIONS =====*/}
 
-          <div
-            className="flex flex-col gap-2 border-t border-border pt-5 sm:flex-row lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0"
-          >
+          <div className="flex flex-col gap-2 border-t border-border pt-5 sm:flex-row lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
             <Skeleton className="h-9 w-full sm:w-20" />
 
             <Skeleton className="h-9 w-full sm:w-36" />
@@ -94,9 +80,7 @@ export default function page() {
 
         {/*===== SUMMARY STRIP =====*/}
 
-        <div
-          className="relative z-10 grid border-t border-border bg-muted/10 sm:grid-cols-3"
-        >
+        <div className="relative z-10 grid border-t border-border bg-muted/10 sm:grid-cols-3">
           <SummarySkeleton />
 
           <SummarySkeleton className="border-t border-border sm:border-l sm:border-t-0" />
@@ -107,24 +91,16 @@ export default function page() {
 
       {/*===== DETAILS GRID =====*/}
 
-      <div
-        className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.45fr)]"
-      >
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.45fr)]">
         {/*===== MAIN COLUMN =====*/}
 
         <div className="space-y-6">
           {/*===== PROJECT INQUIRY =====*/}
 
-          <section
-            className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-          >
-            <div
-              className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"
-            />
+          <section className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
+            <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"/>
 
-            <div
-              className="border-b border-border px-5 py-5 sm:px-6"
-            >
+            <div className="border-b border-border px-5 py-5 sm:px-6">
               <div className="flex items-center gap-2">
                 <Skeleton className="h-3.5 w-3.5" />
                 <Skeleton className="h-2.5 w-24" />
@@ -146,16 +122,10 @@ export default function page() {
 
           {/*===== PROJECT INFORMATION =====*/}
 
-          <section
-            className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-          >
-            <div
-              className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"
-            />
+          <section className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
+            <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"/>
 
-            <div
-              className="border-b border-border px-5 py-5 sm:px-6"
-            >
+            <div className="border-b border-border px-5 py-5 sm:px-6">
               <div className="flex items-center gap-2">
                 <Skeleton className="h-3.5 w-3.5" />
                 <Skeleton className="h-2.5 w-28" />
@@ -164,13 +134,9 @@ export default function page() {
               <Skeleton className="mt-3 h-5 w-40" />
             </div>
 
-            <div
-              className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
-            >
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
               {/* Services */}
-              <div
-                className="px-5 py-5 sm:px-6"
-              >
+              <div className="px-5 py-5 sm:px-6">
                 <Skeleton className="h-2 w-14" />
 
                 <div className="mt-3 flex gap-1.5">
@@ -191,16 +157,10 @@ export default function page() {
         <aside className="space-y-6">
           {/*===== CONTACT INFORMATION =====*/}
 
-          <section
-            className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-          >
-            <div
-              className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"
-            />
+          <section className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
+            <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"/>
 
-            <div
-              className="border-b border-border px-5 py-5 sm:px-6"
-            >
+            <div className="border-b border-border px-5 py-5 sm:px-6">
               <div className="flex items-center gap-2">
                 <Skeleton className="h-3.5 w-3.5" />
                 <Skeleton className="h-2.5 w-24" />
@@ -215,9 +175,7 @@ export default function page() {
               ))}
             </div>
 
-            <div
-              className="flex items-center gap-2 border-t border-border bg-muted/15 px-5 py-3.5 sm:px-6"
-            >
+            <div className="flex items-center gap-2 border-t border-border bg-muted/15 px-5 py-3.5 sm:px-6">
               <Skeleton className="h-1.5 w-1.5 rounded-full" />
               <Skeleton className="h-2 w-28" />
             </div>
@@ -225,17 +183,11 @@ export default function page() {
 
           {/*===== ATTACHMENT =====*/}
 
-          <section
-            className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-          >
-            <div
-              className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"
-            />
+          <section className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
+            <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"/>
 
             <div className="px-5 py-5 sm:px-6">
-              <div
-                className="flex items-start justify-between gap-4"
-              >
+              <div className="flex items-start justify-between gap-4">
                 <div>
                   <div className="flex items-center gap-2">
                     <Skeleton className="h-3.5 w-3.5" />
@@ -248,9 +200,7 @@ export default function page() {
                 <Skeleton className="h-9 w-9" />
               </div>
 
-              <div
-                className="mt-5 flex items-center justify-between border border-border bg-background/50 px-4 py-3"
-              >
+              <div className="mt-5 flex items-center justify-between border border-border bg-background/50 px-4 py-3">
                 <Skeleton className="h-3.5 w-32" />
                 <Skeleton className="h-4 w-4" />
               </div>
@@ -328,9 +278,7 @@ function InfoSkeleton({ index }: { index: number }) {
 
 function ContactSkeleton() {
   return (
-    <div
-      className="flex items-start gap-3 px-5 py-4 sm:px-6"
-    >
+    <div className="flex items-start gap-3 px-5 py-4 sm:px-6">
       <Skeleton className="mt-0.5 h-4 w-4 shrink-0" />
 
       <div className="min-w-0 flex-1">

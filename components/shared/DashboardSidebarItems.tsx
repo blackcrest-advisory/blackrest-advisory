@@ -186,17 +186,11 @@ export default function DashboardSidebarItems({
       {/*===== COLLAPSED TOOLTIP =====*/}
 
       {isCollapsed && (
-        <div
-          className="pointer-events-none absolute left-full top-1/2 z-[60] ml-3 hidden -translate-y-1/2 opacity-0 transition-all duration-150 group-hover/item:translate-x-0 group-hover/item:opacity-100 lg:block"
-        >
-          <div
-            className="relative whitespace-nowrap border border-border bg-popover px-3 py-2 text-xs font-medium text-foreground shadow-[var(--shadow-overlay)]"
-          >
+        <div className="pointer-events-none absolute left-full top-1/2 z-[60] ml-3 hidden -translate-y-1/2 opacity-0 transition-all duration-150 group-hover/item:translate-x-0 group-hover/item:opacity-100 lg:block">
+          <div className="relative whitespace-nowrap border border-border bg-popover px-3 py-2 text-xs font-medium text-foreground shadow-[var(--shadow-overlay)]">
             {item.label}
 
-            <span
-              className="absolute left-[-4px] top-1/2 h-2 w-2 -translate-y-1/2 rotate-45 border-b border-l border-border bg-popover"
-            />
+            <span className="absolute left-[-4px] top-1/2 h-2 w-2 -translate-y-1/2 rotate-45 border-b border-l border-border bg-popover"/>
           </div>
         </div>
       )}

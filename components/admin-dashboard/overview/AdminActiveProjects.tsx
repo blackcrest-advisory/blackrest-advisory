@@ -41,22 +41,16 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
     >
       {/*===== TOP ACCENT =====*/}
 
-      <div
-        className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"
-      />
+      <div className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/35 to-transparent"/>
 
       {/*===== HEADER =====*/}
 
-      <div
-        className="relative flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-      >
+      <div className="relative flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <div>
           <div className="flex items-center gap-2">
             <FolderKanban className="h-3.5 w-3.5 text-secondary" />
 
-            <span
-              className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
-            >
+            <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
               Delivery pipeline
             </span>
 
@@ -64,22 +58,16 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
           </div>
 
           <div className="mt-2 flex items-baseline gap-3">
-            <h3
-              className="text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl"
-            >
+            <h3 className="text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl">
               Active Projects
             </h3>
 
-            <span
-              className="font-mono text-[8px] uppercase tracking-[0.15em] text-muted-foreground/40"
-            >
+            <span className="font-mono text-[8px] uppercase tracking-[0.15em] text-muted-foreground/40">
               {projects.length} active
             </span>
           </div>
 
-          <p
-            className="mt-1 text-xs leading-5 text-muted-foreground"
-          >
+          <p className="mt-1 text-xs leading-5 text-muted-foreground">
             Monitor current client engagements and delivery progress.
           </p>
         </div>
@@ -91,9 +79,7 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
           className="group self-start sm:self-auto"
         >
           View all
-          <ArrowUpRight
-            className="ml-2 h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-          />
+          <ArrowUpRight className="ml-2 h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"/>
         </Button>
       </div>
 
@@ -102,42 +88,28 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
       <div className="hidden overflow-x-auto md:block">
         <Table>
           <TableHeader>
-            <TableRow
-              className="border-border bg-muted/20 hover:bg-muted/20"
-            >
-              <TableHead
-                className="h-11 pl-6 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
-              >
+            <TableRow className="border-border bg-muted/20 hover:bg-muted/20">
+              <TableHead className="h-11 pl-6 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45">
                 Project
               </TableHead>
 
-              <TableHead
-                className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
-              >
+              <TableHead className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45">
                 Client
               </TableHead>
 
-              <TableHead
-                className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
-              >
+              <TableHead className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45">
                 Status
               </TableHead>
 
-              <TableHead
-                className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
-              >
+              <TableHead className="h-11 font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45">
                 Priority
               </TableHead>
 
-              <TableHead
-                className="h-11 min-w-[170px] font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
-              >
+              <TableHead className="h-11 min-w-[170px] font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45">
                 Progress
               </TableHead>
 
-              <TableHead
-                className="h-11 pr-6 text-right font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45"
-              >
+              <TableHead className="h-11 pr-6 text-right font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/45">
                 Deadline
               </TableHead>
             </TableRow>
@@ -152,9 +124,7 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
                 {/* Project */}
                 <TableCell className="py-4 pl-6">
                   <div className="flex items-center gap-3">
-                    <div
-                      className="flex h-9 w-9 shrink-0 items-center justify-center border border-border bg-background font-mono text-[8px] font-semibold text-muted-foreground/40 transition-all duration-200 group-hover/row:border-secondary/20 group-hover/row:text-secondary"
-                    >
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-border bg-background font-mono text-[8px] font-semibold text-muted-foreground/40 transition-all duration-200 group-hover/row:border-secondary/20 group-hover/row:text-secondary">
                       {String(index + 1).padStart(2, "0")}
                     </div>
 
@@ -165,9 +135,7 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
                       >
                         <span className="truncate">{project.name}</span>
 
-                        <ArrowUpRight
-                          className="h-3 w-3 shrink-0 opacity-0 transition-all duration-200 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 group-hover/link:opacity-100"
-                        />
+                        <ArrowUpRight className="h-3 w-3 shrink-0 opacity-0 transition-all duration-200 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 group-hover/link:opacity-100"/>
                       </Link>
                     </div>
                   </div>
@@ -175,9 +143,7 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
 
                 {/* Client */}
                 <TableCell>
-                  <span
-                    className="max-w-[160px] truncate text-sm text-muted-foreground"
-                  >
+                  <span className="max-w-[160px] truncate text-sm text-muted-foreground">
                     {project.clientName}
                   </span>
                 </TableCell>
@@ -195,9 +161,7 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
                 {/* Progress */}
                 <TableCell>
                   <div className="flex min-w-[150px] items-center gap-3">
-                    <div
-                      className="relative h-1.5 flex-1 overflow-hidden bg-muted"
-                    >
+                    <div className="relative h-1.5 flex-1 overflow-hidden bg-muted">
                       <motion.div
                         initial={{
                           width: reduceMotion ? `${project.progress}%` : 0,
@@ -214,9 +178,7 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
                       />
                     </div>
 
-                    <span
-                      className="w-9 text-right font-mono text-[9px] font-medium text-muted-foreground"
-                    >
+                    <span className="w-9 text-right font-mono text-[9px] font-medium text-muted-foreground">
                       {project.progress}%
                     </span>
                   </div>
@@ -224,9 +186,7 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
 
                 {/* Deadline */}
                 <TableCell className="pr-6 text-right">
-                  <span
-                    className="whitespace-nowrap text-xs font-medium text-foreground/75"
-                  >
+                  <span className="whitespace-nowrap text-xs font-medium text-foreground/75">
                     {project.deadline}
                   </span>
                 </TableCell>
@@ -258,9 +218,7 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
           >
             {/* top */}
             <div className="flex items-start gap-3">
-              <div
-                className="flex h-9 w-9 shrink-0 items-center justify-center border border-border bg-background font-mono text-[8px] font-semibold text-muted-foreground/40"
-              >
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-border bg-background font-mono text-[8px] font-semibold text-muted-foreground/40">
                 {String(index + 1).padStart(2, "0")}
               </div>
 
@@ -270,22 +228,16 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
                   className="group/link flex items-start justify-between gap-3"
                 >
                   <div className="min-w-0">
-                    <p
-                      className="truncate text-sm font-semibold text-heading transition-colors group-hover/link:text-secondary"
-                    >
+                    <p className="truncate text-sm font-semibold text-heading transition-colors group-hover/link:text-secondary">
                       {project.name}
                     </p>
 
-                    <p
-                      className="mt-1 truncate text-xs text-muted-foreground"
-                    >
+                    <p className="mt-1 truncate text-xs text-muted-foreground">
                       {project.clientName}
                     </p>
                   </div>
 
-                  <ArrowUpRight
-                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted-foreground/40 transition-all group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 group-hover/link:text-secondary"
-                  />
+                  <ArrowUpRight className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted-foreground/40 transition-all group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 group-hover/link:text-secondary"/>
                 </Link>
               </div>
             </div>
@@ -299,22 +251,16 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
             {/* progress */}
             <div className="mt-5">
               <div className="mb-2 flex items-center justify-between">
-                <span
-                  className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
-                >
+                <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40">
                   Progress
                 </span>
 
-                <span
-                  className="font-mono text-[9px] font-medium text-foreground"
-                >
+                <span className="font-mono text-[9px] font-medium text-foreground">
                   {project.progress}%
                 </span>
               </div>
 
-              <div
-                className="relative h-1.5 overflow-hidden bg-muted"
-              >
+              <div className="relative h-1.5 overflow-hidden bg-muted">
                 <motion.div
                   initial={{
                     width: reduceMotion ? `${project.progress}%` : 0,
@@ -332,18 +278,12 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
             </div>
 
             {/* deadline */}
-            <div
-              className="mt-4 flex items-center justify-between border-t border-border pt-3"
-            >
-              <span
-                className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
-              >
+            <div className="mt-4 flex items-center justify-between border-t border-border pt-3">
+              <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40">
                 Deadline
               </span>
 
-              <span
-                className="text-xs font-medium text-foreground"
-              >
+              <span className="text-xs font-medium text-foreground">
                 {project.deadline}
               </span>
             </div>
@@ -354,24 +294,16 @@ export const AdminActiveProjects = ({ projects }: AdminActiveProjectsProps) => {
       {/*===== EMPTY STATE =====*/}
 
       {projects.length === 0 && (
-        <div
-          className="flex min-h-[220px] flex-col items-center justify-center px-6 py-10 text-center"
-        >
-          <div
-            className="flex h-11 w-11 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary"
-          >
+        <div className="flex min-h-[220px] flex-col items-center justify-center px-6 py-10 text-center">
+          <div className="flex h-11 w-11 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary">
             <FolderKanban className="h-5 w-5" />
           </div>
 
-          <p
-            className="mt-4 text-sm font-semibold text-heading"
-          >
+          <p className="mt-4 text-sm font-semibold text-heading">
             No active projects
           </p>
 
-          <p
-            className="mt-1 max-w-xs text-xs leading-5 text-muted-foreground"
-          >
+          <p className="mt-1 max-w-xs text-xs leading-5 text-muted-foreground">
             Active client projects will appear here once delivery begins.
           </p>
         </div>

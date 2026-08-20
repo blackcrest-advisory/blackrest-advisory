@@ -38,24 +38,16 @@ export const LeadTable = ({
   //===== Empty State =====//
   if (leads.length === 0) {
     return (
-      <div
-        className="flex min-h-[220px] flex-col items-center justify-center px-6 py-12 text-center"
-      >
-        <div
-          className="flex h-11 w-11 items-center justify-center border border-border bg-muted/20 text-muted-foreground"
-        >
+      <div className="flex min-h-[220px] flex-col items-center justify-center px-6 py-12 text-center">
+        <div className="flex h-11 w-11 items-center justify-center border border-border bg-muted/20 text-muted-foreground">
           <Building2 className="h-4 w-4" />
         </div>
 
-        <h3
-          className="mt-4 text-sm font-semibold text-heading"
-        >
+        <h3 className="mt-4 text-sm font-semibold text-heading">
           No leads found
         </h3>
 
-        <p
-          className="mt-1 max-w-sm text-xs leading-5 text-muted-foreground"
-        >
+        <p className="mt-1 max-w-sm text-xs leading-5 text-muted-foreground">
           Try adjusting your search term or pipeline filters.
         </p>
       </div>
@@ -69,9 +61,7 @@ export const LeadTable = ({
       <div className="hidden overflow-x-auto lg:block">
         <Table>
           <TableHeader>
-            <TableRow
-              className="border-border bg-muted/15 hover:bg-muted/15"
-            >
+            <TableRow className="border-border bg-muted/15 hover:bg-muted/15">
               <TableHead className="h-11 pl-5">Company</TableHead>
               <TableHead>Contact</TableHead>
               <TableHead>Services</TableHead>
@@ -92,9 +82,7 @@ export const LeadTable = ({
                 {/* Company */}
                 <TableCell className="py-4 pl-5">
                   <div className="max-w-[220px]">
-                    <p
-                      className="truncate text-sm font-semibold text-heading"
-                    >
+                    <p className="truncate text-sm font-semibold text-heading">
                       {lead.companyName}
                     </p>
                   </div>
@@ -102,18 +90,14 @@ export const LeadTable = ({
 
                 {/* Contact */}
                 <TableCell>
-                  <span
-                    className="whitespace-nowrap text-sm text-foreground"
-                  >
+                  <span className="whitespace-nowrap text-sm text-foreground">
                     {lead.contactPerson}
                   </span>
                 </TableCell>
 
                 {/* Services */}
                 <TableCell>
-                  <div
-                    className="flex max-w-[240px] flex-wrap gap-1.5"
-                  >
+                  <div className="flex max-w-[240px] flex-wrap gap-1.5">
                     {lead.services.map((service) => (
                       <span
                         key={service}
@@ -140,9 +124,7 @@ export const LeadTable = ({
                   <div className="flex items-center gap-2.5">
                     <Avatar name={lead.assignedTo} size="sm" />
 
-                    <span
-                      className="whitespace-nowrap text-sm text-foreground"
-                    >
+                    <span className="whitespace-nowrap text-sm text-foreground">
                       {lead.assignedTo}
                     </span>
                   </div>
@@ -150,9 +132,7 @@ export const LeadTable = ({
 
                 {/* Created */}
                 <TableCell>
-                  <span
-                    className="whitespace-nowrap text-sm text-muted-foreground"
-                  >
+                  <span className="whitespace-nowrap text-sm text-muted-foreground">
                     {format(lead.createdAt, "MMM d, yyyy")}
                   </span>
                 </TableCell>
@@ -182,26 +162,18 @@ export const LeadTable = ({
           >
             {/* Heading */}
             <div className="flex items-start gap-3">
-              <div
-                className="flex h-9 w-9 shrink-0 items-center justify-center border border-border bg-background font-mono text-[8px] font-semibold text-muted-foreground/40"
-              >
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-border bg-background font-mono text-[8px] font-semibold text-muted-foreground/40">
                 {String(index + 1).padStart(2, "0")}
               </div>
 
               <div className="min-w-0 flex-1">
-                <div
-                  className="flex items-start justify-between gap-3"
-                >
+                <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <p
-                      className="truncate text-sm font-semibold text-heading"
-                    >
+                    <p className="truncate text-sm font-semibold text-heading">
                       {lead.companyName}
                     </p>
 
-                    <div
-                      className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground"
-                    >
+                    <div className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground">
                       <UserRound className="h-3 w-3" />
                       <span className="truncate">{lead.contactPerson}</span>
                     </div>
@@ -214,9 +186,7 @@ export const LeadTable = ({
 
             {/* Services */}
             <div className="mt-4">
-              <p
-                className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
-              >
+              <p className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40">
                 Services
               </p>
 
@@ -233,15 +203,9 @@ export const LeadTable = ({
             </div>
 
             {/* Metadata */}
-            <div
-              className="mt-4 grid grid-cols-2 gap-3"
-            >
-              <div
-                className="border border-border bg-background/40 p-3"
-              >
-                <p
-                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
-                >
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              <div className="border border-border bg-background/40 p-3">
+                <p className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40">
                   Priority
                 </p>
 
@@ -250,21 +214,15 @@ export const LeadTable = ({
                 </div>
               </div>
 
-              <div
-                className="border border-border bg-background/40 p-3"
-              >
-                <p
-                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
-                >
+              <div className="border border-border bg-background/40 p-3">
+                <p className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40">
                   Assigned
                 </p>
 
                 <div className="mt-2 flex items-center gap-2">
                   <Avatar name={lead.assignedTo} size="sm" />
 
-                  <span
-                    className="min-w-0 truncate text-xs font-medium text-foreground"
-                  >
+                  <span className="min-w-0 truncate text-xs font-medium text-foreground">
                     {lead.assignedTo}
                   </span>
                 </div>
@@ -272,12 +230,8 @@ export const LeadTable = ({
             </div>
 
             {/* Footer */}
-            <div
-              className="mt-4 flex items-center justify-between gap-4 border-t border-border pt-4"
-            >
-              <div
-                className="flex items-center gap-2 text-xs text-muted-foreground"
-              >
+            <div className="mt-4 flex items-center justify-between gap-4 border-t border-border pt-4">
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
                 <CalendarDays className="h-3.5 w-3.5 text-secondary" />
 
                 {format(lead.createdAt, "MMM d, yyyy")}

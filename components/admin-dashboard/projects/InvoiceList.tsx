@@ -101,30 +101,20 @@ export function InvoiceList({
   //===== empty state =====//
   if (invoices.length === 0) {
     return (
-      <div
-        className="flex min-h-[170px] flex-col items-center justify-center border border-dashed border-border bg-background/20 px-6 py-8 text-center"
-      >
-        <div
-          className="flex h-10 w-10 items-center justify-center rounded-md border border-border bg-card text-muted-foreground"
-        >
+      <div className="flex min-h-[170px] flex-col items-center justify-center border border-dashed border-border bg-background/20 px-6 py-8 text-center">
+        <div className="flex h-10 w-10 items-center justify-center rounded-md border border-border bg-card text-muted-foreground">
           <ReceiptText className="h-4 w-4" />
         </div>
 
-        <span
-          className="mt-4 font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-        >
+        <span className="mt-4 font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
           Commercial records
         </span>
 
-        <p
-          className="mt-1.5 text-sm font-semibold text-heading"
-        >
+        <p className="mt-1.5 text-sm font-semibold text-heading">
           No invoices yet
         </p>
 
-        <p
-          className="mt-1 max-w-xs text-xs leading-5 text-muted-foreground"
-        >
+        <p className="mt-1 max-w-xs text-xs leading-5 text-muted-foreground">
           Invoices created for this project will appear here.
         </p>
       </div>
@@ -132,22 +122,16 @@ export function InvoiceList({
   }
 
   return (
-    <div
-      className="overflow-hidden border border-border bg-background/15"
-    >
+    <div className="overflow-hidden border border-border bg-background/15">
       {/*===== DESKTOP HEADER =====*/}
 
-      <div
-        className="hidden grid-cols-[minmax(170px,1.4fr)_minmax(120px,0.8fr)_130px_150px_auto] items-center gap-4 border-b border-border bg-muted/10 px-4 py-3 lg:grid"
-      >
+      <div className="hidden grid-cols-[minmax(170px,1.4fr)_minmax(120px,0.8fr)_130px_150px_auto] items-center gap-4 border-b border-border bg-muted/10 px-4 py-3 lg:grid">
         <ColumnLabel>Invoice</ColumnLabel>
         <ColumnLabel>Schedule</ColumnLabel>
         <ColumnLabel>Amount</ColumnLabel>
         <ColumnLabel>Status</ColumnLabel>
 
-        <span
-          className="text-right font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40"
-        >
+        <span className="text-right font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40">
           Actions
         </span>
       </div>
@@ -162,14 +146,10 @@ export function InvoiceList({
           >
             {/*===== DESKTOP =====*/}
 
-            <div
-              className="hidden min-h-[84px] grid-cols-[minmax(170px,1.4fr)_minmax(120px,0.8fr)_130px_150px_auto] items-center gap-4 px-4 py-4 lg:grid"
-            >
+            <div className="hidden min-h-[84px] grid-cols-[minmax(170px,1.4fr)_minmax(120px,0.8fr)_130px_150px_auto] items-center gap-4 px-4 py-4 lg:grid">
               {/* invoice */}
               <div className="flex min-w-0 items-start gap-3">
-                <div
-                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border bg-card font-mono text-[8px] font-semibold text-muted-foreground/35"
-                >
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border bg-card font-mono text-[8px] font-semibold text-muted-foreground/35">
                   {String(index + 1).padStart(2, "0")}
                 </div>
 
@@ -181,9 +161,7 @@ export function InvoiceList({
                     {invoice.invoiceNumber}
                   </p>
 
-                  <p
-                    className="mt-1 text-[10px] text-muted-foreground"
-                  >
+                  <p className="mt-1 text-[10px] text-muted-foreground">
                     Created {format(new Date(invoice.createdAt), "MMM d, yyyy")}
                   </p>
                 </div>
@@ -196,15 +174,11 @@ export function InvoiceList({
                     <Clock3 className="h-3.5 w-3.5 shrink-0 text-secondary" />
 
                     <div className="min-w-0">
-                      <p
-                        className="font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/40"
-                      >
+                      <p className="font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/40">
                         Due
                       </p>
 
-                      <p
-                        className="mt-1 whitespace-nowrap text-xs font-medium text-heading"
-                      >
+                      <p className="mt-1 whitespace-nowrap text-xs font-medium text-heading">
                         {format(new Date(invoice.dueDate), "MMM d, yyyy")}
                       </p>
                     </div>
@@ -216,9 +190,7 @@ export function InvoiceList({
                 )}
 
                 {invoice.paidAt && (
-                  <p
-                    className="mt-1.5 text-[10px] text-success"
-                  >
+                  <p className="mt-1.5 text-[10px] text-success">
                     Paid {format(new Date(invoice.paidAt), "MMM d, yyyy")}
                   </p>
                 )}
@@ -226,15 +198,11 @@ export function InvoiceList({
 
               {/* amount */}
               <div>
-                <p
-                  className="whitespace-nowrap text-sm font-semibold text-heading"
-                >
+                <p className="whitespace-nowrap text-sm font-semibold text-heading">
                   {invoice.amount} {invoice.currency}
                 </p>
 
-                <span
-                  className="mt-1 block font-mono text-[7px] uppercase tracking-[0.12em] text-muted-foreground/35"
-                >
+                <span className="mt-1 block font-mono text-[7px] uppercase tracking-[0.12em] text-muted-foreground/35">
                   Invoice value
                 </span>
               </div>
@@ -245,9 +213,7 @@ export function InvoiceList({
               </div>
 
               {/* actions */}
-              <div
-                className="flex items-center justify-end gap-1"
-              >
+              <div className="flex items-center justify-end gap-1">
                 {!readonly && (
                   <>
                     {/* Send - DRAFT */}
@@ -333,26 +299,18 @@ export function InvoiceList({
 
             <div className="px-4 py-4 lg:hidden">
               {/* header */}
-              <div
-                className="flex items-start justify-between gap-4"
-              >
+              <div className="flex items-start justify-between gap-4">
                 <div className="flex min-w-0 items-start gap-3">
-                  <div
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-card font-mono text-[8px] font-semibold text-muted-foreground/35"
-                  >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-card font-mono text-[8px] font-semibold text-muted-foreground/35">
                     {String(index + 1).padStart(2, "0")}
                   </div>
 
                   <div className="min-w-0">
-                    <p
-                      className="truncate text-sm font-semibold text-heading"
-                    >
+                    <p className="truncate text-sm font-semibold text-heading">
                       {invoice.invoiceNumber}
                     </p>
 
-                    <p
-                      className="mt-1 text-[10px] text-muted-foreground"
-                    >
+                    <p className="mt-1 text-[10px] text-muted-foreground">
                       Created{" "}
                       {format(new Date(invoice.createdAt), "MMM d, yyyy")}
                     </p>
@@ -363,9 +321,7 @@ export function InvoiceList({
               </div>
 
               {/* commercial summary */}
-              <div
-                className="mt-4 grid gap-3 sm:grid-cols-2"
-              >
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 <MobileDetail
                   label="Invoice value"
                   value={`${invoice.amount} ${invoice.currency}`}
@@ -390,9 +346,7 @@ export function InvoiceList({
               </div>
 
               {/* actions */}
-              <div
-                className="mt-4 flex flex-wrap items-center gap-2 border-t border-border pt-4"
-              >
+              <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-border pt-4">
                 {!readonly && (
                   <>
                     {invoice.status === "DRAFT" && (
@@ -471,15 +425,11 @@ export function InvoiceList({
 
       {/*===== FOOTER =====*/}
 
-      <div
-        className="flex flex-col gap-2 border-t border-border bg-muted/10 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
-      >
+      <div className="flex flex-col gap-2 border-t border-border bg-muted/10 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-2">
           <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
-          <span
-            className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
-          >
+          <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40">
             Commercial records available
           </span>
         </div>
@@ -528,9 +478,7 @@ function InvoiceStatusBadge({ status }: { status: InvoiceStatus }) {
         ${styles[status]}
       `}
     >
-      <span
-        className="h-1.5 w-1.5 rounded-full bg-current opacity-70"
-      />
+      <span className="h-1.5 w-1.5 rounded-full bg-current opacity-70"/>
 
       {status}
     </span>
@@ -543,9 +491,7 @@ function InvoiceStatusBadge({ status }: { status: InvoiceStatus }) {
 
 function ColumnLabel({ children }: { children: React.ReactNode }) {
   return (
-    <span
-      className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40"
-    >
+    <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40">
       {children}
     </span>
   );
@@ -620,12 +566,8 @@ function MobileDetail({
   tone?: "default" | "success";
 }) {
   return (
-    <div
-      className="border border-border bg-background/30 p-3"
-    >
-      <span
-        className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40"
-      >
+    <div className="border border-border bg-background/30 p-3">
+      <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40">
         {label}
       </span>
 

@@ -253,14 +253,10 @@ export const EngagementStats = () => {
                   `}
                 >
                   {/* hover surface */}
-                  <div
-                    className="absolute inset-0 bg-card opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                  />
+                  <div className="absolute inset-0 bg-card opacity-0 transition-opacity duration-500 group-hover:opacity-100"/>
 
                   {/* hover gold glow */}
-                  <div
-                    className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-secondary/[0.07] opacity-0 blur-3xl transition-all duration-500 group-hover:opacity-100"
-                  />
+                  <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-secondary/[0.07] opacity-0 blur-3xl transition-all duration-500 group-hover:opacity-100"/>
 
                   {/* animated scanning line */}
                   {!reduceMotion && (
@@ -302,9 +298,7 @@ export const EngagementStats = () => {
 
                     {/* number */}
                     <div className="mt-7">
-                      <div
-                        className="font-mono text-[3.4rem] font-medium leading-none tracking-[-0.07em] text-heading sm:text-[4rem] lg:text-[4.5rem]"
-                      >
+                      <div className="font-mono text-[3.4rem] font-medium leading-none tracking-[-0.07em] text-heading sm:text-[4rem] lg:text-[4.5rem]">
                         {isInView ? (
                           <AnimatedCounter
                             value={stat.value}
@@ -326,9 +320,7 @@ export const EngagementStats = () => {
                         {stat.note}
                       </p>
 
-                      <ArrowUpRight
-                        className="h-3.5 w-3.5 shrink-0 text-muted-foreground/25 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-secondary"
-                      />
+                      <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground/25 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-secondary"/>
                     </div>
 
                     {/* animated bottom progress */}

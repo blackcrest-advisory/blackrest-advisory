@@ -90,50 +90,34 @@ export function ProposalForm({
     <form onSubmit={handleSubmit} className="space-y-6">
       {/*===== FORM INTRO =====*/}
 
-      <div
-        className="flex flex-col gap-4 border-b border-border pb-5 sm:flex-row sm:items-start sm:justify-between"
-      >
+      <div className="flex flex-col gap-4 border-b border-border pb-5 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex items-start gap-3">
-          <div
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-secondary/15 bg-secondary/[0.05] text-secondary"
-          >
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-secondary/15 bg-secondary/[0.05] text-secondary">
             <FileText className="h-4 w-4" />
           </div>
 
           <div>
-            <span
-              className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-secondary"
-            >
+            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-secondary">
               Proposal details
             </span>
 
-            <h3
-              className="mt-1 text-base font-semibold text-heading"
-            >
+            <h3 className="mt-1 text-base font-semibold text-heading">
               {initialData
                 ? "Edit proposal details"
                 : "Prepare client proposal"}
             </h3>
 
-            <p
-              className="mt-1 max-w-xl text-xs leading-5 text-muted-foreground"
-            >
+            <p className="mt-1 max-w-xl text-xs leading-5 text-muted-foreground">
               Define the scope, deliverables, commercial terms and expected
               timeline for this engagement.
             </p>
           </div>
         </div>
 
-        <div
-          className="flex items-center gap-2 sm:pt-1"
-        >
-          <span
-            className="h-1.5 w-1.5 rounded-full bg-warning"
-          />
+        <div className="flex items-center gap-2 sm:pt-1">
+          <span className="h-1.5 w-1.5 rounded-full bg-warning"/>
 
-          <span
-            className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
-          >
+          <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40">
             Draft proposal
           </span>
         </div>
@@ -202,9 +186,7 @@ export function ProposalForm({
         title="Pricing"
         description="Set the proposed amount and billing currency."
       >
-        <div
-          className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_220px]"
-        >
+        <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_220px]">
           {/* amount */}
           <Field label="Amount" htmlFor="amount">
             <Input
@@ -259,17 +241,11 @@ export function ProposalForm({
 
       {/*===== ACTION BAR =====*/}
 
-      <div
-        className="flex flex-col gap-4 border-t border-border pt-5 sm:flex-row sm:items-center sm:justify-between"
-      >
+      <div className="flex flex-col gap-4 border-t border-border pt-5 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-2">
-          <FileCheck2
-            className="h-3.5 w-3.5 text-secondary"
-          />
+          <FileCheck2 className="h-3.5 w-3.5 text-secondary"/>
 
-          <span
-            className="text-xs text-muted-foreground"
-          >
+          <span className="text-xs text-muted-foreground">
             Required fields must be completed before saving.
           </span>
         </div>
@@ -310,44 +286,30 @@ function FormSection({
   children: React.ReactNode;
 }) {
   return (
-    <section
-      className="border border-border bg-background/25"
-    >
+    <section className="border border-border bg-background/25">
       {/* section header */}
-      <div
-        className="flex items-start gap-3 border-b border-border bg-muted/10 px-4 py-4 sm:px-5"
-      >
-        <div
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border bg-card text-secondary"
-        >
+      <div className="flex items-start gap-3 border-b border-border bg-muted/10 px-4 py-4 sm:px-5">
+        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border bg-card text-secondary">
           <Icon className="h-3.5 w-3.5" />
         </div>
 
         <div>
-          <span
-            className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-muted-foreground/40"
-          >
+          <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-muted-foreground/40">
             {eyebrow}
           </span>
 
-          <h4
-            className="mt-0.5 text-sm font-semibold text-heading"
-          >
+          <h4 className="mt-0.5 text-sm font-semibold text-heading">
             {title}
           </h4>
 
-          <p
-            className="mt-1 max-w-2xl text-xs leading-5 text-muted-foreground"
-          >
+          <p className="mt-1 max-w-2xl text-xs leading-5 text-muted-foreground">
             {description}
           </p>
         </div>
       </div>
 
       {/* fields */}
-      <div
-        className="px-4 py-5 sm:px-5"
-      >
+      <div className="px-4 py-5 sm:px-5">
         {children}
       </div>
     </section>
@@ -378,9 +340,7 @@ function Field({
         {label}
 
         {required && (
-          <span
-            className="text-destructive"
-          >
+          <span className="text-destructive">
             *
           </span>
         )}

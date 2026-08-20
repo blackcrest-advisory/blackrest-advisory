@@ -93,23 +93,17 @@ export default async function SettingsPage() {
     : defaultPreferences;
 
   return (
-    <div
-      className="relative min-w-0 max-w-full space-y-6"
-    >
+    <div className="relative min-w-0 max-w-full space-y-6">
       {/*===== SETTINGS HEADER =====*/}
 
       <SettingsPageHeader />
 
       {/*===== ACCOUNT WORKSPACE =====*/}
 
-      <div
-        className="grid min-w-0 max-w-full gap-6 xl:grid-cols-[minmax(0,1.4fr)_minmax(300px,0.6fr)] xl:items-start"
-      >
+      <div className="grid min-w-0 max-w-full gap-6 xl:grid-cols-[minmax(0,1.4fr)_minmax(300px,0.6fr)] xl:items-start">
         {/*===== MAIN ACCOUNT AREA =====*/}
 
-        <div
-          className="min-w-0 space-y-6"
-        >
+        <div className="min-w-0 space-y-6">
           <ProfileSection profile={profile} />
 
           <NotificationsSection preferences={preferences} />
@@ -117,9 +111,7 @@ export default async function SettingsPage() {
 
         {/*===== SECURITY RAIL =====*/}
 
-        <aside
-          className="min-w-0 xl:sticky xl:top-4"
-        >
+        <aside className="min-w-0 xl:sticky xl:top-4">
           <SecuritySection />
         </aside>
       </div>

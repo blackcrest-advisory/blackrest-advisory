@@ -224,9 +224,7 @@ export default function WhoWeServe() {
               {/* Story */}
               <div>
                 <div className="flex items-center gap-4">
-                  <div
-                    className="flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] border border-gold/20 bg-gold/10 text-gold-light"
-                  >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] border border-gold/20 bg-gold/10 text-gold-light">
                     <ActiveIcon className="h-5 w-5" strokeWidth={1.8} />
                   </div>
 

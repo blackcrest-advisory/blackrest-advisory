@@ -180,9 +180,7 @@ export function AdminFilesClient({
     <div className="relative space-y-6">
       {/*===== ASSET REGISTRY HEADER =====*/}
 
-      <header
-        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-      >
+      <header className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
         {/* top signal */}
         <div
           aria-hidden="true"
@@ -195,52 +193,38 @@ export function AdminFilesClient({
           className="pointer-events-none absolute -right-24 -top-28 h-64 w-64 rounded-full bg-secondary/[0.055] blur-[100px]"
         />
 
-        <div
-          className="relative z-10 grid gap-7 px-5 py-6 sm:px-6 lg:px-8 lg:py-7 xl:grid-cols-[minmax(0,1fr)_280px]"
-        >
+        <div className="relative z-10 grid gap-7 px-5 py-6 sm:px-6 lg:px-8 lg:py-7 xl:grid-cols-[minmax(0,1fr)_280px]">
           {/*===== TITLE =====*/}
 
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-3">
               <FolderArchive className="h-3.5 w-3.5 text-secondary" />
 
-              <span
-                className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
-              >
+              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
                 Asset registry
               </span>
 
               <span className="h-px w-8 bg-secondary/30" />
 
-              <span
-                className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40"
-              >
+              <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40">
                 Admin archive
               </span>
             </div>
 
-            <h1
-              className="mt-5 text-3xl font-semibold tracking-[-0.05em] text-heading sm:text-[38px]"
-            >
+            <h1 className="mt-5 text-3xl font-semibold tracking-[-0.05em] text-heading sm:text-[38px]">
               Files
             </h1>
 
-            <p
-              className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground"
-            >
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground">
               Browse documents and assets shared across all client projects from
               one central workspace.
             </p>
 
-            <div
-              className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border pt-4"
-            >
+            <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border pt-4">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="h-3.5 w-3.5 text-success" />
 
-                <span
-                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
-                >
+                <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40">
                   Registry available
                 </span>
               </div>
@@ -257,48 +241,30 @@ export function AdminFilesClient({
 
           {/*===== STORAGE INDEX =====*/}
 
-          <div
-            className="border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
-          >
-            <span
-              className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/40"
-            >
+          <div className="border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0">
+            <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/40">
               Storage index
             </span>
 
-            <div
-              className="mt-4 flex items-end gap-3"
-            >
+            <div className="mt-4 flex items-end gap-3">
               <HardDrive className="mb-1 h-5 w-5 text-secondary" />
 
-              <span
-                className="text-3xl font-semibold tracking-[-0.05em] text-heading"
-              >
+              <span className="text-3xl font-semibold tracking-[-0.05em] text-heading">
                 {formatSize(storageUsed)}
               </span>
             </div>
 
-            <p
-              className="mt-2 text-xs text-muted-foreground"
-            >
+            <p className="mt-2 text-xs text-muted-foreground">
               Total project asset storage currently indexed.
             </p>
 
-            <div
-              className="mt-5 border-t border-border pt-4"
-            >
-              <div
-                className="flex items-center justify-between gap-4"
-              >
-                <span
-                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
-                >
+            <div className="mt-5 border-t border-border pt-4">
+              <div className="flex items-center justify-between gap-4">
+                <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40">
                   Client uploads
                 </span>
 
-                <span
-                  className="text-sm font-semibold text-heading"
-                >
+                <span className="text-sm font-semibold text-heading">
                   {clientUploads}
                 </span>
               </div>
@@ -309,12 +275,8 @@ export function AdminFilesClient({
 
       {/*===== METRICS =====*/}
 
-      <section
-        className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-      >
-        <div
-          className="grid sm:grid-cols-3"
-        >
+      <section className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
+        <div className="grid sm:grid-cols-3">
           <Metric
             icon={FolderArchive}
             eyebrow="Registry"
@@ -343,32 +305,20 @@ export function AdminFilesClient({
       <section className="relative">
         {/*===== CONTROLS =====*/}
 
-        <div
-          className="relative z-20 border border-border bg-card shadow-[var(--shadow-card)]"
-        >
-          <div
-            className="flex flex-col gap-3 border-b border-border px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-          >
+        <div className="relative z-20 border border-border bg-card shadow-[var(--shadow-card)]">
+          <div className="flex flex-col gap-3 border-b border-border px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <div>
-              <span
-                className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-              >
+              <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
                 File directory
               </span>
 
-              <p
-                className="mt-1 text-xs text-muted-foreground"
-              >
+              <p className="mt-1 text-xs text-muted-foreground">
                 Search the central project asset registry.
               </p>
             </div>
 
-            <span
-              className="text-xs text-muted-foreground"
-            >
-              <span
-                className="font-semibold text-heading"
-              >
+            <span className="text-xs text-muted-foreground">
+              <span className="font-semibold text-heading">
                 {files.length}
               </span>{" "}
               matching file
@@ -376,9 +326,7 @@ export function AdminFilesClient({
             </span>
           </div>
 
-          <div
-            className="flex flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:px-6"
-          >
+          <div className="flex flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:px-6">
             <div className="min-w-0 flex-1">
               <Input
                 icon={Search}
@@ -397,17 +345,11 @@ export function AdminFilesClient({
             />
           </div>
 
-          <div
-            className="flex items-center justify-between gap-3 border-t border-border bg-muted/10 px-5 py-2.5 sm:px-6"
-          >
+          <div className="flex items-center justify-between gap-3 border-t border-border bg-muted/10 px-5 py-2.5 sm:px-6">
             <div className="flex items-center gap-2">
-              <span
-                className="h-1.5 w-1.5 rounded-full bg-success"
-              />
+              <span className="h-1.5 w-1.5 rounded-full bg-success"/>
 
-              <span
-                className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
-              >
+              <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40">
                 Asset records available
               </span>
             </div>
@@ -417,9 +359,7 @@ export function AdminFilesClient({
         {/*===== TABLE / RECORDS =====*/}
 
         <div className="relative z-10 mt-3">
-          <div
-            className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-          >
+          <div className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
             {/* top line */}
             <div
               aria-hidden="true"
@@ -431,9 +371,7 @@ export function AdminFilesClient({
             <div className="hidden overflow-x-auto lg:block">
               <Table>
                 <TableHeader>
-                  <TableRow
-                    className="bg-muted/15 hover:bg-muted/15"
-                  >
+                  <TableRow className="bg-muted/15 hover:bg-muted/15">
                     <TableHead className="pl-5">File</TableHead>
 
                     <TableHead>Project</TableHead>
@@ -459,12 +397,8 @@ export function AdminFilesClient({
                       >
                         {/* file */}
                         <TableCell className="py-4 pl-5">
-                          <div
-                            className="flex min-w-0 items-center gap-3"
-                          >
-                            <div
-                              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary"
-                            >
+                          <div className="flex min-w-0 items-center gap-3">
+                            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary">
                               <Icon className="h-4 w-4" />
                             </div>
 
@@ -476,9 +410,7 @@ export function AdminFilesClient({
                                 {file.name}
                               </p>
 
-                              <p
-                                className="mt-1 font-mono text-[8px] uppercase tracking-[0.08em] text-muted-foreground/40"
-                              >
+                              <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.08em] text-muted-foreground/40">
                                 {file.extension.toUpperCase()} · {file.category}
                               </p>
                             </div>
@@ -491,15 +423,11 @@ export function AdminFilesClient({
                             href={`/admin/dashboard/projects/${file.project.id}`}
                             className="group block max-w-[220px]"
                           >
-                            <p
-                              className="truncate text-sm font-medium text-heading transition-colors group-hover:text-secondary"
-                            >
+                            <p className="truncate text-sm font-medium text-heading transition-colors group-hover:text-secondary">
                               {file.project.title}
                             </p>
 
-                            <p
-                              className="mt-1 truncate text-[10px] text-muted-foreground"
-                            >
+                            <p className="mt-1 truncate text-[10px] text-muted-foreground">
                               {file.project.clientName}
                             </p>
                           </Link>
@@ -507,27 +435,21 @@ export function AdminFilesClient({
 
                         {/* uploaded by */}
                         <TableCell>
-                          <span
-                            className="inline-flex rounded-md border border-border bg-muted/20 px-2 py-1 font-mono text-[8px] font-semibold uppercase tracking-[0.08em] text-muted-foreground"
-                          >
+                          <span className="inline-flex rounded-md border border-border bg-muted/20 px-2 py-1 font-mono text-[8px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
                             {file.uploadedByRole}
                           </span>
                         </TableCell>
 
                         {/* size */}
                         <TableCell>
-                          <span
-                            className="whitespace-nowrap text-sm font-medium text-heading"
-                          >
+                          <span className="whitespace-nowrap text-sm font-medium text-heading">
                             {formatSize(file.sizeInBytes)}
                           </span>
                         </TableCell>
 
                         {/* uploaded */}
                         <TableCell>
-                          <span
-                            className="whitespace-nowrap text-xs text-muted-foreground"
-                          >
+                          <span className="whitespace-nowrap text-xs text-muted-foreground">
                             {formatDate(file.createdAt)}
                           </span>
                         </TableCell>
@@ -564,26 +486,18 @@ export function AdminFilesClient({
                     className="px-5 py-5 transition-colors hover:bg-secondary/[0.02] sm:px-6"
                   >
                     <div className="flex items-start gap-3">
-                      <div
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary"
-                      >
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary">
                         <Icon className="h-4 w-4" />
                       </div>
 
                       <div className="min-w-0 flex-1">
-                        <div
-                          className="flex items-start justify-between gap-3"
-                        >
+                        <div className="flex items-start justify-between gap-3">
                           <div className="min-w-0">
-                            <h3
-                              className="truncate text-sm font-semibold text-heading"
-                            >
+                            <h3 className="truncate text-sm font-semibold text-heading">
                               {file.name}
                             </h3>
 
-                            <p
-                              className="mt-1 font-mono text-[8px] uppercase tracking-[0.08em] text-muted-foreground/40"
-                            >
+                            <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.08em] text-muted-foreground/40">
                               {file.extension.toUpperCase()} · {file.category}
                             </p>
                           </div>
@@ -599,9 +513,7 @@ export function AdminFilesClient({
                           </a>
                         </div>
 
-                        <div
-                          className="mt-4 grid gap-3 sm:grid-cols-2"
-                        >
+                        <div className="mt-4 grid gap-3 sm:grid-cols-2">
                           <RecordItem
                             label="Project"
                             value={file.project.title}
@@ -624,12 +536,8 @@ export function AdminFilesClient({
                           />
                         </div>
 
-                        <div
-                          className="mt-4 flex items-center justify-between gap-4 border-t border-border pt-4"
-                        >
-                          <span
-                            className="text-[10px] text-muted-foreground"
-                          >
+                        <div className="mt-4 flex items-center justify-between gap-4 border-t border-border pt-4">
+                          <span className="text-[10px] text-muted-foreground">
                             Uploaded {formatDate(file.createdAt)}
                           </span>
 
@@ -650,30 +558,20 @@ export function AdminFilesClient({
             {/*===== EMPTY =====*/}
 
             {!visibleFiles.length && (
-              <div
-                className="flex min-h-[260px] flex-col items-center justify-center px-6 py-12 text-center"
-              >
-                <div
-                  className="flex h-11 w-11 items-center justify-center rounded-md border border-border bg-muted/20 text-muted-foreground"
-                >
+              <div className="flex min-h-[260px] flex-col items-center justify-center px-6 py-12 text-center">
+                <div className="flex h-11 w-11 items-center justify-center rounded-md border border-border bg-muted/20 text-muted-foreground">
                   <FolderOpen className="h-4 w-4" />
                 </div>
 
-                <span
-                  className="mt-4 font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-                >
+                <span className="mt-4 font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
                   Asset registry
                 </span>
 
-                <p
-                  className="mt-1.5 text-sm font-semibold text-heading"
-                >
+                <p className="mt-1.5 text-sm font-semibold text-heading">
                   No matching files
                 </p>
 
-                <p
-                  className="mt-1 text-xs text-muted-foreground"
-                >
+                <p className="mt-1 text-xs text-muted-foreground">
                   No files match your current filters.
                 </p>
               </div>
@@ -681,15 +579,11 @@ export function AdminFilesClient({
 
             {/* footer */}
             {visibleFiles.length > 0 && (
-              <div
-                className="flex items-center justify-between gap-3 border-t border-border bg-muted/10 px-5 py-3 sm:px-6"
-              >
+              <div className="flex items-center justify-between gap-3 border-t border-border bg-muted/10 px-5 py-3 sm:px-6">
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
-                  <span
-                    className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
-                  >
+                  <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40">
                     Asset records indexed
                   </span>
                 </div>
@@ -708,9 +602,7 @@ export function AdminFilesClient({
         {/*===== PAGINATION =====*/}
 
         {totalPages > 1 && (
-          <div
-            className="mt-3 border border-border bg-card px-5 py-4 shadow-[var(--shadow-card)] sm:px-6"
-          >
+          <div className="mt-3 border border-border bg-card px-5 py-4 shadow-[var(--shadow-card)] sm:px-6">
             <Pagination
               currentPage={activePage}
               totalItems={files.length}
@@ -741,32 +633,22 @@ function Metric({
   value: string | number;
 }) {
   return (
-    <div
-      className="flex items-start justify-between gap-4 border-b border-border px-5 py-5 sm:border-b-0 sm:border-r sm:last:border-r-0"
-    >
+    <div className="flex items-start justify-between gap-4 border-b border-border px-5 py-5 sm:border-b-0 sm:border-r sm:last:border-r-0">
       <div>
-        <span
-          className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40"
-        >
+        <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40">
           {eyebrow}
         </span>
 
-        <p
-          className="mt-1 text-xs text-muted-foreground"
-        >
+        <p className="mt-1 text-xs text-muted-foreground">
           {label}
         </p>
 
-        <p
-          className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-heading"
-        >
+        <p className="mt-2 text-2xl font-semibold tracking-[-0.04em] text-heading">
           {value}
         </p>
       </div>
 
-      <div
-        className="flex h-9 w-9 items-center justify-center rounded-md border border-secondary/15 bg-secondary/[0.05] text-secondary"
-      >
+      <div className="flex h-9 w-9 items-center justify-center rounded-md border border-secondary/15 bg-secondary/[0.05] text-secondary">
         <Icon className="h-4 w-4" />
       </div>
     </div>
@@ -787,12 +669,8 @@ function RecordItem({
   capitalize?: boolean;
 }) {
   return (
-    <div
-      className="border border-border bg-background/30 p-3"
-    >
-      <span
-        className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40"
-      >
+    <div className="border border-border bg-background/30 p-3">
+      <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40">
         {label}
       </span>
 

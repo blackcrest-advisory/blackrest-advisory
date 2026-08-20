@@ -271,41 +271,29 @@ export const ProjectInquiryForm = () => {
       />
 
       {/* header */}
-      <div
-        className="border-b border-border px-6 py-7 sm:px-8"
-      >
+      <div className="border-b border-border px-6 py-7 sm:px-8">
         <div className="flex flex-wrap items-start justify-between gap-5">
           <div>
             <div className="flex items-center gap-3">
               <CircleDot className="h-4 w-4 text-secondary" />
 
-              <span
-                className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-secondary"
-              >
+              <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-secondary">
                 Project brief
               </span>
             </div>
 
-            <h2
-              className="mt-3 text-2xl font-semibold tracking-[-0.035em] text-heading sm:text-3xl"
-            >
+            <h2 className="mt-3 text-2xl font-semibold tracking-[-0.035em] text-heading sm:text-3xl">
               Start your project inquiry
             </h2>
 
-            <p
-              className="mt-2 max-w-xl text-sm leading-6 text-muted-foreground"
-            >
+            <p className="mt-2 max-w-xl text-sm leading-6 text-muted-foreground">
               Share enough context for us to understand the opportunity. You can
               refine the details with us later.
             </p>
           </div>
 
-          <div
-            className="border border-secondary/20 bg-secondary/[0.05] px-3 py-2"
-          >
-            <span
-              className="font-mono text-[8px] uppercase tracking-[0.16em] text-secondary"
-            >
+          <div className="border border-secondary/20 bg-secondary/[0.05] px-3 py-2">
+            <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-secondary">
               BCR / Inquiry
             </span>
           </div>
@@ -456,12 +444,8 @@ export const ProjectInquiryForm = () => {
             label="Attachment (optional)"
           />
 
-          <div
-            className="mt-3 flex items-start gap-2 text-xs text-muted-foreground"
-          >
-            <CheckCircle2
-              className="mt-0.5 h-3.5 w-3.5 shrink-0 text-secondary"
-            />
+          <div className="mt-3 flex items-start gap-2 text-xs text-muted-foreground">
+            <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-secondary"/>
 
             <span>Accepted: PDF, DOCX, ZIP, JPG, PNG — maximum 10MB.</span>
           </div>
@@ -469,12 +453,8 @@ export const ProjectInquiryForm = () => {
 
         {/*===== AGREEMENT + SUBMIT =====*/}
 
-        <div
-          className="border-t border-border bg-muted/25 px-6 py-6 sm:px-8"
-        >
-          <div
-            className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between"
-          >
+        <div className="border-t border-border bg-muted/25 px-6 py-6 sm:px-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-start gap-3">
               <Switch
                 checked={formData.agree}
@@ -483,15 +463,11 @@ export const ProjectInquiryForm = () => {
               />
 
               <div>
-                <p
-                  className="text-sm font-medium text-foreground"
-                >
+                <p className="text-sm font-medium text-foreground">
                   I agree to be contacted by the Blackcrest team.
                 </p>
 
-                <p
-                  className="mt-1 max-w-lg text-xs leading-5 text-muted-foreground"
-                >
+                <p className="mt-1 max-w-lg text-xs leading-5 text-muted-foreground">
                   We&apos;ll use the details you provide to review your inquiry
                   and follow up about the project.
                 </p>
@@ -513,31 +489,21 @@ export const ProjectInquiryForm = () => {
               ) : (
                 <>
                   Submit Project Inquiry
-                  <Send
-                    className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                  />
+                  <Send className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"/>
                 </>
               )}
             </Button>
           </div>
 
-          <div
-            className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4"
-          >
-            <span
-              className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40"
-            >
+          <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4">
+            <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40">
               Business context → Project scope → Review
             </span>
 
             <div className="flex items-center gap-2">
-              <span
-                className="h-1.5 w-1.5 rounded-full bg-success"
-              />
+              <span className="h-1.5 w-1.5 rounded-full bg-success"/>
 
-              <span
-                className="font-mono text-[8px] uppercase tracking-[0.15em] text-success"
-              >
+              <span className="font-mono text-[8px] uppercase tracking-[0.15em] text-success">
                 Inquiry system ready
               </span>
             </div>
@@ -562,33 +528,23 @@ function FormSection({
   children: React.ReactNode;
 }) {
   return (
-    <section
-      className="grid border-b border-border px-6 py-8 sm:px-8 lg:grid-cols-[0.28fr_0.72fr] lg:gap-10"
-    >
+    <section className="grid border-b border-border px-6 py-8 sm:px-8 lg:grid-cols-[0.28fr_0.72fr] lg:gap-10">
       <div className="mb-6 lg:mb-0">
         <div className="flex items-center gap-3">
-          <div
-            className="flex h-9 w-9 items-center justify-center border border-secondary/20 bg-secondary/[0.06] text-secondary"
-          >
+          <div className="flex h-9 w-9 items-center justify-center border border-secondary/20 bg-secondary/[0.06] text-secondary">
             <Icon className="h-4 w-4" />
           </div>
 
-          <span
-            className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
-          >
+          <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
             {number}
           </span>
         </div>
 
-        <h3
-          className="mt-4 text-base font-semibold tracking-[-0.02em] text-heading"
-        >
+        <h3 className="mt-4 text-base font-semibold tracking-[-0.02em] text-heading">
           {title}
         </h3>
 
-        <p
-          className="mt-2 max-w-[220px] text-xs leading-6 text-muted-foreground"
-        >
+        <p className="mt-2 max-w-[220px] text-xs leading-6 text-muted-foreground">
           {description}
         </p>
       </div>
@@ -609,9 +565,7 @@ function Field({
 }) {
   return (
     <div>
-      <label
-        className="mb-2 block text-[9px] font-semibold uppercase tracking-[0.14em] text-muted-foreground"
-      >
+      <label className="mb-2 block text-[9px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
         {label}
 
         {required && <span className="ml-1 text-secondary">*</span>}

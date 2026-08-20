@@ -59,9 +59,7 @@ export default function TrustedBy() {
   const reduceMotion = Boolean(useReducedMotion());
 
   return (
-    <Section
-      className="relative overflow-hidden border-y border-border bg-background text-foreground transition-colors duration-300"
-    >
+    <Section className="relative overflow-hidden border-y border-border bg-background text-foreground transition-colors duration-300">
       {/*===== BACKGROUND ARCHITECTURE =====*/}
 
       <div className="pointer-events-none absolute inset-0">
@@ -111,9 +109,7 @@ export default function TrustedBy() {
       <Container className="relative">
         {/*===== SECTION INTRO =====*/}
 
-        <div
-          className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
-        >
+        <div className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <motion.div
             initial={{
               opacity: 0,
@@ -145,25 +141,17 @@ export default function TrustedBy() {
                   />
                 )}
 
-                <span
-                  className="relative h-2 w-2 rounded-full bg-secondary"
-                />
+                <span className="relative h-2 w-2 rounded-full bg-secondary"/>
               </span>
 
-              <span
-                className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary"
-              >
+              <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary">
                 Proven Partnership
               </span>
 
-              <span
-                className="h-px w-10 bg-secondary/40"
-              />
+              <span className="h-px w-10 bg-secondary/40"/>
             </div>
 
-            <h2
-              className="mt-6 max-w-2xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.6rem] lg:leading-[1.04]"
-            >
+            <h2 className="mt-6 max-w-2xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.6rem] lg:leading-[1.04]">
               Trust is earned
               <span className="block text-muted-foreground">
                 through the work.
@@ -187,29 +175,21 @@ export default function TrustedBy() {
             }}
             className="lg:justify-self-end"
           >
-            <p
-              className="max-w-xl text-sm leading-7 text-body sm:text-base"
-            >
+            <p className="max-w-xl text-sm leading-7 text-body sm:text-base">
               Blackcrest is built around long-term relationships, accountable
               delivery, and measurable business progress — not simply completing
               another list of deliverables.
             </p>
 
-            <div
-              className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2"
-            >
+            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
               {principles.map((principle) => (
                 <div
                   key={principle}
                   className="flex items-center gap-2"
                 >
-                  <Check
-                    className="h-3.5 w-3.5 text-secondary"
-                  />
+                  <Check className="h-3.5 w-3.5 text-secondary"/>
 
-                  <span
-                    className="text-xs font-medium text-muted-foreground"
-                  >
+                  <span className="text-xs font-medium text-muted-foreground">
                     {principle}
                   </span>
                 </div>
@@ -220,9 +200,7 @@ export default function TrustedBy() {
 
         {/*===== PROOF LEDGER =====*/}
 
-        <div
-          className="grid border-b border-border lg:grid-cols-4"
-        >
+        <div className="grid border-b border-border lg:grid-cols-4">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
 
@@ -266,9 +244,7 @@ export default function TrustedBy() {
                 {/* subtle interactive illumination                       */}
                 {/* ----------------------------------------------------- */}
 
-                <div
-                  className="pointer-events-none absolute -right-16 -top-20 h-44 w-44 rounded-full bg-secondary/[0.08] opacity-0 blur-3xl transition-all duration-500 group-hover:opacity-100"
-                />
+                <div className="pointer-events-none absolute -right-16 -top-20 h-44 w-44 rounded-full bg-secondary/[0.08] opacity-0 blur-3xl transition-all duration-500 group-hover:opacity-100"/>
 
                 {!reduceMotion && (
                   <motion.div
@@ -291,16 +267,10 @@ export default function TrustedBy() {
                   />
                 )}
 
-                <div
-                  className="relative z-10 flex h-full flex-col"
-                >
+                <div className="relative z-10 flex h-full flex-col">
                   {/* metadata */}
-                  <div
-                    className="flex items-start justify-between"
-                  >
-                    <span
-                      className="font-mono text-[8px] font-semibold tracking-[0.18em] text-muted-foreground/40"
-                    >
+                  <div className="flex items-start justify-between">
+                    <span className="font-mono text-[8px] font-semibold tracking-[0.18em] text-muted-foreground/40">
                       0{index + 1}
                     </span>
 
@@ -321,54 +291,36 @@ export default function TrustedBy() {
 
                   {/* metric */}
                   <div className="mt-10">
-                    <p
-                      className="font-mono text-[3.6rem] font-medium leading-none tracking-[-0.075em] text-heading transition-colors duration-300 group-hover:text-secondary sm:text-[4.5rem]"
-                    >
+                    <p className="font-mono text-[3.6rem] font-medium leading-none tracking-[-0.075em] text-heading transition-colors duration-300 group-hover:text-secondary sm:text-[4.5rem]">
                       {stat.number}
                     </p>
 
-                    <p
-                      className="mt-4 text-base font-semibold tracking-[-0.02em] text-foreground"
-                    >
+                    <p className="mt-4 text-base font-semibold tracking-[-0.02em] text-foreground">
                       {stat.label}
                     </p>
 
-                    <p
-                      className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-secondary"
-                    >
+                    <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-secondary">
                       {stat.micro}
                     </p>
                   </div>
 
                   {/* description */}
-                  <p
-                    className="mt-6 max-w-xs text-sm leading-7 text-muted-foreground"
-                  >
+                  <p className="mt-6 max-w-xs text-sm leading-7 text-muted-foreground">
                     {stat.description}
                   </p>
 
                   {/* footer */}
-                  <div
-                    className="mt-auto flex items-center justify-between pt-8"
-                  >
-                    <span
-                      className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/35"
-                    >
+                  <div className="mt-auto flex items-center justify-between pt-8">
+                    <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/35">
                       Verified signal
                     </span>
 
-                    <ArrowUpRight
-                      className="h-4 w-4 text-muted-foreground/25 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-secondary"
-                    />
+                    <ArrowUpRight className="h-4 w-4 text-muted-foreground/25 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-secondary"/>
                   </div>
 
                   {/* active bottom signal */}
-                  <div
-                    className="absolute bottom-0 left-0 h-[2px] w-full overflow-hidden"
-                  >
-                    <div
-                      className="h-full w-0 bg-secondary transition-all duration-500 group-hover:w-full"
-                    />
+                  <div className="absolute bottom-0 left-0 h-[2px] w-full overflow-hidden">
+                    <div className="h-full w-0 bg-secondary transition-all duration-500 group-hover:w-full"/>
                   </div>
                 </div>
               </motion.article>
@@ -393,34 +345,24 @@ export default function TrustedBy() {
           }}
           className="grid gap-8 py-8 lg:grid-cols-[1fr_auto] lg:items-center"
         >
-          <div
-            className="flex items-start gap-4"
-          >
-            <div
-              className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.06] text-secondary"
-            >
+          <div className="flex items-start gap-4">
+            <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.06] text-secondary">
               <Check className="h-4 w-4" />
             </div>
 
             <div>
-              <p
-                className="text-sm font-semibold text-heading"
-              >
+              <p className="text-sm font-semibold text-heading">
                 Relationships over transactions.
               </p>
 
-              <p
-                className="mt-1 max-w-xl text-sm leading-6 text-muted-foreground"
-              >
+              <p className="mt-1 max-w-xl text-sm leading-6 text-muted-foreground">
                 We measure success through commercial impact, client confidence,
                 and the value created over the lifetime of the relationship.
               </p>
             </div>
           </div>
 
-          <div
-            className="flex flex-wrap items-center gap-3 font-mono text-[8px] uppercase tracking-[0.17em] text-muted-foreground/40"
-          >
+          <div className="flex flex-wrap items-center gap-3 font-mono text-[8px] uppercase tracking-[0.17em] text-muted-foreground/40">
             Strategy
             <span className="h-1 w-1 rounded-full bg-secondary" />
             Execution

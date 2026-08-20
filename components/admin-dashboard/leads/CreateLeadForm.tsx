@@ -210,35 +210,25 @@ export function CreateLeadForm() {
     >
       {/*===== FORM HEADER =====*/}
 
-      <div
-        className="flex flex-col gap-3 border-b border-border px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-      >
+      <div className="flex flex-col gap-3 border-b border-border px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <div>
-          <span
-            className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-          >
+          <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
             Lead record
           </span>
 
-          <h2
-            className="mt-1 text-base font-semibold text-heading"
-          >
+          <h2 className="mt-1 text-base font-semibold text-heading">
             New prospect intake
           </h2>
         </div>
 
-        <span
-          className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40"
-        >
+        <span className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40">
           Required fields marked *
         </span>
       </div>
 
       {/*===== PRIMARY INFORMATION =====*/}
 
-      <div
-        className="grid min-w-0 lg:grid-cols-2"
-      >
+      <div className="grid min-w-0 lg:grid-cols-2">
         {/*===== CONTACT INFORMATION =====*/}
 
         <FormSection
@@ -330,9 +320,7 @@ export function CreateLeadForm() {
             />
           </FormField>
 
-          <div
-            className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_140px]"
-          >
+          <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_140px]">
             <FormField label="Budget">
               <Select
                 options={budgetOptions}
@@ -381,34 +369,22 @@ export function CreateLeadForm() {
 
       {/*===== QUALIFICATION NOTES =====*/}
 
-      <div
-        className="border-t border-border bg-background/15 px-5 py-5 sm:px-6"
-      >
-        <div
-          className="grid gap-5 xl:grid-cols-[220px_minmax(0,1fr)]"
-        >
+      <div className="border-t border-border bg-background/15 px-5 py-5 sm:px-6">
+        <div className="grid gap-5 xl:grid-cols-[220px_minmax(0,1fr)]">
           <div>
-            <div
-              className="flex items-center gap-2"
-            >
+            <div className="flex items-center gap-2">
               <FileText className="h-3.5 w-3.5 text-secondary" />
 
-              <span
-                className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-              >
+              <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
                 Qualification notes
               </span>
             </div>
 
-            <h3
-              className="mt-2 text-sm font-semibold text-heading"
-            >
+            <h3 className="mt-2 text-sm font-semibold text-heading">
               Call notes / lead requirements
             </h3>
 
-            <p
-              className="mt-2 text-xs leading-5 text-muted-foreground"
-            >
+            <p className="mt-2 text-xs leading-5 text-muted-foreground">
               Capture the prospect’s problem, requirements, context, and agreed
               next steps.
             </p>
@@ -436,9 +412,7 @@ export function CreateLeadForm() {
 
       {/*===== COMMERCIAL SUMMARY STRIP =====*/}
 
-      <div
-        className="grid border-t border-border bg-muted/10 sm:grid-cols-3"
-      >
+      <div className="grid border-t border-border bg-muted/10 sm:grid-cols-3">
         <SummaryItem icon={Target} label="Priority" value={formData.priority} />
 
         <SummaryItem
@@ -461,18 +435,12 @@ export function CreateLeadForm() {
 
       {/*===== ACTIONS =====*/}
 
-      <div
-        className="flex flex-col-reverse gap-3 border-t border-border px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-      >
-        <p
-          className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40"
-        >
+      <div className="flex flex-col-reverse gap-3 border-t border-border px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <p className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40">
           New lead will enter the CRM pipeline
         </p>
 
-        <div
-          className="flex flex-col-reverse gap-3 sm:flex-row"
-        >
+        <div className="flex flex-col-reverse gap-3 sm:flex-row">
           <Button
             variant="outline"
             type="button"
@@ -527,31 +495,21 @@ function FormSection({
         ${className}
       `}
     >
-      <div
-        className="flex items-start gap-3 border-b border-border pb-4"
-      >
-        <div
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary"
-        >
+      <div className="flex items-start gap-3 border-b border-border pb-4">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary">
           <Icon className="h-4 w-4" />
         </div>
 
         <div>
-          <span
-            className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-          >
+          <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
             {eyebrow}
           </span>
 
-          <h2
-            className="mt-1 text-base font-semibold text-heading"
-          >
+          <h2 className="mt-1 text-base font-semibold text-heading">
             {title}
           </h2>
 
-          <p
-            className="mt-1 max-w-md text-xs leading-5 text-muted-foreground"
-          >
+          <p className="mt-1 max-w-md text-xs leading-5 text-muted-foreground">
             {description}
           </p>
         </div>
@@ -577,12 +535,8 @@ function FormField({
   children: React.ReactNode;
 }) {
   return (
-    <label
-      className="block min-w-0"
-    >
-      <span
-        className="mb-1.5 block text-xs font-semibold text-heading"
-      >
+    <label className="block min-w-0">
+      <span className="mb-1.5 block text-xs font-semibold text-heading">
         {label}
 
         {required && <span className="ml-1 text-secondary">*</span>}
@@ -607,15 +561,11 @@ function SummaryItem({
   value: string;
 }) {
   return (
-    <div
-      className="flex min-w-0 items-center gap-3 border-b border-border px-5 py-3.5 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0 sm:px-6"
-    >
+    <div className="flex min-w-0 items-center gap-3 border-b border-border px-5 py-3.5 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0 sm:px-6">
       <Icon className="h-3.5 w-3.5 shrink-0 text-secondary" />
 
       <div className="min-w-0">
-        <p
-          className="font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/40"
-        >
+        <p className="font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/40">
           {label}
         </p>
 

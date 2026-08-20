@@ -96,9 +96,7 @@ export function CreateInvoiceModal({
 
   //===== modal =====//
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-primary/55 p-4 backdrop-blur-[3px] dark:bg-background/75"
-    >
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-primary/55 p-4 backdrop-blur-[3px] dark:bg-background/75">
       <div
         role="dialog"
         aria-modal="true"
@@ -120,20 +118,14 @@ export function CreateInvoiceModal({
 
         {/*===== HEADER =====*/}
 
-        <div
-          className="relative z-10 flex items-start justify-between gap-4 border-b border-border px-5 py-5 sm:px-6"
-        >
+        <div className="relative z-10 flex items-start justify-between gap-4 border-b border-border px-5 py-5 sm:px-6">
           <div className="flex items-start gap-3">
-            <div
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-secondary/15 bg-secondary/[0.05] text-secondary"
-            >
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-secondary/15 bg-secondary/[0.05] text-secondary">
               <ReceiptText className="h-4 w-4" />
             </div>
 
             <div>
-              <span
-                className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
-              >
+              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary">
                 Commercial record
               </span>
 
@@ -144,9 +136,7 @@ export function CreateInvoiceModal({
                 Create Invoice
               </h2>
 
-              <p
-                className="mt-1 max-w-sm text-xs leading-5 text-muted-foreground"
-              >
+              <p className="mt-1 max-w-sm text-xs leading-5 text-muted-foreground">
                 Create a new invoice for this client project.
               </p>
             </div>
@@ -166,23 +156,17 @@ export function CreateInvoiceModal({
         {/*===== FORM =====*/}
 
         <form onSubmit={handleSubmit}>
-          <div
-            className="relative z-10 space-y-5 px-5 py-5 sm:px-6 sm:py-6"
-          >
+          <div className="relative z-10 space-y-5 px-5 py-5 sm:px-6 sm:py-6">
             {/*===== AMOUNT + CURRENCY =====*/}
 
-            <div
-              className="border border-border bg-background/25"
-            >
+            <div className="border border-border bg-background/25">
               <FormSectionHeader
                 icon={CircleDollarSign}
                 eyebrow="Invoice value"
                 title="Amount & Currency"
               />
 
-              <div
-                className="grid gap-4 p-4 sm:grid-cols-[minmax(0,1fr)_180px] sm:p-5"
-              >
+              <div className="grid gap-4 p-4 sm:grid-cols-[minmax(0,1fr)_180px] sm:p-5">
                 <Field label="Amount" htmlFor="amount" required>
                   <Input
                     id="amount"
@@ -217,9 +201,7 @@ export function CreateInvoiceModal({
 
             {/*===== DUE DATE =====*/}
 
-            <div
-              className="border border-border bg-background/25"
-            >
+            <div className="border border-border bg-background/25">
               <FormSectionHeader
                 icon={CalendarDays}
                 eyebrow="Payment schedule"
@@ -241,9 +223,7 @@ export function CreateInvoiceModal({
 
             {/*===== NOTES =====*/}
 
-            <div
-              className="border border-border bg-background/25"
-            >
+            <div className="border border-border bg-background/25">
               <FormSectionHeader
                 icon={FileText}
                 eyebrow="Client context"
@@ -263,9 +243,7 @@ export function CreateInvoiceModal({
                   />
                 </Field>
 
-                <p
-                  className="mt-2 text-[10px] leading-4 text-muted-foreground"
-                >
+                <p className="mt-2 text-[10px] leading-4 text-muted-foreground">
                   Optional information that should accompany this invoice.
                 </p>
               </div>
@@ -274,22 +252,16 @@ export function CreateInvoiceModal({
 
           {/*===== ACTION BAR =====*/}
 
-          <div
-            className="relative z-10 flex flex-col-reverse gap-2 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-          >
+          <div className="relative z-10 flex flex-col-reverse gap-2 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <div className="hidden items-center gap-2 sm:flex">
               <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
 
-              <span
-                className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
-              >
+              <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40">
                 New invoice draft
               </span>
             </div>
 
-            <div
-              className="flex flex-col-reverse gap-2 sm:flex-row"
-            >
+            <div className="flex flex-col-reverse gap-2 sm:flex-row">
               <Button
                 type="button"
                 variant="outline"
@@ -336,25 +308,17 @@ function FormSectionHeader({
   title: string;
 }) {
   return (
-    <div
-      className="flex items-center gap-3 border-b border-border bg-muted/10 px-4 py-3.5 sm:px-5"
-    >
-      <div
-        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border bg-card text-secondary"
-      >
+    <div className="flex items-center gap-3 border-b border-border bg-muted/10 px-4 py-3.5 sm:px-5">
+      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border bg-card text-secondary">
         <Icon className="h-3.5 w-3.5" />
       </div>
 
       <div>
-        <span
-          className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40"
-        >
+        <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40">
           {eyebrow}
         </span>
 
-        <h3
-          className="mt-0.5 text-sm font-semibold text-heading"
-        >
+        <h3 className="mt-0.5 text-sm font-semibold text-heading">
           {title}
         </h3>
       </div>

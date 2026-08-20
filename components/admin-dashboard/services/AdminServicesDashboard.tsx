@@ -107,28 +107,20 @@ export function AdminServicesDashboard({
           className="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full bg-secondary/[0.055] blur-[110px]"
         />
 
-        <div
-          className="relative z-10 grid gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_310px]"
-        >
+        <div className="relative z-10 grid gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_310px]">
           {/*===== TITLE AREA =====*/}
 
           <div className="min-w-0">
-            <div
-              className="flex flex-wrap items-center gap-3"
-            >
+            <div className="flex flex-wrap items-center gap-3">
               <BriefcaseBusiness className="h-3.5 w-3.5 text-secondary" />
 
-              <span
-                className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
-              >
+              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
                 Capability atlas
               </span>
 
               <span className="h-px w-9 bg-secondary/30" />
 
-              <span
-                className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40"
-              >
+              <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40">
                 Advisory portfolio
               </span>
             </div>
@@ -140,74 +132,50 @@ export function AdminServicesDashboard({
 
           {/*===== PORTFOLIO INDEX =====*/}
 
-          <div
-            className="border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
-          >
-            <span
-              className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/40"
-            >
+          <div className="border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0">
+            <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/40">
               Portfolio index
             </span>
 
-            <div
-              className="mt-5 flex items-end gap-3"
-            >
+            <div className="mt-5 flex items-end gap-3">
               <Layers3 className="mb-1 h-5 w-5 text-secondary" />
 
-              <span
-                className="text-4xl font-semibold tracking-[-0.06em] text-heading"
-              >
+              <span className="text-4xl font-semibold tracking-[-0.06em] text-heading">
                 {services.length}
               </span>
 
-              <span
-                className="pb-1 text-xs text-muted-foreground"
-              >
+              <span className="pb-1 text-xs text-muted-foreground">
                 capabilities
               </span>
             </div>
 
             {/* state distribution */}
-            <div
-              className="mt-6 grid grid-cols-2 divide-x divide-border border-y border-border"
-            >
+            <div className="mt-6 grid grid-cols-2 divide-x divide-border border-y border-border">
               <div className="py-3 pr-4">
-                <span
-                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
-                >
+                <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40">
                   Active
                 </span>
 
-                <p
-                  className="mt-1 text-lg font-semibold text-heading"
-                >
+                <p className="mt-1 text-lg font-semibold text-heading">
                   {activeServices}
                 </p>
               </div>
 
               <div className="py-3 pl-4">
-                <span
-                  className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
-                >
+                <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40">
                   Paused
                 </span>
 
-                <p
-                  className="mt-1 text-lg font-semibold text-heading"
-                >
+                <p className="mt-1 text-lg font-semibold text-heading">
                   {pausedServices}
                 </p>
               </div>
             </div>
 
-            <div
-              className="mt-4 flex items-center gap-2"
-            >
+            <div className="mt-4 flex items-center gap-2">
               <ShieldCheck className="h-3.5 w-3.5 text-success" />
 
-              <span
-                className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40"
-              >
+              <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/40">
                 Portfolio registry online
               </span>
             </div>
@@ -217,14 +185,10 @@ export function AdminServicesDashboard({
 
       {/*===== WORKSPACE =====*/}
 
-      <div
-        className="grid gap-5 xl:grid-cols-[290px_minmax(0,1fr)] xl:items-start"
-      >
+      <div className="grid gap-5 xl:grid-cols-[290px_minmax(0,1fr)] xl:items-start">
         {/*===== LEFT CONTROL RAIL =====*/}
 
-        <aside
-          className="space-y-4 xl:sticky xl:top-4"
-        >
+        <aside className="space-y-4 xl:sticky xl:top-4">
           {/* stats */}
           <motion.div
             variants={shouldReduceMotion ? undefined : staggerContainer}
@@ -243,46 +207,30 @@ export function AdminServicesDashboard({
           />
 
           {/* registry state */}
-          <div
-            className="border border-border bg-card shadow-[var(--shadow-card)]"
-          >
-            <div
-              className="px-4 py-4"
-            >
-              <span
-                className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-              >
+          <div className="border border-border bg-card shadow-[var(--shadow-card)]">
+            <div className="px-4 py-4">
+              <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
                 Registry state
               </span>
 
-              <div
-                className="mt-3 flex items-center justify-between gap-4"
-              >
+              <div className="mt-3 flex items-center justify-between gap-4">
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
-                  <span
-                    className="text-xs text-muted-foreground"
-                  >
+                  <span className="text-xs text-muted-foreground">
                     Services available
                   </span>
                 </div>
 
-                <span
-                  className="text-sm font-semibold text-heading"
-                >
+                <span className="text-sm font-semibold text-heading">
                   {filteredServices.length}
                 </span>
               </div>
             </div>
 
             {(search || status !== "all") && (
-              <div
-                className="border-t border-border bg-secondary/[0.035] px-4 py-2.5"
-              >
-                <span
-                  className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-secondary"
-                >
+              <div className="border-t border-border bg-secondary/[0.035] px-4 py-2.5">
+                <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-secondary">
                   Filters active
                 </span>
               </div>
@@ -298,44 +246,30 @@ export function AdminServicesDashboard({
           animate={shouldReduceMotion ? undefined : "visible"}
           className="min-w-0"
         >
-          <div
-            className="border border-border bg-card shadow-[var(--shadow-card)]"
-          >
+          <div className="border border-border bg-card shadow-[var(--shadow-card)]">
             {/* directory heading */}
-            <div
-              className="flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-end sm:justify-between sm:px-6"
-            >
+            <div className="flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-end sm:justify-between sm:px-6">
               <div>
-                <span
-                  className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
-                >
+                <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary">
                   Capability register
                 </span>
 
-                <h2
-                  className="mt-1.5 text-lg font-semibold tracking-[-0.025em] text-heading"
-                >
+                <h2 className="mt-1.5 text-lg font-semibold tracking-[-0.025em] text-heading">
                   Advisory Services
                 </h2>
 
-                <p
-                  className="mt-1 text-xs leading-5 text-muted-foreground"
-                >
+                <p className="mt-1 text-xs leading-5 text-muted-foreground">
                   Review positioning, delivery structure, pricing and public
                   availability.
                 </p>
               </div>
 
               <div className="text-left sm:text-right">
-                <span
-                  className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40"
-                >
+                <span className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40">
                   Visible records
                 </span>
 
-                <p
-                  className="mt-1 text-xl font-semibold text-heading"
-                >
+                <p className="mt-1 text-xl font-semibold text-heading">
                   {filteredServices.length}
                 </p>
               </div>

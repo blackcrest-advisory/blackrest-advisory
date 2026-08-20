@@ -92,9 +92,7 @@ export const AdminNotificationsSection = ({
   };
 
   return (
-    <section
-      className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-    >
+    <section className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
       {/*===== TOP SIGNAL =====*/}
 
       <div
@@ -104,31 +102,21 @@ export const AdminNotificationsSection = ({
 
       {/*===== HEADER =====*/}
 
-      <div
-        className="flex items-start gap-3 border-b border-border px-5 py-4 sm:px-6"
-      >
-        <div
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary"
-        >
+      <div className="flex items-start gap-3 border-b border-border px-5 py-4 sm:px-6">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary">
           <BellRing className="h-4 w-4" />
         </div>
 
         <div>
-          <span
-            className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-          >
+          <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
             Alert matrix
           </span>
 
-          <h2
-            className="mt-1 text-base font-semibold text-heading"
-          >
+          <h2 className="mt-1 text-base font-semibold text-heading">
             Operational Alerts
           </h2>
 
-          <p
-            className="mt-1 max-w-xl text-xs leading-5 text-muted-foreground"
-          >
+          <p className="mt-1 max-w-xl text-xs leading-5 text-muted-foreground">
             Choose the activity that should reach you in the admin workspace.
           </p>
         </div>
@@ -146,44 +134,30 @@ export const AdminNotificationsSection = ({
               className="grid gap-4 px-5 py-4 transition-colors hover:bg-secondary/[0.015] sm:grid-cols-[44px_minmax(0,1fr)_auto] sm:items-center sm:px-6"
             >
               {/* icon */}
-              <div
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background/50 text-secondary"
-              >
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background/50 text-secondary">
                 <Icon className="h-3.5 w-3.5" />
               </div>
 
               {/* content */}
               <div className="min-w-0">
-                <div
-                  className="flex flex-wrap items-center gap-2"
-                >
-                  <span
-                    className="font-mono text-[7px] font-semibold text-muted-foreground/30"
-                  >
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="font-mono text-[7px] font-semibold text-muted-foreground/30">
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
-                  <p
-                    className="text-sm font-semibold text-heading"
-                  >
+                  <p className="text-sm font-semibold text-heading">
                     {item.label}
                   </p>
                 </div>
 
-                <p
-                  className="mt-1 max-w-2xl text-xs leading-5 text-body"
-                >
+                <p className="mt-1 max-w-2xl text-xs leading-5 text-body">
                   {item.description}
                 </p>
               </div>
 
               {/* control */}
-              <div
-                className="flex items-center justify-between gap-3 sm:justify-end"
-              >
-                <span
-                  className="font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/35 sm:hidden"
-                >
+              <div className="flex items-center justify-between gap-3 sm:justify-end">
+                <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/35 sm:hidden">
                   {values[item.key] ? "Enabled" : "Disabled"}
                 </span>
 
@@ -204,17 +178,11 @@ export const AdminNotificationsSection = ({
 
       {/*===== FOOTER =====*/}
 
-      <div
-        className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-      >
+      <div className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <div className="flex items-center gap-2">
-          <span
-            className="h-1.5 w-1.5 rounded-full bg-success"
-          />
+          <span className="h-1.5 w-1.5 rounded-full bg-success"/>
 
-          <span
-            className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40"
-          >
+          <span className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40">
             Notification controls available
           </span>
         </div>

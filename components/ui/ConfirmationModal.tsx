@@ -106,17 +106,13 @@ export default function ConfirmationModal({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div
-            className="fixed inset-0 bg-navy-deep/70 backdrop-blur-[3px]"
-          />
+          <div className="fixed inset-0 bg-navy-deep/70 backdrop-blur-[3px]"/>
         </Transition.Child>
 
         {/*===== MODAL =====*/}
 
         <div className="fixed inset-0 overflow-y-auto">
-          <div
-            className="flex min-h-full items-center justify-center p-4 sm:p-6"
-          >
+          <div className="flex min-h-full items-center justify-center p-4 sm:p-6">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -126,9 +122,7 @@ export default function ConfirmationModal({
               leaveFrom="opacity-100 translate-y-0 scale-100"
               leaveTo="opacity-0 translate-y-2 scale-[0.98]"
             >
-              <Dialog.Panel
-                className="relative w-full max-w-md transform overflow-hidden border border-border bg-card shadow-[var(--shadow-overlay)] transition-all"
-              >
+              <Dialog.Panel className="relative w-full max-w-md transform overflow-hidden border border-border bg-card shadow-[var(--shadow-overlay)] transition-all">
                 {/* top signal */}
                 <div
                   className={cn(
@@ -158,9 +152,7 @@ export default function ConfirmationModal({
 
                 {/*===== HEADER =====*/}
 
-                <div
-                  className="relative z-10 flex items-start gap-4 border-b border-border px-5 py-5 sm:px-6"
-                >
+                <div className="relative z-10 flex items-start gap-4 border-b border-border px-5 py-5 sm:px-6">
                   <div
                     className={cn(
                       `
@@ -221,25 +213,17 @@ export default function ConfirmationModal({
 
                 {/*===== BODY =====*/}
 
-                <div
-                  className="relative z-10 px-5 py-5 sm:px-6"
-                >
-                  <p
-                    className="max-w-prose text-sm leading-6 text-muted-foreground"
-                  >
+                <div className="relative z-10 px-5 py-5 sm:px-6">
+                  <p className="max-w-prose text-sm leading-6 text-muted-foreground">
                     {description}
                   </p>
 
-                  <div
-                    className="mt-5 flex items-center gap-2 border-t border-border pt-4"
-                  >
+                  <div className="mt-5 flex items-center gap-2 border-t border-border pt-4">
                     <span
                       className={cn("h-1.5 w-1.5 rounded-full", config.dot)}
                     />
 
-                    <span
-                      className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
-                    >
+                    <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40">
                       Review before continuing
                     </span>
                   </div>
@@ -247,9 +231,7 @@ export default function ConfirmationModal({
 
                 {/*===== ACTIONS =====*/}
 
-                <div
-                  className="relative z-10 flex flex-col-reverse gap-2 border-t border-border bg-muted/15 px-5 py-4 sm:flex-row sm:items-center sm:justify-end sm:px-6"
-                >
+                <div className="relative z-10 flex flex-col-reverse gap-2 border-t border-border bg-muted/15 px-5 py-4 sm:flex-row sm:items-center sm:justify-end sm:px-6">
                   <Button
                     variant="outline"
                     size="sm"

@@ -55,21 +55,15 @@ export const SupportSection = () => {
       />
 
       {/* top gold signal */}
-      <div
-        className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/45 to-transparent"
-      />
+      <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/45 to-transparent"/>
 
-      <div
-        className="relative z-10 grid gap-6 px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:px-7 lg:py-7 xl:px-8"
-      >
+      <div className="relative z-10 grid gap-6 px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:px-7 lg:py-7 xl:px-8">
         {/*===== RELATIONSHIP SIDE =====*/}
 
         <div className="flex min-w-0 items-start gap-4 sm:gap-5">
           {/* avatar */}
           <div className="relative shrink-0">
-            <div
-              className="flex h-16 w-16 items-center justify-center border border-secondary/20 bg-secondary/[0.04] p-1 shadow-[var(--shadow-card)]"
-            >
+            <div className="flex h-16 w-16 items-center justify-center border border-secondary/20 bg-secondary/[0.04] p-1 shadow-[var(--shadow-card)]">
               <Avatar
                 name="Sarah Mitchell"
                 size="md"
@@ -78,9 +72,7 @@ export const SupportSection = () => {
             </div>
 
             {/* active status */}
-            <span
-              className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center border-2 border-card bg-success"
-            >
+            <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center border-2 border-card bg-success">
               <span className="h-1.5 w-1.5 rounded-full bg-white" />
             </span>
           </div>
@@ -90,9 +82,7 @@ export const SupportSection = () => {
             <div className="flex flex-wrap items-center gap-2">
               <Sparkles className="h-3.5 w-3.5 text-secondary" />
 
-              <span
-                className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
-              >
+              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
                 Dedicated support
               </span>
 
@@ -100,54 +90,36 @@ export const SupportSection = () => {
             </div>
 
             <div className="mt-2">
-              <p
-                className="text-xs font-medium text-muted-foreground"
-              >
+              <p className="text-xs font-medium text-muted-foreground">
                 Your Account Manager
               </p>
 
-              <h3
-                className="mt-0.5 text-xl font-semibold tracking-[-0.025em] text-heading sm:text-2xl"
-              >
+              <h3 className="mt-0.5 text-xl font-semibold tracking-[-0.025em] text-heading sm:text-2xl">
                 Sarah Mitchell
               </h3>
             </div>
 
-            <p
-              className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground"
-            >
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
               Your direct point of contact for project coordination, strategic
               questions, and anything you need from Blackcrest.
             </p>
 
             {/* contact details */}
-            <div
-              className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5 sm:gap-y-2"
-            >
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5 sm:gap-y-2">
               <div className="flex min-w-0 items-center gap-2">
-                <Mail
-                  className="h-3.5 w-3.5 shrink-0 text-secondary"
-                />
+                <Mail className="h-3.5 w-3.5 shrink-0 text-secondary"/>
 
-                <span
-                  className="truncate text-xs text-foreground/75"
-                >
+                <span className="truncate text-xs text-foreground/75">
                   sarah@blackcrestadvisory.com
                 </span>
               </div>
 
-              <span
-                className="hidden h-3 w-px bg-border sm:block"
-              />
+              <span className="hidden h-3 w-px bg-border sm:block"/>
 
               <div className="flex items-center gap-2">
-                <Phone
-                  className="h-3.5 w-3.5 shrink-0 text-secondary"
-                />
+                <Phone className="h-3.5 w-3.5 shrink-0 text-secondary"/>
 
-                <span
-                  className="text-xs text-foreground/75"
-                >
+                <span className="text-xs text-foreground/75">
                   +44 20 1234 5678
                 </span>
               </div>
@@ -157,27 +129,19 @@ export const SupportSection = () => {
 
         {/*===== ACTION PANEL =====*/}
 
-        <div
-          className="border-t border-border pt-5 lg:min-w-[310px] lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0"
-        >
+        <div className="border-t border-border pt-5 lg:min-w-[310px] lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
           <div className="flex items-center justify-between gap-4">
             <div>
-              <p
-                className="font-mono text-[7px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/40"
-              >
+              <p className="font-mono text-[7px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/40">
                 Direct access
               </p>
 
-              <p
-                className="mt-1 text-sm font-semibold text-heading"
-              >
+              <p className="mt-1 text-sm font-semibold text-heading">
                 Need something?
               </p>
             </div>
 
-            <div
-              className="flex h-9 w-9 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary"
-            >
+            <div className="flex h-9 w-9 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary">
               <ShieldCheck className="h-4 w-4" />
             </div>
           </div>
@@ -193,9 +157,7 @@ export const SupportSection = () => {
                 Schedule Call
               </span>
 
-              <span
-                className="font-mono text-[8px] uppercase tracking-[0.12em] opacity-60"
-              >
+              <span className="font-mono text-[8px] uppercase tracking-[0.12em] opacity-60">
                 Book
               </span>
             </Button>
@@ -210,31 +172,23 @@ export const SupportSection = () => {
                 Send Message
               </span>
 
-              <span
-                className="font-mono text-[8px] uppercase tracking-[0.12em] text-muted-foreground/50"
-              >
+              <span className="font-mono text-[8px] uppercase tracking-[0.12em] text-muted-foreground/50">
                 Chat
               </span>
             </Button>
           </div>
 
           {/* availability */}
-          <div
-            className="mt-4 flex items-center justify-between border-t border-border pt-4"
-          >
+          <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
             <div className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
-              <span
-                className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
-              >
+              <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40">
                 Account support active
               </span>
             </div>
 
-            <span
-              className="font-mono text-[7px] uppercase tracking-[0.15em] text-secondary"
-            >
+            <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-secondary">
               BCR
             </span>
           </div>

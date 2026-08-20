@@ -96,63 +96,45 @@ export const StatsSection = ({ stats }: StatsSectionProps) => {
               {/* top */}
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p
-                    className="font-mono text-[7px] font-semibold uppercase tracking-[0.17em] text-secondary"
-                  >
+                  <p className="font-mono text-[7px] font-semibold uppercase tracking-[0.17em] text-secondary">
                     {item.eyebrow}
                   </p>
 
-                  <p
-                    className="mt-1 text-xs font-medium text-muted-foreground"
-                  >
+                  <p className="mt-1 text-xs font-medium text-muted-foreground">
                     {item.label}
                   </p>
                 </div>
 
-                <div
-                  className="flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary group-hover:text-secondary-foreground"
-                >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary group-hover:text-secondary-foreground">
                   <Icon className="h-4.5 w-4.5" strokeWidth={1.8} />
                 </div>
               </div>
 
               {/* value */}
               <div className="mt-7">
-                <p
-                  className="text-3xl font-semibold leading-none tracking-[-0.05em] text-heading sm:text-[2rem]"
-                >
+                <p className="text-3xl font-semibold leading-none tracking-[-0.05em] text-heading sm:text-[2rem]">
                   {item.value}
                 </p>
               </div>
 
               {/* change */}
-              <div
-                className="mt-5 flex items-center justify-between gap-3 border-t border-border pt-3"
-              >
+              <div className="mt-5 flex items-center justify-between gap-3 border-t border-border pt-3">
                 <div className="flex items-center gap-2">
-                  <ArrowUpRight
-                    className="h-3.5 w-3.5 text-success"
-                  />
+                  <ArrowUpRight className="h-3.5 w-3.5 text-success"/>
 
-                  <span
-                    className="text-xs font-medium text-success"
-                  >
+                  <span className="text-xs font-medium text-success">
                     {item.change}
                   </span>
                 </div>
 
-                <span
-                  className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/30"
-                >
+                <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/30">
                   Insight
                 </span>
               </div>
             </div>
 
             {/* hover accent */}
-            <div
-              className="absolute bottom-0 left-0 h-[2px] w-0 bg-secondary transition-all duration-500 group-hover:w-full"
-            />
+            <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-secondary transition-all duration-500 group-hover:w-full"/>
           </motion.article>
         );
       })}

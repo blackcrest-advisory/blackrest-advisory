@@ -63,30 +63,22 @@ export const InfoCard = () => {
             <div className="flex items-center gap-3">
               <CircleDot className="h-4 w-4 text-secondary" />
 
-              <span
-                className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
-              >
+              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
                 Project readiness
               </span>
             </div>
 
-            <h3
-              className="mt-3 text-xl font-semibold tracking-[-0.03em] text-heading md:text-2xl"
-            >
+            <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-heading md:text-2xl">
               What you can expect from Blackcrest.
             </h3>
           </div>
 
-          <span
-            className="shrink-0 font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40"
-          >
+          <span className="shrink-0 font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40">
             BCR / 02
           </span>
         </div>
 
-        <p
-          className="mt-4 text-sm leading-7 text-muted-foreground"
-        >
+        <p className="mt-4 text-sm leading-7 text-muted-foreground">
           A structured delivery model designed to give you visibility,
           accountability, and a clear path from project definition to launch.
         </p>
@@ -94,9 +86,7 @@ export const InfoCard = () => {
 
       {/* features */}
       <div className="p-6 md:p-7">
-        <p
-          className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/45"
-        >
+        <p className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/45">
           Delivery principles
         </p>
 
@@ -119,24 +109,16 @@ export const InfoCard = () => {
               className="group flex items-center justify-between gap-4 border-b border-border py-3.5"
             >
               <div className="flex items-center gap-3">
-                <div
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-secondary/[0.08] transition-colors duration-300 group-hover:bg-secondary"
-                >
-                  <Check
-                    className="h-3 w-3 text-secondary transition-colors duration-300 group-hover:text-secondary-foreground"
-                  />
+                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-secondary/[0.08] transition-colors duration-300 group-hover:bg-secondary">
+                  <Check className="h-3 w-3 text-secondary transition-colors duration-300 group-hover:text-secondary-foreground"/>
                 </div>
 
-                <span
-                  className="text-sm font-medium text-foreground/80 transition-colors group-hover:text-heading"
-                >
+                <span className="text-sm font-medium text-foreground/80 transition-colors group-hover:text-heading">
                   {feature}
                 </span>
               </div>
 
-              <span
-                className="font-mono text-[7px] text-muted-foreground/30"
-              >
+              <span className="font-mono text-[7px] text-muted-foreground/30">
                 0{index + 1}
               </span>
             </motion.div>
@@ -144,32 +126,22 @@ export const InfoCard = () => {
         </div>
 
         {/* response */}
-        <div
-          className="mt-7 border border-secondary/20 bg-secondary/[0.05] p-5"
-        >
+        <div className="mt-7 border border-secondary/20 bg-secondary/[0.05] p-5">
           <div className="flex items-start gap-4">
-            <div
-              className="flex h-9 w-9 shrink-0 items-center justify-center bg-secondary/[0.09] text-secondary"
-            >
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center bg-secondary/[0.09] text-secondary">
               <Clock3 className="h-4 w-4" />
             </div>
 
             <div>
-              <p
-                className="text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
-              >
+              <p className="text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary">
                 Response expectation
               </p>
 
-              <p
-                className="mt-2 text-sm font-semibold text-heading"
-              >
+              <p className="mt-2 text-sm font-semibold text-heading">
                 Typically within one business day.
               </p>
 
-              <p
-                className="mt-1 text-xs leading-6 text-muted-foreground"
-              >
+              <p className="mt-1 text-xs leading-6 text-muted-foreground">
                 We&apos;ll review the inquiry first so the initial response is
                 useful, relevant, and focused on next steps.
               </p>
@@ -179,20 +151,14 @@ export const InfoCard = () => {
       </div>
 
       {/* contact */}
-      <div
-        className="border-t border-border bg-muted/25 p-6 md:p-7"
-      >
+      <div className="border-t border-border bg-muted/25 p-6 md:p-7">
         <div className="flex items-center justify-between">
           <div>
-            <p
-              className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/45"
-            >
+            <p className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/45">
               Need to talk first?
             </p>
 
-            <p
-              className="mt-1 text-sm font-semibold text-heading"
-            >
+            <p className="mt-1 text-sm font-semibold text-heading">
               Contact the team directly.
             </p>
           </div>
@@ -206,51 +172,35 @@ export const InfoCard = () => {
             className="group flex items-center justify-between gap-4 border-b border-border py-4"
           >
             <div className="flex min-w-0 items-center gap-3">
-              <div
-                className="flex h-8 w-8 shrink-0 items-center justify-center border border-border bg-card text-muted-foreground transition-all duration-300 group-hover:border-secondary/30 group-hover:text-secondary"
-              >
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center border border-border bg-card text-muted-foreground transition-all duration-300 group-hover:border-secondary/30 group-hover:text-secondary">
                 <Mail className="h-3.5 w-3.5" />
               </div>
 
               <div className="min-w-0">
-                <p
-                  className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
-                >
+                <p className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40">
                   Email
                 </p>
 
-                <p
-                  className="mt-1 break-all text-xs font-medium text-foreground"
-                >
+                <p className="mt-1 break-all text-xs font-medium text-foreground">
                   hello@blackcrestadvisory.com
                 </p>
               </div>
             </div>
 
-            <ArrowUpRight
-              className="h-3.5 w-3.5 shrink-0 text-muted-foreground/25 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-secondary"
-            />
+            <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground/25 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-secondary"/>
           </a>
 
-          <div
-            className="flex items-center gap-3 py-4"
-          >
-            <div
-              className="flex h-8 w-8 shrink-0 items-center justify-center border border-border bg-card text-muted-foreground"
-            >
+          <div className="flex items-center gap-3 py-4">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center border border-border bg-card text-muted-foreground">
               <Phone className="h-3.5 w-3.5" />
             </div>
 
             <div>
-              <p
-                className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
-              >
+              <p className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40">
                 Phone
               </p>
 
-              <p
-                className="mt-1 text-xs font-medium text-foreground"
-              >
+              <p className="mt-1 text-xs font-medium text-foreground">
                 Add your verified business number
               </p>
             </div>
@@ -258,24 +208,16 @@ export const InfoCard = () => {
         </div>
 
         {/* assurance */}
-        <div
-          className="mt-3 flex items-start gap-3 border-l border-secondary/30 pl-4"
-        >
-          <ShieldCheck
-            className="mt-0.5 h-4 w-4 shrink-0 text-secondary"
-          />
+        <div className="mt-3 flex items-start gap-3 border-l border-secondary/30 pl-4">
+          <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-secondary"/>
 
-          <p
-            className="text-xs leading-6 text-muted-foreground"
-          >
+          <p className="text-xs leading-6 text-muted-foreground">
             Your project information is used only to evaluate and respond to
             your inquiry.
           </p>
         </div>
 
-        <div
-          className="mt-6 flex items-center justify-between border-t border-border pt-4"
-        >
+        <div className="mt-6 flex items-center justify-between border-t border-border pt-4">
           <div className="flex items-center gap-2">
             <motion.span
               animate={
@@ -292,9 +234,7 @@ export const InfoCard = () => {
               className="h-1.5 w-1.5 rounded-full bg-success"
             />
 
-            <span
-              className="font-mono text-[8px] uppercase tracking-[0.15em] text-success"
-            >
+            <span className="font-mono text-[8px] uppercase tracking-[0.15em] text-success">
               Enquiries open
             </span>
           </div>

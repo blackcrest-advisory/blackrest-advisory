@@ -40,14 +40,10 @@ export const FilesTable = ({ files }: FilesTableProps) => {
     <>
       {/*===== DESKTOP / TABLET REGISTER =====*/}
 
-      <div
-        className="hidden min-w-0 max-w-full overflow-x-auto md:block"
-      >
+      <div className="hidden min-w-0 max-w-full overflow-x-auto md:block">
         <Table className="min-w-[860px]">
           <TableHeader>
-            <TableRow
-              className="border-b border-border bg-muted/15 hover:bg-muted/15"
-            >
+            <TableRow className="border-b border-border bg-muted/15 hover:bg-muted/15">
               {tableColumns.map((column) => (
                 <TableHead
                   key={column}
@@ -69,9 +65,7 @@ export const FilesTable = ({ files }: FilesTableProps) => {
 
       {/*===== MOBILE DOCUMENT RECORDS =====*/}
 
-      <div
-        className="divide-y divide-border md:hidden"
-      >
+      <div className="divide-y divide-border md:hidden">
         {files.map((file) => (
           <div
             key={file.id}

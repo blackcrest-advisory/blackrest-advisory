@@ -56,45 +56,31 @@ export const FooterStats = () => {
       />
 
       {/* top accent */}
-      <div
-        className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
-      />
+      <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"/>
 
       {/* header */}
-      <div
-        className="relative z-10 flex flex-col gap-3 border-b border-border px-5 py-5 sm:flex-row sm:items-end sm:justify-between sm:px-6"
-      >
+      <div className="relative z-10 flex flex-col gap-3 border-b border-border px-5 py-5 sm:flex-row sm:items-end sm:justify-between sm:px-6">
         <div>
-          <p
-            className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
-          >
+          <p className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
             Partnership snapshot
           </p>
 
-          <h2
-            className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl"
-          >
+          <h2 className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl">
             Your Blackcrest Relationship
           </h2>
 
-          <p
-            className="mt-1 text-xs leading-5 text-muted-foreground"
-          >
+          <p className="mt-1 text-xs leading-5 text-muted-foreground">
             A concise view of your engagement history and delivery performance.
           </p>
         </div>
 
-        <span
-          className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/35"
-        >
+        <span className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/35">
           Client / Record
         </span>
       </div>
 
       {/* stats */}
-      <div
-        className="relative z-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4"
-      >
+      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
         {stats.map((item, index) => {
           const Icon = item.icon;
 
@@ -121,57 +107,41 @@ export const FooterStats = () => {
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p
-                    className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/40"
-                  >
+                  <p className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/40">
                     {item.meta}
                   </p>
 
-                  <p
-                    className="mt-1 text-xs font-medium text-muted-foreground"
-                  >
+                  <p className="mt-1 text-xs font-medium text-muted-foreground">
                     {item.label}
                   </p>
                 </div>
 
-                <div
-                  className="flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary group-hover:text-secondary-foreground"
-                >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary group-hover:text-secondary-foreground">
                   <Icon className="h-4 w-4" strokeWidth={1.8} />
                 </div>
               </div>
 
-              <p
-                className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-heading"
-              >
+              <p className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-heading">
                 {item.value}
               </p>
 
-              <div
-                className="mt-4 h-px w-8 bg-secondary/30 transition-all duration-300 group-hover:w-14 group-hover:bg-secondary"
-              />
+              <div className="mt-4 h-px w-8 bg-secondary/30 transition-all duration-300 group-hover:w-14 group-hover:bg-secondary"/>
             </div>
           );
         })}
       </div>
 
       {/* bottom status */}
-      <div
-        className="relative z-10 flex flex-col gap-2 border-t border-border bg-muted/15 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-      >
+      <div className="relative z-10 flex flex-col gap-2 border-t border-border bg-muted/15 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <div className="flex items-center gap-2">
           <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
-          <span
-            className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/40"
-          >
+          <span className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/40">
             Partnership active
           </span>
         </div>
 
-        <span
-          className="text-xs text-muted-foreground"
-        >
+        <span className="text-xs text-muted-foreground">
           Blackcrest client relationship record
         </span>
       </div>

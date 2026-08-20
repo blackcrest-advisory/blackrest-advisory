@@ -27,9 +27,7 @@ function SkeletonLine({ width = "w-full" }: { width?: string }) {
 
 function SkeletonInput() {
   return (
-    <Skeleton
-      className="h-10 w-full rounded-md"
-    />
+    <Skeleton className="h-10 w-full rounded-md"/>
   );
 }
 
@@ -45,9 +43,7 @@ export default function Loading() {
     >
       {/*===== SETTINGS HEADER =====*/}
 
-      <header
-        className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-      >
+      <header className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
         {/* ambient backdrop */}
         <div
           aria-hidden="true"
@@ -55,22 +51,16 @@ export default function Loading() {
         />
 
         {/* main title */}
-        <div
-          className="relative z-10 px-6 py-7 sm:px-7 lg:px-9 lg:py-9"
-        >
+        <div className="relative z-10 px-6 py-7 sm:px-7 lg:px-9 lg:py-9">
           <div className="max-w-3xl">
-            <div
-              className="flex flex-wrap items-center gap-3"
-            >
+            <div className="flex flex-wrap items-center gap-3">
               <Skeleton className="h-7 w-7 rounded-md" />
               <Skeleton className="h-2.5 w-28" />
               <Skeleton className="h-px w-10" />
               <Skeleton className="h-2.5 w-24" />
             </div>
 
-            <Skeleton
-              className="mt-6 h-11 w-72 max-w-full sm:h-12"
-            />
+            <Skeleton className="mt-6 h-11 w-72 max-w-full sm:h-12"/>
 
             <div className="mt-4 space-y-2">
               <SkeletonLine width="w-full max-w-2xl" />
@@ -80,9 +70,7 @@ export default function Loading() {
         </div>
 
         {/* account areas */}
-        <div
-          className="relative z-10 grid border-t border-border bg-background/20 sm:grid-cols-3"
-        >
+        <div className="relative z-10 grid border-t border-border bg-background/20 sm:grid-cols-3">
           {Array.from({ length: 3 }).map((_, index) => (
             <div
               key={index}
@@ -99,9 +87,7 @@ export default function Loading() {
         </div>
 
         {/* status footer */}
-        <div
-          className="relative z-10 flex flex-col gap-2 border-t border-border bg-muted/10 px-6 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-7 lg:px-9"
-        >
+        <div className="relative z-10 flex flex-col gap-2 border-t border-border bg-muted/10 px-6 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-7 lg:px-9">
           <div className="flex items-center gap-2">
             <Skeleton className="h-1.5 w-1.5 rounded-full" />
             <Skeleton className="h-2.5 w-28" />
@@ -113,9 +99,7 @@ export default function Loading() {
 
       {/*===== SETTINGS WORKSPACE =====*/}
 
-      <div
-        className="grid min-w-0 max-w-full gap-6 xl:grid-cols-[minmax(0,1.4fr)_minmax(300px,0.6fr)] xl:items-start"
-      >
+      <div className="grid min-w-0 max-w-full gap-6 xl:grid-cols-[minmax(0,1.4fr)_minmax(300px,0.6fr)] xl:items-start">
         {/*===== MAIN COLUMN =====*/}
 
         <div className="min-w-0 space-y-6">
@@ -125,9 +109,7 @@ export default function Loading() {
 
         {/*===== SECURITY RAIL =====*/}
 
-        <aside
-          className="min-w-0 xl:sticky xl:top-4"
-        >
+        <aside className="min-w-0 xl:sticky xl:top-4">
           <SecuritySectionSkeleton />
         </aside>
       </div>
@@ -141,9 +123,7 @@ export default function Loading() {
 
 function ProfileSectionSkeleton() {
   return (
-    <section
-      className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-    >
+    <section className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
       {/* top signal */}
       <div
         aria-hidden="true"
@@ -151,9 +131,7 @@ function ProfileSectionSkeleton() {
       />
 
       {/* header */}
-      <div
-        className="flex items-start gap-3 border-b border-border px-5 py-4 sm:px-6"
-      >
+      <div className="flex items-start gap-3 border-b border-border px-5 py-4 sm:px-6">
         <Skeleton className="h-9 w-9 shrink-0 rounded-md" />
 
         <div className="min-w-0 flex-1">
@@ -164,12 +142,8 @@ function ProfileSectionSkeleton() {
       </div>
 
       {/* identity */}
-      <div
-        className="border-b border-border bg-background/20 px-5 py-5 sm:px-6"
-      >
-        <div
-          className="flex flex-col gap-4 sm:flex-row sm:items-center"
-        >
+      <div className="border-b border-border bg-background/20 px-5 py-5 sm:px-6">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
           <Skeleton className="h-14 w-14 shrink-0 rounded-full" />
 
           <div className="min-w-0 flex-1">
@@ -183,9 +157,7 @@ function ProfileSectionSkeleton() {
       </div>
 
       {/* fields */}
-      <div
-        className="grid min-w-0 gap-5 px-5 py-5 sm:grid-cols-2 sm:px-6"
-      >
+      <div className="grid min-w-0 gap-5 px-5 py-5 sm:grid-cols-2 sm:px-6">
         <FieldSkeleton />
         <FieldSkeleton />
         <FieldSkeleton />
@@ -197,9 +169,7 @@ function ProfileSectionSkeleton() {
       </div>
 
       {/* footer */}
-      <div
-        className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-      >
+      <div className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <div className="flex items-center gap-2">
           <Skeleton className="h-1.5 w-1.5 rounded-full" />
           <Skeleton className="h-2.5 w-24" />
@@ -217,13 +187,9 @@ function ProfileSectionSkeleton() {
 
 function NotificationsSectionSkeleton() {
   return (
-    <section
-      className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-    >
+    <section className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
       {/* header */}
-      <div
-        className="grid gap-5 border-b border-border px-5 py-5 sm:px-6 lg:grid-cols-[minmax(0,1fr)_220px] lg:items-end"
-      >
+      <div className="grid gap-5 border-b border-border px-5 py-5 sm:px-6 lg:grid-cols-[minmax(0,1fr)_220px] lg:items-end">
         <div>
           <div className="flex items-center gap-2">
             <Skeleton className="h-3.5 w-3.5 rounded-sm" />
@@ -238,18 +204,14 @@ function NotificationsSectionSkeleton() {
           </div>
         </div>
 
-        <div
-          className="border-t border-border pt-4 lg:border-l lg:border-t-0 lg:pl-5 lg:pt-0"
-        >
+        <div className="border-t border-border pt-4 lg:border-l lg:border-t-0 lg:pl-5 lg:pt-0">
           <Skeleton className="h-2.5 w-24" />
           <Skeleton className="mt-2 h-7 w-12" />
         </div>
       </div>
 
       {/* preferences */}
-      <div
-        className="grid min-w-0 md:grid-cols-2"
-      >
+      <div className="grid min-w-0 md:grid-cols-2">
         {Array.from({ length: 5 }).map((_, index) => (
           <div
             key={index}
@@ -266,9 +228,7 @@ function NotificationsSectionSkeleton() {
               <Skeleton className="h-9 w-9 shrink-0 rounded-md" />
 
               <div className="min-w-0 flex-1">
-                <div
-                  className="flex items-start justify-between gap-4"
-                >
+                <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0 flex-1">
                     <Skeleton className="h-2.5 w-20" />
                     <Skeleton className="mt-2 h-4 w-32" />
@@ -293,9 +253,7 @@ function NotificationsSectionSkeleton() {
       </div>
 
       {/* footer */}
-      <div
-        className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-      >
+      <div className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <div className="min-w-0">
           <Skeleton className="h-3 w-48 max-w-full" />
           <Skeleton className="mt-2 h-2.5 w-64 max-w-full" />
@@ -313,9 +271,7 @@ function NotificationsSectionSkeleton() {
 
 function SecuritySectionSkeleton() {
   return (
-    <section
-      className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-    >
+    <section className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
       {/* top signal */}
       <div
         aria-hidden="true"
@@ -323,9 +279,7 @@ function SecuritySectionSkeleton() {
       />
 
       {/* header */}
-      <div
-        className="border-b border-border px-5 py-5"
-      >
+      <div className="border-b border-border px-5 py-5">
         <div className="flex items-start gap-3">
           <Skeleton className="h-10 w-10 shrink-0 rounded-md" />
 
@@ -338,9 +292,7 @@ function SecuritySectionSkeleton() {
       </div>
 
       {/* status */}
-      <div
-        className="border-b border-border bg-background/20 px-5 py-4"
-      >
+      <div className="border-b border-border bg-background/20 px-5 py-4">
         <div className="flex items-start gap-3">
           <Skeleton className="h-8 w-8 shrink-0 rounded-md" />
 
@@ -361,9 +313,7 @@ function SecuritySectionSkeleton() {
         <FieldSkeleton />
         <FieldSkeleton />
 
-        <div
-          className="border-l-2 border-border bg-background/30 px-3 py-3"
-        >
+        <div className="border-l-2 border-border bg-background/30 px-3 py-3">
           <Skeleton className="h-2.5 w-28" />
           <Skeleton className="mt-2 h-3 w-full" />
           <Skeleton className="mt-2 h-3 w-[72%]" />
@@ -371,14 +321,10 @@ function SecuritySectionSkeleton() {
       </div>
 
       {/* footer */}
-      <div
-        className="border-t border-border bg-muted/10 px-5 py-4"
-      >
+      <div className="border-t border-border bg-muted/10 px-5 py-4">
         <Skeleton className="h-10 w-full rounded-md" />
 
-        <div
-          className="mt-3 flex items-center justify-center gap-2"
-        >
+        <div className="mt-3 flex items-center justify-center gap-2">
           <Skeleton className="h-1.5 w-1.5 rounded-full" />
           <Skeleton className="h-2.5 w-28" />
         </div>

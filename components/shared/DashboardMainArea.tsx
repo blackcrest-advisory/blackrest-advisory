@@ -35,9 +35,7 @@ export default function DashboardMainArea({
         pageTitle={page || "Dashboard"}
       />
 
-      <main
-        className="relative flex-1 min-w-0 max-w-full overflow-y-auto overscroll-contain"
-      >
+      <main className="relative flex-1 min-w-0 max-w-full overflow-y-auto overscroll-contain">
         {/* top workspace glow */}
         <div
           aria-hidden="true"

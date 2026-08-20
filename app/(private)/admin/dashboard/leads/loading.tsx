@@ -15,9 +15,7 @@ export default function Loading() {
     <div className="relative space-y-6" aria-label="Loading leads">
       {/*===== LEADS COMMAND HEADER SKELETON =====*/}
 
-      <section
-        className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-      >
+      <section className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -right-32 -top-36 h-[340px] w-[340px] rounded-full bg-secondary/[0.07] blur-[110px]"
@@ -47,13 +45,9 @@ export default function Loading() {
           }}
         />
 
-        <div
-          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"
-        />
+        <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"/>
 
-        <div
-          className="relative z-10 grid gap-8 px-5 py-7 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-stretch lg:px-8 lg:py-8"
-        >
+        <div className="relative z-10 grid gap-8 px-5 py-7 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-stretch lg:px-8 lg:py-8">
           {/* left */}
           <div className="flex flex-col justify-between">
             <div>
@@ -66,9 +60,7 @@ export default function Loading() {
                 <Skeleton className="h-2.5 w-20" />
               </div>
 
-              <Skeleton
-                className="mt-5 h-10 w-40 sm:h-11"
-              />
+              <Skeleton className="mt-5 h-10 w-40 sm:h-11"/>
 
               <div className="mt-4 space-y-2">
                 <Skeleton className="h-4 w-full max-w-2xl" />
@@ -76,9 +68,7 @@ export default function Loading() {
               </div>
             </div>
 
-            <div
-              className="mt-7 grid gap-3 sm:grid-cols-3"
-            >
+            <div className="mt-7 grid gap-3 sm:grid-cols-3">
               {Array.from({ length: 3 }).map((_, index) => (
                 <div
                   key={index}
@@ -94,9 +84,7 @@ export default function Loading() {
           </div>
 
           {/* command panel */}
-          <div
-            className="relative overflow-hidden border border-secondary/15 bg-secondary/[0.025] p-5 sm:p-6"
-          >
+          <div className="relative overflow-hidden border border-secondary/15 bg-secondary/[0.025] p-5 sm:p-6">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -right-16 -top-20 h-40 w-40 rounded-full bg-secondary/[0.08] blur-3xl"
@@ -119,9 +107,7 @@ export default function Loading() {
 
               <Skeleton className="mt-5 h-9 w-full" />
 
-              <div
-                className="mt-5 flex items-center justify-between border-t border-border pt-4"
-              >
+              <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
                 <Skeleton className="h-2.5 w-28" />
                 <Skeleton className="h-2.5 w-8" />
               </div>
@@ -132,9 +118,7 @@ export default function Loading() {
 
       {/*===== LEAD STATS SKELETON =====*/}
 
-      <section
-        className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5"
-      >
+      <section className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5">
         {Array.from({ length: 5 }).map((_, index) => (
           <article
             key={index}
@@ -159,9 +143,7 @@ export default function Loading() {
 
               <Skeleton className="mt-6 h-8 w-14" />
 
-              <div
-                className="mt-5 flex items-center justify-between border-t border-border pt-3"
-              >
+              <div className="mt-5 flex items-center justify-between border-t border-border pt-3">
                 <Skeleton className="h-2 w-16" />
                 <Skeleton className="h-px w-8" />
               </div>
@@ -172,20 +154,12 @@ export default function Loading() {
 
       {/*===== LEAD DIRECTORY WORKSPACE =====*/}
 
-      <section
-        className="relative overflow-visible border border-border bg-card shadow-[var(--shadow-card)]"
-      >
-        <div
-          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"
-        />
+      <section className="relative overflow-visible border border-border bg-card shadow-[var(--shadow-card)]">
+        <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/40 via-secondary/20 to-transparent"/>
 
         {/* header */}
-        <div
-          className="border-b border-border px-5 py-5 sm:px-6"
-        >
-          <div
-            className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"
-          >
+        <div className="border-b border-border px-5 py-5 sm:px-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <div className="flex items-center gap-2">
                 <Skeleton className="h-3.5 w-3.5" />
@@ -197,9 +171,7 @@ export default function Loading() {
               <Skeleton className="mt-2 h-3 w-80 max-w-full" />
             </div>
 
-            <div
-              className="flex items-center gap-2 border border-border bg-background/60 px-3 py-2"
-            >
+            <div className="flex items-center gap-2 border border-border bg-background/60 px-3 py-2">
               <Skeleton className="h-2 w-12" />
               <span className="h-3 w-px bg-border" />
               <Skeleton className="h-3 w-5" />
@@ -209,17 +181,11 @@ export default function Loading() {
 
         {/*===== SIMPLE FILTER BAR =====*/}
 
-        <div
-          className="relative z-20 border-b border-border bg-card px-5 py-4 sm:px-6"
-        >
-          <div
-            className="flex flex-col gap-3 xl:flex-row xl:items-center"
-          >
+        <div className="relative z-20 border-b border-border bg-card px-5 py-4 sm:px-6">
+          <div className="flex flex-col gap-3 xl:flex-row xl:items-center">
             <Skeleton className="h-10 min-w-0 flex-1" />
 
-            <div
-              className="grid gap-2 sm:grid-cols-3 xl:flex xl:items-center"
-            >
+            <div className="grid gap-2 sm:grid-cols-3 xl:flex xl:items-center">
               <Skeleton className="hidden h-9 w-9 xl:block" />
               <Skeleton className="h-10 w-full xl:w-40" />
               <Skeleton className="h-10 w-full xl:w-44" />
@@ -232,9 +198,7 @@ export default function Loading() {
 
         <div className="hidden overflow-x-auto lg:block">
           <table className="w-full border-collapse text-left text-sm">
-            <thead
-              className="border-b border-border bg-muted/15"
-            >
+            <thead className="border-b border-border bg-muted/15">
               <tr>
                 {[
                   "Company",
@@ -362,16 +326,12 @@ export default function Loading() {
 
               {/* metadata */}
               <div className="mt-4 grid grid-cols-2 gap-3">
-                <div
-                  className="border border-border bg-background/40 p-3"
-                >
+                <div className="border border-border bg-background/40 p-3">
                   <Skeleton className="h-2 w-14" />
                   <Skeleton className="mt-2 h-6 w-20" />
                 </div>
 
-                <div
-                  className="border border-border bg-background/40 p-3"
-                >
+                <div className="border border-border bg-background/40 p-3">
                   <Skeleton className="h-2 w-14" />
 
                   <div className="mt-2 flex items-center gap-2">
@@ -382,9 +342,7 @@ export default function Loading() {
               </div>
 
               {/* footer */}
-              <div
-                className="mt-4 flex items-center justify-between gap-4 border-t border-border pt-4"
-              >
+              <div className="mt-4 flex items-center justify-between gap-4 border-t border-border pt-4">
                 <div className="flex items-center gap-2">
                   <Skeleton className="h-3.5 w-3.5" />
                   <Skeleton className="h-3 w-24" />
@@ -398,12 +356,8 @@ export default function Loading() {
 
         {/*===== PAGINATION SKELETON =====*/}
 
-        <div
-          className="border-t border-border bg-muted/15 px-5 py-4 sm:px-6"
-        >
-          <div
-            className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
-          >
+        <div className="border-t border-border bg-muted/15 px-5 py-4 sm:px-6">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <Skeleton className="h-3 w-36" />
 
             <div className="flex items-center gap-2">

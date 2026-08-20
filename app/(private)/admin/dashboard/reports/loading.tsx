@@ -35,9 +35,7 @@ export default function ReportsLoading() {
     >
       {/*===== EXECUTIVE INTELLIGENCE HEADER =====*/}
 
-      <header
-        className="relative min-w-0 max-w-full border border-border bg-card shadow-[var(--shadow-card)]"
-      >
+      <header className="relative min-w-0 max-w-full border border-border bg-card shadow-[var(--shadow-card)]">
         {/* architectural rail */}
         <div
           aria-hidden="true"
@@ -50,15 +48,11 @@ export default function ReportsLoading() {
           className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-secondary/[0.04] blur-[100px]"
         />
 
-        <div
-          className="relative z-10 grid min-w-0 gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_330px]"
-        >
+        <div className="relative z-10 grid min-w-0 gap-7 px-6 py-7 sm:px-7 lg:px-9 lg:py-8 xl:grid-cols-[minmax(0,1fr)_330px]">
           {/*===== TITLE =====*/}
 
           <div className="min-w-0">
-            <div
-              className="flex flex-wrap items-center gap-3"
-            >
+            <div className="flex flex-wrap items-center gap-3">
               <FileBarChart className="h-3.5 w-3.5 text-muted-foreground/20" />
 
               <Skeleton className="h-2.5 w-28" />
@@ -68,18 +62,14 @@ export default function ReportsLoading() {
               <Skeleton className="h-2.5 w-24" />
             </div>
 
-            <Skeleton
-              className="mt-6 h-10 w-40 sm:h-11"
-            />
+            <Skeleton className="mt-6 h-10 w-40 sm:h-11"/>
 
             <div className="mt-4 space-y-2.5">
               <Skeleton className="h-3.5 w-full max-w-2xl" />
               <Skeleton className="h-3.5 w-[72%] max-w-xl" />
             </div>
 
-            <div
-              className="mt-6 flex items-center gap-3"
-            >
+            <div className="mt-6 flex items-center gap-3">
               <Skeleton className="h-px w-10" />
               <Skeleton className="h-2.5 w-40" />
             </div>
@@ -87,9 +77,7 @@ export default function ReportsLoading() {
 
           {/*===== REPORT CONTROL =====*/}
 
-          <div
-            className="min-w-0 border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0"
-          >
+          <div className="min-w-0 border-t border-border pt-5 xl:border-l xl:border-t-0 xl:pl-7 xl:pt-0">
             <Skeleton className="h-2.5 w-24" />
 
             <div className="mt-3 space-y-2">
@@ -100,9 +88,7 @@ export default function ReportsLoading() {
             <Skeleton className="mt-5 h-10 w-full rounded-md" />
             <Skeleton className="mt-3 h-9 w-full rounded-md" />
 
-            <div
-              className="mt-5 flex items-center gap-2 border-t border-border pt-4"
-            >
+            <div className="mt-5 flex items-center gap-2 border-t border-border pt-4">
               <Skeleton className="h-1.5 w-1.5 rounded-full" />
               <Skeleton className="h-2.5 w-28" />
             </div>
@@ -112,12 +98,8 @@ export default function ReportsLoading() {
 
       {/*===== KPI STRIP =====*/}
 
-      <section
-        className="min-w-0 max-w-full overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-      >
-        <div
-          className="grid min-w-0 sm:grid-cols-2 xl:grid-cols-4"
-        >
+      <section className="min-w-0 max-w-full overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
+        <div className="grid min-w-0 sm:grid-cols-2 xl:grid-cols-4">
           {Array.from({
             length: 4,
           }).map((_, index) => (
@@ -128,14 +110,10 @@ export default function ReportsLoading() {
 
       {/*===== ANALYTICAL CANVAS =====*/}
 
-      <section
-        className="grid min-w-0 max-w-full gap-5 xl:grid-cols-[minmax(0,1.55fr)_minmax(280px,0.45fr)]"
-      >
+      <section className="grid min-w-0 max-w-full gap-5 xl:grid-cols-[minmax(0,1.55fr)_minmax(280px,0.45fr)]">
         {/*===== REVENUE TREND =====*/}
 
-        <div
-          className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-        >
+        <div className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
           <div
             aria-hidden="true"
             className="absolute left-0 top-0 h-[2px] w-28 bg-secondary/25"
@@ -143,12 +121,8 @@ export default function ReportsLoading() {
 
           <PanelHeaderSkeleton icon={TrendingUp} />
 
-          <div
-            className="min-w-0 px-5 pb-5 pt-3 sm:px-6 sm:pb-6"
-          >
-            <div
-              className="relative h-64 min-w-0 border-b border-l border-border px-3 pt-5 sm:h-72 sm:px-5"
-            >
+          <div className="min-w-0 px-5 pb-5 pt-3 sm:px-6 sm:pb-6">
+            <div className="relative h-64 min-w-0 border-b border-l border-border px-3 pt-5 sm:h-72 sm:px-5">
               {/* horizontal guides */}
               <div
                 aria-hidden="true"
@@ -165,9 +139,7 @@ export default function ReportsLoading() {
               </div>
 
               {/* bars */}
-              <div
-                className="relative z-10 flex h-full min-w-0 items-end gap-2 sm:gap-3"
-              >
+              <div className="relative z-10 flex h-full min-w-0 items-end gap-2 sm:gap-3">
                 {[
                   "h-[34%]",
                   "h-[53%]",
@@ -189,17 +161,13 @@ export default function ReportsLoading() {
                         `}
                     />
 
-                    <Skeleton
-                      className="mx-auto mt-2 h-2 w-[70%] max-w-10"
-                    />
+                    <Skeleton className="mx-auto mt-2 h-2 w-[70%] max-w-10"/>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div
-              className="mt-4 flex items-center gap-2"
-            >
+            <div className="mt-4 flex items-center gap-2">
               <Skeleton className="h-1.5 w-1.5 rounded-full" />
               <Skeleton className="h-2.5 w-28" />
             </div>
@@ -208,36 +176,26 @@ export default function ReportsLoading() {
 
         {/*===== SALES PIPELINE =====*/}
 
-        <div
-          className="min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-        >
+        <div className="min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
           <PanelHeaderSkeleton icon={Target} />
 
-          <div
-            className="space-y-5 px-5 py-5 sm:px-6"
-          >
+          <div className="space-y-5 px-5 py-5 sm:px-6">
             {["w-[72%]", "w-[56%]", "w-[39%]", "w-[65%]"].map(
               (width, index) => (
                 <div
                   key={index}
                   className="border-b border-border pb-4 last:border-b-0 last:pb-0"
                 >
-                  <div
-                    className="flex items-start gap-3"
-                  >
+                  <div className="flex items-start gap-3">
                     <Skeleton className="mt-0.5 h-3 w-5 shrink-0" />
 
                     <div className="min-w-0 flex-1">
-                      <div
-                        className="flex items-center justify-between gap-3"
-                      >
+                      <div className="flex items-center justify-between gap-3">
                         <Skeleton className="h-3.5 w-24" />
                         <Skeleton className="h-3 w-14" />
                       </div>
 
-                      <div
-                        className="mt-3 h-1.5 overflow-hidden bg-muted"
-                      >
+                      <div className="mt-3 h-1.5 overflow-hidden bg-muted">
                         <Skeleton
                           className={`
                             h-full
@@ -258,27 +216,17 @@ export default function ReportsLoading() {
 
       {/*===== BUSINESS INTELLIGENCE =====*/}
 
-      <section
-        className="grid min-w-0 max-w-full gap-5 xl:grid-cols-[minmax(0,1.55fr)_minmax(280px,0.45fr)]"
-      >
+      <section className="grid min-w-0 max-w-full gap-5 xl:grid-cols-[minmax(0,1.55fr)_minmax(280px,0.45fr)]">
         {/*===== SERVICE PERFORMANCE =====*/}
 
-        <div
-          className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-        >
+        <div className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
           <PanelHeaderSkeleton icon={BriefcaseBusiness} />
 
           {/*===== DESKTOP TABLE =====*/}
 
-          <div
-            className="hidden min-w-0 max-w-full overflow-x-auto lg:block"
-          >
-            <table
-              className="w-full min-w-[620px] border-collapse"
-            >
-              <thead
-                className="border-y border-border bg-muted/15"
-              >
+          <div className="hidden min-w-0 max-w-full overflow-x-auto lg:block">
+            <table className="w-full min-w-[620px] border-collapse">
+              <thead className="border-y border-border bg-muted/15">
                 <tr>
                   <th className="px-6 py-3">
                     <Skeleton className="h-2.5 w-16" />
@@ -334,9 +282,7 @@ export default function ReportsLoading() {
 
           {/*===== MOBILE / TABLET =====*/}
 
-          <div
-            className="divide-y divide-border lg:hidden"
-          >
+          <div className="divide-y divide-border lg:hidden">
             {Array.from({
               length: 3,
             }).map((_, index) => (
@@ -350,9 +296,7 @@ export default function ReportsLoading() {
                   <div className="min-w-0 flex-1">
                     <Skeleton className="h-4 w-36" />
 
-                    <div
-                      className="mt-4 grid grid-cols-2 gap-3"
-                    >
+                    <div className="mt-4 grid grid-cols-2 gap-3">
                       <RecordSkeleton />
                       <RecordSkeleton />
                       <RecordSkeleton />
@@ -365,9 +309,7 @@ export default function ReportsLoading() {
           </div>
 
           {/* footer */}
-          <div
-            className="flex items-center justify-between gap-4 border-t border-border bg-muted/10 px-5 py-3 sm:px-6"
-          >
+          <div className="flex items-center justify-between gap-4 border-t border-border bg-muted/10 px-5 py-3 sm:px-6">
             <Skeleton className="h-2.5 w-32" />
             <Skeleton className="h-3 w-16" />
           </div>
@@ -375,9 +317,7 @@ export default function ReportsLoading() {
 
         {/*===== EXECUTIVE INSIGHTS =====*/}
 
-        <div
-          className="min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-        >
+        <div className="min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
           <PanelHeaderSkeleton icon={Gauge} />
 
           <div className="divide-y divide-border">
@@ -388,12 +328,8 @@ export default function ReportsLoading() {
                 key={index}
                 className="px-5 py-5 sm:px-6"
               >
-                <div
-                  className="border-l-2 border-border pl-4"
-                >
-                  <div
-                    className="flex items-start justify-between gap-3"
-                  >
+                <div className="border-l-2 border-border pl-4">
+                  <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0 flex-1">
                       <Skeleton className="h-2.5 w-16" />
 
@@ -418,9 +354,7 @@ export default function ReportsLoading() {
             ))}
           </div>
 
-          <div
-            className="flex items-center gap-2 border-t border-border bg-muted/10 px-5 py-3 sm:px-6"
-          >
+          <div className="flex items-center gap-2 border-t border-border bg-muted/10 px-5 py-3 sm:px-6">
             <Skeleton className="h-1.5 w-1.5 rounded-full" />
             <Skeleton className="h-2.5 w-36" />
           </div>
@@ -436,12 +370,8 @@ export default function ReportsLoading() {
 
 function MetricSkeleton() {
   return (
-    <div
-      className="border-b border-border px-5 py-5 sm:border-r xl:border-b-0 xl:last:border-r-0"
-    >
-      <div
-        className="flex items-start justify-between gap-4"
-      >
+    <div className="border-b border-border px-5 py-5 sm:border-r xl:border-b-0 xl:last:border-r-0">
+      <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <Skeleton className="h-2.5 w-20" />
           <Skeleton className="mt-3 h-7 w-20" />
@@ -460,12 +390,8 @@ function MetricSkeleton() {
 
 function PanelHeaderSkeleton({ icon: Icon }: { icon: typeof TrendingUp }) {
   return (
-    <div
-      className="flex min-w-0 items-start gap-3 border-b border-border px-5 py-4 sm:px-6"
-    >
-      <div
-        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background"
-      >
+    <div className="flex min-w-0 items-start gap-3 border-b border-border px-5 py-4 sm:px-6">
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background">
         <Icon className="h-4 w-4 text-muted-foreground/15" />
       </div>
 
@@ -484,9 +410,7 @@ function PanelHeaderSkeleton({ icon: Icon }: { icon: typeof TrendingUp }) {
 
 function RecordSkeleton() {
   return (
-    <div
-      className="min-w-0 border border-border bg-background/30 p-3"
-    >
+    <div className="min-w-0 border border-border bg-background/30 p-3">
       <Skeleton className="h-2.5 w-16" />
       <Skeleton className="mt-2 h-3.5 w-[72%]" />
     </div>

@@ -84,20 +84,14 @@ export const FilesFilterBar = ({
   onSortByChange,
 }: FilesFilterBarProps) => {
   return (
-    <div
-      className="grid min-w-0 gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end"
-    >
+    <div className="grid min-w-0 gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
       {/*===== SEARCH =====*/}
 
       <div className="min-w-0">
-        <div
-          className="mb-2 flex items-center gap-2"
-        >
+        <div className="mb-2 flex items-center gap-2">
           <Search className="h-3.5 w-3.5 text-secondary" />
 
-          <span
-            className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/45"
-          >
+          <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/45">
             Search library
           </span>
         </div>
@@ -114,19 +108,13 @@ export const FilesFilterBar = ({
 
       {/*===== FILTER CONTROLS =====*/}
 
-      <div
-        className="grid gap-3 sm:grid-cols-2 lg:flex lg:items-end"
-      >
+      <div className="grid gap-3 sm:grid-cols-2 lg:flex lg:items-end">
         {/* type */}
         <div className="min-w-0">
-          <div
-            className="mb-2 flex items-center gap-2"
-          >
+          <div className="mb-2 flex items-center gap-2">
             <Filter className="h-3.5 w-3.5 text-secondary" />
 
-            <span
-              className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/45"
-            >
+            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/45">
               File type
             </span>
           </div>
@@ -141,14 +129,10 @@ export const FilesFilterBar = ({
 
         {/* sort */}
         <div className="min-w-0">
-          <div
-            className="mb-2 flex items-center gap-2"
-          >
+          <div className="mb-2 flex items-center gap-2">
             <SlidersHorizontal className="h-3.5 w-3.5 text-secondary" />
 
-            <span
-              className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/45"
-            >
+            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/45">
               Sort by
             </span>
           </div>

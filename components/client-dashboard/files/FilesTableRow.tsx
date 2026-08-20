@@ -21,15 +21,11 @@ interface FilesTableRowProps {
 
 export const FilesTableRow = ({ file }: FilesTableRowProps) => {
   return (
-    <TableRow
-      className="group border-b border-border transition-colors hover:bg-secondary/[0.018]"
-    >
+    <TableRow className="group border-b border-border transition-colors hover:bg-secondary/[0.018]">
       {/*===== FILE =====*/}
 
       <TableCell className="px-4 py-4 first:pl-6">
-        <div
-          className="flex min-w-0 items-center gap-3"
-        >
+        <div className="flex min-w-0 items-center gap-3">
           <div className="shrink-0">
             <FileTypeIcon category={file.category} />
           </div>
@@ -42,9 +38,7 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
               {file.name}
             </span>
 
-            <span
-              className="mt-1 block font-mono text-[7px] uppercase tracking-[0.12em] text-muted-foreground/35"
-            >
+            <span className="mt-1 block font-mono text-[7px] uppercase tracking-[0.12em] text-muted-foreground/35">
               Project document
             </span>
           </div>
@@ -71,9 +65,7 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
       {/*===== SIZE =====*/}
 
       <TableCell className="px-4 py-4">
-        <span
-          className="whitespace-nowrap font-mono text-[10px] font-medium text-muted-foreground"
-        >
+        <span className="whitespace-nowrap font-mono text-[10px] font-medium text-muted-foreground">
           {formatFileSize(file.sizeInBytes)}
         </span>
       </TableCell>
@@ -92,9 +84,7 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
       {/*===== UPLOADED AT =====*/}
 
       <TableCell className="px-4 py-4">
-        <span
-          className="whitespace-nowrap text-xs text-muted-foreground"
-        >
+        <span className="whitespace-nowrap text-xs text-muted-foreground">
           {formatFileDate(file.uploadedAt)}
         </span>
       </TableCell>
@@ -102,9 +92,7 @@ export const FilesTableRow = ({ file }: FilesTableRowProps) => {
       {/*===== ACTIONS =====*/}
 
       <TableCell className="px-4 py-4 pr-6">
-        <div
-          className="flex items-center justify-end gap-1"
-        >
+        <div className="flex items-center justify-end gap-1">
           <button
             type="button"
             aria-label={`Preview ${file.name}`}

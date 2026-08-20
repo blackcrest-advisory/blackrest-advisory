@@ -75,22 +75,16 @@ export const AdminDashboardWrapper = ({
         />
 
         {/* top gold signal */}
-        <div
-          className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/45 to-transparent"
-        />
+        <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/45 to-transparent"/>
 
         {/*===== MAIN CONTENT =====*/}
 
-        <div
-          className="relative z-10 grid gap-6 p-6 sm:p-7 lg:grid-cols-[1fr_auto] lg:items-center xl:p-8"
-        >
+        <div className="relative z-10 grid gap-6 p-6 sm:p-7 lg:grid-cols-[1fr_auto] lg:items-center xl:p-8">
           {/* LEFT */}
           <div>
             <div className="flex flex-wrap items-center gap-3">
               <div className="flex items-center gap-2">
-                <span
-                  className="relative flex h-2 w-2 items-center justify-center"
-                >
+                <span className="relative flex h-2 w-2 items-center justify-center">
                   <motion.span
                     className="absolute inset-0 rounded-full bg-success"
                     animate={{
@@ -103,47 +97,35 @@ export const AdminDashboardWrapper = ({
                     }}
                   />
 
-                  <span
-                    className="relative h-2 w-2 rounded-full bg-success"
-                  />
+                  <span className="relative h-2 w-2 rounded-full bg-success"/>
                 </span>
 
-                <span
-                  className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-success"
-                >
+                <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-success">
                   Operations online
                 </span>
               </div>
 
               <span className="h-px w-8 bg-border" />
 
-              <span
-                className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45"
-              >
+              <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45">
                 Admin / Overview
               </span>
             </div>
 
-            <h1
-              className="mt-5 max-w-3xl text-3xl font-semibold leading-[1.06] tracking-[-0.045em] text-heading sm:text-4xl xl:text-[2.7rem]"
-            >
+            <h1 className="mt-5 max-w-3xl text-3xl font-semibold leading-[1.06] tracking-[-0.045em] text-heading sm:text-4xl xl:text-[2.7rem]">
               Good to see you,
               <span className="ml-2 text-secondary">{adminName}</span>
               <span className="text-muted-foreground">.</span>
             </h1>
 
-            <p
-              className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base"
-            >
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
               Here&apos;s the current state of Blackcrest — revenue, client
               delivery, active opportunities, and anything that requires your
               attention.
             </p>
 
             {/* operational labels */}
-            <div
-              className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3"
-            >
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
               <div className="flex items-center gap-2">
                 <span className="h-1 w-1 rounded-full bg-secondary" />
 
@@ -172,27 +154,19 @@ export const AdminDashboardWrapper = ({
 
           {/*===== RIGHT COMMAND PANEL =====*/}
 
-          <div
-            className="w-full border-t border-border pt-5 lg:w-[310px] lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0"
-          >
+          <div className="w-full border-t border-border pt-5 lg:w-[310px] lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
             <div className="flex items-center justify-between">
               <div>
-                <p
-                  className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/45"
-                >
+                <p className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-muted-foreground/45">
                   Quick command
                 </p>
 
-                <p
-                  className="mt-1 text-sm font-semibold text-heading"
-                >
+                <p className="mt-1 text-sm font-semibold text-heading">
                   What needs doing next?
                 </p>
               </div>
 
-              <span
-                className="font-mono text-[8px] text-secondary"
-              >
+              <span className="font-mono text-[8px] text-secondary">
                 BCR / ADM
               </span>
             </div>
@@ -209,9 +183,7 @@ export const AdminDashboardWrapper = ({
                   Add Lead
                 </span>
 
-                <ArrowUpRight
-                  className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                />
+                <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"/>
               </Button>
 
               <Button
@@ -225,28 +197,20 @@ export const AdminDashboardWrapper = ({
                   Review Requests
                 </span>
 
-                <ArrowUpRight
-                  className="h-3.5 w-3.5 text-muted-foreground transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-secondary"
-                />
+                <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-secondary"/>
               </Button>
             </div>
 
-            <div
-              className="mt-5 flex items-center justify-between border-t border-border pt-4"
-            >
+            <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
               <div className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
-                <span
-                  className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/45"
-                >
+                <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/45">
                   Workspace healthy
                 </span>
               </div>
 
-              <span
-                className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/30"
-              >
+              <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/30">
                 Live
               </span>
             </div>
@@ -255,9 +219,7 @@ export const AdminDashboardWrapper = ({
 
         {/*===== BOTTOM SYSTEM STRIP =====*/}
 
-        <div
-          className="relative z-10 grid border-t border-border bg-muted/20 sm:grid-cols-3"
-        >
+        <div className="relative z-10 grid border-t border-border bg-muted/20 sm:grid-cols-3">
           {[
             {
               label: "Workspace",
@@ -283,15 +245,11 @@ export const AdminDashboardWrapper = ({
           ${index > 0 ? "border-t border-border sm:border-l sm:border-t-0" : ""}
         `}
             >
-              <span
-                className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/40"
-              >
+              <span className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/40">
                 {item.label}
               </span>
 
-              <span
-                className="text-[11px] font-medium text-foreground"
-              >
+              <span className="text-[11px] font-medium text-foreground">
                 {item.value}
               </span>
             </div>
@@ -313,18 +271,14 @@ export const AdminDashboardWrapper = ({
         </section>
 
         {/* projects / deadlines */}
-        <section
-          className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.65fr)_minmax(300px,0.35fr)]"
-        >
+        <section className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.65fr)_minmax(300px,0.35fr)]">
           <AdminActiveProjects projects={projects} />
 
           <UpcomingDeadlines deadlines={deadlines} />
         </section>
 
         {/* quick actions / activity */}
-        <section
-          className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(280px,0.38fr)_minmax(0,1.62fr)]"
-        >
+        <section className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(280px,0.38fr)_minmax(0,1.62fr)]">
           <AdminQuickActions />
 
           <AdminRecentActivity activities={activities} />

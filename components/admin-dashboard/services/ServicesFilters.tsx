@@ -40,9 +40,7 @@ export const ServicesFilters = ({
   onStatusChange: (value: ServiceStatus | "all") => void;
 }) => {
   return (
-    <div
-      className="relative border border-border bg-card shadow-[var(--shadow-card)]"
-    >
+    <div className="relative border border-border bg-card shadow-[var(--shadow-card)]">
       {/* top signal */}
       <div
         aria-hidden="true"
@@ -51,25 +49,17 @@ export const ServicesFilters = ({
 
       {/*===== HEADER =====*/}
 
-      <div
-        className="flex items-center gap-3 border-b border-border px-4 py-4"
-      >
-        <div
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary"
-        >
+      <div className="flex items-center gap-3 border-b border-border px-4 py-4">
+        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary">
           <SlidersHorizontal className="h-3.5 w-3.5" />
         </div>
 
         <div>
-          <span
-            className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-          >
+          <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
             Portfolio control
           </span>
 
-          <p
-            className="mt-0.5 text-xs text-muted-foreground"
-          >
+          <p className="mt-0.5 text-xs text-muted-foreground">
             Refine the capability register.
           </p>
         </div>
@@ -79,9 +69,7 @@ export const ServicesFilters = ({
 
       <div className="space-y-4 px-4 py-4">
         <div>
-          <label
-            className="mb-2 block font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40"
-          >
+          <label className="mb-2 block font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40">
             Search capability
           </label>
 
@@ -95,9 +83,7 @@ export const ServicesFilters = ({
         </div>
 
         <div>
-          <label
-            className="mb-2 block font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40"
-          >
+          <label className="mb-2 block font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40">
             Availability
           </label>
 
@@ -113,14 +99,10 @@ export const ServicesFilters = ({
 
       {/*===== FILTER FOOTER =====*/}
 
-      <div
-        className="flex items-center gap-2 border-t border-border bg-muted/10 px-4 py-2.5"
-      >
+      <div className="flex items-center gap-2 border-t border-border bg-muted/10 px-4 py-2.5">
         <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
 
-        <span
-          className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40"
-        >
+        <span className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40">
           Portfolio filters
         </span>
       </div>

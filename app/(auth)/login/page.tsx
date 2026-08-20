@@ -87,9 +87,7 @@ export default function LoginPage() {
 
   return (
     <PageWrapper>
-      <Section
-        className="relative isolate flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-background py-10 text-foreground transition-colors duration-300 sm:py-14 lg:py-16"
-      >
+      <Section className="relative isolate flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-background py-10 text-foreground transition-colors duration-300 sm:py-14 lg:py-16">
         {/*===== Background architecture =====*/}
 
         <div className="pointer-events-none absolute inset-0 -z-20">
@@ -151,9 +149,7 @@ export default function LoginPage() {
         </div>
 
         <Container className="relative">
-          <div
-            className="mx-auto grid max-w-5xl overflow-hidden border border-border bg-card text-card-foreground shadow-[var(--shadow-overlay)] lg:grid-cols-[0.92fr_1.08fr]"
-          >
+          <div className="mx-auto grid max-w-5xl overflow-hidden border border-border bg-card text-card-foreground shadow-[var(--shadow-overlay)] lg:grid-cols-[0.92fr_1.08fr]">
             {/*===== LEFT — Brand / workspace context =====*/}
 
             <motion.div
@@ -172,9 +168,7 @@ export default function LoginPage() {
               className="relative hidden overflow-hidden border-r border-border bg-primary p-10 text-primary-foreground lg:flex lg:min-h-[650px] lg:flex-col lg:justify-between"
             >
               {/* glow */}
-              <div
-                className="pointer-events-none absolute -right-32 -top-24 h-80 w-80 rounded-full bg-secondary/15 blur-[100px]"
-              />
+              <div className="pointer-events-none absolute -right-32 -top-24 h-80 w-80 rounded-full bg-secondary/15 blur-[100px]"/>
 
               {/* subtle line system */}
               <div
@@ -196,16 +190,12 @@ export default function LoginPage() {
                   <div className="flex items-center gap-3">
                     <CircleDot className="h-4 w-4 text-secondary" />
 
-                    <span
-                      className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary"
-                    >
+                    <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary">
                       Client workspace
                     </span>
                   </div>
 
-                  <span
-                    className="font-mono text-[8px] uppercase tracking-[0.17em] text-primary-foreground/35"
-                  >
+                  <span className="font-mono text-[8px] uppercase tracking-[0.17em] text-primary-foreground/35">
                     BCR / ACCESS
                   </span>
                 </div>
@@ -214,17 +204,13 @@ export default function LoginPage() {
                   href="/"
                   className="mt-10 inline-block rounded-[var(--radius-control)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60"
                 >
-                  <span
-                    className="text-3xl font-semibold tracking-[-0.04em] text-primary-foreground"
-                  >
+                  <span className="text-3xl font-semibold tracking-[-0.04em] text-primary-foreground">
                     Blackcrest
                     <span className="text-secondary">.</span>
                   </span>
                 </Link>
 
-                <h1
-                  className="mt-12 max-w-md text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-primary-foreground"
-                >
+                <h1 className="mt-12 max-w-md text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-primary-foreground">
                   Your projects.
                   <span className="block text-primary-foreground/45">
                     Your communication.
@@ -232,9 +218,7 @@ export default function LoginPage() {
                   <span className="text-secondary">One workspace.</span>
                 </h1>
 
-                <p
-                  className="mt-6 max-w-sm text-sm leading-7 text-primary-foreground/55"
-                >
+                <p className="mt-6 max-w-sm text-sm leading-7 text-primary-foreground/55">
                   Sign in to access project updates, shared information, and
                   your Blackcrest client workspace.
                 </p>
@@ -260,22 +244,16 @@ export default function LoginPage() {
                       className="flex items-center justify-between border-b border-primary-foreground/10 py-4"
                     >
                       <div className="flex items-center gap-3">
-                        <div
-                          className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary/10"
-                        >
+                        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary/10">
                           <Check className="h-3 w-3 text-secondary" />
                         </div>
 
-                        <span
-                          className="text-xs font-medium text-primary-foreground/65"
-                        >
+                        <span className="text-xs font-medium text-primary-foreground/65">
                           {signal}
                         </span>
                       </div>
 
-                      <span
-                        className="font-mono text-[7px] text-primary-foreground/25"
-                      >
+                      <span className="font-mono text-[7px] text-primary-foreground/25">
                         0{index + 1}
                       </span>
                     </motion.div>
@@ -285,9 +263,7 @@ export default function LoginPage() {
                 <div className="mt-6 flex items-center gap-3">
                   <ShieldCheck className="h-4 w-4 text-secondary" />
 
-                  <span
-                    className="font-mono text-[8px] uppercase tracking-[0.16em] text-primary-foreground/35"
-                  >
+                  <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-primary-foreground/35">
                     Secure Blackcrest access
                   </span>
                 </div>
@@ -319,17 +295,13 @@ export default function LoginPage() {
                     href="/"
                     className="rounded-[var(--radius-control)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
                   >
-                    <span
-                      className="text-2xl font-semibold tracking-[-0.035em] text-heading"
-                    >
+                    <span className="text-2xl font-semibold tracking-[-0.035em] text-heading">
                       Blackcrest
                       <span className="text-secondary">.</span>
                     </span>
                   </Link>
 
-                  <span
-                    className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40"
-                  >
+                  <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40">
                     Secure access
                   </span>
                 </div>
@@ -341,24 +313,18 @@ export default function LoginPage() {
                   <div className="flex items-center gap-3">
                     <Sparkles className="h-4 w-4 text-secondary" />
 
-                    <span
-                      className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-secondary"
-                    >
+                    <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-secondary">
                       Welcome back
                     </span>
 
                     <span className="h-px w-10 bg-secondary/40" />
                   </div>
 
-                  <h2
-                    className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-heading"
-                  >
+                  <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-heading">
                     Sign in to your account
                   </h2>
 
-                  <p
-                    className="mt-2 text-sm leading-6 text-muted-foreground"
-                  >
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
                     Enter your Blackcrest account credentials to continue.
                   </p>
                 </div>
@@ -456,9 +422,7 @@ export default function LoginPage() {
                   </div>
 
                   {/* Remember / forgot */}
-                  <div
-                    className="flex flex-wrap items-center justify-between gap-3"
-                  >
+                  <div className="flex flex-wrap items-center justify-between gap-3">
                     <label
                       htmlFor="remember"
                       className="flex cursor-pointer items-center gap-2"
@@ -469,9 +433,7 @@ export default function LoginPage() {
                         className="h-4 w-4 rounded-[3px] border-border bg-background accent-secondary focus:ring-2 focus:ring-secondary/30"
                       />
 
-                      <span
-                        className="text-sm text-muted-foreground"
-                      >
+                      <span className="text-sm text-muted-foreground">
                         Remember me
                       </span>
                     </label>
@@ -512,12 +474,8 @@ export default function LoginPage() {
                     <div className="w-full border-t border-border" />
                   </div>
 
-                  <div
-                    className="relative flex justify-center"
-                  >
-                    <span
-                      className="bg-card px-4 font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45"
-                    >
+                  <div className="relative flex justify-center">
+                    <span className="bg-card px-4 font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45">
                       Or continue with
                     </span>
                   </div>
@@ -537,9 +495,7 @@ export default function LoginPage() {
                 </button>
 
                 {/* Signup */}
-                <div
-                  className="mt-7 border-t border-border pt-6 text-center"
-                >
+                <div className="mt-7 border-t border-border pt-6 text-center">
                   <p className="text-sm text-muted-foreground">
                     Don&apos;t have an account?{" "}
                     <Link
@@ -552,16 +508,10 @@ export default function LoginPage() {
                 </div>
 
                 {/* security footer */}
-                <div
-                  className="mt-6 flex items-center justify-center gap-2"
-                >
-                  <ShieldCheck
-                    className="h-3.5 w-3.5 text-success"
-                  />
+                <div className="mt-6 flex items-center justify-center gap-2">
+                  <ShieldCheck className="h-3.5 w-3.5 text-success"/>
 
-                  <span
-                    className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40"
-                  >
+                  <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40">
                     Protected Blackcrest workspace
                   </span>
                 </div>

@@ -130,24 +130,16 @@ export function MilestoneList({
         {/*===== MILESTONE LIST =====*/}
 
         {milestones.length === 0 ? (
-          <div
-            className="flex min-h-[150px] flex-col items-center justify-center border border-dashed border-border bg-background/20 px-5 py-8 text-center"
-          >
-            <div
-              className="flex h-9 w-9 items-center justify-center rounded-md border border-border bg-card text-muted-foreground"
-            >
+          <div className="flex min-h-[150px] flex-col items-center justify-center border border-dashed border-border bg-background/20 px-5 py-8 text-center">
+            <div className="flex h-9 w-9 items-center justify-center rounded-md border border-border bg-card text-muted-foreground">
               <Circle className="h-3.5 w-3.5" />
             </div>
 
-            <p
-              className="mt-3 text-sm font-medium text-heading"
-            >
+            <p className="mt-3 text-sm font-medium text-heading">
               No milestones yet
             </p>
 
-            <p
-              className="mt-1 max-w-sm text-xs leading-5 text-muted-foreground"
-            >
+            <p className="mt-1 max-w-sm text-xs leading-5 text-muted-foreground">
               Add delivery milestones to track the project through each stage.
             </p>
           </div>
@@ -172,9 +164,7 @@ export function MilestoneList({
                 <div className="flex items-start gap-3">
                   {/*===== SEQUENCE =====*/}
 
-                  <div
-                    className="hidden w-7 shrink-0 pt-1 font-mono text-[8px] font-semibold text-muted-foreground/25 sm:block"
-                  >
+                  <div className="hidden w-7 shrink-0 pt-1 font-mono text-[8px] font-semibold text-muted-foreground/25 sm:block">
                     {String(index + 1).padStart(2, "0")}
                   </div>
 
@@ -225,9 +215,7 @@ export function MilestoneList({
                   {/*===== CONTENT =====*/}
 
                   <div className="min-w-0 flex-1">
-                    <div
-                      className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between"
-                    >
+                    <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                       <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-2">
                           <p
@@ -246,9 +234,7 @@ export function MilestoneList({
                           </p>
 
                           {milestone.isCompleted && (
-                            <span
-                              className="inline-flex items-center gap-1.5 rounded-md border border-success/20 bg-success/[0.06] px-2 py-0.5 font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-success"
-                            >
+                            <span className="inline-flex items-center gap-1.5 rounded-md border border-success/20 bg-success/[0.06] px-2 py-0.5 font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-success">
                               <span className="h-1 w-1 rounded-full bg-current" />
                               Complete
                             </span>
@@ -256,9 +242,7 @@ export function MilestoneList({
                         </div>
 
                         {milestone.description && (
-                          <p
-                            className="mt-1.5 whitespace-pre-wrap text-xs leading-5 text-muted-foreground"
-                          >
+                          <p className="mt-1.5 whitespace-pre-wrap text-xs leading-5 text-muted-foreground">
                             {milestone.description}
                           </p>
                         )}
@@ -281,20 +265,14 @@ export function MilestoneList({
                     {/*===== META =====*/}
 
                     {milestone.dueDate && (
-                      <div
-                        className="mt-3 flex items-center gap-2 border-t border-border pt-3"
-                      >
+                      <div className="mt-3 flex items-center gap-2 border-t border-border pt-3">
                         <CalendarDays className="h-3.5 w-3.5 text-secondary" />
 
-                        <span
-                          className="font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/40"
-                        >
+                        <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/40">
                           Due
                         </span>
 
-                        <span
-                          className="text-[11px] font-medium text-muted-foreground"
-                        >
+                        <span className="text-[11px] font-medium text-muted-foreground">
                           {format(new Date(milestone.dueDate), "MMM d, yyyy")}
                         </span>
                       </div>
@@ -321,25 +299,17 @@ export function MilestoneList({
               />
 
               {/* form header */}
-              <div
-                className="flex items-start justify-between gap-4 border-b border-border px-4 py-3.5 sm:px-5"
-              >
+              <div className="flex items-start justify-between gap-4 border-b border-border px-4 py-3.5 sm:px-5">
                 <div>
-                  <span
-                    className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-                  >
+                  <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
                     Delivery sequence
                   </span>
 
-                  <h3
-                    className="mt-0.5 text-sm font-semibold text-heading"
-                  >
+                  <h3 className="mt-0.5 text-sm font-semibold text-heading">
                     Add Milestone
                   </h3>
 
-                  <p
-                    className="mt-1 text-xs text-muted-foreground"
-                  >
+                  <p className="mt-1 text-xs text-muted-foreground">
                     Add another checkpoint to the project delivery plan.
                   </p>
                 </div>
@@ -356,9 +326,7 @@ export function MilestoneList({
               </div>
 
               {/* fields */}
-              <div
-                className="space-y-4 px-4 py-4 sm:px-5"
-              >
+              <div className="space-y-4 px-4 py-4 sm:px-5">
                 <Field label="Milestone title" required>
                   <Input
                     placeholder="Milestone title *"
@@ -391,9 +359,7 @@ export function MilestoneList({
               </div>
 
               {/* actions */}
-              <div
-                className="flex flex-col-reverse gap-2 border-t border-border bg-muted/10 px-4 py-3 sm:flex-row sm:justify-end sm:px-5"
-              >
+              <div className="flex flex-col-reverse gap-2 border-t border-border bg-muted/10 px-4 py-3 sm:flex-row sm:justify-end sm:px-5">
                 <Button
                   type="button"
                   variant="ghost"
@@ -421,19 +387,13 @@ export function MilestoneList({
               </div>
             </form>
           ) : (
-            <div
-              className="flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between"
-            >
+            <div className="flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <span
-                  className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40"
-                >
+                <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40">
                   Delivery plan
                 </span>
 
-                <p
-                  className="mt-1 text-xs text-muted-foreground"
-                >
+                <p className="mt-1 text-xs text-muted-foreground">
                   Add another milestone to the project timeline.
                 </p>
               </div>
@@ -488,9 +448,7 @@ function Field({
 }) {
   return (
     <div>
-      <div
-        className="mb-2 flex items-center gap-1 text-xs font-semibold text-heading"
-      >
+      <div className="mb-2 flex items-center gap-1 text-xs font-semibold text-heading">
         {label}
 
         {required && <span className="text-destructive">*</span>}

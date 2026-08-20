@@ -98,9 +98,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <Section
-      className="relative overflow-hidden bg-background py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-28"
-    >
+    <Section className="relative overflow-hidden bg-background py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-28">
       {/*===== Background =====*/}
 
       <div className="pointer-events-none absolute inset-0">
@@ -124,9 +122,7 @@ export const ContactForm = () => {
       <Container className="relative">
         {/*===== Section intro =====*/}
 
-        <div
-          className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
-        >
+        <div className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <motion.div
             initial={{
               opacity: 0,
@@ -145,18 +141,14 @@ export const ContactForm = () => {
             <div className="flex items-center gap-3">
               <CircleDot className="h-4 w-4 text-secondary" />
 
-              <span
-                className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary"
-              >
+              <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary">
                 Send an enquiry
               </span>
 
               <span className="h-px w-10 bg-secondary/40" />
             </div>
 
-            <h2
-              className="mt-5 max-w-xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl"
-            >
+            <h2 className="mt-5 max-w-xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl">
               Tell us what
               <span className="block text-muted-foreground">
                 you&apos;re working through.
@@ -187,9 +179,7 @@ export const ContactForm = () => {
 
         {/*===== Main workspace =====*/}
 
-        <div
-          className="grid border-b border-border lg:grid-cols-[1.12fr_0.88fr]"
-        >
+        <div className="grid border-b border-border lg:grid-cols-[1.12fr_0.88fr]">
           {/*===== FORM =====*/}
 
           <motion.div
@@ -213,22 +203,16 @@ export const ContactForm = () => {
           >
             <div className="flex items-center justify-between">
               <div>
-                <p
-                  className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted-foreground/50"
-                >
+                <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted-foreground/50">
                   Contact form
                 </p>
 
-                <p
-                  className="mt-2 text-sm font-semibold text-heading"
-                >
+                <p className="mt-2 text-sm font-semibold text-heading">
                   Project or partnership enquiry
                 </p>
               </div>
 
-              <span
-                className="font-mono text-[8px] text-secondary"
-              >
+              <span className="font-mono text-[8px] text-secondary">
                 BCR / 01
               </span>
             </div>
@@ -246,9 +230,7 @@ export const ContactForm = () => {
                 className="mt-8 border border-success/25 bg-success/[0.06] p-7"
               >
                 <div className="flex items-start gap-4">
-                  <div
-                    className="flex h-10 w-10 shrink-0 items-center justify-center border border-success/25 bg-success/[0.08] text-success"
-                  >
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-success/25 bg-success/[0.08] text-success">
                     <LuCheck className="h-5 w-5" />
                   </div>
 
@@ -339,9 +321,7 @@ export const ContactForm = () => {
 
                 {/* Message */}
                 <div className="mt-6">
-                  <div
-                    className="mb-2 flex items-center justify-between gap-4"
-                  >
+                  <div className="mb-2 flex items-center justify-between gap-4">
                     <label
                       htmlFor="message"
                       className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground"
@@ -350,9 +330,7 @@ export const ContactForm = () => {
                       <span className="ml-1 text-secondary">*</span>
                     </label>
 
-                    <span
-                      className="hidden font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/35 sm:block"
-                    >
+                    <span className="hidden font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/35 sm:block">
                       Context over perfection
                     </span>
                   </div>
@@ -371,21 +349,15 @@ export const ContactForm = () => {
                 </div>
 
                 {/* Support signals */}
-                <div
-                  className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-border pt-5"
-                >
+                <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-border pt-5">
                   {formSignals.map((signal) => (
                     <div
                       key={signal}
                       className="flex items-center gap-2"
                     >
-                      <span
-                        className="h-1 w-1 rounded-full bg-secondary"
-                      />
+                      <span className="h-1 w-1 rounded-full bg-secondary"/>
 
-                      <span
-                        className="text-xs text-muted-foreground"
-                      >
+                      <span className="text-xs text-muted-foreground">
                         {signal}
                       </span>
                     </div>
@@ -431,9 +403,7 @@ export const ContactForm = () => {
                     ) : (
                       <>
                         Send enquiry
-                        <LuSend
-                          className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                        />
+                        <LuSend className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"/>
                       </>
                     )}
                   </Button>
@@ -466,15 +436,11 @@ export const ContactForm = () => {
           >
             <div className="flex items-start justify-between gap-5">
               <div>
-                <p
-                  className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted-foreground/50"
-                >
+                <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-muted-foreground/50">
                   Direct channels
                 </p>
 
-                <h3
-                  className="mt-2 text-xl font-semibold tracking-[-0.025em] text-heading"
-                >
+                <h3 className="mt-2 text-xl font-semibold tracking-[-0.025em] text-heading">
                   Prefer another way to connect?
                 </h3>
               </div>
@@ -495,9 +461,7 @@ export const ContactForm = () => {
                   className="h-1.5 w-1.5 rounded-full bg-success"
                 />
 
-                <span
-                  className="font-mono text-[8px] uppercase tracking-[0.15em] text-success"
-                >
+                <span className="font-mono text-[8px] uppercase tracking-[0.15em] text-success">
                   Available
                 </span>
               </div>
@@ -522,26 +486,18 @@ export const ContactForm = () => {
                   }}
                   className="group border-b border-border py-6"
                 >
-                  <div
-                    className="flex items-start justify-between gap-5"
-                  >
+                  <div className="flex items-start justify-between gap-5">
                     <div className="flex items-start gap-4">
-                      <div
-                        className="flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.06] text-secondary transition-all duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground"
-                      >
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/[0.06] text-secondary transition-all duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground">
                         {item.icon}
                       </div>
 
                       <div>
-                        <p
-                          className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45"
-                        >
+                        <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45">
                           0{index + 1}
                         </p>
 
-                        <h4
-                          className="mt-1 text-sm font-semibold text-heading"
-                        >
+                        <h4 className="mt-1 text-sm font-semibold text-heading">
                           {item.title}
                         </h4>
 
@@ -558,41 +514,29 @@ export const ContactForm = () => {
                       </div>
                     </div>
 
-                    <ArrowUpRight
-                      className="mt-1 h-4 w-4 shrink-0 text-muted-foreground/20 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-secondary"
-                    />
+                    <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-muted-foreground/20 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-secondary"/>
                   </div>
                 </motion.div>
               ))}
             </div>
 
             {/* response panel */}
-            <div
-              className="mt-8 border border-secondary/20 bg-secondary/[0.05] p-5"
-            >
+            <div className="mt-8 border border-secondary/20 bg-secondary/[0.05] p-5">
               <div className="flex items-start gap-4">
-                <div
-                  className="flex h-9 w-9 shrink-0 items-center justify-center bg-secondary/[0.09] text-secondary"
-                >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center bg-secondary/[0.09] text-secondary">
                   <Clock3 className="h-4 w-4" />
                 </div>
 
                 <div>
-                  <p
-                    className="text-[9px] font-semibold uppercase tracking-[0.17em] text-secondary"
-                  >
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.17em] text-secondary">
                     Response expectation
                   </p>
 
-                  <p
-                    className="mt-2 text-sm font-semibold text-heading"
-                  >
+                  <p className="mt-2 text-sm font-semibold text-heading">
                     We aim to reply quickly and clearly.
                   </p>
 
-                  <p
-                    className="mt-1 text-xs leading-6 text-muted-foreground"
-                  >
+                  <p className="mt-1 text-xs leading-6 text-muted-foreground">
                     Your first response should help you understand what happens
                     next — not leave you waiting for a generic sales follow-up.
                   </p>
@@ -601,16 +545,10 @@ export const ContactForm = () => {
             </div>
 
             {/* micro statement */}
-            <div
-              className="mt-8 flex items-start gap-3 border-l border-secondary/30 pl-4"
-            >
-              <Sparkles
-                className="mt-0.5 h-4 w-4 shrink-0 text-secondary"
-              />
+            <div className="mt-8 flex items-start gap-3 border-l border-secondary/30 pl-4">
+              <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-secondary"/>
 
-              <p
-                className="max-w-sm text-xs leading-6 text-muted-foreground"
-              >
+              <p className="max-w-sm text-xs leading-6 text-muted-foreground">
                 Project scope, retained partnership, specialist support, or
                 simply an initial question — all are valid reasons to reach out.
               </p>
@@ -640,9 +578,7 @@ export const ContactForm = () => {
             </p>
           </div>
 
-          <span
-            className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40"
-          >
+          <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40">
             Enquire → Understand → Recommend → Move Forward
           </span>
         </motion.div>

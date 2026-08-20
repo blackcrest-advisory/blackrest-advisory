@@ -22,9 +22,7 @@ export const OfficeLocations = () => {
   const activeLocation = officeLocations[activeIndex];
 
   return (
-    <Section
-      className="relative overflow-hidden bg-background text-foreground transition-colors duration-300"
-    >
+    <Section className="relative overflow-hidden bg-background text-foreground transition-colors duration-300">
       {/*===== Background =====*/}
 
       <div className="pointer-events-none absolute inset-0">
@@ -54,9 +52,7 @@ export const OfficeLocations = () => {
       <Container className="relative">
         {/*===== Header =====*/}
 
-        <div
-          className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end"
-        >
+        <div className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <motion.div
             initial={{
               opacity: 0,
@@ -75,18 +71,14 @@ export const OfficeLocations = () => {
             <div className="flex items-center gap-3">
               <Globe2 className="h-4 w-4 text-secondary" />
 
-              <span
-                className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary"
-              >
+              <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary">
                 European presence
               </span>
 
               <span className="h-px w-12 bg-secondary/40" />
             </div>
 
-            <h2
-              className="mt-5 max-w-2xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl"
-            >
+            <h2 className="mt-5 max-w-2xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl">
               Local presence.
               <span className="block text-muted-foreground">
                 International perspective.
@@ -117,9 +109,7 @@ export const OfficeLocations = () => {
 
         {/*===== Interactive location atlas =====*/}
 
-        <div
-          className="grid border-b border-border lg:grid-cols-[0.42fr_0.58fr] xl:grid-cols-[0.36fr_0.64fr]"
-        >
+        <div className="grid border-b border-border lg:grid-cols-[0.42fr_0.58fr] xl:grid-cols-[0.36fr_0.64fr]">
           {/*===== LEFT — location selector =====*/}
 
           <div className="border-b border-border lg:border-b-0 lg:border-r">
@@ -227,21 +217,15 @@ export const OfficeLocations = () => {
                     </p>
 
                     {/* country */}
-                    <p
-                      className="mt-1 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground"
-                    >
+                    <p className="mt-1 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
                       {location.country}
                     </p>
 
                     {/* address */}
                     <div className="mt-5 flex items-start gap-2">
-                      <MapPin
-                        className="mt-0.5 h-3.5 w-3.5 shrink-0 text-secondary/70"
-                      />
+                      <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-secondary/70"/>
 
-                      <p
-                        className="max-w-[210px] text-xs leading-5 text-muted-foreground"
-                      >
+                      <p className="max-w-[210px] text-xs leading-5 text-muted-foreground">
                         {location.address}
                       </p>
                     </div>
@@ -253,9 +237,7 @@ export const OfficeLocations = () => {
 
           {/*===== RIGHT — active location image =====*/}
 
-          <div
-            className="relative min-h-[500px] overflow-hidden bg-card sm:min-h-[560px] lg:min-h-[620px]"
-          >
+          <div className="relative min-h-[500px] overflow-hidden bg-card sm:min-h-[560px] lg:min-h-[620px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={`${activeLocation.city}-${activeLocation.country}`}
@@ -294,13 +276,9 @@ export const OfficeLocations = () => {
                 />
 
                 {/* image grading */}
-                <div
-                  className="absolute inset-0 bg-gradient-to-r from-navy-deep/72 via-navy-deep/30 to-navy-deep/8"
-                />
+                <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/72 via-navy-deep/30 to-navy-deep/8"/>
 
-                <div
-                  className="absolute inset-0 bg-gradient-to-t from-navy-deep/88 via-transparent to-navy-deep/12"
-                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/88 via-transparent to-navy-deep/12"/>
 
                 <div
                   className="absolute inset-0"
@@ -314,9 +292,7 @@ export const OfficeLocations = () => {
 
             {/*===== image overlay =====*/}
 
-            <div
-              className="absolute inset-0 z-10 flex flex-col justify-between p-6 sm:p-8 lg:p-10"
-            >
+            <div className="absolute inset-0 z-10 flex flex-col justify-between p-6 sm:p-8 lg:p-10">
               {/* top meta */}
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-2">
@@ -335,16 +311,12 @@ export const OfficeLocations = () => {
                     className="h-1.5 w-1.5 rounded-full bg-secondary shadow-[0_0_12px_var(--color-secondary)]"
                   />
 
-                  <span
-                    className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/55"
-                  >
+                  <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/55">
                     Location active
                   </span>
                 </div>
 
-                <span
-                  className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/35"
-                >
+                <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/35">
                   BCR / Europe
                 </span>
               </div>
@@ -372,31 +344,21 @@ export const OfficeLocations = () => {
                   <div className="flex items-center gap-3">
                     <Building2 className="h-4 w-4 text-gold-light" />
 
-                    <span
-                      className="font-mono text-[8px] uppercase tracking-[0.18em] text-gold-light"
-                    >
+                    <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-gold-light">
                       Blackcrest presence
                     </span>
                   </div>
 
-                  <h3
-                    className="mt-4 text-4xl font-semibold tracking-[-0.045em] text-white sm:text-5xl lg:text-6xl"
-                  >
+                  <h3 className="mt-4 text-4xl font-semibold tracking-[-0.045em] text-white sm:text-5xl lg:text-6xl">
                     {activeLocation.city}
                   </h3>
 
-                  <p
-                    className="mt-2 text-sm font-medium uppercase tracking-[0.14em] text-white/50"
-                  >
+                  <p className="mt-2 text-sm font-medium uppercase tracking-[0.14em] text-white/50">
                     {activeLocation.country}
                   </p>
 
-                  <div
-                    className="mt-6 max-w-lg border-l border-gold/35 pl-4"
-                  >
-                    <p
-                      className="text-sm leading-7 text-white/65"
-                    >
+                  <div className="mt-6 max-w-lg border-l border-gold/35 pl-4">
+                    <p className="text-sm leading-7 text-white/65">
                       Supporting clients through a flexible international
                       delivery model, with consistent Blackcrest standards
                       across every engagement.
@@ -407,14 +369,10 @@ export const OfficeLocations = () => {
             </div>
 
             {/* coordinates */}
-            <div
-              className="pointer-events-none absolute bottom-7 right-7 z-10 hidden items-center gap-2 lg:flex"
-            >
+            <div className="pointer-events-none absolute bottom-7 right-7 z-10 hidden items-center gap-2 lg:flex">
               <Navigation2 className="h-3.5 w-3.5 text-gold-light" />
 
-              <span
-                className="font-mono text-[8px] uppercase tracking-[0.16em] text-white/40"
-              >
+              <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-white/40">
                 Europe / Network
               </span>
             </div>
@@ -438,16 +396,12 @@ export const OfficeLocations = () => {
           }}
           className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between"
         >
-          <p
-            className="max-w-xl text-xs leading-6 text-muted-foreground"
-          >
+          <p className="max-w-xl text-xs leading-6 text-muted-foreground">
             Our delivery model is designed around client needs, not geographic
             boundaries.
           </p>
 
-          <div
-            className="flex items-center gap-3 font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40"
-          >
+          <div className="flex items-center gap-3 font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40">
             Local context
             <span className="text-secondary">→</span>
             European reach

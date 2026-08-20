@@ -100,9 +100,7 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
   };
 
   return (
-    <section
-      className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-    >
+    <section className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
       {/*===== TOP SIGNAL =====*/}
 
       <div
@@ -112,31 +110,21 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
 
       {/*===== HEADER =====*/}
 
-      <div
-        className="flex items-start gap-3 border-b border-border px-5 py-4 sm:px-6"
-      >
-        <div
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary"
-        >
+      <div className="flex items-start gap-3 border-b border-border px-5 py-4 sm:px-6">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-background text-secondary">
           <UserRound className="h-4 w-4" />
         </div>
 
         <div className="min-w-0">
-          <span
-            className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary"
-          >
+          <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
             Personal identity
           </span>
 
-          <h2
-            className="mt-1 text-base font-semibold text-heading"
-          >
+          <h2 className="mt-1 text-base font-semibold text-heading">
             Profile Information
           </h2>
 
-          <p
-            className="mt-1 text-xs leading-5 text-muted-foreground"
-          >
+          <p className="mt-1 text-xs leading-5 text-muted-foreground">
             Update your personal and company details.
           </p>
         </div>
@@ -144,45 +132,31 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
 
       {/*===== IDENTITY PANEL =====*/}
 
-      <div
-        className="border-b border-border bg-background/20 px-5 py-5 sm:px-6"
-      >
-        <div
-          className="flex flex-col gap-4 sm:flex-row sm:items-center"
-        >
+      <div className="border-b border-border bg-background/20 px-5 py-5 sm:px-6">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
           <Avatar src={avatarPreview} name={formValues.fullName} size="lg" />
 
           <div className="min-w-0 flex-1">
-            <p
-              className="truncate text-sm font-semibold text-heading"
-            >
+            <p className="truncate text-sm font-semibold text-heading">
               {formValues.fullName}
             </p>
 
-            <p
-              className="mt-1 truncate text-xs text-muted-foreground"
-            >
+            <p className="mt-1 truncate text-xs text-muted-foreground">
               {formValues.email}
             </p>
 
             {formValues.companyName && (
-              <div
-                className="mt-2 inline-flex items-center gap-2 rounded-md border border-secondary/15 bg-secondary/[0.04] px-2.5 py-1"
-              >
+              <div className="mt-2 inline-flex items-center gap-2 rounded-md border border-secondary/15 bg-secondary/[0.04] px-2.5 py-1">
                 <Building2 className="h-3 w-3 text-secondary" />
 
-                <span
-                  className="max-w-[220px] truncate font-mono text-[7px] font-semibold uppercase tracking-[0.11em] text-secondary"
-                >
+                <span className="max-w-[220px] truncate font-mono text-[7px] font-semibold uppercase tracking-[0.11em] text-secondary">
                   {formValues.companyName}
                 </span>
               </div>
             )}
           </div>
 
-          <label
-            className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-md border border-border bg-card px-3 py-2 text-xs font-medium text-heading transition-colors hover:border-secondary/30 hover:text-secondary"
-          >
+          <label className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-md border border-border bg-card px-3 py-2 text-xs font-medium text-heading transition-colors hover:border-secondary/30 hover:text-secondary">
             <Camera className="h-3.5 w-3.5" />
 
             {avatarFile ? "Photo selected" : "Change Photo"}
@@ -199,9 +173,7 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
 
       {/*===== PROFILE FIELDS =====*/}
 
-      <div
-        className="grid min-w-0 gap-5 px-5 py-5 sm:grid-cols-2 sm:px-6"
-      >
+      <div className="grid min-w-0 gap-5 px-5 py-5 sm:grid-cols-2 sm:px-6">
         <ProfileField label="Full Name">
           <Input
             value={formValues.fullName}
@@ -250,19 +222,11 @@ export const ProfileSection = ({ profile }: ProfileSectionProps) => {
 
       {/*===== FOOTER =====*/}
 
-      <div
-        className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-      >
-        <div
-          className="flex items-center gap-2"
-        >
-          <span
-            className="h-1.5 w-1.5 rounded-full bg-success"
-          />
+      <div className="flex flex-col gap-3 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <div className="flex items-center gap-2">
+          <span className="h-1.5 w-1.5 rounded-full bg-success"/>
 
-          <span
-            className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40"
-          >
+          <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40">
             Client profile
           </span>
         </div>
@@ -295,12 +259,8 @@ function ProfileField({
   children: React.ReactNode;
 }) {
   return (
-    <label
-      className="block min-w-0"
-    >
-      <span
-        className="mb-1.5 block text-xs font-semibold text-heading"
-      >
+    <label className="block min-w-0">
+      <span className="mb-1.5 block text-xs font-semibold text-heading">
         {label}
       </span>
 

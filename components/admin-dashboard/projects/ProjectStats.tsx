@@ -50,18 +50,14 @@ export function ProjectStats({
   ] as const;
 
   return (
-    <section
-      className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]"
-    >
+    <section className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
       {/* subtle top signal */}
       <div
         aria-hidden="true"
         className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary/70 via-secondary/15 to-transparent"
       />
 
-      <div
-        className="grid sm:grid-cols-2 xl:grid-cols-4"
-      >
+      <div className="grid sm:grid-cols-2 xl:grid-cols-4">
         {stats.map(({ label, value, eyebrow, icon: Icon, tone }) => (
           <div
             key={label}
@@ -79,21 +75,15 @@ export function ProjectStats({
 
             <div className="flex items-start justify-between gap-4">
               <div>
-                <span
-                  className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/40"
-                >
+                <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/40">
                   {eyebrow}
                 </span>
 
-                <p
-                  className="mt-2 text-3xl font-semibold tracking-[-0.05em] text-heading"
-                >
+                <p className="mt-2 text-3xl font-semibold tracking-[-0.05em] text-heading">
                   {value}
                 </p>
 
-                <p
-                  className="mt-1 text-xs text-muted-foreground"
-                >
+                <p className="mt-1 text-xs text-muted-foreground">
                   {label}
                 </p>
               </div>
@@ -136,9 +126,7 @@ export function ProjectStats({
               </div>
             </div>
 
-            <div
-              className="mt-5 h-px overflow-hidden bg-border"
-            >
+            <div className="mt-5 h-px overflow-hidden bg-border">
               <div
                 className={`
                     h-full
@@ -160,14 +148,10 @@ export function ProjectStats({
       </div>
 
       {/* footer */}
-      <div
-        className="flex items-center gap-2 border-t border-border bg-muted/10 px-5 py-3"
-      >
+      <div className="flex items-center gap-2 border-t border-border bg-muted/10 px-5 py-3">
         <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
-        <span
-          className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40"
-        >
+        <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40">
           Delivery portfolio metrics
         </span>
       </div>

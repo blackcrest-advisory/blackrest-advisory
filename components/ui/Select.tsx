@@ -128,9 +128,7 @@ export const Select = ({
         {/* selected value */}
         <span className="flex min-w-0 items-center gap-2">
           {selectedOption?.icon && (
-            <selectedOption.icon
-              className="h-4 w-4 shrink-0 text-muted-foreground transition-colors duration-200 group-hover:text-secondary"
-            />
+            <selectedOption.icon className="h-4 w-4 shrink-0 text-muted-foreground transition-colors duration-200 group-hover:text-secondary"/>
           )}
 
           <span className="truncate">{selectedOption?.label}</span>
@@ -243,17 +241,13 @@ export const Select = ({
                   )}
 
                   {/* label */}
-                  <span
-                    className="min-w-0 flex-1 truncate"
-                  >
+                  <span className="min-w-0 flex-1 truncate">
                     {option.label}
                   </span>
 
                   {/* selected indicator */}
                   {isSelected && (
-                    <span
-                      className="flex h-5 w-5 shrink-0 items-center justify-center rounded border border-secondary/20 bg-secondary/[0.08]"
-                    >
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded border border-secondary/20 bg-secondary/[0.08]">
                       <Check
                         className="h-3 w-3 text-secondary"
                         strokeWidth={2.5}
@@ -272,15 +266,11 @@ export const Select = ({
           aria-hidden="true"
           className="flex items-center justify-between border-t border-border bg-muted/10 px-3 py-2"
         >
-          <span
-            className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/35"
-          >
+          <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/35">
             Select option
           </span>
 
-          <span
-            className="h-px w-6 bg-secondary/30"
-          />
+          <span className="h-px w-6 bg-secondary/30"/>
         </div>
       </Dropdown>
     </div>

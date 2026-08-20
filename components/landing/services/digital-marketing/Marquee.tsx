@@ -40,9 +40,7 @@ export default function Marquee() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section
-      className="relative isolate mt-4 overflow-hidden border-y border-border bg-primary py-7 text-primary-foreground lg:mt-8 lg:py-9"
-    >
+    <section className="relative isolate mt-4 overflow-hidden border-y border-border bg-primary py-7 text-primary-foreground lg:mt-8 lg:py-9">
       {/*===== BACKGROUND GRID =====*/}
 
       <div
@@ -58,22 +56,16 @@ export default function Marquee() {
 
       {/*===== TOP INDEX =====*/}
 
-      <div
-        className="relative z-10 mx-auto mb-5 flex max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8"
-      >
+      <div className="relative z-10 mx-auto mb-5 flex max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3">
           <Activity className="h-3.5 w-3.5 text-gold-light" />
 
-          <span
-            className="font-mono text-[7px] font-semibold uppercase tracking-[0.18em] text-gold-light"
-          >
+          <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.18em] text-gold-light">
             Growth capability signal
           </span>
         </div>
 
-        <span
-          className="hidden font-mono text-[7px] uppercase tracking-[0.14em] text-white/30 sm:block"
-        >
+        <span className="hidden font-mono text-[7px] uppercase tracking-[0.14em] text-white/30 sm:block">
           Blackcrest / Digital Growth
         </span>
       </div>
@@ -122,15 +114,11 @@ export default function Marquee() {
             >
               <CircleDot className="mr-5 h-3 w-3 shrink-0 text-gold-light" />
 
-              <span
-                className="text-[28px] font-medium uppercase leading-none tracking-[-0.04em] text-white sm:text-[38px] lg:text-[56px] xl:text-[68px]"
-              >
+              <span className="text-[28px] font-medium uppercase leading-none tracking-[-0.04em] text-white sm:text-[38px] lg:text-[56px] xl:text-[68px]">
                 {service}
               </span>
 
-              <ArrowUpRight
-                className="ml-5 h-5 w-5 shrink-0 text-gold-light/70 sm:h-6 sm:w-6"
-              />
+              <ArrowUpRight className="ml-5 h-5 w-5 shrink-0 text-gold-light/70 sm:h-6 sm:w-6"/>
             </div>
           ))}
         </motion.div>
@@ -138,9 +126,7 @@ export default function Marquee() {
 
       {/*===== SECONDARY SIGNAL RAIL =====*/}
 
-      <div
-        className="relative mt-5 overflow-hidden border-y border-white/10 bg-white/[0.025] py-3"
-      >
+      <div className="relative mt-5 overflow-hidden border-y border-white/10 bg-white/[0.025] py-3">
         <motion.div
           className="flex w-max items-center"
           animate={
@@ -165,19 +151,13 @@ export default function Marquee() {
               key={`${signal}-${index}`}
               className="flex items-center whitespace-nowrap px-5 sm:px-7"
             >
-              <span
-                className="mr-4 h-px w-8 bg-gold-light/35"
-              />
+              <span className="mr-4 h-px w-8 bg-gold-light/35"/>
 
-              <span
-                className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-white/45 sm:text-[9px]"
-              >
+              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-white/45 sm:text-[9px]">
                 {signal}
               </span>
 
-              <Sparkles
-                className="ml-4 h-3 w-3 text-gold-light/50"
-              />
+              <Sparkles className="ml-4 h-3 w-3 text-gold-light/50"/>
             </div>
           ))}
         </motion.div>
@@ -185,24 +165,16 @@ export default function Marquee() {
 
       {/*===== BOTTOM STATUS =====*/}
 
-      <div
-        className="relative z-10 mx-auto mt-5 flex max-w-[1600px] flex-col gap-2 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"
-      >
+      <div className="relative z-10 mx-auto mt-5 flex max-w-[1600px] flex-col gap-2 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <div className="flex items-center gap-2">
-          <span
-            className="h-1.5 w-1.5 rounded-full bg-gold-light"
-          />
+          <span className="h-1.5 w-1.5 rounded-full bg-gold-light"/>
 
-          <span
-            className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-white/40"
-          >
+          <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-white/40">
             Connected growth system
           </span>
         </div>
 
-        <span
-          className="font-mono text-[7px] uppercase tracking-[0.14em] text-white/25"
-        >
+        <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-white/25">
           Strategy / Acquisition / Conversion / Retention
         </span>
       </div>

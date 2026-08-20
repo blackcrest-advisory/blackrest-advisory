@@ -59,27 +59,19 @@ export function Pagination({
   const pageItems = getPageItems(currentPage, totalPages);
 
   return (
-    <div
-      className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
-    >
+    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       {/*===== RESULT INFO =====*/}
 
       <div className="flex items-center gap-3">
         <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
-        <p
-          className="text-xs text-muted-foreground"
-        >
+        <p className="text-xs text-muted-foreground">
           Showing{" "}
-          <span
-            className="font-semibold text-heading"
-          >
+          <span className="font-semibold text-heading">
             {startItem}–{endItem}
           </span>{" "}
           of{" "}
-          <span
-            className="font-semibold text-heading"
-          >
+          <span className="font-semibold text-heading">
             {totalItems}
           </span>{" "}
           {itemLabel}

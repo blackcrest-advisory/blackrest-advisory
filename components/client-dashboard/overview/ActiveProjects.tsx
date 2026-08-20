@@ -51,22 +51,16 @@ export const ActiveProjects = ({ projects }: ActiveProjectsProps) => {
       />
 
       {/* top signal */}
-      <div
-        className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"
-      />
+      <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"/>
 
       {/*===== HEADER =====*/}
 
-      <div
-        className="relative z-10 flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-      >
+      <div className="relative z-10 flex flex-col gap-4 border-b border-border px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <div>
           <div className="flex items-center gap-2">
             <FolderKanban className="h-3.5 w-3.5 text-secondary" />
 
-            <span
-              className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary"
-            >
+            <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
               Engagement portfolio
             </span>
 
@@ -74,22 +68,16 @@ export const ActiveProjects = ({ projects }: ActiveProjectsProps) => {
           </div>
 
           <div className="mt-2 flex flex-wrap items-baseline gap-3">
-            <h2
-              className="text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl"
-            >
+            <h2 className="text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl">
               Active Projects
             </h2>
 
-            <span
-              className="font-mono text-[8px] uppercase tracking-[0.15em] text-muted-foreground/40"
-            >
+            <span className="font-mono text-[8px] uppercase tracking-[0.15em] text-muted-foreground/40">
               {projects.length} total
             </span>
           </div>
 
-          <p
-            className="mt-1 max-w-xl text-xs leading-5 text-muted-foreground"
-          >
+          <p className="mt-1 max-w-xl text-xs leading-5 text-muted-foreground">
             Track the work currently moving forward across your Blackcrest
             engagement.
           </p>
@@ -102,51 +90,37 @@ export const ActiveProjects = ({ projects }: ActiveProjectsProps) => {
           className="group self-start sm:self-auto"
         >
           View All
-          <ArrowUpRight
-            className="ml-2 h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-          />
+          <ArrowUpRight className="ml-2 h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"/>
         </Button>
       </div>
 
       {/*===== PROJECTS =====*/}
 
       {projects.length === 0 ? (
-        <div
-          className="relative z-10 flex min-h-[300px] flex-col items-center justify-center px-6 py-10 text-center"
-        >
-          <div
-            className="flex h-12 w-12 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary"
-          >
+        <div className="relative z-10 flex min-h-[300px] flex-col items-center justify-center px-6 py-10 text-center">
+          <div className="flex h-12 w-12 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary">
             <FolderKanban className="h-5 w-5" />
           </div>
 
           <div className="mt-4 flex items-center gap-2">
             <Sparkles className="h-3.5 w-3.5 text-secondary" />
 
-            <span
-              className="font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-secondary"
-            >
+            <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-secondary">
               Project workspace
             </span>
           </div>
 
-          <p
-            className="mt-3 text-sm font-semibold text-heading"
-          >
+          <p className="mt-3 text-sm font-semibold text-heading">
             No active projects yet
           </p>
 
-          <p
-            className="mt-1 max-w-sm text-xs leading-5 text-muted-foreground"
-          >
+          <p className="mt-1 max-w-sm text-xs leading-5 text-muted-foreground">
             Once a project begins, its delivery progress and latest updates will
             appear here.
           </p>
         </div>
       ) : (
-        <div
-          className="relative z-10 divide-y divide-border"
-        >
+        <div className="relative z-10 divide-y divide-border">
           {showFirstFourProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -165,9 +139,7 @@ export const ActiveProjects = ({ projects }: ActiveProjectsProps) => {
               className="group/project relative px-5 py-4 transition-colors duration-200 hover:bg-secondary/[0.02] sm:px-6"
             >
               {/* left project signal */}
-              <span
-                className="absolute bottom-0 left-0 top-0 w-[2px] bg-secondary opacity-0 transition-opacity duration-300 group-hover/project:opacity-100"
-              />
+              <span className="absolute bottom-0 left-0 top-0 w-[2px] bg-secondary opacity-0 transition-opacity duration-300 group-hover/project:opacity-100"/>
 
               <ProjectItem project={project} />
             </motion.div>
@@ -178,22 +150,16 @@ export const ActiveProjects = ({ projects }: ActiveProjectsProps) => {
       {/*===== FOOTER =====*/}
 
       {projects.length > 0 && (
-        <div
-          className="relative z-10 flex flex-col gap-3 border-t border-border bg-muted/15 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
-        >
+        <div className="relative z-10 flex flex-col gap-3 border-t border-border bg-muted/15 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <div className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
-            <span
-              className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/40"
-            >
+            <span className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/40">
               Delivery tracking active
             </span>
           </div>
 
-          <span
-            className="text-xs text-muted-foreground"
-          >
+          <span className="text-xs text-muted-foreground">
             Showing {showFirstFourProjects.length} of {projects.length} projects
           </span>
         </div>

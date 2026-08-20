@@ -899,9 +899,7 @@ const Hero = () => {
               initial={initial}
               animate="visible"
             >
-              <span
-                className="font-mono text-xs uppercase tracking-[0.2em] text-secondary"
-              >
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-secondary">
                 Europe · Technology · Growth
               </span>
 
@@ -1225,9 +1223,7 @@ const Hero = () => {
                 className="h-1.5 w-1.5 rounded-full bg-secondary shadow-[0_0_12px_var(--color-secondary)]"
               />
 
-              <span
-                className="font-mono text-[9px] uppercase tracking-[0.18em] text-secondary"
-              >
+              <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-secondary">
                 Network responding
               </span>
             </motion.div>

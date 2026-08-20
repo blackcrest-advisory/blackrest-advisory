@@ -80,9 +80,7 @@ const ProfileDropdown = () => {
       >
         {/*===== PROFILE HEADER =====*/}
 
-        <div
-          className="relative overflow-hidden border-b border-border px-4 py-4"
-        >
+        <div className="relative overflow-hidden border-b border-border px-4 py-4">
           {/* ambient glow */}
           <div
             aria-hidden="true"
@@ -90,25 +88,19 @@ const ProfileDropdown = () => {
           />
 
           <div className="relative z-10 flex items-center gap-3">
-            <div
-              className="flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary"
-            >
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary">
               <UserRound className="h-4 w-4" />
             </div>
 
             <div className="min-w-0 flex-1">
-              <p
-                className="truncate text-sm font-semibold text-heading"
-              >
+              <p className="truncate text-sm font-semibold text-heading">
                 {name}
               </p>
 
               <div className="mt-1 flex items-center gap-2">
                 <ShieldCheck className="h-3 w-3 text-secondary" />
 
-                <span
-                  className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-muted-foreground/45"
-                >
+                <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-muted-foreground/45">
                   {role}
                 </span>
               </div>
@@ -120,9 +112,7 @@ const ProfileDropdown = () => {
 
         <div className="py-2">
           <div className="px-4 pb-2 pt-1">
-            <p
-              className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/35"
-            >
+            <p className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/35">
               Account
             </p>
           </div>
@@ -141,9 +131,7 @@ const ProfileDropdown = () => {
 
         {/*===== LOGOUT =====*/}
 
-        <div
-          className="border-t border-border bg-muted/15 p-2"
-        >
+        <div className="border-t border-border bg-muted/15 p-2">
           <DropdownItem
             danger
             onClick={handleLogout}
@@ -163,9 +151,7 @@ const ProfileDropdown = () => {
                   <span>Logout</span>
                 </div>
 
-                <span
-                  className="font-mono text-[7px] uppercase tracking-[0.14em] opacity-50"
-                >
+                <span className="font-mono text-[7px] uppercase tracking-[0.14em] opacity-50">
                   Exit
                 </span>
               </div>

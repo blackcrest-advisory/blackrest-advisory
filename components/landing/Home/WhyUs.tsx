@@ -168,9 +168,7 @@ export default function WhyUs() {
                     }}
                     className="group relative"
                   >
-                    <div
-                      className="relative grid gap-5 border-b border-border/70 py-7 transition-colors duration-300 sm:grid-cols-[48px_1fr_auto] sm:items-start group-hover:bg-background/55"
-                    >
+                    <div className="relative grid gap-5 border-b border-border/70 py-7 transition-colors duration-300 sm:grid-cols-[48px_1fr_auto] sm:items-start group-hover:bg-background/55">
                       {/* Icon node */}
                       <div className="relative z-10">
                         <motion.div

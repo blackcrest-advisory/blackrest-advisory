@@ -113,24 +113,16 @@ export function FileList({
   //===== empty state =====//
   if (files.length === 0) {
     return (
-      <div
-        className="flex min-h-[140px] flex-col items-center justify-center border border-dashed border-border bg-background/20 px-5 py-7 text-center"
-      >
-        <div
-          className="flex h-9 w-9 items-center justify-center rounded-md border border-border bg-card text-muted-foreground"
-        >
+      <div className="flex min-h-[140px] flex-col items-center justify-center border border-dashed border-border bg-background/20 px-5 py-7 text-center">
+        <div className="flex h-9 w-9 items-center justify-center rounded-md border border-border bg-card text-muted-foreground">
           <File className="h-4 w-4" />
         </div>
 
-        <p
-          className="mt-3 text-sm font-semibold text-heading"
-        >
+        <p className="mt-3 text-sm font-semibold text-heading">
           No files yet
         </p>
 
-        <p
-          className="mt-1 text-xs leading-5 text-muted-foreground"
-        >
+        <p className="mt-1 text-xs leading-5 text-muted-foreground">
           Uploaded project documents will appear here.
         </p>
       </div>
@@ -139,14 +131,10 @@ export function FileList({
 
   return (
     <>
-      <div
-        className="overflow-hidden border border-border bg-background/15"
-      >
+      <div className="overflow-hidden border border-border bg-background/15">
         {/*===== DOCUMENT LIST =====*/}
 
-        <div
-          className="max-h-[340px] divide-y divide-border overflow-y-auto overscroll-contain"
-        >
+        <div className="max-h-[340px] divide-y divide-border overflow-y-auto overscroll-contain">
           {files.map((file) => (
             <div
               key={file.id}
@@ -154,9 +142,7 @@ export function FileList({
             >
               {/*===== FILE ICON =====*/}
 
-              <div
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-card text-secondary"
-              >
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-border bg-card text-secondary">
                 {getIcon(file.category)}
               </div>
 
@@ -170,9 +156,7 @@ export function FileList({
                   {file.name}
                 </p>
 
-                <div
-                  className="mt-1 flex min-w-0 items-center gap-1.5 text-[10px] text-muted-foreground"
-                >
+                <div className="mt-1 flex min-w-0 items-center gap-1.5 text-[10px] text-muted-foreground">
                   <span className="shrink-0">
                     {formatSize(file.sizeInBytes)}
                   </span>
@@ -190,9 +174,7 @@ export function FileList({
 
               {/*===== ACTIONS =====*/}
 
-              <div
-                className="flex shrink-0 items-center gap-0.5"
-              >
+              <div className="flex shrink-0 items-center gap-0.5">
                 <a
                   href={file.downloadUrl}
                   target="_blank"
@@ -223,27 +205,17 @@ export function FileList({
 
         {/*===== FOOTER =====*/}
 
-        <div
-          className="flex items-center justify-between gap-3 border-t border-border bg-muted/10 px-3 py-2.5"
-        >
+        <div className="flex items-center justify-between gap-3 border-t border-border bg-muted/10 px-3 py-2.5">
           <div className="flex items-center gap-2">
-            <span
-              className="h-1.5 w-1.5 rounded-full bg-success"
-            />
+            <span className="h-1.5 w-1.5 rounded-full bg-success"/>
 
-            <span
-              className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40"
-            >
+            <span className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/40">
               Documents
             </span>
           </div>
 
-          <span
-            className="text-[11px] text-muted-foreground"
-          >
-            <span
-              className="font-semibold text-heading"
-            >
+          <span className="text-[11px] text-muted-foreground">
+            <span className="font-semibold text-heading">
               {files.length}
             </span>{" "}
             {files.length === 1 ? "file" : "files"}

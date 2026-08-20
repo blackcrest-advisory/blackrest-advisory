@@ -125,9 +125,7 @@ function SignupContent() {
 
   return (
     <PageWrapper>
-      <Section
-        className="relative isolate flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-background py-10 text-foreground transition-colors duration-300 sm:py-14 lg:py-16"
-      >
+      <Section className="relative isolate flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-background py-10 text-foreground transition-colors duration-300 sm:py-14 lg:py-16">
         {/*===== BACKGROUND =====*/}
 
         <div className="pointer-events-none absolute inset-0 -z-20">
@@ -193,9 +191,7 @@ function SignupContent() {
         </div>
 
         <Container className="relative">
-          <div
-            className="mx-auto grid max-w-5xl overflow-hidden border border-border bg-card text-card-foreground shadow-[var(--shadow-overlay)] lg:grid-cols-[0.92fr_1.08fr]"
-          >
+          <div className="mx-auto grid max-w-5xl overflow-hidden border border-border bg-card text-card-foreground shadow-[var(--shadow-overlay)] lg:grid-cols-[0.92fr_1.08fr]">
             {/*===== LEFT — BRAND STORY =====*/}
 
             <motion.aside
@@ -214,9 +210,7 @@ function SignupContent() {
               className="relative hidden overflow-hidden border-r border-border bg-primary p-10 text-primary-foreground lg:flex lg:min-h-[720px] lg:flex-col lg:justify-between"
             >
               {/* decorative glow */}
-              <div
-                className="pointer-events-none absolute -right-32 -top-24 h-80 w-80 rounded-full bg-secondary/15 blur-[100px]"
-              />
+              <div className="pointer-events-none absolute -right-32 -top-24 h-80 w-80 rounded-full bg-secondary/15 blur-[100px]"/>
 
               {/* vertical architecture */}
               <div
@@ -239,16 +233,12 @@ function SignupContent() {
                   <div className="flex items-center gap-3">
                     <CircleDot className="h-4 w-4 text-secondary" />
 
-                    <span
-                      className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary"
-                    >
+                    <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary">
                       Client onboarding
                     </span>
                   </div>
 
-                  <span
-                    className="font-mono text-[8px] uppercase tracking-[0.17em] text-primary-foreground/30"
-                  >
+                  <span className="font-mono text-[8px] uppercase tracking-[0.17em] text-primary-foreground/30">
                     BCR / CREATE
                   </span>
                 </div>
@@ -258,18 +248,14 @@ function SignupContent() {
                   href="/"
                   className="mt-10 inline-block rounded-[var(--radius-control)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60"
                 >
-                  <span
-                    className="text-3xl font-semibold tracking-[-0.04em] text-primary-foreground"
-                  >
+                  <span className="text-3xl font-semibold tracking-[-0.04em] text-primary-foreground">
                     Blackcrest
                     <span className="text-secondary">.</span>
                   </span>
                 </Link>
 
                 {/* statement */}
-                <h1
-                  className="mt-12 max-w-md text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-primary-foreground"
-                >
+                <h1 className="mt-12 max-w-md text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-primary-foreground">
                   Start the relationship.
                   <span className="block text-primary-foreground/45">
                     Keep everything connected.
@@ -279,9 +265,7 @@ function SignupContent() {
                   </span>
                 </h1>
 
-                <p
-                  className="mt-6 max-w-sm text-sm leading-7 text-primary-foreground/55"
-                >
+                <p className="mt-6 max-w-sm text-sm leading-7 text-primary-foreground/55">
                   Create your Blackcrest account to begin your journey and keep
                   future project communication, progress, and collaboration
                   organised in one place.
@@ -300,15 +284,11 @@ function SignupContent() {
                     }}
                     className="mt-8 border border-secondary/20 bg-secondary/[0.08] p-4"
                   >
-                    <p
-                      className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary"
-                    >
+                    <p className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary">
                       Selected industry
                     </p>
 
-                    <p
-                      className="mt-2 text-sm font-semibold capitalize text-primary-foreground"
-                    >
+                    <p className="mt-2 text-sm font-semibold capitalize text-primary-foreground">
                       {selectedIndustry.replaceAll("-", " ")}
                     </p>
                   </motion.div>
@@ -335,22 +315,16 @@ function SignupContent() {
                       className="flex items-center justify-between border-b border-primary-foreground/10 py-4"
                     >
                       <div className="flex items-center gap-3">
-                        <div
-                          className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary/10"
-                        >
+                        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary/10">
                           <Check className="h-3 w-3 text-secondary" />
                         </div>
 
-                        <span
-                          className="text-xs font-medium text-primary-foreground/65"
-                        >
+                        <span className="text-xs font-medium text-primary-foreground/65">
                           {benefit}
                         </span>
                       </div>
 
-                      <span
-                        className="font-mono text-[7px] text-primary-foreground/25"
-                      >
+                      <span className="font-mono text-[7px] text-primary-foreground/25">
                         0{index + 1}
                       </span>
                     </motion.div>
@@ -360,9 +334,7 @@ function SignupContent() {
                 <div className="mt-6 flex items-center gap-3">
                   <ShieldCheck className="h-4 w-4 text-secondary" />
 
-                  <span
-                    className="font-mono text-[8px] uppercase tracking-[0.16em] text-primary-foreground/35"
-                  >
+                  <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-primary-foreground/35">
                     Secure account creation
                   </span>
                 </div>
@@ -394,17 +366,13 @@ function SignupContent() {
                     href="/"
                     className="rounded-[var(--radius-control)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
                   >
-                    <span
-                      className="text-2xl font-semibold tracking-[-0.035em] text-heading"
-                    >
+                    <span className="text-2xl font-semibold tracking-[-0.035em] text-heading">
                       Blackcrest
                       <span className="text-secondary">.</span>
                     </span>
                   </Link>
 
-                  <span
-                    className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40"
-                  >
+                  <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40">
                     Create account
                   </span>
                 </div>
@@ -416,24 +384,18 @@ function SignupContent() {
                   <div className="flex items-center gap-3">
                     <Sparkles className="h-4 w-4 text-secondary" />
 
-                    <span
-                      className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-secondary"
-                    >
+                    <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-secondary">
                       Create your workspace
                     </span>
 
                     <span className="h-px w-10 bg-secondary/40" />
                   </div>
 
-                  <h2
-                    className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-heading"
-                  >
+                  <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-heading">
                     Create an account
                   </h2>
 
-                  <p
-                    className="mt-2 text-sm leading-6 text-muted-foreground"
-                  >
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
                     Set up your Blackcrest account to get started.
                   </p>
                 </div>
@@ -452,15 +414,11 @@ function SignupContent() {
                     className="mt-6 flex items-center justify-between gap-4 border border-secondary/20 bg-secondary/[0.05] px-4 py-3 lg:hidden"
                   >
                     <div>
-                      <span
-                        className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/45"
-                      >
+                      <span className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/45">
                         Selected industry
                       </span>
 
-                      <p
-                        className="mt-1 text-sm font-semibold capitalize text-heading"
-                      >
+                      <p className="mt-1 text-sm font-semibold capitalize text-heading">
                         {selectedIndustry.replaceAll("-", " ")}
                       </p>
                     </div>
@@ -672,9 +630,7 @@ function SignupContent() {
                       <>
                         <UserPlus className="mr-2 h-4 w-4" />
                         Create account
-                        <ArrowUpRight
-                          className="ml-2 h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                        />
+                        <ArrowUpRight className="ml-2 h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"/>
                       </>
                     )}
                   </Button>
@@ -687,9 +643,7 @@ function SignupContent() {
                   </div>
 
                   <div className="relative flex justify-center">
-                    <span
-                      className="bg-card px-4 font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45"
-                    >
+                    <span className="bg-card px-4 font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45">
                       Or continue with
                     </span>
                   </div>
@@ -707,9 +661,7 @@ function SignupContent() {
                 </button>
 
                 {/* Login */}
-                <div
-                  className="mt-7 border-t border-border pt-6 text-center"
-                >
+                <div className="mt-7 border-t border-border pt-6 text-center">
                   <p className="text-sm text-muted-foreground">
                     Already have an account?{" "}
                     <Link
@@ -722,14 +674,10 @@ function SignupContent() {
                 </div>
 
                 {/* security */}
-                <div
-                  className="mt-6 flex items-center justify-center gap-2"
-                >
+                <div className="mt-6 flex items-center justify-center gap-2">
                   <ShieldCheck className="h-3.5 w-3.5 text-success" />
 
-                  <span
-                    className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40"
-                  >
+                  <span className="font-mono text-[8px] uppercase tracking-[0.14em] text-muted-foreground/40">
                     Protected Blackcrest account
                   </span>
                 </div>
@@ -749,14 +697,10 @@ function SignupContent() {
 function SignupPageFallback() {
   return (
     <PageWrapper>
-      <Section
-        className="flex min-h-[calc(100vh-4rem)] items-center bg-background"
-      >
+      <Section className="flex min-h-[calc(100vh-4rem)] items-center bg-background">
         <Container>
           <div className="flex justify-center">
-            <div
-              className="flex items-center gap-3 text-sm text-muted-foreground"
-            >
+            <div className="flex items-center gap-3 text-sm text-muted-foreground">
               <Loader size="sm" />
               Loading account setup...
             </div>

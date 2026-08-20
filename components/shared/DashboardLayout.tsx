@@ -15,9 +15,7 @@ export default function DashboardLayout({
   const isCollapsed = useSidebarStore((state) => state.isCollapsed);
 
   return (
-    <div
-      className="dashboard-shell relative h-screen overflow-hidden bg-background text-foreground"
-    >
+    <div className="dashboard-shell relative h-screen overflow-hidden bg-background text-foreground">
       {/* subtle dashboard grid */}
       <div
         aria-hidden="true"
@@ -43,9 +41,7 @@ export default function DashboardLayout({
       />
 
       {/* Desktop sidebar */}
-      <aside
-        className="fixed left-0 top-0 z-40 hidden h-screen lg:block"
-      >
+      <aside className="fixed left-0 top-0 z-40 hidden h-screen lg:block">
         <DashboardDesktopSidebar />
       </aside>
 

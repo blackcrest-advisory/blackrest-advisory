@@ -49,9 +49,7 @@ export default function BrandFilmSection() {
       {/* =====================================================
           CINEMATIC FRAME
       ===================================================== */}
-      <div
-        className="relative min-h-[680px] overflow-hidden sm:min-h-[760px] lg:min-h-[820px] xl:min-h-[900px]"
-      >
+      <div className="relative min-h-[680px] overflow-hidden sm:min-h-[760px] lg:min-h-[820px] xl:min-h-[900px]">
         {/* ===================================================
             VIDEO
         =================================================== */}
@@ -81,19 +79,13 @@ export default function BrandFilmSection() {
         <div className="pointer-events-none absolute inset-0 bg-navy-deep/35" />
 
         {/* Left readability */}
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navy-deep/95 via-navy-deep/65 to-navy-deep/10"
-        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navy-deep/95 via-navy-deep/65 to-navy-deep/10"/>
 
         {/* Vertical depth */}
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep/25 via-transparent to-navy-deep/90"
-        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep/25 via-transparent to-navy-deep/90"/>
 
         {/* Gold atmospheric glow */}
-        <div
-          className="pointer-events-none absolute -right-40 top-1/3 h-[34rem] w-[34rem] rounded-full bg-secondary/[0.07] blur-[130px]"
-        />
+        <div className="pointer-events-none absolute -right-40 top-1/3 h-[34rem] w-[34rem] rounded-full bg-secondary/[0.07] blur-[130px]"/>
 
         {/* ===================================================
             FILM GRAIN
@@ -139,20 +131,14 @@ export default function BrandFilmSection() {
             className="flex items-center justify-between border-b border-white/10 py-5"
           >
             <div className="flex items-center gap-3">
-              <span
-                className="h-1.5 w-1.5 rounded-full bg-secondary shadow-[0_0_12px_var(--color-secondary)]"
-              />
+              <span className="h-1.5 w-1.5 rounded-full bg-secondary shadow-[0_0_12px_var(--color-secondary)]"/>
 
-              <span
-                className="font-mono text-[8px] font-medium uppercase tracking-[0.22em] text-white/55 sm:text-[9px]"
-              >
+              <span className="font-mono text-[8px] font-medium uppercase tracking-[0.22em] text-white/55 sm:text-[9px]">
                 Blackcrest / European Digital Growth
               </span>
             </div>
 
-            <span
-              className="hidden font-mono text-[8px] uppercase tracking-[0.2em] text-white/35 sm:block"
-            >
+            <span className="hidden font-mono text-[8px] uppercase tracking-[0.2em] text-white/35 sm:block">
               Film / 001
             </span>
           </motion.div>
@@ -161,9 +147,7 @@ export default function BrandFilmSection() {
         {/* ===================================================
             MAIN CONTENT
         =================================================== */}
-        <Container
-          className="relative z-20 flex min-h-[580px] items-end pb-14 pt-24 sm:min-h-[650px] sm:pb-16 lg:min-h-[710px] lg:items-center lg:pb-10 lg:pt-10"
-        >
+        <Container className="relative z-20 flex min-h-[580px] items-end pb-14 pt-24 sm:min-h-[650px] sm:pb-16 lg:min-h-[710px] lg:items-center lg:pb-10 lg:pt-10">
           <motion.div
             style={{
               y: contentY,
@@ -188,9 +172,7 @@ export default function BrandFilmSection() {
                 }}
                 className="mb-7 flex items-center gap-4"
               >
-                <span
-                  className="font-mono text-[9px] font-semibold uppercase tracking-[0.24em] text-secondary"
-                >
+                <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.24em] text-secondary">
                   One integrated partner
                 </span>
 
@@ -213,9 +195,7 @@ export default function BrandFilmSection() {
               {/* =================================================
                   STATEMENT
               ================================================= */}
-              <div
-                className="text-[clamp(3rem,8vw,7.8rem)] font-semibold leading-[0.87] tracking-[-0.065em] text-white"
-              >
+              <div className="text-[clamp(3rem,8vw,7.8rem)] font-semibold leading-[0.87] tracking-[-0.065em] text-white">
                 <motion.div
                   initial={{
                     opacity: 0,
@@ -294,25 +274,17 @@ export default function BrandFilmSection() {
                 }}
                 className="mt-9 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end"
               >
-                <p
-                  className="max-w-xl text-sm leading-7 text-white/60 sm:text-base sm:leading-8"
-                >
+                <p className="max-w-xl text-sm leading-7 text-white/60 sm:text-base sm:leading-8">
                   We connect strategy, technology, marketing and sales into one
                   coordinated growth engine for ambitious European businesses.
                 </p>
 
-                <div
-                  className="hidden items-center gap-3 text-white/40 lg:flex"
-                >
-                  <span
-                    className="font-mono text-[8px] uppercase tracking-[0.2em]"
-                  >
+                <div className="hidden items-center gap-3 text-white/40 lg:flex">
+                  <span className="font-mono text-[8px] uppercase tracking-[0.2em]">
                     Discover the system
                   </span>
 
-                  <ArrowDownRight
-                    className="h-4 w-4 text-secondary"
-                  />
+                  <ArrowDownRight className="h-4 w-4 text-secondary"/>
                 </div>
               </motion.div>
             </div>
@@ -322,13 +294,9 @@ export default function BrandFilmSection() {
         {/* ===================================================
             CAPABILITY RAIL
         =================================================== */}
-        <div
-          className="absolute bottom-0 left-0 right-0 z-20 border-t border-white/10 bg-navy-deep/35 backdrop-blur-md"
-        >
+        <div className="absolute bottom-0 left-0 right-0 z-20 border-t border-white/10 bg-navy-deep/35 backdrop-blur-md">
           <Container>
-            <div
-              className="grid grid-cols-2 sm:grid-cols-4"
-            >
+            <div className="grid grid-cols-2 sm:grid-cols-4">
               {capabilities.map((capability, index) => (
                 <motion.div
                   key={capability}
@@ -361,21 +329,15 @@ export default function BrandFilmSection() {
                     }
                   `}
                 >
-                  <span
-                    className="font-mono text-[8px] text-secondary/60"
-                  >
+                  <span className="font-mono text-[8px] text-secondary/60">
                     0{index + 1}
                   </span>
 
-                  <span
-                    className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/55 transition-colors duration-300 group-hover:text-white sm:text-xs"
-                  >
+                  <span className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/55 transition-colors duration-300 group-hover:text-white sm:text-xs">
                     {capability}
                   </span>
 
-                  <span
-                    className="absolute bottom-0 left-0 h-px w-0 bg-secondary transition-all duration-500 group-hover:w-full"
-                  />
+                  <span className="absolute bottom-0 left-0 h-px w-0 bg-secondary transition-all duration-500 group-hover:w-full"/>
                 </motion.div>
               ))}
             </div>
@@ -385,12 +347,8 @@ export default function BrandFilmSection() {
         {/* ===================================================
             EDGE DECORATION
         =================================================== */}
-        <div
-          className="pointer-events-none absolute right-5 top-1/2 z-20 hidden -translate-y-1/2 lg:flex lg:flex-col lg:items-center lg:gap-4"
-        >
-          <span
-            className="font-mono text-[7px] uppercase tracking-[0.25em] text-white/25 [writing-mode:vertical-rl]"
-          >
+        <div className="pointer-events-none absolute right-5 top-1/2 z-20 hidden -translate-y-1/2 lg:flex lg:flex-col lg:items-center lg:gap-4">
+          <span className="font-mono text-[7px] uppercase tracking-[0.25em] text-white/25 [writing-mode:vertical-rl]">
             Strategy / Technology / Growth
           </span>
 
@@ -420,9 +378,7 @@ export default function BrandFilmSection() {
         {/* ===================================================
             VIGNETTE
         =================================================== */}
-        <div
-          className="pointer-events-none absolute inset-0 shadow-[inset_0_0_160px_rgba(0,0,0,0.35)]"
-        />
+        <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_160px_rgba(0,0,0,0.35)]"/>
       </div>
     </Section>
   );
