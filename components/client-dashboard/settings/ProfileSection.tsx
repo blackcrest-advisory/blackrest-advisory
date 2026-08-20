@@ -11,8 +11,8 @@ import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 
 import { useCurrentUser } from "@/app/providers/CurrentUserProvider";
-import { updateClientProfile } from "@/api-client/client/settings.api";
 import { uploadFile } from "@/api-client/upload/upload.api";
+import { updateClientProfile } from "@/lib/actions/settings/client-settings.action";
 
 import type { ClientProfile } from "@/types/dashboard/client/settingsType";
 
