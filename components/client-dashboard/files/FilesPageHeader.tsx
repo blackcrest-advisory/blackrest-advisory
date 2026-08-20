@@ -6,13 +6,17 @@ import { Button } from "@/components/ui/Button";
 //===== props =====//
 interface FilesPageHeaderProps {
   onUploadClick: () => void;
+  isPreparingUpload?: boolean;
 }
 
 //==============================================================//
 // FILES PAGE HEADER
 //==============================================================//
 
-export const FilesPageHeader = ({ onUploadClick }: FilesPageHeaderProps) => {
+export const FilesPageHeader = ({
+  onUploadClick,
+  isPreparingUpload = false,
+}: FilesPageHeaderProps) => {
   return (
     <header className="relative min-w-0 overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
       {/*===== AMBIENT DETAIL =====*/}
@@ -81,9 +85,10 @@ export const FilesPageHeader = ({ onUploadClick }: FilesPageHeaderProps) => {
             variant="primary"
             size="md"
             onClick={onUploadClick}
+            disabled={isPreparingUpload}
             className="mt-5 w-full !rounded-md justify-between"
           >
-            <span>Upload File</span>
+            <span>{isPreparingUpload ? "Preparing..." : "Upload File"}</span>
 
             <Upload className="h-4 w-4" />
           </Button>

@@ -9,12 +9,15 @@ import { FilesStatsGrid } from "@/components/client-dashboard/files/FilesStatsGr
 import { FilesFilterBar } from "@/components/client-dashboard/files/FilesFilterBar";
 import { FilesTable } from "@/components/client-dashboard/files/FilesTable";
 import { FilesEmptyState } from "@/components/client-dashboard/files/FilesEmptyState";
+import { ClientFileUploadModal } from "@/components/client-dashboard/files/ClientFileUploadModal";
 
 import { useFilesFilter } from "@/hooks/useFilesFilter";
 
 import {
   getClientFiles,
+  getClientFileUploadProjects,
   type ClientFilesResponse,
+  type ClientFileUploadProject,
 } from "@/lib/actions/projects/file.action";
 
 import type {
@@ -38,6 +41,13 @@ export default function FilesPage() {
     recentUploadsCount: 0,
   });
 
+  const [uploadProjects, setUploadProjects] = useState<
+    ClientFileUploadProject[]
+  >([]);
+  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
+  const [isPreparingUpload, setIsPreparingUpload] = useState(false);
+  const [filesRefreshKey, setFilesRefreshKey] = useState(0);
+
   //===== fetch files =====//
   useEffect(() => {
     const fetchFiles = async () => {
@@ -52,7 +62,7 @@ export default function FilesPage() {
     };
 
     void fetchFiles();
-  }, []);
+  }, [filesRefreshKey]);
 
   //===== filters =====//
   const {
@@ -70,8 +80,17 @@ export default function FilesPage() {
   const hasFilteredResults = filteredFiles.length > 0;
 
   //===== actions =====//
-  const handleUploadClick = () => {
-    toast("File upload will be available once storage is connected.");
+  const handleUploadClick = async () => {
+    setIsPreparingUpload(true);
+
+    try {
+      setUploadProjects(await getClientFileUploadProjects());
+      setIsUploadModalOpen(true);
+    } catch {
+      toast.error("Unable to prepare file upload.");
+    } finally {
+      setIsPreparingUpload(false);
+    }
   };
 
   const handleClearFilters = () => {
@@ -84,7 +103,10 @@ export default function FilesPage() {
     <div className="relative min-w-0 max-w-full space-y-6">
       {/*===== FILES HEADER =====*/}
 
-      <FilesPageHeader onUploadClick={handleUploadClick} />
+      <FilesPageHeader
+        onUploadClick={handleUploadClick}
+        isPreparingUpload={isPreparingUpload}
+      />
 
       {/*===== FILES OVERVIEW =====*/}
 
@@ -194,6 +216,13 @@ export default function FilesPage() {
           </div>
         )}
       </section>
+
+      <ClientFileUploadModal
+        isOpen={isUploadModalOpen}
+        projects={uploadProjects}
+        onClose={() => setIsUploadModalOpen(false)}
+        onUploadComplete={() => setFilesRefreshKey((current) => current + 1)}
+      />
     </div>
   );
 }

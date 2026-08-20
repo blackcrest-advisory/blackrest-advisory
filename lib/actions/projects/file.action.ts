@@ -20,6 +20,11 @@ export interface ClientFilesResponse {
   stats: FilesStats;
 }
 
+export interface ClientFileUploadProject {
+  id: string;
+  title: string;
+}
+
 //===== get files available to the current client =====//
 export async function getClientFiles(): Promise<ClientFilesResponse> {
   const user = await getCurrentUser();
@@ -77,6 +82,30 @@ export async function getClientFiles(): Promise<ClientFilesResponse> {
       ).length,
     },
   };
+}
+
+//===== get projects available for client file uploads =====//
+export async function getClientFileUploadProjects(): Promise<
+  ClientFileUploadProject[]
+> {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    throw new Error("Unauthorized");
+  }
+
+  return prisma.project.findMany({
+    where: {
+      userId: user.id,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+    select: {
+      id: true,
+      title: true,
+    },
+  });
 }
 
 //===== generate signed upload URL =====//
@@ -192,6 +221,7 @@ export async function saveFileMetadata({
 
     revalidatePath(`/admin/dashboard/projects/${projectId}`);
     revalidatePath(`/client/dashboard/projects/${projectId}`);
+    revalidatePath("/client/dashboard/files");
 
     return { success: true, data: file };
   } catch (error: any) {
@@ -223,9 +253,15 @@ export async function deleteFile(fileId: string): Promise<ActionResult> {
       return { success: false, error: "Access denied" };
     }
 
+    // Files uploaded through /api/upload live in the private
+    // blackcrest-files bucket; signed project uploads remain in projects.
+    const storageBucket = file.path.startsWith("blackcrest-files/")
+      ? "blackcrest-files"
+      : "projects";
+
     // Delete from Supabase
     const { error } = await supabaseAdmin.storage
-      .from("projects")
+      .from(storageBucket)
       .remove([file.path]);
 
     if (error) {
@@ -239,6 +275,8 @@ export async function deleteFile(fileId: string): Promise<ActionResult> {
     });
 
     revalidatePath(`/admin/dashboard/projects/${file.projectId}`);
+    revalidatePath(`/client/dashboard/projects/${file.projectId}`);
+    revalidatePath("/client/dashboard/files");
     return { success: true, data: { message: "File deleted" } };
   } catch (error: any) {
     console.error("deleteFile error:", error);
