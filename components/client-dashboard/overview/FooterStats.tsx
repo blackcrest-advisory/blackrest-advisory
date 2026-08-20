@@ -5,36 +5,42 @@ import {
   BriefcaseBusiness,
   CalendarDays,
   CheckCircle2,
-  Star,
+  ReceiptText,
 } from "lucide-react";
 
 import { fadeInUp } from "@/lib/utils/animations";
+import type { ClientRelationshipStats } from "@/types/dashboard/client/overviewType";
 
-export const FooterStats = () => {
-  const stats = [
+interface FooterStatsProps {
+  stats: ClientRelationshipStats;
+}
+
+export const FooterStats = ({ stats }: FooterStatsProps) => {
+  const items = [
     {
       label: "Partner Since",
-      value: "Jan 2026",
+      value: stats.partnerSince,
       icon: CalendarDays,
       meta: "Relationship",
     },
     {
       label: "Total Projects",
-      value: "4",
+      value: String(stats.totalProjects),
       icon: BriefcaseBusiness,
       meta: "Engagements",
     },
     {
-      label: "Success Rate",
-      value: "100%",
+      label: "Completion Rate",
+      value:
+        stats.completionRate === null ? "—" : `${stats.completionRate}%`,
       icon: CheckCircle2,
       meta: "Delivery",
     },
     {
-      label: "Client Rating",
-      value: "4.9 / 5.0",
-      icon: Star,
-      meta: "Experience",
+      label: "Paid Invoices",
+      value: String(stats.paidInvoices),
+      icon: ReceiptText,
+      meta: "Billing",
     },
   ];
 
@@ -81,7 +87,7 @@ export const FooterStats = () => {
 
       {/* stats */}
       <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
-        {stats.map((item, index) => {
+        {items.map((item, index) => {
           const Icon = item.icon;
 
           return (

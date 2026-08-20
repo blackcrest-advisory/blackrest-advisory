@@ -7,7 +7,11 @@ import {
   formatMilestoneDate,
   mapProjectStatus,
 } from "@/lib/utils/clientDashboard";
-import type { Activity, Project } from "@/types/dashboard/client/overviewType";
+import type {
+  Activity,
+  ClientRelationshipStats,
+  Project,
+} from "@/types/dashboard/client/overviewType";
 import { redirect } from "next/navigation";
 
 type ActivityRecord = {
@@ -31,6 +35,8 @@ export default async function Page() {
     recentProposals,
     recentConsultations,
     recentProjects,
+    clientRecord,
+    paidInvoiceCount,
   } = await getClientDashboardData(user.id);
 
   const stats = {
@@ -95,12 +101,32 @@ export default async function Page() {
       time: formatActivityTime(date),
     }));
 
+  const completedProjectCount = projectRecords.filter(
+    (project) => project.status === "COMPLETED",
+  ).length;
+
+  const relationshipStats: ClientRelationshipStats = {
+    partnerSince: clientRecord
+      ? new Intl.DateTimeFormat("en", {
+          month: "short",
+          year: "numeric",
+        }).format(clientRecord.createdAt)
+      : "—",
+    totalProjects: projectRecords.length,
+    completionRate:
+      projectRecords.length > 0
+        ? Math.round((completedProjectCount / projectRecords.length) * 100)
+        : null,
+    paidInvoices: paidInvoiceCount,
+  };
+
   return (
     <DashboardWrapper
       stats={stats}
       projects={projects}
       milestones={milestones}
       activities={activities}
+      relationshipStats={relationshipStats}
     />
   );
 }

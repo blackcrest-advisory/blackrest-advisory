@@ -30,3 +30,10 @@ export interface Stats {
     revenue: string;
   };
 }
+
+export interface ClientRelationshipStats {
+  partnerSince: string;
+  totalProjects: number;
+  completionRate: number | null;
+  paidInvoices: number;
+}

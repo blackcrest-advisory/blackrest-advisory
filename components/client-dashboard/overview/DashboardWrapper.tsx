@@ -21,6 +21,7 @@ import type {
   Project,
   Milestone,
   Activity,
+  ClientRelationshipStats,
 } from "@/types/dashboard/client/overviewType";
 
 interface DashboardWrapperProps {
@@ -28,6 +29,7 @@ interface DashboardWrapperProps {
   projects: Project[];
   milestones: Milestone[];
   activities: Activity[];
+  relationshipStats: ClientRelationshipStats;
 }
 
 export const DashboardWrapper = ({
@@ -35,6 +37,7 @@ export const DashboardWrapper = ({
   projects,
   milestones,
   activities,
+  relationshipStats,
 }: DashboardWrapperProps) => {
   const user = useCurrentUser();
 
@@ -279,7 +282,7 @@ export const DashboardWrapper = ({
 
         {/* footer metrics */}
         <section>
-          <FooterStats />
+          <FooterStats stats={relationshipStats} />
         </section>
       </motion.div>
     </div>
