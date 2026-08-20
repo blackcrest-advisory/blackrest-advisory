@@ -6,10 +6,78 @@ import { getCurrentUser } from "@/lib/utils/auth-utils";
 import { supabaseAdmin } from "@/lib/supabase/client";
 import { revalidatePath } from "next/cache";
 import { randomUUID } from "crypto";
+import type {
+  FilesStats,
+  ProjectFile,
+} from "@/types/dashboard/client/filesType";
 
 type ActionResult<T = any> =
   | { success: true; data: T }
   | { success: false; error: string };
+
+export interface ClientFilesResponse {
+  files: ProjectFile[];
+  stats: FilesStats;
+}
+
+//===== get files available to the current client =====//
+export async function getClientFiles(): Promise<ClientFilesResponse> {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    throw new Error("Unauthorized");
+  }
+
+  const files = await prisma.file.findMany({
+    where: {
+      userId: user.id,
+    },
+    include: {
+      project: {
+        select: {
+          id: true,
+          title: true,
+        },
+      },
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
+  const mappedFiles: ProjectFile[] = files.map((file) => ({
+    id: file.id,
+    name: file.name,
+    extension: file.extension,
+    category: file.category as ProjectFile["category"],
+    sizeInBytes: file.sizeInBytes,
+    projectId: file.projectId,
+    projectName: file.project.title,
+    uploadedBy: file.uploadedBy,
+    uploadedByRole: file.uploadedByRole as ProjectFile["uploadedByRole"],
+    uploadedAt: file.createdAt.toISOString(),
+    downloadUrl: file.downloadUrl,
+    previewUrl: file.previewUrl ?? undefined,
+  }));
+
+  const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+
+  return {
+    files: mappedFiles,
+    stats: {
+      totalFiles: files.length,
+      storageUsedInBytes: files.reduce(
+        (total, file) => total + file.sizeInBytes,
+        0,
+      ),
+      storageLimitInBytes: 53687091200,
+      activeProjectsCount: new Set(files.map((file) => file.projectId)).size,
+      recentUploadsCount: files.filter(
+        (file) => file.createdAt >= sevenDaysAgo,
+      ).length,
+    },
+  };
+}
 
 //===== generate signed upload URL =====//
 export async function getUploadUrl(

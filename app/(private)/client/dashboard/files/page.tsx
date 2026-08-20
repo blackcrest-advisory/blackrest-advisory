@@ -13,9 +13,9 @@ import { FilesEmptyState } from "@/components/client-dashboard/files/FilesEmptyS
 import { useFilesFilter } from "@/hooks/useFilesFilter";
 
 import {
-  fetchClientFiles,
+  getClientFiles,
   type ClientFilesResponse,
-} from "@/api-client/client/files.api";
+} from "@/lib/actions/projects/file.action";
 
 import type {
   FilesStats,
@@ -38,20 +38,16 @@ export default function FilesPage() {
     recentUploadsCount: 0,
   });
 
-  const [loading, setLoading] = useState(true);
-
   //===== fetch files =====//
   useEffect(() => {
     const fetchFiles = async () => {
       try {
-        const response: ClientFilesResponse = await fetchClientFiles();
+        const response: ClientFilesResponse = await getClientFiles();
 
         setFiles(response.files);
         setStats(response.stats);
       } catch {
         toast.error("Failed to load files");
-      } finally {
-        setLoading(false);
       }
     };
 
