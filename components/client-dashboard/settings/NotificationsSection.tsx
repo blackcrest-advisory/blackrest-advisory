@@ -1,7 +1,7 @@
 "use client";
 
 //===== imports =====//
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import {
   BellRing,
   FileUp,
@@ -20,7 +20,7 @@ import {
   type NotificationPreferences,
 } from "@/types/dashboard/client/settingsType";
 
-import { updateClientNotificationPreferences } from "@/api-client/client/settings.api";
+import { updateClientNotificationPreferences } from "@/lib/actions/settings/client-settings.action";
 
 //===== props =====//
 interface NotificationsSectionProps {
@@ -82,9 +82,10 @@ export const NotificationsSection = ({
   preferences,
 }: NotificationsSectionProps) => {
   const [values, setValues] = useState<NotificationPreferences>(preferences);
+  const [isPending, startTransition] = useTransition();
 
   //===== toggle =====//
-  const handleToggle = async (
+  const handleToggle = (
     key: keyof NotificationPreferences,
     checked: boolean,
   ) => {
@@ -95,11 +96,13 @@ export const NotificationsSection = ({
 
     setValues(updatedPreferences);
 
-    try {
-      await updateClientNotificationPreferences(updatedPreferences);
-    } catch {
-      toast.error("Failed to save preference");
-    }
+    startTransition(async () => {
+      try {
+        await updateClientNotificationPreferences(updatedPreferences);
+      } catch {
+        toast.error("Failed to save preference");
+      }
+    });
   };
 
   //===== save =====//
@@ -217,6 +220,7 @@ export const NotificationsSection = ({
                     <Switch
                       checked={values[item.key]}
                       onChange={(checked) => handleToggle(item.key, checked)}
+                      disabled={isPending}
                     />
                   </div>
 

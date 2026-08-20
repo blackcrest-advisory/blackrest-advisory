@@ -1,7 +1,7 @@
 "use client";
 
 //===== imports =====//
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import {
   Fingerprint,
   KeyRound,
@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/Button";
 
 import type { PasswordChangePayload } from "@/types/dashboard/client/settingsType";
 
-import { updateClientPassword } from "@/api-client/client/settings.api";
+import { updateClientPassword } from "@/lib/actions/settings/client-settings.action";
 
 //==============================================================//
 // INITIAL PASSWORD STATE
@@ -36,7 +36,7 @@ export const SecuritySection = () => {
   const [passwordForm, setPasswordForm] =
     useState<PasswordChangePayload>(initialPasswordState);
 
-  const [isUpdating, setIsUpdating] = useState(false);
+  const [isUpdating, startTransition] = useTransition();
 
   //===== field change =====//
   const handleFieldChange = (
@@ -50,7 +50,7 @@ export const SecuritySection = () => {
   };
 
   //===== update password =====//
-  const handleSave = async () => {
+  const handleSave = () => {
     if (!passwordForm.currentPassword || !passwordForm.newPassword) {
       toast.error("Please fill in all password fields.");
       return;
@@ -66,44 +66,22 @@ export const SecuritySection = () => {
       return;
     }
 
-    setIsUpdating(true);
+    startTransition(async () => {
+      try {
+        await updateClientPassword({
+          currentPassword: passwordForm.currentPassword,
+          newPassword: passwordForm.newPassword,
+          confirmPassword: passwordForm.confirmPassword,
+        });
 
-    try {
-      await updateClientPassword({
-        currentPassword: passwordForm.currentPassword,
-        newPassword: passwordForm.newPassword,
-        confirmPassword: passwordForm.confirmPassword,
-      });
-
-      toast.success("Password updated successfully");
-
-      setPasswordForm(initialPasswordState);
-    } catch (error: unknown) {
-      let message = "Failed to update password";
-
-      if (typeof error === "object" && error !== null && "response" in error) {
-        const response = error as {
-          response?: {
-            data?: unknown;
-          };
-        };
-
-        const responseData = response.response?.data;
-
-        if (
-          typeof responseData === "object" &&
-          responseData !== null &&
-          "error" in responseData &&
-          typeof responseData.error === "string"
-        ) {
-          message = responseData.error;
-        }
+        toast.success("Password updated successfully");
+        setPasswordForm(initialPasswordState);
+      } catch (error) {
+        toast.error(
+          error instanceof Error ? error.message : "Failed to update password",
+        );
       }
-
-      toast.error(message);
-    } finally {
-      setIsUpdating(false);
-    }
+    });
   };
 
   return (
