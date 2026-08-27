@@ -1,4 +1,5 @@
 export const IMAGE = {
+  final_logo: "/logos/blackcrest-icon-mark.png",
   logo: "/logos/blackcrestlogo.png",
   aboutHeroImage: "/images/about_hero_image.avif",
   london: "/images/london.avif",

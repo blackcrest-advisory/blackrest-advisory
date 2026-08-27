@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
@@ -12,6 +13,7 @@ import Dropdown from "@/components/ui/Dropdown";
 import DropdownItem from "@/components/ui/DropdownItem";
 import ThemeToggle from "@/components/shared/ThemeToggle";
 
+import { IMAGE } from "@/constants/imagesConfig";
 import { navLinks } from "@/constants/publicNavigations";
 
 export default function Navbar() {
@@ -100,10 +102,14 @@ export default function Navbar() {
             href="/"
             className="group relative flex items-center gap-3 rounded-[var(--radius-control)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
           >
-            <div className="relative flex h-9 w-9 items-center justify-center overflow-hidden border border-border bg-navy text-white">
-              <span className="relative z-10 text-sm font-semibold tracking-[-0.04em]">
-                B
-              </span>
+            <div className="relative h-10 w-10 overflow-hidden rounded-[var(--radius-control)] border border-border bg-navy">
+              <Image
+                src={IMAGE.final_logo}
+                alt="Blackcrest"
+                fill
+                sizes="40px"
+                className="object-contain p-1.5"
+              />
 
               <motion.span
                 aria-hidden="true"
