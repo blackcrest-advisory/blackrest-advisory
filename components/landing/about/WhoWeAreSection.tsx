@@ -84,9 +84,8 @@ export const WhoWeAreSection = () => {
             transition={{ delay: 0.08 }}
             className="max-w-xl text-sm leading-7 text-muted-foreground lg:justify-self-end"
           >
-            We sit between consultancy and execution — helping businesses make
-            stronger decisions and then turning those decisions into working
-            digital systems.
+            We help businesses make stronger digital decisions, then turn those
+            decisions into focused work that is useful in the real world.
           </motion.p>
         </div>
 
@@ -144,7 +143,7 @@ export const WhoWeAreSection = () => {
                 >
                   <Image
                     src={IMAGE.aboutHeroImage}
-                    alt="Blackcrest Advisory team collaboration"
+                    alt="Blackcrest Advisory workspace and collaboration"
                     width={900}
                     height={1100}
                     className="aspect-[4/5] w-full object-cover"
@@ -223,12 +222,12 @@ export const WhoWeAreSection = () => {
 
                 <div>
                   <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-secondary">
-                    International mindset
+                    Focused delivery
                   </p>
 
                   <p className="mt-2 text-sm leading-6 text-foreground/75">
-                    Built to support European businesses with a flexible,
-                    cross-disciplinary delivery model.
+                    Clear priorities, practical execution, and the right support
+                    for the scope of your project.
                   </p>
                 </div>
               </div>
@@ -257,17 +256,16 @@ export const WhoWeAreSection = () => {
             className="lg:pt-5"
           >
             <h2 className="max-w-3xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
-              More than an agency.
+              A focused partner for
               <span className="block text-muted-foreground">
-                More practical than a consultancy.
+                meaningful digital progress.
               </span>
             </h2>
 
             <div className="mt-8 max-w-2xl space-y-5 text-base leading-8 text-body">
               <p>
-                Blackcrest Advisory is a B2B digital solutions company helping
-                European organisations navigate growth, technology, marketing,
-                and commercial execution.
+                Blackcrest is a B2B digital solutions partner for businesses
+                looking to improve how they show up, operate, and grow.
               </p>
 
               <p>
@@ -383,8 +381,8 @@ export const WhoWeAreSection = () => {
                 </h3>
 
                 <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                  Build an international B2B advisory and delivery company known
-                  for quality, clarity, accountability, and measurable results.
+                  Build a trusted digital partner known for quality, clarity,
+                  accountability, and useful results.
                 </p>
               </motion.div>
             </div>

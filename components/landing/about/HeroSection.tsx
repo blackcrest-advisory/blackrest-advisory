@@ -4,7 +4,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowDownRight,
   ArrowUpRight,
-  Globe2,
   Network,
   Sparkles,
 } from "lucide-react";
@@ -16,15 +15,15 @@ import { Container } from "@/components/ui/Container";
 const principles = [
   {
     number: "01",
-    label: "Strategy",
+    label: "Clarity",
   },
   {
     number: "02",
-    label: "Technology",
+    label: "Delivery",
   },
   {
     number: "03",
-    label: "Growth",
+    label: "Progress",
   },
 ];
 
@@ -32,7 +31,7 @@ export const HeroSection = () => {
   const reduceMotion = Boolean(useReducedMotion());
 
   return (
-    <Section className="relative isolate overflow-hidden py-14 sm:py-20 lg:py-28">
+    <Section className="relative isolate overflow-hidden py-0">
       {/*===== Background =====*/}
 
       <div className="pointer-events-none absolute inset-0 -z-20">
@@ -92,10 +91,10 @@ export const HeroSection = () => {
         />
       </div>
 
-      <Container className="relative">
+      <Container className="relative flex min-h-[calc(100svh-68px)] flex-col py-8 sm:py-9 lg:h-[calc(100svh-68px)] lg:py-10">
         {/*===== Main layout =====*/}
 
-        <div className="grid gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-20">
+        <div className="grid flex-1 gap-9 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-14">
           {/*===== Left =====*/}
 
           <div>
@@ -148,14 +147,14 @@ export const HeroSection = () => {
                 duration: 0.7,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="mt-7 max-w-4xl text-4xl font-semibold leading-[1.02] tracking-[-0.05em] text-heading sm:text-5xl md:text-6xl lg:text-[4.7rem]"
+              className="mt-5 max-w-3xl text-[clamp(2.5rem,4.2vw,4.35rem)] font-semibold leading-[0.96] tracking-[-0.05em] text-heading"
             >
-              Built for businesses
+              Focused support for
               <span className="block text-muted-foreground">
-                that expect more from
+                businesses ready to
               </span>
               <span className="relative inline-block">
-                <span className="text-gold-gradient">digital partners.</span>
+                <span className="text-gold-gradient">move forward.</span>
 
                 <motion.span
                   aria-hidden="true"
@@ -188,12 +187,11 @@ export const HeroSection = () => {
                 delay: 0.26,
                 duration: 0.55,
               }}
-              className="mt-8 max-w-2xl text-base leading-8 text-body sm:text-lg"
+              className="mt-5 max-w-xl text-base leading-7 text-body"
             >
-              Blackcrest Advisory was created around a simple idea: businesses
-              should not have to choose between strategic thinking and practical
-              execution. We bring both together across technology, marketing,
-              sales, and growth.
+              Blackcrest helps businesses turn digital ideas and challenges into
+              clear, practical work across web development, mobile applications,
+              digital marketing, and sales support.
             </motion.p>
 
             {/* actions */}
@@ -210,7 +208,7 @@ export const HeroSection = () => {
                 delay: 0.38,
                 duration: 0.5,
               }}
-              className="mt-9 flex flex-wrap items-center gap-4"
+              className="mt-6 flex flex-wrap items-center gap-3"
             >
               <Button
                 variant="primary"
@@ -225,10 +223,10 @@ export const HeroSection = () => {
               <Button
                 variant="outline"
                 size="md"
-                href="#values"
+                href="#why-blackcrest"
                 className="group"
               >
-                Our principles
+                Why Blackcrest
                 <ArrowUpRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Button>
             </motion.div>
@@ -253,7 +251,7 @@ export const HeroSection = () => {
             className="relative"
           >
             {/* index */}
-            <div className="mb-5 flex items-center justify-between">
+            <div className="mb-3 flex items-center justify-between">
               <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
                 Company profile
               </span>
@@ -275,7 +273,7 @@ export const HeroSection = () => {
               transition={{
                 duration: 0.3,
               }}
-              className="group relative overflow-hidden border border-border bg-card p-7 shadow-[var(--shadow-card)] sm:p-8"
+              className="group relative overflow-hidden border border-border bg-card p-6 shadow-[var(--shadow-card)] sm:p-7"
             >
               {/* hover scan */}
               {!reduceMotion && (
@@ -303,7 +301,7 @@ export const HeroSection = () => {
                 {/* icon/status */}
                 <div className="flex items-start justify-between">
                   <div className="flex h-12 w-12 items-center justify-center bg-navy text-gold-light">
-                    <Globe2 className="h-5 w-5" strokeWidth={1.8} />
+                    <Network className="h-5 w-5" strokeWidth={1.8} />
                   </div>
 
                   <div className="flex items-center gap-2">
@@ -324,28 +322,27 @@ export const HeroSection = () => {
                     />
 
                     <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground">
-                      Europe · Active
+                      Focused / Connected
                     </span>
                   </div>
                 </div>
 
-                <p className="mt-8 text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
+                <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
                   Our position
                 </p>
 
-                <h2 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-heading sm:text-3xl">
-                  One partner across the digital growth equation.
+                <h2 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-heading sm:text-2xl">
+                  Connected support for the work that matters.
                 </h2>
 
-                <p className="mt-4 text-sm leading-7 text-body">
-                  We work across disciplines because business problems rarely
-                  belong to just one department. Strategy influences technology.
-                  Technology affects marketing. Marketing feeds sales. Growth
-                  depends on all of them working together.
+                <p className="mt-3 text-sm leading-6 text-body">
+                  Business challenges rarely sit in one place. Your website,
+                  product, marketing, and sales activity work better when they
+                  are guided by the same commercial goal.
                 </p>
 
                 {/* principles */}
-                <div className="mt-8 border-t border-border pt-6">
+                <div className="mt-5 border-t border-border pt-4">
                   {principles.map((item, index) => (
                     <motion.div
                       key={item.label}
@@ -360,7 +357,7 @@ export const HeroSection = () => {
                       transition={{
                         delay: 0.5 + index * 0.1,
                       }}
-                      className="flex items-center justify-between border-b border-border/70 py-3 last:border-none"
+                      className="flex items-center justify-between border-b border-border/70 py-2.5 last:border-none"
                     >
                       <div className="flex items-center gap-4">
                         <span className="font-mono text-[9px] text-secondary">
@@ -393,7 +390,7 @@ export const HeroSection = () => {
                 delay: 0.7,
                 duration: 0.5,
               }}
-              className="relative mt-4 flex items-center justify-between border-l border-secondary/30 pl-4"
+              className="relative mt-3 flex items-center justify-between border-l border-secondary/30 pl-4"
             >
               <div className="flex items-center gap-3">
                 <Network className="h-4 w-4 text-secondary" strokeWidth={1.8} />
@@ -423,7 +420,7 @@ export const HeroSection = () => {
             delay: 0.75,
             duration: 0.6,
           }}
-          className="mt-16 grid gap-6 border-t border-border pt-7 sm:grid-cols-[auto_1fr] sm:items-center"
+          className="mt-6 grid gap-4 border-t border-border pt-5 sm:grid-cols-[auto_1fr] sm:items-center"
         >
           <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
             What defines us
@@ -436,7 +433,7 @@ export const HeroSection = () => {
             <span>Hands-on execution</span>
             <span className="h-1 w-1 rounded-full bg-secondary" />
 
-            <span>International perspective</span>
+            <span>Focused support</span>
             <span className="h-1 w-1 rounded-full bg-secondary" />
 
             <span>Long-term partnership</span>

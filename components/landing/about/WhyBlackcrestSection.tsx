@@ -9,16 +9,16 @@ import { whyData } from "@/content-data/about/aboutData";
 
 const comparisons = [
   {
-    weak: "Task-based delivery",
-    strong: "Business-outcome ownership",
+    weak: "Starting with a service",
+    strong: "Starting with your goal",
   },
   {
-    weak: "Disconnected specialists",
-    strong: "One accountable partner",
+    weak: "Separate handoffs",
+    strong: "Connected support",
   },
   {
-    weak: "Short-term project mindset",
-    strong: "Long-term growth partnership",
+    weak: "Unclear project progress",
+    strong: "Clear communication",
   },
 ];
 
@@ -26,7 +26,10 @@ export const WhyBlackcrestSection = () => {
   const reduceMotion = Boolean(useReducedMotion());
 
   return (
-    <Section className="relative overflow-hidden py-16 sm:py-20 lg:py-28">
+    <Section
+      id="why-blackcrest"
+      className="relative overflow-hidden py-16 sm:py-20 lg:py-28"
+    >
       {/* background architecture */}
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -86,13 +89,12 @@ export const WhyBlackcrestSection = () => {
                 duration: 0.65,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="mt-6 max-w-xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.8rem] lg:leading-[1.03]"
+              className="mt-6 max-w-xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]"
             >
-              The difference is
+              Clear support.
               <span className="block text-muted-foreground">
-                not what we sell.
+                Connected delivery.
               </span>
-              <span className="text-gold-gradient">It&apos;s how we work.</span>
             </motion.h2>
 
             <motion.p
@@ -102,9 +104,8 @@ export const WhyBlackcrestSection = () => {
               transition={{ delay: 0.16 }}
               className="mt-7 max-w-lg text-base leading-8 text-body"
             >
-              The European B2B market has no shortage of agencies and
-              consultants. Our advantage is the way we combine strategy,
-              execution, accountability, and long-term ownership.
+              We focus on the business challenge first, then bring together the
+              right digital support to move it forward with clarity.
             </motion.p>
 
             {/* comparison */}

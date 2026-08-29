@@ -1,7 +1,7 @@
 import { HeroSection } from "@/components/landing/about/HeroSection";
-import { HowWeOperateSection } from "@/components/landing/about/HowWeOperateSection";
 import { WhoWeAreSection } from "@/components/landing/about/WhoWeAreSection";
 import { WhyBlackcrestSection } from "@/components/landing/about/WhyBlackcrestSection";
+import CTA from "@/components/landing/Home/CTA";
 import { PageWrapper } from "@/components/ui/PageWrapper";
 
 export default function AboutPage() {
@@ -9,8 +9,8 @@ export default function AboutPage() {
     <PageWrapper>
       <HeroSection />
       <WhoWeAreSection />
-      <HowWeOperateSection />
       <WhyBlackcrestSection />
+      <CTA />
     </PageWrapper>
   );
 }

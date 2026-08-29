@@ -134,10 +134,10 @@ const CTA = () => {
                 <Button
                   variant="outline"
                   size="md"
-                  href="/services"
+                  href="/start-project"
                   className="border-white/15 bg-white/[0.04] text-white hover:border-white/25 hover:bg-white/[0.08]"
                 >
-                  Explore our services
+                  Share your project
                 </Button>
               </motion.div>
             </div>
