@@ -12,6 +12,7 @@ import {
   CircleDot,
   CreditCard,
   Fingerprint,
+  MapPin,
   MessageCircle,
   Radio,
   ShieldCheck,
@@ -32,7 +33,7 @@ import { IMAGE } from "@/constants/imagesConfig";
 const capabilities = [
   "iOS & Android",
   "Cross-platform delivery",
-  "Clear mobile UX",
+  "Clear user journeys",
   "Secure foundations",
 ];
 
@@ -54,16 +55,28 @@ const featureModules = [
     position: "right-2 top-[12%] sm:right-[4%]",
   },
   {
+    label: "Real-time",
+    detail: "Messaging",
+    icon: MessageCircle,
+    position: "left-0 top-[44%] sm:left-[1%]",
+  },
+  {
     label: "Payments",
     detail: "Transactions",
     icon: CreditCard,
-    position: "bottom-[10%] left-[5%]",
+    position: "right-0 top-[42%] sm:right-[1%]",
+  },
+  {
+    label: "Location",
+    detail: "GPS Services",
+    icon: MapPin,
+    position: "bottom-[9%] left-[5%]",
   },
   {
     label: "Offline",
     detail: "Connectivity",
     icon: Wifi,
-    position: "bottom-[10%] right-[5%]",
+    position: "bottom-[8%] right-[5%]",
   },
 ];
 
@@ -114,7 +127,7 @@ const Hero = () => {
             </span>
 
             <span className="hidden font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-secondary sm:block">
-              Mobile / 01
+              Blackcrest / Mobile
             </span>
           </div>
         </div>
@@ -154,7 +167,7 @@ const Hero = () => {
               </div>
 
               <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
-                Mobile Applications
+                From idea to product
               </span>
 
               <span className="h-px w-10 bg-secondary/35"/>
@@ -163,9 +176,9 @@ const Hero = () => {
             {/*===== HEADLINE =====*/}
 
             <h1 className="mt-7 max-w-[720px] text-[clamp(2.6rem,4.7vw,4.75rem)] font-semibold leading-[0.96] tracking-[-0.06em] text-heading">
-              Mobile apps built
+              Move from idea
               <span className="block text-secondary">
-                around real use.
+                to mobile product.
               </span>
             </h1>
 
@@ -221,21 +234,21 @@ const Hero = () => {
             <div className="mt-9 grid grid-cols-2 border-y border-border">
               <div className="border-r border-border py-4 pr-4">
                 <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/55">
-                  Experience
+                  Product design
                 </span>
 
                 <p className="mt-2 text-xs font-semibold text-heading">
-                  User-first flows
+                  Clear user journeys
                 </p>
               </div>
 
               <div className="py-4 pl-4">
                 <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/55">
-                  Delivery
+                  Product delivery
                 </span>
 
                 <p className="mt-2 text-xs font-semibold text-heading">
-                  Reliable foundations
+                  Build, test, improve
                 </p>
               </div>
             </div>
@@ -246,7 +259,7 @@ const Hero = () => {
                 <span className="text-sm font-semibold text-secondary">01</span>
 
                 <span className="ml-2 text-sm text-muted-foreground">
-                  Understand the need
+                  Understand the customer need
                 </span>
               </div>
 
@@ -256,7 +269,7 @@ const Hero = () => {
                 <span className="text-sm font-semibold text-secondary">02</span>
 
                 <span className="ml-2 text-sm text-muted-foreground">
-                  Build the right next step
+                  Design and build the right step
                 </span>
               </div>
             </div>
