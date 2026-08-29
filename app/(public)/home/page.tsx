@@ -15,7 +15,7 @@ export default function HomePage() {
       {/* <Hero /> */}
       <HeroTwo />
       <TrustedBy />
-      <BrandFilmSection />
+      {/* <BrandFilmSection /> */}
       <WhoWeServe />
       <Services />
       <WhyUs />

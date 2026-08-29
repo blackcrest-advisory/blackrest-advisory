@@ -3,56 +3,55 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 import {
-  ArrowUpRight,
-  Award,
   Building2,
   Check,
-  Globe2,
-  Users2,
+  Handshake,
+  Megaphone,
+  Smartphone,
 } from "lucide-react";
 
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 
-const stats = [
+const services = [
   {
-    number: "100+",
-    label: "Businesses Supported",
-    micro: "Client relationships",
+    number: "01",
+    label: "Web Development",
+    micro: "Digital foundation",
     description:
-      "Supporting growing businesses with digital strategy, technology, marketing, and execution.",
-    icon: Users2,
-  },
-  {
-    number: "5+",
-    label: "European Markets",
-    micro: "International reach",
-    description:
-      "Experience working across different European business environments and growth stages.",
-    icon: Globe2,
-  },
-  {
-    number: "99%",
-    label: "Client Satisfaction",
-    micro: "Relationship quality",
-    description:
-      "A delivery model centred on communication, accountability, quality, and measurable progress.",
-    icon: Award,
-  },
-  {
-    number: "50+",
-    label: "Projects Delivered",
-    micro: "Execution",
-    description:
-      "From focused digital initiatives to broader transformation and growth programmes.",
+      "Websites and digital platforms designed to communicate clearly, build trust, and support commercial growth.",
     icon: Building2,
+  },
+  {
+    number: "02",
+    label: "Mobile Applications",
+    micro: "Product experience",
+    description:
+      "Purpose-built mobile experiences that make your product, service, or customer journey easier to use.",
+    icon: Smartphone,
+  },
+  {
+    number: "03",
+    label: "Digital Marketing",
+    micro: "Demand generation",
+    description:
+      "Practical marketing systems that build visibility, attract the right audience, and create opportunity.",
+    icon: Megaphone,
+  },
+  {
+    number: "04",
+    label: "Sales & Business Support",
+    micro: "Commercial momentum",
+    description:
+      "Focused support for stronger sales processes, clearer pipeline activity, and lasting client relationships.",
+    icon: Handshake,
   },
 ];
 
 const principles = [
-  "Commercially focused",
-  "Senior-led",
-  "Outcome accountable",
+  "Business-first thinking",
+  "Focused delivery",
+  "Direct communication",
 ];
 
 export default function TrustedBy() {
@@ -145,16 +144,16 @@ export default function TrustedBy() {
               </span>
 
               <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary">
-                Proven Partnership
+                What we deliver
               </span>
 
               <span className="h-px w-10 bg-secondary/40"/>
             </div>
 
-            <h2 className="mt-6 max-w-2xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.6rem] lg:leading-[1.04]">
-              Trust is earned
+            <h2 className="mt-5 max-w-2xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]">
+              Digital delivery,
               <span className="block text-muted-foreground">
-                through the work.
+                built around progress.
               </span>
             </h2>
           </motion.div>
@@ -176,9 +175,8 @@ export default function TrustedBy() {
             className="lg:justify-self-end"
           >
             <p className="max-w-xl text-sm leading-7 text-body sm:text-base">
-              Blackcrest is built around long-term relationships, accountable
-              delivery, and measurable business progress — not simply completing
-              another list of deliverables.
+              Blackcrest brings the key digital disciplines together so your
+              business can move from an idea or challenge to practical progress.
             </p>
 
             <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
@@ -198,15 +196,15 @@ export default function TrustedBy() {
           </motion.div>
         </div>
 
-        {/*===== PROOF LEDGER =====*/}
+        {/*===== SERVICE LEDGER =====*/}
 
         <div className="grid border-b border-border lg:grid-cols-4">
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
+          {services.map((service, index) => {
+            const Icon = service.icon;
 
             return (
               <motion.article
-                key={stat.label}
+                key={service.label}
                 initial={{
                   opacity: 0,
                   y: reduceMotion ? 0 : 22,
@@ -231,13 +229,13 @@ export default function TrustedBy() {
                   py-8
                   transition-colors duration-500
                   hover:bg-card
-                  lg:min-h-[370px]
+                  lg:min-h-[320px]
                   lg:border-b-0
                   lg:px-7
 
                   ${index > 0 ? "lg:border-l" : ""}
                   ${index === 0 ? "lg:pl-0" : ""}
-                  ${index === stats.length - 1 ? "lg:pr-0" : ""}
+                  ${index === services.length - 1 ? "lg:pr-0" : ""}
                 `}
               >
                 {/*===== subtle interactive illumination =====*/}
@@ -268,8 +266,8 @@ export default function TrustedBy() {
                 <div className="relative z-10 flex h-full flex-col">
                   {/* metadata */}
                   <div className="flex items-start justify-between">
-                    <span className="font-mono text-[8px] font-semibold tracking-[0.18em] text-muted-foreground/40">
-                      0{index + 1}
+                    <span className="font-mono text-[10px] font-semibold tracking-[0.18em] text-muted-foreground/50">
+                      {service.number}
                     </span>
 
                     <motion.div
@@ -287,33 +285,29 @@ export default function TrustedBy() {
                     </motion.div>
                   </div>
 
-                  {/* metric */}
-                  <div className="mt-10">
-                    <p className="font-mono text-[3.6rem] font-medium leading-none tracking-[-0.075em] text-heading transition-colors duration-300 group-hover:text-secondary sm:text-[4.5rem]">
-                      {stat.number}
-                    </p>
-
-                    <p className="mt-4 text-base font-semibold tracking-[-0.02em] text-foreground">
-                      {stat.label}
+                  {/* service */}
+                  <div className="mt-8">
+                    <p className="text-lg font-semibold tracking-[-0.025em] text-foreground transition-colors duration-300 group-hover:text-secondary">
+                      {service.label}
                     </p>
 
                     <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-secondary">
-                      {stat.micro}
+                      {service.micro}
                     </p>
                   </div>
 
                   {/* description */}
                   <p className="mt-6 max-w-xs text-sm leading-7 text-muted-foreground">
-                    {stat.description}
+                    {service.description}
                   </p>
 
                   {/* footer */}
                   <div className="mt-auto flex items-center justify-between pt-8">
-                    <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/35">
-                      Verified signal
+                    <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground/45 sm:text-[10px]">
+                      Delivery focus
                     </span>
 
-                    <ArrowUpRight className="h-4 w-4 text-muted-foreground/25 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-secondary"/>
+                    <span className="h-1.5 w-1.5 rounded-full bg-secondary/50 transition-colors duration-300 group-hover:bg-secondary" />
                   </div>
 
                   {/* active bottom signal */}
@@ -326,7 +320,7 @@ export default function TrustedBy() {
           })}
         </div>
 
-        {/*===== CLOSING TRUST STATEMENT =====*/}
+        {/*===== CLOSING DELIVERY STATEMENT =====*/}
 
         <motion.div
           initial={{
@@ -350,24 +344,24 @@ export default function TrustedBy() {
 
             <div>
               <p className="text-sm font-semibold text-heading">
-                Relationships over transactions.
+                One focused partner, from first idea to next step.
               </p>
 
               <p className="mt-1 max-w-xl text-sm leading-6 text-muted-foreground">
-                We measure success through commercial impact, client confidence,
-                and the value created over the lifetime of the relationship.
+                We work closely with you to identify what matters, build the
+                right solution, and keep delivery moving with clarity.
               </p>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 font-mono text-[8px] uppercase tracking-[0.17em] text-muted-foreground/40">
-            Strategy
+          <div className="flex flex-wrap items-center gap-3 font-mono text-[9px] uppercase tracking-[0.17em] text-muted-foreground/50 sm:text-[10px]">
+            Web
             <span className="h-1 w-1 rounded-full bg-secondary" />
-            Execution
+            Mobile
             <span className="h-1 w-1 rounded-full bg-secondary" />
-            Accountability
+            Marketing
             <span className="h-1 w-1 rounded-full bg-secondary" />
-            Growth
+            Sales support
           </div>
         </motion.div>
       </Container>
