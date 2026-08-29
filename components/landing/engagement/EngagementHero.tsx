@@ -17,25 +17,25 @@ import { Container } from "@/components/ui/Container";
 
 const engagementSignals = [
   "Clear scope & priorities",
-  "Senior-level collaboration",
-  "Flexible delivery model",
+  "Clear communication",
+  "Support that fits the work",
 ];
 
 const phases = [
   {
     number: "01",
-    title: "Discover",
-    description: "Understand the challenge, context, and commercial objective.",
+    title: "Understand",
+    description: "Clarify the challenge, context, and outcome you need.",
   },
   {
     number: "02",
-    title: "Shape",
-    description: "Define the right engagement model and delivery approach.",
+    title: "Plan",
+    description: "Agree the right scope, priorities, and way forward.",
   },
   {
     number: "03",
-    title: "Mobilise",
-    description: "Align the team, priorities, ownership, and first actions.",
+    title: "Begin",
+    description: "Start the work with clear ownership and next actions.",
   },
 ];
 
@@ -43,7 +43,7 @@ export const EngagementHero = () => {
   const reduceMotion = Boolean(useReducedMotion());
 
   return (
-    <Section className="relative isolate overflow-hidden bg-background py-14 text-foreground transition-colors duration-300 sm:py-20 lg:py-28">
+    <Section className="relative isolate overflow-hidden bg-background py-10 text-foreground transition-colors duration-300 sm:py-14 lg:py-16">
       {/* Background architecture */}
       <div className="pointer-events-none absolute inset-0 -z-20">
         <div
@@ -114,7 +114,7 @@ export const EngagementHero = () => {
       </div>
 
       <Container className="relative">
-        <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20">
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14">
           {/* Left */}
           <div>
             <motion.div
@@ -149,31 +149,31 @@ export const EngagementHero = () => {
                 duration: 0.7,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="mt-7 max-w-4xl text-4xl font-semibold leading-[1.03] tracking-[-0.05em] text-heading sm:text-5xl md:text-6xl lg:text-[4.5rem]"
+              className="mt-5 max-w-3xl text-[clamp(2.5rem,4.2vw,4.35rem)] font-semibold leading-[0.96] tracking-[-0.05em] text-heading"
             >
-              Start with the
+              A clear way to
               <span className="block text-muted-foreground">
-                right engagement,
+                work together,
               </span>
-              <span className="text-gold-gradient">not the biggest one.</span>
+              <span className="text-gold-gradient">from the first step.</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.24 }}
-              className="mt-7 max-w-2xl text-base leading-8 text-body sm:text-lg"
+              className="mt-5 max-w-xl text-base leading-7 text-body"
             >
-              Every business needs something different. We shape the engagement
-              around the problem, the ambition, and the level of support you
-              actually need — from focused advisory work to ongoing delivery.
+              Every business starts in a different place. We shape the work
+              around the challenge in front of you, the outcome you need, and
+              the level of support that makes sense now.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.36 }}
-              className="mt-9 flex flex-wrap items-center gap-4"
+              className="mt-6 flex flex-wrap items-center gap-3"
             >
               <Button
                 variant="primary"
@@ -185,8 +185,8 @@ export const EngagementHero = () => {
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
 
-              <Button variant="outline" size="lg" href="#faq" className="group">
-                See FAQs
+              <Button variant="outline" size="lg" href="#process" className="group">
+                See the process
                 <ArrowDownRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
               </Button>
             </motion.div>
@@ -196,7 +196,7 @@ export const EngagementHero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.48 }}
-              className="mt-10 flex flex-wrap gap-x-6 gap-y-3 border-t border-border pt-6"
+              className="mt-7 flex flex-wrap gap-x-5 gap-y-3 border-t border-border pt-5"
             >
               {engagementSignals.map((item) => (
                 <div
@@ -290,21 +290,21 @@ export const EngagementHero = () => {
                   </div>
                 </div>
 
-                <p className="mt-8 text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
+                <p className="mt-6 text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
                   How an engagement begins
                 </p>
 
                 <h2 className="mt-3 max-w-xl text-2xl font-semibold tracking-[-0.035em] text-heading sm:text-3xl">
-                  Start by defining what success actually needs to look like.
+                  Start with the business need, then choose the right way forward.
                 </h2>
 
                 <p className="mt-4 text-sm leading-7 text-body">
-                  We begin with context, not packages. That lets us recommend a
-                  model that fits the problem instead of forcing the problem
-                  into a predefined service.
+                  We begin with context, not packages. That helps us recommend
+                  the right scope and support instead of forcing the work into a
+                  predefined model.
                 </p>
 
-                <div className="relative mt-8">
+                <div className="relative mt-6">
                   <div className="absolute left-5 top-5 h-[calc(100%-2.5rem)] w-px bg-border" />
 
                   <motion.div
@@ -347,12 +347,12 @@ export const EngagementHero = () => {
                   </div>
                 </div>
 
-                <div className="mt-7 flex items-start gap-4 border border-secondary/20 bg-secondary/[0.05] p-4">
+                <div className="mt-5 flex items-start gap-4 border border-secondary/20 bg-secondary/[0.05] p-4">
                   <MessagesSquare className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
 
                   <p className="text-xs leading-6 text-muted-foreground">
-                    The first conversation is about fit and direction — not
-                    pressure, packages, or unnecessary commitments.
+                    The first conversation is about your challenge, the right
+                    direction, and whether Blackcrest is a good fit.
                   </p>
                 </div>
               </div>
@@ -385,15 +385,15 @@ export const EngagementHero = () => {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.72 }}
-          className="mt-16 grid gap-5 border-t border-border pt-7 sm:grid-cols-[auto_1fr] sm:items-center"
+          className="mt-10 grid gap-5 border-t border-border pt-6 sm:grid-cols-[auto_1fr] sm:items-center"
         >
           <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-secondary">
             Engagement principle
           </span>
 
           <p className="max-w-3xl text-sm leading-7 text-muted-foreground sm:justify-self-end sm:text-right">
-            Begin small when that is the right answer. Expand when the value is
-            clear. Every engagement should earn its next stage.
+            Begin with the work that matters most now. Expand support when it is
+            useful and the value is clear.
           </p>
         </motion.div>
       </Container>

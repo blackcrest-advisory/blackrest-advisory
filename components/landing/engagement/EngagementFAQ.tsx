@@ -15,29 +15,29 @@ import { Button } from "@/components/ui/Button";
 
 const faqs = [
   {
-    question: "What is the typical timeline for a project?",
+    question: "What happens after I get in touch?",
     answer:
-      "Timelines depend on scope, complexity, and the level of collaboration required. A website engagement may typically take 6–12 weeks, while larger application or transformation projects can take longer. We establish a detailed delivery plan during discovery and keep progress visible throughout the engagement.",
+      "We begin by understanding the challenge and the outcome you need. From there, we can recommend a practical scope, the right support, and a sensible first step.",
   },
   {
-    question: "How do you ensure quality and security?",
+    question: "Can we begin with one focused project?",
     answer:
-      "Quality is built into the delivery process through structured reviews, testing, code quality checks, accessibility considerations, and security-conscious development practices. The exact controls depend on the type and risk profile of the engagement.",
+      "Yes. A clearly defined project is often the best place to start. We can focus on a website, mobile feature, marketing initiative, or sales-support need, then build on the work when it is useful.",
   },
   {
-    question: "Can I combine services from different pillars?",
+    question: "Can you support more than one area?",
     answer:
-      "Yes. Many engagements combine technology, marketing, sales, and strategic support. We structure the mix around the commercial problem rather than forcing the work into separate service categories.",
+      "Yes. Web, mobile, marketing, and sales support can be combined when they serve the same business goal. We keep the work connected instead of treating each area as a separate problem.",
   },
   {
-    question: "What kind of reporting can I expect?",
+    question: "How are scope and pricing agreed?",
     answer:
-      "Reporting is tailored to the engagement. Depending on the model, this may include delivery updates, performance dashboards, KPI reviews, campaign analysis, and strategic recommendations. The goal is to make progress and outcomes clear rather than simply report activity.",
+      "We agree the scope, priorities, and commercial approach before work begins. The details depend on the type of support, but you should always understand what is included and what happens next.",
   },
   {
-    question: "Do you offer post-launch support?",
+    question: "Can support continue after launch or delivery?",
     answer:
-      "Yes. Project-based engagements can include post-launch support and ongoing maintenance, while retained partnerships provide continuous support, optimisation, and strategic involvement as priorities evolve.",
+      "Yes. If there is a useful next step after a project, we can discuss ongoing improvements, marketing activity, maintenance, or focused commercial support.",
   },
 ];
 
@@ -100,7 +100,7 @@ export const EngagementFAQ = () => {
               <HelpCircle className="h-4 w-4 text-secondary" />
 
               <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary">
-                FAQ / Engagement
+                Common questions
               </span>
 
               <span className="h-px w-10 bg-secondary/40" />
@@ -121,11 +121,11 @@ export const EngagementFAQ = () => {
                 duration: 0.6,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="mt-6 max-w-md text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl"
+              className="mt-6 max-w-md text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]"
             >
-              Questions before
+              A few things you may
               <span className="block text-muted-foreground">
-                we get started?
+                want to know first.
               </span>
             </motion.h2>
 
@@ -142,8 +142,8 @@ export const EngagementFAQ = () => {
               transition={{ delay: 0.14 }}
               className="mt-6 max-w-md text-sm leading-7 text-body sm:text-base"
             >
-              A few of the questions clients commonly ask about timelines,
-              delivery, reporting, support, and how engagements are structured.
+              Clear answers about starting a project, combining services, scope,
+              and what support can look like after delivery.
             </motion.p>
 
             {/* Contact block */}
