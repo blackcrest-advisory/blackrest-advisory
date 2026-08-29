@@ -12,9 +12,7 @@ import {
   CircleDot,
   CreditCard,
   Fingerprint,
-  MapPin,
   MessageCircle,
-  Moon,
   Radio,
   ShieldCheck,
   Smartphone,
@@ -33,9 +31,9 @@ import { IMAGE } from "@/constants/imagesConfig";
 
 const capabilities = [
   "iOS & Android",
-  "Cross-platform",
-  "Native Performance",
-  "Secure by Design",
+  "Cross-platform delivery",
+  "Clear mobile UX",
+  "Secure foundations",
 ];
 
 //==============================================================//
@@ -56,28 +54,16 @@ const featureModules = [
     position: "right-2 top-[12%] sm:right-[4%]",
   },
   {
-    label: "Real-time",
-    detail: "Messaging",
-    icon: MessageCircle,
-    position: "left-0 top-[44%] sm:left-[1%]",
-  },
-  {
     label: "Payments",
     detail: "Transactions",
     icon: CreditCard,
-    position: "right-0 top-[42%] sm:right-[1%]",
-  },
-  {
-    label: "Location",
-    detail: "GPS Services",
-    icon: MapPin,
-    position: "bottom-[9%] left-[5%]",
+    position: "bottom-[10%] left-[5%]",
   },
   {
     label: "Offline",
     detail: "Connectivity",
     icon: Wifi,
-    position: "bottom-[8%] right-[5%]",
+    position: "bottom-[10%] right-[5%]",
   },
 ];
 
@@ -117,17 +103,17 @@ const Hero = () => {
           <div className="flex items-center gap-3">
             <CircleDot className="h-3.5 w-3.5 text-secondary"/>
 
-            <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
-              Mobile Product Engineering
+            <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-secondary">
+              Mobile application support
             </span>
           </div>
 
           <div className="flex items-center gap-5">
-            <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/35">
+            <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground/55">
               iOS / Android
             </span>
 
-            <span className="hidden font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-secondary sm:block">
+            <span className="hidden font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-secondary sm:block">
               Mobile / 01
             </span>
           </div>
@@ -167,7 +153,7 @@ const Hero = () => {
                 <Smartphone className="h-3.5 w-3.5" />
               </div>
 
-              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-secondary">
+              <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
                 Mobile Applications
               </span>
 
@@ -176,17 +162,17 @@ const Hero = () => {
 
             {/*===== HEADLINE =====*/}
 
-            <h1 className="mt-8 max-w-[760px] text-[42px] font-semibold leading-[0.97] tracking-[-0.06em] text-heading sm:text-[56px] lg:text-[60px] xl:text-[68px]">
-              Built for the
+            <h1 className="mt-7 max-w-[720px] text-[clamp(2.6rem,4.7vw,4.75rem)] font-semibold leading-[0.96] tracking-[-0.06em] text-heading">
+              Mobile apps built
               <span className="block text-secondary">
-                moments between taps.
+                around real use.
               </span>
             </h1>
 
             <p className="mt-6 max-w-xl text-sm leading-7 text-body sm:text-base sm:leading-8">
-              From first concept to App Store release, Blackcrest designs and
-              engineers mobile products that feel intuitive, perform reliably,
-              and create meaningful experiences on every screen.
+              Blackcrest helps turn a product idea or customer need into a
+              clear mobile experience—designed around the people using it and
+              the business goal it needs to support.
             </p>
 
             {/*===== CAPABILITIES =====*/}
@@ -201,7 +187,7 @@ const Hero = () => {
                     <Check className="h-2.5 w-2.5" />
                   </span>
 
-                  <span className="text-xs font-medium text-muted-foreground">
+                  <span className="text-sm font-medium text-muted-foreground">
                     {capability}
                   </span>
                 </div>
@@ -212,21 +198,21 @@ const Hero = () => {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button
-                href="#contact"
+                href="/start-project"
                 size="md"
                 className="group w-full !rounded-md sm:w-auto"
               >
-                Start Your App
+                Start a mobile project
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"/>
               </Button>
 
               <Button
                 variant="outline"
                 size="md"
-                href="#work"
+                href="/contact"
                 className="w-full !rounded-md sm:w-auto"
               >
-                See Our Work
+                Talk through your idea
               </Button>
             </div>
 
@@ -234,27 +220,48 @@ const Hero = () => {
 
             <div className="mt-9 grid grid-cols-2 border-y border-border">
               <div className="border-r border-border py-4 pr-4">
-                <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/35">
+                <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/55">
                   Experience
                 </span>
 
                 <p className="mt-2 text-xs font-semibold text-heading">
-                  Touch-first UX
+                  User-first flows
                 </p>
               </div>
 
               <div className="py-4 pl-4">
-                <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/35">
-                  Engineering
+                <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/55">
+                  Delivery
                 </span>
 
                 <p className="mt-2 text-xs font-semibold text-heading">
-                  Native-feeling performance
+                  Reliable foundations
                 </p>
               </div>
             </div>
 
-            {/* original stats */}
+            {/*===== PRODUCT APPROACH =====*/}
+            <div className="mt-6 flex flex-wrap items-center gap-5">
+              <div>
+                <span className="text-sm font-semibold text-secondary">01</span>
+
+                <span className="ml-2 text-sm text-muted-foreground">
+                  Understand the need
+                </span>
+              </div>
+
+              <span className="h-5 w-px bg-border" />
+
+              <div>
+                <span className="text-sm font-semibold text-secondary">02</span>
+
+                <span className="ml-2 text-sm text-muted-foreground">
+                  Build the right next step
+                </span>
+              </div>
+            </div>
+
+            {/*
             <div className="mt-6 flex flex-wrap items-center gap-5">
               <div>
                 <span className="text-sm font-semibold text-secondary">
@@ -278,6 +285,7 @@ const Hero = () => {
                 </span>
               </div>
             </div>
+            */}
           </motion.div>
 
           {/*===== RIGHT / INTERACTION LAB =====*/}
@@ -328,7 +336,7 @@ const Hero = () => {
                 <div className="flex items-center gap-3">
                   <Radio className="h-3.5 w-3.5 text-secondary" />
 
-                  <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-muted-foreground/45">
+                  <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/60">
                     Interaction environment
                   </span>
                 </div>
@@ -336,7 +344,7 @@ const Hero = () => {
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success"/>
 
-                  <span className="font-mono text-[7px] uppercase tracking-[0.13em] text-muted-foreground/35">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.11em] text-muted-foreground/55">
                     Live
                   </span>
                 </div>
@@ -396,7 +404,7 @@ const Hero = () => {
                             {feature.label}
                           </span>
 
-                          <span className="mt-0.5 block truncate font-mono text-[6px] uppercase tracking-[0.1em] text-muted-foreground/35">
+                          <span className="mt-0.5 block truncate font-mono text-[9px] uppercase tracking-[0.08em] text-muted-foreground/55">
                             {feature.detail}
                           </span>
                         </div>
@@ -571,7 +579,7 @@ const Hero = () => {
           <div className="flex items-center gap-3 px-4 py-4 sm:px-6 lg:px-8">
             <Smartphone className="h-3.5 w-3.5 text-secondary"/>
 
-            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-muted-foreground/40">
+            <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/55">
               Discover → Design → Build → Test → Release
             </span>
           </div>
@@ -579,7 +587,7 @@ const Hero = () => {
           <div className="flex items-center gap-3 border-t border-border px-4 py-4 sm:border-l sm:border-t-0 sm:px-6">
             <ShieldCheck className="h-3.5 w-3.5 text-secondary"/>
 
-            <span className="whitespace-nowrap font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/35">
+            <span className="whitespace-nowrap font-mono text-[9px] font-semibold uppercase tracking-[0.11em] text-muted-foreground/55">
               Built for real-world use
             </span>
           </div>
@@ -620,11 +628,11 @@ function MobileFeature({
 function DeviceMetric({ label, value }: { label: string; value: string }) {
   return (
     <div className="min-w-0 border-r border-border px-3 py-3.5 last:border-r-0 sm:px-4">
-      <span className="block truncate font-mono text-[6px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/30">
+      <span className="block truncate font-mono text-[9px] font-semibold uppercase tracking-[0.1em] text-muted-foreground/55">
         {label}
       </span>
 
-      <span className="mt-2 block truncate text-[10px] font-semibold text-heading">
+      <span className="mt-2 block truncate text-xs font-semibold text-heading">
         {value}
       </span>
     </div>

@@ -87,24 +87,26 @@ const InsideEveryTap = () => {
         <div className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end lg:gap-16 lg:pb-14">
           <div>
             <div className="flex items-center gap-3">
-              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-secondary">
-                03 / Inside Every Tap
+              <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
+                03 / Product experience
               </span>
 
               <span className="h-px w-10 bg-secondary/35" />
             </div>
 
             <h2 className="mt-5 max-w-2xl text-3xl font-semibold leading-[1.03] tracking-[-0.045em] text-heading sm:text-4xl lg:text-5xl xl:text-[56px]">
-              Simple on the surface.
-              <span className="block text-secondary">Powerful underneath.</span>
+              Clear for the user.
+              <span className="block text-secondary">
+                Considered underneath.
+              </span>
             </h2>
           </div>
 
           <div className="lg:pb-1">
             <p className="max-w-xl text-sm leading-7 text-body sm:text-base sm:leading-8">
-              Great mobile experiences are built from dozens of invisible
-              decisions. Navigation, speed, security, connectivity and data all
-              work together so the product simply feels right.
+              Useful mobile experiences depend on many connected decisions.
+              Navigation, security, connectivity, and data should work together
+              so people can complete what they came to do.
             </p>
 
             <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
@@ -137,12 +139,12 @@ const InsideEveryTap = () => {
               <div className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
-                <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-white/35">
+                <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-white/55">
                   Experience active
                 </span>
               </div>
 
-              <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-gold-light">
+              <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-gold-light">
                 Mobile / UX
               </span>
             </div>
@@ -169,7 +171,7 @@ const InsideEveryTap = () => {
               <div className="relative z-10 mt-7 flex items-center gap-3">
                 <Smartphone className="h-3.5 w-3.5 text-gold-light" />
 
-                <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/40">
+                <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-white/60">
                   Designed for real-world interaction
                 </span>
               </div>
@@ -177,7 +179,7 @@ const InsideEveryTap = () => {
 
             {/*===== BOTTOM LABEL =====*/}
 
-            <span className="absolute bottom-5 left-5 font-mono text-[7px] uppercase tracking-[0.14em] text-white/20 lg:bottom-6 lg:left-6">
+            <span className="absolute bottom-5 left-5 font-mono text-[9px] uppercase tracking-[0.12em] text-white/45 lg:bottom-6 lg:left-6">
               Blackcrest / Mobile Experience
             </span>
           </div>
@@ -201,11 +203,11 @@ const InsideEveryTap = () => {
                     </div>
 
                     <div>
-                      <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
+                      <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-secondary">
                         Interaction
                       </span>
 
-                      <span className="ml-3 font-mono text-[7px] text-muted-foreground/35">
+                      <span className="ml-3 font-mono text-[9px] text-muted-foreground/55">
                         01
                       </span>
                     </div>
@@ -261,12 +263,12 @@ const InsideEveryTap = () => {
                       <Icon className="h-4 w-4" />
                     </div>
 
-                    <span className="font-mono text-[7px] font-semibold text-secondary/45">
+                    <span className="font-mono text-[9px] font-semibold text-secondary/65">
                       {feature.number}
                     </span>
                   </div>
 
-                  <span className="mt-7 block font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/35">
+                  <span className="mt-7 block font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/55">
                     {feature.meta}
                   </span>
 
@@ -274,7 +276,7 @@ const InsideEveryTap = () => {
                     {feature.title}
                   </h3>
 
-                  <p className="mt-3 max-w-sm text-xs leading-5 text-muted-foreground">
+                  <p className="mt-3 max-w-sm text-sm leading-6 text-muted-foreground">
                     {feature.description}
                   </p>
 
@@ -319,7 +321,7 @@ const InsideEveryTap = () => {
             <span className="text-secondary"> Friction is.</span>
           </p>
 
-          <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-secondary">
+          <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-secondary">
             Touch / Response / Trust
           </span>
         </div>
@@ -339,7 +341,7 @@ function SmallSignal({ label }: { label: string }) {
     <div className="flex items-center gap-2">
       <span className="h-1 w-1 rounded-full bg-secondary" />
 
-      <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/45">
+      <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.11em] text-muted-foreground/60">
         {label}
       </span>
     </div>

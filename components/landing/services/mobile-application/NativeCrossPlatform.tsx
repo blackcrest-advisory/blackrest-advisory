@@ -21,13 +21,13 @@ import { Container } from "@/components/ui/Container";
 const benefits = [
   {
     icon: TimerReset,
-    title: "Faster Delivery",
+    title: "Focused Delivery",
     description:
       "Build core features once and release across iOS and Android together.",
   },
   {
     icon: TrendingUp,
-    title: "Lower Complexity",
+    title: "Shared Foundation",
     description:
       "One shared product foundation reduces duplicated development effort.",
   },
@@ -74,30 +74,32 @@ const NativeCrossPlatform = () => {
           {/* left */}
           <div>
             <div className="flex items-center gap-3">
-              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-secondary">
-                02 / Cross-Platform
+              <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
+                02 / Mobile foundations
               </span>
 
               <span className="h-px w-10 bg-secondary/35" />
             </div>
 
             <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
-              One product foundation designed to deliver a consistent experience
-              across the devices your customers use.
+              A shared product foundation can make it easier to deliver a
+              consistent experience across the devices your customers use.
             </p>
           </div>
 
           {/* right */}
           <div>
             <h2 className="max-w-4xl text-3xl font-semibold leading-[1.03] tracking-[-0.045em] text-heading sm:text-4xl lg:text-5xl xl:text-[56px]">
-              One codebase.
-              <span className="block text-secondary">Two major platforms.</span>
+              One product foundation.
+              <span className="block text-secondary">
+                A consistent mobile experience.
+              </span>
             </h2>
 
             <p className="mt-5 max-w-2xl text-sm leading-7 text-body sm:text-base sm:leading-8">
-              Cross-platform development lets us create shared application logic
-              and reusable interface systems while still delivering a polished
-              experience on both iOS and Android.
+              Where cross-platform delivery is the right fit, shared application
+              logic and reusable interface systems can support both iOS and
+              Android without losing sight of the customer experience.
             </p>
           </div>
         </div>
@@ -108,7 +110,7 @@ const NativeCrossPlatform = () => {
           {/*===== LEFT / CODEBASE =====*/}
 
           <div className="border-b border-border px-5 py-7 sm:px-6 lg:border-b-0 lg:border-r lg:px-8 lg:py-9">
-            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
+            <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-secondary">
               Shared foundation
             </span>
 
@@ -159,7 +161,7 @@ const NativeCrossPlatform = () => {
               <div className="border border-secondary/25 bg-primary px-5 py-5 text-center text-white">
                 <Code2 className="mx-auto h-5 w-5 text-gold-light"/>
 
-                <span className="mt-3 block font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-gold-light">
+                <span className="mt-3 block font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-gold-light">
                   Shared Codebase
                 </span>
 
@@ -187,7 +189,7 @@ const NativeCrossPlatform = () => {
                       {platform.label}
                     </span>
 
-                    <span className="mt-1 block font-mono text-[6px] uppercase tracking-[0.11em] text-muted-foreground/35">
+                    <span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.09em] text-muted-foreground/55">
                       {platform.detail}
                     </span>
                   </div>
@@ -195,7 +197,7 @@ const NativeCrossPlatform = () => {
               </div>
             </div>
 
-            <p className="mt-6 text-center font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/35">
+            <p className="mt-6 text-center font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/55">
               One core → multiple experiences
             </p>
           </div>
@@ -203,7 +205,7 @@ const NativeCrossPlatform = () => {
           {/*===== RIGHT / BENEFITS =====*/}
 
           <div className="px-5 py-7 sm:px-6 lg:px-8 lg:py-9">
-            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
+            <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-secondary">
               Why it matters
             </span>
 
@@ -256,8 +258,8 @@ const NativeCrossPlatform = () => {
         <div className="mt-6 grid overflow-hidden border border-border bg-muted/10 sm:grid-cols-3">
           <ValueItem
             number="01"
-            label="One Team"
-            description="A unified development workflow."
+            label="One Product Plan"
+            description="A clear, shared delivery approach."
           />
 
           <ValueItem
@@ -283,7 +285,7 @@ const NativeCrossPlatform = () => {
             platforms.
           </p>
 
-          <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-secondary">
+          <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-secondary">
             Shared Core / Native Experience
           </span>
         </div>
@@ -318,7 +320,7 @@ function ValueItem({
         ${!last ? "border-b border-border sm:border-b-0 sm:border-r" : ""}
       `}
     >
-      <span className="font-mono text-[7px] font-semibold text-secondary/55">
+      <span className="font-mono text-[9px] font-semibold text-secondary/70">
         {number}
       </span>
 
