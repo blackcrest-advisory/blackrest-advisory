@@ -98,7 +98,10 @@ export const ContactForm = () => {
   };
 
   return (
-    <Section className="relative overflow-hidden bg-background py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-28">
+    <Section
+      id="contact-form"
+      className="relative overflow-hidden bg-muted/20 py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-24"
+    >
       {/*===== Background =====*/}
 
       <div className="pointer-events-none absolute inset-0">
@@ -148,7 +151,7 @@ export const ContactForm = () => {
               <span className="h-px w-10 bg-secondary/40" />
             </div>
 
-            <h2 className="mt-5 max-w-xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl">
+            <h2 className="mt-5 max-w-xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]">
               Tell us what
               <span className="block text-muted-foreground">
                 you&apos;re working through.
