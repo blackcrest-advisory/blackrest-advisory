@@ -18,21 +18,20 @@ interface FooterStatsProps {
 export const FooterStats = ({ stats }: FooterStatsProps) => {
   const items = [
     {
-      label: "Partner Since",
+      label: "Client Since",
       value: stats.partnerSince,
       icon: CalendarDays,
-      meta: "Relationship",
+      meta: "Account",
     },
     {
-      label: "Total Projects",
+      label: "Projects",
       value: String(stats.totalProjects),
       icon: BriefcaseBusiness,
       meta: "Engagements",
     },
     {
-      label: "Completion Rate",
-      value:
-        stats.completionRate === null ? "—" : `${stats.completionRate}%`,
+      label: "Completed Projects",
+      value: String(stats.completedProjects),
       icon: CheckCircle2,
       meta: "Delivery",
     },
@@ -68,20 +67,20 @@ export const FooterStats = ({ stats }: FooterStatsProps) => {
       <div className="relative z-10 flex flex-col gap-3 border-b border-border px-5 py-5 sm:flex-row sm:items-end sm:justify-between sm:px-6">
         <div>
           <p className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
-            Partnership snapshot
+            Account snapshot
           </p>
 
           <h2 className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl">
-            Your Blackcrest Relationship
+            Your Blackcrest account
           </h2>
 
           <p className="mt-1 text-xs leading-5 text-muted-foreground">
-            A concise view of your engagement history and delivery performance.
+            Live records from your projects and invoices.
           </p>
         </div>
 
         <span className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/35">
-          Client / Record
+          Client / Overview
         </span>
       </div>
 
@@ -143,12 +142,12 @@ export const FooterStats = ({ stats }: FooterStatsProps) => {
           <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
           <span className="font-mono text-[7px] uppercase tracking-[0.16em] text-muted-foreground/40">
-            Partnership active
+            Account active
           </span>
         </div>
 
         <span className="text-xs text-muted-foreground">
-          Blackcrest client relationship record
+          Blackcrest account record
         </span>
       </div>
     </motion.section>

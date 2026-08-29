@@ -65,7 +65,7 @@ export const SupportSection = () => {
           <div className="relative shrink-0">
             <div className="flex h-16 w-16 items-center justify-center border border-secondary/20 bg-secondary/[0.04] p-1 shadow-[var(--shadow-card)]">
               <Avatar
-                name="Sarah Mitchell"
+                name="Blackcrest Support"
                 size="md"
                 className="h-full w-full text-lg"
               />
@@ -83,7 +83,7 @@ export const SupportSection = () => {
               <Sparkles className="h-3.5 w-3.5 text-secondary" />
 
               <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
-                Dedicated support
+                Blackcrest support
               </span>
 
               <span className="h-px w-7 bg-secondary/30" />
@@ -91,17 +91,17 @@ export const SupportSection = () => {
 
             <div className="mt-2">
               <p className="text-xs font-medium text-muted-foreground">
-                Your Account Manager
+                Contact Blackcrest
               </p>
 
               <h3 className="mt-0.5 text-xl font-semibold tracking-[-0.025em] text-heading sm:text-2xl">
-                Sarah Mitchell
+                Support for your project
               </h3>
             </div>
 
             <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
-              Your direct point of contact for project coordination, strategic
-              questions, and anything you need from Blackcrest.
+              Contact us for project coordination, questions about your work,
+              or help with your Blackcrest account.
             </p>
 
             {/* contact details */}
@@ -110,7 +110,7 @@ export const SupportSection = () => {
                 <Mail className="h-3.5 w-3.5 shrink-0 text-secondary"/>
 
                 <span className="truncate text-xs text-foreground/75">
-                  sarah@blackcrestadvisory.com
+                  careselenite@gmail.com
                 </span>
               </div>
 
@@ -120,7 +120,7 @@ export const SupportSection = () => {
                 <Phone className="h-3.5 w-3.5 shrink-0 text-secondary"/>
 
                 <span className="text-xs text-foreground/75">
-                  +44 20 1234 5678
+                  +88 01647-660300
                 </span>
               </div>
             </div>
@@ -137,7 +137,7 @@ export const SupportSection = () => {
               </p>
 
               <p className="mt-1 text-sm font-semibold text-heading">
-                Need something?
+                Get in touch
               </p>
             </div>
 
@@ -148,32 +148,34 @@ export const SupportSection = () => {
 
           <div className="mt-4 space-y-2">
             <Button
+              href="tel:+8801647660300"
               variant="primary"
               size="sm"
               className="group w-full justify-between"
             >
               <span className="flex items-center">
                 <CalendarDays className="mr-2 h-4 w-4" />
-                Schedule Call
+                Call Blackcrest
               </span>
 
               <span className="font-mono text-[8px] uppercase tracking-[0.12em] opacity-60">
-                Book
+                Call
               </span>
             </Button>
 
             <Button
+              href="mailto:careselenite@gmail.com"
               variant="outline"
               size="sm"
               className="group w-full justify-between"
             >
               <span className="flex items-center">
                 <MessageCircle className="mr-2 h-4 w-4" />
-                Send Message
+                Send Email
               </span>
 
               <span className="font-mono text-[8px] uppercase tracking-[0.12em] text-muted-foreground/50">
-                Chat
+                Email
               </span>
             </Button>
           </div>
@@ -184,12 +186,12 @@ export const SupportSection = () => {
               <span className="h-1.5 w-1.5 rounded-full bg-success" />
 
               <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40">
-                Account support active
+                Contact details
               </span>
             </div>
 
             <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-secondary">
-              BCR
+              Blackcrest
             </span>
           </div>
         </div>

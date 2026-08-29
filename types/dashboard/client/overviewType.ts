@@ -34,6 +34,6 @@ export interface Stats {
 export interface ClientRelationshipStats {
   partnerSince: string;
   totalProjects: number;
-  completionRate: number | null;
+  completedProjects: number;
   paidInvoices: number;
 }

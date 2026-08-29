@@ -113,10 +113,7 @@ export default async function Page() {
         }).format(clientRecord.createdAt)
       : "—",
     totalProjects: projectRecords.length,
-    completionRate:
-      projectRecords.length > 0
-        ? Math.round((completedProjectCount / projectRecords.length) * 100)
-        : null,
+    completedProjects: completedProjectCount,
     paidInvoices: paidInvoiceCount,
   };
 
