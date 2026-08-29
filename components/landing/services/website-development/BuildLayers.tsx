@@ -25,56 +25,56 @@ const layersData = [
   {
     id: 1,
     label: "Foundation",
-    description: "Strategy, sitemap & technical planning",
+    description: "Business goals, sitemap, and technical direction",
     meta: "Strategy",
     icon: Layers3,
   },
   {
     id: 2,
     label: "Wireframe",
-    description: "User flow & interactive blueprint",
+    description: "Clear structure and customer journeys",
     meta: "Structure",
     icon: PenTool,
   },
   {
     id: 3,
     label: "Design System",
-    description: "Visual identity & component library",
+    description: "Visual language and reusable interface patterns",
     meta: "Design",
     icon: Palette,
   },
   {
     id: 4,
     label: "Frontend",
-    description: "Pixel-perfect UI development",
+    description: "Responsive, user-facing interface development",
     meta: "Interface",
     icon: Monitor,
   },
   {
     id: 5,
     label: "Backend",
-    description: "APIs, databases & business logic",
+    description: "APIs, data, and business logic where needed",
     meta: "Engineering",
     icon: Server,
   },
   {
     id: 6,
     label: "CMS",
-    description: "Content management & dynamic pages",
+    description: "Content workflows and flexible page management",
     meta: "Content",
     icon: FilePenLine,
   },
   {
     id: 7,
     label: "Optimization",
-    description: "Speed, SEO & performance tuning",
+    description: "Performance, accessibility, and search foundations",
     meta: "Performance",
     icon: Gauge,
   },
   {
     id: 8,
     label: "Launch",
-    description: "Deployment, testing & go-live",
+    description: "Testing, release, and a clear handover",
     meta: "Delivery",
     icon: Rocket,
   },
@@ -96,32 +96,31 @@ export default function BuildLayers() {
           {/* left */}
           <div>
             <div className="flex items-center gap-3">
-              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-secondary">
-                03 / Our Process
+              <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
+                03 / How we build
               </span>
 
               <span className="h-px w-10 bg-secondary/35"/>
             </div>
 
             <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
-              A structured approach that keeps every part of the project
-              focused, connected and moving forward.
+              A clear structure helps us make decisions, connect the work, and
+              keep the project moving without unnecessary complexity.
             </p>
           </div>
 
           {/* right */}
           <div>
             <h2 className="max-w-4xl text-3xl font-semibold leading-[1.03] tracking-[-0.045em] text-heading sm:text-4xl lg:text-5xl xl:text-[56px]">
-              Built layer by layer.
+              A clear path from
               <span className="block text-secondary">
-                Nothing left to chance.
+                idea to release.
               </span>
             </h2>
 
             <p className="mt-5 max-w-2xl text-sm leading-7 text-body sm:text-base sm:leading-8">
-              From planning and design to engineering, optimisation and launch,
-              every stage has a clear purpose in building a stronger digital
-              product.
+              We bring together the parts your project needs, from early
+              planning through design, engineering, testing, and launch.
             </p>
           </div>
         </div>
@@ -184,7 +183,7 @@ export default function BuildLayers() {
                 {/*===== CONTENT =====*/}
 
                 <div className="mt-8">
-                  <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
+                  <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-secondary">
                     {layer.meta}
                   </span>
 
@@ -200,11 +199,11 @@ export default function BuildLayers() {
                 {/*===== CARD FOOTER =====*/}
 
                 <div className="mt-8 flex items-center justify-between gap-3 border-t border-border pt-4">
-                  <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/30">
+                  <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.11em] text-muted-foreground/55">
                     Step
                   </span>
 
-                  <span className="font-mono text-[8px] font-semibold text-secondary">
+                  <span className="font-mono text-[9px] font-semibold text-secondary">
                     {String(layer.id).padStart(2, "0")}
                     <span className="text-muted-foreground/25"> / 08</span>
                   </span>
@@ -234,16 +233,16 @@ export default function BuildLayers() {
 
         <div className="mt-10 flex flex-col gap-5 border-t border-border pt-7 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-secondary">
+            <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.14em] text-secondary">
               From concept to launch
             </span>
 
             <p className="mt-2 max-w-xl text-lg font-medium leading-7 tracking-[-0.015em] text-heading">
-              Eight focused stages. One cohesive digital product.
+              A focused sequence, shaped around the work your project needs.
             </p>
           </div>
 
-          <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/30">
+          <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground/55">
             Strategy → Experience → Engineering → Delivery
           </span>
         </div>
@@ -279,7 +278,7 @@ function ProcessPhase({
         ${!last ? "border-b border-border sm:border-b-0 sm:border-r" : ""}
       `}
     >
-      <span className="font-mono text-[7px] font-semibold text-secondary/55">
+      <span className="font-mono text-[9px] font-semibold text-secondary/70">
         {index}
       </span>
 

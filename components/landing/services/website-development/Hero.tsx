@@ -29,11 +29,11 @@ import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 //==============================================================//
 
 const technologies = [
-  "NEXT.JS",
-  "REACT",
-  "TYPESCRIPT",
-  "PERFORMANCE",
-  "SCALABILITY",
+  "Strategy",
+  "Experience",
+  "Engineering",
+  "Performance",
+  "Support",
 ];
 
 const architectureNodes = [
@@ -121,18 +121,18 @@ const Hero = () => {
               <span className="relative h-2 w-2 rounded-full bg-gold-light"/>
             </span>
 
-            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.18em] text-gold-light">
-              Web Engineering System
+            <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-gold-light">
+              Website development
             </span>
           </div>
 
           <div className="flex items-center gap-5">
-            <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-white/30">
-              Blackcrest / Web Development
+            <span className="font-mono text-[9px] uppercase tracking-[0.13em] text-white/55">
+              Blackcrest / Digital platforms
             </span>
 
-            <span className="hidden font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-white/45 sm:block">
-              Build / 01
+            <span className="hidden font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-gold-light sm:block">
+              Web / 01
             </span>
           </div>
         </div>
@@ -157,14 +157,14 @@ const Hero = () => {
                 <Braces className="h-3.5 w-3.5" />
               </div>
 
-              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-gold-light">
-                Website Development
+              <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-light">
+                From first page to platform
               </span>
 
               <span className="h-px w-10 bg-gold-light/35"/>
 
-              <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-white/30">
-                Engineering Practice
+              <span className="font-mono text-[9px] uppercase tracking-[0.13em] text-white/55">
+                Clear digital foundations
               </span>
             </motion.div>
 
@@ -174,17 +174,17 @@ const Hero = () => {
               variants={shouldReduceMotion ? undefined : fadeInUp}
               className="mt-8"
             >
-              <h1 className="max-w-[780px] text-[42px] font-semibold leading-[0.96] tracking-[-0.065em] text-white sm:text-[56px] lg:text-[60px] xl:text-[70px]">
-                We engineer digital
+              <h1 className="max-w-[720px] text-[clamp(2.6rem,4.7vw,4.75rem)] font-semibold leading-[0.96] tracking-[-0.06em] text-white">
+                Websites built
                 <span className="block text-gold-light">
-                  infrastructure built to perform.
+                  around your next step.
                 </span>
               </h1>
 
               <p className="mt-6 max-w-xl text-sm leading-7 text-white/50 sm:text-base sm:leading-8">
-                From high-performance corporate websites to custom web
-                applications, Blackcrest designs and engineers digital platforms
-                built for speed, clarity, scalability, and commercial growth.
+                Blackcrest helps businesses create clear websites and web
+                platforms that communicate what matters, support real customer
+                journeys, and give the business room to move forward.
               </p>
             </motion.div>
 
@@ -195,21 +195,21 @@ const Hero = () => {
               className="mt-8 flex flex-col gap-3 sm:flex-row"
             >
               <Button
-                href="#contact"
+                href="/start-project"
                 size="md"
                 className="group w-full !rounded-md sm:w-auto"
               >
-                Start Your Project
+                Start a web project
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"/>
               </Button>
 
               <Button
                 variant="outline"
                 size="md"
-                href="#work"
+                href="/contact"
                 className="w-full !rounded-md border-white/20 text-white hover:bg-white/5 sm:w-auto"
               >
-                See Our Work
+                Talk through your idea
               </Button>
             </motion.div>
 
@@ -223,13 +223,13 @@ const Hero = () => {
                 <div className="flex items-center gap-2">
                   <Code2 className="h-3.5 w-3.5 text-gold-light" />
 
-                  <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/35">
-                    Technology
+                  <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-white/60">
+                    Experience
                   </span>
                 </div>
 
                 <p className="mt-2 text-xs font-medium text-white/75">
-                  Next.js / React
+                  Clear customer journeys
                 </p>
               </div>
 
@@ -237,13 +237,13 @@ const Hero = () => {
                 <div className="flex items-center gap-2">
                   <Zap className="h-3.5 w-3.5 text-gold-light" />
 
-                  <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/35">
-                    Engineering
+                  <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-white/60">
+                    Delivery
                   </span>
                 </div>
 
                 <p className="mt-2 text-xs font-medium text-white/75">
-                  Fast & Scalable
+                  Reliable digital foundations
                 </p>
               </div>
             </motion.div>
@@ -263,7 +263,7 @@ const Hero = () => {
                     <span className="hidden h-3 w-px bg-white/10 sm:block"/>
                   )}
 
-                  <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-white/30">
+                  <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-white/55">
                     {technology}
                   </span>
                 </div>
@@ -347,7 +347,7 @@ const Hero = () => {
                 <div className="flex items-center gap-3">
                   <Cpu className="h-3.5 w-3.5 text-gold-light" />
 
-                  <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-white/45">
+                  <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.14em] text-white/65">
                     Architecture Runtime
                   </span>
                 </div>
@@ -355,7 +355,7 @@ const Hero = () => {
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success"/>
 
-                  <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-white/30">
+                  <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-white/55">
                     Live
                   </span>
                 </div>
@@ -513,7 +513,7 @@ const Hero = () => {
                       >
                         <div className="group relative flex items-center gap-4 border border-white/15 bg-navy-deep/85 px-4 py-3.5 backdrop-blur-md transition-all duration-300 hover:border-gold-light/35 hover:bg-navy-deep">
                           {/* number */}
-                          <span className="font-mono text-[7px] font-semibold text-gold-light/60">
+                          <span className="font-mono text-[9px] font-semibold text-gold-light/75">
                             {node.number}
                           </span>
 
@@ -528,7 +528,7 @@ const Hero = () => {
                               {node.title}
                             </span>
 
-                            <span className="mt-1 block font-mono text-[7px] uppercase tracking-[0.13em] text-white/30">
+                            <span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.11em] text-white/55">
                               {node.subtitle}
                             </span>
                           </div>
@@ -537,7 +537,7 @@ const Hero = () => {
                           <div className="flex items-center gap-1.5">
                             <Check className="h-3 w-3 text-success" />
 
-                            <span className="hidden font-mono text-[6px] font-semibold uppercase tracking-[0.12em] text-white/25 sm:block">
+                            <span className="hidden font-mono text-[8px] font-semibold uppercase tracking-[0.1em] text-white/45 sm:block">
                               Ready
                             </span>
                           </div>
@@ -579,7 +579,7 @@ const Hero = () => {
                 >
                   <Network className="h-3 w-3 text-gold-light/60" />
 
-                  <span className="font-mono text-[6px] font-semibold uppercase tracking-[0.14em] text-white/25">
+                  <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.12em] text-white/45">
                     Request
                   </span>
                 </motion.div>
@@ -606,7 +606,7 @@ const Hero = () => {
                   }}
                   className="absolute right-4 top-[58%] hidden items-center gap-2 xl:flex"
                 >
-                  <span className="font-mono text-[6px] font-semibold uppercase tracking-[0.14em] text-white/25">
+                  <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.12em] text-white/45">
                     Response
                   </span>
 
@@ -657,7 +657,7 @@ const Hero = () => {
           <div className="flex items-center gap-3 px-4 py-4 sm:px-6 lg:px-8">
             <Code2 className="h-3.5 w-3.5 text-gold-light" />
 
-            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/35">
+            <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-white/55">
               Strategy → UX → Engineering → Performance
             </span>
           </div>
@@ -665,7 +665,7 @@ const Hero = () => {
           <div className="flex items-center gap-3 border-t border-white/10 px-4 py-4 sm:border-l sm:border-t-0 sm:px-6">
             <span className="h-1.5 w-1.5 rounded-full bg-success"/>
 
-            <span className="whitespace-nowrap font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-white/30">
+            <span className="whitespace-nowrap font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-white/50">
               Engineered for growth
             </span>
           </div>
@@ -718,7 +718,7 @@ function SystemMetric({
       <div className="flex items-center gap-2">
         <Icon className="h-3 w-3 shrink-0 text-gold-light" />
 
-        <span className="truncate font-mono text-[6px] font-semibold uppercase tracking-[0.13em] text-white/25">
+        <span className="truncate font-mono text-[8px] font-semibold uppercase tracking-[0.11em] text-white/45">
           {label}
         </span>
       </div>

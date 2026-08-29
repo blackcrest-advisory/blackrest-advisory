@@ -1,163 +1,150 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import {
-  FiBriefcase,
-  FiShoppingCart,
-  FiCode,
-  FiFileText,
-  FiLayers,
-  FiLifeBuoy,
-  FiArrowRight,
-} from "react-icons/fi";
-import { Section } from "@/components/ui/Section";
+  BriefcaseBusiness,
+  Code2,
+  FilePenLine,
+  ShoppingCart,
+} from "lucide-react";
+
 import { Container } from "@/components/ui/Container";
-import { Card } from "@/components/ui/Card";
-import { fadeInUp, staggerContainer, hoverScale } from "@/lib/utils/animations";
+import { Section } from "@/components/ui/Section";
 
 const services = [
   {
-    icon: FiBriefcase,
-    title: "Corporate & Business Websites",
+    number: "01",
+    title: "Business websites",
     description:
-      "Professional websites built for credibility, lead generation, and brand authority – designed to convert B2B visitors into enquiries.",
+      "Clear, credible websites that explain your offer and give the right people a reason to get in touch.",
+    icon: BriefcaseBusiness,
   },
   {
-    icon: FiShoppingCart,
-    title: "E‑Commerce Platforms",
+    number: "02",
+    title: "E-commerce experiences",
     description:
-      "Full‑featured online stores with secure payment gateways, inventory management, and optimised checkout flows that maximise revenue.",
+      "Practical online shopping journeys that make products easier to discover, understand, and buy.",
+    icon: ShoppingCart,
   },
   {
-    icon: FiCode,
-    title: "Custom Web Applications",
+    number: "03",
+    title: "Custom web applications",
     description:
-      "Bespoke platforms built around unique business logic – portals, dashboards, SaaS tools, and operational systems tailored to you.",
+      "Purpose-built portals, dashboards, and operational tools shaped around the way your business works.",
+    icon: Code2,
   },
   {
-    icon: FiFileText,
-    title: "CMS & Content Platforms",
+    number: "04",
+    title: "Content and ongoing support",
     description:
-      "WordPress, headless CMS, and custom solutions that give you full control over your content without technical dependency.",
-  },
-  {
-    icon: FiLayers,
-    title: "UI/UX Design",
-    description:
-      "User experience research, wireframing, and interface design that prioritises usability, accessibility, and visual impact across all devices.",
-  },
-  {
-    icon: FiLifeBuoy,
-    title: "Website Maintenance & Support",
-    description:
-      "Ongoing technical support, performance monitoring, security updates, and iterative improvements to keep your site fast, secure, and effective.",
+      "Content systems and practical improvements that help your website stay useful after the first launch.",
+    icon: FilePenLine,
   },
 ];
 
 export default function WhatWeBuild() {
+  const reduceMotion = Boolean(useReducedMotion());
+
   return (
-    //===== What We Build Section =====//
-    <Section className="relative overflow-hidden bg-muted/30">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-secondary/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none" />
+    <Section className="relative isolate overflow-hidden bg-muted/20 py-16 sm:py-20 lg:py-28">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.16] [background-image:linear-gradient(to_right,var(--color-border)_1px,transparent_1px)] [background-size:25%_100%]"
+      />
 
       <Container>
-        {/*===== Section header =====*/}
-        <div className="text-center">
-          <motion.span
-            className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary"
-            initial={{ opacity: 0, y: -10 }}
+        <div className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-end lg:gap-16 lg:pb-14">
+          <motion.div
+            initial={{ opacity: 0, x: reduceMotion ? 0 : -16 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: reduceMotion ? 0 : 0.55 }}
+          >
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
+                02 / What we build
+              </span>
+
+              <span className="h-px w-10 bg-secondary/35" />
+            </div>
+
+            <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
+              The right website depends on the job it needs to do for your
+              customers and your business.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ delay: reduceMotion ? 0 : 0.08, duration: 0.55 }}
           >
-            ✦ What We Build
-          </motion.span>
-          <motion.h2
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl"
-          >
-            What We Build
-          </motion.h2>
-          <motion.p
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground"
-          >
-            From simple business sites to complex web applications – we deliver
-            tailored solutions that align with your goals.
-          </motion.p>
+            <h2 className="max-w-4xl text-4xl font-semibold leading-[1.04] tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem]">
+              Digital spaces that make
+              <span className="block text-secondary">the next step clear.</span>
+            </h2>
+
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-body sm:text-base sm:leading-8">
+              Whether you need a focused website, a commerce experience, or a
+              more capable web platform, we shape the work around the outcome
+              you are trying to achieve.
+            </p>
+          </motion.div>
         </div>
 
-        {/*===== Services grid =====*/}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {services.map((service) => (
-            <motion.div key={service.title} variants={fadeInUp} {...hoverScale}>
-              <Card
-                padding="base"
-                hoverEffect
-                className="group relative overflow-hidden border-border/50"
+        <div className="grid border-b border-border sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+
+            return (
+              <motion.article
+                key={service.title}
+                initial={{ opacity: 0, y: reduceMotion ? 0 : 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{
+                  delay: reduceMotion ? 0 : index * 0.07,
+                  duration: 0.5,
+                }}
+                className={`group relative min-h-[280px] border-b border-border px-5 py-7 transition-colors duration-300 hover:bg-card sm:px-6 lg:min-h-[310px] lg:border-b-0 lg:px-7 lg:py-8 ${
+                  index > 0 ? "sm:border-l" : ""
+                } ${index === 2 ? "sm:border-l-0 lg:border-l" : ""}`}
               >
-                {/* Golden top accent bar */}
-                <div className="absolute -top-px left-6 right-6 h-0.5 rounded-full bg-gradient-to-r from-transparent via-secondary to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
-                {/* Glow overlay on hover */}
-                <div className="absolute inset-0 rounded-2xl bg-secondary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
-                <div className="relative z-10">
-                  {/* Icon – golden gradient circle */}
-                  <div className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-secondary/20 to-secondary/5 text-secondary transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-secondary/20">
-                    <service.icon className="h-7 w-7" />
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex h-10 w-10 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary transition-colors group-hover:border-secondary/30 group-hover:bg-secondary/[0.1]">
+                    <Icon className="h-4 w-4" />
                   </div>
 
-                  <h3 className="mt-4 text-xl font-semibold text-foreground transition-colors duration-300 group-hover:text-secondary">
-                    {service.title}
-                  </h3>
-
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {service.description}
-                  </p>
-
-                  {/* Arrow indicator at bottom right */}
-                  <div className="mt-4 flex justify-end">
-                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-secondary/10 text-secondary transition-all duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground group-hover:translate-x-1">
-                      <FiArrowRight className="h-4 w-4" />
-                    </span>
-                  </div>
+                  <span className="font-mono text-[10px] font-semibold text-secondary/70">
+                    {service.number}
+                  </span>
                 </div>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
 
-        {/*===== Bottom golden CTA badge =====*/}
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="mt-16 flex justify-center"
-        >
-          <div className="flex items-center gap-3 rounded-full border border-secondary/20 bg-card px-6 py-3 shadow-sm">
-            <span className="text-secondary">✦</span>
-            <span className="text-sm font-medium text-foreground">
-              Every project is custom‑built for your unique needs
-            </span>
-            <span className="text-secondary">✦</span>
-          </div>
-        </motion.div>
+                <h3 className="mt-8 text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl">
+                  {service.title}
+                </h3>
+
+                <p className="mt-3 max-w-xs text-sm leading-7 text-muted-foreground">
+                  {service.description}
+                </p>
+
+                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-secondary transition-all duration-500 group-hover:w-full" />
+              </motion.article>
+            );
+          })}
+        </div>
+
+        <div className="flex flex-col gap-3 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-2xl text-sm font-medium leading-6 text-heading">
+            Start with the business need, then choose the right level of website
+            or platform support.
+          </p>
+
+          <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-secondary">
+            Strategy / Experience / Engineering
+          </span>
+        </div>
       </Container>
     </Section>
   );
