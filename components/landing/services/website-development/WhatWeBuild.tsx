@@ -53,44 +53,43 @@ export default function WhatWeBuild() {
       />
 
       <Container>
-        <div className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-end lg:gap-16 lg:pb-14">
+        <div className="relative border-b border-border pb-10 text-center lg:pb-14">
           <motion.div
-            initial={{ opacity: 0, x: reduceMotion ? 0 : -16 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: reduceMotion ? 0 : -12 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: reduceMotion ? 0 : 0.55 }}
+            className="inline-flex items-center gap-3 border border-secondary/15 bg-secondary/[0.04] px-3 py-2"
           >
-            <div className="flex items-center gap-3">
-              <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
-                02 / What we build
-              </span>
+            <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
 
-              <span className="h-px w-10 bg-secondary/35" />
-            </div>
-
-            <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
-              The right website depends on the job it needs to do for your
-              customers and your business.
-            </p>
+            <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-secondary">
+              02 / What we build
+            </span>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
+            initial={{ opacity: 0, y: reduceMotion ? 0 : 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: reduceMotion ? 0 : 0.08, duration: 0.55 }}
           >
-            <h2 className="max-w-4xl text-4xl font-semibold leading-[1.04] tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem]">
+            <h2 className="mx-auto mt-6 max-w-4xl text-4xl font-semibold leading-[1.04] tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem]">
               Digital spaces that make
               <span className="block text-secondary">the next step clear.</span>
             </h2>
 
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-body sm:text-base sm:leading-8">
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-body sm:text-base sm:leading-8">
               Whether you need a focused website, a commerce experience, or a
               more capable web platform, we shape the work around the outcome
               you are trying to achieve.
             </p>
           </motion.div>
+
+          <p className="mx-auto mt-6 max-w-md text-xs leading-6 text-muted-foreground">
+            The right website depends on the job it needs to do for your
+            customers and your business.
+          </p>
         </div>
 
         <div className="grid border-b border-border sm:grid-cols-2 lg:grid-cols-4">

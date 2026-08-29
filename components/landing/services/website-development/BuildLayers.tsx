@@ -92,36 +92,47 @@ export default function BuildLayers() {
       <Container>
         {/*===== HEADER =====*/}
 
-        <div className="grid gap-7 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-end lg:gap-16">
-          {/* left */}
-          <div>
-            <div className="flex items-center gap-3">
-              <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
+        <div className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
+          <div className="grid lg:grid-cols-[190px_minmax(0,1fr)]">
+            <div className="relative overflow-hidden bg-navy-deep px-6 py-7 text-white sm:px-8 lg:flex lg:flex-col lg:justify-between lg:px-9 lg:py-9">
+              <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-gold-light">
                 03 / How we build
               </span>
 
-              <span className="h-px w-10 bg-secondary/35"/>
+              <span className="mt-8 block text-6xl font-semibold leading-none tracking-[-0.08em] text-white/15 lg:mt-0 lg:text-7xl">
+                08
+              </span>
+
+              <span className="mt-3 block font-mono text-[9px] uppercase tracking-[0.12em] text-white/55">
+                Connected stages
+              </span>
             </div>
 
-            <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
-              A clear structure helps us make decisions, connect the work, and
-              keep the project moving without unnecessary complexity.
-            </p>
-          </div>
+            <div className="px-6 py-8 sm:px-8 lg:px-10 lg:py-9">
+              <h2 className="max-w-4xl text-4xl font-semibold leading-[1.04] tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem]">
+                A clear path from
+                <span className="block text-secondary">idea to release.</span>
+              </h2>
 
-          {/* right */}
-          <div>
-            <h2 className="max-w-4xl text-3xl font-semibold leading-[1.03] tracking-[-0.045em] text-heading sm:text-4xl lg:text-5xl xl:text-[56px]">
-              A clear path from
-              <span className="block text-secondary">
-                idea to release.
-              </span>
-            </h2>
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-body sm:text-base sm:leading-8">
+                We bring together the parts your project needs, from early
+                planning through design, engineering, testing, and launch.
+              </p>
 
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-body sm:text-base sm:leading-8">
-              We bring together the parts your project needs, from early
-              planning through design, engineering, testing, and launch.
-            </p>
+              <div className="mt-7 grid grid-cols-2 border-t border-border pt-5 sm:grid-cols-4">
+                {["Plan", "Design", "Build", "Release"].map((phase, index) => (
+                  <div
+                    key={phase}
+                    className={`flex items-center gap-2 py-2 font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground ${
+                      index > 0 ? "sm:border-l sm:border-border sm:pl-4" : ""
+                    }`}
+                  >
+                    <span className="text-secondary">0{index + 1}</span>
+                    {phase}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
