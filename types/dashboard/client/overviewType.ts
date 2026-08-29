@@ -21,14 +21,9 @@ export interface Activity {
 
 export interface Stats {
   activeProjects: number;
-  leadsGenerated: number;
-  conversionRate: number;
-  revenueImpact: number;
-  change: {
-    leads: string;
-    conversion: string;
-    revenue: string;
-  };
+  totalProjects: number;
+  completedProjects: number;
+  paidInvoices: number;
 }
 
 export interface ClientRelationshipStats {

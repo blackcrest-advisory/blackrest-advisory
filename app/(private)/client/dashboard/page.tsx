@@ -41,14 +41,11 @@ export default async function Page() {
 
   const stats = {
     activeProjects: activeProjectCount,
-    leadsGenerated: 0,
-    conversionRate: 0,
-    revenueImpact: 0,
-    change: {
-      leads: "—",
-      conversion: "—",
-      revenue: "—",
-    },
+    totalProjects: projectRecords.length,
+    completedProjects: projectRecords.filter(
+      (project) => project.status === "COMPLETED",
+    ).length,
+    paidInvoices: paidInvoiceCount,
   };
 
   const projects: Project[] = projectRecords.map((project) => ({

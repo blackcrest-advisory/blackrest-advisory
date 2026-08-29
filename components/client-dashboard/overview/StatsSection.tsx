@@ -3,13 +3,11 @@
 import { motion, useReducedMotion } from "framer-motion";
 import {
   BriefcaseBusiness,
-  Users,
-  TrendingUp,
-  Euro,
-  ArrowUpRight,
+  CheckCircle2,
+  CircleDot,
+  ReceiptText,
 } from "lucide-react";
 
-import { cn } from "@/lib/utils/utils";
 import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 import { Stats } from "@/types/dashboard/client/overviewType";
 
@@ -24,30 +22,30 @@ export const StatsSection = ({ stats }: StatsSectionProps) => {
     {
       label: "Active Projects",
       value: String(stats.activeProjects),
-      change: "+1 this month",
+      detail: "Currently in progress",
       icon: BriefcaseBusiness,
       eyebrow: "Delivery",
     },
     {
-      label: "Leads Generated",
-      value: String(stats.leadsGenerated),
-      change: stats.change.leads,
-      icon: Users,
-      eyebrow: "Growth YTD",
+      label: "Total Projects",
+      value: String(stats.totalProjects),
+      detail: "Across your account",
+      icon: CircleDot,
+      eyebrow: "Engagements",
     },
     {
-      label: "Conversion Rate",
-      value: `${stats.conversionRate}%`,
-      change: stats.change.conversion,
-      icon: TrendingUp,
-      eyebrow: "Performance",
+      label: "Completed Projects",
+      value: String(stats.completedProjects),
+      detail: "Delivery records",
+      icon: CheckCircle2,
+      eyebrow: "Completed",
     },
     {
-      label: "Revenue Impact",
-      value: `€${(stats.revenueImpact / 1000).toFixed(0)}K`,
-      change: stats.change.revenue,
-      icon: Euro,
-      eyebrow: "Commercial impact",
+      label: "Paid Invoices",
+      value: String(stats.paidInvoices),
+      detail: "Billing records",
+      icon: ReceiptText,
+      eyebrow: "Billing",
     },
   ];
 
@@ -117,18 +115,18 @@ export const StatsSection = ({ stats }: StatsSectionProps) => {
                 </p>
               </div>
 
-              {/* change */}
+              {/* record context */}
               <div className="mt-5 flex items-center justify-between gap-3 border-t border-border pt-3">
                 <div className="flex items-center gap-2">
-                  <ArrowUpRight className="h-3.5 w-3.5 text-success"/>
+                  <CircleDot className="h-3.5 w-3.5 text-secondary"/>
 
-                  <span className="text-xs font-medium text-success">
-                    {item.change}
+                  <span className="text-xs font-medium text-muted-foreground">
+                    {item.detail}
                   </span>
                 </div>
 
                 <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/30">
-                  Insight
+                  Live record
                 </span>
               </div>
             </div>
