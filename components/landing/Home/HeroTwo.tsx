@@ -291,7 +291,7 @@ export default function HeroTwo() {
 
                   <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
                     <Link
-                      href="/contact"
+                      href="/start-project"
                       className="group inline-flex h-11 items-center justify-center gap-3 bg-secondary px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-deep transition-all duration-300 hover:bg-secondary/90 sm:px-6 sm:text-[11px]"
                     >
                       Start a project
@@ -299,7 +299,7 @@ export default function HeroTwo() {
                     </Link>
 
                     <Link
-                      href="/services"
+                      href="/services/digital-marketing"
                       className="group inline-flex h-11 items-center justify-center gap-3 border border-white/15 bg-white/[0.035] px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/75 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/[0.07] hover:text-white sm:px-6 sm:text-[11px]"
                     >
                       Explore services

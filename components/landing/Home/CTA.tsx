@@ -8,14 +8,14 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 
 const trustPoints = [
-  "No-obligation discovery call",
-  "Clear next steps",
-  "Senior-level conversation",
+  "A clear conversation about your goal",
+  "Practical next-step guidance",
+  "The right service mix for your needs",
 ];
 
 const CTA = () => {
   return (
-    <Section className="relative overflow-hidden bg-background">
+    <Section className="relative overflow-hidden bg-muted/20">
       <Container>
         <div className="relative overflow-hidden bg-navy-deep px-6 py-14 text-white shadow-[var(--shadow-overlay)] sm:px-10 sm:py-16 lg:px-16 lg:py-20">
           {/* Background composition */}
@@ -39,7 +39,7 @@ const CTA = () => {
             />
 
             <motion.div
-              className="absolute -right-10 -top-10 h-56 w-56 rounded-full border border-gold/10"
+              className="absolute -right-10 -top-10 h-56 w-56 rounded-full border border-secondary/15"
               animate={{ rotate: -360 }}
               transition={{
                 duration: 28,
@@ -49,7 +49,7 @@ const CTA = () => {
             />
 
             <motion.div
-              className="absolute right-[9%] top-[18%] h-3 w-3 rounded-full bg-gold"
+              className="absolute right-[9%] top-[18%] h-3 w-3 rounded-full bg-secondary"
               animate={{
                 y: [0, 18, 0],
                 opacity: [0.6, 1, 0.6],
@@ -64,7 +64,7 @@ const CTA = () => {
               }}
             />
 
-            <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+            <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-secondary/40 to-transparent" />
           </div>
 
           <div className="relative grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
@@ -93,11 +93,11 @@ const CTA = () => {
                   duration: 0.65,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="mt-6 max-w-3xl text-4xl font-semibold tracking-[-0.05em] sm:text-5xl lg:text-6xl lg:leading-[1.03]"
+                className="mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]"
               >
-                Your next stage of growth
+                Let&apos;s make your next
                 <span className="block text-white/40">
-                  starts with one conversation.
+                  digital move a clear one.
                 </span>
               </motion.h2>
 
@@ -108,10 +108,9 @@ const CTA = () => {
                 transition={{ delay: 0.15, duration: 0.55 }}
                 className="mt-6 max-w-2xl text-base leading-8 text-white/55"
               >
-                Tell us what you&apos;re trying to build, improve, or scale.
-                We&apos;ll help you understand the strongest path forward —
-                whether that means strategy, technology, marketing, sales, or a
-                combination of them.
+                Tell us what you want to build, improve, or make easier. We can
+                help you identify a practical next step - from a website or
+                mobile product to digital marketing or sales support.
               </motion.p>
 
               {/* CTA buttons */}
@@ -125,16 +124,17 @@ const CTA = () => {
                 <Button
                   variant="primary"
                   size="md"
-                  href="/signup"
-                  className="group bg-gold text-navy hover:bg-gold-light"
+                  href="/contact"
+                  className="group bg-secondary text-navy-deep hover:bg-gold-light"
                 >
-                  Book a discovery call
+                  Start a conversation
                   <ArrowUpRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </Button>
 
                 <Button
                   variant="outline"
                   size="md"
+                  href="/services"
                   className="border-white/15 bg-white/[0.04] text-white hover:border-white/25 hover:bg-white/[0.08]"
                 >
                   Explore our services
@@ -167,7 +167,7 @@ const CTA = () => {
                     }}
                     className="flex items-center gap-3"
                   >
-                    <div className="flex h-7 w-7 items-center justify-center rounded-full border border-gold/20 bg-gold/10">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full border border-secondary/25 bg-secondary/10">
                       <CheckCircle2 className="h-3.5 w-3.5 text-gold-light" />
                     </div>
 
@@ -180,8 +180,8 @@ const CTA = () => {
 
               <div className="mt-8 border-t border-white/10 pt-6">
                 <p className="text-sm leading-6 text-white/45">
-                  No sales pressure. No generic pitch. Just a focused
-                  conversation about what your business needs next.
+                  Start with the challenge in front of you. We will help you
+                  clarify what matters most and where Blackcrest can help.
                 </p>
               </div>
             </motion.div>
@@ -198,13 +198,13 @@ const CTA = () => {
             <span className="text-white/30">Blackcrest Advisory</span>
 
             <div className="flex flex-wrap items-center gap-3 font-medium text-white/45">
-              <span>Strategy</span>
-              <span className="h-1 w-1 rounded-full bg-gold/60" />
-              <span>Technology</span>
-              <span className="h-1 w-1 rounded-full bg-gold/60" />
-              <span>Growth</span>
-              <span className="h-1 w-1 rounded-full bg-gold/60" />
-              <span>Partnership</span>
+              <span>Web</span>
+              <span className="h-1 w-1 rounded-full bg-secondary/70" />
+              <span>Mobile</span>
+              <span className="h-1 w-1 rounded-full bg-secondary/70" />
+              <span>Marketing</span>
+              <span className="h-1 w-1 rounded-full bg-secondary/70" />
+              <span>Sales support</span>
             </div>
           </motion.div>
         </div>

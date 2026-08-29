@@ -15,45 +15,45 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 
 const coreResponsibilities = [
-  "Strategy & commercial direction",
-  "Client communication",
-  "Quality assurance",
-  "Project ownership",
+  "Project direction and priorities",
+  "Clear client communication",
+  "Quality and delivery oversight",
+  "One accountable point of contact",
 ];
 
 const partnerCapabilities = [
-  "Specialist engineering",
-  "Platform-specific expertise",
-  "Regional & market knowledge",
-  "Flexible delivery capacity",
+  "Specialist technical expertise",
+  "Design, marketing, and sales support",
+  "Extra capacity for the right scope",
+  "Support chosen for the project need",
 ];
 
 const steps = [
   {
     number: "01",
     title: "Understand",
-    description: "Goals, challenges and commercial priorities.",
+    description: "Your goal, users, challenge, and priorities.",
   },
   {
     number: "02",
-    title: "Design",
-    description: "The right strategy, team and delivery approach.",
+    title: "Plan",
+    description: "The right scope, solution, and delivery path.",
   },
   {
     number: "03",
-    title: "Execute",
-    description: "Core team leads delivery with specialists when needed.",
+    title: "Build",
+    description: "Focused work, coordinated support, and clear updates.",
   },
   {
     number: "04",
     title: "Improve",
-    description: "Measure outcomes, optimise and support the next stage.",
+    description: "Review progress and decide the next useful step.",
   },
 ];
 
 export default function DeliveryModel() {
   return (
-    <Section className="relative overflow-hidden bg-background">
+    <Section className="relative overflow-hidden bg-muted/20">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -95,7 +95,7 @@ export default function DeliveryModel() {
             className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary"
           >
             <Workflow className="h-4 w-4" />
-            Delivery model
+            How we deliver
           </motion.div>
 
           <motion.h2
@@ -103,11 +103,11 @@ export default function DeliveryModel() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.08 }}
-            className="mt-5 text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-6xl"
+            className="mt-5 text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]"
           >
-            Senior ownership.
+            Focused ownership.
             <span className="block text-muted-foreground">
-              Specialist depth when needed.
+              Specialist support when it adds value.
             </span>
           </motion.h2>
 
@@ -118,9 +118,10 @@ export default function DeliveryModel() {
             transition={{ delay: 0.15 }}
             className="mx-auto mt-6 max-w-2xl text-base leading-8 text-body"
           >
-            Blackcrest combines a focused internal team with a curated network
-            of specialists — giving clients consistency at the core and
-            flexibility at the edges.
+            A focused Blackcrest team keeps the work connected to your goals,
+            communication, and quality. When a project needs specific
+            expertise, we bring in the right support and keep delivery
+            coordinated.
           </motion.p>
         </div>
 
@@ -161,12 +162,12 @@ export default function DeliveryModel() {
               </div>
 
               <h3 className="mt-7 text-2xl font-semibold tracking-[-0.03em] text-heading">
-                In-House Core Team
+                Focused Blackcrest Team
               </h3>
 
               <p className="mt-3 text-sm leading-7 text-body">
-                The Blackcrest team owns the relationship, strategy, delivery
-                direction, and quality from beginning to end.
+                Blackcrest owns the relationship, priorities, delivery
+                direction, and quality from the first conversation onward.
               </p>
 
               <div className="mt-6 space-y-3 border-t border-border pt-5">
@@ -237,7 +238,7 @@ export default function DeliveryModel() {
                 </span>
 
                 <span className="mt-1 text-[9px] uppercase tracking-[0.18em] text-white/40">
-                  Delivery Control
+                  Clear oversight
                 </span>
               </motion.div>
 
@@ -274,12 +275,13 @@ export default function DeliveryModel() {
               </div>
 
               <h3 className="mt-7 text-2xl font-semibold tracking-[-0.03em] text-heading">
-                Specialist Partner Network
+                Specialist Support When Needed
               </h3>
 
               <p className="mt-3 text-sm leading-7 text-body">
-                When a project needs niche expertise or additional capacity, we
-                bring in vetted specialists under Blackcrest supervision.
+                When the scope calls for additional expertise or capacity, we
+                bring in the right support while Blackcrest remains accountable
+                for a coordinated delivery.
               </p>
 
               <div className="mt-6 space-y-3 border-t border-border pt-5">
@@ -314,21 +316,21 @@ export default function DeliveryModel() {
 
             <div>
               <p className="text-sm font-semibold text-heading">
-                One accountable partner
+                One clear point of contact
               </p>
               <p className="mt-1 text-sm text-muted-foreground">
-                You always work through Blackcrest — never a disconnected chain
-                of freelancers or third parties.
+                You work directly with Blackcrest while the people supporting
+                the project stay aligned around the same priorities.
               </p>
             </div>
           </div>
 
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-secondary">
-            Controlled
+            Focused
+            <ArrowRight className="h-3 w-3" />
+            Coordinated
             <ArrowRight className="h-3 w-3" />
             Flexible
-            <ArrowRight className="h-3 w-3" />
-            Scalable
           </div>
         </motion.div>
 
@@ -346,13 +348,13 @@ export default function DeliveryModel() {
               </p>
 
               <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-heading sm:text-3xl">
-                From business problem to measurable outcome.
+                From first conversation to practical progress.
               </h3>
             </div>
 
             <p className="max-w-md text-sm leading-6 text-muted-foreground">
-              Every engagement follows a clear operating rhythm, while remaining
-              flexible enough for the needs of each client.
+              Every engagement has a clear rhythm, with the flexibility to fit
+              your goals, timeline, and the work that matters most.
             </p>
           </motion.div>
 
