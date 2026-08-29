@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
@@ -17,62 +18,62 @@ const segments = [
   {
     id: "startup",
     number: "01",
-    title: "Startups",
-    stage: "Early stage",
-    headline: "Turn the idea into a business people trust.",
+    title: "New ventures",
+    stage: "Getting started",
+    headline: "Turn a clear idea into a credible launch.",
     description:
-      "We help ambitious founders establish the digital foundation they need to launch with clarity, credibility, and room to scale.",
+      "We help founders shape the digital foundation they need to introduce their business with confidence and make a strong first impression.",
     icon: Rocket,
     services: [
-      "Brand positioning",
-      "Website design & development",
-      "Go-to-market strategy",
-      "Marketing foundations",
+      "Website and digital foundation",
+      "Clear brand messaging",
+      "Launch marketing essentials",
+      "Sales-ready customer journey",
     ],
     challenge:
-      "You have the ambition and product direction, but need a stronger digital presence and a clearer path to market.",
+      "You have a strong idea, but need a clear online presence and a practical plan to reach the right people.",
     result:
-      "A credible brand, focused launch strategy, and scalable digital foundation.",
+      "A credible launch, a clear digital presence, and a foundation ready to grow with the business.",
   },
   {
     id: "sme",
     number: "02",
-    title: "Growing SMEs",
-    stage: "Scaling",
-    headline: "Build the systems that support your next stage.",
+    title: "Growing businesses",
+    stage: "Building momentum",
+    headline: "Strengthen the systems behind your growth.",
     description:
-      "We work with growing businesses that have traction but need stronger acquisition, technology, and digital operations to scale efficiently.",
+      "We work with businesses that have traction and now need better digital tools, marketing activity, and sales support to keep moving forward.",
     icon: Building2,
     services: [
-      "Conversion-focused platforms",
-      "Lead generation systems",
-      "Marketing optimisation",
-      "Automation & integrations",
+      "Web and mobile improvements",
+      "Digital marketing campaigns",
+      "Lead generation support",
+      "Sales process and automation",
     ],
     challenge:
-      "Growth is creating complexity and your current website, marketing, or systems are starting to hold the business back.",
+      "Your website, marketing, or sales process is no longer keeping up with the opportunities in front of you.",
     result:
-      "A stronger acquisition engine and digital infrastructure built for sustainable growth.",
+      "A clearer customer journey, stronger demand generation, and systems that make growth easier to manage.",
   },
   {
     id: "enterprise",
     number: "03",
-    title: "Enterprise",
-    stage: "Established",
-    headline: "Move complex digital initiatives forward.",
+    title: "Established businesses",
+    stage: "Evolving",
+    headline: "Improve the digital experience without losing momentum.",
     description:
-      "We support established organisations with specialist expertise, modern digital systems, and additional delivery capacity.",
+      "We support established teams that need focused delivery for a website, mobile product, digital campaign, or sales initiative.",
     icon: BriefcaseBusiness,
     services: [
-      "Digital transformation",
-      "Enterprise web platforms",
-      "System integrations",
-      "Specialist delivery support",
+      "Website and platform upgrades",
+      "Mobile product development",
+      "Digital marketing support",
+      "Focused project delivery",
     ],
     challenge:
-      "You need to modernise, integrate, or deliver faster without adding unnecessary operational complexity.",
+      "You need to improve a key digital touchpoint or commercial process without disrupting the work already underway.",
     result:
-      "Focused transformation with dependable execution and clearer digital operations.",
+      "A focused improvement that gives your customers a better experience and your team a clearer way forward.",
   },
 ];
 
@@ -117,7 +118,7 @@ export default function WhoWeServe() {
               <span className="h-px w-8 bg-gold" />
 
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-light">
-                Who we serve
+                Who we work with
               </span>
             </motion.div>
 
@@ -128,8 +129,8 @@ export default function WhoWeServe() {
               transition={{ delay: 0.08 }}
               className="mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.045em] text-white sm:text-5xl lg:text-6xl"
             >
-              Built around your
-              <span className="block text-white/40"> stage of growth.</span>
+              Support that fits
+              <span className="block text-white/40"> where you are now.</span>
             </motion.h2>
           </div>
 
@@ -140,9 +141,9 @@ export default function WhoWeServe() {
             transition={{ delay: 0.14 }}
             className="max-w-lg text-sm leading-7 text-white/55 sm:text-base"
           >
-            Startups, growing businesses, and established organisations face
-            different challenges. Our strategy changes with the maturity,
-            complexity, and ambition of your business.
+            Whether you are launching, building momentum, or improving an
+            established business, we focus on the digital work that moves you
+            forward.
           </motion.p>
         </div>
 
@@ -157,6 +158,7 @@ export default function WhoWeServe() {
                 key={segment.id}
                 type="button"
                 onClick={() => setActiveId(segment.id)}
+                aria-pressed={isActive}
                 className={`
                   group relative flex items-center gap-4 border-white/10
                   px-0 py-6 text-left transition-colors duration-300
@@ -249,7 +251,7 @@ export default function WhoWeServe() {
                 {/* Challenge */}
                 <div className="mt-10 max-w-2xl">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-light">
-                    Where we usually come in
+                    When we can help most
                   </p>
 
                   <div className="mt-4 border-l border-gold/40 pl-5">
@@ -259,11 +261,11 @@ export default function WhoWeServe() {
                   </div>
                 </div>
 
-                {/* Small contextual metric */}
+                {/* Delivery process */}
                 <div className="mt-10 flex flex-wrap gap-6 border-t border-white/10 pt-6">
                   <div>
                     <p className="text-2xl font-semibold text-white">01</p>
-                    <p className="mt-1 text-xs text-white/35">Strategy first</p>
+                    <p className="mt-1 text-xs text-white/35">Understand the goal</p>
                   </div>
 
                   <div className="h-10 w-px bg-white/10" />
@@ -271,7 +273,7 @@ export default function WhoWeServe() {
                   <div>
                     <p className="text-2xl font-semibold text-white">02</p>
                     <p className="mt-1 text-xs text-white/35">
-                      Build with purpose
+                      Build the right solution
                     </p>
                   </div>
 
@@ -279,7 +281,7 @@ export default function WhoWeServe() {
 
                   <div>
                     <p className="text-2xl font-semibold text-white">03</p>
-                    <p className="mt-1 text-xs text-white/35">Measure impact</p>
+                    <p className="mt-1 text-xs text-white/35">Keep improving</p>
                   </div>
                 </div>
               </div>
@@ -338,13 +340,13 @@ export default function WhoWeServe() {
                   </p>
                 </div>
 
-                <button
-                  type="button"
+                <Link
+                  href="/services"
                   className="group mt-7 inline-flex items-center gap-2 text-sm font-semibold text-gold-light transition-colors hover:text-white"
                 >
-                  See how we can help
+                  Explore our services
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </button>
+                </Link>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -353,7 +355,7 @@ export default function WhoWeServe() {
         {/* Bottom navigation cue */}
         <div className="flex items-center justify-between border-t border-white/10 pt-6">
           <p className="text-xs text-white/25">
-            Choose the stage closest to your organisation.
+            Choose the option that best reflects where your business is today.
           </p>
 
           <div className="flex items-center gap-2">
