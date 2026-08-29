@@ -100,16 +100,16 @@ export default function StickyScroll() {
         className="pointer-events-none absolute inset-0 -z-20 overflow-hidden"
       >
         {/* main vertical divider */}
-        <div className="absolute left-[34%] top-0 hidden h-full w-px bg-border/45 lg:block"/>
+        <div className="absolute left-[34%] top-0 hidden h-full w-px bg-border/45 lg:block" />
 
         {/* architectural grid */}
-        <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(to_right,var(--color-border)_1px,transparent_1px)] [background-size:88px_100%] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]"/>
+        <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(to_right,var(--color-border)_1px,transparent_1px)] [background-size:88px_100%] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]" />
 
         {/* gold ambient glow */}
-        <div className="absolute -left-40 top-[10%] h-[420px] w-[420px] rounded-full bg-secondary/[0.05] blur-[140px]"/>
+        <div className="absolute -left-40 top-[10%] h-[420px] w-[420px] rounded-full bg-secondary/[0.05] blur-[140px]" />
 
         {/* navy ambient glow */}
-        <div className="absolute -right-40 bottom-[12%] h-[420px] w-[420px] rounded-full bg-primary/[0.045] blur-[140px]"/>
+        <div className="absolute -right-40 bottom-[12%] h-[420px] w-[420px] rounded-full bg-primary/[0.045] blur-[140px]" />
       </div>
 
       <Container>
@@ -143,13 +143,13 @@ export default function StickyScroll() {
           className="mb-12 flex flex-col gap-4 border-b border-border pb-5 sm:flex-row sm:items-center sm:justify-between lg:mb-16"
         >
           <div className="flex items-center gap-3">
-            <CircleDot className="h-3.5 w-3.5 text-secondary"/>
+            <CircleDot className="h-3.5 w-3.5 text-secondary" />
 
             <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
               02 / Marketing support
             </span>
 
-            <span className="h-px w-10 bg-secondary/35"/>
+            <span className="h-px w-10 bg-secondary/35" />
           </div>
 
           <span className="font-mono text-[9px] uppercase tracking-[0.13em] text-muted-foreground/55">
@@ -345,7 +345,7 @@ export default function StickyScroll() {
           </div>
 
           <div className="flex items-center gap-3 border-t border-border px-5 py-4 md:border-l md:border-t-0 sm:px-6">
-            <ArrowDownRight className="h-4 w-4 text-secondary"/>
+            <ArrowDownRight className="h-4 w-4 text-secondary" />
 
             <span className="whitespace-nowrap font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/55">
               Clarity before activity
@@ -488,33 +488,25 @@ function CapabilityChapter({
           className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,0.14)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.14)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,transparent,black_35%,black)]"
         />
 
-        {/*===== TOP STATUS =====*/}
-
-        <div className="absolute left-5 right-5 top-5 flex items-start justify-between gap-4 sm:left-6 sm:right-6 sm:top-6">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center border border-white/15 bg-navy-deep/60 text-gold-light backdrop-blur-md">
-              <Icon className="h-4 w-4" />
-            </div>
-
-            <div>
-              <span className="block font-mono text-[9px] font-semibold uppercase tracking-[0.14em] text-gold-light">
-                {service.eyebrow}
-              </span>
-
-              <span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.11em] text-white/55">
-                Capability / {String(index + 1).padStart(2, "0")}
-              </span>
-            </div>
-          </div>
-
-          <span className="hidden font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-white/50 sm:block">
-            Blackcrest Digital
-          </span>
-        </div>
-
         {/*===== TITLE =====*/}
 
         <div className="absolute bottom-5 left-5 right-5 sm:bottom-7 sm:left-7 sm:right-7">
+          <div className="mb-5 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="flex h-8 w-8 items-center justify-center border border-white/15 bg-navy-deep/70 text-gold-light backdrop-blur-md">
+                <Icon className="h-3.5 w-3.5" />
+              </div>
+
+              <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.14em] text-gold-light">
+                {service.eyebrow}
+              </span>
+            </div>
+
+            <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-white/60">
+              {String(index + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
+            </span>
+          </div>
+
           <motion.span
             initial={
               shouldReduceMotion
@@ -537,7 +529,7 @@ function CapabilityChapter({
               duration: 0.6,
             }}
             aria-hidden="true"
-            className="mb-4 block h-px bg-gold-light"
+            className="mb-3 block h-px bg-gold-light"
           />
 
           <h3 className="max-w-3xl text-2xl font-semibold leading-[1.02] tracking-[-0.035em] text-white sm:text-3xl lg:text-4xl xl:text-[44px]">
@@ -561,7 +553,7 @@ function CapabilityChapter({
             {String(index + 1).padStart(2, "0")}
           </span>
 
-          <span className="h-px w-7 bg-secondary/30 lg:mt-1.5"/>
+          <span className="h-px w-7 bg-secondary/30 lg:mt-1.5" />
         </div>
 
         {/* copy */}
@@ -571,7 +563,7 @@ function CapabilityChapter({
           </p>
 
           <div className="mt-5 flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-secondary"/>
+            <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
 
             <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/55">
               {service.shortLabel}
