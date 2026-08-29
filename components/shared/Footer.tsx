@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Globe2, Mail, MapPin, Sparkles } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Phone, Sparkles } from "lucide-react";
 
 import { navLinks } from "@/constants/publicNavigations";
 import { Section } from "@/components/ui/Section";
@@ -103,7 +103,7 @@ export default function Footer() {
                 <Sparkles className="h-4 w-4 text-gold-light" />
 
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-light">
-                  Blackcrest Advisory
+                  Blackcrest Digital Solutions
                 </span>
               </motion.div>
 
@@ -114,9 +114,9 @@ export default function Footer() {
                 transition={{ delay: 0.06, duration: 0.55 }}
                 className="mt-5 max-w-3xl text-3xl font-semibold tracking-[-0.04em] sm:text-4xl lg:text-5xl"
               >
-                Strategy, technology and growth
+                Digital work and commercial support
                 <span className="block text-white/35">
-                  built to move business forward.
+                  built around your next step.
                 </span>
               </motion.h2>
             </div>
@@ -128,9 +128,9 @@ export default function Footer() {
               transition={{ delay: 0.12, duration: 0.5 }}
               className="max-w-lg text-sm leading-7 text-white/55 sm:text-base"
             >
-              We work with ambitious businesses across Europe to create better
-              digital systems, stronger customer experiences, and measurable
-              commercial growth.
+              Blackcrest brings web development, mobile applications, digital
+              marketing, and sales support together for businesses that need
+              clear, practical progress.
             </motion.p>
           </div>
         </div>
@@ -153,12 +153,12 @@ export default function Footer() {
             </Link>
 
             <p className="mt-5 max-w-sm text-sm leading-7 text-white/50">
-              Empowering European businesses through technology, marketing,
-              commercial strategy, and hands-on execution.
+              Practical support across web, mobile, marketing, and commercial
+              work — shaped around the needs of your business.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-2">
-              {["Strategy", "Technology", "Growth"].map((item) => (
+              {["Web", "Mobile", "Marketing"].map((item) => (
                 <span
                   key={item}
                   className="border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/45"
@@ -191,21 +191,21 @@ export default function Footer() {
               <ContactItem
                 icon={Mail}
                 label="Email"
-                value="hello@blackcrestadvisory.com"
-                href="mailto:hello@blackcrestadvisory.com"
+                value="careselenite@gmail.com"
+                href="mailto:careselenite@gmail.com"
               />
 
               <ContactItem
-                icon={Globe2}
-                label="Website"
-                value="blackcrestadvisory.com"
-                href="https://www.blackcrestadvisory.com"
+                icon={Phone}
+                label="Phone"
+                value="+88 01647-660300"
+                href="tel:+8801647660300"
               />
 
               <ContactItem
                 icon={MapPin}
                 label="Location"
-                value="Europe · Remote"
+                value="Level-6, Building-1, Golden Shower, Mazar Road, Dhaka-1216, Bangladesh."
               />
             </div>
           </div>
@@ -215,7 +215,7 @@ export default function Footer() {
         <div className="border-t border-white/10 py-6">
           <div className="flex flex-col gap-4 text-xs sm:flex-row sm:items-center sm:justify-between">
             <p className="text-white/30">
-              © {currentYear} Blackcrest Advisory. All rights reserved.
+              © {currentYear} Blackcrest. All rights reserved.
             </p>
 
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
@@ -237,7 +237,7 @@ export default function Footer() {
 
               <div className="flex items-center gap-2 text-white/35">
                 <span>Built for</span>
-                <span className="font-medium text-white/60">Europe</span>
+                <span className="font-medium text-white/60">progress</span>
               </div>
             </div>
           </div>
