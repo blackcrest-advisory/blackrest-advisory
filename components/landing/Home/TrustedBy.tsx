@@ -3,48 +3,48 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 import {
-  Building2,
   Check,
-  Handshake,
-  Megaphone,
-  Smartphone,
+  MessageCircle,
+  Sparkles,
+  Target,
+  Workflow,
 } from "lucide-react";
 
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 
-const services = [
+const workingPrinciples = [
   {
     number: "01",
-    label: "Web Development",
-    micro: "Digital foundation",
+    label: "Business-first thinking",
+    micro: "Start with the real goal",
     description:
-      "Websites and digital platforms designed to communicate clearly, build trust, and support commercial growth.",
-    icon: Building2,
+      "We begin by understanding the business challenge, not by pushing a pre-made solution.",
+    icon: Target,
   },
   {
     number: "02",
-    label: "Mobile Applications",
-    micro: "Product experience",
+    label: "Focused delivery",
+    micro: "Build what matters",
     description:
-      "Purpose-built mobile experiences that make your product, service, or customer journey easier to use.",
-    icon: Smartphone,
+      "The work stays centred on the digital improvements that can create the clearest value.",
+    icon: Workflow,
   },
   {
     number: "03",
-    label: "Digital Marketing",
-    micro: "Demand generation",
+    label: "Direct communication",
+    micro: "Stay informed",
     description:
-      "Practical marketing systems that build visibility, attract the right audience, and create opportunity.",
-    icon: Megaphone,
+      "You have a clear view of priorities, progress, and the decisions shaping the work.",
+    icon: MessageCircle,
   },
   {
     number: "04",
-    label: "Sales & Business Support",
-    micro: "Commercial momentum",
+    label: "Flexible support",
+    micro: "Adapt as you grow",
     description:
-      "Focused support for stronger sales processes, clearer pipeline activity, and lasting client relationships.",
-    icon: Handshake,
+      "We can focus on a single project or bring together the right capabilities for a wider business objective.",
+    icon: Sparkles,
   },
 ];
 
@@ -144,16 +144,16 @@ export default function TrustedBy() {
               </span>
 
               <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary">
-                What we deliver
+                What to expect
               </span>
 
               <span className="h-px w-10 bg-secondary/40"/>
             </div>
 
             <h2 className="mt-5 max-w-2xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]">
-              Digital delivery,
+              Clear thinking.
               <span className="block text-muted-foreground">
-                built around progress.
+                Focused delivery.
               </span>
             </h2>
           </motion.div>
@@ -175,8 +175,9 @@ export default function TrustedBy() {
             className="lg:justify-self-end"
           >
             <p className="max-w-xl text-sm leading-7 text-body sm:text-base">
-              Blackcrest brings the key digital disciplines together so your
-              business can move from an idea or challenge to practical progress.
+              A strong digital project needs more than good execution. It needs
+              clear priorities, open communication, and a delivery approach that
+              stays connected to the business goal.
             </p>
 
             <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
@@ -196,15 +197,15 @@ export default function TrustedBy() {
           </motion.div>
         </div>
 
-        {/*===== SERVICE LEDGER =====*/}
+        {/*===== WORKING PRINCIPLES =====*/}
 
         <div className="grid border-b border-border lg:grid-cols-4">
-          {services.map((service, index) => {
-            const Icon = service.icon;
+          {workingPrinciples.map((principle, index) => {
+            const Icon = principle.icon;
 
             return (
               <motion.article
-                key={service.label}
+                key={principle.label}
                 initial={{
                   opacity: 0,
                   y: reduceMotion ? 0 : 22,
@@ -235,7 +236,7 @@ export default function TrustedBy() {
 
                   ${index > 0 ? "lg:border-l" : ""}
                   ${index === 0 ? "lg:pl-0" : ""}
-                  ${index === services.length - 1 ? "lg:pr-0" : ""}
+                  ${index === workingPrinciples.length - 1 ? "lg:pr-0" : ""}
                 `}
               >
                 {/*===== subtle interactive illumination =====*/}
@@ -267,7 +268,7 @@ export default function TrustedBy() {
                   {/* metadata */}
                   <div className="flex items-start justify-between">
                     <span className="font-mono text-[10px] font-semibold tracking-[0.18em] text-muted-foreground/50">
-                      {service.number}
+                      {principle.number}
                     </span>
 
                     <motion.div
@@ -285,26 +286,26 @@ export default function TrustedBy() {
                     </motion.div>
                   </div>
 
-                  {/* service */}
+                  {/* principle */}
                   <div className="mt-8">
                     <p className="text-lg font-semibold tracking-[-0.025em] text-foreground transition-colors duration-300 group-hover:text-secondary">
-                      {service.label}
+                      {principle.label}
                     </p>
 
                     <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-secondary">
-                      {service.micro}
+                      {principle.micro}
                     </p>
                   </div>
 
                   {/* description */}
                   <p className="mt-6 max-w-xs text-sm leading-7 text-muted-foreground">
-                    {service.description}
+                    {principle.description}
                   </p>
 
                   {/* footer */}
                   <div className="mt-auto flex items-center justify-between pt-8">
                     <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground/45 sm:text-[10px]">
-                      Delivery focus
+                      Working principle
                     </span>
 
                     <span className="h-1.5 w-1.5 rounded-full bg-secondary/50 transition-colors duration-300 group-hover:bg-secondary" />
@@ -344,24 +345,24 @@ export default function TrustedBy() {
 
             <div>
               <p className="text-sm font-semibold text-heading">
-                One focused partner, from first idea to next step.
+                A delivery partner that keeps the work connected to the goal.
               </p>
 
               <p className="mt-1 max-w-xl text-sm leading-6 text-muted-foreground">
-                We work closely with you to identify what matters, build the
-                right solution, and keep delivery moving with clarity.
+                Blackcrest brings together the right people and practical
+                expertise needed to move your business forward with confidence.
               </p>
             </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-3 font-mono text-[9px] uppercase tracking-[0.17em] text-muted-foreground/50 sm:text-[10px]">
-            Web
+            Clarity
             <span className="h-1 w-1 rounded-full bg-secondary" />
-            Mobile
+            Focus
             <span className="h-1 w-1 rounded-full bg-secondary" />
-            Marketing
+            Communication
             <span className="h-1 w-1 rounded-full bg-secondary" />
-            Sales support
+            Progress
           </div>
         </motion.div>
       </Container>
