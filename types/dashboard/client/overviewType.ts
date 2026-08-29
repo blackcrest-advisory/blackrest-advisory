@@ -26,6 +26,12 @@ export interface Stats {
   paidInvoices: number;
 }
 
+export interface ProjectActivityChartData {
+  labels: string[];
+  projectsStarted: number[];
+  milestonesCompleted: number[];
+}
+
 export interface ClientRelationshipStats {
   partnerSince: string;
   totalProjects: number;

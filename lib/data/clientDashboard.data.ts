@@ -13,6 +13,7 @@ export async function getClientDashboardData(userId: string) {
     recentProjects,
     clientRecord,
     paidInvoiceCount,
+    completedMilestones,
   ] = await Promise.all([
     prisma.project.findMany({
       where: { userId },
@@ -24,6 +25,7 @@ export async function getClientDashboardData(userId: string) {
         progress: true,
         deadline: true,
         serviceType: true,
+        createdAt: true,
       },
     }),
     prisma.consultation.findMany({
@@ -90,6 +92,16 @@ export async function getClientDashboardData(userId: string) {
         status: "PAID",
       },
     }),
+    prisma.milestone.findMany({
+      where: {
+        project: { userId },
+        isCompleted: true,
+        completedAt: { not: null },
+      },
+      select: {
+        completedAt: true,
+      },
+    }),
   ]);
 
   return {
@@ -102,5 +114,6 @@ export async function getClientDashboardData(userId: string) {
     recentProjects,
     clientRecord,
     paidInvoiceCount,
+    completedMilestones,
   };
 }

@@ -11,6 +11,7 @@ import type {
   Activity,
   ClientRelationshipStats,
   Project,
+  ProjectActivityChartData,
 } from "@/types/dashboard/client/overviewType";
 import { redirect } from "next/navigation";
 
@@ -19,6 +20,39 @@ type ActivityRecord = {
   text: string;
   date: Date;
 };
+
+function buildProjectActivity(
+  projects: { createdAt: Date }[],
+  milestones: { completedAt: Date | null }[],
+): ProjectActivityChartData {
+  const currentMonth = new Date();
+  const months = Array.from({ length: 6 }, (_, index) => {
+    return new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 5 + index, 1);
+  });
+
+  const monthIndex = new Map(
+    months.map((month, index) => [`${month.getFullYear()}-${month.getMonth()}`, index]),
+  );
+  const projectsStarted = Array.from({ length: months.length }, () => 0);
+  const milestonesCompleted = Array.from({ length: months.length }, () => 0);
+
+  projects.forEach((project) => {
+    const index = monthIndex.get(`${project.createdAt.getFullYear()}-${project.createdAt.getMonth()}`);
+    if (index !== undefined) projectsStarted[index] += 1;
+  });
+
+  milestones.forEach((milestone) => {
+    if (!milestone.completedAt) return;
+    const index = monthIndex.get(`${milestone.completedAt.getFullYear()}-${milestone.completedAt.getMonth()}`);
+    if (index !== undefined) milestonesCompleted[index] += 1;
+  });
+
+  return {
+    labels: months.map((month) => new Intl.DateTimeFormat("en", { month: "short" }).format(month)),
+    projectsStarted,
+    milestonesCompleted,
+  };
+}
 
 export default async function Page() {
   const user = await getCurrentUser();
@@ -37,6 +71,7 @@ export default async function Page() {
     recentProjects,
     clientRecord,
     paidInvoiceCount,
+    completedMilestones,
   } = await getClientDashboardData(user.id);
 
   const stats = {
@@ -47,6 +82,8 @@ export default async function Page() {
     ).length,
     paidInvoices: paidInvoiceCount,
   };
+
+  const projectActivity = buildProjectActivity(projectRecords, completedMilestones);
 
   const projects: Project[] = projectRecords.map((project) => ({
     id: project.id,
@@ -121,6 +158,7 @@ export default async function Page() {
       milestones={milestones}
       activities={activities}
       relationshipStats={relationshipStats}
+      projectActivity={projectActivity}
     />
   );
 }

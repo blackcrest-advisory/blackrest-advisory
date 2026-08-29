@@ -22,6 +22,7 @@ import type {
   Milestone,
   Activity,
   ClientRelationshipStats,
+  ProjectActivityChartData,
 } from "@/types/dashboard/client/overviewType";
 
 interface DashboardWrapperProps {
@@ -29,7 +30,8 @@ interface DashboardWrapperProps {
   projects: Project[];
   milestones: Milestone[];
   activities: Activity[];
-  relationshipStats: ClientRelationshipStats;
+  relationshipStats?: ClientRelationshipStats;
+  projectActivity?: ProjectActivityChartData;
 }
 
 export const DashboardWrapper = ({
@@ -38,6 +40,7 @@ export const DashboardWrapper = ({
   milestones,
   activities,
   relationshipStats,
+  projectActivity,
 }: DashboardWrapperProps) => {
   const user = useCurrentUser();
 
@@ -258,7 +261,7 @@ export const DashboardWrapper = ({
 
         {/* performance */}
         <section>
-          <PerformanceChart />
+          {projectActivity && <PerformanceChart activity={projectActivity} />}
         </section>
 
         {/* projects + milestones */}
@@ -282,7 +285,7 @@ export const DashboardWrapper = ({
 
         {/* footer metrics */}
         <section>
-          <FooterStats stats={relationshipStats} />
+          {relationshipStats && <FooterStats stats={relationshipStats} />}
         </section>
       </motion.div>
     </div>
