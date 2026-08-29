@@ -26,48 +26,48 @@ import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 //==============================================================//
 
 const capabilities = [
-  "Performance Marketing",
-  "Search & Organic Growth",
-  "Content & Social",
-  "Conversion & Landing Pages",
-  "Analytics & Attribution",
+  "Audience research & positioning",
+  "Search & content",
+  "Campaign support",
+  "Landing pages & conversion",
+  "Performance reporting",
 ];
 
 const growthSystem = [
   {
     number: "01",
-    label: "Strategy",
+    label: "Understand",
   },
   {
     number: "02",
-    label: "Acquisition",
+    label: "Reach",
   },
   {
     number: "03",
-    label: "Conversion",
+    label: "Convert",
   },
   {
     number: "04",
-    label: "Retention",
+    label: "Improve",
   },
 ];
 
 const intelligenceSignals = [
   {
     icon: Search,
-    label: "Qualified Traffic",
+    label: "Audience insight",
   },
   {
     icon: MousePointerClick,
-    label: "Conversion Rate",
+    label: "Qualified visits",
   },
   {
     icon: TrendingUp,
-    label: "Pipeline Growth",
+    label: "Enquiry quality",
   },
   {
     icon: BarChart3,
-    label: "ROAS",
+    label: "Performance reporting",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section className="relative isolate overflow-hidden bg-background pb-10 pt-8 sm:pb-12 sm:pt-10 lg:min-h-[calc(100svh-80px)] lg:pb-14 lg:pt-12">
+    <Section className="relative isolate overflow-hidden bg-background pb-10 pt-8 sm:pb-12 sm:pt-10 lg:min-h-[calc(100svh-80px)] lg:pb-12 lg:pt-10">
       {/*===== ARCHITECTURAL BACKGROUND =====*/}
 
       <div
@@ -118,14 +118,14 @@ export default function Hero() {
                 <Sparkles className="h-3.5 w-3.5" />
               </span>
 
-              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-secondary">
+              <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
                 Digital Marketing
               </span>
 
               <span className="h-px w-10 bg-secondary/40"/>
 
-              <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/45">
-                Growth systems
+              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground/60">
+                Practical support
               </span>
             </motion.div>
 
@@ -135,17 +135,17 @@ export default function Hero() {
               variants={shouldReduceMotion ? undefined : fadeInUp}
               className="mt-7"
             >
-              <h1 className="max-w-[820px] text-[42px] font-semibold leading-[0.98] tracking-[-0.065em] text-heading sm:text-[56px] lg:text-[62px] xl:text-[72px]">
-                Turn attention
+              <h1 className="max-w-[760px] text-[clamp(2.6rem,4.7vw,4.75rem)] font-semibold leading-[0.96] tracking-[-0.06em] text-heading">
+                Make your marketing
                 <span className="block text-secondary">
-                  into measurable growth.
+                  easier to act on.
                 </span>
               </h1>
 
               <p className="mt-6 max-w-xl text-sm leading-7 text-body sm:text-base sm:leading-8">
-                Blackcrest connects strategy, acquisition, content, conversion,
-                and performance intelligence into one focused marketing system
-                built to generate meaningful business growth.
+                Blackcrest helps connect your message, channels, website, and
+                follow-up into practical marketing support that keeps your next
+                business goal in focus.
               </p>
             </motion.div>
 
@@ -162,7 +162,7 @@ export default function Hero() {
                 >
                   <CircleDot className="h-3 w-3 shrink-0 text-secondary"/>
 
-                  <span className="text-xs font-medium text-foreground/80">
+                  <span className="text-sm font-medium text-foreground/85">
                     {capability}
                   </span>
                 </div>
@@ -178,18 +178,20 @@ export default function Hero() {
               <Button
                 variant="primary"
                 size="lg"
+                href="/start-project"
                 className="group w-full !rounded-md px-7 sm:w-auto"
               >
-                Let&apos;s Get Started
+                Start a marketing project
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"/>
               </Button>
 
               <Button
                 variant="outline"
                 size="lg"
+                href="/contact"
                 className="w-full !rounded-md px-7 sm:w-auto"
               >
-                Request Proposal
+                Talk through your goals
               </Button>
             </motion.div>
 
@@ -226,11 +228,11 @@ export default function Hero() {
                         ${index === 3 ? "border-l border-border pl-4" : ""}
                       `}
                   >
-                    <span className="font-mono text-[7px] font-semibold text-secondary/50">
+                    <span className="font-mono text-[9px] font-semibold text-secondary/70">
                       {step.number}
                     </span>
 
-                    <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-heading">
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-heading">
                       {step.label}
                     </p>
                   </div>
@@ -271,12 +273,12 @@ export default function Hero() {
               <div className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-success"/>
 
-                <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-muted-foreground/40">
-                  Growth intelligence
+                <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/60">
+                  Marketing focus
                 </span>
               </div>
 
-              <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/35">
+              <span className="font-mono text-[9px] uppercase tracking-[0.13em] text-muted-foreground/55">
                 DM / 01
               </span>
             </div>
@@ -407,14 +409,14 @@ export default function Hero() {
               {/*===== TOP SIGNAL =====*/}
 
               <div className="absolute left-4 top-4 border border-white/15 bg-navy-deep/70 px-3 py-2.5 backdrop-blur-md sm:left-5 sm:top-5">
-                <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-gold-light">
-                  Connected growth
+                <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-gold-light">
+                  Connected activity
                 </span>
 
                 <div className="mt-2 flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-gold-light"/>
 
-                  <span className="text-[10px] font-medium text-white/80">
+                  <span className="text-xs font-medium text-white/85">
                     Strategy → Performance
                   </span>
                 </div>
@@ -425,12 +427,12 @@ export default function Hero() {
               <div className="absolute bottom-0 left-0 right-0 border-t border-white/15 bg-navy-deep/80 px-4 py-4 backdrop-blur-xl sm:px-5 sm:py-5">
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-gold-light">
-                      Performance intelligence
+                    <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.14em] text-gold-light">
+                      Marketing signals
                     </span>
 
-                    <p className="mt-1 text-xs text-white/55">
-                      Measure what moves the business.
+                    <p className="mt-1 text-sm text-white/65">
+                      Keep the next decision informed.
                     </p>
                   </div>
 
@@ -448,7 +450,7 @@ export default function Hero() {
                       >
                         <Icon className="h-3.5 w-3.5 text-gold-light"/>
 
-                        <span className="mt-2 block font-mono text-[7px] font-semibold uppercase leading-4 tracking-[0.1em] text-white/60">
+                        <span className="mt-2 block font-mono text-[9px] font-semibold uppercase leading-4 tracking-[0.08em] text-white/70">
                           {signal.label}
                         </span>
                       </div>
@@ -476,19 +478,19 @@ export default function Hero() {
 
         <div className="mt-10 flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between lg:mt-12">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-secondary">
-              Blackcrest Advisory
+            <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.14em] text-secondary">
+              Blackcrest
             </span>
 
             <span className="h-px w-8 bg-secondary/25" />
 
-            <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/35">
-              Digital Growth Practice
+            <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground/55">
+              Marketing support
             </span>
           </div>
 
-          <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/30">
-            Strategy / Acquisition / Conversion
+          <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground/50">
+            Understand / Reach / Convert / Improve
           </span>
         </div>
       </Container>

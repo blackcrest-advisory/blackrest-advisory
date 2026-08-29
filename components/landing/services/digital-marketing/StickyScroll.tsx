@@ -1,20 +1,18 @@
 "use client";
 
 //===== imports =====//
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import Image from "next/image";
 
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 import {
   ArrowDownRight,
   BarChart3,
   CircleDot,
-  Mail,
   Megaphone,
   Search,
-  ShoppingBag,
   Target,
 } from "lucide-react";
 
@@ -44,63 +42,43 @@ interface Service {
 const services: Service[] = [
   {
     id: 1,
-    title: "DIGITAL MARKETING",
-    shortLabel: "Digital Strategy",
-    eyebrow: "Integrated Growth",
+    title: "MARKETING DIRECTION",
+    shortLabel: "Direction",
+    eyebrow: "Clear priorities",
     description:
-      "Our passion for digital marketing is only matched by a burning desire to provide our clients with exceptional sales conversions and ROI, while capturing the largest possible market share in the digital sphere.",
+      "Start by clarifying what you want marketing to support, who you need to reach, and the message that makes the next step easier to understand.",
     image: IMAGE.marketing,
     icon: Megaphone,
   },
   {
     id: 2,
-    title: "SEO",
-    shortLabel: "SEO",
-    eyebrow: "Organic Demand",
+    title: "SEARCH & CONTENT",
+    shortLabel: "Search & content",
+    eyebrow: "Useful visibility",
     description:
-      "Leading the pack on ROI, search engine optimization (SEO) pays huge dividends by increasing key components of your website's performance, like better page speed, mobile responsiveness, and improved organic search results.",
+      "Create useful pages and content that explain your offer clearly, support search visibility, and give the right audience a reason to stay engaged.",
     image: IMAGE.seo,
     icon: Search,
   },
   {
     id: 3,
-    title: "PPC & CRO MANAGEMENT",
-    shortLabel: "PPC & CRO",
-    eyebrow: "Paid Acquisition",
+    title: "CAMPAIGNS & LANDING PAGES",
+    shortLabel: "Campaigns",
+    eyebrow: "Clear action",
     description:
-      "We use both Paid Search Advertising (PPC) and Conversion Rate Optimization (CRO) to enhance your company's success by improving your ability to hyper-target your audience through search & social media platforms.",
+      "Connect campaign activity to focused landing pages and follow-up paths, helping people move from first interest to a clear enquiry, purchase, or conversation.",
     image: IMAGE.management,
     icon: Target,
   },
   {
     id: 4,
-    title: "CONTENT MARKETING",
-    shortLabel: "Content",
-    eyebrow: "Authority Building",
+    title: "PERFORMANCE REVIEW",
+    shortLabel: "Review & refine",
+    eyebrow: "Informed improvement",
     description:
-      "Boost your online presence and establish yourself as a thought leader in your industry by consistently publishing expert content. We will develop a strategy + calendar while creating content that ranks well on search engines.",
+      "Review the response to your activity, identify what is useful, and refine the next piece of work with better context instead of guesswork.",
     image: IMAGE.content_marketing,
     icon: BarChart3,
-  },
-  {
-    id: 5,
-    title: "EMAIL MARKETING & MANAGEMENT",
-    shortLabel: "Email",
-    eyebrow: "Lifecycle Marketing",
-    description:
-      "As an online marketing firm, our digital marketing experts understand the immense effectiveness of well-executed email marketing campaigns that bring short and long-term results while continually building your subscriber list.",
-    image: IMAGE.email_marketing,
-    icon: Mail,
-  },
-  {
-    id: 6,
-    title: "AFFILIATE & AMAZON MARKETING SERVICES",
-    shortLabel: "Commerce",
-    eyebrow: "Marketplace Growth",
-    description:
-      "We bring the knowhow and skill to ensure your products get seen by the right customers on Amazon or as an affiliate with a mix of SEO, PPC, and storefront branding that gets your products seen on the highly competitive ecommerce platform.",
-    image: IMAGE.affiliate_marketing,
-    icon: ShoppingBag,
   },
 ];
 
@@ -167,15 +145,15 @@ export default function StickyScroll() {
           <div className="flex items-center gap-3">
             <CircleDot className="h-3.5 w-3.5 text-secondary"/>
 
-            <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-secondary">
-              06 / Capability Deep Dive
+            <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
+              02 / Marketing support
             </span>
 
             <span className="h-px w-10 bg-secondary/35"/>
           </div>
 
-          <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/35">
-            Explore the disciplines
+          <span className="font-mono text-[9px] uppercase tracking-[0.13em] text-muted-foreground/55">
+            Explore the work
           </span>
         </motion.div>
 
@@ -189,21 +167,21 @@ export default function StickyScroll() {
               {/*===== INTRO =====*/}
 
               <div>
-                <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
-                  Full-service capability
+                <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-secondary">
+                  Focused capabilities
                 </span>
 
                 <h2 className="mt-4 text-3xl font-semibold leading-[1.02] tracking-[-0.045em] text-heading sm:text-4xl lg:text-[46px] xl:text-[52px]">
-                  The disciplines
+                  The work behind
                   <span className="block text-secondary">
-                    behind the growth.
+                    clearer marketing.
                   </span>
                 </h2>
 
                 <p className="mt-5 max-w-md text-sm leading-7 text-body">
-                  Blackcrest brings together the channels, systems, and
-                  specialist disciplines needed to build a stronger digital
-                  presence and turn that presence into measurable opportunity.
+                  Every business needs a different mix. These are the practical
+                  areas we can connect around your goal, audience, and next
+                  step.
                 </p>
               </div>
 
@@ -252,7 +230,7 @@ export default function StickyScroll() {
                       <span
                         className={`
                             font-mono
-                            text-[7px]
+                            text-[9px]
                             font-semibold
                             transition-colors
 
@@ -308,11 +286,11 @@ export default function StickyScroll() {
 
               <div className="mt-6 hidden lg:block">
                 <div className="flex items-center justify-between gap-3">
-                  <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/35">
+                  <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/55">
                     Capability index
                   </span>
 
-                  <span className="font-mono text-[7px] font-semibold text-secondary">
+                  <span className="font-mono text-[9px] font-semibold text-secondary">
                     {String(activeService + 1).padStart(2, "0")}/
                     {String(services.length).padStart(2, "0")}
                   </span>
@@ -355,22 +333,22 @@ export default function StickyScroll() {
 
         <div className="mt-12 grid border-y border-border bg-card md:grid-cols-[minmax(0,1fr)_auto] md:items-center lg:mt-20">
           <div className="px-5 py-5 sm:px-6">
-            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-secondary">
-              Built around the opportunity
+            <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.14em] text-secondary">
+              Built around your next step
             </span>
 
             <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
-              The right marketing mix is not the same for every business. The
-              objective is to deploy the disciplines that create the strongest
-              path from attention to commercial growth.
+              There is no fixed marketing package. We focus on the work that
+              helps your message, customer journey, and commercial priorities
+              become clearer.
             </p>
           </div>
 
           <div className="flex items-center gap-3 border-t border-border px-5 py-4 md:border-l md:border-t-0 sm:px-6">
             <ArrowDownRight className="h-4 w-4 text-secondary"/>
 
-            <span className="whitespace-nowrap font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/40">
-              Strategy before channels
+            <span className="whitespace-nowrap font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/55">
+              Clarity before activity
             </span>
           </div>
         </div>
@@ -395,18 +373,6 @@ function CapabilityChapter({
   onActiveService: (index: number) => void;
 }) {
   const chapterRef = useRef<HTMLElement | null>(null);
-
-  const isInView = useInView(chapterRef, {
-    amount: 0.48,
-    margin: "-15% 0px -15% 0px",
-  });
-
-  //===== Sync the sticky index with the chapter currently in view =====//
-  useEffect(() => {
-    if (!isInView) return;
-
-    onActiveService(index);
-  }, [isInView, index, onActiveService]);
 
   const Icon = service.icon;
 
@@ -439,17 +405,18 @@ function CapabilityChapter({
         duration: 0.75,
         ease: [0.22, 1, 0.36, 1],
       }}
+      onViewportEnter={() => onActiveService(index)}
       className="relative min-w-0 border-b border-border py-8 first:pt-0 last:border-b-0 lg:min-h-[76vh] lg:py-14 xl:min-h-[82vh]"
     >
       {/*===== MOBILE INDEX =====*/}
 
       <div className="mb-4 flex items-center justify-between gap-4 lg:hidden">
-        <span className="font-mono text-[8px] font-semibold text-secondary">
+        <span className="font-mono text-[9px] font-semibold text-secondary">
           {String(index + 1).padStart(2, "0")}/
           {String(services.length).padStart(2, "0")}
         </span>
 
-        <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/35">
+        <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/55">
           {service.eyebrow}
         </span>
       </div>
@@ -530,17 +497,17 @@ function CapabilityChapter({
             </div>
 
             <div>
-              <span className="block font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-gold-light">
+              <span className="block font-mono text-[9px] font-semibold uppercase tracking-[0.14em] text-gold-light">
                 {service.eyebrow}
               </span>
 
-              <span className="mt-1 block font-mono text-[7px] uppercase tracking-[0.13em] text-white/35">
+              <span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.11em] text-white/55">
                 Capability / {String(index + 1).padStart(2, "0")}
               </span>
             </div>
           </div>
 
-          <span className="hidden font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-white/30 sm:block">
+          <span className="hidden font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-white/50 sm:block">
             Blackcrest Digital
           </span>
         </div>
@@ -590,7 +557,7 @@ function CapabilityChapter({
       <div className="grid min-w-0 gap-5 border-x border-b border-border bg-card px-5 py-5 sm:px-6 lg:grid-cols-[auto_minmax(0,1fr)] lg:gap-8 lg:px-7 lg:py-6">
         {/* chapter number */}
         <div className="flex items-center gap-3 lg:items-start">
-          <span className="font-mono text-[8px] font-semibold text-secondary">
+          <span className="font-mono text-[9px] font-semibold text-secondary">
             {String(index + 1).padStart(2, "0")}
           </span>
 
@@ -606,7 +573,7 @@ function CapabilityChapter({
           <div className="mt-5 flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-secondary"/>
 
-            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-muted-foreground/35">
+            <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/55">
               {service.shortLabel}
               {" / "}
               Digital Growth Capability

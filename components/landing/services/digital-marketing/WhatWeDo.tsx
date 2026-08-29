@@ -109,8 +109,8 @@ export default function WhatWeDo() {
             </div>
 
             <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
-              Digital marketing works best when every channel supports the same
-              commercial objective.
+              Marketing works better when your message, channels, and next
+              action all support the same business goal.
             </p>
           </motion.div>
 
@@ -120,9 +120,9 @@ export default function WhatWeDo() {
             className="min-w-0"
           >
             <h2 className="max-w-4xl text-3xl font-semibold leading-[1.05] tracking-[-0.045em] text-heading sm:text-4xl lg:text-5xl xl:text-[58px]">
-              More than visibility.
+              Make every channel
               <span className="block text-secondary">
-                A system built to create demand.
+                support a clear next step.
               </span>
             </h2>
           </motion.div>
@@ -170,11 +170,9 @@ export default function WhatWeDo() {
               </div>
 
               <p className="mt-5 max-w-xl text-sm leading-7 text-body sm:text-base sm:leading-8">
-                We don&apos;t treat SEO, paid media, content, social, and
-                conversion as isolated services. Blackcrest brings them together
-                around one strategy — helping you attract the right audience,
-                move prospects through the journey, and turn marketing activity
-                into measurable business opportunities.
+                Search, campaigns, content, social, and conversion should not
+                work in isolation. We connect the work around a simple plan so
+                your audience can understand what you offer and what to do next.
               </p>
 
               {/* outcomes */}
@@ -204,9 +202,10 @@ export default function WhatWeDo() {
               <Button
                 variant="primary"
                 size="lg"
+                href="/contact"
                 className="group w-full !rounded-md sm:w-auto"
               >
-                Talk With Our Experts
+                Talk through your marketing
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"/>
               </Button>
             </div>
@@ -339,7 +338,7 @@ export default function WhatWeDo() {
                   </span>
 
                   <span className="mt-1 text-sm font-semibold text-white">
-                    Growth System
+                    Marketing System
                   </span>
                 </div>
 
@@ -396,7 +395,7 @@ export default function WhatWeDo() {
 
         <div className="mt-12 flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between lg:mt-16">
           <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
-            One strategy. Connected channels.
+            One clear plan. Connected activity.
           </span>
 
           <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/35">

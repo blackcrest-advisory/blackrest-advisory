@@ -25,47 +25,47 @@ import { fadeInUp, staggerContainer } from "@/lib/utils/animations";
 const growthSteps = [
   {
     number: "01",
-    phase: "Discover",
-    title: "Find the opportunity",
+    phase: "Understand",
+    title: "Clarify the opportunity",
     description:
-      "Understand your market, audience, search demand, competitors, and the commercial gaps worth pursuing.",
-    meta: "Market / Audience / Demand",
+      "Start with your business goal, the people you want to reach, and the questions that need clearer answers.",
+    meta: "Goal / Audience / Context",
     icon: Compass,
   },
   {
     number: "02",
-    phase: "Attract",
-    title: "Create qualified demand",
+    phase: "Plan",
+    title: "Choose the right activity",
     description:
-      "Use search, paid media, content, and social channels to reach the people most likely to become valuable customers.",
-    meta: "Search / Paid / Content",
+      "Choose the messages, channels, content, and campaign activity that best support the next step.",
+    meta: "Message / Channels / Content",
     icon: Crosshair,
   },
   {
     number: "03",
-    phase: "Convert",
-    title: "Turn attention into action",
+    phase: "Launch",
+    title: "Make action straightforward",
     description:
-      "Align messaging, landing experiences, and conversion journeys so qualified traffic has a clear path forward.",
-    meta: "CRO / Messaging / UX",
+      "Align the campaign, landing experience, and follow-up so people have a clear route to enquire, buy, or learn more.",
+    meta: "Campaign / Landing page / Follow-up",
     icon: Search,
   },
   {
     number: "04",
     phase: "Measure",
-    title: "See what creates value",
+    title: "Learn from the response",
     description:
-      "Connect performance data to meaningful outcomes so decisions are driven by evidence instead of assumptions.",
-    meta: "Analytics / Attribution / Pipeline",
+      "Review the response to your activity and use the evidence to decide what deserves more attention.",
+    meta: "Reporting / Feedback / Decisions",
     icon: BarChart3,
   },
   {
     number: "05",
-    phase: "Optimize",
-    title: "Improve what works",
+    phase: "Improve",
+    title: "Refine the next step",
     description:
-      "Use continuous learning, experimentation, and performance insights to strengthen the system and scale efficiently.",
-    meta: "Testing / Learning / Scale",
+      "Keep improving the message, experience, and activity as you learn more about what your audience needs.",
+    meta: "Review / Refine / Repeat",
     icon: Gauge,
   },
 ];
@@ -119,7 +119,7 @@ export default function GrowthEngine() {
               <Sparkles className="h-3.5 w-3.5 text-gold-light" />
 
               <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-gold-light">
-                03 / Growth Engine
+                03 / How we work
               </span>
 
               <span className="h-px w-10 bg-gold-light/30" />
@@ -137,17 +137,16 @@ export default function GrowthEngine() {
             className="min-w-0"
           >
             <h2 className="max-w-4xl text-3xl font-semibold leading-[1.04] tracking-[-0.045em] text-white sm:text-4xl lg:text-5xl xl:text-[58px]">
-              A growth engine built
+              A marketing process built
               <span className="block text-gold-light">
-                to learn as it moves.
+                to improve over time.
               </span>
             </h2>
 
             <p className="mt-5 max-w-2xl text-sm leading-7 text-white/50 sm:text-base sm:leading-8">
-              Instead of running disconnected marketing activities, Blackcrest
-              builds a continuous system where research informs acquisition,
-              acquisition informs conversion, and performance data guides the
-              next decision.
+              We use a simple cycle to keep marketing work connected: understand
+              the goal, choose the right activity, make the next action clear,
+              then use what you learn to improve it.
             </p>
           </motion.div>
         </motion.div>
@@ -161,7 +160,7 @@ export default function GrowthEngine() {
               <span className="h-1.5 w-1.5 rounded-full bg-gold-light" />
 
               <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-white/40">
-                Integrated marketing sequence
+                A connected marketing cycle
               </span>
             </div>
 
@@ -451,8 +450,8 @@ export default function GrowthEngine() {
             </span>
 
             <p className="mt-2 max-w-2xl text-sm leading-6 text-white/50">
-              Build a marketing system that gets smarter over time — not a
-              collection of campaigns competing for attention.
+              Build marketing activity that becomes clearer over time, rather
+              than a collection of disconnected campaigns.
             </p>
           </div>
 
@@ -476,7 +475,7 @@ export default function GrowthEngine() {
             </span>
 
             <span className="whitespace-nowrap font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/40">
-              Continuous optimization
+              Ongoing improvement
             </span>
           </div>
         </div>
