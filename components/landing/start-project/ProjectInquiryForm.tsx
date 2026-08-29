@@ -3,7 +3,6 @@
 import { useState, FormEvent, useTransition } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
-  ArrowUpRight,
   CheckCircle2,
   CircleDot,
   FileText,

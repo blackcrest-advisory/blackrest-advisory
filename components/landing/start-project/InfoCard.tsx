@@ -16,12 +16,12 @@ import {
 } from "lucide-react";
 
 const features = [
-  "Senior development team",
-  "Transparent communication",
-  "Dedicated project ownership",
-  "Secure delivery process",
-  "Scalable architecture",
-  "Long-term support",
+  "Business-first planning",
+  "Clear communication",
+  "Focused project ownership",
+  "Quality-aware delivery",
+  "Support matched to scope",
+  "Practical next steps",
 ];
 
 export const InfoCard = () => {
@@ -69,7 +69,7 @@ export const InfoCard = () => {
             </div>
 
             <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-heading md:text-2xl">
-              What you can expect from Blackcrest.
+              What you can expect from the process.
             </h3>
           </div>
 
@@ -79,8 +79,8 @@ export const InfoCard = () => {
         </div>
 
         <p className="mt-4 text-sm leading-7 text-muted-foreground">
-          A structured delivery model designed to give you visibility,
-          accountability, and a clear path from project definition to launch.
+          A practical project-start process designed to give you clarity,
+          visible progress, and a clear path from enquiry to delivery.
         </p>
       </div>
 
@@ -138,12 +138,12 @@ export const InfoCard = () => {
               </p>
 
               <p className="mt-2 text-sm font-semibold text-heading">
-                Typically within one business day.
+                We review each enquiry carefully.
               </p>
 
               <p className="mt-1 text-xs leading-6 text-muted-foreground">
-                We&apos;ll review the inquiry first so the initial response is
-                useful, relevant, and focused on next steps.
+                We use the context you share to give you a useful, relevant
+                response focused on the right next step.
               </p>
             </div>
           </div>
@@ -168,7 +168,7 @@ export const InfoCard = () => {
 
         <div className="mt-5 border-t border-border">
           <a
-            href="mailto:hello@blackcrestadvisory.com"
+            href="mailto:careselenite@gmail.com"
             className="group flex items-center justify-between gap-4 border-b border-border py-4"
           >
             <div className="flex min-w-0 items-center gap-3">
@@ -182,7 +182,7 @@ export const InfoCard = () => {
                 </p>
 
                 <p className="mt-1 break-all text-xs font-medium text-foreground">
-                  hello@blackcrestadvisory.com
+                  careselenite@gmail.com
                 </p>
               </div>
             </div>
@@ -201,7 +201,7 @@ export const InfoCard = () => {
               </p>
 
               <p className="mt-1 text-xs font-medium text-foreground">
-                Add your verified business number
+                +88 01647-660300
               </p>
             </div>
           </div>

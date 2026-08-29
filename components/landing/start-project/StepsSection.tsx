@@ -29,29 +29,29 @@ const steps = [
   {
     number: "02",
     icon: Phone,
-    title: "Discovery Call",
+    title: "Review & Align",
     label: "Align",
     description:
-      "We review your enquiry, clarify the objectives, understand constraints, and make sure Blackcrest is the right fit for the engagement.",
-    outcome: "Shared understanding of scope and priorities",
+      "We review your enquiry, clarify the objectives and constraints, and discuss the most useful way to move forward.",
+    outcome: "Shared understanding of the need and priorities",
   },
   {
     number: "03",
     icon: FileCheck,
-    title: "Proposal & Planning",
+    title: "Scope & Planning",
     label: "Define",
     description:
-      "We shape the recommended engagement model, delivery approach, timeline, responsibilities, and commercial proposal.",
-    outcome: "Clear plan before commitment",
+      "If the project is a good fit, we outline the recommended scope, approach, responsibilities, and next steps.",
+    outcome: "A clear plan before work begins",
   },
   {
     number: "04",
     icon: Rocket,
-    title: "Project Kickoff",
+    title: "Start Delivery",
     label: "Launch",
     description:
-      "Once approved, we establish the delivery workspace, confirm ownership, align the first priorities, and begin execution.",
-    outcome: "Structured, accountable start",
+      "Once agreed, we confirm the first priorities, establish how we will work together, and begin delivery.",
+    outcome: "A focused and coordinated start",
   },
 ];
 
@@ -59,7 +59,7 @@ export const StepsSection = () => {
   const reduceMotion = Boolean(useReducedMotion());
 
   return (
-    <Section className="relative overflow-hidden bg-background py-16 text-foreground transition-colors duration-300 sm:py-20 lg:py-28">
+    <Section className="relative overflow-hidden bg-background py-14 text-foreground transition-colors duration-300 sm:py-16 lg:py-20">
       {/* Background architecture */}
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -113,7 +113,7 @@ export const StepsSection = () => {
               <span className="h-px w-12 bg-secondary/40" />
             </div>
 
-            <h1 className="mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.05em] text-heading sm:text-5xl lg:text-[3.8rem] lg:leading-[1.04]">
+            <h1 className="mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]">
               From first enquiry
               <span className="block text-muted-foreground">
                 to a confident start.
@@ -153,7 +153,7 @@ export const StepsSection = () => {
               <span className="h-1 w-1 rounded-full bg-secondary" />
 
               <span className="text-xs text-muted-foreground">
-                No unnecessary friction
+              Practical guidance
               </span>
             </div>
           </motion.div>
@@ -296,8 +296,8 @@ export const StepsSection = () => {
           className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between"
         >
           <p className="max-w-xl text-xs leading-6 text-muted-foreground">
-            Once we understand the opportunity, we&apos;ll recommend the most
-            sensible engagement structure — not automatically the largest one.
+            Once we understand the opportunity, we&apos;ll recommend the most useful
+            next step - not automatically the biggest one.
           </p>
 
           <div className="flex items-center gap-3 font-mono text-[8px] uppercase tracking-[0.16em] text-muted-foreground/40">

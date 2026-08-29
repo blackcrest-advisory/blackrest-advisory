@@ -10,7 +10,7 @@ export default function StartProjectPage() {
     <PageWrapper>
       <StepsSection />
 
-      <Section className="bg-background">
+      <Section className="bg-muted/20">
         <Container>
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(320px,0.55fr)] lg:items-start lg:gap-10 xl:gap-12">
             <ProjectInquiryForm />
