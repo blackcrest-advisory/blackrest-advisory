@@ -7,11 +7,13 @@ import DeliveryModel from "@/components/landing/Home/DeliveryModel";
 import CTA from "@/components/landing/Home/CTA";
 import { PageWrapper } from "@/components/ui/PageWrapper";
 import BrandFilmSection from "@/components/landing/Home/BrandFilmSection";
+import HeroTwo from "@/components/landing/Home/HeroTwo";
 
 export default function HomePage() {
   return (
     <PageWrapper>
-      <Hero />
+      {/* <Hero /> */}
+      <HeroTwo />
       <TrustedBy />
       <BrandFilmSection />
       <WhoWeServe />
