@@ -21,7 +21,7 @@ const iconMap = {
 export const ActivityItem = ({ activity }: { activity: Activity }) => {
   const Icon = iconMap[activity.iconName as keyof typeof iconMap] || FiFileText;
   return (
-    <li className="py-3 flex items-start gap-3 border-b border-[var(--color-border)] last:border-0">
+    <div className="flex items-start gap-3">
       <div className="mt-0.5 text-[var(--color-body)]">
         <Icon className="w-5 h-5" />
       </div>
@@ -29,6 +29,6 @@ export const ActivityItem = ({ activity }: { activity: Activity }) => {
         <p className="text-sm text-[var(--color-heading)]">{activity.text}</p>
         <p className="text-xs text-[var(--color-body)]">{activity.time}</p>
       </div>
-    </li>
+    </div>
   );
 };

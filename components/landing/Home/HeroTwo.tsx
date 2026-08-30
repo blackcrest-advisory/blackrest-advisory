@@ -79,9 +79,9 @@ export default function HeroTwo() {
             loop
             playsInline
             preload="metadata"
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover brightness-[1.1] contrast-[1.04] saturate-[1.05]"
           >
-            <source src="/videos/blackcrest-brand.mp4" type="video/mp4" />
+            <source src="/videos/blackcrest-brand2.mp4" type="video/mp4" />
           </video>
         </motion.div>
 
@@ -90,13 +90,13 @@ export default function HeroTwo() {
         ===================================================== */}
 
         {/* Base treatment */}
-        <div className="pointer-events-none absolute inset-0 bg-navy-deep/35" />
+        <div className="pointer-events-none absolute inset-0 bg-navy-deep/18" />
 
         {/* Main readability gradient */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navy-deep via-navy-deep/80 to-navy-deep/20" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy-deep/58 to-navy-deep/12" />
 
         {/* Vertical depth */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep/25 via-transparent to-navy-deep/85" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep/15 via-transparent to-navy-deep/68" />
 
         {/* Soft gold atmosphere */}
         <div className="pointer-events-none absolute -right-48 top-[20%] h-[32rem] w-[32rem] rounded-full bg-secondary/[0.07] blur-[140px]" />
@@ -126,7 +126,7 @@ export default function HeroTwo() {
 
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-[0.045] mix-blend-soft-light"
+          className="pointer-events-none absolute inset-0 opacity-[0.025] mix-blend-soft-light"
           style={{
             backgroundImage: `
               url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.7'/%3E%3C/svg%3E")

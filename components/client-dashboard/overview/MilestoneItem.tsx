@@ -15,7 +15,7 @@ export const MilestoneItem = ({
   index: number;
 }) => {
   return (
-    <li className="flex items-start gap-3">
+    <div className="flex items-start gap-3">
       <span
         className={`mt-0.5 text-sm font-medium ${colorMap[index % colorMap.length]}`}
       >
@@ -25,6 +25,6 @@ export const MilestoneItem = ({
         <p className="text-sm text-[var(--color-heading)]">{milestone.title}</p>
         <p className="text-xs text-[var(--color-body)]">{milestone.time}</p>
       </div>
-    </li>
+    </div>
   );
 };
