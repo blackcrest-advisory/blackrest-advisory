@@ -69,7 +69,7 @@ export default function DashboardDesktopSidebar({
       }}
     >
       {/* top accent */}
-      <div className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"/>
+      <div className="pointer-events-none absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent" />
 
       {/* Brand */}
       <div className="relative hidden h-[72px] shrink-0 items-center border-b border-border px-4 lg:flex">
@@ -91,7 +91,7 @@ export default function DashboardDesktopSidebar({
                   className="absolute flex h-9 w-9 items-center justify-center border border-border bg-background shadow-[var(--shadow-card)]"
                 >
                   <Image
-                    src={IMAGE.logo}
+                    src={IMAGE.final_logo}
                     alt="Blackcrest"
                     width={24}
                     height={24}
@@ -120,7 +120,7 @@ export default function DashboardDesktopSidebar({
             <div className="flex min-w-0 items-center gap-3">
               <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-border bg-background shadow-[var(--shadow-card)]">
                 <Image
-                  src={IMAGE.logo}
+                  src={IMAGE.final_logo}
                   alt="Blackcrest"
                   width={24}
                   height={24}
@@ -211,7 +211,7 @@ export default function DashboardDesktopSidebar({
                     {group.label}
                   </p>
 
-                  <span className="h-px flex-1 ml-3 bg-border/70"/>
+                  <span className="h-px flex-1 ml-3 bg-border/70" />
                 </div>
               )}
 
