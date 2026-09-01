@@ -15,6 +15,7 @@ import toast from "react-hot-toast";
 
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
+import { Select } from "@/components/ui/Select";
 import { Textarea } from "@/components/ui/TextArea";
 
 import { upsertProposal } from "@/lib/actions/proposals/proposal.action";
@@ -202,20 +203,11 @@ export function ProposalForm({
 
           {/* currency */}
           <Field label="Currency" htmlFor="currency">
-            <div className="relative">
-              <select
-                id="currency"
-                value={currency}
-                onChange={(e) => setCurrency(e.target.value)}
-                className="h-10 w-full rounded-md border border-border bg-background px-3 text-sm text-foreground shadow-sm outline-none transition-colors hover:border-secondary/30 focus:border-secondary/40 focus:ring-2 focus:ring-secondary/10"
-              >
-                {CURRENCY_OPTIONS.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <Select
+              options={CURRENCY_OPTIONS}
+              value={currency}
+              onChange={setCurrency}
+            />
           </Field>
         </div>
       </FormSection>
