@@ -10,6 +10,7 @@ import {
   FileCheck2,
   FileText,
   ReceiptText,
+  RotateCcw,
   Send,
   WalletCards,
   XCircle,
@@ -18,7 +19,10 @@ import toast from "react-hot-toast";
 
 import { Button } from "@/components/ui/Button";
 
-import { sendProposal } from "@/lib/actions/proposals/proposal.action";
+import {
+  reopenDeclinedProposal,
+  sendProposal,
+} from "@/lib/actions/proposals/proposal.action";
 
 //===== types =====//
 interface ProposalViewProps {
@@ -36,11 +40,18 @@ interface ProposalViewProps {
     viewedAt: string | null;
     acceptedAt: string | null;
     declinedAt: string | null;
+    clientFeedback: string | null;
+    declinedReason: string | null;
   };
   briefStatus: string;
+  onRevise: () => void;
 }
 
-export function ProposalView({ proposal, briefStatus }: ProposalViewProps) {
+export function ProposalView({
+  proposal,
+  briefStatus,
+  onRevise,
+}: ProposalViewProps) {
   //===== state =====//
   const [isPending, startTransition] = useTransition();
 
@@ -57,6 +68,20 @@ export function ProposalView({ proposal, briefStatus }: ProposalViewProps) {
         router.refresh();
       } else {
         toast.error(result.error || "Failed to send proposal");
+      }
+    });
+  };
+
+  const handleReopenForNegotiation = () => {
+    startTransition(async () => {
+      const result = await reopenDeclinedProposal(proposal.id);
+
+      if (result.success) {
+        toast.success("Proposal reopened for negotiation");
+        onRevise();
+        router.refresh();
+      } else {
+        toast.error(result.error || "Failed to reopen proposal");
       }
     });
   };
@@ -266,12 +291,19 @@ export function ProposalView({ proposal, briefStatus }: ProposalViewProps) {
           )}
 
           {isDeclined && (
-            <StatusMessage
-              tone="danger"
-              icon={XCircle}
-              title="Proposal declined"
-              description="Proposal declined by client."
-            />
+            <div className="space-y-3">
+              <StatusMessage
+                tone="danger"
+                icon={XCircle}
+                title="Proposal declined"
+                description="The request was closed after the client declined this proposal. You can reopen it to prepare a revised proposal."
+              />
+
+              <ClientResponse
+                declineReason={proposal.declinedReason}
+                feedback={proposal.clientFeedback}
+              />
+            </div>
           )}
         </aside>
       </div>
@@ -302,6 +334,76 @@ export function ProposalView({ proposal, briefStatus }: ProposalViewProps) {
             </span>
           </Button>
         </div>
+      )}
+
+      {isDeclined && (
+        <div className="relative z-10 flex flex-col gap-3 border-t border-border bg-destructive/[0.025] px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div>
+            <p className="text-xs font-semibold text-heading">
+              Continue the conversation
+            </p>
+
+            <p className="mt-1 text-xs leading-5 text-muted-foreground">
+              Reopen this request, edit the existing proposal, then send the revised version to the client.
+            </p>
+          </div>
+
+          <Button
+            variant="outline"
+            size="md"
+            onClick={handleReopenForNegotiation}
+            disabled={isPending}
+            className="w-full !rounded-md sm:w-auto"
+          >
+            <RotateCcw className="h-4 w-4" />
+
+            <span className="ml-2">
+              {isPending ? "Reopening..." : "Reopen for Negotiation"}
+            </span>
+          </Button>
+        </div>
+      )}
+    </section>
+  );
+}
+
+//==============================================================//
+// CLIENT RESPONSE
+//==============================================================//
+
+function ClientResponse({
+  declineReason,
+  feedback,
+}: {
+  declineReason: string | null;
+  feedback: string | null;
+}) {
+  return (
+    <section className="border border-destructive/20 bg-destructive/[0.035] p-4">
+      <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-destructive">
+        Client response
+      </span>
+
+      <h3 className="mt-1.5 text-sm font-semibold text-heading">
+        Reason for declining
+      </h3>
+
+      <p className="mt-2 whitespace-pre-wrap text-xs leading-5 text-body">
+        {declineReason || "No reason was provided."}
+      </p>
+
+      {feedback && (
+        <>
+          <div className="my-3 h-px bg-destructive/15" />
+
+          <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-muted-foreground/45">
+            Additional feedback
+          </span>
+
+          <p className="mt-1.5 whitespace-pre-wrap text-xs leading-5 text-body">
+            {feedback}
+          </p>
+        </>
       )}
     </section>
   );

@@ -7,21 +7,23 @@ import {
   proposalSchema,
   clientProposalResponseSchema,
 } from "@/lib/validations/proposal";
-import { ProposalStatus, BriefStatus } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import {
   sendProposalToClient,
   sendProposalAccepted,
   sendProposalDeclined,
-  sendBriefStatusUpdate,
   createNotification,
 } from "@/lib/services/email/email.service";
 import { createProjectFromProposal } from "@/lib/actions/projects/project.action";
 
 //===== types =====//
-type ActionResult<T = any> =
+type ActionResult<T = unknown> =
   | { success: true; data: T }
   | { success: false; error: string };
+
+function getErrorMessage(error: unknown, fallback: string): string {
+  return error instanceof Error ? error.message : fallback;
+}
 
 //===== create or update proposal (admin) =====//
 export async function upsertProposal(input: {
@@ -89,11 +91,11 @@ export async function upsertProposal(input: {
 
     revalidatePath(`/admin/dashboard/project-requests/${briefId}`);
     return { success: true, data: proposal };
-  } catch (error: any) {
+  } catch (error) {
     console.error("Upsert proposal error:", error);
     return {
       success: false,
-      error: error.message || "Failed to save proposal",
+      error: getErrorMessage(error, "Failed to save proposal"),
     };
   }
 }
@@ -154,12 +156,75 @@ export async function sendProposal(proposalId: string): Promise<ActionResult> {
     });
 
     revalidatePath(`/admin/dashboard/project-requests/${proposal.briefId}`);
+    revalidatePath(`/client/dashboard/project-requests/${proposal.briefId}`);
     return { success: true, data: { message: "Proposal sent successfully" } };
-  } catch (error: any) {
+  } catch (error) {
     console.error("Send proposal error:", error);
     return {
       success: false,
-      error: error.message || "Failed to send proposal",
+      error: getErrorMessage(error, "Failed to send proposal"),
+    };
+  }
+}
+
+//===== reopen a declined proposal for negotiation (admin) =====//
+export async function reopenDeclinedProposal(
+  proposalId: string,
+): Promise<ActionResult> {
+  try {
+    const admin = await getCurrentUser();
+    if (!admin || (admin.role !== "ADMIN" && admin.role !== "SUPER_ADMIN")) {
+      return { success: false, error: "Unauthorized" };
+    }
+
+    const proposal = await prisma.proposal.findUnique({
+      where: { id: proposalId },
+    });
+
+    if (!proposal) {
+      return { success: false, error: "Proposal not found" };
+    }
+
+    if (proposal.status !== "DECLINED") {
+      return {
+        success: false,
+        error: "Only a declined proposal can be reopened for negotiation",
+      };
+    }
+
+    await prisma.$transaction([
+      prisma.proposal.update({
+        where: { id: proposalId },
+        data: {
+          status: "DRAFT",
+          sentAt: null,
+          viewedAt: null,
+        },
+      }),
+      prisma.brief.update({
+        where: { id: proposal.briefId },
+        data: {
+          status: "UNDER_REVIEW",
+          closedReason: null,
+          closedAt: null,
+        },
+      }),
+    ]);
+
+    revalidatePath(`/admin/dashboard/project-requests/${proposal.briefId}`);
+    revalidatePath(`/client/dashboard/project-requests/${proposal.briefId}`);
+    revalidatePath("/admin/dashboard/project-requests");
+    revalidatePath("/client/dashboard/project-requests");
+
+    return {
+      success: true,
+      data: { message: "Proposal reopened as a draft for negotiation" },
+    };
+  } catch (error) {
+    console.error("Reopen proposal error:", error);
+    return {
+      success: false,
+      error: getErrorMessage(error, "Failed to reopen proposal"),
     };
   }
 }
@@ -264,15 +329,16 @@ export async function clientAcceptProposal(input: {
     });
 
     revalidatePath(`/client/dashboard/project-requests/${proposal.briefId}`);
+    revalidatePath(`/admin/dashboard/project-requests/${proposal.briefId}`);
     return {
       success: true,
       data: { message: "Proposal accepted, project created" },
     };
-  } catch (error: any) {
+  } catch (error) {
     console.error("Accept proposal error:", error);
     return {
       success: false,
-      error: error.message || "Failed to accept proposal",
+      error: getErrorMessage(error, "Failed to accept proposal"),
     };
   }
 }
@@ -368,12 +434,13 @@ export async function clientDeclineProposal(input: {
     });
 
     revalidatePath(`/client/dashboard/project-requests/${proposal.briefId}`);
+    revalidatePath(`/admin/dashboard/project-requests/${proposal.briefId}`);
     return { success: true, data: { message: "Proposal declined" } };
-  } catch (error: any) {
+  } catch (error) {
     console.error("Decline proposal error:", error);
     return {
       success: false,
-      error: error.message || "Failed to decline proposal",
+      error: getErrorMessage(error, "Failed to decline proposal"),
     };
   }
 }

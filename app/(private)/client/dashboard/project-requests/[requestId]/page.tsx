@@ -45,13 +45,14 @@ export default async function ProjectRequestDetailsPage({
   //===== fetch brief with explicit select =====//
   const brief = await getClientProjectRequestById(requestId);
 
-  console.log(brief);
-
   if (!brief || brief.userId !== user.id) {
     notFound();
   }
 
-  const hasProposal = !!brief.proposal;
+  const hasVisibleProposal =
+    !!brief.proposal && brief.proposal.status !== "DRAFT";
+
+  const isRevisedProposalInProgress = brief.proposal?.status === "DRAFT";
 
   //===== helper to extract filename from URL =====//
   const getFileName = (url: string) => {
@@ -208,7 +209,7 @@ export default async function ProjectRequestDetailsPage({
 
       {/*===== PROPOSAL =====*/}
 
-      {hasProposal ? (
+      {hasVisibleProposal ? (
         <section className="relative overflow-hidden border border-secondary/20 bg-card shadow-[var(--shadow-card)]">
           <div
             aria-hidden="true"
@@ -335,24 +336,30 @@ export default async function ProjectRequestDetailsPage({
           </div>
 
           <p className="relative z-10 mt-5 font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
-            Proposal preparation
+            {isRevisedProposalInProgress
+              ? "Proposal revision"
+              : "Proposal preparation"}
           </p>
 
           <h2 className="relative z-10 mt-2 text-xl font-semibold tracking-[-0.025em] text-heading">
-            Proposal Being Prepared
+            {isRevisedProposalInProgress
+              ? "Revised Proposal Being Prepared"
+              : "Proposal Being Prepared"}
           </h2>
 
           <p className="relative z-10 mx-auto mt-3 max-w-lg text-sm leading-6 text-muted-foreground">
-            Our team is reviewing your request and will prepare a custom
-            proposal for you. You will receive a notification as soon as it is
-            ready.
+            {isRevisedProposalInProgress
+              ? "Our team is reviewing the conversation and preparing a revised proposal. You will receive a notification when the updated proposal is ready to review."
+              : "Our team is reviewing your request and will prepare a custom proposal for you. You will receive a notification as soon as it is ready."}
           </p>
 
           <div className="relative z-10 mx-auto mt-6 flex w-fit items-center gap-2">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-secondary" />
 
             <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40">
-              Blackcrest review in progress
+              {isRevisedProposalInProgress
+                ? "Revision in progress"
+                : "Blackcrest review in progress"}
             </span>
           </div>
         </section>

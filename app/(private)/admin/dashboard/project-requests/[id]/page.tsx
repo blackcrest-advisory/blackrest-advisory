@@ -256,6 +256,8 @@ export default async function AdminProjectRequestDetailPage({
                 viewedAt: brief.proposal!.viewedAt?.toISOString() || null,
                 acceptedAt: brief.proposal!.acceptedAt?.toISOString() || null,
                 declinedAt: brief.proposal!.declinedAt?.toISOString() || null,
+                clientFeedback: brief.proposal!.clientFeedback,
+                declinedReason: brief.proposal!.declinedReason,
               }
             : null
         }

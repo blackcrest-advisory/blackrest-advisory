@@ -8,10 +8,28 @@ import { Button } from "@/components/ui/Button";
 import { ProposalForm } from "./ProposalForm";
 import { ProposalView } from "./ProposalView";
 
+interface ProposalData {
+  id: string;
+  briefId: string;
+  status: string;
+  scope: string;
+  deliverables: string;
+  timeline: string;
+  amount: number | null;
+  currency: string;
+  terms: string | null;
+  sentAt: string | null;
+  viewedAt: string | null;
+  acceptedAt: string | null;
+  declinedAt: string | null;
+  clientFeedback: string | null;
+  declinedReason: string | null;
+}
+
 interface ProposalSectionProps {
   briefId: string;
   hasProposal: boolean;
-  proposalData: any;
+  proposalData: ProposalData | null;
   briefStatus: string;
 }
 
@@ -24,8 +42,14 @@ export function ProposalSection({
   const [showForm, setShowForm] = useState(false);
 
   //===== existing proposal =====//
-  if (hasProposal) {
-    return <ProposalView proposal={proposalData} briefStatus={briefStatus} />;
+  if (hasProposal && !showForm) {
+    return (
+      <ProposalView
+        proposal={proposalData!}
+        briefStatus={briefStatus}
+        onRevise={() => setShowForm(true)}
+      />
+    );
   }
 
   //===== no proposal yet =====//
@@ -88,11 +112,11 @@ export function ProposalSection({
           <div className="flex items-center justify-between gap-4 border-b border-border px-5 py-4 sm:px-6">
             <div>
               <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-secondary">
-                Proposal creation
+                {hasProposal ? "Negotiation workspace" : "Proposal creation"}
               </span>
 
               <h2 className="mt-1 text-base font-semibold text-heading">
-                Create Proposal
+                {hasProposal ? "Revise Proposal" : "Create Proposal"}
               </h2>
             </div>
 
@@ -104,6 +128,7 @@ export function ProposalSection({
           <div className="px-5 py-5 sm:px-6 sm:py-6">
             <ProposalForm
               briefId={briefId}
+              initialData={hasProposal ? proposalData ?? undefined : undefined}
               onSuccess={() => setShowForm(false)}
             />
           </div>
