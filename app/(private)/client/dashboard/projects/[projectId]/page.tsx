@@ -19,6 +19,7 @@ import {
 
 import { getCurrentUser } from "@/lib/utils/auth-utils";
 import { getClientProjectById } from "@/lib/actions/projects/project.action";
+import { formatCurrency } from "@/lib/utils/currencies";
 
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { Button } from "@/components/ui/Button";
@@ -62,6 +63,8 @@ export default async function ClientProjectDetailPage({
     totalMilestones > 0
       ? Math.round((completedMilestones / totalMilestones) * 100)
       : project.progress;
+
+  const projectCurrency = project.proposal?.currency ?? "EUR";
 
   return (
     <div className="relative space-y-6">
@@ -329,7 +332,9 @@ export default async function ClientProjectDetailPage({
             },
             {
               label: "Budget",
-              value: project.budget ? `€${project.budget.toFixed(2)}` : "—",
+              value: project.budget
+                ? formatCurrency(project.budget, projectCurrency)
+                : "—",
               icon: WalletCards,
             },
             {
@@ -351,7 +356,7 @@ export default async function ClientProjectDetailPage({
             },
             {
               label: "Budget Spent",
-              value: `€${project.budgetSpent.toFixed(2)}`,
+              value: formatCurrency(project.budgetSpent, projectCurrency),
               icon: ReceiptText,
             },
           ].map((item, index) => {

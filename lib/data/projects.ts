@@ -18,6 +18,7 @@ export async function getAdminProjects() {
       proposal: {
         select: {
           id: true,
+          currency: true,
           brief: {
             select: {
               title: true,

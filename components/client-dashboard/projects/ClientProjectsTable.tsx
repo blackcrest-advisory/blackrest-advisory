@@ -1,7 +1,6 @@
 "use client";
 
 //===== imports =====//
-import { format } from "date-fns";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -21,6 +20,7 @@ import {
 
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { Button } from "@/components/ui/Button";
+import { formatCurrency } from "@/lib/utils/currencies";
 
 //===== types =====//
 interface ProjectUser {
@@ -31,6 +31,7 @@ interface ProjectUser {
 
 interface ProjectProposal {
   id: string;
+  currency: string;
   brief: {
     title: string;
     pillar: string;
@@ -234,7 +235,7 @@ export function ClientProjectsTable({ projects }: ClientProjectsTableProps) {
                   <TableCell>
                     {project.budget ? (
                       <span className="whitespace-nowrap text-sm font-medium text-foreground">
-                        €{project.budget.toFixed(2)}
+                        {formatCurrency(project.budget, project.proposal?.currency)}
                       </span>
                     ) : (
                       <span className="text-muted-foreground">—</span>
@@ -380,7 +381,9 @@ export function ClientProjectsTable({ projects }: ClientProjectsTableProps) {
                   </p>
 
                   <p className="mt-1 text-xs font-medium text-foreground">
-                    {project.budget ? `€${project.budget.toFixed(2)}` : "—"}
+                    {project.budget
+                      ? formatCurrency(project.budget, project.proposal?.currency)
+                      : "—"}
                   </p>
                 </div>
               </div>

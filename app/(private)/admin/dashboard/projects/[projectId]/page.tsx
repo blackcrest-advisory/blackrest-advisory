@@ -23,6 +23,7 @@ import {
 
 import { getAdminUser } from "@/lib/utils/admin-utils";
 import { getAdminProjectById } from "@/lib/data/projects";
+import { formatCurrency } from "@/lib/utils/currencies";
 
 import { Button } from "@/components/ui/Button";
 import { StatusBadge } from "@/components/ui/StatusBadge";
@@ -72,6 +73,8 @@ export default async function AdminProjectDetailPage({
     totalMilestones > 0
       ? Math.round((completedMilestones / totalMilestones) * 100)
       : project.progress;
+
+  const projectCurrency = project.proposal?.currency ?? "EUR";
 
   //===== render =====//
   return (
@@ -271,14 +274,18 @@ export default async function AdminProjectDetailPage({
             icon={Banknote}
             eyebrow="Financial"
             label="Project Budget"
-            value={project.budget ? `€${project.budget.toFixed(2)}` : "—"}
+            value={
+              project.budget
+                ? formatCurrency(project.budget, projectCurrency)
+                : "—"
+            }
           />
 
           <SnapshotItem
             icon={CircleDollarSign}
             eyebrow="Utilization"
             label="Budget Spent"
-            value={`€${project.budgetSpent.toFixed(2)}`}
+            value={formatCurrency(project.budgetSpent, projectCurrency)}
           />
 
           <SnapshotItem
@@ -335,7 +342,11 @@ export default async function AdminProjectDetailPage({
               <DetailItem
                 icon={Banknote}
                 label="Budget"
-                value={project.budget ? `€${project.budget.toFixed(2)}` : "—"}
+                value={
+                  project.budget
+                    ? formatCurrency(project.budget, projectCurrency)
+                    : "—"
+                }
               />
 
               <DetailItem
@@ -364,7 +375,7 @@ export default async function AdminProjectDetailPage({
               <DetailItem
                 icon={CircleDollarSign}
                 label="Budget Spent"
-                value={`€${project.budgetSpent.toFixed(2)}`}
+                value={formatCurrency(project.budgetSpent, projectCurrency)}
               />
             </dl>
 

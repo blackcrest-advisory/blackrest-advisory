@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/Table";
 
 import { StatusBadge } from "@/components/ui/StatusBadge";
+import { formatCurrency } from "@/lib/utils/currencies";
 import { AdminProjectActions } from "./AdminProjectActions";
 
 //===== types =====//
@@ -28,6 +29,7 @@ interface ProjectUser {
 
 interface ProjectProposal {
   id: string;
+  currency: string;
   brief: {
     title: string;
     pillar: string;
@@ -178,7 +180,7 @@ export function AdminProjectsTable({
                 <TableCell>
                   {project.budget ? (
                     <span className="whitespace-nowrap text-sm font-medium text-heading">
-                      €{project.budget.toFixed(2)}
+                      {formatCurrency(project.budget, project.proposal?.currency)}
                     </span>
                   ) : (
                     <span className="text-muted-foreground">—</span>
@@ -304,7 +306,9 @@ export function AdminProjectsTable({
               </RecordItem>
 
               <RecordItem icon={WalletCards} label="Budget">
-                {project.budget ? `€${project.budget.toFixed(2)}` : "—"}
+                {project.budget
+                  ? formatCurrency(project.budget, project.proposal?.currency)
+                  : "—"}
               </RecordItem>
 
               <RecordItem icon={UserRound} label="Assigned To">

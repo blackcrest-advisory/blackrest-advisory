@@ -107,6 +107,7 @@ export async function getAdminProjects() {
         proposal: {
           select: {
             id: true,
+            currency: true,
             brief: {
               select: {
                 title: true,
@@ -507,6 +508,7 @@ export async function getClientProjects() {
         proposal: {
           select: {
             id: true,
+            currency: true,
             brief: {
               select: {
                 title: true,
