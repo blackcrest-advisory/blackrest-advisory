@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { format } from "date-fns";
 import { CircleDot, Inbox, MessageCircle, Send } from "lucide-react";
 import toast from "react-hot-toast";
@@ -39,6 +39,7 @@ export function MessagesWorkspace({
   const [selectedClientId, setSelectedClientId] = useState<string | null>(null);
   const [body, setBody] = useState("");
   const [projectId, setProjectId] = useState("none");
+  const messageEndRef = useRef<HTMLDivElement>(null);
 
   const clients = useMemo(() => {
     const uniqueClients = new Map<string, MessageParticipant>();
@@ -78,6 +79,12 @@ export function MessagesWorkspace({
   useEffect(() => {
     if (counterpartyId) void markThreadAsRead(counterpartyId);
   }, [counterpartyId]);
+
+  useEffect(() => {
+    if (activeMessages.length > 0) {
+      messageEndRef.current?.scrollIntoView({ behavior: "auto" });
+    }
+  }, [activeClientId, activeMessages.length]);
 
   const handleSend = () => {
     if (!body.trim()) {
@@ -122,12 +129,12 @@ export function MessagesWorkspace({
       <div
         className={`grid min-h-[680px] ${
           viewer === "ADMIN"
-            ? "lg:grid-cols-[280px_minmax(0,1fr)]"
-            : "grid-cols-1"
+            ? "lg:h-[min(720px,calc(100dvh-6rem))] lg:grid-cols-[280px_minmax(0,1fr)]"
+            : "h-[min(720px,calc(100dvh-6rem))] grid-cols-1"
         }`}
       >
         {viewer === "ADMIN" && (
-          <aside className="border-b border-border bg-muted/[0.12] lg:border-b-0 lg:border-r">
+          <aside className="border-b border-border bg-muted/[0.12] lg:flex lg:min-h-0 lg:flex-col lg:border-b-0 lg:border-r">
             <div className="border-b border-border px-5 py-5">
               <div className="flex items-center gap-2">
                 <Inbox className="h-4 w-4 text-secondary" />
@@ -140,7 +147,7 @@ export function MessagesWorkspace({
               </p>
             </div>
 
-            <div className="max-h-[580px] overflow-y-auto">
+            <div className="max-h-[580px] overflow-y-auto lg:max-h-none lg:min-h-0 lg:flex-1 lg:overscroll-contain">
               {clients.length === 0 ? (
                 <p className="px-5 py-8 text-sm text-muted-foreground">
                   No client messages yet.
@@ -187,7 +194,7 @@ export function MessagesWorkspace({
           </aside>
         )}
 
-        <div className="flex min-w-0 flex-col">
+        <div className="flex min-h-0 min-w-0 flex-col">
           <div className="flex items-center justify-between gap-4 border-b border-border px-5 py-5 sm:px-6">
             <div className="flex min-w-0 items-center gap-3">
               {viewer === "ADMIN" && activeClient ? (
@@ -219,7 +226,7 @@ export function MessagesWorkspace({
             </span>
           </div>
 
-          <div className="flex-1 space-y-4 bg-muted/[0.05] px-5 py-6 sm:px-6">
+          <div className="min-h-0 flex-1 space-y-4 overflow-y-auto overscroll-contain bg-muted/[0.05] px-5 py-6 sm:px-6">
             {activeMessages.length === 0 ? (
               <div className="flex min-h-[300px] flex-col items-center justify-center text-center">
                 <div className="flex h-12 w-12 items-center justify-center border border-secondary/20 bg-secondary/[0.05] text-secondary">
@@ -281,6 +288,8 @@ export function MessagesWorkspace({
                 );
               })
             )}
+
+            <div ref={messageEndRef} />
           </div>
 
           <div className="border-t border-border bg-card p-5 sm:p-6">
