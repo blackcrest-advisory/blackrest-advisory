@@ -4,7 +4,6 @@ import { prisma } from "@/lib/db/client";
 
 export async function getAdminDashboardData() {
   const now = new Date();
-  const thisMonthStart = new Date(now.getFullYear(), now.getMonth(), 1);
   const nextMonthStart = new Date(now.getFullYear(), now.getMonth() + 1, 1);
   const sixMonthsAgo = new Date(now.getFullYear(), now.getMonth() - 5, 1);
 
@@ -12,7 +11,6 @@ export async function getAdminDashboardData() {
     totalClients,
     activeProjects,
     newLeads,
-    monthlyRevenueResult,
     overdueInvoices,
     recentProjects,
     upcomingProjectDeadlines,
@@ -24,13 +22,6 @@ export async function getAdminDashboardData() {
     prisma.user.count({ where: { role: "CLIENT" } }),
     prisma.project.count({ where: { status: "ACTIVE" } }),
     prisma.lead.count({ where: { status: "NEW" } }),
-    prisma.invoice.aggregate({
-      where: {
-        status: "PAID",
-        paidAt: { gte: thisMonthStart, lt: nextMonthStart },
-      },
-      _sum: { amount: true },
-    }),
     prisma.invoice.count({ where: { status: "OVERDUE" } }),
     prisma.project.findMany({
       where: { status: { in: ["ACTIVE", "PLANNING", "IN_REVIEW"] } },
@@ -68,7 +59,7 @@ export async function getAdminDashboardData() {
         status: "PAID",
         paidAt: { gte: sixMonthsAgo, lt: nextMonthStart },
       },
-      select: { amount: true, paidAt: true },
+      select: { amount: true, currency: true, paidAt: true },
     }),
   ]);
 
@@ -76,7 +67,6 @@ export async function getAdminDashboardData() {
     totalClients,
     activeProjects,
     newLeads,
-    monthlyRevenueResult,
     overdueInvoices,
     recentProjects,
     upcomingProjectDeadlines,

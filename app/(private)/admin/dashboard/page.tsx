@@ -12,7 +12,7 @@ import type {
   AdminProject,
   AdminStats,
   DeadlineItem,
-  RevenuePoint,
+  RevenueSeries,
 } from "@/types/dashboard/admin/overviewType";
 import { AdminDashboardWrapper } from "@/components/admin-dashboard/overview/AdminDashboardWrapper";
 
@@ -21,7 +21,21 @@ export default async function AdminDashboardPage() {
   if (!admin) redirect("/login");
 
   const data = await getAdminDashboardData();
-  const monthlyRevenue = data.monthlyRevenueResult._sum.amount ?? 0;
+  const currencies = Array.from(
+    new Set(data.revenueInvoices.map((invoice) => invoice.currency)),
+  ).sort();
+
+  const monthlyRevenue = currencies.map((currency) => ({
+    currency,
+    amount: data.revenueInvoices
+      .filter(
+        (invoice) =>
+          invoice.currency === currency &&
+          invoice.paidAt?.getFullYear() === new Date().getFullYear() &&
+          invoice.paidAt?.getMonth() === new Date().getMonth(),
+      )
+      .reduce((total, invoice) => total + invoice.amount, 0),
+  }));
 
   const stats: AdminStats = {
     totalClients: data.totalClients,
@@ -31,7 +45,6 @@ export default async function AdminDashboardPage() {
     newLeads: data.newLeads,
     newLeadsChange: 0,
     monthlyRevenue,
-    monthlyRevenueChange: 0,
     overdueInvoices: data.overdueInvoices,
   };
 
@@ -109,25 +122,31 @@ export default async function AdminDashboardPage() {
       timestamp: activity.timestamp,
     }));
 
-  const revenue: RevenuePoint[] = Array.from({ length: 6 }, (_, index) => {
-    const date = new Date(
-      new Date().getFullYear(),
-      new Date().getMonth() - 5 + index,
-      1,
-    );
-    const value = data.revenueInvoices
-      .filter(
-        (invoice) =>
-          invoice.paidAt?.getFullYear() === date.getFullYear() &&
-          invoice.paidAt?.getMonth() === date.getMonth(),
-      )
-      .reduce((total, invoice) => total + invoice.amount, 0);
+  const revenue: RevenueSeries[] = currencies.map((currency) => ({
+    currency,
+    points: Array.from({ length: 6 }, (_, index) => {
+      const date = new Date(
+        new Date().getFullYear(),
+        new Date().getMonth() - 5 + index,
+        1,
+      );
+      const value = data.revenueInvoices
+        .filter(
+          (invoice) =>
+            invoice.currency === currency &&
+            invoice.paidAt?.getFullYear() === date.getFullYear() &&
+            invoice.paidAt?.getMonth() === date.getMonth(),
+        )
+        .reduce((total, invoice) => total + invoice.amount, 0);
 
-    return {
-      label: new Intl.DateTimeFormat("en", { month: "short" }).format(date),
-      value,
-    };
-  });
+      return {
+        label: new Intl.DateTimeFormat("en", { month: "short" }).format(
+          date,
+        ),
+        value,
+      };
+    }),
+  }));
 
   return (
     <AdminDashboardWrapper

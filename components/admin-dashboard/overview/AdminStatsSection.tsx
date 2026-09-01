@@ -14,10 +14,12 @@ import {
 
 import { cn } from "@/lib/utils/utils";
 import { staggerContainer, fadeInUp } from "@/lib/utils/animations";
+import { formatCurrency } from "@/lib/utils/currencies";
 import type { AdminStats } from "@/types/dashboard/admin/overviewType";
 
 interface AdminStatsSectionProps {
   stats: AdminStats;
+  selectedCurrency: string;
 }
 
 interface StatCardConfig {
@@ -28,8 +30,29 @@ interface StatCardConfig {
   microLabel: string;
 }
 
-export const AdminStatsSection = ({ stats }: AdminStatsSectionProps) => {
+export const AdminStatsSection = ({
+  stats,
+  selectedCurrency,
+}: AdminStatsSectionProps) => {
   const reduceMotion = Boolean(useReducedMotion());
+
+  const selectedRevenue = stats.monthlyRevenue.find(
+    (item) => item.currency === selectedCurrency,
+  );
+
+  const monthlyRevenueValue =
+    selectedCurrency === "ALL"
+      ? stats.monthlyRevenue.length === 0
+        ? "—"
+        : stats.monthlyRevenue.length === 1
+          ? formatCurrency(
+              stats.monthlyRevenue[0].amount,
+              stats.monthlyRevenue[0].currency,
+            )
+          : `${stats.monthlyRevenue.length} currencies`
+      : selectedRevenue
+        ? formatCurrency(selectedRevenue.amount, selectedRevenue.currency)
+        : "—";
 
   const cards: StatCardConfig[] = [
     {
@@ -55,10 +78,12 @@ export const AdminStatsSection = ({ stats }: AdminStatsSectionProps) => {
     },
     {
       label: "Monthly Revenue",
-      value: `€${stats.monthlyRevenue.toLocaleString()}`,
-      change: stats.monthlyRevenueChange,
+      value: monthlyRevenueValue,
       icon: Wallet,
-      microLabel: "Current month",
+      microLabel:
+        selectedCurrency === "ALL"
+          ? "By invoice currency"
+          : `${selectedCurrency} · Current month`,
     },
     {
       label: "Overdue Invoices",

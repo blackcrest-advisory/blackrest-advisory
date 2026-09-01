@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, CircleDot, Plus, ClipboardCheck } from "lucide-react";
+import { ArrowUpRight, Plus, ClipboardCheck } from "lucide-react";
 
 import { AdminActiveProjects } from "./AdminActiveProjects";
 import { AdminQuickActions } from "./AdminQuickActions";
@@ -18,13 +19,13 @@ import type {
   AdminProject,
   AdminStats,
   DeadlineItem,
-  RevenuePoint,
+  RevenueSeries,
 } from "@/types/dashboard/admin/overviewType";
 
 interface AdminDashboardWrapperProps {
   adminName: string;
   stats: AdminStats;
-  revenue: RevenuePoint[];
+  revenue: RevenueSeries[];
   projects: AdminProject[];
   deadlines: DeadlineItem[];
   activities: AdminActivity[];
@@ -38,6 +39,12 @@ export const AdminDashboardWrapper = ({
   deadlines,
   activities,
 }: AdminDashboardWrapperProps) => {
+  const [selectedCurrency, setSelectedCurrency] = useState(() => {
+    const eurSeries = revenue.find((series) => series.currency === "EUR");
+
+    return eurSeries?.currency ?? revenue[0]?.currency ?? "ALL";
+  });
+
   return (
     <div className="relative">
       {/*===== PAGE HEADER =====*/}
@@ -262,12 +269,19 @@ export const AdminDashboardWrapper = ({
       <div className="mt-6 space-y-6">
         {/* stats */}
         <section>
-          <AdminStatsSection stats={stats} />
+          <AdminStatsSection
+            stats={stats}
+            selectedCurrency={selectedCurrency}
+          />
         </section>
 
         {/* revenue */}
         <section>
-          <RevenueChart revenue={revenue} />
+          <RevenueChart
+            revenue={revenue}
+            selectedCurrency={selectedCurrency}
+            onCurrencyChange={setSelectedCurrency}
+          />
         </section>
 
         {/* projects / deadlines */}
