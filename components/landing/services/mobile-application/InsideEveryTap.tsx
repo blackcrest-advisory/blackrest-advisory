@@ -123,7 +123,7 @@ const InsideEveryTap = () => {
         <div className="mt-10 grid overflow-hidden border border-border bg-card shadow-[var(--shadow-card)] lg:mt-14 lg:grid-cols-[minmax(320px,0.8fr)_minmax(0,1.35fr)]">
           {/*===== PHONE STAGE =====*/}
 
-          <div className="relative flex min-h-[520px] items-center justify-center overflow-hidden border-b border-border bg-primary px-6 py-12 lg:min-h-[680px] lg:border-b-0 lg:border-r">
+          <div className="relative flex min-h-[540px] items-center justify-center overflow-hidden border-b border-border bg-primary px-6 py-14 lg:min-h-[680px] lg:border-b-0 lg:border-r">
             {/*===== BACKGROUND TYPE =====*/}
 
             <span
@@ -154,17 +154,17 @@ const InsideEveryTap = () => {
             <div className="relative z-10 flex flex-col items-center">
               <div
                 aria-hidden="true"
-                className="absolute left-1/2 top-1/2 h-[320px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/10 blur-[80px]"
+                className="absolute left-1/2 top-1/2 h-[360px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/10 blur-[90px]"
               />
 
-              <div className="relative z-10 overflow-hidden rounded-[32px] border border-white/10 bg-navy-deep shadow-[0_35px_80px_rgba(0,0,0,0.28)]">
+              <div className="relative z-10 w-full max-w-[360px] overflow-hidden rounded-[20px] border border-white/15 bg-navy-deep shadow-[0_35px_80px_rgba(0,0,0,0.32)] sm:max-w-[400px] lg:max-w-[440px]">
                 <Image
                   src={IMAGE.phoneMockup}
                   alt="Mobile application interface"
-                  width={300}
-                  height={600}
+                  width={1165}
+                  height={1312}
                   priority
-                  className="h-auto w-[205px] object-cover sm:w-[225px] lg:w-[245px]"
+                  className="h-auto w-full object-cover"
                 />
               </div>
 
