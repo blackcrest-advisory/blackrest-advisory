@@ -15,6 +15,7 @@ import toast from "react-hot-toast";
 
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
+import { Select } from "@/components/ui/Select";
 import { Textarea } from "@/components/ui/TextArea";
 
 import { createInvoice } from "@/lib/actions/projects/invoice.action";
@@ -96,12 +97,12 @@ export function CreateInvoiceModal({
 
   //===== modal =====//
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-primary/55 p-4 backdrop-blur-[3px] dark:bg-background/75">
+    <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-primary/55 p-4 backdrop-blur-[3px] sm:items-center dark:bg-background/75">
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby="create-invoice-title"
-        className="relative max-h-[calc(100vh-2rem)] w-full max-w-xl overflow-y-auto border border-border bg-card shadow-[var(--shadow-overlay)]"
+        className="relative my-auto flex max-h-[calc(100dvh-2rem)] w-full max-w-xl flex-col overflow-hidden border border-border bg-card shadow-[var(--shadow-overlay)]"
       >
         {/*===== TOP SIGNAL =====*/}
 
@@ -155,8 +156,8 @@ export function CreateInvoiceModal({
 
         {/*===== FORM =====*/}
 
-        <form onSubmit={handleSubmit}>
-          <div className="relative z-10 space-y-5 px-5 py-5 sm:px-6 sm:py-6">
+        <form onSubmit={handleSubmit} className="flex min-h-0 flex-1 flex-col">
+          <div className="relative z-10 min-h-0 flex-1 space-y-5 overflow-x-hidden overflow-y-auto px-5 py-5 sm:px-6 sm:py-6">
             {/*===== AMOUNT + CURRENCY =====*/}
 
             <div className="border border-border bg-background/25">
@@ -182,19 +183,12 @@ export function CreateInvoiceModal({
                 </Field>
 
                 <Field label="Currency" htmlFor="currency">
-                  <select
-                    id="currency"
+                  <Select
+                    options={CURRENCY_OPTIONS}
                     value={currency}
-                    onChange={(e) => setCurrency(e.target.value)}
+                    onChange={setCurrency}
                     disabled={isPending}
-                    className="h-10 w-full rounded-md border border-border bg-background px-3 text-sm text-foreground shadow-sm outline-none transition-colors hover:border-secondary/30 focus:border-secondary/40 focus:ring-2 focus:ring-secondary/10 disabled:cursor-not-allowed disabled:opacity-60"
-                  >
-                    {CURRENCY_OPTIONS.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
+                  />
                 </Field>
               </div>
             </div>
@@ -252,7 +246,7 @@ export function CreateInvoiceModal({
 
           {/*===== ACTION BAR =====*/}
 
-          <div className="relative z-10 flex flex-col-reverse gap-2 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div className="relative z-10 shrink-0 flex flex-col-reverse gap-2 border-t border-border bg-muted/10 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <div className="hidden items-center gap-2 sm:flex">
               <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
 
