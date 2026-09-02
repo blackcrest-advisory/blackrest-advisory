@@ -9,7 +9,7 @@ import {
 
 import { getCurrentUser } from "@/lib/utils/auth-utils";
 import { getClientProjects } from "@/lib/actions/projects/project.action";
-import { ClientProjectsTable } from "@/components/client-dashboard/projects/ClientProjectsTable";
+import { ClientProjectsClient } from "@/components/client-dashboard/projects/ClientProjectsClient";
 
 export default async function ClientProjectsPage() {
   const user = await getCurrentUser();
@@ -209,7 +209,7 @@ export default async function ClientProjectsPage() {
       {/*===== PROJECT WORKSPACE =====*/}
 
       <section className="mt-6">
-        <ClientProjectsTable projects={projects} />
+        <ClientProjectsClient projects={projects} />
       </section>
     </div>
   );

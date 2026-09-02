@@ -38,7 +38,7 @@ interface ProjectProposal {
   };
 }
 
-interface Project {
+export interface ClientProject {
   id: string;
   title: string;
   status: string;
@@ -60,7 +60,7 @@ interface Project {
 }
 
 interface ClientProjectsTableProps {
-  projects: Project[];
+  projects: ClientProject[];
 }
 
 export function ClientProjectsTable({ projects }: ClientProjectsTableProps) {
