@@ -1,470 +1,394 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useRef } from "react";
+//===== imports =====//
 import Image from "next/image";
-import CountUp from "react-countup";
+
 import {
-  FiNavigation,
-  FiZap,
-  FiLock,
-  FiWifi,
-  FiCpu,
-  FiSmile,
-  FiLayers,
-  FiSmartphone,
-  FiUserCheck,
-  FiRefreshCw,
-  FiMousePointer,
-  FiShield,
-  FiThumbsUp,
-} from "react-icons/fi";
+  Activity,
+  BarChart3,
+  Fingerprint,
+  Gauge,
+  Navigation,
+  ShieldCheck,
+  Smartphone,
+  Wifi,
+  Zap,
+} from "lucide-react";
+
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { Card } from "@/components/ui/Card";
 import { IMAGE } from "@/constants/imagesConfig";
-import {
-  fadeInUp,
-  staggerContainer,
-  slideInLeft,
-  slideInRight,
-  hoverScale,
-} from "@/utils/animations";
 
-//===== Feature card data =====//
-interface FeatureCardProps {
-  icon: React.ElementType;
-  title: string;
-  description: string;
-  metric: string;
-  side: "left" | "right";
-  index: number;
-}
+//==============================================================//
+// EXPERIENCE FEATURES
+//==============================================================//
 
-const leftFeatures: FeatureCardProps[] = [
+const features = [
   {
-    icon: FiNavigation,
+    number: "01",
     title: "Smooth Navigation",
     description:
-      "Intuitive gestures and transitions guide users effortlessly. Every swipe feels natural, reducing cognitive load.",
-    metric: "99% task completion",
-    side: "left",
-    index: 0,
+      "Clear flows and familiar gestures help users move naturally through the product.",
+    meta: "Interaction",
+    icon: Navigation,
   },
   {
-    icon: FiSmile,
-    title: "Native Feel",
-    description:
-      "Hardware‑accelerated animations run at a buttery 60fps. The interface responds instantly, just like a built‑in app.",
-    metric: "60fps animations",
-    side: "left",
-    index: 1,
-  },
-  {
-    icon: FiWifi,
-    title: "Offline Access",
-    description:
-      "Critical features work without internet. Data syncs automatically when connectivity returns, keeping users productive.",
-    metric: "Works offline",
-    side: "left",
-    index: 2,
-  },
-  {
-    icon: FiLayers,
-    title: "Accessibility",
-    description:
-      "Screen‑reader friendly, high contrast, and full keyboard navigation ensure everyone can use the app comfortably.",
-    metric: "WCAG 2.1 AA",
-    side: "left",
-    index: 3,
-  },
-];
-
-const rightFeatures: FeatureCardProps[] = [
-  {
-    icon: FiZap,
-    title: "Fast Response",
-    description:
-      "Background prefetching and intelligent caching keep the UI fast. Redundant calls are eliminated by design.",
-    metric: "<150ms latency",
-    side: "right",
-    index: 0,
-  },
-  {
-    icon: FiLock,
+    number: "02",
     title: "Secure Auth",
     description:
-      "End‑to‑end encryption, biometric login, and OWASP‑compliant practices protect user data in transit and at rest.",
-    metric: "Bank‑level encryption",
-    side: "right",
-    index: 1,
+      "Protected access without unnecessary friction between users and the product.",
+    meta: "Security",
+    icon: Fingerprint,
   },
   {
-    icon: FiCpu,
-    title: "Optimized API",
+    number: "03",
+    title: "Fast Response",
     description:
-      "Real‑time sync across devices ensures data is always up to date. Conflict resolution happens automatically.",
-    metric: "Real‑time sync",
-    side: "right",
-    index: 2,
+      "Efficient rendering and data handling keep interactions feeling immediate.",
+    meta: "Performance",
+    icon: Zap,
   },
   {
-    icon: FiSmile,
-    title: "Actionable Analytics",
+    number: "04",
+    title: "Offline Access",
     description:
-      "Privacy‑first telemetry gives you insights without compromising trust. Make data‑driven decisions confidently.",
-    metric: "GDPR compliant",
-    side: "right",
-    index: 3,
+      "Important experiences remain useful when connectivity becomes unreliable.",
+    meta: "Availability",
+    icon: Wifi,
+  },
+  {
+    number: "05",
+    title: "Connected Data",
+    description:
+      "Reliable APIs and synchronisation keep information current across sessions.",
+    meta: "Data",
+    icon: Activity,
+  },
+  {
+    number: "06",
+    title: "Useful Analytics",
+    description:
+      "Meaningful product insights help teams understand behavior and improve.",
+    meta: "Intelligence",
+    icon: BarChart3,
   },
 ];
 
-//===== Feature Card Component =====//
-const FeatureCard = ({
-  icon: Icon,
-  title,
-  description,
-  metric,
-  side,
-  index,
-}: FeatureCardProps) => {
-  return (
-    <motion.div
-      variants={side === "left" ? slideInLeft : slideInRight}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
-    >
-      <Card padding="base" hoverEffect className="group">
-        <div className="flex items-start gap-4">
-          <div className="mt-1 rounded-lg bg-primary/10 p-2">
-            <Icon className="h-5 w-5 text-secondary" />
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-foreground">{title}</h3>
-            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-              {description}
-            </p>
-            <span className="mt-3 inline-block rounded-full bg-secondary/10 px-3 py-1 text-xs font-medium text-secondary">
-              {metric}
-            </span>
-          </div>
-        </div>
-      </Card>
-    </motion.div>
-  );
-};
+//==============================================================//
+// INSIDE EVERY TAP
+//==============================================================//
 
-//===== Phone with Glow =====//
-const PhoneWithGlow = () => (
-  <motion.div
-    variants={fadeInUp}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    transition={{ duration: 0.6 }}
-    className="relative mx-auto w-56 md:w-64 lg:w-72"
-  >
-    <div className="absolute inset-0 flex items-center justify-center">
-      <div className="h-80 w-48 rounded-full bg-secondary/20 blur-3xl" />
-    </div>
-    <Image
-      src={IMAGE.phoneMockup}
-      alt="Phone mockup"
-      width={300}
-      height={600}
-      className="relative z-10 h-auto w-full drop-shadow-2xl"
-      priority
-    />
-  </motion.div>
-);
-
-//===== User Journey Timeline =====//
-const journeySteps = [
-  { icon: FiSmartphone, label: "Open App" },
-  { icon: FiUserCheck, label: "Authentication" },
-  { icon: FiRefreshCw, label: "Data Sync" },
-  { icon: FiMousePointer, label: "Interaction" },
-  { icon: FiShield, label: "Secure Processing" },
-  { icon: FiThumbsUp, label: "Instant Feedback" },
-];
-
-const UserJourney = () => (
-  <Section>
-    <h3 className="mb-10 text-center text-2xl font-bold text-foreground">
-      User Journey
-    </h3>
-    <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:gap-4">
-      {journeySteps.map((step, idx) => (
-        <motion.div
-          key={step.label}
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ delay: idx * 0.1 }}
-          className="flex w-full items-center gap-3 md:w-auto md:flex-col md:gap-2"
-        >
-          <div className="relative">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-              <step.icon className="h-5 w-5 text-secondary" />
-            </div>
-            {idx < journeySteps.length - 1 && (
-              <div className="absolute top-1/2 left-full hidden w-full -translate-y-1/2 bg-gradient-to-r from-secondary to-transparent md:block h-0.5" />
-            )}
-          </div>
-          <span className="whitespace-nowrap text-sm font-medium text-foreground">
-            {step.label}
-          </span>
-          {idx < journeySteps.length - 1 && (
-            <div className="h-6 w-0.5 bg-gradient-to-b from-secondary to-transparent md:hidden mx-auto" />
-          )}
-        </motion.div>
-      ))}
-    </div>
-  </Section>
-);
-
-//===== Animated Statistic Cards =====//
-const stats = [
-  { label: "Uptime", value: 99.9, suffix: "%", isCount: true },
-  {
-    label: "Response Time",
-    value: 150,
-    prefix: "<",
-    suffix: "ms",
-    isCount: true,
-  },
-  { label: "Offline Ready", text: "✓", description: "Works without internet" },
-  { label: "Security", text: "Bank-Level", description: "AES-256 encryption" },
-  {
-    label: "Cross Platform",
-    text: "iOS/Android/Web",
-    description: "Single codebase",
-  },
-  { label: "Real-time Sync", text: "< 1s", description: "Conflict resolution" },
-];
-
-const AnimatedStats = () => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  return (
-    <motion.div
-      ref={ref}
-      variants={staggerContainer}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      className="mt-10 grid grid-cols-2 gap-6 lg:mt-14 md:grid-cols-3"
-    >
-      {stats.map((stat, i) => (
-        <motion.div key={stat.label} variants={fadeInUp} {...hoverScale}>
-          <Card
-            padding="base"
-            hoverEffect
-            className="flex flex-col items-center text-center"
-          >
-            <div className="text-2xl font-bold text-secondary">
-              {stat.isCount ? (
-                <CountUp
-                  start={0}
-                  end={stat.value}
-                  duration={2.5}
-                  suffix={stat.suffix}
-                  prefix={stat.prefix ?? ""}
-                  redraw={false}
-                />
-              ) : (
-                <h2 className="break-all">{stat.text}</h2>
-              )}
-            </div>
-            <p className="mt-2 text-xs font-medium text-foreground">
-              {stat.label}
-            </p>
-            {stat.description && (
-              <p className="mt-1 text-center text-xs text-muted-foreground">
-                {stat.description}
-              </p>
-            )}
-          </Card>
-        </motion.div>
-      ))}
-    </motion.div>
-  );
-};
-
-//===== Why Users Notice the Difference =====//
-const benefits = [
-  {
-    title: "Instant Load",
-    desc: "Pre‑cached assets deliver sub‑second app starts.",
-  },
-  {
-    title: "Fluid Gestures",
-    desc: "60fps interactions that rival native apps.",
-  },
-  {
-    title: "Always Available",
-    desc: "Core features work offline, so you never stop.",
-  },
-  {
-    title: "Privacy Focused",
-    desc: "Your data stays yours. No hidden tracking.",
-  },
-  {
-    title: "Seamless Updates",
-    desc: "Background updates without interrupting your flow.",
-  },
-  {
-    title: "Unified Experience",
-    desc: "Consistent design across phone, tablet, and desktop.",
-  },
-];
-
-const WhyUsersNotice = () => (
-  <Section>
-    <h3 className="mb-10 text-center text-2xl font-bold text-foreground">
-      Why Users Notice the Difference
-    </h3>
-    <motion.div
-      variants={staggerContainer}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-    >
-      {benefits.map((b, i) => (
-        <motion.div key={b.title} variants={fadeInUp} {...hoverScale}>
-          <Card padding="base" hoverEffect>
-            <h4 className="font-semibold text-foreground">{b.title}</h4>
-            <p className="mt-1 text-sm text-muted-foreground">{b.desc}</p>
-          </Card>
-        </motion.div>
-      ))}
-    </motion.div>
-  </Section>
-);
-
-//===== Technology Behind the Experience =====//
-const techStack = [
-  "APIs",
-  "Cloud Sync",
-  "Push Notifications",
-  "Authentication",
-  "Analytics",
-  "Offline Storage",
-  "Performance Optimization",
-];
-
-const TechnologyBehind = () => (
-  <Section>
-    <h3 className="mb-10 text-center text-2xl font-bold text-foreground">
-      Technology Behind the Experience
-    </h3>
-    <div className="flex flex-wrap justify-center gap-4">
-      {techStack.map((tech, i) => (
-        <motion.span
-          key={tech}
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.05 }}
-          className="rounded-full border border-border bg-primary/10 px-5 py-2 text-sm font-medium text-foreground transition-colors hover:border-secondary/30 hover:bg-secondary/10"
-        >
-          {tech}
-        </motion.span>
-      ))}
-    </div>
-  </Section>
-);
-
-//===== Background Particles =====//
-const BackgroundParticles = () => (
-  <div
-    className="absolute inset-0 pointer-events-none overflow-hidden"
-    aria-hidden="true"
-  >
-    <motion.div
-      className="absolute top-20 left-10 h-64 w-64 rounded-full bg-secondary/5 blur-3xl"
-      animate={{ y: [0, 30, 0], opacity: [0.3, 0.5, 0.3] }}
-      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-    />
-    <motion.div
-      className="absolute bottom-40 right-20 h-80 w-80 rounded-full bg-primary/5 blur-3xl"
-      animate={{ y: [0, -40, 0], opacity: [0.2, 0.4, 0.2] }}
-      transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-    />
-  </div>
-);
-
-//===== Main Component =====//
 const InsideEveryTap = () => {
   return (
-    //===== Inside Every Interaction Section =====//
-    <Section className="relative overflow-hidden bg-muted/30">
-      <BackgroundParticles />
-
+    <Section className="relative overflow-hidden bg-muted/20 py-16 sm:py-20 lg:py-28">
       <Container>
-        {/*===== Section header =====*/}
-        <div className="text-center">
-          <span className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary">
-            ✦ User Experience
-          </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground lg:text-4xl">
-            Inside Every Interaction
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground">
-            Every interaction is engineered for delight – speed, security, and
-            seamless flow.
-          </p>
+        {/*===== HEADER =====*/}
+
+        <div className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end lg:gap-16 lg:pb-14">
+          <div>
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
+                03 / Product experience
+              </span>
+
+              <span className="h-px w-10 bg-secondary/35" />
+            </div>
+
+            <h2 className="mt-5 max-w-2xl text-3xl font-semibold leading-[1.03] tracking-[-0.045em] text-heading sm:text-4xl lg:text-5xl xl:text-[56px]">
+              Clear for the user.
+              <span className="block text-secondary">
+                Considered underneath.
+              </span>
+            </h2>
+          </div>
+
+          <div className="lg:pb-1">
+            <p className="max-w-xl text-sm leading-7 text-body sm:text-base sm:leading-8">
+              Useful mobile experiences depend on many connected decisions.
+              Navigation, security, connectivity, and data should work together
+              so people can complete what they came to do.
+            </p>
+
+            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
+              <SmallSignal label="Touch-first" />
+              <SmallSignal label="Responsive" />
+              <SmallSignal label="Secure" />
+              <SmallSignal label="Connected" />
+            </div>
+          </div>
         </div>
 
-        {/*===== Central phone with left/right feature cards =====*/}
-        <Section className=" grid items-center gap-12 lg:grid-cols-[1fr_auto_1fr] lg:gap-0">
-          {/* Left Column */}
-          <div className="space-y-6 lg:pr-12">
-            {leftFeatures.map((feature, idx) => (
-              <FeatureCard
-                key={feature.title}
-                {...feature}
-                side="left"
-                index={idx}
+        {/*===== EXPERIENCE LAYOUT =====*/}
+
+        <div className="mt-10 grid overflow-hidden border border-border bg-card shadow-[var(--shadow-card)] lg:mt-14 lg:grid-cols-[minmax(320px,0.8fr)_minmax(0,1.35fr)]">
+          {/*===== PHONE STAGE =====*/}
+
+          <div className="relative flex min-h-[540px] items-center justify-center overflow-hidden border-b border-border bg-primary px-6 py-14 lg:min-h-[680px] lg:border-b-0 lg:border-r">
+            {/*===== BACKGROUND TYPE =====*/}
+
+            <span
+              aria-hidden="true"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none whitespace-nowrap text-[110px] font-semibold tracking-[-0.08em] text-white/[0.025] sm:text-[150px] lg:-rotate-90 lg:text-[170px]"
+            >
+              MOBILE
+            </span>
+
+            {/*===== TOP LABEL =====*/}
+
+            <div className="absolute left-5 right-5 top-5 flex items-center justify-between gap-4 lg:left-6 lg:right-6 lg:top-6">
+              <div className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-success" />
+
+                <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-white/55">
+                  Experience active
+                </span>
+              </div>
+
+              <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-gold-light">
+                Mobile / UX
+              </span>
+            </div>
+
+            {/*===== PHONE =====*/}
+
+            <div className="relative z-10 flex flex-col items-center">
+              <div
+                aria-hidden="true"
+                className="absolute left-1/2 top-1/2 h-[360px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/10 blur-[90px]"
               />
-            ))}
+
+              <div className="relative z-10 w-full max-w-[360px] overflow-hidden rounded-[20px] border border-white/15 bg-navy-deep shadow-[0_35px_80px_rgba(0,0,0,0.32)] sm:max-w-[400px] lg:max-w-[440px]">
+                <Image
+                  src={IMAGE.phoneMockup}
+                  alt="Mobile application interface"
+                  width={1165}
+                  height={1312}
+                  priority
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+
+              <div className="relative z-10 mt-7 flex items-center gap-3">
+                <Smartphone className="h-3.5 w-3.5 text-gold-light" />
+
+                <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-white/60">
+                  Designed for real-world interaction
+                </span>
+              </div>
+            </div>
+
+            {/*===== BOTTOM LABEL =====*/}
+
+            <span className="absolute bottom-5 left-5 font-mono text-[9px] uppercase tracking-[0.12em] text-white/45 lg:bottom-6 lg:left-6">
+              Blackcrest / Mobile Experience
+            </span>
           </div>
 
-          {/* Center Phone */}
-          <PhoneWithGlow />
+          {/*===== EXPERIENCE GRID =====*/}
 
-          {/* Right Column */}
-          <div className="space-y-6 lg:pl-12">
-            {rightFeatures.map((feature, idx) => (
-              <FeatureCard
-                key={feature.title}
-                {...feature}
-                side="right"
-                index={idx}
+          <div className="grid min-w-0 sm:grid-cols-2">
+            {/*===== FEATURE 01 - FEATURED =====*/}
+
+            <article className="group relative min-w-0 border-b border-border bg-secondary/[0.035] p-6 sm:col-span-2 sm:p-7 lg:p-8">
+              <span
+                aria-hidden="true"
+                className="absolute left-0 top-0 h-[2px] w-16 bg-secondary"
               />
-            ))}
+
+              <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+                <div className="max-w-lg">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center border border-secondary/20 bg-secondary/[0.06] text-secondary">
+                      <Navigation className="h-4 w-4" />
+                    </div>
+
+                    <div>
+                      <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-secondary">
+                        Interaction
+                      </span>
+
+                      <span className="ml-3 font-mono text-[9px] text-muted-foreground/55">
+                        01
+                      </span>
+                    </div>
+                  </div>
+
+                  <h3 className="mt-6 text-2xl font-semibold tracking-[-0.035em] text-heading sm:text-3xl">
+                    Smooth Navigation
+                  </h3>
+
+                  <p className="mt-3 max-w-xl text-sm leading-7 text-muted-foreground">
+                    Clear flows and familiar gestures help users move naturally
+                    through the product without having to think about the
+                    interface.
+                  </p>
+                </div>
+
+                <div className="hidden text-right sm:block">
+                  <span className="text-5xl font-semibold tracking-[-0.06em] text-secondary/10">
+                    01
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            {/*===== REMAINING FEATURES =====*/}
+
+            {features.slice(1).map((feature, index) => {
+              const Icon = feature.icon;
+
+              const isLast = index === features.slice(1).length - 1;
+
+              return (
+                <article
+                  key={feature.title}
+                  className={`
+                    group
+                    relative
+                    min-w-0
+                    p-6
+                    transition-colors
+                    duration-300
+                    hover:bg-muted/10
+                    sm:p-7
+                    lg:p-8
+
+                    ${!isLast ? "border-b border-border" : ""}
+
+                    ${index % 2 === 0 ? "sm:border-r sm:border-border" : ""}
+                  `}
+                >
+                  <div className="flex items-start justify-between gap-5">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.04] text-secondary transition-colors duration-300 group-hover:border-secondary/30 group-hover:bg-secondary/[0.065]">
+                      <Icon className="h-4 w-4" />
+                    </div>
+
+                    <span className="font-mono text-[9px] font-semibold text-secondary/65">
+                      {feature.number}
+                    </span>
+                  </div>
+
+                  <span className="mt-7 block font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/55">
+                    {feature.meta}
+                  </span>
+
+                  <h3 className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading">
+                    {feature.title}
+                  </h3>
+
+                  <p className="mt-3 max-w-sm text-sm leading-6 text-muted-foreground">
+                    {feature.description}
+                  </p>
+
+                  <span
+                    aria-hidden="true"
+                    className="absolute bottom-[-1px] left-0 h-[2px] w-0 bg-secondary transition-all duration-500 group-hover:w-10"
+                  />
+                </article>
+              );
+            })}
           </div>
-        </Section>
+        </div>
 
-        {/* User Journey Timeline */}
-        <UserJourney />
+        {/*===== EXPERIENCE PRINCIPLES =====*/}
 
-        {/* Animated Statistic Cards */}
-        <AnimatedStats />
+        <div className="mt-6 grid overflow-hidden border border-border bg-card sm:grid-cols-3">
+          <Principle
+            icon={Gauge}
+            label="Responsive"
+            description="Interactions designed to feel immediate."
+          />
 
-        {/* Why Users Notice the Difference */}
-        <WhyUsersNotice />
+          <Principle
+            icon={ShieldCheck}
+            label="Protected"
+            description="Security considered from the first interaction."
+          />
 
-        {/* Technology Behind the Experience */}
-        <TechnologyBehind />
+          <Principle
+            icon={Smartphone}
+            label="Intuitive"
+            description="Interfaces that feel natural from the first tap."
+            last
+          />
+        </div>
+
+        {/*===== CLOSING LINE =====*/}
+
+        <div className="mt-9 flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-xl text-base font-medium leading-7 tracking-[-0.015em] text-heading">
+            Good mobile engineering is rarely noticed.
+            <span className="text-secondary"> Friction is.</span>
+          </p>
+
+          <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-secondary">
+            Touch / Response / Trust
+          </span>
+        </div>
       </Container>
     </Section>
   );
 };
 
 export default InsideEveryTap;
+
+//==============================================================//
+// SMALL SIGNAL
+//==============================================================//
+
+function SmallSignal({ label }: { label: string }) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="h-1 w-1 rounded-full bg-secondary" />
+
+      <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.11em] text-muted-foreground/60">
+        {label}
+      </span>
+    </div>
+  );
+}
+
+//==============================================================//
+// PRINCIPLE
+//==============================================================//
+
+function Principle({
+  icon: Icon,
+  label,
+  description,
+  last = false,
+}: {
+  icon: typeof Gauge;
+  label: string;
+  description: string;
+  last?: boolean;
+}) {
+  return (
+    <div
+      className={`
+        flex
+        items-center
+        gap-4
+        px-5
+        py-5
+        sm:px-6
+
+        ${!last ? "border-b border-border sm:border-b-0 sm:border-r" : ""}
+      `}
+    >
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-secondary/15 bg-secondary/[0.04] text-secondary">
+        <Icon className="h-4 w-4" />
+      </div>
+
+      <div className="min-w-0">
+        <h3 className="text-sm font-semibold text-heading">
+          {label}
+        </h3>
+
+        <p className="mt-1 text-xs leading-5 text-muted-foreground">
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+}

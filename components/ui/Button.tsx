@@ -1,94 +1,108 @@
 "use client";
 
-import { motion } from "framer-motion";
+import {
+  forwardRef,
+  ReactNode,
+  ButtonHTMLAttributes,
+  AnchorHTMLAttributes,
+} from "react";
 import Link from "next/link";
-import { ReactNode } from "react";
 
-interface ButtonProps {
+//===== props union for button vs link =====//
+type ButtonAsButton = ButtonHTMLAttributes<HTMLButtonElement> & {
+  href?: never;
+  target?: never;
+};
+type ButtonAsLink = AnchorHTMLAttributes<HTMLAnchorElement> & {
+  href: string;
+  target?: string;
+};
+
+type ButtonProps = {
   children: ReactNode;
-  variant?: "primary" | "secondary" | "outline" | "ghost";
+  variant?: "primary" | "secondary" | "outline" | "ghost" | "destructive" | "link";
   size?: "sm" | "base" | "md" | "lg";
   className?: string;
   onClick?: () => void;
-  href?: string;
-  target?: string;
   disabled?: boolean;
-}
+  type?: "button" | "submit" | "reset";
+} & (ButtonAsButton | ButtonAsLink);
 
-export const Button = ({
-  children,
-  variant = "primary",
-  size = "base",
-  className = "",
-  onClick,
-  href,
-  target,
-  disabled = false,
-}: ButtonProps) => {
-  const baseStyles =
-    "group relative inline-flex items-center justify-center overflow-hidden cursor-pointer rounded-sm  transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background";
+type ButtonRef = HTMLButtonElement | HTMLAnchorElement;
 
-  const variantStyles = {
-    primary:
-      "bg-secondary text-white shadow-md hover:bg-secondary/90 hover:shadow-lg",
-    secondary: "bg-primary text-primary-foreground hover:bg-primary/90",
-    outline:
-      "border-2 border-secondary text-secondary hover:bg-secondary hover:text-primary-foreground",
-    ghost: "text-foreground hover:bg-muted",
-  };
+export const Button = forwardRef<ButtonRef, ButtonProps>(
+  (
+    {
+      children,
+      variant = "primary",
+      size = "base",
+      className = "",
+      onClick,
+      href,
+      target,
+      disabled = false,
+      type = "button",
+      ...rest
+    },
+    ref,
+  ) => {
+    const baseStyles =
+      "inline-flex min-h-10 items-center justify-center gap-2 rounded-[var(--radius-control)] font-medium tracking-[-0.01em] transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background active:translate-y-px";
 
-  const sizeStyles = {
-    sm: "px-3 py-1.5 text-sm",
-    base: "px-4 py-2 text-base",
-    md: "px-5 py-2.5 text-base",
-    lg: "px-8 py-4 text-lg",
-  };
+    const variantStyles = {
+      primary:
+        "bg-secondary text-secondary-foreground shadow-[var(--shadow-action)] hover:-translate-y-px hover:bg-secondary/90 hover:shadow-[var(--shadow-action-hover)]",
+      secondary: "bg-primary text-primary-foreground shadow-sm hover:-translate-y-px hover:bg-primary/90 hover:shadow-md",
+      outline:
+        "border border-border bg-card text-foreground shadow-[inset_0_1px_0_rgb(255_255_255/0.22)] hover:border-secondary/50 hover:bg-secondary/8 hover:text-secondary",
+      ghost: "text-foreground hover:bg-muted/80 hover:text-heading",
+      destructive: "bg-destructive text-destructive-foreground shadow-sm hover:-translate-y-px hover:bg-destructive/90 hover:shadow-md",
+      link: "min-h-0 px-0 text-secondary underline-offset-4 hover:text-secondary/80 hover:underline",
+    };
 
-  const disabledStyles = disabled
-    ? "opacity-50 cursor-not-allowed pointer-events-none"
-    : "";
+    const sizeStyles = {
+      sm: "min-h-8 px-3 text-xs",
+      base: "px-4 text-sm",
+      md: "min-h-11 px-5 text-sm",
+      lg: "min-h-12 px-6 text-base",
+    };
 
-  const combined = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${disabledStyles} ${className}`;
+    const disabledStyles = disabled
+      ? "pointer-events-none cursor-not-allowed opacity-45 shadow-none"
+      : "";
 
-  const content = (
-    <>
-      {/* Shine effect for primary variant only */}
-      {variant === "primary" && (
-        <motion.span
-          aria-hidden="true"
-          className="absolute inset-y-0 -left-1/2 w-1/3 skew-x-[-20deg] bg-white/25"
-          initial={{ x: "-160%" }}
-          animate={disabled ? {} : { x: "520%" }}
-          transition={{
-            duration: 1.1,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatDelay: 2.8,
-          }}
-        />
-      )}
-      <motion.span
-        whileHover={disabled ? {} : { y: -1 }}
-        whileTap={disabled ? {} : { scale: 0.97 }}
-        transition={{ type: "spring", stiffness: 500, damping: 22 }}
-        className="relative z-10 flex items-center gap-2"
-      >
-        {children}
-      </motion.span>
-    </>
-  );
+    const combined = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${disabledStyles} ${className}`;
 
-  if (href && !disabled) {
+    const content = <span className="flex items-center gap-2">{children}</span>;
+
+    if (href && !disabled) {
+      return (
+        <Link
+          href={href}
+          target={target}
+          className={combined}
+          onClick={onClick}
+          ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+          {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
+        >
+          {content}
+        </Link>
+      );
+    }
+
     return (
-      <Link href={href} target={target} className={combined} onClick={onClick}>
+      <button
+        type={type}
+        className={combined}
+        onClick={onClick}
+        disabled={disabled}
+        ref={ref as React.ForwardedRef<HTMLButtonElement>}
+        {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}
+      >
         {content}
-      </Link>
+      </button>
     );
-  }
+  },
+);
 
-  return (
-    <button className={combined} onClick={onClick} disabled={disabled}>
-      {content}
-    </button>
-  );
-};
+Button.displayName = "Button";

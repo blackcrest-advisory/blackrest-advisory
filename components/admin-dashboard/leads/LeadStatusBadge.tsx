@@ -3,7 +3,8 @@ import {
   leadStatusStyles,
   leadStatusLabels,
 } from "@/types/dashboard/admin/leadTypes";
-import { cn } from "@/lib/utils";
+
+import { cn } from "@/lib/utils/utils";
 
 interface LeadStatusBadgeProps {
   status: LeadStatus;
@@ -17,11 +18,26 @@ export const LeadStatusBadge = ({
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium",
+        `
+          inline-flex
+          items-center
+          gap-1.5
+          border
+          px-2.5 py-1
+          text-[10px]
+          font-semibold
+          uppercase
+          tracking-[0.08em]
+        `,
         leadStatusStyles[status],
         className,
       )}
     >
+      <span
+        aria-hidden="true"
+        className="h-1.5 w-1.5 shrink-0 rounded-full bg-current opacity-70"
+      />
+
       {leadStatusLabels[status]}
     </span>
   );

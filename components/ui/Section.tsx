@@ -1,14 +1,21 @@
-import { cn } from "@/lib/utils";
+import { forwardRef, type ComponentPropsWithoutRef } from "react";
 
-type SectionProps = {
-  children: React.ReactNode;
-  className?: string;
-};
+import { cn } from "@/lib/utils/utils";
 
-export function Section({ children, className }: SectionProps) {
-  return (
-    <section className={cn("py-4 md:py-8 lg:py-12", className)}>
-      {children}
-    </section>
-  );
-}
+type SectionProps = ComponentPropsWithoutRef<"section">;
+
+export const Section = forwardRef<HTMLElement, SectionProps>(
+  ({ children, className, ...props }, ref) => {
+    return (
+      <section
+        ref={ref}
+        className={cn("py-5 md:py-8 lg:py-12", className)}
+        {...props}
+      >
+        {children}
+      </section>
+    );
+  },
+);
+
+Section.displayName = "Section";

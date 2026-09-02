@@ -1,111 +1,213 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowUpRight, CheckCircle2, Sparkles } from "lucide-react";
+
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { fadeInUp, fadeIn, pulseScale, hoverScale } from "@/utils/animations";
-import { Card } from "@/components/ui/Card";
+
+const trustPoints = [
+  "A clear conversation about your goal",
+  "Practical next-step guidance",
+  "The right service mix for your needs",
+];
 
 const CTA = () => {
   return (
-    <Section>
-      {/* Decorative floating elements */}
-      <motion.div
-        className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-secondary/5 blur-3xl"
-        variants={pulseScale}
-        initial="initial"
-        animate="animate"
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute -bottom-20 -left-20 h-48 w-48 rounded-full bg-primary/5 blur-3xl"
-        variants={pulseScale}
-        initial="initial"
-        animate="animate"
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 0.5,
-        }}
-      />
-
+    <Section className="relative overflow-hidden bg-muted/20">
       <Container>
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          {...hoverScale}
-        >
-          <Card
-            padding="lg"
-            className="relative overflow-hidden md:p-12 lg:p-16"
-          >
-            {/* Inner glow */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-secondary/5 to-primary/5 opacity-50" />
+        <div className="relative overflow-hidden bg-navy-deep px-6 py-14 text-white shadow-[var(--shadow-overlay)] sm:px-10 sm:py-16 lg:px-16 lg:py-20">
+          {/* Background composition */}
+          <div className="pointer-events-none absolute inset-0">
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(50rem 28rem at 82% 10%, rgb(166 124 39 / 0.16), transparent 60%)",
+              }}
+            />
 
-            <div className="relative z-10 text-center">
+            <motion.div
+              className="absolute -right-28 -top-28 h-80 w-80 rounded-full border border-white/[0.06]"
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 38,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            />
+
+            <motion.div
+              className="absolute -right-10 -top-10 h-56 w-56 rounded-full border border-secondary/15"
+              animate={{ rotate: -360 }}
+              transition={{
+                duration: 28,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            />
+
+            <motion.div
+              className="absolute right-[9%] top-[18%] h-3 w-3 rounded-full bg-secondary"
+              animate={{
+                y: [0, 18, 0],
+                opacity: [0.6, 1, 0.6],
+              }}
+              transition={{
+                duration: 4.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              style={{
+                boxShadow: "0 0 26px rgb(166 124 39 / 0.55)",
+              }}
+            />
+
+            <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-secondary/40 to-transparent" />
+          </div>
+
+          <div className="relative grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+            {/* Main message */}
+            <div>
               <motion.div
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.2, duration: 0.5 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2"
               >
-                <span className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary backdrop-blur-sm">
-                  Let&apos;s Talk
+                <Sparkles className="h-4 w-4 text-gold-light" />
+
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-light">
+                  Start a conversation
                 </span>
               </motion.div>
 
               <motion.h2
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
+                initial={{ opacity: 0, y: 26 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
+                transition={{
+                  delay: 0.08,
+                  duration: 0.65,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]"
               >
-                Ready to grow your business?
+                Let&apos;s make your next
+                <span className="block text-white/40">
+                  digital move a clear one.
+                </span>
               </motion.h2>
 
               <motion.p
-                variants={fadeIn}
-                initial="hidden"
-                whileInView="visible"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                className="mx-auto mt-4 max-w-2xl text-muted-foreground"
+                transition={{ delay: 0.15, duration: 0.55 }}
+                className="mt-6 max-w-2xl text-base leading-8 text-white/55"
               >
-                Book your free discovery consultation today. No obligation. Just
-                an honest conversation about your business goals.
+                Tell us what you want to build, improve, or make easier. We can
+                help you identify a practical next step - from a website or
+                mobile product to digital marketing or sales support.
               </motion.p>
 
+              {/* CTA buttons */}
               <motion.div
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                className="mt-8 flex flex-wrap justify-center gap-4"
+                transition={{ delay: 0.22, duration: 0.5 }}
+                className="mt-9 flex flex-wrap items-center gap-4"
               >
                 <Button
                   variant="primary"
                   size="md"
-                  href="/signup"
-                  className="shadow-lg shadow-secondary/20 transition-shadow hover:shadow-secondary/40"
+                  href="/contact"
+                  className="group bg-secondary text-navy-deep hover:bg-gold-light"
                 >
-                  Get Started
+                  Start a conversation
+                  <ArrowUpRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </Button>
-                <Button variant="outline" size="md">
-                  Learn More
+
+                <Button
+                  variant="outline"
+                  size="md"
+                  href="/start-project"
+                  className="border-white/15 bg-white/[0.04] text-white hover:border-white/25 hover:bg-white/[0.08]"
+                >
+                  Share your project
                 </Button>
               </motion.div>
             </div>
-          </Card>
-        </motion.div>
+
+            {/* Trust / reassurance */}
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.16, duration: 0.55 }}
+              className="border-t border-white/10 pt-7 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0"
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/35">
+                What to expect
+              </p>
+
+              <div className="mt-5 space-y-4">
+                {trustPoints.map((point, index) => (
+                  <motion.div
+                    key={point}
+                    initial={{ opacity: 0, x: 12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      delay: 0.25 + index * 0.08,
+                      duration: 0.4,
+                    }}
+                    className="flex items-center gap-3"
+                  >
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full border border-secondary/25 bg-secondary/10">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-gold-light" />
+                    </div>
+
+                    <span className="text-sm font-medium text-white/75">
+                      {point}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-8 border-t border-white/10 pt-6">
+                <p className="text-sm leading-6 text-white/45">
+                  Start with the challenge in front of you. We will help you
+                  clarify what matters most and where Blackcrest can help.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Bottom meta row */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.35, duration: 0.6 }}
+            className="relative mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs sm:flex-row sm:items-center sm:justify-between"
+          >
+            <span className="text-white/30">Blackcrest Advisory</span>
+
+            <div className="flex flex-wrap items-center gap-3 font-medium text-white/45">
+              <span>Web</span>
+              <span className="h-1 w-1 rounded-full bg-secondary/70" />
+              <span>Mobile</span>
+              <span className="h-1 w-1 rounded-full bg-secondary/70" />
+              <span>Marketing</span>
+              <span className="h-1 w-1 rounded-full bg-secondary/70" />
+              <span>Sales support</span>
+            </div>
+          </motion.div>
+        </div>
       </Container>
     </Section>
   );

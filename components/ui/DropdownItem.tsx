@@ -8,6 +8,7 @@ interface DropdownItemProps {
   danger?: boolean;
   onClick?: () => void;
   className?: string;
+  disabled?: boolean;
 }
 
 const DropdownItem = ({
@@ -17,6 +18,7 @@ const DropdownItem = ({
   danger = false,
   onClick,
   className = "",
+  disabled = false,
 }: DropdownItemProps) => {
   const styles = `
     group
@@ -24,21 +26,22 @@ const DropdownItem = ({
     flex
     items-center
     px-4
-    py-3
+    py-2.5
     text-sm
     font-medium
-    transition-all
+    transition-[background-color,color,transform]
     duration-150
-    border-l-2
-    first:rounded-t-xl
-    last:rounded-b-xl
+    rounded-[calc(var(--radius-control)-0.0625rem)]
+    focus-visible:outline-none
+    focus-visible:ring-2
+    focus-visible:ring-ring/50
 
     ${
       danger
-        ? "text-red-500 hover:bg-red-50 border-transparent"
+        ? "text-destructive hover:bg-destructive/8"
         : active
-          ? "border-secondary bg-muted text-secondary"
-          : "border-transparent text-body hover:bg-muted/50 hover:text-secondary hover:border-secondary/30"
+          ? "bg-secondary/10 text-secondary"
+          : "text-body hover:bg-muted/70 hover:text-foreground"
     }
 
     ${className}
@@ -47,7 +50,7 @@ const DropdownItem = ({
   const content = (
     <>
       {active && (
-        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-secondary rounded-full" />
+        <span className="absolute left-2 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-secondary" />
       )}
 
       <span className="truncate">{children}</span>
@@ -70,14 +73,18 @@ const DropdownItem = ({
 
   if (href) {
     return (
-      <Link href={href} className={styles}>
+      <Link href={href} className={styles} onClick={onClick}>
         {content}
       </Link>
     );
   }
 
   return (
-    <button onClick={onClick} className={`${styles} w-full text-left cursor-pointer`}>
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className={`${styles} w-full cursor-pointer text-left disabled:cursor-not-allowed disabled:opacity-50`}
+    >
       {content}
     </button>
   );

@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { cn } from "@/lib/utils/utils";
+import { motion, useReducedMotion } from "framer-motion";
 
 interface LoaderProps {
   /** Size variant */
@@ -27,16 +27,18 @@ export function Loader({
   className = "",
   label,
 }: LoaderProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   const spinner = (
     <motion.div
       animate={{ rotate: 360 }}
-      transition={{
-        repeat: Infinity,
-        duration: 1,
-        ease: "linear",
-      }}
+      transition={
+        shouldReduceMotion
+          ? { duration: 0.01 }
+          : { repeat: Infinity, duration: 1, ease: "linear" }
+      }
       className={cn(
-        "rounded-full border-solid border-[var(--color-card-border)] border-t-[var(--color-secondary)]",
+        "rounded-full border-solid border-border border-t-secondary",
         sizeMap[size],
         className,
       )}
@@ -47,7 +49,7 @@ export function Loader({
     <div className="flex flex-col items-center justify-center gap-4">
       {spinner}
       {label && (
-        <p className="text-sm text-[var(--color-body)] font-medium">{label}</p>
+        <p className="text-sm font-medium text-body">{label}</p>
       )}
     </div>
   );

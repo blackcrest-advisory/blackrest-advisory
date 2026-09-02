@@ -1,202 +1,216 @@
-"use client";
+import { redirect } from "next/navigation";
+import {
+  AlertCircle,
+  CheckCircle2,
+  Clock3,
+  FolderKanban,
+  Sparkles,
+} from "lucide-react";
 
-import { useEffect, useMemo, useState } from "react";
-import { motion } from "framer-motion";
-import { PageWrapper } from "@/components/ui/PageWrapper";
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
-import { ProjectHeader } from "@/components/client-dashboard/projects/ProjectHeader";
-import { ProjectStats } from "@/components/client-dashboard/projects/ProjectStats";
-import { ProjectFilters } from "@/components/client-dashboard/projects/ProjectFilters";
-import { ProjectGrid } from "@/components/client-dashboard/projects/ProjectGrid";
-import { ProjectPagination } from "@/components/client-dashboard/projects/ProjectPagination";
-import { fadeInUp, staggerContainer } from "@/utils/animations";
-import type {
-  ActivityLog,
-  Milestone,
-  Project,
-  ProjectStatus,
-  Industry,
-  ServiceType,
-} from "@/types/dashboard/client/projectsType";
-import axios from "@/api-client/client";
+import { getCurrentUser } from "@/lib/utils/auth-utils";
+import { getClientProjects } from "@/lib/actions/projects/project.action";
+import { ClientProjectsClient } from "@/components/client-dashboard/projects/ClientProjectsClient";
 
-//===== Serialized project type from API =====//
-type SerializedProject = Omit<
-  Project,
-  "timeline" | "dueDate" | "lastUpdated" | "milestones" | "activity"
-> & {
-  timeline: {
-    start: string;
-    end: string;
-  };
-  dueDate: string;
-  lastUpdated: string;
-  milestones: Array<Omit<Milestone, "dueDate"> & { dueDate: string }>;
-  activity: Array<Omit<ActivityLog, "timestamp"> & { timestamp: string }>;
-};
+export default async function ClientProjectsPage() {
+  const user = await getCurrentUser();
 
-export default function ProjectsPage() {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [statusFilter, setStatusFilter] = useState<ProjectStatus | "all">(
-    "all",
-  );
-  const [industryFilter, setIndustryFilter] = useState<Industry | "all">("all");
-  const [serviceFilter, setServiceFilter] = useState<ServiceType | "all">(
-    "all",
-  );
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
-
-  //===== Fetch projects =====//
-  useEffect(() => {
-    let isMounted = true;
-
-    axios
-      .get<SerializedProject[]>("/api/client/projects/list")
-      .then((response) => {
-        if (!isMounted) return;
-
-        setProjects(
-          response.data.map((project) => ({
-            ...project,
-            timeline: {
-              start: new Date(project.timeline.start),
-              end: new Date(project.timeline.end),
-            },
-            dueDate: new Date(project.dueDate),
-            lastUpdated: new Date(project.lastUpdated),
-            milestones: project.milestones.map((milestone) => ({
-              ...milestone,
-              dueDate: new Date(milestone.dueDate),
-            })),
-            activity: project.activity.map((activity) => ({
-              ...activity,
-              timestamp: new Date(activity.timestamp),
-            })),
-          })),
-        );
-      })
-      .catch(() => {
-        if (isMounted) setProjects([]);
-      })
-      .finally(() => {
-        if (isMounted) setLoading(false);
-      });
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
-  //===== Filter projects =====//
-  const filteredProjects = useMemo(() => {
-    return projects.filter((project) => {
-      const matchesSearch =
-        project.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        project.clientCompany.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesStatus =
-        statusFilter === "all" || project.status === statusFilter;
-      const matchesIndustry =
-        industryFilter === "all" || project.industry === industryFilter;
-      const matchesService =
-        serviceFilter === "all" || project.serviceType === serviceFilter;
-      return (
-        matchesSearch && matchesStatus && matchesIndustry && matchesService
-      );
-    });
-  }, [projects, searchQuery, statusFilter, industryFilter, serviceFilter]);
-
-  //===== Pagination =====//
-  const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
-  const paginatedProjects = useMemo(() => {
-    const start = (currentPage - 1) * itemsPerPage;
-    return filteredProjects.slice(start, start + itemsPerPage);
-  }, [filteredProjects, currentPage]);
-
-  //===== Reset page when filters change =====//
-  const handleFilterChange = () => {
-    setCurrentPage(1);
-  };
-
-  //===== Loading state =====//
-  if (loading) {
-    return (
-      <PageWrapper>
-        <Section className="py-2 md:py-2 lg:py-2">
-          <Container>
-            <div className="py-12 text-center text-muted-foreground">
-              Loading projects...
-            </div>
-          </Container>
-        </Section>
-      </PageWrapper>
-    );
+  if (!user) {
+    redirect("/login");
   }
 
+  const projects = await getClientProjects();
+
+  //===== stats =====//
+  const total = projects.length;
+
+  const active = projects.filter(
+    (p) =>
+      p.status === "ACTIVE" ||
+      p.status === "PLANNING" ||
+      p.status === "IN_REVIEW",
+  ).length;
+
+  const completed = projects.filter((p) => p.status === "COMPLETED").length;
+
+  const onHold = projects.filter(
+    (p) => p.status === "ON_HOLD" || p.status === "CANCELLED",
+  ).length;
+
+  const stats = [
+    {
+      label: "Total Projects",
+      value: total,
+      icon: FolderKanban,
+      eyebrow: "Portfolio",
+    },
+    {
+      label: "Active",
+      value: active,
+      icon: Clock3,
+      eyebrow: "In Progress",
+    },
+    {
+      label: "Completed",
+      value: completed,
+      icon: CheckCircle2,
+      eyebrow: "Delivered",
+    },
+    {
+      label: "On Hold",
+      value: onHold,
+      icon: AlertCircle,
+      eyebrow: "Attention",
+    },
+  ];
+
   return (
-    //===== Client Projects Page =====//
-    <PageWrapper>
-      <Section className="py-2 md:py-2 lg:py-2">
-        <Container>
-          <div className="space-y-8">
-            {/*===== Header =====*/}
-            <motion.div variants={fadeInUp} initial="hidden" animate="visible">
-              <ProjectHeader />
-            </motion.div>
+    <div className="relative">
+      {/*===== PAGE INTRO =====*/}
 
-            {/*===== Stats =====*/}
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              animate="visible"
-            >
-              <ProjectStats projects={projects} />
-            </motion.div>
+      <section className="relative overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
+        {/* ambient glow */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-28 -top-32 h-72 w-72 rounded-full bg-secondary/[0.09] blur-[100px]"
+        />
 
-            {/*===== Filters =====*/}
-            <motion.div variants={fadeInUp}>
-              <ProjectFilters
-                searchQuery={searchQuery}
-                onSearchChange={setSearchQuery}
-                statusFilter={statusFilter}
-                onStatusChange={(v) => {
-                  setStatusFilter(v);
-                  handleFilterChange();
-                }}
-                industryFilter={industryFilter}
-                onIndustryChange={(v) => {
-                  setIndustryFilter(v);
-                  handleFilterChange();
-                }}
-                serviceFilter={serviceFilter}
-                onServiceChange={(v) => {
-                  setServiceFilter(v);
-                  handleFilterChange();
-                }}
-              />
-            </motion.div>
+        {/* architectural grid */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 hidden opacity-[0.05] lg:block"
+          style={{
+            backgroundImage: `
+              linear-gradient(
+                to right,
+                var(--color-border) 1px,
+                transparent 1px
+              )
+            `,
+            backgroundSize: "12.5% 100%",
+          }}
+        />
 
-            {/*===== Project Grid =====*/}
-            <motion.div variants={fadeInUp}>
-              <ProjectGrid projects={paginatedProjects} />
-            </motion.div>
+        {/* top signal */}
+        <div className="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/40 to-transparent"/>
 
-            {/*===== Pagination =====*/}
-            {totalPages > 1 && (
-              <motion.div variants={fadeInUp}>
-                <ProjectPagination
-                  currentPage={currentPage}
-                  totalPages={totalPages}
-                  onPageChange={setCurrentPage}
-                />
-              </motion.div>
-            )}
+        <div className="relative z-10 grid gap-7 px-5 py-7 sm:px-6 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-end lg:px-8 lg:py-8">
+          {/* left */}
+          <div>
+            <div className="flex items-center gap-2">
+              <FolderKanban className="h-3.5 w-3.5 text-secondary" />
+
+              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.18em] text-secondary">
+                Project portfolio
+              </span>
+
+              <span className="h-px w-8 bg-secondary/30" />
+            </div>
+
+            <h1 className="mt-4 text-3xl font-semibold tracking-[-0.045em] text-heading sm:text-4xl">
+              My Projects
+            </h1>
+
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
+              View every Blackcrest engagement in one place, follow delivery
+              progress, and keep track of project status and commercial details.
+            </p>
           </div>
-        </Container>
-      </Section>
-    </PageWrapper>
+
+          {/* right summary */}
+          <div className="border-t border-border pt-5 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
+            <div className="flex items-center gap-2">
+              <Sparkles className="h-3.5 w-3.5 text-secondary" />
+
+              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.17em] text-secondary">
+                Portfolio status
+              </span>
+            </div>
+
+            <div className="mt-4 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs text-muted-foreground">
+                  Total engagements
+                </span>
+
+                <span className="text-sm font-semibold text-heading">
+                  {total}
+                </span>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <span className="text-xs text-muted-foreground">
+                  Currently active
+                </span>
+
+                <span className="text-sm font-semibold text-success">
+                  {active}
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-4 flex items-center gap-2 border-t border-border pt-4">
+              <span className="h-1.5 w-1.5 rounded-full bg-success" />
+
+              <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-muted-foreground/40">
+                Portfolio synced
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/*===== STATS =====*/}
+
+      <section className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        {stats.map((stat, index) => {
+          const Icon = stat.icon;
+
+          return (
+            <article
+              key={stat.label}
+              className="group relative min-h-[150px] overflow-hidden border border-border bg-card p-5 shadow-[var(--shadow-card)] transition-all duration-300 hover:border-secondary/25 hover:shadow-[var(--shadow-card-hover)]"
+            >
+              {/* index */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-5 -right-1 font-mono text-[5rem] font-semibold leading-none tracking-[-0.1em] text-foreground/[0.025]"
+              >
+                0{index + 1}
+              </span>
+
+              <div className="relative z-10">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-secondary">
+                      {stat.eyebrow}
+                    </p>
+
+                    <p className="mt-1 text-xs font-medium text-muted-foreground">
+                      {stat.label}
+                    </p>
+                  </div>
+
+                  <div className="flex h-9 w-9 items-center justify-center border border-secondary/15 bg-secondary/[0.05] text-secondary transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary group-hover:text-secondary-foreground">
+                    <Icon className="h-4 w-4" strokeWidth={1.8} />
+                  </div>
+                </div>
+
+                <p className="mt-6 text-3xl font-semibold tracking-[-0.05em] text-heading">
+                  {stat.value}
+                </p>
+
+                <div className="mt-4 h-px w-8 bg-secondary/25 transition-all duration-300 group-hover:w-14 group-hover:bg-secondary"/>
+              </div>
+            </article>
+          );
+        })}
+      </section>
+
+      {/*===== PROJECT WORKSPACE =====*/}
+
+      <section className="mt-6">
+        <ClientProjectsClient projects={projects} />
+      </section>
+    </div>
   );
 }

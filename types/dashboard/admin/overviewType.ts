@@ -11,10 +11,23 @@ export interface AdminStats {
   activeProjectsChange: number;
   newLeads: number;
   newLeadsChange: number;
-  monthlyRevenue: number;
-  monthlyRevenueChange: number;
-  pendingTasks: number;
+  monthlyRevenue: CurrencyRevenueTotal[];
   overdueInvoices: number;
+}
+
+export interface RevenuePoint {
+  label: string;
+  value: number;
+}
+
+export interface CurrencyRevenueTotal {
+  currency: string;
+  amount: number;
+}
+
+export interface RevenueSeries {
+  currency: string;
+  points: RevenuePoint[];
 }
 
 export interface AdminProject {

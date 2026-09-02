@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
-import { Button } from "@/components/ui/Button"; // adjust import path if needed
+import { Button } from "@/components/ui/Button";
 
 export function ProjectHeader() {
   return (
@@ -21,13 +21,13 @@ export function ProjectHeader() {
         </p>
       </div>
       <Button
+        href="/client/dashboard/projects/request"
         variant="primary"
         size="sm"
-        onClick={() => console.log("New Project clicked")}
-        className="gap-2" // ensures icon and text spacing
+        className="gap-2"
       >
         <Plus className="h-4 w-4" />
-        New Project
+        Request Project
       </Button>
     </motion.div>
   );

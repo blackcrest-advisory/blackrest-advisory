@@ -1,64 +1,112 @@
+//===== imports =====//
 import { Download, Eye } from "lucide-react";
+
 import { TableCell, TableRow } from "@/components/ui/Table";
+
 import { FileTypeIcon } from "@/components/client-dashboard/files/FileTypeIcon";
 import { FileCategoryBadge } from "@/components/client-dashboard/files/FileCategoryBadge";
-import { ProjectFile } from "@/types/dashboard/client/filesType";
-import { formatFileDate, formatFileSize } from "@/utils/format";
 
+import type { ProjectFile } from "@/types/dashboard/client/filesType";
+
+import { formatFileDate, formatFileSize } from "@/lib/utils/format";
+
+//===== props =====//
 interface FilesTableRowProps {
   file: ProjectFile;
 }
 
+//==============================================================//
+// FILES TABLE ROW
+//==============================================================//
+
 export const FilesTableRow = ({ file }: FilesTableRowProps) => {
   return (
-    <TableRow>
-      <TableCell>
-        <div className="flex items-center gap-3">
-          <FileTypeIcon category={file.category} />
-          <span
-            className="max-w-[220px] truncate font-medium text-heading"
-            title={file.name}
-          >
-            {file.name}
-          </span>
+    <TableRow className="group border-b border-border transition-colors hover:bg-secondary/[0.018]">
+      {/*===== FILE =====*/}
+
+      <TableCell className="px-4 py-4 first:pl-6">
+        <div className="flex min-w-0 items-center gap-3">
+          <div className="shrink-0">
+            <FileTypeIcon category={file.category} />
+          </div>
+
+          <div className="min-w-0">
+            <span
+              className="block max-w-[220px] truncate text-sm font-semibold text-heading"
+              title={file.name}
+            >
+              {file.name}
+            </span>
+
+            <span className="mt-1 block font-mono text-[7px] uppercase tracking-[0.12em] text-muted-foreground/35">
+              Project document
+            </span>
+          </div>
         </div>
       </TableCell>
 
-      <TableCell>
-        <span className="text-body">{file.projectName}</span>
+      {/*===== PROJECT =====*/}
+
+      <TableCell className="px-4 py-4">
+        <span
+          className="block max-w-[180px] truncate text-xs font-medium text-body"
+          title={file.projectName}
+        >
+          {file.projectName}
+        </span>
       </TableCell>
 
-      <TableCell>
+      {/*===== TYPE =====*/}
+
+      <TableCell className="px-4 py-4">
         <FileCategoryBadge category={file.category} />
       </TableCell>
 
-      <TableCell>
-        <span className="text-body">{formatFileSize(file.sizeInBytes)}</span>
+      {/*===== SIZE =====*/}
+
+      <TableCell className="px-4 py-4">
+        <span className="whitespace-nowrap font-mono text-[10px] font-medium text-muted-foreground">
+          {formatFileSize(file.sizeInBytes)}
+        </span>
       </TableCell>
 
-      <TableCell>
-        <span className="text-body">{file.uploadedBy}</span>
+      {/*===== UPLOADED BY =====*/}
+
+      <TableCell className="px-4 py-4">
+        <span
+          className="block max-w-[150px] truncate text-xs text-body"
+          title={file.uploadedBy}
+        >
+          {file.uploadedBy}
+        </span>
       </TableCell>
 
-      <TableCell>
-        <span className="text-body">{formatFileDate(file.uploadedAt)}</span>
+      {/*===== UPLOADED AT =====*/}
+
+      <TableCell className="px-4 py-4">
+        <span className="whitespace-nowrap text-xs text-muted-foreground">
+          {formatFileDate(file.uploadedAt)}
+        </span>
       </TableCell>
 
-      <TableCell>
-        <div className="flex items-center gap-1">
+      {/*===== ACTIONS =====*/}
+
+      <TableCell className="px-4 py-4 pr-6">
+        <div className="flex items-center justify-end gap-1">
           <button
             type="button"
             aria-label={`Preview ${file.name}`}
-            className="rounded-md p-2 text-body transition-colors hover:bg-muted hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            className="flex h-8 w-8 items-center justify-center rounded-md border border-transparent text-muted-foreground transition-colors hover:border-secondary/15 hover:bg-secondary/[0.05] hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary/30"
           >
-            <Eye className="h-4 w-4" />
+            <Eye className="h-3.5 w-3.5" />
           </button>
+
           <button
             type="button"
             aria-label={`Download ${file.name}`}
-            className="rounded-md p-2 text-body transition-colors hover:bg-muted hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary/40"
+            className="flex h-8 w-8 items-center justify-center rounded-md border border-transparent text-muted-foreground transition-colors hover:border-secondary/15 hover:bg-secondary/[0.05] hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary/30"
           >
-            <Download className="h-4 w-4" />
+            <Download className="h-3.5 w-3.5" />
           </button>
         </div>
       </TableCell>

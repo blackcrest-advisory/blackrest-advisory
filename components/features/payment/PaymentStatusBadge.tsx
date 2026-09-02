@@ -1,5 +1,5 @@
 import { PaymentStatus } from "@/types/dashboard/client/paymentTypes";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 
 interface PaymentStatusBadgeProps {
   status: PaymentStatus;

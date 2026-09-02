@@ -1,5 +1,5 @@
 import { ProjectPriority } from "@/types/dashboard/client/projectsType";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 
 interface PriorityBadgeProps {
   priority: ProjectPriority;
@@ -7,10 +7,10 @@ interface PriorityBadgeProps {
 }
 
 const priorityStyles: Record<ProjectPriority, string> = {
-  low: "bg-[var(--color-muted)] text-[var(--color-body)] border-[var(--color-border)]",
-  medium: "bg-blue-500/15 text-blue-600 border-blue-500/30",
-  high: "bg-orange-500/15 text-orange-600 border-orange-500/30",
-  critical: "bg-red-500/15 text-red-600 border-red-500/30",
+  low: "border-border bg-muted/70 text-body",
+  medium: "border-info/30 bg-info/15 text-info",
+  high: "border-warning/30 bg-warning/15 text-warning",
+  critical: "border-destructive/30 bg-destructive/15 text-destructive",
 };
 
 export const PriorityBadge = ({
@@ -20,11 +20,26 @@ export const PriorityBadge = ({
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium capitalize",
+        `
+          inline-flex
+          items-center
+          gap-1.5
+          border
+          px-2.5 py-1
+          text-[10px]
+          font-semibold
+          uppercase
+          tracking-[0.08em]
+        `,
         priorityStyles[priority],
         className,
       )}
     >
+      <span
+        aria-hidden="true"
+        className="h-1.5 w-1.5 shrink-0 rounded-full bg-current opacity-70"
+      />
+
       {priority}
     </span>
   );

@@ -4,7 +4,7 @@ import {
   TdHTMLAttributes,
   ThHTMLAttributes,
 } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 
 interface TableProps extends HTMLAttributes<HTMLTableElement> {
   children: ReactNode;
@@ -26,7 +26,7 @@ export const TableHeader = ({
   className = "",
   ...props
 }: HTMLAttributes<HTMLTableSectionElement>) => (
-  <thead className={cn("border-b border-border", className)} {...props}>
+  <thead className={cn("border-y border-border/80 bg-muted/35", className)} {...props}>
     {children}
   </thead>
 );
@@ -36,7 +36,7 @@ export const TableBody = ({
   className = "",
   ...props
 }: HTMLAttributes<HTMLTableSectionElement>) => (
-  <tbody className={cn("divide-y divide-border", className)} {...props}>
+  <tbody className={cn("divide-y divide-border/70", className)} {...props}>
     {children}
   </tbody>
 );
@@ -47,7 +47,7 @@ export const TableRow = ({
   ...props
 }: HTMLAttributes<HTMLTableRowElement>) => (
   <tr
-    className={cn("transition-colors hover:bg-muted/50", className)}
+    className={cn("transition-colors duration-150 hover:bg-muted/55", className)}
     {...props}
   >
     {children}
@@ -62,7 +62,7 @@ export const TableHead = ({
   <th
     scope="col"
     className={cn(
-      "whitespace-nowrap px-4 py-3 text-xs font-semibold uppercase tracking-wide text-body",
+      "whitespace-nowrap px-4 py-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-body",
       className,
     )}
     {...props}
@@ -77,7 +77,7 @@ export const TableCell = ({
   ...props
 }: TdHTMLAttributes<HTMLTableCellElement>) => (
   <td
-    className={cn("px-4 py-3 align-middle text-foreground", className)}
+    className={cn("px-4 py-3.5 align-middle text-foreground", className)}
     {...props}
   >
     {children}

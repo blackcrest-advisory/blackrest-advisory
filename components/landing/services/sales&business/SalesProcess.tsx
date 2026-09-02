@@ -1,92 +1,56 @@
-"use client";
+import { ArrowRight, ChartNoAxesCombined, Lightbulb, Settings2, UsersRound } from "lucide-react";
 
-import { motion } from "framer-motion";
-import { FaLightbulb, FaRocket, FaChartLine } from "react-icons/fa6";
-import { FaCogs } from "react-icons/fa";
 import { Button } from "@/components/ui/Button";
-import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { Card } from "@/components/ui/Card";
-import { staggerContainer, fadeInUp, hoverScale } from "@/utils/animations";
+import { Section } from "@/components/ui/Section";
 
-//===== Process steps data =====//
 const steps = [
-  {
-    icon: FaLightbulb,
-    title: "1. Strategy & Discovery",
-    description:
-      "We dive deep into your business goals, target audience, and current sales processes. This phase includes B2B Sales Strategy Development and Lead Generation Programme Design tailored to your unique market.",
-  },
-  {
-    icon: FaCogs,
-    title: "2. Optimisation & Enablement",
-    description:
-      "We design and optimise your sales funnel, set up your CRM, and create compelling proposals and pitch decks that resonate with your prospects. We ensure every tool and asset is aligned for maximum impact.",
-  },
-  {
-    icon: FaRocket,
-    title: "3. Execution & Training",
-    description:
-      "We provide hands‑on sales team training and coaching, ensuring your team adopts best practices and leverages the new systems. Continuous support drives immediate performance improvements.",
-  },
-  {
-    icon: FaChartLine,
-    title: "4. Retention & Growth",
-    description:
-      "We implement client retention and account growth strategies, alongside ongoing business development consulting, to ensure sustainable, long‑term success and expanding revenue streams.",
-  },
+  { number: "01", title: "Understand the situation", description: "Start with your offer, audience, current customer journey, and the commercial task that needs attention.", icon: Lightbulb },
+  { number: "02", title: "Organise the next steps", description: "Create a simple process for handling leads, follow-up, information, and responsibilities.", icon: Settings2 },
+  { number: "03", title: "Support the work in practice", description: "Put the right materials, tools, and support in place so the process is useful in everyday work.", icon: UsersRound },
+  { number: "04", title: "Review and improve", description: "Use what you learn from conversations and activity to decide what should be improved next.", icon: ChartNoAxesCombined },
 ];
 
 export const SalesProcess = () => {
   return (
-    <Section className="border-t border-border/50 bg-muted/30">
+    <Section className="relative overflow-hidden bg-muted/20">
       <Container>
-        {/*===== Section header =====*/}
-        <div className="text-center">
-          <span className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary">
-            ✦ Our Approach
-          </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            How We Drive Your{" "}
-            <span className="text-secondary">Sales Growth</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            A structured, end‑to‑end process that transforms your sales engine
-            from the inside out.
-          </p>
+        <div className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+          <div className="flex items-center gap-3">
+            <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
+            <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">03 / How we work</span>
+            <span className="h-px w-10 bg-secondary/40" />
+          </div>
+          <div>
+            <h2 className="max-w-3xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]">A simple process for more considered commercial work.</h2>
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-body sm:text-base sm:leading-8">We keep the work visible and practical: understand what is happening, put a useful structure in place, then keep improving with the context you gain.</p>
+          </div>
         </div>
 
-        {/*===== Process steps grid =====*/}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2"
-        >
-          {steps.map((step, idx) => (
-            <motion.div key={idx} variants={fadeInUp} {...hoverScale}>
-              <Card padding="base" hoverEffect className="flex gap-5">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-secondary/10 text-secondary text-xl">
-                  <step.icon />
+        <div className="grid border-b border-border sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <article key={step.number} className={`relative min-w-0 border-b border-border py-8 sm:px-6 lg:min-h-[285px] lg:border-b-0 lg:px-7 ${index > 0 ? "lg:border-l" : ""} ${index === 0 ? "lg:pl-0" : ""} ${index === steps.length - 1 ? "lg:pr-0" : ""}`}>
+                <div className="flex items-start justify-between gap-4">
+                  <span className="font-mono text-xl font-semibold tracking-[-0.05em] text-secondary">{step.number}</span>
+                  <Icon className="h-5 w-5 text-secondary" />
                 </div>
-                <div>
-                  <h3 className="mb-2 text-xl font-semibold text-foreground">
-                    {step.title}
-                  </h3>
-                  <p className="leading-relaxed text-muted-foreground text-justify text-base">
-                    {step.description}
-                  </p>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
+                <h3 className="mt-10 text-lg font-semibold tracking-[-0.025em] text-heading">{step.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">{step.description}</p>
+              </article>
+            );
+          })}
+        </div>
 
-        {/*===== CTA =====*/}
-        <div className="mt-16 text-center">
-          <Button href="#contact" variant="primary" size="lg">
-            Let&apos;s Start Your Growth Journey
+        <div className="mt-8 flex flex-col gap-5 border border-border bg-primary px-5 py-6 text-white sm:px-7 sm:py-7 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-gold-light">Start with a useful conversation</span>
+            <p className="mt-2 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">Tell us where sales or customer support feels difficult. We can help you identify a clear and realistic next step.</p>
+          </div>
+          <Button href="/start-project" variant="primary" size="md" className="group shrink-0 !rounded-md">
+            Start a project
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Button>
         </div>
       </Container>

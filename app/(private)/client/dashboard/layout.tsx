@@ -1,7 +1,9 @@
 import DashboardLayout from "@/components/shared/DashboardLayout";
 import { CurrentUserProvider } from "@/app/providers/CurrentUserProvider";
-import { getCurrentUser } from "@/lib/auth-utils";
-import { prisma } from "@/lib/db/client";
+import { getCurrentUser } from "@/lib/utils/auth-utils";
+import { getDashboardUser } from "@/lib/data/users";
+
+export const dynamic = "force-dynamic";
 
 export default async function ClientLayout({
   children,
@@ -9,20 +11,7 @@ export default async function ClientLayout({
   children: React.ReactNode;
 }) {
   const user = await getCurrentUser();
-  const currentUser = user
-    ? await prisma.user.findUnique({
-        where: {
-          id: user.id,
-        },
-        select: {
-          id: true,
-          name: true,
-          email: true,
-          role: true,
-          avatarUrl: true,
-        },
-      })
-    : null;
+  const currentUser = user ? await getDashboardUser(user.id) : null;
 
   return (
     <CurrentUserProvider user={currentUser}>

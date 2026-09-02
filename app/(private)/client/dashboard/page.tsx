@@ -1,84 +1,58 @@
 import { DashboardWrapper } from "@/components/client-dashboard/overview/DashboardWrapper";
-import { getCurrentUser } from "@/lib/auth-utils";
-import { prisma } from "@/lib/db/client";
+import { getCurrentUser } from "@/lib/utils/auth-utils";
+import { getClientDashboardData } from "@/lib/data/clientDashboard.data";
+import {
+  calculateDaysLeft,
+  formatActivityTime,
+  formatMilestoneDate,
+  mapProjectStatus,
+} from "@/lib/utils/clientDashboard";
 import type {
   Activity,
+  ClientRelationshipStats,
   Project,
+  ProjectActivityChartData,
 } from "@/types/dashboard/client/overviewType";
 import { redirect } from "next/navigation";
-
-function mapProjectStatus(status: string): Project["status"] {
-  const statuses: Record<string, Project["status"]> = {
-    ACTIVE: "in-progress",
-    ON_HOLD: "review",
-    COMPLETED: "complete",
-    PLANNING: "on-track",
-    IN_REVIEW: "review",
-  };
-
-  return statuses[status] ?? "in-progress";
-}
-
-function formatMilestoneDate(date: Date) {
-  const milestoneDate = new Date(date);
-  milestoneDate.setHours(0, 0, 0, 0);
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const tomorrow = new Date(today);
-  tomorrow.setDate(tomorrow.getDate() + 1);
-
-  if (milestoneDate.getTime() === today.getTime()) {
-    return "Today";
-  }
-
-  if (milestoneDate.getTime() === tomorrow.getTime()) {
-    return "Tomorrow";
-  }
-
-  return milestoneDate.toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "short",
-  });
-}
-
-function formatActivityTime(date: Date) {
-  const elapsed = Math.max(0, Date.now() - new Date(date).getTime());
-  const hours = Math.floor(elapsed / 3600000);
-
-  if (hours < 24) {
-    return `${hours}h ago`;
-  }
-
-  const days = Math.floor(hours / 24);
-
-  if (days < 7) {
-    return `${days}d ago`;
-  }
-
-  return new Date(date).toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "short",
-  });
-}
-
-function calculateDaysLeft(deadline: Date | null) {
-  if (!deadline) {
-    return 0;
-  }
-
-  return Math.max(
-    0,
-    Math.ceil((new Date(deadline).getTime() - Date.now()) / 86400000),
-  );
-}
 
 type ActivityRecord = {
   iconName: Activity["iconName"];
   text: string;
   date: Date;
 };
+
+function buildProjectActivity(
+  projects: { createdAt: Date }[],
+  milestones: { completedAt: Date | null }[],
+): ProjectActivityChartData {
+  const currentMonth = new Date();
+  const months = Array.from({ length: 6 }, (_, index) => {
+    return new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 5 + index, 1);
+  });
+
+  const monthIndex = new Map(
+    months.map((month, index) => [`${month.getFullYear()}-${month.getMonth()}`, index]),
+  );
+  const projectsStarted = Array.from({ length: months.length }, () => 0);
+  const milestonesCompleted = Array.from({ length: months.length }, () => 0);
+
+  projects.forEach((project) => {
+    const index = monthIndex.get(`${project.createdAt.getFullYear()}-${project.createdAt.getMonth()}`);
+    if (index !== undefined) projectsStarted[index] += 1;
+  });
+
+  milestones.forEach((milestone) => {
+    if (!milestone.completedAt) return;
+    const index = monthIndex.get(`${milestone.completedAt.getFullYear()}-${milestone.completedAt.getMonth()}`);
+    if (index !== undefined) milestonesCompleted[index] += 1;
+  });
+
+  return {
+    labels: months.map((month) => new Intl.DateTimeFormat("en", { month: "short" }).format(month)),
+    projectsStarted,
+    milestonesCompleted,
+  };
+}
 
 export default async function Page() {
   const user = await getCurrentUser();
@@ -87,7 +61,7 @@ export default async function Page() {
     redirect("/login");
   }
 
-  const [
+  const {
     projectRecords,
     consultationRecords,
     activeProjectCount,
@@ -95,113 +69,21 @@ export default async function Page() {
     recentProposals,
     recentConsultations,
     recentProjects,
-  ] = await Promise.all([
-    prisma.project.findMany({
-      where: {
-        userId: user.id,
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-      select: {
-        id: true,
-        title: true,
-        status: true,
-        progress: true,
-        deadline: true,
-        serviceType: true,
-      },
-    }),
-    prisma.consultation.findMany({
-      where: {
-        userId: user.id,
-        status: {
-          in: ["PENDING", "CONFIRMED"],
-        },
-      },
-      orderBy: {
-        scheduledAt: "asc",
-      },
-      select: {
-        id: true,
-        scheduledAt: true,
-        type: true,
-        notes: true,
-      },
-    }),
-    prisma.project.count({
-      where: {
-        userId: user.id,
-        status: "ACTIVE",
-      },
-    }),
-    prisma.brief.findMany({
-      where: {
-        userId: user.id,
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-      take: 2,
-      select: {
-        title: true,
-        createdAt: true,
-      },
-    }),
-    prisma.proposal.findMany({
-      where: {
-        brief: {
-          userId: user.id,
-        },
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-      take: 2,
-      select: {
-        status: true,
-        createdAt: true,
-      },
-    }),
-    prisma.consultation.findMany({
-      where: {
-        userId: user.id,
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-      take: 2,
-      select: {
-        type: true,
-        createdAt: true,
-      },
-    }),
-    prisma.project.findMany({
-      where: {
-        userId: user.id,
-      },
-      orderBy: {
-        updatedAt: "desc",
-      },
-      take: 2,
-      select: {
-        title: true,
-        updatedAt: true,
-      },
-    }),
-  ]);
+    clientRecord,
+    paidInvoiceCount,
+    completedMilestones,
+  } = await getClientDashboardData(user.id);
 
   const stats = {
     activeProjects: activeProjectCount,
-    leadsGenerated: 0,
-    conversionRate: 0,
-    revenueImpact: 0,
-    change: {
-      leads: "—",
-      conversion: "—",
-      revenue: "—",
-    },
+    totalProjects: projectRecords.length,
+    completedProjects: projectRecords.filter(
+      (project) => project.status === "COMPLETED",
+    ).length,
+    paidInvoices: paidInvoiceCount,
   };
+
+  const projectActivity = buildProjectActivity(projectRecords, completedMilestones);
 
   const projects: Project[] = projectRecords.map((project) => ({
     id: project.id,
@@ -245,7 +127,7 @@ export default async function Page() {
   ];
 
   const activities: Activity[] = activityRecords
-    .sort((first, second) => second.date.getTime() - first.date.getTime()) 
+    .sort((first, second) => second.date.getTime() - first.date.getTime())
     .slice(0, 5)
     .map(({ iconName, text, date }) => ({
       iconName,
@@ -253,12 +135,30 @@ export default async function Page() {
       time: formatActivityTime(date),
     }));
 
+  const completedProjectCount = projectRecords.filter(
+    (project) => project.status === "COMPLETED",
+  ).length;
+
+  const relationshipStats: ClientRelationshipStats = {
+    partnerSince: clientRecord
+      ? new Intl.DateTimeFormat("en", {
+          month: "short",
+          year: "numeric",
+        }).format(clientRecord.createdAt)
+      : "—",
+    totalProjects: projectRecords.length,
+    completedProjects: completedProjectCount,
+    paidInvoices: paidInvoiceCount,
+  };
+
   return (
     <DashboardWrapper
       stats={stats}
       projects={projects}
       milestones={milestones}
       activities={activities}
+      relationshipStats={relationshipStats}
+      projectActivity={projectActivity}
     />
   );
 }

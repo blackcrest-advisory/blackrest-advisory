@@ -1,153 +1,310 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowBigRight } from "lucide-react";
+//===== imports =====//
+import { motion, useReducedMotion } from "framer-motion";
+
 import {
-  FiMail,
-  FiMessageCircle,
-  FiEye,
-  FiRefreshCw,
-  FiHeart,
-} from "react-icons/fi";
-import { GiFireworkRocket } from "react-icons/gi";
+  Eye,
+  HeartHandshake,
+  Mail,
+  MessageCircle,
+  RefreshCw,
+  Rocket,
+} from "lucide-react";
+
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { fadeInUp, staggerContainer, hoverScale } from "@/utils/animations";
 
-//===== Timeline steps data =====//
+//==============================================================//
+// EXPERIENCE DATA
+//==============================================================//
+
 const steps = [
-  { icon: FiMail, label: "You Contact Us" },
-  { icon: FiMessageCircle, label: "Strategy Call" },
-  { icon: FiEye, label: "Design Preview" },
-  { icon: FiRefreshCw, label: "Weekly Updates" },
-  { icon: GiFireworkRocket, label: "Launch" },
-  { icon: FiHeart, label: "Ongoing Support" },
+  {
+    id: 1,
+    label: "You Contact Us",
+    description:
+      "Tell us about your goals, challenges and what you want to build.",
+    meta: "Start",
+    icon: Mail,
+  },
+  {
+    id: 2,
+    label: "Strategy Call",
+    description:
+      "We align on scope, priorities, users and the right path forward.",
+    meta: "Align",
+    icon: MessageCircle,
+  },
+  {
+    id: 3,
+    label: "Design Preview",
+    description:
+      "You see the direction early and can shape the experience with us.",
+    meta: "Preview",
+    icon: Eye,
+  },
+  {
+    id: 4,
+    label: "Weekly Updates",
+    description:
+      "Clear progress updates keep you informed throughout development.",
+    meta: "Progress",
+    icon: RefreshCw,
+  },
+  {
+    id: 5,
+    label: "Launch",
+    description:
+      "We test, refine and release your new digital experience with confidence.",
+    meta: "Go Live",
+    icon: Rocket,
+  },
+  {
+    id: 6,
+    label: "Ongoing Support",
+    description:
+      "We stay available after launch for improvements, support and growth.",
+    meta: "Support",
+    icon: HeartHandshake,
+  },
 ];
 
+//==============================================================//
+// EXPERIENCE TIMELINE
+//==============================================================//
+
 export default function ExperienceTimeline() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    //===== Experience Timeline Section =====//
-    <Section className="relative overflow-hidden bg-background">
-      {/* Subtle golden background glow */}
-      <div className="absolute inset-0 bg-secondary/5 [mask-image:radial-gradient(ellipse_at_center,white,transparent)] pointer-events-none" />
-
+    <Section className="relative bg-background py-16 sm:py-20 lg:py-28">
       <Container>
-        {/*===== Section header =====*/}
-        <div className="text-center">
-          <motion.span
-            className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary"
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            ✦ Your Journey
-          </motion.span>
-          <motion.h2
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl"
-          >
-            Your Experience, From Start to Launch
-          </motion.h2>
-          <motion.p
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground"
-          >
-            We keep you informed and involved every step of the way – no
-            surprises, just progress.
-          </motion.p>
-        </div>
+        {/*===== HEADER =====*/}
 
-        {/*===== Timeline =====*/}
-        <div className="relative mt-16">
-          {/* Golden horizontal line – centred on the circles */}
-          <div className="absolute left-0 right-0 top-[32px] hidden h-0.5 bg-gradient-to-r from-transparent via-secondary to-transparent sm:block" />
-          <div className="absolute left-0 right-0 top-[30px] hidden h-1 bg-secondary/20 blur-sm sm:block" />
-
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-end lg:gap-16">
+          {/* left */}
           <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="grid grid-cols-1 gap-10 sm:grid-cols-3 lg:grid-cols-6"
+            initial={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    opacity: 0,
+                    y: 12,
+                  }
+            }
+            whileInView={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    opacity: 1,
+                    y: 0,
+                  }
+            }
+            viewport={{
+              once: true,
+              amount: 0.4,
+            }}
+            transition={{
+              duration: 0.45,
+            }}
           >
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.label}
-                variants={fadeInUp}
-                className="relative flex flex-col items-center text-center"
-              >
-                {/* Icon circle with golden background and premium glow */}
-                <motion.div
-                  className="relative flex h-16 w-16 items-center justify-center rounded-full bg-secondary text-secondary-foreground shadow-lg shadow-secondary/40"
-                  {...hoverScale}
-                  whileHover={{ scale: 1.12, rotate: 3 }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                >
-                  <step.icon className="h-7 w-7 text-background" />
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-secondary">
+                07 / Your Experience
+              </span>
 
-                  {/* Outer glow ring – subtle pulse */}
-                  <div className="absolute inset-0 rounded-full border-2 border-secondary/30 animate-pulse" />
+              <span className="h-px w-10 bg-secondary/35"/>
+            </div>
 
-                  {/* Inner shimmer effect */}
-                  <div className="absolute inset-0 rounded-full bg-white/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </motion.div>
+            <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
+              Clear communication, visible progress and no mystery about what
+              happens next.
+            </p>
+          </motion.div>
 
-                <span className="mt-4 text-sm font-semibold tracking-tight text-foreground sm:text-base">
-                  {step.label}
-                </span>
+          {/* right */}
+          <motion.div
+            initial={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    opacity: 0,
+                    y: 14,
+                  }
+            }
+            whileInView={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    opacity: 1,
+                    y: 0,
+                  }
+            }
+            viewport={{
+              once: true,
+              amount: 0.35,
+            }}
+            transition={{
+              duration: 0.5,
+            }}
+          >
+            <h2 className="max-w-4xl text-3xl font-semibold leading-[1.03] tracking-[-0.045em] text-heading sm:text-4xl lg:text-5xl xl:text-[56px]">
+              You always know
+              <span className="block text-secondary">what happens next.</span>
+            </h2>
 
-                {/* Step number badge */}
-                <span className="mt-1 text-xs font-medium text-secondary/60">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                {/* Golden arrow between steps */}
-                {index < steps.length - 1 && (
-                  <div className="absolute -right-5 top-[20px] hidden text-2xl text-secondary sm:block">
-                    <motion.span
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.1 + 0.2, type: "spring" }}
-                      className="inline-block mb-2"
-                    >
-                      <ArrowBigRight className="h-7 w-7" />
-                    </motion.span>
-                  </div>
-                )}
-
-                {/* Vertical connecting lines for mobile */}
-                {index < steps.length - 1 && (
-                  <div className="mt-2 h-8 w-0.5 bg-gradient-to-b from-secondary to-transparent sm:hidden" />
-                )}
-              </motion.div>
-            ))}
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-body sm:text-base sm:leading-8">
+              From the first conversation to post-launch support, we keep the
+              process clear, collaborative and easy to follow.
+            </p>
           </motion.div>
         </div>
 
-        {/*===== Bottom golden badge =====*/}
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="mt-16 flex justify-center"
-        >
-          <div className="flex items-center gap-3 rounded-full border border-secondary/20 bg-card px-6 py-3 shadow-sm backdrop-blur-sm">
-            <span className="text-secondary">✦</span>
-            <span className="text-sm font-medium text-foreground">
-              Transparent process, consistent communication
-            </span>
-            <span className="text-secondary">✦</span>
+        {/*===== JOURNEY =====*/}
+
+        <div className="relative mt-12 lg:mt-16">
+          {/* desktop line */}
+          <div
+            aria-hidden="true"
+            className="absolute left-[8%] right-[8%] top-[25px] hidden h-px bg-border lg:block"
+          />
+
+          {/* active gold section */}
+          <div
+            aria-hidden="true"
+            className="absolute left-[8%] right-[8%] top-[25px] hidden h-px bg-gradient-to-r from-transparent via-secondary/50 to-transparent lg:block"
+          />
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6 lg:gap-3">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+
+              return (
+                <motion.article
+                  key={step.id}
+                  initial={
+                    shouldReduceMotion
+                      ? undefined
+                      : {
+                          opacity: 0,
+                          y: 14,
+                        }
+                  }
+                  whileInView={
+                    shouldReduceMotion
+                      ? undefined
+                      : {
+                          opacity: 1,
+                          y: 0,
+                        }
+                  }
+                  viewport={{
+                    once: true,
+                    amount: 0.3,
+                  }}
+                  transition={{
+                    duration: 0.4,
+                    delay: index * 0.045,
+                  }}
+                  className="group relative min-w-0"
+                >
+                  {/*===== TOP NODE =====*/}
+
+                  <div className="relative z-10 flex items-center gap-3 lg:flex-col lg:items-center lg:text-center">
+                    <div className="flex h-[50px] w-[50px] shrink-0 items-center justify-center border border-border bg-background text-secondary transition-all duration-300 group-hover:border-secondary/30 group-hover:bg-secondary/[0.04]">
+                      <Icon className="h-4.5 w-4.5" />
+                    </div>
+
+                    <div className="lg:hidden">
+                      <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-secondary">
+                        {String(step.id).padStart(2, "0")} / {step.meta}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/*===== CARD =====*/}
+
+                  <div className="mt-4 border border-border bg-card px-5 py-5 transition-all duration-300 group-hover:border-secondary/25 group-hover:shadow-[var(--shadow-card)] lg:mt-5 lg:min-h-[190px] lg:px-4">
+                    <div className="hidden items-center justify-between gap-2 lg:flex">
+                      <span className="font-mono text-[7px] font-semibold text-secondary">
+                        {String(step.id).padStart(2, "0")}
+                      </span>
+
+                      <span className="font-mono text-[6px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/30">
+                        {step.meta}
+                      </span>
+                    </div>
+
+                    <h3 className="text-base font-semibold tracking-[-0.02em] text-heading lg:mt-5">
+                      {step.label}
+                    </h3>
+
+                    <p className="mt-3 text-xs leading-5 text-muted-foreground">
+                      {step.description}
+                    </p>
+
+                    {/* subtle bottom signal */}
+                    <span
+                      aria-hidden="true"
+                      className="absolute bottom-0 left-0 h-[2px] w-0 bg-secondary transition-all duration-500 group-hover:w-10"
+                    />
+                  </div>
+                </motion.article>
+              );
+            })}
           </div>
-        </motion.div>
+        </div>
+
+        {/*===== COMMUNICATION STATEMENT =====*/}
+
+        <div className="mt-10 grid overflow-hidden border border-border bg-card md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
+          <div className="px-5 py-5 sm:px-6">
+            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
+              Communication standard
+            </span>
+
+            <p className="mt-2 text-base font-medium tracking-[-0.015em] text-heading">
+              Transparent process. Consistent communication. No surprises.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-6 border-t border-border bg-muted/15 px-5 py-5 md:border-l md:border-t-0 sm:px-6">
+            <div>
+              <span className="block font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/35">
+                Updates
+              </span>
+
+              <span className="mt-1 block text-xs font-semibold text-heading">
+                Weekly
+              </span>
+            </div>
+
+            <span className="h-8 w-px bg-border"/>
+
+            <div>
+              <span className="block font-mono text-[7px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/35">
+                Support
+              </span>
+
+              <span className="mt-1 block text-xs font-semibold text-heading">
+                Ongoing
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/*===== FOOTER =====*/}
+
+        <div className="mt-7 flex flex-col gap-3 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between">
+          <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-secondary">
+            Contact → Collaborate → Build → Launch → Support
+          </span>
+
+          <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-muted-foreground/30">
+            Blackcrest / Client Experience
+          </span>
+        </div>
       </Container>
     </Section>
   );

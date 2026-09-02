@@ -1,43 +1,94 @@
-import { Navigation, NavItem } from "@/types/navigations";
 import {
-  LayoutDashboard,
-  FolderOpen,
-  FileText,
-  Files,
-  MessageSquare,
-  Receipt,
-  CreditCard,
-  Settings,
+  BadgeDollarSign,
+  ChartSpline,
+  FileArchive,
+  FolderKanban,
+  MessageCircle,
+  PanelsTopLeft,
+  ScrollText,
+  ShieldCheck,
 } from "lucide-react";
+
+import { Navigation, NavGroup, NavItem } from "@/types/navigations";
 
 export const profileMenu: Navigation[] = [
   {
     id: 1,
-    name: "My Profile",
-    link: "/client/profile",
+    name: "Profile & Settings",
+    link: "/client/dashboard/settings",
   },
   {
     id: 2,
-    name: "Account Settings",
-    link: "/client/account",
+    name: "Invoices",
+    link: "/client/dashboard/invoices",
   },
   {
     id: 3,
-    name: "Billing",
-    link: "/client/billing",
+    name: "Payments",
+    link: "/client/dashboard/payments",
   },
 ];
 
-export const clientNavItems: NavItem[] = [
-  { label: "Dashboard", href: "/client/dashboard", icon: LayoutDashboard },
-  { label: "Projects", href: "/client/dashboard/projects", icon: FolderOpen },
-  { label: "Files", href: "/client/dashboard/files", icon: Files },
-  // {
-  //   label: "Messages",
-  //   href: "/client/dashboard/messages",
-  //   icon: MessageSquare,
-  // },
-  { label: "Invoices", href: "/client/dashboard/invoices", icon: Receipt },
-  { label: "Payments", href: "/client/dashboard/payments", icon: CreditCard },
-  { label: "Settings", href: "/client/dashboard/settings", icon: Settings },
+export const clientNavGroups: NavGroup[] = [
+  {
+    label: "Workspace",
+    items: [
+      {
+        label: "Dashboard",
+        href: "/client/dashboard",
+        icon: PanelsTopLeft,
+      },
+      {
+        label: "Projects",
+        href: "/client/dashboard/projects",
+        icon: FolderKanban,
+      },
+      {
+        label: "Project Request",
+        href: "/client/dashboard/project-requests",
+        icon: ChartSpline,
+      },
+    ],
+  },
+
+  {
+    label: "Manage",
+    items: [
+      {
+        label: "Files",
+        href: "/client/dashboard/files",
+        icon: FileArchive,
+      },
+      {
+        label: "Invoices",
+        href: "/client/dashboard/invoices",
+        icon: ScrollText,
+      },
+      {
+        label: "Payments",
+        href: "/client/dashboard/payments",
+        icon: BadgeDollarSign,
+      },
+      {
+        label: "Messages",
+        href: "/client/dashboard/messages",
+        icon: MessageCircle,
+      },
+    ],
+  },
+
+  {
+    label: "Account",
+    items: [
+      {
+        label: "Settings",
+        href: "/client/dashboard/settings",
+        icon: ShieldCheck,
+      },
+    ],
+  },
 ];
+
+export const clientNavItems: NavItem[] = clientNavGroups.flatMap(
+  (group) => group.items,
+);

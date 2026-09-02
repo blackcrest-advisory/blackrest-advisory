@@ -1,219 +1,301 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Palette } from "lucide-react";
+//===== imports =====//
+import { motion, useReducedMotion } from "framer-motion";
+
 import {
-  FiLayers,
-  FiPenTool,
-  FiMonitor,
-  FiServer,
-  FiEdit,
-  FiTrendingUp,
-  FiCheckCircle,
-} from "react-icons/fi";
-import { GiFireworkRocket } from "react-icons/gi";
+  FilePenLine,
+  Gauge,
+  Layers3,
+  Monitor,
+  Palette,
+  PenTool,
+  Rocket,
+  Server,
+} from "lucide-react";
+
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { Card } from "@/components/ui/Card";
-import {
-  fadeInUp,
-  slideInLeft,
-  slideInRight,
-  staggerContainer,
-  hoverScale,
-} from "@/utils/animations";
+
+//==============================================================//
+// PROCESS DATA
+//==============================================================//
 
 const layersData = [
   {
     id: 1,
     label: "Foundation",
-    description: "Strategy, sitemap & technical planning",
-    icon: FiLayers,
+    description: "Business goals, sitemap, and technical direction",
+    meta: "Strategy",
+    icon: Layers3,
   },
   {
     id: 2,
     label: "Wireframe",
-    description: "User flow & interactive blueprint",
-    icon: FiPenTool,
+    description: "Clear structure and customer journeys",
+    meta: "Structure",
+    icon: PenTool,
   },
   {
     id: 3,
     label: "Design System",
-    description: "Visual identity & component library",
+    description: "Visual language and reusable interface patterns",
+    meta: "Design",
     icon: Palette,
   },
   {
     id: 4,
     label: "Frontend",
-    description: "Pixel‑perfect UI development",
-    icon: FiMonitor,
+    description: "Responsive, user-facing interface development",
+    meta: "Interface",
+    icon: Monitor,
   },
   {
     id: 5,
     label: "Backend",
-    description: "APIs, databases & business logic",
-    icon: FiServer,
+    description: "APIs, data, and business logic where needed",
+    meta: "Engineering",
+    icon: Server,
   },
   {
     id: 6,
     label: "CMS",
-    description: "Content management & dynamic pages",
-    icon: FiEdit,
+    description: "Content workflows and flexible page management",
+    meta: "Content",
+    icon: FilePenLine,
   },
   {
     id: 7,
     label: "Optimization",
-    description: "Speed, SEO & performance tuning",
-    icon: FiTrendingUp,
+    description: "Performance, accessibility, and search foundations",
+    meta: "Performance",
+    icon: Gauge,
   },
   {
     id: 8,
     label: "Launch",
-    description: "Deployment, testing & go‑live",
-    icon: GiFireworkRocket,
+    description: "Testing, release, and a clear handover",
+    meta: "Delivery",
+    icon: Rocket,
   },
 ];
 
+//==============================================================//
+// BUILD LAYERS
+//==============================================================//
+
 export default function BuildLayers() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <Section className="relative overflow-hidden bg-background">
-      {/* Subtle background decoration */}
-      <div className="absolute inset-0 bg-secondary/5 opacity-40 pointer-events-none" />
+    <Section className="relative bg-background py-16 sm:py-20 lg:py-28">
+      <Container>
+        {/*===== HEADER =====*/}
 
-      <Container className="max-w-5xl">
-        {/*===== Section header =====*/}
-        <div className="text-center">
-          <motion.span
-            className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary"
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            ✦ Our Process
-          </motion.span>
-          <motion.h2
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="mt-4 text-3xl font-bold tracking-tight text-foreground md:text-4xl"
-          >
-            Built <span className="text-secondary">Layer by Layer</span>
-          </motion.h2>
-          <motion.p
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground"
-          >
-            We construct your website like a skyscraper – each level built on a
-            solid foundation, with precision and care.
-          </motion.p>
-        </div>
+        <div className="overflow-hidden border border-border bg-card shadow-[var(--shadow-card)]">
+          <div className="grid lg:grid-cols-[190px_minmax(0,1fr)]">
+            <div className="relative overflow-hidden bg-navy-deep px-6 py-7 text-white sm:px-8 lg:flex lg:flex-col lg:justify-between lg:px-9 lg:py-9">
+              <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-gold-light">
+                03 / How we build
+              </span>
 
-        {/*===== Timeline =====*/}
-        <div className="relative mt-16">
-          {/* Glowing golden vertical line */}
-          <div className="absolute left-8 top-0 h-full w-0.5 bg-gradient-to-b from-secondary via-secondary/60 to-transparent sm:left-1/2 sm:-translate-x-1/2" />
+              <span className="mt-8 block text-6xl font-semibold leading-none tracking-[-0.08em] text-white/15 lg:mt-0 lg:text-7xl">
+                08
+              </span>
 
-          {/* Glowing dot at the top */}
-          <div className="absolute left-8 top-0 h-4 w-4 -translate-x-1/2 rounded-full bg-secondary shadow-lg shadow-secondary/50 sm:left-1/2" />
+              <span className="mt-3 block font-mono text-[9px] uppercase tracking-[0.12em] text-white/55">
+                Connected stages
+              </span>
+            </div>
 
-          <div className="relative flex flex-col gap-10">
-            {layersData.map((layer, index) => {
-              const isEven = index % 2 === 0;
-              const Icon = layer.icon;
+            <div className="px-6 py-8 sm:px-8 lg:px-10 lg:py-9">
+              <h2 className="max-w-4xl text-4xl font-semibold leading-[1.04] tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem]">
+                A clear path from
+                <span className="block text-secondary">idea to release.</span>
+              </h2>
 
-              return (
-                <motion.div
-                  key={layer.id}
-                  className={`relative flex w-full flex-col items-start gap-4 sm:flex-row ${
-                    isEven ? "sm:justify-start" : "sm:justify-end"
-                  }`}
-                  variants={isEven ? slideInLeft : slideInRight}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{
-                    duration: 0.6,
-                    delay: index * 0.08,
-                    type: "spring",
-                    stiffness: 100,
-                  }}
-                >
-                  {/* Connector dot on the vertical line */}
-                  <div className="absolute left-8 top-6 z-10 hidden h-4 w-4 -translate-x-1/2 rounded-full border-2 border-secondary bg-background shadow-md sm:block sm:left-1/2" />
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-body sm:text-base sm:leading-8">
+                We bring together the parts your project needs, from early
+                planning through design, engineering, testing, and launch.
+              </p>
 
-                  {/* Content Card */}
+              <div className="mt-7 grid grid-cols-2 border-t border-border pt-5 sm:grid-cols-4">
+                {["Plan", "Design", "Build", "Release"].map((phase, index) => (
                   <div
-                    className={`w-full sm:w-[calc(50%-32px)] ${
-                      isEven ? "sm:pr-8" : "sm:pl-8 sm:text-right"
+                    key={phase}
+                    className={`flex items-center gap-2 py-2 font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground ${
+                      index > 0 ? "sm:border-l sm:border-border sm:pl-4" : ""
                     }`}
                   >
-                    <motion.div {...hoverScale}>
-                      <Card
-                        padding="base"
-                        hoverEffect
-                        className="group relative border-border/50"
-                      >
-                        {/* Golden left border accent */}
-                        <div className="absolute left-0 top-1/2 h-12 w-1 -translate-y-1/2 rounded-r-full bg-secondary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-                        <div className="flex items-start gap-4">
-                          {/* Icon with golden circle */}
-                          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-secondary/10 text-secondary transition-colors duration-300 group-hover:bg-secondary group-hover:text-white">
-                            <Icon className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
-                          </div>
-
-                          <div className="flex-1">
-                            <div className="flex items-center gap-3">
-                              {/* Step number - golden badge */}
-                              <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-secondary text-xs font-bold text-secondary-foreground">
-                                {layer.id}
-                              </span>
-                              <h3 className="text-lg font-semibold text-foreground">
-                                {layer.label}
-                              </h3>
-                            </div>
-                            <p className="mt-1 text-sm text-muted-foreground">
-                              {layer.description}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Progress indicator icon at bottom right */}
-                        <div className="absolute bottom-3 right-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                          <FiCheckCircle className="h-5 w-5 text-secondary" />
-                        </div>
-                      </Card>
-                    </motion.div>
+                    <span className="text-secondary">0{index + 1}</span>
+                    {phase}
                   </div>
-                </motion.div>
-              );
-            })}
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
-        {/*===== Bottom CTA badge =====*/}
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="mt-16 flex justify-center"
-        >
-          <div className="flex items-center gap-4 rounded-full border border-secondary/20 bg-card px-6 py-3 shadow-sm">
-            <span className="text-secondary">✦</span>
-            <span className="text-sm font-medium text-foreground">
-              From concept to launch in 8 structured steps
-            </span>
-            <span className="text-secondary">✦</span>
+        {/*===== PROCESS CARDS =====*/}
+
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
+          {layersData.map((layer, index) => {
+            const Icon = layer.icon;
+
+            return (
+              <motion.article
+                key={layer.id}
+                initial={
+                  shouldReduceMotion
+                    ? undefined
+                    : {
+                        opacity: 0,
+                        y: 16,
+                      }
+                }
+                whileInView={
+                  shouldReduceMotion
+                    ? undefined
+                    : {
+                        opacity: 1,
+                        y: 0,
+                      }
+                }
+                viewport={{
+                  once: true,
+                  amount: 0.25,
+                }}
+                transition={{
+                  duration: 0.45,
+                  delay: index * 0.04,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="group relative min-w-0 overflow-hidden border border-border bg-card px-5 py-6 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1 hover:border-secondary/30 hover:shadow-[var(--shadow-card-hover)] sm:px-6 sm:py-7"
+              >
+                {/*===== TOP GOLD SIGNAL =====*/}
+
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 top-0 h-[2px] w-10 bg-secondary transition-all duration-500 group-hover:w-full"
+                />
+
+                {/*===== CARD TOP =====*/}
+
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex h-10 w-10 items-center justify-center border border-secondary/15 bg-secondary/[0.045] text-secondary transition-colors duration-300 group-hover:border-secondary/25 group-hover:bg-secondary/[0.075]">
+                    <Icon className="h-4 w-4" />
+                  </div>
+
+                  <span className="font-mono text-[22px] font-medium leading-none tracking-[-0.05em] text-muted-foreground/15 transition-colors duration-300 group-hover:text-secondary/25">
+                    {String(layer.id).padStart(2, "0")}
+                  </span>
+                </div>
+
+                {/*===== CONTENT =====*/}
+
+                <div className="mt-8">
+                  <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-secondary">
+                    {layer.meta}
+                  </span>
+
+                  <h3 className="mt-2 text-lg font-semibold tracking-[-0.025em] text-heading sm:text-xl">
+                    {layer.label}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                    {layer.description}
+                  </p>
+                </div>
+
+                {/*===== CARD FOOTER =====*/}
+
+                <div className="mt-8 flex items-center justify-between gap-3 border-t border-border pt-4">
+                  <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.11em] text-muted-foreground/55">
+                    Step
+                  </span>
+
+                  <span className="font-mono text-[9px] font-semibold text-secondary">
+                    {String(layer.id).padStart(2, "0")}
+                    <span className="text-muted-foreground/25"> / 08</span>
+                  </span>
+                </div>
+              </motion.article>
+            );
+          })}
+        </div>
+
+        {/*===== PROCESS SUMMARY =====*/}
+
+        <div className="mt-6 overflow-hidden border border-border bg-muted/15">
+          <div className="grid sm:grid-cols-5">
+            <ProcessPhase index="01" label="Plan" />
+
+            <ProcessPhase index="02" label="Design" />
+
+            <ProcessPhase index="03" label="Build" />
+
+            <ProcessPhase index="04" label="Refine" />
+
+            <ProcessPhase index="05" label="Launch" last />
           </div>
-        </motion.div>
+        </div>
+
+        {/*===== CLOSING MESSAGE =====*/}
+
+        <div className="mt-10 flex flex-col gap-5 border-t border-border pt-7 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.14em] text-secondary">
+              From concept to launch
+            </span>
+
+            <p className="mt-2 max-w-xl text-lg font-medium leading-7 tracking-[-0.015em] text-heading">
+              A focused sequence, shaped around the work your project needs.
+            </p>
+          </div>
+
+          <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground/55">
+            Strategy → Experience → Engineering → Delivery
+          </span>
+        </div>
       </Container>
     </Section>
+  );
+}
+
+//==============================================================//
+// PROCESS PHASE
+//==============================================================//
+
+function ProcessPhase({
+  index,
+  label,
+  last = false,
+}: {
+  index: string;
+  label: string;
+  last?: boolean;
+}) {
+  return (
+    <div
+      className={`
+        flex
+        items-center
+        gap-3
+        px-4
+        py-4
+        sm:justify-center
+        sm:px-3
+
+        ${!last ? "border-b border-border sm:border-b-0 sm:border-r" : ""}
+      `}
+    >
+      <span className="font-mono text-[9px] font-semibold text-secondary/70">
+        {index}
+      </span>
+
+      <span className="text-xs font-medium text-heading">
+        {label}
+      </span>
+    </div>
   );
 }

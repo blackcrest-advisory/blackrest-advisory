@@ -1,5 +1,21 @@
 //===== Lead types for admin dashboard =====//
 
+export interface LeadInquiryPayload {
+  name: string;
+  email: string;
+  phone?: string;
+  companyName?: string;
+  industry?: string;
+  projectType?: string;
+  projectTitle: string;
+  budget?: string;
+  timeline?: string;
+  currency?: string;
+  description: string;
+  services?: string[];
+  source?: string;
+}
+
 export type LeadStatus =
   | "new"
   | "contacted"
@@ -15,8 +31,7 @@ export type LeadService =
   | "web-development"
   | "mobile-app"
   | "digital-marketing"
-  | "branding"
-  | "seo";
+  | "sales-support";
 
 export interface Lead {
   id: string;
@@ -76,6 +91,5 @@ export const serviceLabels: Record<LeadService, string> = {
   "web-development": "Web Development",
   "mobile-app": "Mobile App",
   "digital-marketing": "Digital Marketing",
-  branding: "Branding",
-  seo: "SEO",
+  "sales-support": "Sales & Support",
 };

@@ -35,7 +35,8 @@ export default function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
 
   useEffect(() => {
-    setMounted(true);
+    const frame = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   const toggleTheme = () => {
@@ -49,8 +50,9 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="rounded-full cursor-pointer p-2 text-body transition-colors hover:bg-muted"
-      aria-label="Toggle theme"
+      className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-[var(--radius-control)] border border-transparent text-body transition-[background-color,border-color,color,transform] duration-200 hover:-translate-y-px hover:border-border hover:bg-muted hover:text-secondary focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-secondary/10"
+      aria-label={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} theme`}
+      title={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} theme`}
     >
       {resolvedTheme === "dark" ? (
         <SunIcon className="h-5 w-5" />

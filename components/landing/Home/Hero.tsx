@@ -1,219 +1,1179 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Globe, TrendingUp, Sparkles } from "lucide-react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type MouseEvent as ReactMouseEvent,
+} from "react";
+import { ArrowUpRight } from "lucide-react";
+import { Fraunces } from "next/font/google";
+
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+  type Variants,
+} from "framer-motion";
+
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import {
-  fadeInUp,
-  fadeIn,
-  slideInLeft,
-  scaleIn,
-  floatShape,
-  gradientShift,
-  pulseScale,
-  orbit,
-  orbitReverse,
-} from "@/utils/animations";
 
-const Hero = () => {
+//===== FONT =====//
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+//===== MOTION =====//
+
+const headlineContainer: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.09,
+      delayChildren: 0.15,
+    },
+  },
+};
+
+const wordReveal: Variants = {
+  hidden: {
+    y: "110%",
+  },
+  visible: {
+    y: "0%",
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const fadeUp: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 16,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+const fade: Variants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+};
+
+//===== HEADLINE =====//
+
+const headlineWords = [
+  { text: "Empowering" },
+  { text: "European" },
+  { text: "Businesses", accent: true },
+  { text: "Through" },
+  { text: "Technology" },
+];
+
+//===== STATS =====//
+
+const stats = [
+  {
+    value: 100,
+    suffix: "+",
+    label: "Clients",
+  },
+  {
+    value: 5,
+    suffix: "+",
+    label: "Countries",
+  },
+  {
+    value: 99,
+    suffix: "%",
+    label: "Satisfaction",
+  },
+];
+
+function useCountUp(target: number, active: boolean, duration = 1400) {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!active) return;
+
+    let frame: number;
+    let start: number | null = null;
+
+    const tick = (timestamp: number) => {
+      if (start === null) {
+        start = timestamp;
+      }
+
+      const progress = Math.min((timestamp - start) / duration, 1);
+
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      setValue(Math.round(eased * target));
+
+      if (progress < 1) {
+        frame = requestAnimationFrame(tick);
+      }
+    };
+
+    frame = requestAnimationFrame(tick);
+
+    return () => cancelAnimationFrame(frame);
+  }, [active, duration, target]);
+
+  return value;
+}
+
+function StatItem({
+  value,
+  suffix,
+  label,
+  active,
+}: {
+  value: number;
+  suffix: string;
+  label: string;
+  active: boolean;
+}) {
+  const count = useCountUp(value, active);
+
   return (
-    <Section>
-      {/* Animated gradient background */}
-      <motion.div
-        className="absolute inset-0 -z-10"
-        variants={gradientShift}
-        initial="initial"
-        animate="animate"
+    <div className="flex flex-col gap-1 px-5 first:pl-0 sm:px-6">
+      <p className="font-mono text-2xl font-medium tabular-nums text-heading">
+        {count}
+        {suffix}
+      </p>
+
+      <p className="text-xs uppercase tracking-wider text-body">{label}</p>
+    </div>
+  );
+}
+
+//===== NETWORK DATA =====//
+
+const nodes = [
+  {
+    id: "hub",
+    x: 130,
+    y: 230,
+    r: 7,
+    hub: true,
+  },
+  {
+    id: "n1",
+    x: 300,
+    y: 80,
+    r: 4,
+  },
+  {
+    id: "n2",
+    x: 380,
+    y: 190,
+    r: 4,
+  },
+  {
+    id: "n3",
+    x: 330,
+    y: 330,
+    r: 4,
+  },
+  {
+    id: "n4",
+    x: 190,
+    y: 370,
+    r: 3.5,
+  },
+  {
+    id: "n5",
+    x: 70,
+    y: 110,
+    r: 4,
+  },
+  {
+    id: "n6",
+    x: 60,
+    y: 300,
+    r: 3.5,
+  },
+];
+
+const routes = [
+  "M130,230 Q220,60 300,80",
+  "M130,230 Q290,140 380,190",
+  "M130,230 Q260,340 330,330",
+  "M130,230 Q160,340 190,370",
+  "M130,230 Q80,150 70,110",
+  "M130,230 Q70,270 60,300",
+];
+
+//===== NETWORK MAP =====//
+
+function NetworkMap({
+  reduceMotion,
+  active,
+}: {
+  reduceMotion: boolean;
+  active: boolean;
+}) {
+  return (
+    <motion.svg
+      viewBox="0 0 440 440"
+      className="h-full w-full overflow-visible"
+      role="img"
+      aria-label="Illustration of a connected network of European business hubs"
+      animate={
+        reduceMotion
+          ? undefined
+          : {
+              scale: active ? 1.025 : 1,
+            }
+      }
+      transition={{
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+    >
+      <defs>
+        {/* Hub glow */}
+        <filter id="nodeGlow" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur stdDeviation={active ? "7" : "4"} result="blur" />
+
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+
+        {/* Bright active route gradient */}
+        <linearGradient id="routeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop
+            offset="0%"
+            stopColor="var(--color-secondary)"
+            stopOpacity="0.15"
+          />
+
+          <stop
+            offset="50%"
+            stopColor="var(--color-gold-light)"
+            stopOpacity="0.95"
+          />
+
+          <stop
+            offset="100%"
+            stopColor="var(--color-secondary)"
+            stopOpacity="0.15"
+          />
+        </linearGradient>
+      </defs>
+
+      {/*===== Hub orbit =====*/}
+
+      <motion.circle
+        cx="130"
+        cy="230"
+        r="34"
+        fill="none"
+        stroke="var(--color-secondary)"
+        strokeWidth="1"
+        strokeDasharray="2 6"
+        animate={
+          reduceMotion
+            ? undefined
+            : {
+                rotate: 360,
+                strokeOpacity: active ? 0.55 : 0.18,
+              }
+        }
+        transition={{
+          rotate: {
+            duration: 14,
+            repeat: Infinity,
+            ease: "linear",
+          },
+          strokeOpacity: {
+            duration: 0.4,
+          },
+        }}
+        style={{
+          transformOrigin: "130px 230px",
+        }}
       />
 
-      {/* Floating decorative shapes */}
+      {/*===== Routes =====*/}
+
+      {routes.map((route, index) => (
+        <motion.path
+          key={route}
+          d={route}
+          fill="none"
+          stroke={active ? "url(#routeGradient)" : "var(--color-secondary)"}
+          strokeWidth={active ? 1.65 : 1.25}
+          strokeLinecap="round"
+          strokeOpacity={active ? 0.9 : 0.48}
+          initial={
+            reduceMotion
+              ? false
+              : {
+                  pathLength: 0,
+                }
+          }
+          animate={{
+            pathLength: 1,
+            opacity: active ? 1 : 0.75,
+          }}
+          transition={{
+            pathLength: {
+              duration: 1.1,
+              delay: 0.5 + index * 0.12,
+              ease: "easeInOut",
+            },
+            opacity: {
+              duration: 0.4,
+            },
+          }}
+        />
+      ))}
+
+      {/*===== Traveling packets =====*/}
+
+      {!reduceMotion &&
+        routes.slice(0, 4).map((route, index) => (
+          <motion.circle
+            key={`packet-${index}`}
+            r="2.5"
+            fill="var(--color-gold-light)"
+            filter="url(#nodeGlow)"
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: active ? [0, 1, 1, 0] : 0,
+            }}
+            transition={{
+              duration: 2.2,
+              repeat: Infinity,
+              delay: index * 0.45,
+              ease: "linear",
+            }}
+          >
+            <animateMotion
+              dur={`${2.6 + index * 0.3}s`}
+              repeatCount="indefinite"
+              path={route}
+            />
+          </motion.circle>
+        ))}
+
+      {/*===== Nodes =====*/}
+
+      {nodes.map((node, index) => (
+        <motion.circle
+          key={node.id}
+          cx={node.x}
+          cy={node.y}
+          r={node.r}
+          fill={node.hub ? "var(--color-secondary)" : "var(--color-primary)"}
+          stroke={
+            node.hub ? "var(--color-gold-light)" : "var(--color-secondary)"
+          }
+          strokeWidth={1}
+          filter={node.hub ? "url(#nodeGlow)" : undefined}
+          initial={
+            reduceMotion
+              ? false
+              : {
+                  scale: 0,
+                  opacity: 0,
+                }
+          }
+          animate={
+            reduceMotion
+              ? {
+                  scale: 1,
+                  opacity: 1,
+                }
+              : {
+                  scale: active
+                    ? node.hub
+                      ? [1, 1.35, 1.08]
+                      : [1, 1.55, 1]
+                    : 1,
+                  opacity: 1,
+                }
+          }
+          transition={{
+            scale: active
+              ? {
+                  duration: 1.8,
+                  repeat: Infinity,
+                  delay: index * 0.11,
+                  ease: "easeInOut",
+                }
+              : {
+                  duration: 0.35,
+                },
+            opacity: {
+              duration: 0.5,
+              delay: 0.4 + index * 0.1,
+            },
+          }}
+          style={{
+            transformOrigin: `${node.x}px ${node.y}px`,
+          }}
+        />
+      ))}
+
+      {/*===== Signal transmission =====*/}
+
+      {!reduceMotion && (
+        <>
+          <motion.circle
+            cx="130"
+            cy="230"
+            r="9"
+            fill="none"
+            stroke="var(--color-secondary)"
+            animate={
+              active
+                ? {
+                    r: [9, 28],
+                    opacity: [0.7, 0],
+                  }
+                : {
+                    opacity: 0,
+                  }
+            }
+            transition={{
+              duration: 1.8,
+              repeat: Infinity,
+              ease: "easeOut",
+            }}
+          />
+
+          <motion.circle
+            cx="130"
+            cy="230"
+            r="9"
+            fill="none"
+            stroke="var(--color-gold-light)"
+            animate={
+              active
+                ? {
+                    r: [9, 40],
+                    opacity: [0.4, 0],
+                  }
+                : {
+                    opacity: 0,
+                  }
+            }
+            transition={{
+              duration: 2.4,
+              repeat: Infinity,
+              delay: 0.5,
+              ease: "easeOut",
+            }}
+          />
+        </>
+      )}
+
+      {/*===== Map annotation =====*/}
+
+      <motion.g
+        initial={
+          reduceMotion
+            ? {
+                opacity: 1,
+              }
+            : {
+                opacity: 0,
+                y: 5,
+              }
+        }
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: reduceMotion ? 0.01 : 0.45,
+          delay: reduceMotion ? 0 : 2.2,
+          ease: "easeOut",
+        }}
+      >
+        <motion.line
+          x1="284"
+          y1="190"
+          x2="356"
+          y2="190"
+          stroke="var(--color-secondary)"
+          strokeWidth="1"
+          animate={{
+            strokeOpacity: active ? 0.8 : 0.45,
+          }}
+        />
+
+        <text
+          x="288"
+          y="178"
+          fill="var(--color-body)"
+          fontSize="9"
+          fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
+          letterSpacing="1.4"
+        >
+          LIVE NETWORK
+        </text>
+
+        <text
+          x="288"
+          y="207"
+          fill="var(--color-secondary)"
+          fontSize="10"
+          fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
+          letterSpacing="1.1"
+        >
+          {active ? "NETWORK ACTIVE" : "06 ACTIVE NODES"}
+        </text>
+      </motion.g>
+    </motion.svg>
+  );
+}
+
+//===== Hero =====//
+const Hero = () => {
+  const shouldReduceMotion = Boolean(useReducedMotion());
+  const initial = shouldReduceMotion ? "visible" : "hidden";
+
+  //===== Stats =====//
+  const statsRef = useRef<HTMLDivElement>(null);
+
+  const statsInView = useInView(statsRef, {
+    once: true,
+    margin: "-80px",
+  });
+
+  //===== Pointer interaction =====//
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const smoothX = useSpring(mouseX, {
+    stiffness: 90,
+    damping: 24,
+    mass: 0.5,
+  });
+
+  const smoothY = useSpring(mouseY, {
+    stiffness: 90,
+    damping: 24,
+    mass: 0.5,
+  });
+
+  const networkX = useTransform(smoothX, [-0.5, 0.5], [-14, 14]);
+  const networkY = useTransform(smoothY, [-0.5, 0.5], [-10, 10]);
+
+  const gridX = useTransform(smoothX, [-0.5, 0.5], [6, -6]);
+  const gridY = useTransform(smoothY, [-0.5, 0.5], [4, -4]);
+
+  const spotlightX = useTransform(smoothX, [-0.5, 0.5], ["4%", "66%"]);
+  const spotlightY = useTransform(smoothY, [-0.5, 0.5], ["-4%", "54%"]);
+
+  const [networkActive, setNetworkActive] = useState(false);
+
+  const handlePointerMove = (event: ReactMouseEvent<HTMLElement>) => {
+    if (shouldReduceMotion) return;
+
+    const rect = event.currentTarget.getBoundingClientRect();
+
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+    mouseX.set(x);
+    mouseY.set(y);
+  };
+
+  const handlePointerLeave = () => {
+    if (shouldReduceMotion) return;
+
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
+  return (
+    <Section
+      onMouseMove={handlePointerMove}
+      onMouseLeave={handlePointerLeave}
+      className="group/hero relative isolate overflow-hidden py-12 sm:py-16 lg:py-24"
+    >
+      {/*===== Interactive cursor spotlight =====*/}
+      {!shouldReduceMotion && (
+        <motion.div
+          aria-hidden="true"
+          className="pointer-events-none absolute -z-20 h-[34rem] w-[34rem] rounded-full opacity-0 blur-[90px] transition-opacity duration-700 group-hover/hero:opacity-100"
+          style={{
+            left: spotlightX,
+            top: spotlightY,
+            translateX: "-50%",
+            translateY: "-50%",
+            background:
+              "radial-gradient(circle, color-mix(in srgb, var(--color-secondary) 11%, transparent), transparent 68%)",
+          }}
+        />
+      )}
+
+      {/*===== Blueprint grid =====*/}
       <motion.div
-        className="absolute -left-20 top-20 h-40 w-40 rounded-full bg-secondary/10 blur-3xl"
-        variants={floatShape}
-        initial="initial"
-        animate="animate"
-      />
-      <motion.div
-        className="absolute -bottom-32 right-10 h-64 w-64 rounded-full bg-primary/5 blur-3xl"
-        variants={floatShape}
-        initial="initial"
-        animate="animate"
-        transition={{ delay: 0.5 }} // offset the second shape
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-[-12px] -z-30 opacity-70"
+        style={{
+          x: shouldReduceMotion ? 0 : gridX,
+          y: shouldReduceMotion ? 0 : gridY,
+          backgroundImage: `
+            linear-gradient(
+              to right,
+              color-mix(
+                in srgb,
+                var(--color-border) 58%,
+                transparent
+              ) 1px,
+              transparent 1px
+            ),
+            linear-gradient(
+              to bottom,
+              color-mix(
+                in srgb,
+                var(--color-border) 58%,
+                transparent
+              ) 1px,
+              transparent 1px
+            ),
+            linear-gradient(
+              120deg,
+              transparent 0%,
+              color-mix(
+                in srgb,
+                var(--color-secondary) 6%,
+                transparent
+              ) 48%,
+              transparent 72%
+            )
+          `,
+          backgroundPosition: "center center",
+          backgroundSize: "72px 72px, 72px 72px, 100% 100%",
+          maskImage:
+            "linear-gradient(to bottom, transparent, black 16%, black 78%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent, black 16%, black 78%, transparent)",
+        }}
       />
 
+      {/*===== Dot field =====*/}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-20 opacity-[0.45]"
+        style={{
+          backgroundImage:
+            "radial-gradient(color-mix(in srgb, var(--color-body) 35%, transparent) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          maskImage:
+            "radial-gradient(60rem 34rem at 30% 20%, black 30%, transparent 75%)",
+          WebkitMaskImage:
+            "radial-gradient(60rem 34rem at 30% 20%, black 30%, transparent 75%)",
+        }}
+      />
+
+      {/*===== Traveling blueprint signals =====*/}
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-[-8rem] top-[calc(50%-72px)] -z-10 h-px w-28 bg-linear-to-r from-transparent via-secondary to-transparent shadow-[0_0_14px_var(--color-secondary)]"
+        animate={
+          shouldReduceMotion
+            ? undefined
+            : {
+                x: ["0vw", "112vw"],
+                opacity: [0, 1, 1, 0],
+              }
+        }
+        transition={
+          shouldReduceMotion
+            ? {
+                duration: 0.01,
+              }
+            : {
+                duration: 7.5,
+                repeat: Infinity,
+                repeatDelay: 1.8,
+                ease: "linear",
+              }
+        }
+      />
+
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-[-8rem] left-[calc(50%+72px)] -z-10 h-28 w-px bg-linear-to-b from-transparent via-secondary/85 to-transparent shadow-[0_0_14px_var(--color-secondary)]"
+        animate={
+          shouldReduceMotion
+            ? undefined
+            : {
+                y: ["0vh", "-100vh"],
+                opacity: [0, 1, 1, 0],
+              }
+        }
+        transition={
+          shouldReduceMotion
+            ? {
+                duration: 0.01,
+              }
+            : {
+                duration: 8.5,
+                repeat: Infinity,
+                repeatDelay: 2.8,
+                delay: 1.4,
+                ease: "linear",
+              }
+        }
+      />
+
+      {/*===== Network stage glow =====*/}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-10 top-1/2 -z-10 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full opacity-60 blur-3xl"
+        style={{
+          background: "var(--surface-glow)",
+        }}
+      />
+
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-20 top-1/2 -z-10 h-[34rem] w-[34rem] -translate-y-1/2 rounded-full border border-secondary/15"
+        animate={
+          shouldReduceMotion
+            ? undefined
+            : {
+                rotate: 360,
+              }
+        }
+        transition={{
+          duration: 70,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      />
+
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-6 top-1/2 -z-10 h-[26rem] w-[26rem] -translate-y-1/2 rounded-full border border-border/70"
+        animate={
+          shouldReduceMotion
+            ? undefined
+            : {
+                rotate: -360,
+              }
+        }
+        transition={{
+          duration: 55,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      />
+
+      {/*===== Drafting marks =====*/}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-[7%] top-12 -z-10 hidden h-20 w-px bg-linear-to-b from-transparent via-secondary/45 to-transparent lg:block"
+      />
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-14 left-[7%] -z-10 hidden font-mono text-[10px] uppercase tracking-[0.22em] text-body/45 lg:block"
+      >
+        BCR / 01 — Growth systems
+      </div>
+
+      {/*===== Main content =====*/}
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          {/* Left content */}
-          <motion.div variants={slideInLeft} initial="hidden" animate="visible">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16">
+          {/*===== Left — editorial statement =====*/}
+          <div className="relative min-w-0">
+            {/*===== Intro rail =====*/}
             <motion.div
-              variants={fadeInUp}
-              initial="hidden"
+              variants={fade}
+              initial={initial}
               animate="visible"
-              transition={{ delay: 0.2 }}
+              className="grid grid-cols-[54px_minmax(0,1fr)] items-start gap-4 sm:grid-cols-[68px_minmax(0,1fr)] sm:gap-6"
             >
-              <span className="inline-block rounded-full bg-secondary/10 px-4 py-1.5 text-sm font-medium text-secondary backdrop-blur-sm">
-                B2B International Digital Solutions
+              <div className="border-t border-secondary pt-3">
+                <span className="font-mono text-[9px] font-semibold text-secondary">
+                  01
+                </span>
+
+                <span className="mt-1 block font-mono text-[6px] uppercase tracking-[0.16em] text-body/40">
+                  BCR
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3 border-t border-border pt-3">
+                <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-secondary">
+                  Europe · Technology · Growth
+                </span>
+
+                <span className="hidden h-px flex-1 bg-border sm:block" />
+              </div>
+            </motion.div>
+
+            {/*===== Statement =====*/}
+            <div className="mt-7 grid grid-cols-[54px_minmax(0,1fr)] gap-4 sm:grid-cols-[68px_minmax(0,1fr)] sm:gap-6">
+              <div className="relative hidden sm:block">
+                <span className="absolute bottom-0 left-1/2 top-0 w-px -translate-x-1/2 bg-border/70" />
+                <span className="absolute left-1/2 top-0 h-12 w-px -translate-x-1/2 bg-secondary" />
+              </div>
+
+              <div>
+                <motion.h1
+                  className={`${fraunces.className} max-w-3xl text-4xl leading-[1.04] tracking-[-0.035em] text-heading sm:text-5xl md:text-[3.65rem] lg:text-[3.8rem] xl:text-[4.2rem]`}
+                  variants={headlineContainer}
+                  initial={initial}
+                  animate="visible"
+                >
+                  {headlineWords.map((word) => (
+                    <span
+                      key={word.text}
+                      className="mr-[0.25em] inline-block overflow-hidden align-bottom"
+                    >
+                      <motion.span
+                        variants={wordReveal}
+                        whileHover={
+                          word.accent && !shouldReduceMotion
+                            ? {
+                                y: -3,
+                                skewX: -3,
+                              }
+                            : undefined
+                        }
+                        transition={{
+                          duration: 0.25,
+                        }}
+                        className={`inline-block ${word.accent ? "cursor-default text-gold-gradient italic" : ""}`}
+                      >
+                        {word.text}
+                      </motion.span>
+                    </span>
+                  ))}
+                </motion.h1>
+
+                {/*===== Strategic note =====*/}
+                <motion.div
+                  variants={fadeUp}
+                  initial={initial}
+                  animate="visible"
+                  transition={{
+                    delay: 0.55,
+                  }}
+                  className="mt-7 grid gap-5 border-t border-border pt-6 sm:grid-cols-[minmax(0,1fr)_150px]"
+                >
+                  <p className="max-w-xl text-base leading-8 text-body sm:text-lg">
+                    Blackcrest Advisory combines strategic thinking with
+                    hands-on execution across technology, marketing, and sales
+                    to drive measurable growth for startups, SMEs, and
+                    enterprises.
+                  </p>
+
+                  <div className="border-l border-border pl-4">
+                    <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-secondary">
+                      Operating model
+                    </span>
+
+                    <p className="mt-2 text-xs font-medium leading-5 text-heading">
+                      Strategy connected directly to execution.
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/*===== Action console =====*/}
+                <motion.div
+                  variants={fadeUp}
+                  initial={initial}
+                  animate="visible"
+                  transition={{
+                    delay: 0.7,
+                  }}
+                  className="mt-7 grid gap-2 sm:grid-cols-[1.15fr_0.85fr]"
+                >
+                  <motion.div
+                    whileHover={
+                      shouldReduceMotion
+                        ? undefined
+                        : {
+                            y: -2,
+                          }
+                    }
+                    whileTap={
+                      shouldReduceMotion
+                        ? undefined
+                        : {
+                            scale: 0.99,
+                          }
+                    }
+                  >
+                    <Button
+                      variant="primary"
+                      size="md"
+                      href="/signup"
+                      className="group min-h-[64px] w-full !justify-between !rounded-none px-5 text-left shadow-[var(--shadow-action)] hover:shadow-[var(--shadow-action-hover)]"
+                    >
+                      <span className="flex flex-col items-start gap-1">
+                        <span className="font-mono text-[6px] font-semibold uppercase tracking-[0.16em] text-primary-foreground/55">
+                          01 / Begin
+                        </span>
+
+                        <span className="text-sm font-semibold">
+                          Get Started
+                        </span>
+                      </span>
+
+                      <span className="flex h-8 w-8 items-center justify-center border border-primary-foreground/15 transition-transform duration-300 group-hover:translate-x-1">
+                        <ArrowUpRight className="h-3.5 w-3.5" />
+                      </span>
+                    </Button>
+                  </motion.div>
+
+                  <motion.div
+                    whileHover={
+                      shouldReduceMotion
+                        ? undefined
+                        : {
+                            y: -2,
+                          }
+                    }
+                    whileTap={
+                      shouldReduceMotion
+                        ? undefined
+                        : {
+                            scale: 0.99,
+                          }
+                    }
+                  >
+                    <Button
+                      variant="outline"
+                      size="md"
+                      href="/about"
+                      className="group min-h-[64px] w-full !justify-between !rounded-none border-border px-5 text-left"
+                    >
+                      <span className="flex flex-col items-start gap-1">
+                        <span className="font-mono text-[6px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/40">
+                          02 / Explore
+                        </span>
+
+                        <span className="text-sm font-semibold">
+                          Learn More
+                        </span>
+                      </span>
+
+                      <ArrowUpRight className="h-4 w-4 text-secondary transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    </Button>
+                  </motion.div>
+                </motion.div>
+
+                {/*===== Evidence rail =====*/}
+                <motion.div
+                  ref={statsRef}
+                  variants={fadeUp}
+                  initial={initial}
+                  animate="visible"
+                  transition={{
+                    delay: 0.85,
+                  }}
+                  className="mt-8 border-y border-border/70"
+                >
+                  <div className="flex items-center justify-between border-b border-border/60 px-1 py-2">
+                    <span className="font-mono text-[6px] font-semibold uppercase tracking-[0.16em] text-muted-foreground/35">
+                      Blackcrest footprint
+                    </span>
+
+                    <span className="flex items-center gap-2 font-mono text-[6px] font-semibold uppercase tracking-[0.14em] text-secondary">
+                      <span className="h-1 w-1 rounded-full bg-success" />
+                      Active
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-3">
+                    {stats.map((stat, index) => (
+                      <div
+                        key={stat.label}
+                        className={index > 0 ? "border-l border-border/60" : ""}
+                      >
+                        <div className="py-4">
+                          <StatItem
+                            {...stat}
+                            active={shouldReduceMotion || statsInView}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+
+          {/*===== Right — interactive network =====*/}
+          <motion.div
+            variants={fade}
+            initial={initial}
+            animate="visible"
+            transition={{
+              delay: 0.3,
+              duration: 0.9,
+            }}
+            style={{
+              x: shouldReduceMotion ? 0 : networkX,
+              y: shouldReduceMotion ? 0 : networkY,
+            }}
+            onMouseEnter={() => setNetworkActive(true)}
+            onMouseLeave={() => setNetworkActive(false)}
+            onFocusCapture={() => setNetworkActive(true)}
+            onBlurCapture={() => setNetworkActive(false)}
+            className="relative mx-auto aspect-square w-full max-w-md"
+          >
+            {/*===== Outer responsive field =====*/}
+            <motion.div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-[5%] rounded-full border border-secondary/10"
+              animate={
+                shouldReduceMotion
+                  ? undefined
+                  : {
+                      scale: networkActive ? [1, 1.04, 1] : 1,
+                      opacity: networkActive ? [0.3, 0.75, 0.3] : 0.3,
+                    }
+              }
+              transition={{
+                duration: 3,
+                repeat: networkActive ? Infinity : 0,
+                ease: "easeInOut",
+              }}
+            />
+
+            {/*===== Rotating coordinate ring =====*/}
+            {!shouldReduceMotion && (
+              <motion.div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-[1%] rounded-full border border-dashed border-secondary/[0.08]"
+                animate={{
+                  rotate: networkActive ? 360 : 0,
+                }}
+                transition={{
+                  duration: 28,
+                  repeat: networkActive ? Infinity : 0,
+                  ease: "linear",
+                }}
+              />
+            )}
+
+            {/*===== Corner coordinates =====*/}
+            <motion.div
+              aria-hidden="true"
+              animate={{
+                opacity: networkActive ? 1 : 0.35,
+              }}
+              className="pointer-events-none absolute left-[7%] top-[8%] hidden font-mono text-[8px] uppercase tracking-[0.18em] text-secondary sm:block"
+            >
+              52.5200° N
+            </motion.div>
+
+            <motion.div
+              aria-hidden="true"
+              animate={{
+                opacity: networkActive ? 1 : 0.35,
+              }}
+              className="pointer-events-none absolute bottom-[12%] right-[5%] hidden font-mono text-[8px] uppercase tracking-[0.18em] text-secondary sm:block"
+            >
+              13.4050° E
+            </motion.div>
+
+            {/*===== Map =====*/}
+            <motion.div
+              animate={{
+                filter: networkActive
+                  ? "drop-shadow(0 20px 35px rgb(166 124 39 / 0.12))"
+                  : "drop-shadow(0 0px 0px transparent)",
+              }}
+              transition={{
+                duration: 0.5,
+              }}
+              className="h-full w-full"
+            >
+              <NetworkMap
+                reduceMotion={shouldReduceMotion}
+                active={networkActive}
+              />
+            </motion.div>
+
+            {/*===== Active state =====*/}
+            <motion.div
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: networkActive ? 1 : 0,
+                y: networkActive ? 0 : 6,
+              }}
+              transition={{
+                duration: 0.3,
+              }}
+              className="pointer-events-none absolute bottom-[7%] right-[5%] hidden items-center gap-2 lg:flex"
+            >
+              <motion.span
+                animate={{
+                  scale: networkActive ? [1, 1.6, 1] : 1,
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: networkActive ? Infinity : 0,
+                }}
+                className="h-1.5 w-1.5 rounded-full bg-secondary shadow-[0_0_12px_var(--color-secondary)]"
+              />
+
+              <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-secondary">
+                Network responding
               </span>
             </motion.div>
 
-            <motion.h1
-              className="mt-6 text-4xl font-bold tracking-tight text-heading sm:text-5xl md:text-6xl"
-              variants={fadeInUp}
-              initial="hidden"
-              animate="visible"
-              transition={{ delay: 0.3 }}
-            >
-              Empowering European{" "}
-              <span className="relative whitespace-nowrap text-secondary">
-                Businesses
-                <motion.span
-                  className="absolute -bottom-1 left-0 h-1 w-full bg-secondary"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ delay: 0.8, duration: 0.6 }}
-                />
-              </span>{" "}
-              Through Technology
-            </motion.h1>
-
+            {/*===== Caption =====*/}
             <motion.p
-              className="mt-6 text-lg text-body md:text-xl"
-              variants={fadeIn}
-              initial="hidden"
-              animate="visible"
-              transition={{ delay: 0.5 }}
+              animate={{
+                color: networkActive
+                  ? "var(--color-secondary)"
+                  : "var(--color-body)",
+              }}
+              transition={{
+                duration: 0.3,
+              }}
+              className="mt-2 text-center font-mono text-xs uppercase tracking-[0.2em]"
             >
-              Blackcrest Advisory combines strategic thinking with hands-on
-              execution across technology, marketing, and sales to drive
-              measurable growth for startups, SMEs, and enterprises.
+              Active engagements across Europe
             </motion.p>
-
-            <motion.div
-              className="mt-8 flex flex-wrap gap-4"
-              variants={fadeInUp}
-              initial="hidden"
-              animate="visible"
-              transition={{ delay: 0.7 }}
-            >
-              <Button
-                variant="primary"
-                size="md"
-                href="/signup"
-                className="shadow-lg shadow-secondary/20"
-              >
-                Get Started
-              </Button>
-              <Button variant="outline" size="md" href="/about">
-                Learn More
-              </Button>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              className="mt-12 flex flex-wrap gap-8 border-t border-border/40 pt-8"
-              variants={fadeIn}
-              initial="hidden"
-              animate="visible"
-              transition={{ delay: 0.9 }}
-            >
-              <div>
-                <p className="text-2xl font-bold text-heading">100+</p>
-                <p className="text-sm text-body">Clients</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-heading">5+</p>
-                <p className="text-sm text-body">Countries</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-heading">99%</p>
-                <p className="text-sm text-body">Satisfaction</p>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Right section - Premium abstract visual */}
-          <motion.div
-            variants={scaleIn}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 0.3 }}
-            className="relative flex justify-center"
-          >
-            <div className="relative h-72 w-full max-w-md lg:h-80">
-              {/* Central glowing circle */}
-              <motion.div
-                className="absolute inset-0 m-auto h-48 w-48 rounded-full bg-linear-to-br from-secondary/20 to-primary/10 blur-2xl"
-                variants={pulseScale}
-                initial="initial"
-                animate="animate"
-              />
-
-              {/* Main circle with border and pulse */}
-              <motion.div
-                className="absolute inset-0 m-auto h-48 w-48 rounded-full border-2 border-secondary/20 bg-background/50 backdrop-blur-sm shadow-2xl"
-                animate={{
-                  boxShadow: [
-                    "0 0 20px rgba(99,102,241,0.1)",
-                    "0 0 40px rgba(99,102,241,0.3)",
-                    "0 0 20px rgba(99,102,241,0.1)",
-                  ],
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                <div className="flex h-full flex-col items-center justify-center p-6 text-center">
-                  <Globe
-                    className="h-12 w-12 text-secondary"
-                    strokeWidth={1.5}
-                  />
-                  <p className="mt-2 text-sm font-semibold text-heading">
-                    Global Reach
-                  </p>
-                  <p className="text-xs text-body">
-                    Connecting Europe & beyond
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Orbiting icons */}
-              <motion.div
-                className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                variants={orbit}
-                initial="initial"
-                animate="animate"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary/10 backdrop-blur-sm border border-secondary/20">
-                  <TrendingUp className="h-6 w-6 text-secondary" />
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="absolute bottom-4 md:bottom-0 right-4 md:right-0 translate-x-1/2 translate-y-1/2"
-                variants={orbitReverse}
-                initial="initial"
-                animate="animate"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20">
-                  <Sparkles className="h-6 w-6 text-primary" />
-                </div>
-              </motion.div>
-
-              {/* Small decorative dots */}
-              <motion.div
-                className="absolute top-1/4 right-0 h-3 w-3 rounded-full bg-secondary/40"
-                animate={{ scale: [1, 1.5, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-              <motion.div
-                className="absolute bottom-1/3 left-0 h-2 w-2 rounded-full bg-primary/30"
-                animate={{ scale: [1, 1.5, 1] }}
-                transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
-              />
-
-              {/* Dashed connecting lines */}
-              <div className="absolute inset-0 m-auto h-48 w-48 rounded-full border-2 border-dashed border-secondary/10" />
-            </div>
           </motion.div>
         </div>
       </Container>

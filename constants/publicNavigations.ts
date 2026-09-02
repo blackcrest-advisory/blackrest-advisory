@@ -52,4 +52,9 @@ export const navLinks: NavItem[] = [
     name: "Contact",
     link: "/contact",
   },
+  {
+    id: 6,
+    name: "Start a Project",
+    link: "/start-project",
+  },
 ];

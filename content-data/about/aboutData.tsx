@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import {
   LuGlobe,
   LuTrendingUp,
@@ -116,27 +115,27 @@ export const processData = [
 export const whyData = [
   {
     icon: <LuTarget size={24} className="text-secondary" />,
-    title: "Single Point of Contact",
+    title: "Business-First Thinking",
     description:
-      "Rather than managing multiple agencies for marketing, development, mobile, and sales — you work with one trusted partner who coordinates everything. Less complexity, better alignment, stronger results.",
+      "We start with the business challenge, not a fixed service list. The work is shaped around what will make the most useful difference next.",
   },
   {
     icon: <LuZap size={24} className="text-secondary" />,
-    title: "Business‑First Thinking",
+    title: "Connected Support",
     description:
-      "We start with the business problem, not the service catalog. Our recommendations are shaped by what will actually move the needle for you — not by what is easiest for us to sell.",
+      "Web, mobile, marketing, and sales support are considered together when they need to be, so the work stays connected to one clear goal.",
   },
   {
     icon: <LuAward size={24} className="text-secondary" />,
-    title: "International Standards",
+    title: "Clear Communication",
     description:
-      "Our team holds itself to European‑grade quality standards in design, engineering, communication, and delivery. Every engagement is managed with the professionalism and accountability that international clients expect.",
+      "You should understand what is happening, why it matters, and what comes next. We keep priorities and progress visible throughout the work.",
   },
   {
     icon: <LuLink size={24} className="text-secondary" />,
-    title: "Built for the Long Term",
+    title: "Focused Delivery",
     description:
-      "Our business model is based on retained partnerships, not project‑by‑project transactions. Our incentives are always aligned with your long‑term growth, not short‑term billing cycles.",
+      "We focus effort on the scope that matters now, then help you make a clear decision about the most useful next step.",
   },
 ];
 

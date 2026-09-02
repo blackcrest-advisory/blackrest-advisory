@@ -1,7 +1,9 @@
 "use client";
 
-import React, { ReactNode } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { type ReactNode } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+
+import { cn } from "@/lib/utils/utils";
 
 interface DropdownProps {
   isOpen: boolean;
@@ -11,6 +13,8 @@ interface DropdownProps {
   contentClassName?: string;
 
   align?: "start" | "center" | "end";
+
+  showArrow?: boolean;
 }
 
 const Dropdown = ({
@@ -19,7 +23,10 @@ const Dropdown = ({
   className = "",
   contentClassName = "before:left-4",
   align = "start",
+  showArrow = true,
 }: DropdownProps) => {
+  const shouldReduceMotion = useReducedMotion();
+
   const alignClasses = {
     start: "left-0",
     center: "left-1/2 -translate-x-1/2",
@@ -31,49 +38,112 @@ const Dropdown = ({
       {isOpen && (
         <motion.div
           key="dropdown"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 12 }}
-          transition={{
-            duration: 0.2,
-            ease: [0.25, 0.8, 0.25, 1],
+          initial={
+            shouldReduceMotion
+              ? {
+                  opacity: 0,
+                }
+              : {
+                  opacity: 0,
+                  y: 7,
+                  scale: 0.975,
+                }
+          }
+          animate={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
           }}
-          className={`absolute w-56 z-50 origin-top ${alignClasses[align]} ${className}`}
+          exit={
+            shouldReduceMotion
+              ? {
+                  opacity: 0,
+                }
+              : {
+                  opacity: 0,
+                  y: 5,
+                  scale: 0.98,
+                }
+          }
+          transition={{
+            duration: shouldReduceMotion ? 0.01 : 0.18,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className={cn(
+            `
+              absolute
+              z-[200]
+              w-56
+              origin-top
+            `,
+            alignClasses[align],
+            className,
+          )}
         >
+          {/*===== DROPDOWN SURFACE =====*/}
+
           <div
-            className={`
-               mt-6
-              relative
-              rounded-xl
-              py-2
-              backdrop-blur-lg
-              bg-popover/80
-              dark:bg-gray-800/80
-              shadow-xl
-              shadow-black/5
-              dark:shadow-white/5
-              ring-1
-              ring-black/5
-              dark:ring-white/10
-              before:content-['']
-              before:absolute
-              before:top-[-6px]
-              before:w-0
-              before:h-0
-              before:border-l-8
-              before:border-r-8
-              before:border-b-8
-              before:border-l-transparent
-              before:border-r-transparent
-              before:border-b-popover
-              dark:before:border-b-gray-800
-              before:drop-shadow-[0_-1px_1px_rgba(0,0,0,0.05)]
-              dark:before:drop-shadow-[0_-1px_1px_rgba(255,255,255,0.1)]
-              bg-white
-              ${contentClassName}
-            `}
+            className={cn(
+              `
+                relative
+                mt-2
+                overflow-hidden
+                rounded-md
+                border border-border
+                bg-card/95
+                shadow-[var(--shadow-overlay)]
+                backdrop-blur-xl
+              `,
+
+              showArrow &&
+                `
+                  before:absolute
+                  before:-top-[5px]
+                  before:z-20
+                  before:h-2.5
+                  before:w-2.5
+                  before:rotate-45
+                  before:border-l
+                  before:border-t
+                  before:border-border
+                  before:bg-card
+                  before:content-['']
+                `,
+
+              showArrow && contentClassName,
+            )}
           >
-            <div role="menu">{children}</div>
+            {/*===== GOLD SIGNAL LINE =====*/}
+
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute left-0 top-0 z-10 h-[2px] w-full bg-gradient-to-r from-secondary via-secondary/45 to-transparent"
+            />
+
+            {/*===== AMBIENT GLOW =====*/}
+
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-10 -top-12 h-28 w-28 rounded-full bg-secondary/[0.07] blur-[55px]"
+            />
+
+            {/*===== SUBTLE INNER HIGHLIGHT =====*/}
+
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 top-[2px] h-px bg-foreground/[0.035]"
+            />
+
+            {/*===== CONTENT =====*/}
+
+            <div className="relative z-10">{children}</div>
+
+            {/*===== BOTTOM DETAIL =====*/}
+
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute bottom-0 left-4 h-px w-8 bg-secondary/35"
+            />
           </div>
         </motion.div>
       )}

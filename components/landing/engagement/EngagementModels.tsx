@@ -1,150 +1,157 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { BadgeCheck, Clock, Layers, Sparkles } from "lucide-react";
-import { Section } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
-import { staggerContainer, fadeInUp } from "@/utils/animations";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowUpRight, Check, Clock3, FolderKanban, Layers3 } from "lucide-react";
 
-//===== Engagement models data =====//
+import { Button } from "@/components/ui/Button";
+import { Container } from "@/components/ui/Container";
+import { Section } from "@/components/ui/Section";
+
 const models = [
   {
-    title: "Retained Partnership",
-    icon: BadgeCheck,
-    bestFor: "Businesses wanting an ongoing growth partner",
+    number: "01",
+    title: "Project work",
+    eyebrow: "A defined outcome",
     description:
-      "Monthly fixed retainer covering one or more service pillars. Regular strategy sessions, ongoing delivery, and monthly performance reporting. Our most popular and highest-impact model.",
-    features: [
-      "Dedicated account team",
-      "Monthly strategy review",
-      "Performance dashboards",
-      "Unlimited ad-hoc support",
-    ],
-    cta: "Start Retained",
-    popular: true,
+      "For a clearly scoped website, mobile application, campaign, or sales-support initiative.",
+    icon: FolderKanban,
+    details: ["Clear scope and priorities", "Practical delivery plan", "Agreed milestones"],
   },
   {
-    title: "Project-Based",
-    icon: Clock,
-    bestFor: "Defined deliverables with clear scope",
+    number: "02",
+    title: "Ongoing support",
+    eyebrow: "Continued progress",
     description:
-      "Fixed-price engagements for specific deliverables — a new website, mobile app, campaign launch, or sales audit. Clear scope, defined timeline, milestone-based delivery.",
-    features: [
-      "Fixed scope & budget",
-      "Milestone payments",
-      "Dedicated project manager",
-      "Post-launch handover",
-    ],
-    cta: "Request a Quote",
-    popular: false,
+      "For businesses that need regular digital, marketing, or commercial support as priorities evolve.",
+    icon: Clock3,
+    details: ["Regular planning and updates", "Flexible priorities", "Continuous improvement"],
   },
   {
-    title: "Hybrid",
-    icon: Layers,
-    bestFor: "Ongoing support plus specific projects",
+    number: "03",
+    title: "Flexible partnership",
+    eyebrow: "Support that adapts",
     description:
-      "A retainer for ongoing work combined with separate project-based billing for defined scope items. Offers continuity with the flexibility to handle ad-hoc projects.",
-    features: [
-      "Flexible scope",
-      "Priority access",
-      "Blended billing",
-      "Strategic advisory included",
-    ],
-    cta: "Explore Hybrid",
-    popular: false,
+      "For a mix of planned work and additional specialist support when a project needs it.",
+    icon: Layers3,
+    details: ["Connected capabilities", "Support matched to scope", "One clear point of contact"],
   },
 ];
 
 export const EngagementModels = () => {
+  const reduceMotion = Boolean(useReducedMotion());
+
   return (
-    //===== Engagement models section with three options =====//
-    <Section>
-      <Container>
-        {/*===== Section header =====*/}
-        <div className="mb-12 text-center md:mb-16">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-secondary">
-            Choose Your Path
-          </span>
-          <h2 className="mt-2 text-3xl font-bold text-foreground sm:text-3xl md:text-4xl">
-            Engagement Models
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            We offer flexible engagement models to suit different client needs,
-            project sizes, and stages of growth.
-          </p>
+    <Section
+      id="engagement-models"
+      className="relative overflow-hidden border-y border-border bg-muted/20"
+    >
+      <div className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute -right-40 -top-40 h-[34rem] w-[34rem] opacity-60"
+          style={{
+            background:
+              "radial-gradient(circle, color-mix(in srgb, var(--color-secondary) 8%, transparent), transparent 68%)",
+          }}
+        />
+      </div>
+
+      <Container className="relative">
+        <div className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <motion.div
+            initial={{ opacity: 0, x: reduceMotion ? 0 : -16 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55 }}
+          >
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary">
+                Ways to work together
+              </span>
+              <span className="h-px w-12 bg-secondary/40" />
+            </div>
+
+            <h2 className="mt-5 max-w-2xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]">
+              Choose the support
+              <span className="block text-muted-foreground">
+                that fits what you need now.
+              </span>
+            </h2>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: reduceMotion ? 0 : 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="max-w-xl text-sm leading-7 text-body sm:text-base lg:justify-self-end"
+          >
+            There is no need to commit to more than the work requires. We can
+            start with one focused project, provide ongoing support, or combine
+            the right capabilities around a wider goal.
+          </motion.p>
         </div>
 
-        {/*===== Models grid =====*/}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-8"
-        >
-          {models.map((model) => {
+        <div className="grid border-b border-border md:grid-cols-3">
+          {models.map((model, index) => {
             const Icon = model.icon;
+
             return (
-              <motion.div key={model.title} variants={fadeInUp}>
-                <Card
-                  padding="lg"
-                  hoverEffect
-                  className="group relative flex h-full flex-col"
-                >
-                  {/*===== "Most Popular" badge =====*/}
-                  {model.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-secondary px-3 py-0.5 text-[10px] font-semibold text-white shadow-lg sm:px-4 sm:py-1 sm:text-xs whitespace-nowrap">
-                      Most Popular
-                    </div>
-                  )}
-
-                  {/* Icon */}
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-secondary/10 text-secondary transition-colors group-hover:bg-secondary group-hover:text-secondary-foreground sm:h-14 sm:w-14">
-                    <Icon className="h-6 w-6 sm:h-7 sm:w-7" />
+              <motion.article
+                key={model.title}
+                initial={{ opacity: 0, y: reduceMotion ? 0 : 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: index * 0.08, duration: 0.5 }}
+                className={`group relative flex min-h-[320px] flex-col border-b border-border py-8 md:border-b-0 md:px-7 ${index > 0 ? "md:border-l" : ""} ${index === 0 ? "md:pl-0" : ""} ${index === models.length - 1 ? "md:pr-0" : ""}`}
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex h-11 w-11 items-center justify-center border border-secondary/20 bg-secondary/[0.06] text-secondary transition-colors duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground">
+                    <Icon className="h-4.5 w-4.5" strokeWidth={1.8} />
                   </div>
-
-                  {/* Title */}
-                  <h3 className="mb-2 font-display text-lg font-bold text-foreground sm:text-xl">
-                    {model.title}
-                  </h3>
-
-                  {/* Best for */}
-                  <span className="mb-3 text-xs font-medium uppercase tracking-wider text-secondary/80 sm:text-sm">
-                    Best for: {model.bestFor}
+                  <span className="font-mono text-[10px] font-semibold tracking-[0.16em] text-muted-foreground/45">
+                    {model.number}
                   </span>
+                </div>
 
-                  {/* Description */}
-                  <p className="mb-6 text-xs leading-relaxed text-muted-foreground sm:text-sm">
-                    {model.description}
-                  </p>
+                <p className="mt-7 font-mono text-[9px] font-semibold uppercase tracking-[0.17em] text-secondary">
+                  {model.eyebrow}
+                </p>
+                <h3 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-heading">
+                  {model.title}
+                </h3>
+                <p className="mt-3 max-w-sm text-sm leading-7 text-body">
+                  {model.description}
+                </p>
 
-                  {/* Features list */}
-                  <ul className="mb-6 flex-1 space-y-1.5 sm:space-y-2">
-                    {model.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-2 text-xs text-muted-foreground/80 sm:text-sm"
-                      >
-                        <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0 text-secondary sm:h-4 sm:w-4" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="mt-6 space-y-2.5 border-t border-border pt-5">
+                  {model.details.map((detail) => (
+                    <div key={detail} className="flex items-center gap-2.5 text-sm text-foreground/75">
+                      <Check className="h-3.5 w-3.5 shrink-0 text-secondary" />
+                      {detail}
+                    </div>
+                  ))}
+                </div>
 
-                  {/* CTA Button */}
-                  <Button
-                    variant="outline"
-                    className="mt-auto w-full border-secondary/30 text-secondary hover:bg-secondary hover:text-primary-foreground"
-                  >
-                    {model.cta}
-                  </Button>
-                </Card>
-              </motion.div>
+                <Button
+                  variant="link"
+                  size="sm"
+                  href="/start-project"
+                  className="group/link mt-auto w-fit pt-7"
+                >
+                  Discuss this option
+                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+                </Button>
+
+                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-secondary transition-all duration-500 group-hover:w-full" />
+              </motion.article>
             );
           })}
-        </motion.div>
+        </div>
+
+        <p className="pt-6 text-center text-sm text-muted-foreground">
+          Not sure which option fits? Start with the challenge and we will help
+          you choose a practical first step.
+        </p>
       </Container>
     </Section>
   );

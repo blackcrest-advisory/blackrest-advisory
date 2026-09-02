@@ -1,125 +1,402 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import {
+  ArrowDownRight,
+  ArrowRight,
+  Check,
+  CircleDot,
+  Layers3,
+  MessagesSquare,
+  Sparkles,
+} from "lucide-react";
+
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
-import { fadeIn, slideInLeft, slideInRight, float } from "@/utils/animations";
+
+const engagementSignals = [
+  "Clear scope & priorities",
+  "Clear communication",
+  "Support that fits the work",
+];
+
+const phases = [
+  {
+    number: "01",
+    title: "Understand",
+    description: "Clarify the challenge, context, and outcome you need.",
+  },
+  {
+    number: "02",
+    title: "Plan",
+    description: "Agree the right scope, priorities, and way forward.",
+  },
+  {
+    number: "03",
+    title: "Begin",
+    description: "Start the work with clear ownership and next actions.",
+  },
+];
 
 export const EngagementHero = () => {
-  return (
-    //===== Hero Section with gradient background and ambient decorations =====//
-    <Section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 py-12 md:py-16 lg:py-20">
-      {/*===== Ambient background decorations =====*/}
-      <div className="absolute inset-0 -z-10">
-        {/* Glowing orbs */}
-        <div className="absolute -top-40 -right-40 h-[600px] w-[600px] rounded-full bg-secondary/5 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-secondary/5 blur-3xl" />
+  const reduceMotion = Boolean(useReducedMotion());
 
-        {/* Floating shapes */}
-        <motion.div
-          variants={float}
-          initial="initial"
-          animate="animate"
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 right-1/4 h-16 w-16 rounded-full border-2 border-secondary/10 bg-secondary/5 backdrop-blur-sm"
-        />
-        <motion.div
-          variants={float}
-          initial="initial"
-          animate="animate"
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
+  return (
+    <Section className="relative isolate overflow-hidden bg-background py-10 text-foreground transition-colors duration-300 sm:py-14 lg:py-16">
+      {/* Background architecture */}
+      <div className="pointer-events-none absolute inset-0 -z-20">
+        <div
+          className="absolute right-[-14rem] top-[-8rem] h-[42rem] w-[42rem] opacity-70"
+          style={{
+            background:
+              "radial-gradient(circle, color-mix(in srgb, var(--color-secondary) 11%, transparent), transparent 68%)",
           }}
-          className="absolute bottom-1/3 left-1/4 h-12 w-12 rotate-45 border-2 border-secondary/10 bg-secondary/5 backdrop-blur-sm"
         />
-        <motion.div
-          variants={float}
-          initial="initial"
-          animate="animate"
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.5,
+
+        <div
+          className="absolute inset-0 opacity-[0.22]"
+          style={{
+            backgroundImage: `
+              linear-gradient(
+                to right,
+                color-mix(in srgb, var(--color-border) 55%, transparent) 1px,
+                transparent 1px
+              )
+            `,
+            backgroundSize: "88px 100%",
+            maskImage:
+              "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
           }}
-          className="absolute top-3/4 right-1/3 h-20 w-20 rounded-full border-2 border-secondary/10 bg-secondary/5 backdrop-blur-sm"
+        />
+
+        <motion.div
+          aria-hidden="true"
+          className="absolute left-[-8rem] top-[42%] h-px w-32 bg-gradient-to-r from-transparent via-secondary to-transparent shadow-[0_0_14px_var(--color-secondary)]"
+          animate={
+            reduceMotion
+              ? undefined
+              : {
+                  x: ["0vw", "115vw"],
+                  opacity: [0, 1, 1, 0],
+                }
+          }
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            repeatDelay: 3,
+            ease: "linear",
+          }}
+        />
+
+        <div className="absolute left-[7%] top-0 hidden h-full w-px bg-border/50 lg:block" />
+
+        <motion.div
+          aria-hidden="true"
+          className="absolute left-[7%] top-0 hidden h-24 w-px bg-secondary lg:block"
+          animate={
+            reduceMotion
+              ? undefined
+              : {
+                  y: ["0vh", "80vh"],
+                  opacity: [0, 1, 1, 0],
+                }
+          }
+          transition={{
+            duration: 7.5,
+            repeat: Infinity,
+            repeatDelay: 2,
+            ease: "linear",
+          }}
         />
       </div>
 
-      {/*===== Main content grid =====*/}
-      <Container className="relative z-10">
-        <div className="grid w-full grid-cols-1 gap-8 md:gap-10 lg:grid-cols-2 lg:gap-12">
-          {/*===== Left column: Large number =====*/}
-          <motion.div
-            variants={slideInLeft}
-            initial="hidden"
-            animate="visible"
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="relative flex items-center justify-center"
-          >
-            <span className="font-display max-w-full text-[6rem] font-black leading-none tracking-tighter text-transparent md:text-[8rem] lg:text-[10rem] xl:text-[12rem] bg-clip-text bg-gradient-to-br from-secondary/40 via-secondary to-secondary/20 dark:from-secondary/30 dark:via-secondary dark:to-secondary/10">
-              01
-            </span>
-            <div className="absolute bottom-0 right-0 hidden h-0.5 w-24 bg-gradient-to-r from-secondary/80 to-transparent lg:block lg:bottom-8 lg:right-8" />
-          </motion.div>
+      <Container className="relative">
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14">
+          {/* Left */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, x: -16 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex items-center gap-3"
+            >
+              <CircleDot className="h-4 w-4 text-secondary" />
 
-          {/*===== Right column: Heading, description, CTA =====*/}
-          <motion.div
-            variants={slideInRight}
-            initial="hidden"
-            animate="visible"
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
-            className="flex flex-col justify-center space-y-4 md:space-y-5"
-          >
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-secondary/80 md:text-sm">
-              Begin Your Engagement
-            </span>
-            <h1 className="font-display text-2xl font-bold leading-tight tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-              Let’s Build Your{" "}
-              <span className="relative inline-block">
-                <span className="text-secondary">Financial Future</span>
-                {/* Underline glow */}
-                <span className="absolute -bottom-2 left-0 h-1 w-full rounded-full bg-secondary/30 blur-sm" />
+              <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-secondary">
+                Engagement / Start here
               </span>
-            </h1>
-            <p className="max-w-lg text-sm text-muted-foreground sm:text-base md:text-lg">
-              Partner with Blackcrest Advisory to navigate complex financial
-              landscapes with confidence and clarity. From strategy to
-              execution, we’re with you every step of the way.
-            </p>
-            <div className="flex flex-wrap items-center gap-3 pt-1 md:gap-4">
-              <Button variant="primary" size="lg" href="#engagement-models">
-                Explore Engagement Models
-                <ArrowRight className="ml-2 h-5 w-5" />
+
+              <motion.span
+                initial={{ scaleX: reduceMotion ? 1 : 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{
+                  delay: 0.15,
+                  duration: 0.8,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="h-px w-14 origin-left bg-secondary/40"
+              />
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.08,
+                duration: 0.7,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="mt-5 max-w-3xl text-[clamp(2.5rem,4.2vw,4.35rem)] font-semibold leading-[0.96] tracking-[-0.05em] text-heading"
+            >
+              A clear way to
+              <span className="block text-muted-foreground">
+                work together,
+              </span>
+              <span className="text-gold-gradient">from the first step.</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.24 }}
+              className="mt-5 max-w-xl text-base leading-7 text-body"
+            >
+              Every business starts in a different place. We shape the work
+              around the challenge in front of you, the outcome you need, and
+              the level of support that makes sense now.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.36 }}
+              className="mt-6 flex flex-wrap items-center gap-3"
+            >
+              <Button
+                variant="primary"
+                size="lg"
+                href="#engagement-models"
+                className="group"
+              >
+                Explore engagement models
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
-              <Button variant="outline" size="lg" href="#faq">
-                See FAQs
+
+              <Button variant="outline" size="lg" href="#process" className="group">
+                See the process
+                <ArrowDownRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
               </Button>
+            </motion.div>
+
+            {/* signals */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.48 }}
+              className="mt-7 flex flex-wrap gap-x-5 gap-y-3 border-t border-border pt-5"
+            >
+              {engagementSignals.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-2 text-xs font-medium text-muted-foreground"
+                >
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary/[0.08]">
+                    <Check className="h-3 w-3 text-secondary" />
+                  </div>
+                  {item}
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Right — engagement launch panel */}
+          <motion.div
+            initial={{ opacity: 0, x: 28 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              delay: 0.18,
+              duration: 0.7,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="relative"
+          >
+            <div className="mb-4 flex items-center justify-between">
+              <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground">
+                Engagement blueprint
+              </span>
+
+              <span className="font-mono text-[9px] text-secondary">
+                BCR / 04
+              </span>
             </div>
+
+            <motion.div
+              whileHover={
+                reduceMotion
+                  ? undefined
+                  : {
+                      y: -4,
+                    }
+              }
+              transition={{ duration: 0.3 }}
+              className="group relative overflow-hidden border border-border bg-card p-6 text-card-foreground shadow-[var(--shadow-card)] sm:p-8"
+            >
+              {/* scan */}
+              {!reduceMotion && (
+                <motion.div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-y-0 left-0 w-[34%]"
+                  initial={{ x: "-150%" }}
+                  whileHover={{ x: "430%" }}
+                  transition={{
+                    duration: 1.1,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-secondary) 7%, transparent), transparent)",
+                  }}
+                />
+              )}
+
+              <div className="relative">
+                <div className="flex items-start justify-between gap-6">
+                  <div className="flex h-11 w-11 items-center justify-center bg-primary text-secondary">
+                    <Layers3 className="h-5 w-5" />
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <motion.span
+                      animate={
+                        reduceMotion
+                          ? undefined
+                          : {
+                              opacity: [0.35, 1, 0.35],
+                            }
+                      }
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                      }}
+                      className="h-1.5 w-1.5 rounded-full bg-success"
+                    />
+
+                    <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground">
+                      Ready
+                    </span>
+                  </div>
+                </div>
+
+                <p className="mt-6 text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
+                  How an engagement begins
+                </p>
+
+                <h2 className="mt-3 max-w-xl text-2xl font-semibold tracking-[-0.035em] text-heading sm:text-3xl">
+                  Start with the business need, then choose the right way forward.
+                </h2>
+
+                <p className="mt-4 text-sm leading-7 text-body">
+                  We begin with context, not packages. That helps us recommend
+                  the right scope and support instead of forcing the work into a
+                  predefined model.
+                </p>
+
+                <div className="relative mt-6">
+                  <div className="absolute left-5 top-5 h-[calc(100%-2.5rem)] w-px bg-border" />
+
+                  <motion.div
+                    initial={{ scaleY: 0 }}
+                    animate={{ scaleY: 1 }}
+                    transition={{
+                      delay: 0.55,
+                      duration: 0.9,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    className="absolute left-5 top-5 h-[calc(100%-2.5rem)] w-px origin-top bg-gradient-to-b from-secondary via-secondary/40 to-transparent"
+                  />
+
+                  <div className="space-y-2">
+                    {phases.map((phase, index) => (
+                      <motion.div
+                        key={phase.number}
+                        initial={{ opacity: 0, x: 14 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                          delay: 0.55 + index * 0.1,
+                        }}
+                        className="relative flex gap-5 py-3"
+                      >
+                        <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center border border-secondary/25 bg-background font-mono text-[9px] font-semibold text-secondary">
+                          {phase.number}
+                        </div>
+
+                        <div className="flex-1 border-b border-border pb-4">
+                          <p className="text-sm font-semibold text-heading">
+                            {phase.title}
+                          </p>
+
+                          <p className="mt-1 text-xs leading-6 text-muted-foreground">
+                            {phase.description}
+                          </p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-5 flex items-start gap-4 border border-secondary/20 bg-secondary/[0.05] p-4">
+                  <MessagesSquare className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
+
+                  <p className="text-xs leading-6 text-muted-foreground">
+                    The first conversation is about your challenge, the right
+                    direction, and whether Blackcrest is a good fit.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* lower metadata */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+              className="mt-4 flex items-center justify-between border-l border-secondary/30 pl-4"
+            >
+              <div className="flex items-center gap-2">
+                <Sparkles className="h-3.5 w-3.5 text-secondary" />
+
+                <span className="text-xs text-muted-foreground">
+                  Scope around the business need
+                </span>
+              </div>
+
+              <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground/50">
+                01 → 03
+              </span>
+            </motion.div>
           </motion.div>
         </div>
-      </Container>
 
-      {/*===== Scroll indicator =====*/}
-      <motion.div
-        variants={fadeIn}
-        initial="hidden"
-        animate="visible"
-        transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-sm text-muted-foreground/40 md:bottom-8"
-      >
-        <div className="flex flex-col items-center gap-1 mt-4">
-          <span className="text-[10px] uppercase tracking-widest md:text-xs">
-            Scroll
+        {/* Bottom positioning row */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.72 }}
+          className="mt-10 grid gap-5 border-t border-border pt-6 sm:grid-cols-[auto_1fr] sm:items-center"
+        >
+          <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-secondary">
+            Engagement principle
           </span>
-          <div className="h-6 w-px bg-gradient-to-b from-secondary/40 to-transparent" />
-        </div>
-      </motion.div>
+
+          <p className="max-w-3xl text-sm leading-7 text-muted-foreground sm:justify-self-end sm:text-right">
+            Begin with the work that matters most now. Expand support when it is
+            useful and the value is clear.
+          </p>
+        </motion.div>
+      </Container>
     </Section>
   );
 };

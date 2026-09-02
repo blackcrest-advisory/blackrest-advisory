@@ -2,9 +2,10 @@
 
 import { motion } from "framer-motion";
 import { DollarSign, TrendingUp, CalendarClock, Layers } from "lucide-react";
-import { Project } from "@/types/dashboard/client/projectsType";
-import { staggerContainer, fadeInUp } from "@/utils/animations";
 import { differenceInCalendarDays } from "date-fns";
+import { Project } from "@/types/dashboard/client/projectsType";
+import { Card } from "@/components/ui/Card";
+import { staggerContainer, fadeInUp, hoverScale } from "@/lib/utils/animations";
 
 interface ProjectOverviewCardsProps {
   project: Project;
@@ -46,6 +47,7 @@ export const ProjectOverviewCards = ({
   ];
 
   return (
+    //===== Project Overview Cards Grid =====//
     <motion.div
       variants={staggerContainer}
       initial="hidden"
@@ -53,21 +55,19 @@ export const ProjectOverviewCards = ({
       className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
     >
       {cards.map((card) => (
-        <motion.div
-          key={card.label}
-          variants={fadeInUp}
-          className="rounded-xl border border-[var(--color-card-border)] bg-[var(--color-card-bg)] p-5 shadow-sm"
-        >
-          <div className="flex items-center gap-2 text-[var(--color-body)]">
-            <card.icon size={16} />
-            <span className="text-xs font-medium uppercase tracking-wide">
-              {card.label}
-            </span>
-          </div>
-          <p className="mt-3 text-lg font-semibold text-[var(--color-heading)]">
-            {card.value}
-          </p>
-          <p className="mt-1 text-xs text-[var(--color-body)]">{card.sub}</p>
+        <motion.div key={card.label} variants={fadeInUp} {...hoverScale}>
+          <Card padding="base" hoverEffect>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <card.icon size={16} />
+              <span className="text-xs font-medium uppercase tracking-wide">
+                {card.label}
+              </span>
+            </div>
+            <p className="mt-3 text-lg font-semibold text-foreground">
+              {card.value}
+            </p>
+            <p className="mt-1 text-xs text-muted-foreground">{card.sub}</p>
+          </Card>
         </motion.div>
       ))}
     </motion.div>
