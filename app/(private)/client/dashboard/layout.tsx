@@ -3,6 +3,8 @@ import { CurrentUserProvider } from "@/app/providers/CurrentUserProvider";
 import { getCurrentUser } from "@/lib/utils/auth-utils";
 import { getDashboardUser } from "@/lib/data/users";
 
+export const dynamic = "force-dynamic";
+
 export default async function ClientLayout({
   children,
 }: {
