@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import { cn } from "@/lib/utils/utils";
 
 interface AvatarProps {
@@ -29,6 +33,9 @@ export const Avatar = ({
   size = "md",
   className = "",
 }: AvatarProps) => {
+  const [failedSource, setFailedSource] = useState<string | undefined>();
+  const shouldShowImage = Boolean(src) && failedSource !== src;
+
   return (
     <div
       className={cn(
@@ -37,9 +44,14 @@ export const Avatar = ({
         className,
       )}
     >
-      {src ? (
+      {shouldShowImage ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt={name} className="h-full w-full object-cover" />
+        <img
+          src={src}
+          alt={`${name}'s profile photo`}
+          className="h-full w-full object-cover"
+          onError={() => setFailedSource(src)}
+        />
       ) : (
         <span>{getInitials(name)}</span>
       )}
