@@ -10,7 +10,10 @@ type CurrentUser = {
 
 export async function getCurrentUser(): Promise<CurrentUser | null> {
   try {
-    const token = (await cookies()).get("authjs.session-token")?.value;
+    const cookieStore = await cookies();
+    const token =
+      cookieStore.get("authjs.session-token")?.value ??
+      cookieStore.get("__Secure-authjs.session-token")?.value;
     const secret = process.env.NEXTAUTH_SECRET;
 
     if (!token || !secret) {
