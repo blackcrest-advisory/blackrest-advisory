@@ -2,7 +2,8 @@
 
 import { Suspense, useState } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { signIn } from "next-auth/react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowUpRight,
@@ -18,6 +19,7 @@ import {
   UserPlus,
 } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
+import toast from "react-hot-toast";
 
 import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
@@ -27,6 +29,7 @@ import { Input } from "@/components/ui/Input";
 import { Loader } from "@/components/ui/Loader";
 
 import { useRegister } from "@/hooks/useSignUp";
+import { prepareGoogleSignup } from "@/lib/actions/auth/google.action";
 import { signupSchema } from "@/lib/validations/auth";
 
 const workspaceBenefits = [
@@ -45,6 +48,7 @@ export default function SignupPage() {
 
 function SignupContent() {
   const reduceMotion = Boolean(useReducedMotion());
+  const router = useRouter();
 
   // ============================================================
   // URL-derived value — NO useEffect + setState required
@@ -65,6 +69,7 @@ function SignupContent() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+  const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 
   const [errors, setErrors] = useState({
     name: "",
@@ -115,12 +120,30 @@ function SignupContent() {
     await register(result.data);
   };
 
-  // ============================================================
-  // Existing Google placeholder functionality
-  // ============================================================
+  const handleGoogleSignup = async () => {
+    if (!selectedIndustry) {
+      router.push("/select-industry");
+      return;
+    }
 
-  const handleGoogleSignup = () => {
-    console.log("Google signup clicked");
+    setIsGoogleLoading(true);
+
+    try {
+      const result = await prepareGoogleSignup(selectedIndustry);
+
+      if (!result.success) {
+        toast.error(result.error);
+        setIsGoogleLoading(false);
+        return;
+      }
+
+      await signIn("google", {
+        callbackUrl: "/api/auth/google/complete",
+      });
+    } catch {
+      toast.error("Unable to start Google sign-up. Please try again.");
+      setIsGoogleLoading(false);
+    }
   };
 
   return (
@@ -654,10 +677,20 @@ function SignupContent() {
                 <button
                   type="button"
                   onClick={handleGoogleSignup}
-                  className="group flex min-h-12 w-full items-center justify-center gap-3 border border-border bg-background px-4 py-3 text-sm font-medium text-foreground shadow-[var(--shadow-control-inset)] transition-all duration-300 hover:border-secondary/25 hover:bg-secondary/[0.035] hover:shadow-[var(--shadow-card)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
+                  disabled={loading || isGoogleLoading}
+                  className="group flex min-h-12 w-full items-center justify-center gap-3 border border-border bg-background px-4 py-3 text-sm font-medium text-foreground shadow-[var(--shadow-control-inset)] transition-all duration-300 hover:border-secondary/25 hover:bg-secondary/[0.035] hover:shadow-[var(--shadow-card)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60 disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  <FcGoogle className="h-5 w-5 shrink-0" />
-                  Sign up with Google
+                  {isGoogleLoading ? (
+                    <>
+                      <Loader size="sm" />
+                      Connecting to Google...
+                    </>
+                  ) : (
+                    <>
+                      <FcGoogle className="h-5 w-5 shrink-0" />
+                      Sign up with Google
+                    </>
+                  )}
                 </button>
 
                 {/* Login */}

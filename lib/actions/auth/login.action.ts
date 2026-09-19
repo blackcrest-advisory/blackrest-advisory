@@ -55,7 +55,7 @@ export async function loginWithCredentials(
       httpOnly: true,
       path: "/",
       sameSite: "lax",
-      secure: false,
+      secure: process.env.NODE_ENV === "production",
       maxAge: 86400,
     });
 

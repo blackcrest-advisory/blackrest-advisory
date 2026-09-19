@@ -2,7 +2,17 @@ import bcrypt from "bcryptjs";
 import NextAuth, { type DefaultSession } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
+import { cookies } from "next/headers";
+import { SignJWT, jwtVerify, type JWTPayload } from "jose";
+import type { JWT } from "@auth/core/jwt";
 import { prisma } from "@/lib/db/client";
+import { sendWelcomeEmail } from "@/lib/services/email.service";
+
+const GOOGLE_SIGNUP_INDUSTRY_COOKIE = "blackcrest-google-signup-industry";
+
+function getJwtSecret(secret: string | string[]) {
+  return Array.isArray(secret) ? secret[0] : secret;
+}
 
 declare module "next-auth" {
   interface Session {
@@ -26,6 +36,7 @@ declare module "@auth/core/jwt" {
 }
 
 const { handlers, signIn, signOut, auth } = NextAuth({
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/login",
   },
@@ -44,6 +55,35 @@ const { handlers, signIn, signOut, auth } = NextAuth({
   },
   session: {
     strategy: "jwt",
+    maxAge: 24 * 60 * 60,
+  },
+  jwt: {
+    async encode({ token, secret, maxAge }) {
+      if (!token) return "";
+
+      const expiresAt =
+        Math.floor(Date.now() / 1000) + (maxAge ?? 24 * 60 * 60);
+
+      return new SignJWT(token as JWTPayload)
+        .setProtectedHeader({ alg: "HS256" })
+        .setIssuedAt()
+        .setExpirationTime(expiresAt)
+        .sign(new TextEncoder().encode(getJwtSecret(secret)));
+    },
+    async decode({ token, secret }) {
+      if (!token) return null;
+
+      try {
+        const { payload } = await jwtVerify(
+          token,
+          new TextEncoder().encode(getJwtSecret(secret)),
+        );
+
+        return payload as JWT;
+      } catch {
+        return null;
+      }
+    },
   },
   providers: [
     Credentials({
@@ -66,10 +106,6 @@ const { handlers, signIn, signOut, auth } = NextAuth({
           },
         });
 
-        console.log("USER FOUND:", user?.email);
-        console.log("PASSWORD FROM DB:", user?.password);
-        console.log("PASSWORD FROM INPUT:", credentials.password);
-
         if (!user?.password) {
           return null;
         }
@@ -78,13 +114,10 @@ const { handlers, signIn, signOut, auth } = NextAuth({
           credentials.password,
           user.password,
         );
-        console.log("COMPARE RESULT:", passwordMatches);
-
         if (!passwordMatches) {
           return null;
         }
 
-        console.log("RETURNING USER:", user.id);
         return {
           id: user.id,
           name: user.name,
@@ -108,6 +141,53 @@ const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
   callbacks: {
+    async signIn({ account, profile, user }) {
+      if (account?.provider !== "google") return true;
+
+      const email = user.email?.trim().toLowerCase();
+      const googleProfile = profile as { email_verified?: boolean } | undefined;
+
+      if (!email || googleProfile?.email_verified === false) {
+        return false;
+      }
+
+      const existingUser = await prisma.user.findUnique({
+        where: { email },
+      });
+
+      if (existingUser) {
+        user.id = existingUser.id;
+        user.name = existingUser.name;
+        user.role = existingUser.role;
+
+        return true;
+      }
+
+      const industry = (await cookies())
+        .get(GOOGLE_SIGNUP_INDUSTRY_COOKIE)
+        ?.value.trim();
+
+      if (!industry) {
+        return "/select-industry?provider=google";
+      }
+
+      const newUser = await prisma.user.create({
+        data: {
+          name: user.name?.trim() || email.split("@")[0],
+          email,
+          industry,
+          avatarUrl: user.image || undefined,
+        },
+      });
+
+      user.id = newUser.id;
+      user.name = newUser.name;
+      user.role = newUser.role;
+
+      void sendWelcomeEmail(newUser.email, newUser.name);
+
+      return true;
+    },
     jwt({ token, user }) {
       if (user) {
         token.id = user.id;

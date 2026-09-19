@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
-  ArrowUpRight,
   Check,
   CircleDot,
   Eye,
@@ -16,6 +16,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
+import toast from "react-hot-toast";
 
 import { PageWrapper } from "@/components/ui/PageWrapper";
 import { Section } from "@/components/ui/Section";
@@ -39,6 +40,7 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 
   const [errors, setErrors] = useState({
     email: "",
@@ -80,9 +82,17 @@ export default function LoginPage() {
     await login(result.data);
   };
 
-  // Existing Google placeholder functionality remains unchanged
-  const handleGoogleLogin = () => {
-    console.log("Google login clicked");
+  const handleGoogleLogin = async () => {
+    setIsGoogleLoading(true);
+
+    try {
+      await signIn("google", {
+        callbackUrl: "/api/auth/google/complete",
+      });
+    } catch {
+      toast.error("Unable to start Google sign-in. Please try again.");
+      setIsGoogleLoading(false);
+    }
   };
 
   return (
@@ -486,12 +496,20 @@ export default function LoginPage() {
                 <button
                   type="button"
                   onClick={handleGoogleLogin}
-                  className="group flex min-h-12 w-full items-center justify-center gap-3 border border-border bg-background px-4 py-3 text-sm font-medium text-foreground shadow-[var(--shadow-control-inset)] transition-all duration-300 hover:border-secondary/25 hover:bg-secondary/[0.035] hover:shadow-[var(--shadow-card)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
+                  disabled={loading || isGoogleLoading}
+                  className="group flex min-h-12 w-full items-center justify-center gap-3 border border-border bg-background px-4 py-3 text-sm font-medium text-foreground shadow-[var(--shadow-control-inset)] transition-all duration-300 hover:border-secondary/25 hover:bg-secondary/[0.035] hover:shadow-[var(--shadow-card)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60 disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  {/* Correct Google logo */}
-                  <FcGoogle className="h-5 w-5 shrink-0" />
-
-                  <span>Sign in with Google</span>
+                  {isGoogleLoading ? (
+                    <>
+                      <Loader size="sm" />
+                      Connecting to Google...
+                    </>
+                  ) : (
+                    <>
+                      <FcGoogle className="h-5 w-5 shrink-0" />
+                      <span>Sign in with Google</span>
+                    </>
+                  )}
                 </button>
 
                 {/* Signup */}
