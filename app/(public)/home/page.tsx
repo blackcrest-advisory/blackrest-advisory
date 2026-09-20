@@ -6,6 +6,7 @@ import CTA from "@/components/landing/Home/CTA";
 import { PageWrapper } from "@/components/ui/PageWrapper";
 import HeroTwo from "@/components/landing/Home/HeroTwo";
 import BusinessDevelopmentIntro from "@/components/landing/Home/BusinessDevelopmentIntro";
+import BusinessHelpFinder from "@/components/landing/Home/BusinessHelpFinder";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function HomePage() {
       <Services />
       <DeliveryModel />
       <CTA />
+      <BusinessHelpFinder />
     </PageWrapper>
   );
 }

@@ -88,7 +88,7 @@ export default function BusinessDevelopmentPage() {
             {businessDevelopmentAreas.map((area, index) => {
               const Icon = areaIcons[index];
               return (
-                <article key={area.id} id={area.id} className={`scroll-mt-28 rounded-[var(--radius-surface)] border border-border bg-card p-6 sm:p-8 ${index === 6 ? "md:col-span-2" : ""}`}>
+                <article key={area.id} id={area.id} className={`group scroll-mt-28 rounded-[var(--radius-surface)] border border-border bg-card p-6 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-secondary/40 hover:shadow-[var(--shadow-card-hover)] sm:p-8 ${index === 6 ? "md:col-span-2" : ""}`}>
                   <div className="flex items-center justify-between gap-4">
                     <div className="flex h-11 w-11 items-center justify-center rounded-full border border-secondary/30 bg-secondary/5 text-secondary"><Icon className="h-5 w-5" aria-hidden="true" /></div>
                     <span className="font-mono text-sm text-secondary">0{index + 1}</span>
@@ -105,6 +105,10 @@ export default function BusinessDevelopmentPage() {
                       <div><p className="text-xs font-semibold text-heading">What we work toward</p><p className="mt-2 text-sm leading-6 text-body">{area.outcome}</p></div>
                     </div>
                   </div>
+                  <Link href={`/services/business-development/${area.id}`} className="mt-7 inline-flex min-h-10 items-center gap-2 border-b border-secondary/30 text-sm font-semibold text-heading transition-colors hover:border-secondary hover:text-secondary">
+                    View details
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+                  </Link>
                 </article>
               );
             })}

@@ -13,24 +13,17 @@ import {
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 
-const capabilities = [
-  "Plan your business",
-  "Build your website",
-  "Reach more people",
-  "Get help with sales",
-];
-
 const headline = [
   {
-    text: "From your first idea",
+    text: "You may have the idea.",
     className: "text-white",
   },
   {
-    text: "to your next customer,",
+    text: "You may have the business.",
     className: "text-white/75",
   },
   {
-    text: "we help you move forward.",
+    text: "What’s stopping the next step?",
     className: "text-gold-gradient",
   },
 ];
@@ -79,35 +72,31 @@ export default function HeroTwo() {
             loop
             playsInline
             preload="metadata"
-            className="absolute inset-0 h-full w-full object-cover brightness-[1.1] contrast-[1.04] saturate-[1.05]"
+            className="absolute inset-0 h-full w-full object-cover brightness-[1.08] contrast-[1.04] saturate-[1.03]"
           >
             <source src="/videos/blackcrest-brand2.mp4" type="video/mp4" />
           </video>
         </motion.div>
 
         {/* =====================================================
-            CINEMATIC GRADING
+            BACKGROUND TREATMENT
         ===================================================== */}
 
-        {/* Base treatment */}
-        <div className="pointer-events-none absolute inset-0 bg-navy-deep/18" />
+        <div className="pointer-events-none absolute inset-0 bg-navy-deep/20" />
 
-        {/* Main readability gradient */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy-deep/58 to-navy-deep/12" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navy-deep/95 via-navy-deep/68 to-navy-deep/18" />
 
-        {/* Vertical depth */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep/15 via-transparent to-navy-deep/68" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep/10 via-transparent to-navy-deep/65" />
 
-        {/* Soft gold atmosphere */}
-        <div className="pointer-events-none absolute -right-48 top-[20%] h-[32rem] w-[32rem] rounded-full bg-secondary/[0.07] blur-[140px]" />
+        <div className="pointer-events-none absolute -right-48 top-[20%] h-[32rem] w-[32rem] rounded-full bg-secondary/[0.06] blur-[140px]" />
 
         {/* =====================================================
-            ARCHITECTURAL GRID
+            GRID
         ===================================================== */}
 
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 hidden opacity-[0.055] lg:block"
+          className="pointer-events-none absolute inset-0 hidden opacity-[0.045] lg:block"
           style={{
             backgroundImage: `
               linear-gradient(
@@ -126,7 +115,7 @@ export default function HeroTwo() {
 
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-[0.025] mix-blend-soft-light"
+          className="pointer-events-none absolute inset-0 opacity-[0.02] mix-blend-soft-light"
           style={{
             backgroundImage: `
               url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.7'/%3E%3C/svg%3E")
@@ -135,309 +124,139 @@ export default function HeroTwo() {
         />
 
         {/* =====================================================
-            FOREGROUND
+            CONTENT
         ===================================================== */}
 
-        <div className="relative z-20 flex min-h-[calc(100svh-68px)] flex-col lg:h-[calc(100svh-68px)]">
-          {/* ===================================================
-              TOP META
-          =================================================== */}
-
-          <Container>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                duration: reduceMotion ? 0 : 0.8,
-                delay: reduceMotion ? 0 : 0.15,
-              }}
-              className="flex items-center justify-between border-b border-white/10 py-3.5 sm:py-4"
-            >
-              <div className="flex items-center gap-3">
-                <span className="relative flex h-2 w-2 items-center justify-center">
-                  {!reduceMotion && (
-                    <motion.span
-                      className="absolute h-full w-full rounded-full bg-secondary"
-                      animate={{
-                        opacity: [0.2, 0.65, 0.2],
-                        scale: [1, 1.8, 1],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                    />
-                  )}
-
-                  <span className="relative h-1.5 w-1.5 rounded-full bg-secondary" />
-                </span>
-
-                <span className="font-mono text-[8px] font-medium uppercase tracking-[0.22em] text-white/55 sm:text-[9px]">
-                  Blackcrest / Help for your business
-                </span>
-              </div>
-
-              <span className="hidden font-mono text-[8px] uppercase tracking-[0.2em] text-white/35 md:block">
-                A clear plan. Help at each step.
-              </span>
-            </motion.div>
-          </Container>
-
-          {/* ===================================================
-              HERO CONTENT
-          =================================================== */}
-
-          <Container className="flex min-h-0 flex-1 items-center py-6 sm:py-8 lg:py-10">
+        <div className="relative z-20 flex min-h-[calc(100svh-68px)] items-center lg:h-[calc(100svh-68px)]">
+          <Container className="w-full py-12 sm:py-16 lg:py-20">
             <motion.div
               style={{
                 y: contentY,
                 opacity: contentOpacity,
               }}
-              className="grid w-full items-end gap-8 xl:grid-cols-[minmax(0,1fr)_220px] xl:gap-14"
+              className="max-w-[900px]"
             >
-              {/* =================================================
-                  MAIN MESSAGE
-              ================================================= */}
+              {/* EYEBROW */}
 
-              <div className="max-w-[980px]">
-                {/* Eyebrow */}
-
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    x: reduceMotion ? 0 : -18,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    x: 0,
-                  }}
-                  transition={{
-                    duration: reduceMotion ? 0 : 0.65,
-                    delay: reduceMotion ? 0 : 0.25,
-                  }}
-                  className="mb-5 flex items-center gap-4"
-                >
-                  <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.24em] text-secondary sm:text-[10px]">
-                    Business advice & support at every step
-                  </span>
-
-                  <motion.span
-                    initial={{
-                      scaleX: reduceMotion ? 1 : 0,
-                    }}
-                    animate={{
-                      scaleX: 1,
-                    }}
-                    transition={{
-                      delay: reduceMotion ? 0 : 0.45,
-                      duration: reduceMotion ? 0 : 0.8,
-                    }}
-                    className="h-px w-10 origin-left bg-secondary/55"
-                  />
-                </motion.div>
-
-                {/* Headline */}
-
-                <h1 className="text-[clamp(2.4rem,3.9vw,4.7rem)] font-semibold leading-[1.08] tracking-[-0.055em]">
-                  {headline.map((line, index) => (
-                    <motion.span
-                      key={line.text}
-                      initial={{
-                        opacity: 0,
-                        y: reduceMotion ? 0 : 54,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      transition={{
-                        duration: reduceMotion ? 0 : 0.85,
-                        delay: reduceMotion ? 0 : 0.28 + index * 0.11,
-                        ease: [0.22, 1, 0.36, 1],
-                      }}
-                      className={`block ${line.className}`}
-                    >
-                      {line.text}
-                      {index < headline.length - 1 ? " " : null}
-                    </motion.span>
-                  ))}
-                </h1>
-
-                {/* Supporting content */}
-
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    y: reduceMotion ? 0 : 20,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: reduceMotion ? 0 : 0.7,
-                    delay: reduceMotion ? 0 : 0.72,
-                  }}
-                  className="mt-5 max-w-xl sm:mt-6"
-                >
-                  <p className="text-sm leading-6 text-white/62 sm:text-base sm:leading-7">
-                    Have an idea but no clear plan? Finding it hard to bring in
-                    customers? Blackcrest helps you choose your next steps,
-                    build your website, and improve your marketing and sales—with
-                    clear advice and practical help along the way.
-                  </p>
-
-                  {/* CTAs */}
-
-                  <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-                    <Link
-                      href="/services/business-development"
-                      className="group inline-flex h-11 items-center justify-center gap-3 bg-secondary px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-deep transition-all duration-300 hover:bg-secondary/90 sm:px-6 sm:text-[11px]"
-                    >
-                      See how we can help
-                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
-
-                    <Link
-                      href="/contact#contact-form"
-                      className="group inline-flex h-11 items-center justify-center gap-3 border border-white/15 bg-white/[0.035] px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/75 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/[0.07] hover:text-white sm:px-6 sm:text-[11px]"
-                    >
-                      Talk to us
-                      <ArrowRight className="h-4 w-4 text-secondary transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
-                  </div>
-
-                  {/* Small positioning statement */}
-
-                  <div className="mt-5 flex items-center gap-3">
-                    <span className="h-px w-8 bg-secondary/45" />
-
-                    <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/35 sm:text-[9px]">
-                      You don&apos;t need to know it all. Let&apos;s start with your idea.
-                    </span>
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* =================================================
-                  SIMPLE REASSURANCE
-              ================================================= */}
-
-              <motion.aside
+              <motion.div
                 initial={{
                   opacity: 0,
-                  x: reduceMotion ? 0 : 30,
+                  x: reduceMotion ? 0 : -16,
                 }}
                 animate={{
                   opacity: 1,
                   x: 0,
                 }}
                 transition={{
-                  duration: reduceMotion ? 0 : 0.75,
-                  delay: reduceMotion ? 0 : 0.8,
+                  duration: reduceMotion ? 0 : 0.65,
+                  delay: reduceMotion ? 0 : 0.2,
                 }}
-                className="hidden border-l border-white/12 pl-6 xl:block"
+                className="mb-5 flex items-center gap-4"
               >
-                <span className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/35">
-                  Not sure what you need?
+                <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.22em] text-secondary sm:text-[10px]">
+                  Business Development · Strategy · Growth
                 </span>
 
-                <p className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-white">
-                  Tell us what
-                  <span className="block text-gold-light">feels hard.</span>
-                </p>
+                <motion.span
+                  initial={{
+                    scaleX: reduceMotion ? 1 : 0,
+                  }}
+                  animate={{
+                    scaleX: 1,
+                  }}
+                  transition={{
+                    duration: reduceMotion ? 0 : 0.8,
+                    delay: reduceMotion ? 0 : 0.4,
+                  }}
+                  className="h-px w-10 origin-left bg-secondary/55"
+                />
+              </motion.div>
 
-                <div className="my-4 h-px w-full bg-gradient-to-r from-secondary/45 to-transparent" />
+              {/* HEADLINE */}
 
-                <p className="max-w-[220px] text-xs leading-6 text-white/48">
-                  We listen, explain your options in simple words, and help you
-                  choose what to do next.
-                </p>
-
-                <div className="mt-5 flex items-center gap-3">
-                  <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
-
-                  <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">
-                    Help at each step
-                  </span>
-                </div>
-              </motion.aside>
-            </motion.div>
-          </Container>
-
-          {/* ===================================================
-              CAPABILITY INDEX
-          =================================================== */}
-
-          <div className="border-t border-white/10 bg-navy-deep/35 backdrop-blur-md">
-            <Container>
-              <div className="grid grid-cols-2 sm:grid-cols-4">
-                {capabilities.map((capability, index) => (
-                  <motion.div
-                    key={capability}
+              <h1 className="max-w-[900px] text-[clamp(2.15rem,3.15vw,3.8rem)] font-semibold leading-[1.08] tracking-[-0.045em]">
+                {headline.map((line, index) => (
+                  <motion.span
+                    key={line.text}
                     initial={{
                       opacity: 0,
-                      y: reduceMotion ? 0 : 10,
+                      y: reduceMotion ? 0 : 42,
                     }}
                     animate={{
                       opacity: 1,
                       y: 0,
                     }}
                     transition={{
-                      duration: reduceMotion ? 0 : 0.5,
-                      delay: reduceMotion ? 0 : 0.86 + index * 0.07,
+                      duration: reduceMotion ? 0 : 0.8,
+                      delay: reduceMotion ? 0 : 0.25 + index * 0.1,
+                      ease: [0.22, 1, 0.36, 1],
                     }}
-                    className={`
-                      flex
-                      min-h-[50px]
-                      items-center
-                      gap-3
-                      py-3
-                      sm:min-h-[58px]
-                      sm:py-4
-
-                      ${index % 2 !== 0 ? "border-l border-white/10 pl-4" : ""}
-
-                      ${
-                        index >= 2
-                          ? "border-t border-white/10 sm:border-t-0"
-                          : ""
-                      }
-
-                      ${
-                        index > 0
-                          ? "sm:border-l sm:border-white/10 sm:pl-5"
-                          : ""
-                      }
-                    `}
+                    className={`block ${line.className}`}
                   >
-                    <span className="font-mono text-[8px] text-secondary/60">
-                      0{index + 1}
-                    </span>
-
-                    <span className="text-[9px] font-medium uppercase tracking-[0.16em] text-white/55 sm:text-[10px] lg:text-[11px]">
-                      {capability}
-                    </span>
-                  </motion.div>
+                    {line.text}
+                  </motion.span>
                 ))}
-              </div>
-            </Container>
-          </div>
+              </h1>
+
+              {/* SUPPORTING TEXT */}
+
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: reduceMotion ? 0 : 18,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: reduceMotion ? 0 : 0.7,
+                  delay: reduceMotion ? 0 : 0.65,
+                }}
+                className="mt-6 max-w-[650px]"
+              >
+                <p className="text-sm leading-7 text-white/60 sm:text-[15px]">
+                  Unclear planning, weak marketing, low sales, or simply not
+                  knowing what to do next? Blackcrest helps you find the real
+                  problem, choose the right direction, and turn it into action.
+                </p>
+
+                {/* CTA */}
+
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <Link
+                    href="/services/business-development"
+                    className="group inline-flex h-11 items-center justify-center gap-3 bg-secondary px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-deep transition-all duration-300 hover:bg-secondary/90 sm:px-6 sm:text-[11px]"
+                  >
+                    Find Your Next Step
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+
+                  <Link
+                    href="/contact#contact-form"
+                    className="group inline-flex h-11 items-center justify-center gap-3 border border-white/15 bg-white/[0.035] px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/75 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/[0.07] hover:text-white sm:px-6 sm:text-[11px]"
+                  >
+                    Talk to Blackcrest
+                    <ArrowRight className="h-4 w-4 text-secondary transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </motion.div>
+            </motion.div>
+          </Container>
         </div>
 
         {/* =====================================================
-            DESKTOP SCROLL CUE
+            SCROLL CUE
         ===================================================== */}
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{
-            delay: reduceMotion ? 0 : 1.2,
+            delay: reduceMotion ? 0 : 1.1,
             duration: reduceMotion ? 0 : 0.7,
           }}
-          className="pointer-events-none absolute bottom-20 right-6 z-30 hidden flex-col items-center gap-3 2xl:flex"
+          className="pointer-events-none absolute bottom-7 right-7 z-30 hidden flex-col items-center gap-3 xl:flex"
         >
           <span className="font-mono text-[7px] uppercase tracking-[0.24em] text-white/25 [writing-mode:vertical-rl]">
             See more
