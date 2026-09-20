@@ -15,15 +15,15 @@ import { Container } from "@/components/ui/Container";
 
 const headline = [
   {
-    text: "You may have the idea.",
+    text: "Your idea.",
     className: "text-white",
   },
   {
-    text: "You may have the business.",
+    text: "Your business.",
     className: "text-white/75",
   },
   {
-    text: "What’s stopping the next step?",
+    text: "What’s next?",
     className: "text-gold-gradient",
   },
 ];
@@ -58,7 +58,7 @@ export default function HeroTwo() {
   return (
     <Section
       ref={sectionRef}
-      className="relative overflow-hidden bg-navy-deep py-0"
+      className="relative overflow-hidden bg-navy-deep py-0 md:py-0 lg:py-0"
     >
       <div className="relative min-h-[calc(100svh-68px)] overflow-hidden lg:h-[calc(100svh-68px)]">
         {/* =====================================================
@@ -154,7 +154,7 @@ export default function HeroTwo() {
                 className="mb-5 flex items-center gap-4"
               >
                 <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.22em] text-secondary sm:text-[10px]">
-                  Business Development · Strategy · Growth
+                  Business · Growth · Solution
                 </span>
 
                 <motion.span
@@ -194,6 +194,7 @@ export default function HeroTwo() {
                     className={`block ${line.className}`}
                   >
                     {line.text}
+                    {index < headline.length - 1 ? " " : null}
                   </motion.span>
                 ))}
               </h1>
