@@ -103,7 +103,7 @@ export default function Footer() {
                 <Sparkles className="h-4 w-4 text-gold-light" />
 
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-light">
-                  Blackcrest Digital Solutions
+                  Blackcrest Advisory
                 </span>
               </motion.div>
 
@@ -114,7 +114,7 @@ export default function Footer() {
                 transition={{ delay: 0.06, duration: 0.55 }}
                 className="mt-5 max-w-3xl text-3xl font-semibold tracking-[-0.04em] sm:text-4xl lg:text-5xl"
               >
-                Digital work and commercial support
+                Business advice and practical support
                 <span className="block text-white/35">
                   built around your next step.
                 </span>
@@ -128,9 +128,9 @@ export default function Footer() {
               transition={{ delay: 0.12, duration: 0.5 }}
               className="max-w-lg text-sm leading-7 text-white/55 sm:text-base"
             >
-              Blackcrest brings web development, mobile applications, digital
-              marketing, and sales support together for businesses that need
-              clear, practical progress.
+              From a first business idea to your next stage of growth,
+              Blackcrest connects business development, digital services,
+              marketing, and sales support around your goals.
             </motion.p>
           </div>
         </div>
@@ -158,7 +158,7 @@ export default function Footer() {
             </p>
 
             <div className="mt-7 flex flex-wrap gap-2">
-              {["Web", "Mobile", "Marketing"].map((item) => (
+              {["Business advice", "Digital", "Growth"].map((item) => (
                 <span
                   key={item}
                   className="border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/45"

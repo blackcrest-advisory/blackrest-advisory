@@ -95,9 +95,9 @@ const CTA = () => {
                 }}
                 className="mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]"
               >
-                Let&apos;s make your next
+                You don&apos;t need all the answers
                 <span className="block text-white/40">
-                  digital move a clear one.
+                  to take the first step.
                 </span>
               </motion.h2>
 
@@ -108,9 +108,9 @@ const CTA = () => {
                 transition={{ delay: 0.15, duration: 0.55 }}
                 className="mt-6 max-w-2xl text-base leading-8 text-white/55"
               >
-                Tell us what you want to build, improve, or make easier. We can
-                help you identify a practical next step - from a website or
-                mobile product to digital marketing or sales support.
+                Tell us about your idea, your business, or the challenge holding
+                you back. We will help you understand where to start and which
+                support fits your next step.
               </motion.p>
 
               {/* CTA buttons */}
@@ -198,9 +198,9 @@ const CTA = () => {
             <span className="text-white/30">Blackcrest Advisory</span>
 
             <div className="flex flex-wrap items-center gap-3 font-medium text-white/45">
-              <span>Web</span>
+              <span>Business advice</span>
               <span className="h-1 w-1 rounded-full bg-secondary/70" />
-              <span>Mobile</span>
+              <span>Digital services</span>
               <span className="h-1 w-1 rounded-full bg-secondary/70" />
               <span>Marketing</span>
               <span className="h-1 w-1 rounded-full bg-secondary/70" />

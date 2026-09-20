@@ -27,7 +27,7 @@ const workingPrinciples = [
     label: "Focused delivery",
     micro: "Build what matters",
     description:
-      "The work stays centred on the digital improvements that can create the clearest value.",
+      "We turn agreed priorities into practical work across your business, marketing, and sales.",
     icon: Workflow,
   },
   {

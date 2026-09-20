@@ -81,7 +81,7 @@ export default function Services() {
   const reduceMotion = Boolean(useReducedMotion());
 
   return (
-    <Section className="relative overflow-hidden border-y border-border bg-background">
+    <Section id="services" className="relative scroll-mt-24 overflow-hidden border-y border-border bg-background">
       {/*===== BACKGROUND =====*/}
 
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
@@ -111,16 +111,16 @@ export default function Services() {
               <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
 
               <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary">
-                What we build
+                Put your plan into action
               </span>
 
               <span className="h-px w-10 bg-secondary/40" />
             </div>
 
             <h2 className="mt-5 max-w-2xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]">
-              The digital work
+              Advice is the start.
               <span className="block text-muted-foreground">
-                that moves business forward.
+                Here is how we help you deliver.
               </span>
             </h2>
           </motion.div>
@@ -133,9 +133,9 @@ export default function Services() {
             className="lg:justify-self-end"
           >
             <p className="max-w-xl text-sm leading-7 text-body sm:text-base">
-              From a first website to a mobile product, marketing activity, or
-              a stronger sales process, we provide focused support where it can
-              create the most value.
+              Once you know your next step, we help you take it. Our existing
+              digital and sales services support your business plan—from building
+              your online presence to reaching customers and following up on leads.
             </p>
           </motion.div>
         </div>

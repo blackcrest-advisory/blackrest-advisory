@@ -20,20 +20,20 @@ const segments = [
     number: "01",
     title: "New ventures",
     stage: "Getting started",
-    headline: "Turn a clear idea into a credible launch.",
+    headline: "Have an idea, but not sure where to start?",
     description:
-      "We help founders shape the digital foundation they need to introduce their business with confidence and make a strong first impression.",
+      "We help aspiring founders and new businesses clarify their offer, identify their customers, and decide what to do first—with advice and practical launch support.",
     icon: Rocket,
     services: [
-      "Website and digital foundation",
+      "Business advice and launch priorities",
       "Clear brand messaging",
       "Launch marketing essentials",
       "Sales-ready customer journey",
     ],
     challenge:
-      "You have a strong idea, but need a clear online presence and a practical plan to reach the right people.",
+      "You want to start a business, but need help turning your idea into a clear offer and a practical plan.",
     result:
-      "A credible launch, a clear digital presence, and a foundation ready to grow with the business.",
+      "A clearer offer, a defined audience, and agreed next steps for launching your business.",
   },
   {
     id: "sme",
@@ -341,7 +341,7 @@ export default function WhoWeServe() {
                 </div>
 
                 <Link
-                  href="/services"
+                    href={activeId === "startup" ? "/services/business-development" : "#services"}
                   className="group mt-7 inline-flex items-center gap-2 text-sm font-semibold text-gold-light transition-colors hover:text-white"
                 >
                   Explore our services
