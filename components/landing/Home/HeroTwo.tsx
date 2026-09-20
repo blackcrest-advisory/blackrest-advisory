@@ -14,23 +14,23 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 
 const capabilities = [
-  "Business Development",
-  "Web Development",
-  "Digital Marketing",
-  "Sales & Business Support",
+  "Plan your business",
+  "Build your website",
+  "Reach more people",
+  "Get help with sales",
 ];
 
 const headline = [
   {
-    text: "Start your business.",
+    text: "From your first idea",
     className: "text-white",
   },
   {
-    text: "Build a plan.",
+    text: "to your next customer,",
     className: "text-white/75",
   },
   {
-    text: "Grow with support.",
+    text: "we help you move forward.",
     className: "text-gold-gradient",
   },
 ];
@@ -174,12 +174,12 @@ export default function HeroTwo() {
                 </span>
 
                 <span className="font-mono text-[8px] font-medium uppercase tracking-[0.22em] text-white/55 sm:text-[9px]">
-                  Blackcrest / Business advice & practical support
+                  Blackcrest / Help for your business
                 </span>
               </div>
 
               <span className="hidden font-mono text-[8px] uppercase tracking-[0.2em] text-white/35 md:block">
-                Strategy → Delivery
+                A clear plan. Help at each step.
               </span>
             </motion.div>
           </Container>
@@ -219,7 +219,7 @@ export default function HeroTwo() {
                   className="mb-5 flex items-center gap-4"
                 >
                   <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.24em] text-secondary sm:text-[10px]">
-                    For founders, startups & growing businesses
+                    Business advice & support at every step
                   </span>
 
                   <motion.span
@@ -259,6 +259,7 @@ export default function HeroTwo() {
                       className={`block ${line.className}`}
                     >
                       {line.text}
+                      {index < headline.length - 1 ? " " : null}
                     </motion.span>
                   ))}
                 </h1>
@@ -281,10 +282,10 @@ export default function HeroTwo() {
                   className="mt-5 max-w-xl sm:mt-6"
                 >
                   <p className="text-sm leading-6 text-white/62 sm:text-base sm:leading-7">
-                    Have a business idea, or a business ready for its next step?
-                    Blackcrest helps you clarify your offer, reach the right
-                    customers, and build a plan for growth—with business advice,
-                    digital services, and ongoing sales support.
+                    Have an idea but no clear plan? Finding it hard to bring in
+                    customers? Blackcrest helps you choose your next steps,
+                    build your website, and improve your marketing and sales—with
+                    clear advice and practical help along the way.
                   </p>
 
                   {/* CTAs */}
@@ -294,15 +295,15 @@ export default function HeroTwo() {
                       href="/services/business-development"
                       className="group inline-flex h-11 items-center justify-center gap-3 bg-secondary px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-deep transition-all duration-300 hover:bg-secondary/90 sm:px-6 sm:text-[11px]"
                     >
-                      Explore business development
+                      See how we can help
                       <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
 
                     <Link
-                      href="#how-we-help"
+                      href="/contact#contact-form"
                       className="group inline-flex h-11 items-center justify-center gap-3 border border-white/15 bg-white/[0.035] px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/75 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/[0.07] hover:text-white sm:px-6 sm:text-[11px]"
                     >
-                      Find the help you need
+                      Talk to us
                       <ArrowRight className="h-4 w-4 text-secondary transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                   </div>
@@ -313,14 +314,14 @@ export default function HeroTwo() {
                     <span className="h-px w-8 bg-secondary/45" />
 
                     <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/35 sm:text-[9px]">
-                      From your first idea to your next stage of growth.
+                      You don&apos;t need to know it all. Let&apos;s start with your idea.
                     </span>
                   </div>
                 </motion.div>
               </div>
 
               {/* =================================================
-                  4 → 1 SYSTEM MARK
+                  SIMPLE REASSURANCE
               ================================================= */}
 
               <motion.aside
@@ -339,35 +340,26 @@ export default function HeroTwo() {
                 className="hidden border-l border-white/12 pl-6 xl:block"
               >
                 <span className="font-mono text-[8px] uppercase tracking-[0.22em] text-white/35">
-                  Your business journey
+                  Not sure what you need?
                 </span>
 
-                <div className="mt-4 flex items-end gap-3">
-                  <span className="text-5xl font-semibold leading-none tracking-[-0.07em] text-white xl:text-6xl">
-                    7
-                  </span>
-
-                  <span className="pb-1 text-xl font-light text-white/25">
-                    →
-                  </span>
-
-                  <span className="text-5xl font-semibold leading-none tracking-[-0.07em] text-secondary xl:text-6xl">
-                    1
-                  </span>
-                </div>
+                <p className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-white">
+                  Tell us what
+                  <span className="block text-gold-light">feels hard.</span>
+                </p>
 
                 <div className="my-4 h-px w-full bg-gradient-to-r from-secondary/45 to-transparent" />
 
                 <p className="max-w-[220px] text-xs leading-6 text-white/48">
-                  Seven areas of business development support. One partner to
-                  help you plan, launch, reach customers, and keep them.
+                  We listen, explain your options in simple words, and help you
+                  choose what to do next.
                 </p>
 
                 <div className="mt-5 flex items-center gap-3">
                   <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
 
                   <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">
-                    One focused partner
+                    Help at each step
                   </span>
                 </div>
               </motion.aside>
@@ -448,7 +440,7 @@ export default function HeroTwo() {
           className="pointer-events-none absolute bottom-20 right-6 z-30 hidden flex-col items-center gap-3 2xl:flex"
         >
           <span className="font-mono text-[7px] uppercase tracking-[0.24em] text-white/25 [writing-mode:vertical-rl]">
-            Explore
+            See more
           </span>
 
           <motion.div
