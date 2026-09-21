@@ -33,32 +33,32 @@ export const businessDevelopmentAreas = [
     },
     images: {
       hero: {
-        src: "/images/business dev hero.png",
-        alt: "Three business advisers reviewing documents around a table",
+        src: "/images/business devlopment/business language/hero.png",
+        alt: "Two people discussing an idea, illustrated by speech bubbles changing from confusion to clarity",
         caption:
           "Clear business communication starts with understanding the customer.",
         width: 1122,
         height: 1402,
       },
       scenario: {
-        src: "/images/marketing.png",
-        alt: "Marketing direction illustration connecting vision, audience, positioning, message, and growth",
+        src: "/images/business devlopment/business language/scenario.png",
+        alt: "A customer ordering at a tea stall and a restaurant in a split scene",
         caption:
           "The same need can require a different message depending on the customer and situation.",
-        width: 1530,
-        height: 1028,
+        width: 1536,
+        height: 1024,
       },
       problem: {
-        src: "/images/management.png",
-        alt: "Illustration of a campaign landing page with an offer and next steps",
+        src: "/images/business devlopment/business language/problem.png",
+        alt: "A speaker and a confused listener with tangled speech bubbles",
         caption:
           "A good offer can still fail when the customer does not understand its value.",
-        width: 1551,
-        height: 1014,
+        width: 1536,
+        height: 1024,
       },
       solution: {
-        src: "/images/about_hero_image.png",
-        alt: "Four people discussing business strategy in a meeting room",
+        src: "/images/business devlopment/business language/solution.png",
+        alt: "An adviser helping turn a tangled message into a clear explanation",
         caption:
           "Understand the problem first, then communicate the solution clearly.",
         width: 1122,
@@ -118,31 +118,31 @@ export const businessDevelopmentAreas = [
     },
     images: {
       hero: {
-        src: "/images/business dev hero.png",
-        alt: "Three business advisers reviewing documents around a table",
+        src: "/images/business devlopment/niche selection/hero.png",
+        alt: "Niche selection and market focus illustration",
         caption: "Focus begins by deciding who the business is really for.",
         width: 1122,
         height: 1402,
       },
       scenario: {
-        src: "/images/marketing.png",
-        alt: "Marketing direction illustration connecting vision, audience, positioning, message, and growth",
+        src: "/images/business devlopment/niche selection/scenario.png",
+        alt: "Illustration of the challenge of choosing a business niche",
         caption:
           "Too many directions can make a business difficult for customers to understand.",
-        width: 1530,
-        height: 1028,
+        width: 1536,
+        height: 1024,
       },
       problem: {
-        src: "/images/management.png",
-        alt: "Illustration of a campaign landing page with an offer and next steps",
+        src: "/images/business devlopment/niche selection/problem.png",
+        alt: "Illustration of an unfocused business direction",
         caption:
           "When everything is a priority, the business has no clear position.",
-        width: 1551,
-        height: 1014,
+        width: 1536,
+        height: 1024,
       },
       solution: {
-        src: "/images/about_hero_image.png",
-        alt: "Four people discussing business strategy in a meeting room",
+        src: "/images/business devlopment/niche selection/solution.png",
+        alt: "Illustration of choosing a focused market and customer group",
         caption:
           "Choose the customer, problem, and offer you want to focus on first.",
         width: 1122,
@@ -203,36 +203,36 @@ export const businessDevelopmentAreas = [
     },
     images: {
       hero: {
-        src: "/images/business dev hero.png",
-        alt: "Three business advisers reviewing documents around a table",
+        src: "/images/business devlopment/business setup plan/hero.png",
+        alt: "Business setup and launch planning illustration",
         caption:
           "A strong start comes from a clear structure, not from doing everything at once.",
-        width: 1122,
-        height: 1402,
+        width: 561,
+        height: 701,
       },
       scenario: {
-        src: "/images/marketing.png",
-        alt: "Marketing direction illustration connecting vision, audience, positioning, message, and growth",
+        src: "/images/business devlopment/business setup plan/business_setup_scenario.png",
+        alt: "Illustration of decisions involved in starting a business",
         caption:
           "The right sequence helps reduce confusion, unnecessary cost, and delay.",
-        width: 1530,
-        height: 1028,
+        width: 561,
+        height: 701,
       },
       problem: {
-        src: "/images/management.png",
-        alt: "Illustration of a campaign landing page with an offer and next steps",
+        src: "/images/business devlopment/business setup plan/business_setup_problem.png",
+        alt: "Illustration of the challenges of organising a business launch",
         caption:
           "When every task feels urgent, the business needs priorities and structure.",
-        width: 1551,
-        height: 1014,
+        width: 561,
+        height: 701,
       },
       solution: {
-        src: "/images/about_hero_image.png",
-        alt: "Four people discussing business strategy in a meeting room",
+        src: "/images/business devlopment/business setup plan/business_setup_solution.png",
+        alt: "Illustration of a structured business setup plan",
         caption:
           "Build the business in the right order with a practical setup plan.",
-        width: 1122,
-        height: 1402,
+        width: 561,
+        height: 701,
       },
     },
     title: "Business Setup Plan",
@@ -288,30 +288,30 @@ export const businessDevelopmentAreas = [
     },
     images: {
       hero: {
-        src: "/images/business dev hero.png",
-        alt: "Three business advisers reviewing documents around a table",
+        src: "/images/business devlopment/execution support/hero.png",
+        alt: "Business execution and priority planning illustration",
         caption: "Execution turns business direction into measurable progress.",
         width: 1122,
         height: 1402,
       },
       scenario: {
-        src: "/images/marketing.png",
-        alt: "Marketing direction illustration connecting vision, audience, positioning, message, and growth",
+        src: "/images/business devlopment/execution support/scenario.png",
+        alt: "Illustration of turning business plans into tasks",
         caption:
           "A short list of priorities is more useful than many unfinished tasks.",
-        width: 1530,
-        height: 1028,
+        width: 1536,
+        height: 1024,
       },
       problem: {
-        src: "/images/management.png",
-        alt: "Illustration of a campaign landing page with an offer and next steps",
+        src: "/images/business devlopment/execution support/problem.png",
+        alt: "Illustration of the challenges of completing business priorities",
         caption: "Being busy is not the same as moving the business forward.",
-        width: 1551,
-        height: 1014,
+        width: 1536,
+        height: 1024,
       },
       solution: {
-        src: "/images/about_hero_image.png",
-        alt: "Four people discussing business strategy in a meeting room",
+        src: "/images/business devlopment/execution support/solution.png",
+        alt: "Illustration of organised business actions and progress",
         caption: "Prioritise, execute, review, and improve.",
         width: 1122,
         height: 1402,
@@ -370,32 +370,32 @@ export const businessDevelopmentAreas = [
     },
     images: {
       hero: {
-        src: "/images/business dev hero.png",
-        alt: "Three business advisers reviewing documents around a table",
+        src: "/images/business devlopment/marketing growth/hero.png",
+        alt: "Marketing and business growth planning illustration",
         caption:
           "Marketing works best when every activity has a clear purpose.",
         width: 1122,
         height: 1402,
       },
       scenario: {
-        src: "/images/marketing.png",
-        alt: "Marketing direction illustration connecting vision, audience, positioning, message, and growth",
+        src: "/images/business devlopment/marketing growth/scenario.png",
+        alt: "Illustration of business marketing activity",
         caption:
           "Reach the right audience with the right message and a clear next step.",
-        width: 1530,
-        height: 1028,
+        width: 1536,
+        height: 1024,
       },
       problem: {
-        src: "/images/management.png",
-        alt: "Illustration of a campaign landing page with an offer and next steps",
+        src: "/images/business devlopment/marketing growth/problem.png",
+        alt: "Illustration of the challenges of unfocused marketing",
         caption:
           "More posts and more spend do not help when the direction is unclear.",
-        width: 1551,
-        height: 1014,
+        width: 1536,
+        height: 1024,
       },
       solution: {
-        src: "/images/about_hero_image.png",
-        alt: "Four people discussing business strategy in a meeting room",
+        src: "/images/business devlopment/marketing growth/solution.png",
+        alt: "Illustration of a focused marketing and growth plan",
         caption:
           "Connect audience, message, channel, and goal before scaling activity.",
         width: 1122,
@@ -455,32 +455,32 @@ export const businessDevelopmentAreas = [
     },
     images: {
       hero: {
-        src: "/images/business dev hero.png",
-        alt: "Three business advisers reviewing documents around a table",
+        src: "/images/business devlopment/sales-funnel/hero.png",
+        alt: "Sales funnel and customer journey illustration",
         caption:
           "Growth improves when you can see where customers are being lost.",
         width: 1122,
         height: 1402,
       },
       scenario: {
-        src: "/images/marketing.png",
-        alt: "Marketing direction illustration connecting vision, audience, positioning, message, and growth",
+        src: "/images/business devlopment/sales-funnel/scenario.png",
+        alt: "Illustration of a customer moving through a sales journey",
         caption:
           "Every stage of the customer journey can create or lose an opportunity.",
-        width: 1530,
-        height: 1028,
+        width: 1122,
+        height: 1402,
       },
       problem: {
-        src: "/images/management.png",
-        alt: "Illustration of a campaign landing page with an offer and next steps",
+        src: "/images/business devlopment/sales-funnel/problem.png",
+        alt: "Illustration of lost interest during the sales process",
         caption:
           "A lead can disappear when the next step is unclear or follow-up is inconsistent.",
-        width: 1551,
-        height: 1014,
+        width: 1122,
+        height: 1402,
       },
       solution: {
-        src: "/images/about_hero_image.png",
-        alt: "Four people discussing business strategy in a meeting room",
+        src: "/images/business devlopment/sales-funnel/solution.png",
+        alt: "Illustration of improving the customer journey and follow-up",
         caption:
           "Fix the weak stage before sending more people into the funnel.",
         width: 1122,
@@ -540,30 +540,30 @@ export const businessDevelopmentAreas = [
     },
     images: {
       hero: {
-        src: "/images/business dev hero.png",
-        alt: "Three business advisers reviewing documents around a table",
+        src: "/images/business devlopment/after-support-retention/hero.png",
+        alt: "Customer support and retention illustration",
         caption: "Long-term growth continues after the first sale.",
         width: 1122,
         height: 1402,
       },
       scenario: {
-        src: "/images/marketing.png",
-        alt: "Marketing direction illustration connecting vision, audience, positioning, message, and growth",
+        src: "/images/business devlopment/after-support-retention/scenario.png",
+        alt: "Illustration of the customer experience after a purchase",
         caption: "The customer relationship should not end at payment.",
-        width: 1530,
-        height: 1028,
+        width: 1122,
+        height: 1402,
       },
       problem: {
-        src: "/images/management.png",
-        alt: "Illustration of a campaign landing page with an offer and next steps",
+        src: "/images/business devlopment/after-support-retention/problem.png",
+        alt: "Illustration of lost customer relationships after a sale",
         caption:
           "Without follow-up, satisfied customers can quietly disappear.",
-        width: 1551,
-        height: 1014,
+        width: 1122,
+        height: 1402,
       },
       solution: {
-        src: "/images/about_hero_image.png",
-        alt: "Four people discussing business strategy in a meeting room",
+        src: "/images/business devlopment/after-support-retention/solution.png",
+        alt: "Illustration of customer care and ongoing relationships",
         caption:
           "Support the customer, learn from feedback, and create reasons to return.",
         width: 1122,
