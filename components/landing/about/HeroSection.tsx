@@ -15,15 +15,15 @@ import { Container } from "@/components/ui/Container";
 const principles = [
   {
     number: "01",
-    label: "Clarity",
+    label: "Understand your customer",
   },
   {
     number: "02",
-    label: "Delivery",
+    label: "Plan your business",
   },
   {
     number: "03",
-    label: "Progress",
+    label: "Take practical action",
   },
 ];
 
@@ -31,7 +31,7 @@ export const HeroSection = () => {
   const reduceMotion = Boolean(useReducedMotion());
 
   return (
-    <Section className="relative isolate overflow-hidden py-0">
+    <Section className="relative isolate overflow-hidden bg-background py-0 md:py-0 lg:py-0">
       {/*===== Background =====*/}
 
       <div className="pointer-events-none absolute inset-0 -z-20">
@@ -46,7 +46,7 @@ export const HeroSection = () => {
 
         {/* technical line field */}
         <div
-          className="absolute inset-0 opacity-[0.28]"
+          className="absolute inset-0 opacity-[0.1]"
           style={{
             backgroundImage: `
               linear-gradient(
@@ -91,7 +91,7 @@ export const HeroSection = () => {
         />
       </div>
 
-      <Container className="relative flex min-h-[calc(100svh-68px)] flex-col py-8 sm:py-9 lg:h-[calc(100svh-68px)] lg:py-10">
+      <Container className="relative flex max-w-7xl flex-col py-12 sm:py-16 lg:py-20">
         {/*===== Main layout =====*/}
 
         <div className="grid flex-1 gap-9 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-14">
@@ -147,14 +147,14 @@ export const HeroSection = () => {
                 duration: 0.7,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="mt-5 max-w-3xl text-[clamp(2.5rem,4.2vw,4.35rem)] font-semibold leading-[0.96] tracking-[-0.05em] text-heading"
+              className="mt-5 max-w-3xl text-[clamp(2.5rem,4.2vw,4.35rem)] font-semibold leading-[1.1] tracking-[-0.05em] text-heading"
             >
-              Focused support for
+              Helping you turn
               <span className="block text-muted-foreground">
-                businesses ready to
+                a business idea into
               </span>
               <span className="relative inline-block">
-                <span className="text-gold-gradient">move forward.</span>
+                <span className="text-gold-gradient">a clear way forward.</span>
 
                 <motion.span
                   aria-hidden="true"
@@ -189,9 +189,9 @@ export const HeroSection = () => {
               }}
               className="mt-5 max-w-xl text-base leading-7 text-body"
             >
-              Blackcrest helps businesses turn digital ideas and challenges into
-              clear, practical work across web development, mobile applications,
-              digital marketing, and sales support.
+              Starting a business comes with questions. Blackcrest helps new
+              founders understand their customers, choose a direction, and
+              build a practical plan—with support to put it into action.
             </motion.p>
 
             {/* actions */}
@@ -216,7 +216,7 @@ export const HeroSection = () => {
                 href="#our-story"
                 className="group"
               >
-                Explore our story
+                Get to know Blackcrest
                 <ArrowDownRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
               </Button>
 
@@ -253,11 +253,11 @@ export const HeroSection = () => {
             {/* index */}
             <div className="mb-3 flex items-center justify-between">
               <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                Company profile
+                For people starting a business
               </span>
 
               <span className="font-mono text-[10px] text-secondary">
-                BCR / 02
+                Your starting point
               </span>
             </div>
 
@@ -273,7 +273,7 @@ export const HeroSection = () => {
               transition={{
                 duration: 0.3,
               }}
-              className="group relative overflow-hidden border border-border bg-card p-6 shadow-[var(--shadow-card)] sm:p-7"
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] sm:p-8"
             >
               {/* hover scan */}
               {!reduceMotion && (
@@ -322,23 +322,23 @@ export const HeroSection = () => {
                     />
 
                     <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground">
-                      Focused / Connected
+                      Advice & practical support
                     </span>
                   </div>
                 </div>
 
                 <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
-                  Our position
+                  Our purpose
                 </p>
 
                 <h2 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-heading sm:text-2xl">
-                  Connected support for the work that matters.
+                  You do not need to have every answer.
                 </h2>
 
                 <p className="mt-3 text-sm leading-6 text-body">
-                  Business challenges rarely sit in one place. Your website,
-                  product, marketing, and sales activity work better when they
-                  are guided by the same commercial goal.
+                  You might be unsure what to sell, who to reach, or where to
+                  invest first. We help you work through the problem and
+                  decide on a useful next step.
                 </p>
 
                 {/* principles */}
@@ -396,7 +396,7 @@ export const HeroSection = () => {
                 <Network className="h-4 w-4 text-secondary" strokeWidth={1.8} />
 
                 <span className="text-xs text-muted-foreground">
-                  Connecting strategy with execution
+                  Business · Growth · Solution
                 </span>
               </div>
 
@@ -420,20 +420,20 @@ export const HeroSection = () => {
             delay: 0.75,
             duration: 0.6,
           }}
-          className="mt-6 grid gap-4 border-t border-border pt-5 sm:grid-cols-[auto_1fr] sm:items-center"
+          className="mt-12 grid gap-4 border-t border-border pt-5 sm:grid-cols-[auto_1fr] sm:items-center"
         >
           <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
             What defines us
           </span>
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-medium text-muted-foreground sm:justify-end">
-            <span>Commercial thinking</span>
+            <span>Customer understanding</span>
             <span className="h-1 w-1 rounded-full bg-secondary" />
 
-            <span>Hands-on execution</span>
+            <span>Practical planning</span>
             <span className="h-1 w-1 rounded-full bg-secondary" />
 
-            <span>Focused support</span>
+            <span>Clear communication</span>
             <span className="h-1 w-1 rounded-full bg-secondary" />
 
             <span>Long-term partnership</span>

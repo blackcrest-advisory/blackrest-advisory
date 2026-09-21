@@ -115,27 +115,27 @@ export const processData = [
 export const whyData = [
   {
     icon: <LuTarget size={24} className="text-secondary" />,
-    title: "Business-First Thinking",
+    title: "Understand the problem first",
     description:
-      "We start with the business challenge, not a fixed service list. The work is shaped around what will make the most useful difference next.",
+      "We listen to your idea, your customer, and the decisions you are facing. That understanding helps us choose where support will be most useful.",
   },
   {
     icon: <LuZap size={24} className="text-secondary" />,
-    title: "Connected Support",
+    title: "Connect advice with action",
     description:
-      "Web, mobile, marketing, and sales support are considered together when they need to be, so the work stays connected to one clear goal.",
+      "From niche selection and business setup to execution, marketing, and sales, we help you connect the decisions with the work needed to move forward.",
   },
   {
     icon: <LuAward size={24} className="text-secondary" />,
-    title: "Clear Communication",
+    title: "Keep the conversation clear",
     description:
-      "You should understand what is happening, why it matters, and what comes next. We keep priorities and progress visible throughout the work.",
+      "You should understand the plan without needing a business background. We explain the choices in plain language and keep you involved as the work progresses.",
   },
   {
     icon: <LuLink size={24} className="text-secondary" />,
-    title: "Focused Delivery",
+    title: "Work at a practical pace",
     description:
-      "We focus effort on the scope that matters now, then help you make a clear decision about the most useful next step.",
+      "We consider your time, budget, and current stage, agree a manageable set of priorities, and review the next steps as you learn more about your business.",
   },
 ];
 
