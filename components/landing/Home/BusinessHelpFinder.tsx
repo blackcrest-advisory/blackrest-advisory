@@ -13,12 +13,9 @@ import {
 import {
   ArrowRight,
   ArrowUpRight,
-  Check,
-  Compass,
   Globe2,
   Handshake,
   Lightbulb,
-  Sparkles,
   Users,
   X,
 } from "lucide-react";
@@ -32,6 +29,19 @@ type PopupTrackingEvent =
   | { eventType: "VIEW" }
   | { eventType: "DISMISS" }
   | { eventType: "OPTION_CLICK"; optionId: string };
+
+const POPUP_SEEN_KEY = "blackcrest-business-help-popup-seen";
+let popupSeenInMemory = false;
+
+function hasSeenPopup() {
+  if (popupSeenInMemory) return true;
+
+  try {
+    return window.localStorage.getItem(POPUP_SEEN_KEY) === "true";
+  } catch {
+    return false;
+  }
+}
 
 const optionIcons = {
   plan: Lightbulb,
@@ -81,9 +91,21 @@ export default function BusinessHelpFinder() {
   }, [track]);
 
   useEffect(() => {
+    if (hasSeenPopup()) return;
+
     const timer = setTimeout(() => {
+      // Check again in case another tab showed it during the delay.
+      if (hasSeenPopup()) return;
+
+      popupSeenInMemory = true;
+      try {
+        window.localStorage.setItem(POPUP_SEEN_KEY, "true");
+      } catch {
+        // The in-memory flag still prevents repeats during client navigation.
+      }
+
       setIsOpen(true);
-      track({ eventType: "VIEW" });
+      void track({ eventType: "VIEW" }).catch(() => undefined);
     }, 700);
     return () => clearTimeout(timer);
   }, [track]);
@@ -103,7 +125,7 @@ export default function BusinessHelpFinder() {
       <div className="fixed inset-0 flex items-center justify-center p-3 sm:p-6">
         <DialogPanel
           transition
-          className="relative max-h-[calc(100dvh-1.5rem)] w-full max-w-4xl overflow-y-auto overscroll-contain rounded-2xl border border-white/10 bg-card text-foreground shadow-[0_36px_100px_rgb(0_0_0/0.42)] transition duration-300 data-closed:translate-y-4 data-closed:scale-[0.98] data-closed:opacity-0 motion-reduce:transition-none sm:max-h-[calc(100dvh-3rem)]"
+          className="relative max-h-[calc(100dvh-1.5rem)] w-full max-w-xl overflow-y-auto overscroll-contain rounded-2xl border border-white/10 bg-card text-foreground shadow-[0_36px_100px_rgb(0_0_0/0.42)] transition duration-300 data-closed:translate-y-4 data-closed:scale-[0.98] data-closed:opacity-0 motion-reduce:transition-none sm:max-h-[calc(100dvh-3rem)]"
         >
           <button
             ref={closeButtonRef}
@@ -115,50 +137,8 @@ export default function BusinessHelpFinder() {
             <X className="h-4 w-4" aria-hidden="true" />
           </button>
 
-          <div className="grid md:min-h-[590px] md:grid-cols-[0.78fr_1.22fr]">
-            <div className="relative overflow-hidden bg-navy-deep px-6 py-6 text-white sm:px-9 md:py-10">
-              <div aria-hidden="true" className="absolute -left-32 -top-32 h-80 w-80 rounded-full border border-gold-light/10" />
-              <div aria-hidden="true" className="absolute -left-20 -top-20 h-56 w-56 rounded-full border border-gold-light/10" />
-              <div aria-hidden="true" className="absolute bottom-0 right-0 h-48 w-48 translate-x-1/2 translate-y-1/2 rounded-full bg-gold-light/10 blur-3xl" />
-
-              <div className="relative flex h-full flex-col">
-                <p className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-gold-light">
-                  <Compass className="h-4 w-4" aria-hidden="true" />
-                  Blackcrest Advisory
-                </p>
-
-                <div className="mt-10 hidden h-12 w-12 items-center justify-center rounded-full border border-gold-light/30 bg-gold-light/10 text-gold-light md:flex">
-                  <Sparkles className="h-5 w-5" aria-hidden="true" />
-                </div>
-
-                <p className="mt-5 text-2xl font-semibold leading-[1.12] tracking-[-0.04em] md:mt-6 md:text-4xl">
-                  Your challenge.
-                  <span className="block text-gold-light">A clearer next step.</span>
-                </p>
-
-                <p className="mt-3 max-w-sm text-sm leading-6 text-white/65 md:mt-5 md:leading-7">
-                  You do not need to know the name of the service. Start with the problem you want to solve.
-                </p>
-
-                <ul className="mt-8 hidden space-y-3 text-xs text-white/65 md:block">
-                  {["Simple choices", "Clear direction", "Practical business support"].map((item) => (
-                    <li key={item} className="flex items-center gap-3">
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full border border-gold-light/30 text-gold-light">
-                        <Check className="h-3 w-3" aria-hidden="true" />
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-
-                <p className="mt-auto hidden border-t border-white/10 pt-6 text-[10px] uppercase tracking-[0.18em] text-white/35 md:block">
-                  Strategy · Execution · Growth
-                </p>
-              </div>
-            </div>
-
-            <div className="px-5 pb-6 pt-7 sm:px-8 sm:pb-8 md:p-10 md:pt-12">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
+            <div className="px-5 pb-6 pt-7 sm:p-8">
+              <p className="pr-12 text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
                 Choose one option
               </p>
 
@@ -226,7 +206,6 @@ export default function BusinessHelpFinder() {
                 </button>
               </div>
             </div>
-          </div>
         </DialogPanel>
       </div>
     </Dialog>
