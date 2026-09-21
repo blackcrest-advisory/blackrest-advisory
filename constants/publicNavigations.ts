@@ -16,15 +16,15 @@ export const navLinks: NavItem[] = [
     link: "/about",
   },
   {
+    id: 30,
+    name: "Business Development",
+    link: "/services/business-development",
+  },
+  {
     id: 3,
     name: "Services",
     link: "#",
     children: [
-      {
-        id: 30,
-        name: "Business Development",
-        link: "/services/business-development",
-      },
       {
         id: 31,
         name: "Digital Marketing",

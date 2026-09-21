@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Check, Compass, Handshake, MessageSquareText, Monitor, Target, TrendingUp, Users, Workflow } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Handshake, MessageSquareText, Monitor, Plus, Target, TrendingUp, Users, Workflow } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { PageWrapper } from "@/components/ui/PageWrapper";
 import { businessDevelopmentAreas } from "@/content-data/business-development/businessDevelopmentData";
@@ -9,157 +9,197 @@ import { businessDevelopmentAreas } from "@/content-data/business-development/bu
 export const metadata: Metadata = {
   title: "Business Development & Startup Advice | Blackcrest Advisory",
   description:
-    "Build the right foundation for your business with Blackcrest's Starter Package: business messaging, page setup, customer targeting, marketing, execution, sales, and retention support.",
+    "Clear direction and practical support for your business. Explore messaging, online presence, customer targeting, marketing, sales, and retention.",
 };
 
-const areaIcons = [MessageSquareText, Monitor, Users, Target, TrendingUp, Workflow, Handshake];
-const journey = [
-  { title: "Business setup", description: "Clarify your offer, pages, and audience." },
-  { title: "Marketing", description: "Build a plan to reach the right people." },
-  { title: "Sales", description: "Improve enquiries and follow-up." },
-  { title: "Retention", description: "Support customers beyond the sale." },
+const cardContent = {
+  "business-language": { title: "Clarify your offer", summary: "Explain what you do in words your customers understand.", icon: MessageSquareText },
+  "page-setup": { title: "Build your online presence", summary: "Make your business pages clear, complete, and easy to use.", icon: Monitor },
+  "buyer-persona": { title: "Find your ideal customer", summary: "Focus on the people who are most likely to need your offer.", icon: Users },
+  "marketing-strategy": { title: "Plan your marketing", summary: "Choose the right channels and priorities for your budget.", icon: Target },
+  "execution-growth": { title: "Put your plan into action", summary: "Turn ideas into clear tasks, priorities, and progress.", icon: TrendingUp },
+  "sales-funnel": { title: "Improve your sales process", summary: "Help interested people take the next step toward buying.", icon: Workflow },
+  retention: { title: "Keep customers coming back", summary: "Build stronger relationships with thoughtful after-sales support.", icon: Handshake },
+};
+
+const steps = [
+  { title: "Share your starting point", description: "Tell us about your idea, your business, or what feels stuck." },
+  { title: "Choose what matters first", description: "Together, we agree the priorities, scope, and cost." },
+  { title: "Take the next step", description: "We support the work and review progress with you." },
 ];
-const consultationHref = "/contact#contact-form";
-const primaryLink = "inline-flex min-h-12 items-center justify-center gap-3 rounded-[var(--radius-control)] bg-gold-light px-6 py-3 text-sm font-semibold text-navy-deep transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light";
+
+const questions = [
+  ["Can I start with just an idea?", "Yes. You do not need a finished plan. We help you clarify your idea and decide where to begin."],
+  ["Do I need all seven areas?", "We start with your situation and agree the areas of support that make sense for your business."],
+  ["What does it cost?", "Pricing depends on the support you need. We agree the scope and cost with you before work begins."],
+];
+
+const primaryLink = "inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-gold-light px-6 py-3 text-sm font-semibold text-navy-deep transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light";
 
 export default function BusinessDevelopmentPage() {
   return (
     <PageWrapper>
-      <section className="relative overflow-hidden bg-navy-deep text-white">
-        <Container>
-          <div className="grid lg:min-h-[640px] lg:grid-cols-2">
-            <div className="relative z-10 py-12 sm:py-16 lg:py-20 lg:pr-12">
-              <Link href="/home" className="inline-flex items-center gap-2 text-xs text-white/65 hover:text-gold-light">
-                Home <span aria-hidden="true">/</span> Business development
-              </Link>
-              <p className="mt-10 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold-light">
-                <Compass className="h-4 w-4" aria-hidden="true" /> Business growth solutions
+      <section className="overflow-hidden bg-navy-deep text-white">
+        <Container className="max-w-7xl">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-3 pt-7 text-xs text-white/60">
+            <Link href="/home" className="transition-colors hover:text-white">Home</Link>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page" className="text-white/85">Business Development</span>
+          </nav>
+
+          <div className="grid items-center gap-12 pb-14 pt-12 sm:pb-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:py-20">
+            <div>
+              <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-gold-light">
+                <span aria-hidden="true" className="h-px w-8 bg-gold-light/60" />
+                Business Development
               </p>
-              <h1 className="mt-6 text-4xl font-semibold leading-[1.08] tracking-[-0.045em] sm:text-5xl xl:text-6xl">
-                Your business idea.<br />
-                <span className="text-gold-light">A clearer way forward.</span>
+              <h1 className="mt-6 max-w-2xl text-4xl font-medium leading-[1.08] tracking-[-0.045em] sm:text-5xl lg:text-6xl">
+                A clear direction.<br />
+                <span className="font-serif italic text-gold-light">A stronger business.</span>
               </h1>
-              <p className="mt-6 max-w-xl text-base leading-8 text-white/75">
-                Starting a business brings a lot of questions. Blackcrest helps
-                you work through them—with advice, a practical plan, and support
-                from your first business message to your next customer relationship.
+              <p className="mt-6 max-w-lg text-base leading-8 text-white/70">
+                From your first idea to your next stage of growth, we help you
+                decide what matters and put it into action.
               </p>
-              <div className="mt-8 flex flex-wrap items-center gap-5">
-                <Link href={consultationHref} className={primaryLink}>Discuss your business <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
-                <Link href="#starter-package" className="inline-flex min-h-12 items-center gap-2 text-sm font-medium text-white/85 hover:text-gold-light">See what is included <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+              <div className="mt-9 flex flex-wrap items-center gap-6">
+                <Link href="/contact#contact-form" className={primaryLink}>
+                  Discuss your business <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+                <Link href="#starter-package" className="inline-flex min-h-12 items-center gap-3 text-sm text-white/80 transition-colors hover:text-gold-light">
+                  Explore our support <ArrowDown className="h-4 w-4" aria-hidden="true" />
+                </Link>
               </div>
-              <p className="mt-6 text-sm text-white/55">For aspiring founders, startups, and growing businesses.</p>
+              <p className="mt-10 border-t border-white/15 pt-5 text-xs tracking-wide text-white/50">
+                For new founders, startups, and growing businesses.
+              </p>
             </div>
-            <div className="relative min-h-80 sm:min-h-96 lg:min-h-full">
-              <Image src="/images/about_hero_image.avif" alt="An advisory meeting around a table in a contemporary office" fill sizes="(min-width: 1024px) 50vw, 100vw" preload className="object-cover object-center" />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-transparent to-transparent lg:bg-gradient-to-r lg:from-navy-deep/50" />
-              <div className="absolute bottom-8 left-6 right-6 border border-white/20 bg-navy-deep/85 p-6 backdrop-blur-sm sm:left-10 sm:right-10">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-gold-light">Your business. Our strategy.</p>
-                <p className="mt-3 text-xl leading-8 text-white">Build the right foundation.<br />Create a clear path to growth.</p>
+
+            <div className="relative mx-auto w-full max-w-lg">
+              <div className="relative aspect-[5/4] overflow-hidden rounded-t-[5rem] rounded-br-2xl rounded-bl-2xl lg:aspect-[4/5]">
+                <Image
+                  src="/images/about_hero_image.avif"
+                  alt="Business advisers discussing a plan around an office table"
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 90vw"
+                  preload
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 via-navy-deep/10 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-7 sm:p-9">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold-light">The Blackcrest approach</p>
+                  <p className="mt-3 max-w-xs text-2xl font-medium leading-snug tracking-tight">
+                    Thoughtful advice.<br />Practical next steps.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-      <section aria-label="From business setup to retention" className="border-b border-border bg-muted/40 py-8">
-        <Container>
-          <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {journey.map((step, index) => (
-              <li key={step.title} className="flex gap-4">
-                <span className="pt-1 font-mono text-xs text-secondary">0{index + 1}</span>
-                <div><p className="font-semibold text-heading">{step.title}</p><p className="mt-1 text-sm leading-6 text-body">{step.description}</p></div>
+      <section id="starter-package" className="scroll-mt-24 py-16 sm:py-24">
+        <Container className="max-w-7xl">
+          <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-secondary">The Starter Package</p>
+              <h2 className="mt-4 text-3xl font-medium leading-tight tracking-[-0.035em] text-heading sm:text-4xl">
+                Where do you need support?
+              </h2>
+            </div>
+            <p className="max-w-sm text-sm leading-7 text-body">
+              Seven ways to move your business forward.
+              Choose an area to explore how we can help.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {businessDevelopmentAreas.map((area, index) => {
+              const card = cardContent[area.id];
+              const Icon = card.icon;
+
+              return (
+                <Link
+                  key={area.id}
+                  id={area.id}
+                  href={`/services/business-development/${area.id}`}
+                  className="group flex scroll-mt-28 flex-col rounded-2xl border border-border/80 bg-card p-6 transition-[border-color,box-shadow] duration-200 hover:border-secondary/50 hover:shadow-[var(--shadow-card-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary sm:p-7"
+                >
+                  <div className="flex items-center justify-between">
+                    <Icon className="h-5 w-5 text-secondary" strokeWidth={1.5} aria-hidden="true" />
+                    <span className="font-mono text-[10px] text-muted-foreground/60">0{index + 1}</span>
+                  </div>
+                  <h3 className="mt-7 text-xl font-medium tracking-[-0.025em] text-heading">{card.title}</h3>
+                  <p className="mb-6 mt-3 max-w-sm text-sm leading-6 text-body">{card.summary}</p>
+                  <span className="mt-auto inline-flex items-center gap-2 text-xs font-semibold text-secondary">
+                    Explore support
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none" aria-hidden="true" />
+                  </span>
+                </Link>
+              );
+            })}
+
+            <div className="flex flex-col justify-center rounded-2xl bg-muted/40 p-7 sm:p-9 lg:col-span-2">
+              <p className="text-2xl font-medium tracking-[-0.025em] text-heading">Not sure where to begin?</p>
+              <p className="mt-3 max-w-md text-sm leading-7 text-body">
+                Start with a conversation. We will help you identify the support that fits your business.
+              </p>
+              <Link href="/contact#contact-form" className="mt-5 inline-flex min-h-11 items-center gap-2 self-start text-sm font-semibold text-secondary hover:underline">
+                Let&apos;s talk <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-y border-border/70 bg-muted/25 py-16 sm:py-20">
+        <Container className="max-w-7xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-secondary">Working together</p>
+          <h2 className="mt-4 text-3xl font-medium tracking-[-0.035em] text-heading sm:text-4xl">A simple start. A shared plan.</h2>
+          <ol className="mt-10 grid gap-8 md:grid-cols-3 md:gap-12">
+            {steps.map((step, index) => (
+              <li key={step.title} className="border-t border-border pt-5">
+                <span className="font-mono text-xs text-secondary">0{index + 1}</span>
+                <h3 className="mt-5 text-lg font-medium tracking-tight text-heading">{step.title}</h3>
+                <p className="mt-3 max-w-sm text-sm leading-7 text-body">{step.description}</p>
               </li>
             ))}
           </ol>
         </Container>
       </section>
 
-      <section id="starter-package" className="scroll-mt-24 py-16 sm:py-20">
-        <Container>
-          <div className="grid gap-6 border-b border-border pb-10 lg:grid-cols-2 lg:items-end">
+      <section className="py-16 sm:py-24">
+        <Container className="max-w-7xl">
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">The Starter Package</p>
-              <h2 className="mt-4 max-w-xl text-3xl font-semibold leading-tight tracking-[-0.04em] text-heading sm:text-4xl">Seven areas of support.<br />Built around your next step.</h2>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-secondary">A little clarity</p>
+              <h2 className="mt-4 text-3xl font-medium tracking-[-0.035em] text-heading sm:text-4xl">Before we begin.</h2>
             </div>
-            <p className="max-w-xl text-base leading-7 text-body">From explaining your idea to keeping your customers, these are the areas we help you work through. We begin with your current situation and agree the priorities and scope together.</p>
-          </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {businessDevelopmentAreas.map((area, index) => {
-              const Icon = areaIcons[index];
-              return (
-                <article key={area.id} id={area.id} className={`group scroll-mt-28 rounded-[var(--radius-surface)] border border-border bg-card p-6 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-secondary/40 hover:shadow-[var(--shadow-card-hover)] sm:p-8 ${index === 6 ? "md:col-span-2" : ""}`}>
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full border border-secondary/30 bg-secondary/5 text-secondary"><Icon className="h-5 w-5" aria-hidden="true" /></div>
-                    <span className="font-mono text-sm text-secondary">0{index + 1}</span>
-                  </div>
-                  <p className="mt-6 text-xs font-semibold uppercase tracking-[0.12em] text-secondary">{area.title}</p>
-                  <h3 className="mt-3 text-2xl font-semibold tracking-tight text-heading">{area.plainTitle}</h3>
-                  <div className={index === 6 ? "mt-5 grid gap-6 md:grid-cols-2" : "mt-5"}>
-                    <div>
-                      <p className="text-sm italic leading-6 text-muted-foreground">&ldquo;{area.problem}&rdquo;</p>
-                      <p className="mt-4 text-sm leading-7 text-body">{area.support}</p>
-                    </div>
-                    <div className={`flex items-start gap-3 border-t border-border pt-5 ${index === 6 ? "md:border-l md:border-t-0 md:pl-6 md:pt-0" : "mt-6"}`}>
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-secondary" aria-hidden="true" />
-                      <div><p className="text-xs font-semibold text-heading">What we work toward</p><p className="mt-2 text-sm leading-6 text-body">{area.outcome}</p></div>
-                    </div>
-                  </div>
-                  <Link href={`/services/business-development/${area.id}`} className="mt-7 inline-flex min-h-10 items-center gap-2 border-b border-secondary/30 text-sm font-semibold text-heading transition-colors hover:border-secondary hover:text-secondary">
-                    View details
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
-                  </Link>
-                </article>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-y border-border bg-muted/30 py-14 sm:py-16">
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">How we begin</p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-heading">A conversation.<br />A plan. A practical next step.</h2>
-            </div>
-            <ol className="space-y-7">
-              {[
-                ["Tell us where you are", "Share your idea, what you have already tried, and what feels unclear. You do not need a polished brief."],
-                ["Agree what matters first", "We discuss your goals, identify the areas where support would help, and agree the scope before work begins."],
-                ["Put the plan to work", "We support the agreed actions and review progress with you, adapting the next steps as you learn."],
-              ].map(([title, description], index) => (
-                <li key={title} className="flex gap-5"><span className="font-mono text-sm text-secondary">0{index + 1}</span><div><h3 className="font-semibold text-heading">{title}</h3><p className="mt-2 text-sm leading-7 text-body">{description}</p></div></li>
+            <div className="border-t border-border">
+              {questions.map(([question, answer]) => (
+                <details key={question} className="group border-b border-border py-5">
+                  <summary className="flex min-h-8 cursor-pointer list-none items-center justify-between gap-5 font-medium text-heading focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary [&::-webkit-details-marker]:hidden">
+                    {question}
+                    <Plus className="h-4 w-4 shrink-0 text-secondary transition-transform group-open:rotate-45" aria-hidden="true" />
+                  </summary>
+                  <p className="mt-4 max-w-xl pr-8 text-sm leading-7 text-body">{answer}</p>
+                </details>
               ))}
-            </ol>
+            </div>
           </div>
         </Container>
       </section>
 
-      <section className="py-14 sm:py-16">
-        <Container>
-          <div className="flex flex-col gap-6 border-b border-border pb-10 lg:flex-row lg:items-center lg:justify-between">
-            <div><h2 className="text-2xl font-semibold tracking-tight text-heading">Need help delivering the plan?</h2><p className="mt-3 max-w-2xl text-sm leading-7 text-body">Our website, mobile, marketing, and sales services can support the next stage. We agree any additional work with you based on what your business needs.</p></div>
-            <Link href="/home#services" className="inline-flex min-h-11 shrink-0 items-center gap-2 text-sm font-semibold text-secondary">Explore our digital & sales services <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
-          </div>
-          <div className="mt-10 max-w-3xl">
-            <h2 className="mb-5 text-2xl font-semibold tracking-tight text-heading">Before you get started</h2>
-            {[
-              ["Can I speak to you if I only have an idea?", "Yes. We work with people who want to start a business as well as businesses that are already operating. Tell us what you are considering and where you need guidance."],
-              ["Is this advice, practical support, or both?", "Both. We help clarify your direction and support agreed work across the seven areas. The exact activities, responsibilities, and timing are discussed before we begin."],
-              ["How much does the Starter Package cost?", "Contact us to discuss your business and the support you need. We will agree the scope and pricing with you before work starts."],
-            ].map(([question, answer]) => (
-              <details key={question} className="border-b border-border py-5"><summary className="cursor-pointer text-base font-medium text-heading focus-visible:outline-2 focus-visible:outline-secondary">{question}</summary><p className="mt-4 text-sm leading-7 text-body">{answer}</p></details>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-navy-deep py-16 text-white sm:py-20">
-        <Container>
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-            <div><p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-light">Let&apos;s start with your business</p><h2 className="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">What is the next step you need help with?</h2><p className="mt-5 max-w-xl text-base leading-7 text-white/70">Share your idea or your current challenge. We will help you work out where Blackcrest can support you.</p></div>
-            <Link href={consultationHref} className={`${primaryLink} self-start lg:shrink-0`}>Talk to Blackcrest <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
+      <section className="pb-16 sm:pb-24">
+        <Container className="max-w-7xl">
+          <div className="flex flex-col justify-between gap-8 rounded-3xl bg-navy-deep p-8 text-white sm:p-12 lg:flex-row lg:items-center lg:p-14">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-gold-light">Your next chapter</p>
+              <h2 className="mt-4 text-3xl font-medium leading-tight tracking-[-0.035em] sm:text-4xl">Let&apos;s move your business forward.</h2>
+              <p className="mt-4 max-w-lg text-sm leading-7 text-white/65">Bring your idea or your current challenge. We will work out the next step together.</p>
+            </div>
+            <Link href="/contact#contact-form" className={`${primaryLink} shrink-0 self-start lg:self-auto`}>
+              Talk to Blackcrest <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </div>
         </Container>
       </section>
