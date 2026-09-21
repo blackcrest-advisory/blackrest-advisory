@@ -19,8 +19,8 @@ export default function HomePage() {
   return (
     <PageWrapper>
       <HeroTwo />
-      <BusinessDevelopmentIntro />
       <TrustedBy />
+      <BusinessDevelopmentIntro />
       <WhoWeServe />
       <Services />
       <DeliveryModel />

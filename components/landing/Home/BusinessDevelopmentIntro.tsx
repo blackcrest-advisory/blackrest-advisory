@@ -1,82 +1,92 @@
-"use client";
-
-import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Check, Compass } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { Section } from "@/components/ui/Section";
-import { businessChallenges } from "@/content-data/business-development/businessDevelopmentData";
+import advisoryImage from "@/public/images/business devlopment/after-support-retention/problem.png";
+
+const support = [
+  {
+    title: "Find your direction",
+    description:
+      "Clarify your message, choose your niche, and build a practical setup plan.",
+  },
+  {
+    title: "Put the plan to work",
+    description:
+      "Set priorities, organise the work, and give your marketing a clear purpose.",
+  },
+  {
+    title: "Build better customer relationships",
+    description:
+      "Improve the journey from first enquiry to follow-up and repeat business.",
+  },
+];
 
 export default function BusinessDevelopmentIntro() {
-  const [selected, setSelected] = useState(0);
-  const challenge = businessChallenges[selected];
-
   return (
-    <Section id="how-we-help" className="scroll-mt-24 border-b border-border bg-muted/30 py-16 sm:py-20">
-      <Container>
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+    <section
+      id="how-we-help"
+      aria-labelledby="business-support-heading"
+      className="scroll-mt-24 py-16 sm:py-24"
+    >
+      <Container className="max-w-7xl">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+          <figure className="relative mx-auto w-full max-w-md lg:mx-0">
+            <Image
+              src={advisoryImage}
+              alt="An adviser and a founder turning a complex idea into a clear business message"
+              sizes="(min-width: 1024px) 440px, (min-width: 640px) 448px, 90vw"
+              className="h-auto w-full rounded-2xl"
+            />
+            <figcaption className="mt-4 flex items-center gap-3 text-xs text-muted-foreground">
+              <span aria-hidden="true" className="h-px w-8 bg-secondary/50" />
+              Strategy. Execution. Growth.
+            </figcaption>
+          </figure>
+
           <div>
-            <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
-              <Compass className="h-4 w-4" aria-hidden="true" />
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-secondary">
               Business development
             </p>
-            <h2 className="mt-5 max-w-xl text-3xl font-semibold leading-tight tracking-[-0.04em] text-heading sm:text-4xl lg:text-5xl">
-              Your next step starts with the right help.
+            <h2
+              id="business-support-heading"
+              className="mt-4 text-3xl font-medium leading-[1.15] tracking-[-0.04em] text-heading sm:text-4xl lg:text-5xl"
+            >
+              A good idea deserves
+              <br className="hidden sm:block" /> a clear next step.
             </h2>
-            <p className="mt-5 max-w-lg text-base leading-7 text-body">
-              Blackcrest advises people starting a business and helps existing
-              businesses move forward. Together, we turn your questions into a
-              clear plan—and support you in putting it into practice.
+            <p className="mt-5 max-w-xl text-base leading-8 text-body">
+              You may know what you want to build, but not who to sell to, what
+              to do first, or where to spend. We help you work through those
+              decisions and turn them into practical action.
             </p>
-            <div className="mt-8 flex items-center gap-4 border-t border-border pt-6">
-              <span className="text-5xl font-light tracking-tight text-secondary">07</span>
-              <p className="max-w-64 text-sm leading-6 text-body">
-                Connected areas of support, from business setup to customer retention.
-              </p>
+            <div className="mt-8 divide-y divide-border border-y border-border">
+              {support.map((item, index) => (
+                <div key={item.title} className="flex gap-5 py-5">
+                  <span className="pt-1 font-mono text-xs text-secondary">
+                    0{index + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-base font-semibold text-heading">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1.5 max-w-lg text-sm leading-6 text-body">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <Link href="/services/business-development" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-heading underline decoration-secondary/50 underline-offset-8 hover:text-secondary">
-              Discover the Starter Package <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            <Link
+              href="/services/business-development"
+              className="mt-7 inline-flex min-h-12 items-center gap-3 rounded-full bg-navy-deep px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-secondary hover:text-secondary-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary"
+            >
+              Explore business development{" "}
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </Link>
-          </div>
-
-          <div className="overflow-hidden rounded-[var(--radius-surface)] border border-border bg-card shadow-[var(--shadow-card)]">
-            <fieldset className="p-6 pb-0 sm:p-8 sm:pb-0">
-              <legend className="sr-only">What do you need help with?</legend>
-              <p aria-hidden="true" className="mb-4 text-sm font-semibold text-heading">What do you need help with?</p>
-              <div className="flex flex-col gap-2">
-                {businessChallenges.map((item, index) => (
-                  <button
-                    key={item.id}
-                    type="button"
-                    aria-pressed={selected === index}
-                    aria-controls="business-challenge-detail"
-                    onClick={() => setSelected(index)}
-                    className={`flex min-h-12 items-center justify-between gap-4 rounded-[var(--radius-control)] border px-4 py-3 text-left text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary ${selected === index ? "border-secondary bg-secondary/10 text-heading" : "border-border text-body hover:border-secondary/50 hover:bg-muted/50"}`}
-                  >
-                    {item.label}
-                    <ArrowRight className={`h-4 w-4 shrink-0 ${selected === index ? "text-secondary" : "text-muted-foreground"}`} aria-hidden="true" />
-                  </button>
-                ))}
-              </div>
-            </fieldset>
-            <div id="business-challenge-detail" aria-live="polite" aria-atomic="true" className="p-6 sm:p-8">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-secondary">How Blackcrest can help</p>
-              <h3 className="mt-3 text-xl font-semibold tracking-tight text-heading sm:text-2xl">{challenge.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-body">{challenge.description}</p>
-              <ul className="mt-5 space-y-2">
-                {challenge.steps.map((step) => (
-                  <li key={step} className="flex items-center gap-3 text-sm text-body">
-                    <Check className="h-4 w-4 shrink-0 text-secondary" aria-hidden="true" />{step}
-                  </li>
-                ))}
-              </ul>
-              <Link href={challenge.href} className="mt-6 inline-flex min-h-11 items-center gap-3 rounded-[var(--radius-control)] bg-secondary px-5 py-3 text-sm font-semibold text-secondary-foreground transition-colors hover:bg-secondary/90">
-                {challenge.linkLabel}<ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-              </Link>
-            </div>
           </div>
         </div>
       </Container>
-    </Section>
+    </section>
   );
 }
