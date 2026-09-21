@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Description,
   Dialog,
@@ -22,6 +23,15 @@ import {
   X,
 } from "lucide-react";
 import { businessHelpOptions } from "@/content-data/business-development/businessHelpFinderData";
+import {
+  recordPopupEvent,
+  type PopupAnalyticsInput,
+} from "@/lib/actions/popup-analytics/popup-analytics.action";
+
+type PopupTrackingEvent =
+  | { eventType: "VIEW" }
+  | { eventType: "DISMISS" }
+  | { eventType: "OPTION_CLICK"; optionId: string };
 
 const optionIcons = {
   plan: Lightbulb,
@@ -31,18 +41,57 @@ const optionIcons = {
 };
 
 export default function BusinessHelpFinder() {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const visitorIdRef = useRef<string | null>(null);
+
+  const getVisitorId = useCallback(() => {
+    if (visitorIdRef.current) return visitorIdRef.current;
+
+    const storageKey = "blackcrest-popup-visitor-id";
+    let visitorId = window.crypto.randomUUID();
+
+    try {
+      const storedId = window.localStorage.getItem(storageKey);
+      visitorId = storedId ?? visitorId;
+      if (!storedId) window.localStorage.setItem(storageKey, visitorId);
+    } catch {
+      // Storage can be unavailable in privacy-restricted browsers.
+    }
+
+    visitorIdRef.current = visitorId;
+
+    return visitorId;
+  }, []);
+
+  const track = useCallback(
+    (event: PopupTrackingEvent) => {
+      return recordPopupEvent({
+        ...event,
+        visitorId: getVisitorId(),
+      } as PopupAnalyticsInput);
+    },
+    [getVisitorId],
+  );
+
+  const dismiss = useCallback(() => {
+    void track({ eventType: "DISMISS" });
+    setIsOpen(false);
+  }, [track]);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsOpen(true), 700);
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+      track({ eventType: "VIEW" });
+    }, 700);
     return () => clearTimeout(timer);
-  }, []);
+  }, [track]);
 
   return (
     <Dialog
       open={isOpen}
-      onClose={setIsOpen}
+      onClose={dismiss}
       initialFocus={closeButtonRef}
       className="relative z-[100]"
     >
@@ -59,7 +108,7 @@ export default function BusinessHelpFinder() {
           <button
             ref={closeButtonRef}
             type="button"
-            onClick={() => setIsOpen(false)}
+            onClick={dismiss}
             aria-label="Close business help popup"
             className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-card/90 text-muted-foreground shadow-sm backdrop-blur transition-colors hover:border-secondary/40 hover:text-heading focus-visible:outline-2 focus-visible:outline-secondary sm:right-5 sm:top-5"
           >
@@ -131,7 +180,15 @@ export default function BusinessHelpFinder() {
                     <Link
                       key={option.id}
                       href={option.href}
-                      onClick={() => setIsOpen(false)}
+                      onClick={async (event) => {
+                        event.preventDefault();
+                        setIsOpen(false);
+                        await track({
+                          eventType: "OPTION_CLICK",
+                          optionId: option.id,
+                        });
+                        router.push(option.href);
+                      }}
                       className="group relative flex items-center gap-4 overflow-hidden rounded-xl border border-border bg-background px-4 py-4 transition-[border-color,background-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-secondary/50 hover:bg-secondary/[0.045] hover:shadow-[var(--shadow-card)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary"
                     >
                       <span className="font-mono text-[9px] text-muted-foreground/55">0{index + 1}</span>
@@ -153,7 +210,7 @@ export default function BusinessHelpFinder() {
               <div className="mt-6 flex flex-col gap-3 border-t border-border pt-5 sm:flex-row sm:items-center sm:justify-between">
                 <Link
                   href="/services/business-development"
-                  onClick={() => setIsOpen(false)}
+                  onClick={dismiss}
                   className="inline-flex min-h-10 items-center gap-2 text-xs font-semibold text-heading hover:text-secondary"
                 >
                   Not sure? See all business support
@@ -162,7 +219,7 @@ export default function BusinessHelpFinder() {
 
                 <button
                   type="button"
-                  onClick={() => setIsOpen(false)}
+                  onClick={dismiss}
                   className="min-h-10 self-start text-xs text-muted-foreground underline-offset-4 hover:text-heading hover:underline sm:self-auto"
                 >
                   Maybe later
