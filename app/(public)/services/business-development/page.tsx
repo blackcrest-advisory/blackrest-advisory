@@ -7,7 +7,8 @@ import {
   ArrowUpRight,
   Handshake,
   MessageSquareText,
-  Monitor,
+  ClipboardList,
+  type LucideIcon,
   Plus,
   Target,
   TrendingUp,
@@ -21,7 +22,7 @@ import { businessDevelopmentAreas } from "@/content-data/business-development/bu
 export const metadata: Metadata = {
   title: "Business Development & Startup Advice | Blackcrest Advisory",
   description:
-    "Clear direction and practical support for your business. Explore messaging, online presence, customer targeting, marketing, sales, and retention.",
+    "Clear direction and practical support for your business. Explore business language, niche selection, setup planning, execution, marketing, sales, and retention.",
 };
 
 const cardContent = {
@@ -30,22 +31,22 @@ const cardContent = {
     summary: "Explain what you do in words your customers understand.",
     icon: MessageSquareText,
   },
-  "page-setup": {
-    title: "Build your online presence",
-    summary: "Make your business pages clear, complete, and easy to use.",
-    icon: Monitor,
+  "business-setup-plan": {
+    title: "Plan your business setup",
+    summary: "Organise your offer, pricing, and first steps toward launch.",
+    icon: ClipboardList,
   },
-  "buyer-persona": {
-    title: "Find your ideal customer",
-    summary: "Focus on the people who are most likely to need your offer.",
+  "niche-selection": {
+    title: "Choose your niche",
+    summary: "Focus on a clear customer, problem, and market opportunity.",
     icon: Users,
   },
-  "marketing-strategy": {
+  "marketing-growth": {
     title: "Plan your marketing",
     summary: "Choose the right channels and priorities for your budget.",
     icon: Target,
   },
-  "execution-growth": {
+  "execution-support": {
     title: "Put your plan into action",
     summary: "Turn ideas into clear tasks, priorities, and progress.",
     icon: TrendingUp,
@@ -55,13 +56,17 @@ const cardContent = {
     summary: "Help interested people take the next step toward buying.",
     icon: Workflow,
   },
-  retention: {
+  "after-support-retention": {
     title: "Keep customers coming back",
     summary:
       "Build stronger relationships with thoughtful after-sales support.",
     icon: Handshake,
   },
-};
+} satisfies Record<(typeof businessDevelopmentAreas)[number]["id"], {
+  title: string;
+  summary: string;
+  icon: LucideIcon;
+}>;
 
 const steps = [
   {
