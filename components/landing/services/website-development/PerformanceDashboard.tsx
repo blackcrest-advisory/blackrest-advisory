@@ -309,7 +309,7 @@ export default function PerformanceDashboard() {
             />
           </div>
 
-          <div className="flex items-center border-t border-border bg-primary px-5 py-5 text-white md:border-l md:border-t-0 sm:px-6">
+          <div className="flex items-center border-t border-border bg-navy-deep px-5 py-5 text-white md:border-l md:border-t-0 sm:px-6">
             <div>
               <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-gold-light">
                 Performance standard

@@ -123,7 +123,7 @@ const InsideEveryTap = () => {
         <div className="mt-10 grid overflow-hidden border border-border bg-card shadow-[var(--shadow-card)] lg:mt-14 lg:grid-cols-[minmax(320px,0.8fr)_minmax(0,1.35fr)]">
           {/*===== PHONE STAGE =====*/}
 
-          <div className="relative flex min-h-[540px] items-center justify-center overflow-hidden border-b border-border bg-primary px-6 py-14 lg:min-h-[680px] lg:border-b-0 lg:border-r">
+          <div className="relative flex min-h-[540px] items-center justify-center overflow-hidden border-b border-border bg-navy-deep px-6 py-14 lg:min-h-[680px] lg:border-b-0 lg:border-r">
             {/*===== BACKGROUND TYPE =====*/}
 
             <span

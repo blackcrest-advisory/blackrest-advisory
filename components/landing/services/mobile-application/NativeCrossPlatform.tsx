@@ -158,7 +158,7 @@ const NativeCrossPlatform = () => {
           <div className="relative flex min-h-[330px] flex-col justify-center border-b border-border bg-muted/10 px-5 py-8 sm:px-6 lg:border-b-0 lg:border-r">
             <div className="mx-auto w-full max-w-[270px]">
               {/* central node */}
-              <div className="border border-secondary/25 bg-primary px-5 py-5 text-center text-white">
+              <div className="border border-secondary/25 bg-navy-deep px-5 py-5 text-center text-white">
                 <Code2 className="mx-auto h-5 w-5 text-gold-light"/>
 
                 <span className="mt-3 block font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-gold-light">

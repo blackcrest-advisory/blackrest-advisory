@@ -285,7 +285,7 @@ export default function HeroTwo() {
             VIGNETTE
         ===================================================== */}
 
-        <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_170px_rgba(0,0,0,0.35)]" />
+        <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_170px_color-mix(in_srgb,var(--color-navy-deep)_35%,transparent)]" />
       </div>
     </Section>
   );
