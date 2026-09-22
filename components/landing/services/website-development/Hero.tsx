@@ -127,7 +127,7 @@ const Hero = () => {
           </div>
 
           <div className="flex items-center gap-5">
-            <span className="font-mono text-[9px] uppercase tracking-[0.13em] text-white/55">
+            <span className="font-mono text-[9px] uppercase tracking-[0.13em] text-white/60">
               Blackcrest / Digital platforms
             </span>
 
@@ -163,7 +163,7 @@ const Hero = () => {
 
               <span className="h-px w-10 bg-gold-light/35"/>
 
-              <span className="font-mono text-[9px] uppercase tracking-[0.13em] text-white/55">
+              <span className="font-mono text-[9px] uppercase tracking-[0.13em] text-white/60">
                 Clear digital foundations
               </span>
             </motion.div>
@@ -181,7 +181,7 @@ const Hero = () => {
                 </span>
               </h1>
 
-              <p className="mt-6 max-w-xl text-sm leading-7 text-white/50 sm:text-base sm:leading-8">
+              <p className="mt-6 max-w-xl text-sm leading-7 text-white/60 sm:text-base sm:leading-8">
                 Blackcrest helps businesses create clear websites and web
                 platforms that communicate what matters, support real customer
                 journeys, and give the business room to move forward.
@@ -204,10 +204,10 @@ const Hero = () => {
               </Button>
 
               <Button
-                variant="outline"
+                variant="outline-inverse"
                 size="md"
                 href="/contact"
-                className="w-full !rounded-md border-white/20 text-white hover:bg-white/5 sm:w-auto"
+                className="w-full !rounded-md sm:w-auto"
               >
                 Talk through your idea
               </Button>
@@ -263,7 +263,7 @@ const Hero = () => {
                     <span className="hidden h-3 w-px bg-white/10 sm:block"/>
                   )}
 
-                  <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-white/55">
+                  <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-white/60">
                     {technology}
                   </span>
                 </div>
@@ -355,7 +355,7 @@ const Hero = () => {
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success"/>
 
-                  <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-white/55">
+                  <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-white/60">
                     Live
                   </span>
                 </div>
@@ -528,7 +528,7 @@ const Hero = () => {
                               {node.title}
                             </span>
 
-                            <span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.11em] text-white/55">
+                            <span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.11em] text-white/60">
                               {node.subtitle}
                             </span>
                           </div>
@@ -537,7 +537,7 @@ const Hero = () => {
                           <div className="flex items-center gap-1.5">
                             <Check className="h-3 w-3 text-success" />
 
-                            <span className="hidden font-mono text-[8px] font-semibold uppercase tracking-[0.1em] text-white/45 sm:block">
+                            <span className="hidden font-mono text-[8px] font-semibold uppercase tracking-[0.1em] text-white/60 sm:block">
                               Ready
                             </span>
                           </div>
@@ -579,7 +579,7 @@ const Hero = () => {
                 >
                   <Network className="h-3 w-3 text-gold-light/60" />
 
-                  <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.12em] text-white/45">
+                  <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.12em] text-white/60">
                     Request
                   </span>
                 </motion.div>
@@ -606,7 +606,7 @@ const Hero = () => {
                   }}
                   className="absolute right-4 top-[58%] hidden items-center gap-2 xl:flex"
                 >
-                  <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.12em] text-white/45">
+                  <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.12em] text-white/60">
                     Response
                   </span>
 
@@ -657,7 +657,7 @@ const Hero = () => {
           <div className="flex items-center gap-3 px-4 py-4 sm:px-6 lg:px-8">
             <Code2 className="h-3.5 w-3.5 text-gold-light" />
 
-            <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-white/55">
+            <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.13em] text-white/60">
               Strategy → UX → Engineering → Performance
             </span>
           </div>
@@ -665,7 +665,7 @@ const Hero = () => {
           <div className="flex items-center gap-3 border-t border-white/10 px-4 py-4 sm:border-l sm:border-t-0 sm:px-6">
             <span className="h-1.5 w-1.5 rounded-full bg-success"/>
 
-            <span className="whitespace-nowrap font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-white/50">
+            <span className="whitespace-nowrap font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-white/60">
               Engineered for growth
             </span>
           </div>
@@ -718,7 +718,7 @@ function SystemMetric({
       <div className="flex items-center gap-2">
         <Icon className="h-3 w-3 shrink-0 text-gold-light" />
 
-        <span className="truncate font-mono text-[8px] font-semibold uppercase tracking-[0.11em] text-white/45">
+        <span className="truncate font-mono text-[8px] font-semibold uppercase tracking-[0.11em] text-white/60">
           {label}
         </span>
       </div>

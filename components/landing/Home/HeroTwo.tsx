@@ -227,7 +227,7 @@ export default function HeroTwo() {
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
                   <Link
                     href="/services/business-development"
-                    className="group inline-flex h-11 items-center justify-center gap-3 bg-secondary px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-deep transition-all duration-300 hover:bg-secondary/90 sm:px-6 sm:text-[11px]"
+                    className="group inline-flex h-11 items-center justify-center gap-3 bg-secondary px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-deep transition-all duration-300 hover:bg-gold-light sm:px-6 sm:text-[11px]"
                   >
                     Find Your Next Step
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -259,7 +259,7 @@ export default function HeroTwo() {
           }}
           className="pointer-events-none absolute bottom-7 right-7 z-30 hidden flex-col items-center gap-3 xl:flex"
         >
-          <span className="font-mono text-[7px] uppercase tracking-[0.24em] text-white/25 [writing-mode:vertical-rl]">
+          <span className="font-mono text-[7px] uppercase tracking-[0.24em] text-white/60 [writing-mode:vertical-rl]">
             See more
           </span>
 

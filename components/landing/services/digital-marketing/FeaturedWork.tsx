@@ -240,7 +240,7 @@ export default function FeaturedWork() {
                               Selected work
                             </span>
 
-                            <span className="mt-1 block font-mono text-[7px] uppercase tracking-[0.13em] text-white/35">
+                            <span className="mt-1 block font-mono text-[7px] uppercase tracking-[0.13em] text-white/60">
                               Case / {String(index + 1).padStart(2, "0")}
                             </span>
                           </div>
@@ -271,7 +271,7 @@ export default function FeaturedWork() {
                           <div className="flex items-center gap-2">
                             <BarChart3 className="h-3.5 w-3.5 text-gold-light" />
 
-                            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/45">
+                            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/60">
                               Project intelligence
                             </span>
                           </div>
@@ -319,7 +319,7 @@ export default function FeaturedWork() {
                                   The work
                                 </span>
 
-                                <p className="mt-4 text-sm leading-7 text-white/55">
+                                <p className="mt-4 text-sm leading-7 text-white/60">
                                   {project.description}
                                 </p>
                               </motion.div>
@@ -338,9 +338,9 @@ export default function FeaturedWork() {
                             </Button>
 
                             <Button
-                              variant="outline"
+                              variant="outline-inverse"
                               size="sm"
-                              className="group w-full !rounded-md border-white/20 text-white hover:bg-white/5 xl:w-auto"
+                              className="group w-full !rounded-md xl:w-auto"
                             >
                               View Case Study
                               <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"/>
@@ -352,7 +352,7 @@ export default function FeaturedWork() {
 
                         <div className="border-t border-white/10">
                           <div className="flex items-center justify-between px-5 py-3 sm:px-6">
-                            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/30">
+                            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/60">
                               Performance outcomes
                             </span>
 
@@ -393,7 +393,7 @@ export default function FeaturedWork() {
                                     {metric.value}
                                   </span>
 
-                                  <span className="mt-1.5 block text-[9px] leading-4 text-white/35">
+                                  <span className="mt-1.5 block text-[9px] leading-4 text-white/60">
                                     {metric.label}
                                   </span>
                                 </motion.div>

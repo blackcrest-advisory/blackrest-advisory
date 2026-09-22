@@ -18,7 +18,7 @@ export default function FinalCTA() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section className="relative isolate overflow-hidden bg-primary py-16 text-primary-foreground sm:py-20 lg:py-28">
+    <Section className="relative isolate overflow-hidden bg-navy-deep py-16 text-white sm:py-20 lg:py-28">
       {/*===== BACKGROUND =====*/}
 
       <div
@@ -78,7 +78,7 @@ export default function FinalCTA() {
               </span>
             </div>
 
-            <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-white/30">
+            <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-white/60">
               Blackcrest / Digital Growth
             </span>
           </div>
@@ -98,7 +98,7 @@ export default function FinalCTA() {
                 </span>
               </h2>
 
-              <p className="mt-6 max-w-2xl text-sm leading-7 text-white/50 sm:text-base sm:leading-8">
+              <p className="mt-6 max-w-2xl text-sm leading-7 text-white/60 sm:text-base sm:leading-8">
                 Let&apos;s build a digital marketing strategy that connects
                 audience, acquisition, conversion, and performance around the
                 outcomes that matter to your business.
@@ -131,7 +131,7 @@ export default function FinalCTA() {
                   className="h-px bg-gold-light"
                 />
 
-                <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/35">
+                <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/60">
                   Business · Growth · Solution
                 </span>
               </div>
@@ -149,7 +149,7 @@ export default function FinalCTA() {
                   Start with a focused growth conversation.
                 </h3>
 
-                <p className="mt-3 text-xs leading-6 text-white/45">
+                <p className="mt-3 text-xs leading-6 text-white/60">
                   Tell us what you&apos;re trying to achieve and where your
                   current marketing is falling short.
                 </p>
@@ -166,9 +166,9 @@ export default function FinalCTA() {
                 </Button>
 
                 <Button
-                  variant="outline"
+                  variant="outline-inverse"
                   size="md"
-                  className="w-full !rounded-md border-white/20 text-white hover:bg-white/5"
+                  className="w-full !rounded-md"
                 >
                   <Mail className="h-4 w-4" />
                   hello@blackcrestadvisory.com
@@ -179,7 +179,7 @@ export default function FinalCTA() {
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-gold-light"/>
 
-                  <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-white/30">
+                  <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.14em] text-white/60">
                     Growth starts with clarity
                   </span>
                 </div>
@@ -194,7 +194,7 @@ export default function FinalCTA() {
               Blackcrest Advisory
             </span>
 
-            <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-white/25">
+            <span className="font-mono text-[7px] uppercase tracking-[0.14em] text-white/60">
               Digital Marketing / End of Brief
             </span>
           </div>

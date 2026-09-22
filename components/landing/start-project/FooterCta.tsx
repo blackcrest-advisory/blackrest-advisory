@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 
 export const FooterCta = () => {
   return (
-    <Section className="bg-primary">
+    <Section className="bg-navy-deep">
       <Container>
         <div className="text-center">
           <h2 className="text-3xl font-bold text-white md:text-4xl">
@@ -18,17 +18,15 @@ export const FooterCta = () => {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button
               href="/contact"
-              variant="secondary"
+              variant="primary"
               size="lg"
-              className="bg-secondary text-cta-text hover:bg-accent-hover"
             >
               Schedule Consultation
             </Button>
             <Button
               href="/contact"
-              variant="outline"
+              variant="outline-inverse"
               size="lg"
-              className="border-white text-white hover:bg-white/10"
             >
               Contact Us
             </Button>

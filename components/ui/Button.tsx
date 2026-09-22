@@ -7,6 +7,7 @@ import {
   AnchorHTMLAttributes,
 } from "react";
 import Link from "next/link";
+import { cn } from "@/lib/utils/utils";
 
 //===== props union for button vs link =====//
 type ButtonAsButton = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -20,7 +21,7 @@ type ButtonAsLink = AnchorHTMLAttributes<HTMLAnchorElement> & {
 
 type ButtonProps = {
   children: ReactNode;
-  variant?: "primary" | "secondary" | "outline" | "ghost" | "destructive" | "link";
+  variant?: "primary" | "secondary" | "outline" | "outline-inverse" | "ghost" | "destructive" | "link";
   size?: "sm" | "base" | "md" | "lg";
   className?: string;
   onClick?: () => void;
@@ -51,10 +52,12 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
 
     const variantStyles = {
       primary:
-        "bg-secondary text-secondary-foreground shadow-[var(--shadow-action)] hover:-translate-y-px hover:bg-secondary/90 hover:shadow-[var(--shadow-action-hover)]",
+        "bg-secondary text-secondary-foreground shadow-[var(--shadow-action)] hover:-translate-y-px hover:bg-secondary/95 hover:shadow-[var(--shadow-action-hover)]",
       secondary: "bg-primary text-primary-foreground shadow-sm hover:-translate-y-px hover:bg-primary/90 hover:shadow-md",
       outline:
         "border border-border bg-card text-foreground shadow-[inset_0_1px_0_rgb(255_255_255/0.22)] hover:border-secondary/50 hover:bg-secondary/8 hover:text-secondary",
+      "outline-inverse":
+        "border border-white/30 bg-transparent text-white hover:border-gold-light hover:bg-white/10 hover:text-gold-light focus-visible:ring-gold-light focus-visible:ring-offset-navy-deep",
       ghost: "text-foreground hover:bg-muted/80 hover:text-heading",
       destructive: "bg-destructive text-destructive-foreground shadow-sm hover:-translate-y-px hover:bg-destructive/90 hover:shadow-md",
       link: "min-h-0 px-0 text-secondary underline-offset-4 hover:text-secondary/80 hover:underline",
@@ -71,7 +74,7 @@ export const Button = forwardRef<ButtonRef, ButtonProps>(
       ? "pointer-events-none cursor-not-allowed opacity-45 shadow-none"
       : "";
 
-    const combined = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${disabledStyles} ${className}`;
+    const combined = cn(baseStyles, variantStyles[variant], sizeStyles[size], disabledStyles, className);
 
     const content = <span className="flex items-center gap-2">{children}</span>;
 

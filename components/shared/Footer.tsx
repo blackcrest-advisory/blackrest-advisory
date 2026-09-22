@@ -115,7 +115,7 @@ export default function Footer() {
                 className="mt-5 max-w-3xl text-3xl font-semibold tracking-[-0.04em] sm:text-4xl lg:text-5xl"
               >
                 Business advice and practical support
-                <span className="block text-white/35">
+                <span className="block text-white/60">
                   built around your next step.
                 </span>
               </motion.h2>
@@ -126,7 +126,7 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.12, duration: 0.5 }}
-              className="max-w-lg text-sm leading-7 text-white/55 sm:text-base"
+              className="max-w-lg text-sm leading-7 text-white/60 sm:text-base"
             >
               From a first business idea to your next stage of growth,
               Blackcrest connects business development, digital services,
@@ -152,7 +152,7 @@ export default function Footer() {
               </motion.span>
             </Link>
 
-            <p className="mt-5 max-w-sm text-sm leading-7 text-white/50">
+            <p className="mt-5 max-w-sm text-sm leading-7 text-white/60">
               Practical support across web, mobile, marketing, and commercial
               work — shaped around the needs of your business.
             </p>
@@ -161,7 +161,7 @@ export default function Footer() {
               {["Business advice", "Digital", "Growth"].map((item) => (
                 <span
                   key={item}
-                  className="border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/45"
+                  className="border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/60"
                 >
                   {item}
                 </span>
@@ -214,28 +214,28 @@ export default function Footer() {
         {/* Bottom strip */}
         <div className="border-t border-white/10 py-6">
           <div className="flex flex-col gap-4 text-xs sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-white/30">
+            <p className="text-white/60">
               © {currentYear} Blackcrest. All rights reserved.
             </p>
 
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
               <Link
                 href="/privacy"
-                className="text-white/35 transition-colors hover:text-gold-light"
+                className="text-white/60 transition-colors hover:text-gold-light"
               >
                 Privacy
               </Link>
 
               <Link
                 href="/terms"
-                className="text-white/35 transition-colors hover:text-gold-light"
+                className="text-white/60 transition-colors hover:text-gold-light"
               >
                 Terms
               </Link>
 
               <span className="hidden h-1 w-1 rounded-full bg-gold/50 sm:block" />
 
-              <div className="flex items-center gap-2 text-white/35">
+              <div className="flex items-center gap-2 text-white/60">
                 <span>Built for</span>
                 <span className="font-medium text-white/60">progress</span>
               </div>
@@ -277,7 +277,7 @@ function FooterLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      className="group inline-flex w-fit items-center gap-2 text-sm text-white/50 transition-colors duration-300 hover:text-white"
+      className="group inline-flex w-fit items-center gap-2 text-sm text-white/60 transition-colors duration-300 hover:text-white"
     >
       <span className="relative">
         {label}
@@ -308,11 +308,11 @@ function ContactItem({
       </div>
 
       <div className="min-w-0">
-        <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-white/25">
+        <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-white/60">
           {label}
         </p>
 
-        <p className="mt-1 break-words text-sm text-white/55 transition-colors duration-300 group-hover:text-white">
+        <p className="mt-1 break-words text-sm text-white/60 transition-colors duration-300 group-hover:text-white">
           {value}
         </p>
       </div>
