@@ -12,7 +12,7 @@ function load(file, mocks = {}, cache = new Map()) {
   const full = path.resolve(file);
   if (cache.has(full)) return cache.get(full);
   const compiled = ts.transpileModule(fs.readFileSync(full, "utf8"), {
-    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020, esModuleInterop: true },
+    compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020, jsx: ts.JsxEmit.ReactJSX, esModuleInterop: true },
   }).outputText;
   const loadedModule = { exports: {} };
   cache.set(full, loadedModule.exports);
@@ -34,6 +34,29 @@ const input = {
 };
 
 async function main() {
+  const { leadDetailsHref, leadIdFromRoute } = load("lib/utils/leadRoutes.ts");
+  const homepageLeadId = HOMEPAGE_FORM_PREFIX + visitorId;
+  assert.equal(leadIdFromRoute(encodeURIComponent(homepageLeadId)), homepageLeadId);
+  assert.equal(leadIdFromRoute(homepageLeadId), homepageLeadId);
+  assert.equal(leadIdFromRoute("%invalid"), null);
+  assert.equal(leadDetailsHref(homepageLeadId), `/admin/dashboard/leads/${encodeURIComponent(homepageLeadId)}`);
+  const legacyLeadId = "cmt1db2qp0006v8soxujfpn3c";
+  const detailPage = load("app/(private)/admin/dashboard/leads/[id]/page.tsx", {
+    "next/navigation": { notFound() { throw Error("NOT_FOUND"); }, redirect() { throw Error("LOGIN"); } },
+    "@/lib/utils/admin-utils": { async getAdminUser() { return { id: "admin-1" }; } },
+    "@/lib/actions/leads/admin-lead.action": {
+      async getAdminLead(id) { return [homepageLeadId, legacyLeadId].includes(id) ? { id } : null; },
+    },
+    "@/components/admin-dashboard/leads/LeadDetailsClient": { LeadDetailsClient() { return null; } },
+  }).default;
+  for (const id of [homepageLeadId, encodeURIComponent(homepageLeadId), legacyLeadId]) {
+    const page = await detailPage({ params: Promise.resolve({ id }), searchParams: Promise.resolve({ edit: "true" }) });
+    assert.equal(page.props.lead.id, leadIdFromRoute(id));
+    assert.equal(page.props.initialEdit, true);
+  }
+  for (const id of ["missing-lead", "%invalid"]) {
+    await assert.rejects(detailPage({ params: Promise.resolve({ id }), searchParams: Promise.resolve({}) }), /NOT_FOUND/);
+  }
   const valid = homepageInquirySchema.parse(input);
   assert.equal(valid.name, "Alex Smith");
   assert.equal(valid.email, "alex@example.com");
@@ -110,6 +133,7 @@ async function main() {
   assert.equal(JSON.parse(lead.notes).businessStage, "Idea stage");
   await callbacks.shift()();
   assert.equal(notifications.length, 1);
+  assert.equal(notifications[0].link, leadDetailsHref(homepageLeadId));
   assert.equal(emailCount, 1);
   assert.equal((await recordHomepageFormEvent({ visitorId, eventType: "SUBMIT" })).success, false, "Clients cannot fabricate submissions");
   await recordHomepageFormEvent({ visitorId, eventType: "VIEW" });

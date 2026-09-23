@@ -1,5 +1,7 @@
 "use server";
 
+import { leadDetailsHref } from "@/lib/utils/leadRoutes";
+
 import { after } from "next/server";
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/db/client";
@@ -72,7 +74,7 @@ export async function submitHomepageInquiry(input: unknown): Promise<
               userId: admin.id, type: "REQUEST_RECEIVED" as const,
               title: "New homepage enquiry",
               body: `${data.name}${data.companyName ? ` from ${data.companyName}` : ""} asked about ${needLabel.toLowerCase()}.`,
-              link: `/admin/dashboard/leads/${id}`,
+              link: leadDetailsHref(id),
             })),
           });
           revalidatePath("/admin/dashboard/notifications");

@@ -1,5 +1,7 @@
 "use client";
 
+import { leadDetailsHref } from "@/lib/utils/leadRoutes";
+
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -124,7 +126,7 @@ export function LeadDetailsClient({
   const closeEditModal = () => {
     setIsEditing(false);
 
-    router.replace(`/admin/dashboard/leads/${lead.id}`);
+    router.replace(leadDetailsHref(lead.id));
   };
 
   return (

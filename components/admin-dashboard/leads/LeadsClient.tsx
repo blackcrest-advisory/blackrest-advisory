@@ -1,5 +1,7 @@
 "use client";
 
+import { leadDetailsHref } from "@/lib/utils/leadRoutes";
+
 import { useMemo, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useRouter } from "next/navigation";
@@ -413,9 +415,9 @@ export function LeadsClient({ initialLeads }: { initialLeads: Lead[] }) {
         <div>
           <LeadTable
             leads={paginatedLeads}
-            onView={(lead) => router.push(`/admin/dashboard/leads/${lead.id}`)}
+            onView={(lead) => router.push(leadDetailsHref(lead.id))}
             onEdit={(lead) =>
-              router.push(`/admin/dashboard/leads/${lead.id}?edit=true`)
+              router.push(`${leadDetailsHref(lead.id)}?edit=true`)
             }
             onConvert={handleConvert}
             onDelete={setLeadToDelete}

@@ -1,5 +1,7 @@
 "use client";
 
+import { leadDetailsHref } from "@/lib/utils/leadRoutes";
+
 //===== imports =====//
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
@@ -199,7 +201,7 @@ export function CreateLeadForm() {
 
       toast.success("Lead created successfully");
 
-      router.push(`/admin/dashboard/leads/${result.data.id}`);
+      router.push(leadDetailsHref(result.data.id));
     });
   };
 
