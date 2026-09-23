@@ -173,7 +173,7 @@ export default async function BusinessDevelopmentAreaPage({ params }: AreaPagePr
                 <p className={paragraphClass}>{area.article.closing}</p>
                 <p className="mt-5 text-sm leading-7 text-body">{area.outcome}</p>
                 <p className="mt-7 border-t border-secondary/20 pt-5 text-sm font-semibold text-heading">Blackcrest Advisory</p>
-                <p className="mt-2 font-serif text-xl italic text-secondary">Business · Growth · Solution</p>
+                <p className="mt-2 font-serif text-xl italic text-secondary">Business · Solutions · Partnership</p>
               </section>
 
               <div className="mt-10 flex flex-col gap-5 border-t border-border pt-7 sm:flex-row sm:items-center sm:justify-between">

@@ -154,7 +154,7 @@ export default function HeroTwo() {
                 className="mb-5 flex items-center gap-4"
               >
                 <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.22em] text-secondary sm:text-[10px]">
-                  Business · Growth · Solution
+                  Business · Solutions · Partnership
                 </span>
 
                 <motion.span

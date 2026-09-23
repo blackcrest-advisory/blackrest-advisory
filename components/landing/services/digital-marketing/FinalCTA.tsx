@@ -132,7 +132,7 @@ export default function FinalCTA() {
                 />
 
                 <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/60">
-                  Business · Growth · Solution
+                  Business · Solutions · Partnership
                 </span>
               </div>
             </div>

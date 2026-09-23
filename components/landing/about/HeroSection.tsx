@@ -396,7 +396,7 @@ export const HeroSection = () => {
                 <Network className="h-4 w-4 text-secondary" strokeWidth={1.8} />
 
                 <span className="text-xs text-muted-foreground">
-                  Business · Growth · Solution
+                  Business · Solutions · Partnership
                 </span>
               </div>
 

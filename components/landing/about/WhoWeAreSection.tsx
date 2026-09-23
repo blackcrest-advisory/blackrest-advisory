@@ -20,7 +20,7 @@ export function WhoWeAreSection() {
               <Image src={aboutImage} alt="Four people discussing business plans around a meeting table" sizes="(min-width: 1024px) 440px, (min-width: 640px) 448px, 90vw" className="h-auto w-full" />
               <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-navy-deep/90 to-transparent" />
               <figcaption className="absolute inset-x-0 bottom-0 p-6 text-sm font-medium text-white">
-                Business · Growth · Solution
+                Business · Solutions · Partnership
               </figcaption>
             </div>
             <p className="mt-4 text-sm leading-6 text-muted-foreground">A clear conversation is a useful place to start.</p>

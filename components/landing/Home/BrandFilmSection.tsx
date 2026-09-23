@@ -349,7 +349,7 @@ export default function BrandFilmSection() {
         =================================================== */}
         <div className="pointer-events-none absolute right-5 top-1/2 z-20 hidden -translate-y-1/2 lg:flex lg:flex-col lg:items-center lg:gap-4">
           <span className="font-mono text-[7px] uppercase tracking-[0.25em] text-white/25 [writing-mode:vertical-rl]">
-            Business · Growth · Solution
+            Business · Solutions · Partnership
           </span>
 
           <span className="h-16 w-px bg-gradient-to-b from-secondary/50 to-transparent" />

@@ -40,7 +40,7 @@ export default function BusinessDevelopmentIntro() {
             />
             <figcaption className="mt-4 flex items-center gap-3 text-xs text-muted-foreground">
               <span aria-hidden="true" className="h-px w-8 bg-secondary/50" />
-              Business · Growth · Solution
+              Business · Solutions · Partnership
             </figcaption>
           </figure>
 
