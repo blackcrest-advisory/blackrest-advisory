@@ -136,6 +136,16 @@ export default function HeroTwo() {
               }}
               className="max-w-[900px]"
             >
+              <motion.p
+                initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: reduceMotion ? 0 : 0.65 }}
+                className="mb-5 flex flex-wrap gap-x-1.5 gap-y-1 border-l-2 border-gold-light/60 pl-4 text-sm font-medium leading-relaxed tracking-[0.01em] sm:text-base"
+              >
+                <span className="text-white/90">We Grow Together.</span>{" "}
+                <span className="text-gold-light">We Achieve More.</span>
+              </motion.p>
+
               {/* EYEBROW */}
 
               <motion.div
