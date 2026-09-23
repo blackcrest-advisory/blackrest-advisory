@@ -5,28 +5,28 @@ import { Container } from "@/components/ui/Container";
 const services = [
   {
     title: "Website development",
-    description: "Give people a clear place to understand your offer, enquire, or buy.",
+    description: "Give your new business a place online where customers can learn about you, get in touch, or buy.",
     scope: "Business websites · E-commerce · Web applications",
     icon: Globe2,
     href: "/services/website-development",
   },
   {
     title: "Mobile applications",
-    description: "Make your product or service easier to use on the devices your customers carry.",
+    description: "If your business needs an app, we help turn the idea into something your customers can use.",
     scope: "iOS & Android · App design · Product improvements",
     icon: Smartphone,
     href: "/services/mobile-applications",
   },
   {
     title: "Digital marketing",
-    description: "Help the right people discover your business and understand why it matters to them.",
+    description: "Introduce your business to the right people and give them a reason to get in touch.",
     scope: "Search & content · Paid campaigns · Performance review",
     icon: Megaphone,
     href: "/services/digital-marketing",
   },
   {
     title: "Sales & business support",
-    description: "Make enquiries easier to manage and follow-up more consistent.",
+    description: "Keep track of enquiries, follow up with potential customers, and build lasting relationships.",
     scope: "Sales processes · CRM support · Customer retention",
     icon: Handshake,
     href: "/services/sales-support",
@@ -39,13 +39,13 @@ export default function Services() {
       <Container className="max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
           <div className="self-start lg:sticky lg:top-28">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-gold-light">Our digital & sales services</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-gold-light">Services for your startup</p>
             <h2 id="services-heading" className="mt-5 text-3xl font-medium leading-[1.15] tracking-[-0.035em] sm:text-4xl lg:text-5xl">
-              The plan is clear.<br /><span className="font-serif italic text-gold-light">Let&apos;s build on it.</span>
+              Get your business ready.<br /><span className="font-serif italic text-gold-light">Start reaching customers.</span>
             </h2>
-            <p className="mt-6 max-w-sm text-base leading-8 text-white/65">When it is time to deliver, we bring together the skills your project needs. Start with one service or combine support around a shared goal.</p>
+            <p className="mt-6 max-w-sm text-base leading-8 text-white/65">From your first website to your launch marketing, choose the support your business needs now. We can help you decide where to start.</p>
             <Link href="/start-project" className="mt-8 inline-flex min-h-12 items-center gap-3 rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-gold-light hover:text-gold-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light">
-              Tell us about your project <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              Tell us what you need <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
 

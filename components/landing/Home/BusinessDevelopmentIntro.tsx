@@ -6,19 +6,19 @@ import advisoryImage from "@/public/images/business devlopment/after-support-ret
 
 const support = [
   {
-    title: "Find your direction",
+    title: "Shape your business idea",
     description:
-      "Clarify your message, choose your niche, and build a practical setup plan.",
+      "Decide what you will offer, who it is for, and why they would choose you.",
   },
   {
-    title: "Put the plan to work",
+    title: "Plan your first steps",
     description:
-      "Set priorities, organise the work, and give your marketing a clear purpose.",
+      "Set your priorities and prepare a practical plan for getting started.",
   },
   {
-    title: "Build better customer relationships",
+    title: "Prepare to reach customers",
     description:
-      "Improve the journey from first enquiry to follow-up and repeat business.",
+      "Plan how people will find your business and how you will follow up.",
   },
 ];
 
@@ -52,13 +52,13 @@ export default function BusinessDevelopmentIntro() {
               id="business-support-heading"
               className="mt-4 text-3xl font-medium leading-[1.15] tracking-[-0.04em] text-heading sm:text-4xl lg:text-5xl"
             >
-              A good idea deserves
-              <br className="hidden sm:block" /> a clear next step.
+              Start your business
+              <br className="hidden sm:block" /> with a clear plan.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-8 text-body">
-              You may know what you want to build, but not who to sell to, what
-              to do first, or where to spend. We help you work through those
-              decisions and turn them into practical action.
+              Starting a business brings a lot of decisions. Blackcrest helps you
+              understand your customers, choose your priorities, and plan what
+              to do first. You can begin with an idea and work through it with us.
             </p>
             <div className="mt-8 divide-y divide-border border-y border-border">
               {support.map((item, index) => (
@@ -81,7 +81,7 @@ export default function BusinessDevelopmentIntro() {
               href="/services/business-development"
               className="mt-7 inline-flex min-h-12 items-center gap-3 rounded-full bg-navy-deep px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-secondary hover:text-secondary-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary"
             >
-              Explore business development{" "}
+              Explore startup support{" "}
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>

@@ -24,7 +24,21 @@ export default function HomePage() {
       <WhoWeServe />
       <Services />
       <DeliveryModel />
-      <CTA />
+      <CTA
+        copy={{
+          title: "Have an idea?",
+          emphasis: "Let's talk about it.",
+          description:
+            "Tell us what you want to start and where you need help. We will talk through your options and help you choose a practical first step.",
+          trustPoints: [
+            "A conversation about your business idea",
+            "Help deciding what to do first",
+            "Support matched to your needs",
+          ],
+          reassurance:
+            "You do not need a finished business plan to get in touch. Bring your questions, and we can work through them together.",
+        }}
+      />
       <BusinessHelpFinder />
     </PageWrapper>
   );

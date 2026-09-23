@@ -4,30 +4,30 @@ import { Container } from "@/components/ui/Container";
 
 const stages = [
   {
-    label: "Starting out",
-    title: "An idea. A lot of questions.",
-    description: "You want to start a business but need to decide what to offer, who it is for, and how to get going.",
-    priorities: ["Choose a focused niche", "Plan the essentials for launch", "Decide what to do first"],
+    label: "Your idea",
+    title: "Have a business idea?",
+    description: "Work out who your business will serve, what you will offer, and where to begin.",
+    priorities: ["Identify your target customers", "Clarify what you will offer", "Decide what to do first"],
     href: "/services/business-development/business-setup-plan",
-    link: "Find your starting point",
+    link: "Plan your business",
     icon: Sprout,
   },
   {
-    label: "Building momentum",
-    title: "Customers. Room to grow.",
-    description: "You are already operating, but your marketing, enquiries, or follow-up need a clearer direction.",
-    priorities: ["Focus your marketing", "Improve the sales journey", "Keep customers coming back"],
-    href: "/services/business-development/marketing-growth",
-    link: "Explore growth support",
+    label: "Your launch",
+    title: "Ready to get started?",
+    description: "Bring your plan together with the website, marketing, and sales support you need to launch.",
+    priorities: ["Prepare your online presence", "Plan your launch marketing", "Get ready to handle enquiries"],
+    href: "#services",
+    link: "Explore launch services",
     icon: TrendingUp,
   },
   {
-    label: "Taking the next step",
-    title: "An established business. A new priority.",
-    description: "Your team needs support with a website, app, campaign, or sales improvement that has a clear purpose.",
-    priorities: ["Improve a digital experience", "Bring in specialist support", "Deliver an agreed project"],
-    href: "#services",
-    link: "Find the right service",
+    label: "Your first customers",
+    title: "Already started?",
+    description: "Get support with reaching more people, following up on enquiries, and building customer relationships.",
+    priorities: ["Reach the right audience", "Improve your follow-up", "Encourage repeat business"],
+    href: "/services/business-development/marketing-growth",
+    link: "Find your first customers",
     icon: Building2,
   },
 ];
@@ -39,9 +39,9 @@ export default function WhoWeServe() {
         <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-secondary">Who we help</p>
-            <h2 id="business-stages-heading" className="mt-4 max-w-xl text-3xl font-medium leading-tight tracking-[-0.035em] text-heading sm:text-4xl">Where are you in your business?</h2>
+            <h2 id="business-stages-heading" className="mt-4 max-w-xl text-3xl font-medium leading-tight tracking-[-0.035em] text-heading sm:text-4xl">Support at every stage.</h2>
           </div>
-          <p className="max-w-sm text-sm leading-7 text-body">Start with the situation that feels familiar. You do not need to know the name of the service yet.</p>
+          <p className="max-w-sm text-sm leading-7 text-body">Whether you have an idea, are preparing to launch, or have just started, we can help you decide what to do next.</p>
         </div>
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
           {stages.map((stage) => {

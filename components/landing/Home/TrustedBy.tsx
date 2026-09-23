@@ -2,9 +2,9 @@ import { ClipboardCheck, MessagesSquare, Focus } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 
 const expectations = [
-  { title: "Start with your business", description: "Your goals shape the work.", icon: Focus },
-  { title: "Know what is agreed", description: "Clear scope and priorities before we begin.", icon: ClipboardCheck },
-  { title: "Stay in the conversation", description: "Direct communication as work progresses.", icon: MessagesSquare },
+  { title: "Your idea comes first", description: "Advice shaped around the business you want to start.", icon: Focus },
+  { title: "A clear plan", description: "Know what to focus on and what comes next.", icon: ClipboardCheck },
+  { title: "Support along the way", description: "Work with a team you can talk to.", icon: MessagesSquare },
 ];
 
 export default function TrustedBy() {

@@ -15,39 +15,39 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 
 const coreResponsibilities = [
-  "Project direction and priorities",
-  "Clear client communication",
-  "Quality and delivery oversight",
-  "One accountable point of contact",
+  "An agreed plan and priorities",
+  "Regular updates in plain language",
+  "Checks on quality and progress",
+  "One main point of contact",
 ];
 
 const partnerCapabilities = [
-  "Specialist technical expertise",
+  "Website and app development",
   "Design, marketing, and sales support",
-  "Extra capacity for the right scope",
-  "Support chosen for the project need",
+  "Extra support when the work needs it",
+  "Skills matched to your business needs",
 ];
 
 const steps = [
   {
     number: "01",
     title: "Understand",
-    description: "Your goal, users, challenge, and priorities.",
+    description: "We listen to your idea and what you need help with.",
   },
   {
     number: "02",
     title: "Plan",
-    description: "The right scope, solution, and delivery path.",
+    description: "We agree the priorities, work, and next steps.",
   },
   {
     number: "03",
-    title: "Build",
-    description: "Focused work, coordinated support, and clear updates.",
+    title: "Deliver",
+    description: "We carry out the agreed work and keep you informed.",
   },
   {
     number: "04",
     title: "Improve",
-    description: "Review progress and decide the next useful step.",
+    description: "We review progress and decide what to focus on next.",
   },
 ];
 
@@ -95,7 +95,7 @@ export default function DeliveryModel() {
             className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary"
           >
             <Workflow className="h-4 w-4" />
-            How we deliver
+            How we work with you
           </motion.div>
 
           <motion.h2
@@ -105,9 +105,9 @@ export default function DeliveryModel() {
             transition={{ delay: 0.08 }}
             className="mt-5 text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]"
           >
-            Focused ownership.
+            One team to guide you.
             <span className="block text-muted-foreground">
-              Specialist support when it adds value.
+              Support to get things done.
             </span>
           </motion.h2>
 
@@ -118,10 +118,9 @@ export default function DeliveryModel() {
             transition={{ delay: 0.15 }}
             className="mx-auto mt-6 max-w-2xl text-base leading-8 text-body"
           >
-            A focused Blackcrest team keeps the work connected to your goals,
-            communication, and quality. When a project needs specific
-            expertise, we bring in the right support and keep delivery
-            coordinated.
+            You work directly with Blackcrest from the first conversation. We
+            help plan the work, bring in specialist partners when needed, and
+            keep you informed so you know what is happening.
           </motion.p>
         </div>
 
@@ -162,12 +161,12 @@ export default function DeliveryModel() {
               </div>
 
               <h3 className="mt-7 text-2xl font-semibold tracking-[-0.03em] text-heading">
-                Focused Blackcrest Team
+                Your Blackcrest team
               </h3>
 
               <p className="mt-3 text-sm leading-7 text-body">
-                Blackcrest owns the relationship, priorities, delivery
-                direction, and quality from the first conversation onward.
+                We help you make decisions, agree the next steps, and keep the
+                work focused on your business.
               </p>
 
               <div className="mt-6 space-y-3 border-t border-border pt-5">
@@ -275,13 +274,12 @@ export default function DeliveryModel() {
               </div>
 
               <h3 className="mt-7 text-2xl font-semibold tracking-[-0.03em] text-heading">
-                Specialist Support When Needed
+                The right specialists
               </h3>
 
               <p className="mt-3 text-sm leading-7 text-body">
-                When the scope calls for additional expertise or capacity, we
-                bring in the right support while Blackcrest remains accountable
-                for a coordinated delivery.
+                When your business needs skills in development, design, marketing,
+                or sales, we involve specialist partners and coordinate their work.
               </p>
 
               <div className="mt-6 space-y-3 border-t border-border pt-5">
@@ -319,8 +317,8 @@ export default function DeliveryModel() {
                 One clear point of contact
               </p>
               <p className="mt-1 text-sm text-muted-foreground">
-                You work directly with Blackcrest while the people supporting
-                the project stay aligned around the same priorities.
+                You keep one main point of contact at Blackcrest, even when
+                specialist partners are involved.
               </p>
             </div>
           </div>
@@ -344,17 +342,17 @@ export default function DeliveryModel() {
           >
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-secondary">
-                How delivery moves
+                Your next steps
               </p>
 
               <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-heading sm:text-3xl">
-                From first conversation to practical progress.
+                A simple process, from day one.
               </h3>
             </div>
 
             <p className="max-w-md text-sm leading-6 text-muted-foreground">
-              Every engagement has a clear rhythm, with the flexibility to fit
-              your goals, timeline, and the work that matters most.
+              We agree what you need, explain the work, and review progress
+              together as your business takes shape.
             </p>
           </motion.div>
 

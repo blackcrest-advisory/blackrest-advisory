@@ -7,13 +7,29 @@ import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 
-const trustPoints = [
-  "A clear conversation about your goal",
-  "Practical next-step guidance",
-  "The right service mix for your needs",
-];
+type CTACopy = {
+  title: string;
+  emphasis: string;
+  description: string;
+  trustPoints: string[];
+  reassurance: string;
+};
 
-const CTA = () => {
+const defaultCopy: CTACopy = {
+  title: "You don't need all the answers",
+  emphasis: "to take the first step.",
+  description:
+    "Tell us about your idea, your business, or the challenge holding you back. We will help you understand where to start and which support fits your next step.",
+  trustPoints: [
+    "A clear conversation about your goal",
+    "Practical next-step guidance",
+    "The right service mix for your needs",
+  ],
+  reassurance:
+    "Start with the challenge in front of you. We will help you clarify what matters most and where Blackcrest can help.",
+};
+
+const CTA = ({ copy = defaultCopy }: { copy?: CTACopy }) => {
   return (
     <Section className="relative overflow-hidden bg-muted/20">
       <Container>
@@ -95,9 +111,9 @@ const CTA = () => {
                 }}
                 className="mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]"
               >
-                You don&apos;t need all the answers
+                {copy.title}
                 <span className="block text-white/60">
-                  to take the first step.
+                  {copy.emphasis}
                 </span>
               </motion.h2>
 
@@ -108,9 +124,7 @@ const CTA = () => {
                 transition={{ delay: 0.15, duration: 0.55 }}
                 className="mt-6 max-w-2xl text-base leading-8 text-white/60"
               >
-                Tell us about your idea, your business, or the challenge holding
-                you back. We will help you understand where to start and which
-                support fits your next step.
+                {copy.description}
               </motion.p>
 
               {/* CTA buttons */}
@@ -154,7 +168,7 @@ const CTA = () => {
               </p>
 
               <div className="mt-5 space-y-4">
-                {trustPoints.map((point, index) => (
+                {copy.trustPoints.map((point, index) => (
                   <motion.div
                     key={point}
                     initial={{ opacity: 0, x: 12 }}
@@ -179,8 +193,7 @@ const CTA = () => {
 
               <div className="mt-8 border-t border-white/10 pt-6">
                 <p className="text-sm leading-6 text-white/60">
-                  Start with the challenge in front of you. We will help you
-                  clarify what matters most and where Blackcrest can help.
+                  {copy.reassurance}
                 </p>
               </div>
             </motion.div>
