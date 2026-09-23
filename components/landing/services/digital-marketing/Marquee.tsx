@@ -40,7 +40,7 @@ export default function Marquee() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="relative isolate mt-4 overflow-hidden border-y border-border bg-primary py-7 text-primary-foreground lg:mt-8 lg:py-9">
+    <section className="relative isolate mt-4 overflow-hidden border-y border-border bg-navy-deep py-7 text-white lg:mt-8 lg:py-9">
       {/*===== BACKGROUND GRID =====*/}
 
       <div

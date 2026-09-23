@@ -1,5 +1,6 @@
 import {
   ChartNoAxesCombined,
+  ChartSpline,
   ContactRound,
   Landmark,
   LibraryBig,
@@ -96,6 +97,11 @@ export const adminNavGroups: NavGroup[] = [
         label: "Reports",
         href: "/admin/dashboard/reports",
         icon: ChartNoAxesCombined,
+      },
+      {
+        label: "Popup Analytics",
+        href: "/admin/dashboard/popup-analytics",
+        icon: ChartSpline,
       },
     ],
   },

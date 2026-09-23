@@ -95,9 +95,9 @@ const CTA = () => {
                 }}
                 className="mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]"
               >
-                Let&apos;s make your next
-                <span className="block text-white/40">
-                  digital move a clear one.
+                You don&apos;t need all the answers
+                <span className="block text-white/60">
+                  to take the first step.
                 </span>
               </motion.h2>
 
@@ -106,11 +106,11 @@ const CTA = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.15, duration: 0.55 }}
-                className="mt-6 max-w-2xl text-base leading-8 text-white/55"
+                className="mt-6 max-w-2xl text-base leading-8 text-white/60"
               >
-                Tell us what you want to build, improve, or make easier. We can
-                help you identify a practical next step - from a website or
-                mobile product to digital marketing or sales support.
+                Tell us about your idea, your business, or the challenge holding
+                you back. We will help you understand where to start and which
+                support fits your next step.
               </motion.p>
 
               {/* CTA buttons */}
@@ -132,10 +132,9 @@ const CTA = () => {
                 </Button>
 
                 <Button
-                  variant="outline"
+                  variant="outline-inverse"
                   size="md"
                   href="/start-project"
-                  className="border-white/15 bg-white/[0.04] text-white hover:border-white/25 hover:bg-white/[0.08]"
                 >
                   Share your project
                 </Button>
@@ -150,7 +149,7 @@ const CTA = () => {
               transition={{ delay: 0.16, duration: 0.55 }}
               className="border-t border-white/10 pt-7 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/35">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
                 What to expect
               </p>
 
@@ -179,7 +178,7 @@ const CTA = () => {
               </div>
 
               <div className="mt-8 border-t border-white/10 pt-6">
-                <p className="text-sm leading-6 text-white/45">
+                <p className="text-sm leading-6 text-white/60">
                   Start with the challenge in front of you. We will help you
                   clarify what matters most and where Blackcrest can help.
                 </p>
@@ -195,12 +194,12 @@ const CTA = () => {
             transition={{ delay: 0.35, duration: 0.6 }}
             className="relative mt-14 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs sm:flex-row sm:items-center sm:justify-between"
           >
-            <span className="text-white/30">Blackcrest Advisory</span>
+            <span className="text-white/60">Blackcrest Advisory</span>
 
-            <div className="flex flex-wrap items-center gap-3 font-medium text-white/45">
-              <span>Web</span>
+            <div className="flex flex-wrap items-center gap-3 font-medium text-white/60">
+              <span>Business advice</span>
               <span className="h-1 w-1 rounded-full bg-secondary/70" />
-              <span>Mobile</span>
+              <span>Digital services</span>
               <span className="h-1 w-1 rounded-full bg-secondary/70" />
               <span>Marketing</span>
               <span className="h-1 w-1 rounded-full bg-secondary/70" />

@@ -92,7 +92,7 @@ export const SalesHero = () => {
           </aside>
         </div>
 
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-3 border-x border-t border-border bg-primary px-5 py-4 text-white sm:px-7">
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-3 border-x border-t border-border bg-navy-deep px-5 py-4 text-white sm:px-7">
           <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-gold-light">
             A practical path
           </span>

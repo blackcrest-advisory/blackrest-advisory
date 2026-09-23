@@ -170,7 +170,7 @@ export const HowWeOperateSection = () => {
               className="mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-6xl"
             >
               Structured enough for clarity.
-              <span className="block text-white/35">
+              <span className="block text-white/60">
                 Flexible enough for reality.
               </span>
             </motion.h2>
@@ -181,7 +181,7 @@ export const HowWeOperateSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.14 }}
-            className="max-w-lg text-sm leading-7 text-white/55 sm:text-base"
+            className="max-w-lg text-sm leading-7 text-white/60 sm:text-base"
           >
             We use a disciplined operating model without forcing every client
             into the same process. The principles stay consistent; the delivery
@@ -213,7 +213,7 @@ export const HowWeOperateSection = () => {
                   ${
                     isActive
                       ? "text-white"
-                      : "text-white/35 hover:text-white/70"
+                      : "text-white/60 hover:text-white/70"
                   }
                 `}
               >
@@ -288,7 +288,7 @@ export const HowWeOperateSection = () => {
                 </div>
 
                 <div>
-                  <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/60">
                     Operating principle
                   </p>
 
@@ -302,7 +302,7 @@ export const HowWeOperateSection = () => {
                 {active.headline}
               </h3>
 
-              <p className="mt-6 max-w-2xl text-base leading-8 text-white/55">
+              <p className="mt-6 max-w-2xl text-base leading-8 text-white/60">
                 {active.description}
               </p>
 
@@ -327,7 +327,7 @@ export const HowWeOperateSection = () => {
                       </span>
                     </div>
 
-                    <span className="font-mono text-[9px] text-white/20">
+                    <span className="font-mono text-[9px] text-white/60">
                       0{index + 1}
                     </span>
                   </motion.div>
@@ -346,7 +346,7 @@ export const HowWeOperateSection = () => {
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/30">
+                <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/60">
                   Engagement system
                 </p>
 
@@ -416,7 +416,7 @@ export const HowWeOperateSection = () => {
                           {step}
                         </p>
 
-                        <p className="mt-1 text-xs text-white/35">
+                        <p className="mt-1 text-xs text-white/60">
                           {index === 0 &&
                             "Understand the commercial context first."}
                           {index === 1 &&
@@ -428,7 +428,7 @@ export const HowWeOperateSection = () => {
                         </p>
                       </div>
 
-                      <ArrowUpRight className="h-3.5 w-3.5 text-white/20" />
+                      <ArrowUpRight className="h-3.5 w-3.5 text-white/60" />
                     </div>
                   </motion.div>
                 ))}
@@ -457,13 +457,13 @@ export const HowWeOperateSection = () => {
           viewport={{ once: true }}
           className="grid gap-5 border-t border-white/10 pt-7 sm:grid-cols-[1fr_auto] sm:items-center"
         >
-          <p className="max-w-2xl text-sm leading-7 text-white/40">
+          <p className="max-w-2xl text-sm leading-7 text-white/60">
             Good delivery should feel predictable without becoming rigid. That
             balance is what the Blackcrest operating model is designed to
             achieve.
           </p>
 
-          <div className="flex flex-wrap items-center gap-3 font-mono text-[9px] uppercase tracking-[0.15em] text-white/35">
+          <div className="flex flex-wrap items-center gap-3 font-mono text-[9px] uppercase tracking-[0.15em] text-white/60">
             Clarity
             <span className="h-1 w-1 rounded-full bg-gold" />
             Ownership

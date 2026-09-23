@@ -27,40 +27,24 @@ const capabilities = [
     title: "B2B Sales Strategy",
     meta: "Strategy",
     description: "Commercial plans aligned with market and growth goals.",
-    accent:
-      "border-blue-500/20 bg-blue-500/10 text-blue-600 dark:text-blue-400",
-    cardBg: "bg-blue-500/[0.045] dark:bg-blue-400/[0.035]",
-    glow: "bg-blue-500/20",
   },
   {
     icon: BadgeDollarSign,
     title: "Sales Funnel Optimisation",
     meta: "Conversion",
     description: "Improve conversion across every stage of the buying journey.",
-    accent:
-      "border-violet-500/20 bg-violet-500/10 text-violet-600 dark:text-violet-400",
-    cardBg: "bg-violet-500/[0.045] dark:bg-violet-400/[0.035]",
-    glow: "bg-violet-500/20",
   },
   {
     icon: Settings,
     title: "CRM & Pipeline Setup",
     meta: "Operations",
     description: "Build a clearer CRM structure and healthier sales pipeline.",
-    accent:
-      "border-cyan-500/20 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400",
-    cardBg: "bg-cyan-500/[0.045] dark:bg-cyan-400/[0.035]",
-    glow: "bg-cyan-500/20",
   },
   {
     icon: Rocket,
     title: "Lead Generation",
     meta: "Acquisition",
     description: "Create focused programmes designed for better-fit prospects.",
-    accent:
-      "border-rose-500/20 bg-rose-500/10 text-rose-600 dark:text-rose-400",
-    cardBg: "bg-rose-500/[0.045] dark:bg-rose-400/[0.035]",
-    glow: "bg-rose-500/20",
   },
   {
     icon: FileText,
@@ -68,20 +52,12 @@ const capabilities = [
     meta: "Sales Enablement",
     description:
       "Sharper proposals and sales material for stronger conversations.",
-    accent:
-      "border-amber-500/20 bg-amber-500/10 text-amber-600 dark:text-amber-400",
-    cardBg: "bg-amber-500/[0.045] dark:bg-amber-400/[0.035]",
-    glow: "bg-amber-500/20",
   },
   {
     icon: Presentation,
     title: "Sales Team Coaching",
     meta: "Enablement",
     description: "Improve process, communication, and commercial confidence.",
-    accent:
-      "border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
-    cardBg: "bg-emerald-500/[0.045] dark:bg-emerald-400/[0.035]",
-    glow: "bg-emerald-500/20",
   },
   {
     icon: Handshake,
@@ -89,39 +65,24 @@ const capabilities = [
     meta: "Retention",
     description:
       "Strengthen relationships and create longer-term account value.",
-    accent:
-      "border-pink-500/20 bg-pink-500/10 text-pink-600 dark:text-pink-400",
-    cardBg: "bg-pink-500/[0.045] dark:bg-pink-400/[0.035]",
-    glow: "bg-pink-500/20",
   },
   {
     icon: BriefcaseBusiness,
     title: "Business Development",
     meta: "Growth",
     description: "Identify opportunities and build more consistent growth.",
-    accent:
-      "border-indigo-500/20 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400",
-    cardBg: "bg-indigo-500/[0.045] dark:bg-indigo-400/[0.035]",
-    glow: "bg-indigo-500/20",
   },
   {
     icon: UserRoundCheck,
     title: "Account Growth",
     meta: "Expansion",
     description: "Find opportunities to deepen valuable client relationships.",
-    accent:
-      "border-teal-500/20 bg-teal-500/10 text-teal-600 dark:text-teal-400",
-    cardBg: "bg-teal-500/[0.045] dark:bg-teal-400/[0.035]",
-    glow: "bg-teal-500/20",
   },
   {
     icon: Search,
     title: "Market Opportunity Research",
     meta: "Research",
     description: "Understand target segments, gaps, and buying signals.",
-    accent: "border-sky-500/20 bg-sky-500/10 text-sky-600 dark:text-sky-400",
-    cardBg: "bg-sky-500/[0.045] dark:bg-sky-400/[0.035]",
-    glow: "bg-sky-500/20",
   },
   {
     icon: BarChart3,
@@ -129,10 +90,6 @@ const capabilities = [
     meta: "Insights",
     description:
       "Create clearer visibility around pipeline health and activity.",
-    accent:
-      "border-orange-500/20 bg-orange-500/10 text-orange-600 dark:text-orange-400",
-    cardBg: "bg-orange-500/[0.045] dark:bg-orange-400/[0.035]",
-    glow: "bg-orange-500/20",
   },
   {
     icon: Megaphone,
@@ -140,10 +97,6 @@ const capabilities = [
     meta: "Positioning",
     description:
       "Improve how value is communicated throughout the sales process.",
-    accent:
-      "border-fuchsia-500/20 bg-fuchsia-500/10 text-fuchsia-600 dark:text-fuchsia-400",
-    cardBg: "bg-fuchsia-500/[0.045] dark:bg-fuchsia-400/[0.035]",
-    glow: "bg-fuchsia-500/20",
   },
   {
     icon: ChartNoAxesCombined,
@@ -151,19 +104,12 @@ const capabilities = [
     meta: "Process",
     description:
       "Create a repeatable structure your commercial team can follow.",
-    accent:
-      "border-lime-500/20 bg-lime-500/10 text-lime-600 dark:text-lime-400",
-    cardBg: "bg-lime-500/[0.045] dark:bg-lime-400/[0.035]",
-    glow: "bg-lime-500/20",
   },
   {
     icon: TrendingUp,
     title: "Growth Planning",
     meta: "Planning",
     description: "Connect sales activity with practical commercial priorities.",
-    accent: "border-red-500/20 bg-red-500/10 text-red-600 dark:text-red-400",
-    cardBg: "bg-red-500/[0.045] dark:bg-red-400/[0.035]",
-    glow: "bg-red-500/20",
   },
 ];
 
@@ -181,10 +127,10 @@ export const SalesCapabilities = () => {
     >
       {/*===== Ambient glow =====*/}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute left-[8%] top-[32%] h-64 w-64 rounded-full bg-blue-500/10 blur-[120px]" />
-        <div className="absolute left-[38%] top-[45%] h-72 w-72 rounded-full bg-violet-500/10 blur-[130px]" />
-        <div className="absolute right-[16%] top-[30%] h-64 w-64 rounded-full bg-emerald-500/10 blur-[120px]" />
-        <div className="absolute bottom-[5%] right-[38%] h-64 w-64 rounded-full bg-amber-500/10 blur-[130px]" />
+        <div className="absolute left-[8%] top-[32%] h-64 w-64 rounded-full bg-secondary/5 blur-[120px]" />
+        <div className="absolute left-[38%] top-[45%] h-72 w-72 rounded-full bg-secondary/5 blur-[130px]" />
+        <div className="absolute right-[16%] top-[30%] h-64 w-64 rounded-full bg-secondary/5 blur-[120px]" />
+        <div className="absolute bottom-[5%] right-[38%] h-64 w-64 rounded-full bg-secondary/5 blur-[130px]" />
       </div>
 
       <Container>
@@ -294,22 +240,22 @@ function CapabilityCard({ item }: { item: (typeof capabilities)[number] }) {
 
   return (
     <article
-      className={`group relative w-[220px] shrink-0 overflow-hidden border border-border/80 p-3.5 shadow-[var(--shadow-card)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-secondary/20 hover:shadow-[var(--shadow-card-hover)] sm:w-[235px] ${item.cardBg}`}
+      className="group relative w-[220px] shrink-0 overflow-hidden border border-border/80 p-3.5 shadow-[var(--shadow-card)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-secondary/20 hover:shadow-[var(--shadow-card-hover)] sm:w-[235px] bg-card"
     >
       {/*===== Card glow =====*/}
       <div
-        className={`pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-30 blur-3xl transition-opacity duration-300 group-hover:opacity-60 ${item.glow}`}
+        className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-30 blur-3xl transition-opacity duration-300 group-hover:opacity-60 bg-secondary/20"
       />
 
       {/*===== Card top =====*/}
       <div className="relative z-10 flex items-center justify-between gap-3">
         <div
-          className={`flex h-8 w-8 shrink-0 items-center justify-center border ${item.accent}`}
+          className="flex h-8 w-8 shrink-0 items-center justify-center border border-secondary/20 bg-secondary/10 text-secondary"
         >
           <Icon className="h-3.5 w-3.5" />
         </div>
 
-        <span className="font-mono text-[6px] font-semibold uppercase tracking-[0.13em] text-muted-foreground/40">
+        <span className="font-mono text-[6px] font-semibold uppercase tracking-[0.13em] text-muted-foreground">
           {item.meta}
         </span>
       </div>
@@ -328,9 +274,9 @@ function CapabilityCard({ item }: { item: (typeof capabilities)[number] }) {
       {/*===== Card footer =====*/}
       <div className="relative z-10 mt-3 flex items-center gap-2 border-t border-border/60 pt-2.5">
         <span
-          className={`h-1 w-1 rounded-full ${item.glow.replace("/20", "")}`}
+          className="h-1 w-1 rounded-full bg-secondary"
         />
-        <span className="font-mono text-[5px] font-semibold uppercase tracking-[0.12em] text-muted-foreground/30">
+        <span className="font-mono text-[5px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
           Commercial Support
         </span>
       </div>

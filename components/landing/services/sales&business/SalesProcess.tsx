@@ -43,7 +43,7 @@ export const SalesProcess = () => {
           })}
         </div>
 
-        <div className="mt-8 flex flex-col gap-5 border border-border bg-primary px-5 py-6 text-white sm:px-7 sm:py-7 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mt-8 flex flex-col gap-5 border border-border bg-navy-deep px-5 py-6 text-white sm:px-7 sm:py-7 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-gold-light">Start with a useful conversation</span>
             <p className="mt-2 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">Tell us where sales or customer support feels difficult. We can help you identify a clear and realistic next step.</p>

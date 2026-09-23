@@ -835,7 +835,7 @@ const Hero = () => {
 
               <div className="flex items-center gap-3 border-t border-border pt-3">
                 <span className="font-mono text-[8px] font-semibold uppercase tracking-[0.2em] text-secondary">
-                  Europe · Technology · Growth
+                  Business · Growth · Solution
                 </span>
 
                 <span className="hidden h-px flex-1 bg-border sm:block" />

@@ -78,7 +78,7 @@ export const EngagementProcess = () => {
 
             <h2 className="mt-5 max-w-2xl text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]">
               Clear from the start.
-              <span className="block text-white/40">Useful at every step.</span>
+              <span className="block text-white/60">Useful at every step.</span>
             </h2>
           </motion.div>
 
@@ -87,7 +87,7 @@ export const EngagementProcess = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="max-w-xl text-sm leading-7 text-white/55 sm:text-base lg:justify-self-end"
+            className="max-w-xl text-sm leading-7 text-white/60 sm:text-base lg:justify-self-end"
           >
             The process stays simple: understand the real need, decide what is
             useful, deliver with visibility, and improve from what we learn.
@@ -122,7 +122,7 @@ export const EngagementProcess = () => {
                   </span>
                 </div>
 
-                <p className="mt-3 max-w-xs text-sm leading-7 text-white/50">
+                <p className="mt-3 max-w-xs text-sm leading-7 text-white/60">
                   {step.description}
                 </p>
               </motion.article>
@@ -135,13 +135,13 @@ export const EngagementProcess = () => {
             <div className="flex h-8 w-8 items-center justify-center border border-secondary/20 bg-secondary/[0.08] text-gold-light">
               <Check className="h-3.5 w-3.5" />
             </div>
-            <p className="text-sm text-white/55">
+            <p className="text-sm text-white/60">
               You stay informed about priorities, progress, and the decisions
               shaping the work.
             </p>
           </div>
 
-          <span className="font-mono text-[9px] uppercase tracking-[0.17em] text-white/35">
+          <span className="font-mono text-[9px] uppercase tracking-[0.17em] text-white/60">
             Understand / Plan / Build / Improve
           </span>
         </div>

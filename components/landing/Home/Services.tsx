@@ -1,237 +1,77 @@
-"use client";
-
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
-import {
-  ArrowUpRight,
-  BarChart3,
-  Check,
-  Globe2,
-  Handshake,
-  Smartphone,
-} from "lucide-react";
-
+import { ArrowUpRight, Globe2, Smartphone, Megaphone, Handshake } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { Section } from "@/components/ui/Section";
 
 const services = [
   {
-    number: "01",
-    eyebrow: "Digital foundation",
-    title: "Web Development",
-    description:
-      "Websites and platforms built to explain your value clearly, earn trust, and make the next customer action easier.",
+    title: "Website development",
+    description: "Give people a clear place to understand your offer, enquire, or buy.",
+    scope: "Business websites · E-commerce · Web applications",
     icon: Globe2,
-    features: [
-      "Business websites",
-      "Web applications",
-      "E-commerce experiences",
-      "Performance improvements",
-    ],
     href: "/services/website-development",
   },
   {
-    number: "02",
-    eyebrow: "Product experience",
-    title: "Mobile Applications",
-    description:
-      "Mobile products designed around practical customer journeys, clear product experiences, and the needs of your business.",
+    title: "Mobile applications",
+    description: "Make your product or service easier to use on the devices your customers carry.",
+    scope: "iOS & Android · App design · Product improvements",
     icon: Smartphone,
-    features: [
-      "iOS and Android apps",
-      "Cross-platform products",
-      "Product UX",
-      "App improvements",
-    ],
     href: "/services/mobile-applications",
   },
   {
-    number: "03",
-    eyebrow: "Demand generation",
-    title: "Digital Marketing",
-    description:
-      "Marketing activity that helps the right audience find your business, understand your offer, and take the next step.",
-    icon: BarChart3,
-    features: [
-      "SEO and content",
-      "Paid campaigns",
-      "Conversion improvement",
-      "Performance reporting",
-    ],
+    title: "Digital marketing",
+    description: "Help the right people discover your business and understand why it matters to them.",
+    scope: "Search & content · Paid campaigns · Performance review",
+    icon: Megaphone,
     href: "/services/digital-marketing",
   },
   {
-    number: "04",
-    eyebrow: "Commercial momentum",
-    title: "Sales & Business Support",
-    description:
-      "Focused support for stronger sales processes, clearer opportunities, and better follow-through with your customers.",
+    title: "Sales & business support",
+    description: "Make enquiries easier to manage and follow-up more consistent.",
+    scope: "Sales processes · CRM support · Customer retention",
     icon: Handshake,
-    features: [
-      "Sales process design",
-      "CRM support",
-      "Pipeline improvement",
-      "Client retention",
-    ],
     href: "/services/sales-support",
   },
 ];
 
 export default function Services() {
-  const reduceMotion = Boolean(useReducedMotion());
-
   return (
-    <Section className="relative overflow-hidden border-y border-border bg-background">
-      {/*===== BACKGROUND =====*/}
-
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute -right-48 top-1/4 h-[34rem] w-[34rem] rounded-full bg-secondary/[0.045] blur-[140px]" />
-
-        <div
-          className="absolute inset-0 hidden opacity-[0.08] lg:block"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, var(--color-border) 1px, transparent 1px)",
-            backgroundSize: "25% 100%",
-          }}
-        />
-      </div>
-
-      <Container className="relative">
-        {/*===== HEADER =====*/}
-
-        <div className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-          <motion.div
-            initial={{ opacity: 0, x: reduceMotion ? 0 : -18 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: reduceMotion ? 0 : 0.6 }}
-          >
-            <div className="flex items-center gap-3">
-              <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
-
-              <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-secondary">
-                What we build
-              </span>
-
-              <span className="h-px w-10 bg-secondary/40" />
-            </div>
-
-            <h2 className="mt-5 max-w-2xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]">
-              The digital work
-              <span className="block text-muted-foreground">
-                that moves business forward.
-              </span>
+    <section id="services" aria-labelledby="services-heading" className="scroll-mt-24 bg-navy-deep py-16 text-white sm:py-24">
+      <Container className="max-w-7xl">
+        <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+          <div className="self-start lg:sticky lg:top-28">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-gold-light">Our digital & sales services</p>
+            <h2 id="services-heading" className="mt-5 text-3xl font-medium leading-[1.15] tracking-[-0.035em] sm:text-4xl lg:text-5xl">
+              The plan is clear.<br /><span className="font-serif italic text-gold-light">Let&apos;s build on it.</span>
             </h2>
-          </motion.div>
+            <p className="mt-6 max-w-sm text-base leading-8 text-white/65">When it is time to deliver, we bring together the skills your project needs. Start with one service or combine support around a shared goal.</p>
+            <Link href="/start-project" className="mt-8 inline-flex min-h-12 items-center gap-3 rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-gold-light hover:text-gold-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light">
+              Tell us about your project <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: reduceMotion ? 0 : 0.1, duration: 0.55 }}
-            className="lg:justify-self-end"
-          >
-            <p className="max-w-xl text-sm leading-7 text-body sm:text-base">
-              From a first website to a mobile product, marketing activity, or
-              a stronger sales process, we provide focused support where it can
-              create the most value.
-            </p>
-          </motion.div>
-        </div>
-
-        {/*===== SERVICE GRID =====*/}
-
-        <div className="mt-10 grid overflow-hidden border border-border bg-card shadow-[var(--shadow-card)] md:grid-cols-2">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-
-            return (
-              <motion.article
-                key={service.title}
-                initial={{ opacity: 0, y: reduceMotion ? 0 : 22 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  delay: reduceMotion ? 0 : index * 0.07,
-                  duration: reduceMotion ? 0 : 0.55,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className={`group relative flex min-w-0 flex-col border-b border-border p-6 transition-colors duration-300 hover:bg-muted/[0.18] sm:p-8 ${
-                  index % 2 !== 0 ? "md:border-l" : ""
-                } ${index >= 2 ? "md:border-b-0" : ""} ${
-                  index === services.length - 1 ? "border-b-0" : ""
-                }`}
-              >
-                <div className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-secondary/[0.06] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
-
-                <div className="relative flex items-start justify-between gap-5">
-                  <div className="flex h-11 w-11 items-center justify-center border border-secondary/15 bg-secondary/[0.045] text-secondary transition-colors duration-300 group-hover:border-secondary/30 group-hover:bg-secondary group-hover:text-secondary-foreground">
-                    <Icon className="h-4.5 w-4.5" strokeWidth={1.8} />
+          <div className="border-t border-white/15">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <Link key={service.href} href={service.href} className="group flex gap-4 border-b border-white/15 py-7 transition-colors hover:bg-white/[0.025] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light sm:gap-6 sm:py-8">
+                  <span className="hidden pt-1.5 font-mono text-[11px] text-white/35 sm:block">0{index + 1}</span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-3">
+                      <Icon className="h-5 w-5 shrink-0 text-gold-light" strokeWidth={1.5} aria-hidden="true" />
+                      <h3 className="text-xl font-medium tracking-tight sm:text-2xl">{service.title}</h3>
+                    </div>
+                    <p className="mt-3 max-w-lg text-sm leading-7 text-white/65">{service.description}</p>
+                    <p className="mt-4 text-xs leading-6 text-gold-light/85">{service.scope}</p>
                   </div>
-
-                  <span className="font-mono text-[10px] font-semibold tracking-[0.18em] text-muted-foreground/45">
-                    {service.number}
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15 text-gold-light transition-colors group-hover:border-gold-light group-hover:bg-gold-light group-hover:text-navy-deep">
+                    <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                   </span>
-                </div>
-
-                <div className="relative mt-8">
-                  <p className="font-mono text-[8px] font-semibold uppercase tracking-[0.16em] text-secondary">
-                    {service.eyebrow}
-                  </p>
-
-                  <h3 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-heading sm:text-[1.7rem]">
-                    {service.title}
-                  </h3>
-
-                  <p className="mt-4 max-w-xl text-sm leading-7 text-body sm:text-base">
-                    {service.description}
-                  </p>
-                </div>
-
-                <ul className="relative mt-7 grid gap-3 sm:grid-cols-2">
-                  {service.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-center gap-2 text-xs font-medium text-muted-foreground"
-                    >
-                      <Check className="h-3.5 w-3.5 shrink-0 text-secondary" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  href={service.href}
-                  className="group/link relative mt-8 inline-flex items-center gap-2 self-start border-b border-secondary/30 pb-1 text-sm font-semibold text-heading transition-colors hover:border-secondary hover:text-secondary"
-                >
-                  Explore service
-                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
                 </Link>
-              </motion.article>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-
-        {/*===== CLOSING NOTE =====*/}
-
-        <motion.div
-          initial={{ opacity: 0, y: reduceMotion ? 0 : 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: reduceMotion ? 0 : 0.5 }}
-          className="mt-7 flex flex-col gap-3 text-sm sm:flex-row sm:items-center sm:justify-between"
-        >
-          <p className="max-w-2xl text-muted-foreground">
-            Start with the service that matters most now, then add support as
-            the business needs it.
-          </p>
-
-          <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.16em] text-secondary">
-            One project or connected support
-          </span>
-        </motion.div>
       </Container>
-    </Section>
+    </section>
   );
 }

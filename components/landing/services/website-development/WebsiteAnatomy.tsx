@@ -659,7 +659,7 @@ export default function WebsiteAnatomy() {
               duration: 0.7,
               delay: 0.15,
             }}
-            className="min-w-0 border border-border bg-primary text-white shadow-[var(--shadow-card)]"
+            className="min-w-0 border border-border bg-navy-deep text-white shadow-[var(--shadow-card)]"
           >
             {/* header */}
             <div className="border-b border-white/10 px-5 py-4">

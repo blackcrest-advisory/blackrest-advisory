@@ -1,5 +1,7 @@
 "use client";
 
+import { leadDetailsHref } from "@/lib/utils/leadRoutes";
+
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -124,7 +126,7 @@ export function LeadDetailsClient({
   const closeEditModal = () => {
     setIsEditing(false);
 
-    router.replace(`/admin/dashboard/leads/${lead.id}`);
+    router.replace(leadDetailsHref(lead.id));
   };
 
   return (
@@ -357,6 +359,12 @@ export function LeadDetailsClient({
                 icon={FileText}
               />
 
+              {typeof metadata?.businessStage === "string" && (
+                <InfoItem label="Business stage" value={metadata.businessStage} icon={BriefcaseBusiness} />
+              )}
+              {typeof metadata?.sourceLabel === "string" && (
+                <InfoItem label="Enquiry source" value={metadata.sourceLabel} icon={FileText} />
+              )}
               {/* Budget */}
               <InfoItem
                 label="Budget"

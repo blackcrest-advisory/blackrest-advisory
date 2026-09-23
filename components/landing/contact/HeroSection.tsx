@@ -55,7 +55,7 @@ export const HeroSection = () => {
             backgroundSize: "25% 100%",
           }}
         />
-        <div className="absolute bottom-0 left-0 h-44 w-full bg-gradient-to-t from-black/15 to-transparent" />
+        <div className="absolute bottom-0 left-0 h-44 w-full bg-gradient-to-t from-navy-deep/15 to-transparent" />
       </div>
 
       <Container className="relative py-8 sm:py-10 lg:py-12">

@@ -349,7 +349,7 @@ export default function BrandFilmSection() {
         =================================================== */}
         <div className="pointer-events-none absolute right-5 top-1/2 z-20 hidden -translate-y-1/2 lg:flex lg:flex-col lg:items-center lg:gap-4">
           <span className="font-mono text-[7px] uppercase tracking-[0.25em] text-white/25 [writing-mode:vertical-rl]">
-            Strategy / Technology / Growth
+            Business · Growth · Solution
           </span>
 
           <span className="h-16 w-px bg-gradient-to-b from-secondary/50 to-transparent" />
@@ -378,7 +378,7 @@ export default function BrandFilmSection() {
         {/* ===================================================
             VIGNETTE
         =================================================== */}
-        <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_160px_rgba(0,0,0,0.35)]"/>
+        <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_160px_color-mix(in_srgb,var(--color-navy-deep)_35%,transparent)]"/>
       </div>
     </Section>
   );

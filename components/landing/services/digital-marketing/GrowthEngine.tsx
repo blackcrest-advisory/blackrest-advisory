@@ -78,7 +78,7 @@ export default function GrowthEngine() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <Section className="relative isolate overflow-hidden bg-primary py-16 text-primary-foreground sm:py-20 lg:py-28">
+    <Section className="relative isolate overflow-hidden bg-navy-deep py-16 text-white sm:py-20 lg:py-28">
       {/*===== BACKGROUND SYSTEM =====*/}
 
       <div
@@ -125,7 +125,7 @@ export default function GrowthEngine() {
               <span className="h-px w-10 bg-gold-light/30" />
             </div>
 
-            <p className="mt-4 max-w-sm text-sm leading-6 text-white/45">
+            <p className="mt-4 max-w-sm text-sm leading-6 text-white/60">
               Marketing becomes more valuable when every stage learns from the
               stage before it.
             </p>
@@ -143,7 +143,7 @@ export default function GrowthEngine() {
               </span>
             </h2>
 
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-white/50 sm:text-base sm:leading-8">
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-white/60 sm:text-base sm:leading-8">
               We use a simple cycle to keep marketing work connected: understand
               the goal, choose the right activity, make the next action clear,
               then use what you learn to improve it.
@@ -159,12 +159,12 @@ export default function GrowthEngine() {
             <div className="flex items-center gap-3">
               <span className="h-1.5 w-1.5 rounded-full bg-gold-light" />
 
-              <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-white/40">
+              <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.16em] text-white/60">
                 A connected marketing cycle
               </span>
             </div>
 
-            <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-white/25">
+            <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-white/60">
               System / Continuous
             </span>
           </div>
@@ -239,7 +239,7 @@ export default function GrowthEngine() {
                       {step.number}
                     </span>
 
-                    <span className="font-mono text-[7px] uppercase tracking-[0.13em] text-white/20">
+                    <span className="font-mono text-[7px] uppercase tracking-[0.13em] text-white/60">
                       Phase
                     </span>
                   </div>
@@ -293,7 +293,7 @@ export default function GrowthEngine() {
 
           {/* continuation marker */}
           <div className="mt-5 flex items-center justify-end gap-3">
-            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/30">
+            <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/60">
               Learn → Improve → Repeat
             </span>
 
@@ -407,7 +407,7 @@ export default function GrowthEngine() {
                         {step.phase}
                       </span>
 
-                      <span className="font-mono text-[7px] font-semibold text-white/25">
+                      <span className="font-mono text-[7px] font-semibold text-white/60">
                         {step.number}
                       </span>
                     </div>
@@ -416,14 +416,14 @@ export default function GrowthEngine() {
                       {step.title}
                     </h3>
 
-                    <p className="mt-3 text-sm leading-6 text-white/45">
+                    <p className="mt-3 text-sm leading-6 text-white/60">
                       {step.description}
                     </p>
 
                     <div className="mt-4 flex items-center gap-3">
                       <span className="h-px w-6 bg-gold-light/30" />
 
-                      <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.11em] text-white/30">
+                      <span className="font-mono text-[7px] font-semibold uppercase tracking-[0.11em] text-white/60">
                         {step.meta}
                       </span>
                     </div>
@@ -449,7 +449,7 @@ export default function GrowthEngine() {
               The objective
             </span>
 
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-white/50">
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-white/60">
               Build marketing activity that becomes clearer over time, rather
               than a collection of disconnected campaigns.
             </p>
@@ -474,7 +474,7 @@ export default function GrowthEngine() {
               <span className="relative h-2 w-2 rounded-full bg-gold-light"/>
             </span>
 
-            <span className="whitespace-nowrap font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/40">
+            <span className="whitespace-nowrap font-mono text-[7px] font-semibold uppercase tracking-[0.15em] text-white/60">
               Ongoing improvement
             </span>
           </div>

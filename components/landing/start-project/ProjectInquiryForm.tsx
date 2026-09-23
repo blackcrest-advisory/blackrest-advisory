@@ -481,7 +481,7 @@ export const ProjectInquiryForm = () => {
             >
               {isSubmitting ? (
                 <>
-                  <Loader size="sm" className="mr-2 border-t-cta-text" />
+                  <Loader size="sm" className="mr-2 border-t-secondary-foreground" />
 
                   {uploading ? "Uploading..." : "Submitting..."}
                 </>

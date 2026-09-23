@@ -137,6 +137,11 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Gold actions use navy labels on both public-site themes. */
+.public-site {
+  --color-secondary-foreground: var(--color-navy-deep);
+}
+
 html {
   scroll-behavior: smooth;
 }
