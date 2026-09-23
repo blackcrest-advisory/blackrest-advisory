@@ -28,6 +28,7 @@ export type LeadStatus =
 export type LeadPriority = "high" | "medium" | "low";
 
 export type LeadService =
+  | "business-development"
   | "web-development"
   | "mobile-app"
   | "digital-marketing"
@@ -88,6 +89,7 @@ export const leadPriorityStyles: Record<LeadPriority, string> = {
 };
 
 export const serviceLabels: Record<LeadService, string> = {
+  "business-development": "Business Planning & Advice",
   "web-development": "Web Development",
   "mobile-app": "Mobile App",
   "digital-marketing": "Digital Marketing",

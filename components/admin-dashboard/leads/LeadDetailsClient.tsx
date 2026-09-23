@@ -357,6 +357,12 @@ export function LeadDetailsClient({
                 icon={FileText}
               />
 
+              {typeof metadata?.businessStage === "string" && (
+                <InfoItem label="Business stage" value={metadata.businessStage} icon={BriefcaseBusiness} />
+              )}
+              {typeof metadata?.sourceLabel === "string" && (
+                <InfoItem label="Enquiry source" value={metadata.sourceLabel} icon={FileText} />
+              )}
               {/* Budget */}
               <InfoItem
                 label="Budget"

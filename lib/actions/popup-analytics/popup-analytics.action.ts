@@ -2,6 +2,7 @@
 
 import { PopupAnalyticsEventType } from "@prisma/client";
 import { z } from "zod";
+import { HOMEPAGE_FORM_PREFIX, HOMEPAGE_INQUIRY_SOURCE } from "@/lib/validations/homepageInquiry";
 
 import { businessHelpOptions } from "@/content-data/business-development/businessHelpFinderData";
 import { prisma } from "@/lib/db/client";
@@ -70,12 +71,26 @@ export async function getPopupAnalytics() {
 
   const events = await prisma.popupAnalyticsEvent.findMany({
     select: {
+      eventKey: true,
       visitorId: true,
       eventType: true,
       optionId: true,
     },
   });
 
+  const enquiries = await prisma.lead.findMany({
+    where: { source: HOMEPAGE_INQUIRY_SOURCE, id: { startsWith: HOMEPAGE_FORM_PREFIX } },
+    select: { id: true },
+  });
+  const submittedVisitors = new Set(enquiries.map((lead) => lead.id.slice(HOMEPAGE_FORM_PREFIX.length)));
+  // A persisted enquiry also proves a view, even if client analytics were blocked.
+  const formViews = new Set(submittedVisitors);
+  const formDismissals = new Set<string>();
+  for (const event of events) {
+    if (!event.eventKey.startsWith(HOMEPAGE_FORM_PREFIX)) continue;
+    if (event.eventType === "VIEW") formViews.add(event.visitorId);
+    if (event.eventType === "DISMISS") formDismissals.add(event.visitorId);
+  }
   const views = new Set<string>();
   const dismissals = new Set<string>();
   const visitorsWhoClicked = new Set<string>();
@@ -84,6 +99,7 @@ export async function getPopupAnalytics() {
   );
 
   for (const event of events) {
+    if (event.eventKey.startsWith(HOMEPAGE_FORM_PREFIX)) continue;
     if (event.eventType === PopupAnalyticsEventType.VIEW) {
       views.add(event.visitorId);
     }
@@ -108,6 +124,14 @@ export async function getPopupAnalytics() {
   );
 
   return {
+    form: {
+      totalViews: formViews.size,
+      totalDismissals: formDismissals.size,
+      totalSubmissions: submittedVisitors.size,
+      submissionRate: formViews.size
+        ? Math.round(submittedVisitors.size / formViews.size * 1000) / 10
+        : 0,
+    },
     totalViews,
     totalClicks: visitorsWhoClicked.size,
     totalDismissals: dismissals.size,

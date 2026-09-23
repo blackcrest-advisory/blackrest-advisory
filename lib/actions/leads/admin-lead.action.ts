@@ -17,6 +17,7 @@ export type AdminLeadDetails = Lead & {
 };
 
 const leadServiceValues = [
+  "business-development",
   "web-development",
   "mobile-app",
   "digital-marketing",
