@@ -20,9 +20,9 @@ import { PageWrapper } from "@/components/ui/PageWrapper";
 import { businessDevelopmentAreas } from "@/content-data/business-development/businessDevelopmentData";
 
 export const metadata: Metadata = {
-  title: "Business Development & Startup Advice | Blackcrest Advisory",
+  title: "Business Development Solutions | Blackcrest Advisory",
   description:
-    "Clear direction and practical support for your business. Explore business language, niche selection, setup planning, execution, marketing, sales, and retention.",
+    "Practical solutions for business planning, customer focus, marketing, and sales. Blackcrest identifies what is holding your business back and turns plans into action.",
 };
 
 const cardContent = {
@@ -37,8 +37,8 @@ const cardContent = {
     icon: ClipboardList,
   },
   "niche-selection": {
-    title: "Choose your niche",
-    summary: "Focus on a clear customer, problem, and market opportunity.",
+    title: "Choose your target customers",
+    summary: "Define who you serve, what they need, and why they would choose you.",
     icon: Users,
   },
   "marketing-growth": {
@@ -53,13 +53,13 @@ const cardContent = {
   },
   "sales-funnel": {
     title: "Improve your sales process",
-    summary: "Help interested people take the next step toward buying.",
+    summary: "Create a clear path from the first enquiry to the sale.",
     icon: Workflow,
   },
   "after-support-retention": {
     title: "Keep customers coming back",
     summary:
-      "Build stronger relationships with thoughtful after-sales support.",
+      "Plan follow-ups and after-sales care that encourage repeat business.",
     icon: Handshake,
   },
 } satisfies Record<(typeof businessDevelopmentAreas)[number]["id"], {
@@ -70,31 +70,31 @@ const cardContent = {
 
 const steps = [
   {
-    title: "Share your starting point",
-    description: "Tell us about your idea, your business, or what feels stuck.",
+    title: "Identify the problem",
+    description: "We review your business, what you have tried, and what is holding progress back.",
   },
   {
-    title: "Choose what matters first",
-    description: "Together, we agree the priorities, scope, and cost.",
+    title: "Define the solution",
+    description: "We agree the priorities, work, cost, and expected timeline with you.",
   },
   {
-    title: "Take the next step",
-    description: "We support the work and review progress with you.",
+    title: "Put the plan into action",
+    description: "We carry out the agreed work and review progress against your business goals.",
   },
 ];
 
 const questions = [
   [
     "Can I start with just an idea?",
-    "Yes. You do not need a finished plan. We help you clarify your idea and decide where to begin.",
+    "Yes. We assess your idea, the customers it would serve, and the problem it would solve. From there, we define what needs to be in place before launch.",
   ],
   [
     "Do I need all seven areas?",
-    "We start with your situation and agree the areas of support that make sense for your business.",
+    "No. We identify the problem that needs attention first and recommend the relevant services. You can begin with one area and agree further work as your needs change.",
   ],
   [
     "What does it cost?",
-    "Pricing depends on the support you need. We agree the scope and cost with you before work begins.",
+    "Pricing depends on the work required. Before we begin, we agree what is included, what we will deliver, the cost, and the expected timeline.",
   ],
 ];
 
@@ -136,8 +136,9 @@ export default function BusinessDevelopmentPage() {
                 </span>
               </h1>
               <p className="mt-6 max-w-lg text-base leading-8 text-white/70">
-                From your first idea to your next stage of growth, we help you
-                decide what matters and put it into action.
+                Unclear offer? Too few enquiries? Sales that go nowhere? We
+                identify what is holding your business back and deliver
+                practical solutions, from planning to marketing and sales.
               </p>
               <div className="mt-9 flex flex-wrap items-center gap-6">
                 <Link href="/contact#contact-form" className={primaryLink}>
@@ -148,7 +149,7 @@ export default function BusinessDevelopmentPage() {
                   href="#starter-package"
                   className="inline-flex min-h-12 items-center gap-3 text-sm text-white/80 transition-colors hover:text-gold-light"
                 >
-                  Explore our support{" "}
+                  Explore our solutions{" "}
                   <ArrowDown className="h-4 w-4" aria-hidden="true" />
                 </Link>
               </div>
@@ -173,9 +174,9 @@ export default function BusinessDevelopmentPage() {
                     The Blackcrest approach
                   </p>
                   <p className="mt-3 max-w-xs text-2xl font-medium leading-snug tracking-tight">
-                    Thoughtful advice.
+                    Understand the problem.
                     <br />
-                    Practical next steps.
+                    Deliver the solution.
                   </p>
                 </div>
               </div>
@@ -192,12 +193,12 @@ export default function BusinessDevelopmentPage() {
                 The Starter Package
               </p>
               <h2 className="mt-4 text-3xl font-medium leading-tight tracking-[-0.035em] text-heading sm:text-4xl">
-                Where do you need support?
+                What is holding your business back?
               </h2>
             </div>
             <p className="max-w-sm text-sm leading-7 text-body">
-              Seven ways to move your business forward. Choose an area to
-              explore how we can help.
+              Seven areas of business development. Find the challenge you
+              recognise and explore the work that addresses it.
             </p>
           </div>
 
@@ -245,8 +246,8 @@ export default function BusinessDevelopmentPage() {
                 Not sure where to begin?
               </p>
               <p className="mt-3 max-w-md text-sm leading-7 text-body">
-                Start with a conversation. We will help you identify the support
-                that fits your business.
+                Describe the challenge. We will assess what needs to change
+                and recommend the right solution for your business.
               </p>
               <Link
                 href="/contact#contact-form"
@@ -291,7 +292,7 @@ export default function BusinessDevelopmentPage() {
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-secondary">
-                A little clarity
+                Common questions
               </p>
               <h2 className="mt-4 text-3xl font-medium tracking-[-0.035em] text-heading sm:text-4xl">
                 Before we begin.
@@ -325,14 +326,14 @@ export default function BusinessDevelopmentPage() {
           <div className="flex flex-col justify-between gap-8 rounded-3xl bg-navy-deep p-8 text-white sm:p-12 lg:flex-row lg:items-center lg:p-14">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-gold-light">
-                Your next chapter
+                Your next step
               </p>
               <h2 className="mt-4 text-3xl font-medium leading-tight tracking-[-0.035em] sm:text-4xl">
                 Let&apos;s move your business forward.
               </h2>
               <p className="mt-4 max-w-lg text-sm leading-7 text-white/65">
-                Bring your idea or your current challenge. We will work out the
-                next step together.
+                Bring your idea or your current challenge. We will define the
+                problem, recommend a solution, and agree the work with you.
               </p>
             </div>
             <Link
