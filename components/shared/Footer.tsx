@@ -114,10 +114,7 @@ export default function Footer() {
                 transition={{ delay: 0.06, duration: 0.55 }}
                 className="mt-5 max-w-3xl text-3xl font-semibold tracking-[-0.04em] sm:text-4xl lg:text-5xl"
               >
-                Business advice and practical support
-                <span className="block text-white/60">
-                  built around your next step.
-                </span>
+                Strategy, direction, and solutions for your next move.
               </motion.h2>
             </div>
 

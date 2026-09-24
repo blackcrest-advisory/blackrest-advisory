@@ -227,9 +227,10 @@ export default function HeroTwo() {
                 className="mt-6 max-w-[650px]"
               >
                 <p className="text-sm leading-7 text-white/60 sm:text-[15px]">
-                  Unclear planning, weak marketing, low sales, or simply not
-                  knowing what to do next? Blackcrest helps you find the real
-                  problem, choose the right direction, and turn it into action.
+                  Have an idea but don’t know where to begin? Have a business
+                  but feel stuck on what comes next? Blackcrest identifies the
+                  real problems, sets the right direction, and turns business
+                  challenges into practical solutions.
                 </p>
 
                 {/* CTA */}
