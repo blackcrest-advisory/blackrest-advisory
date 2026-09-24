@@ -115,27 +115,27 @@ export const processData = [
 export const whyData = [
   {
     icon: <LuTarget size={24} className="text-secondary" />,
-    title: "Understand the problem first",
+    title: "Understand before we recommend",
     description:
-      "We listen to your idea, your customer, and the decisions you are facing. That understanding helps us choose where support will be most useful.",
+      "We examine your customers, what you have tried, and where things are getting stuck. Our recommendations address the cause of the problem and the changes your business needs.",
   },
   {
     icon: <LuZap size={24} className="text-secondary" />,
-    title: "Connect advice with action",
+    title: "From the right plan to delivery",
     description:
-      "From niche selection and business setup to execution, marketing, and sales, we help you connect the decisions with the work needed to move forward.",
+      "We turn the agreed direction into practical work. Business planning, websites, apps, marketing, and sales processes are built around the problem we are solving.",
   },
   {
     icon: <LuAward size={24} className="text-secondary" />,
-    title: "Keep the conversation clear",
+    title: "One team to keep you informed",
     description:
-      "You should understand the plan without needing a business background. We explain the choices in plain language and keep you involved as the work progresses.",
+      "Blackcrest stays your main point of contact, including when specialists are involved. We coordinate the work, check its quality, and give you clear updates on progress.",
   },
   {
     icon: <LuLink size={24} className="text-secondary" />,
-    title: "Work at a practical pace",
+    title: "The right work for your stage",
     description:
-      "We consider your time, budget, and current stage, agree a manageable set of priorities, and review the next steps as you learn more about your business.",
+      "We consider your budget, time, and current needs. Together, we decide what to do now, what can wait, and what to review before taking the next step.",
   },
 ];
 

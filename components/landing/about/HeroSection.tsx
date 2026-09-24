@@ -15,15 +15,15 @@ import { Container } from "@/components/ui/Container";
 const principles = [
   {
     number: "01",
-    label: "Understand your customer",
+    label: "Understand what is holding you back",
   },
   {
     number: "02",
-    label: "Plan your business",
+    label: "Decide what needs attention first",
   },
   {
     number: "03",
-    label: "Take practical action",
+    label: "Put the right solution to work",
   },
 ];
 
@@ -114,7 +114,7 @@ export const HeroSection = () => {
               className="flex items-center gap-3"
             >
               <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-secondary">
-                Blackcrest / About
+                About Blackcrest
               </span>
 
               <motion.span
@@ -149,12 +149,12 @@ export const HeroSection = () => {
               }}
               className="mt-5 max-w-3xl text-[clamp(2.5rem,4.2vw,4.35rem)] font-semibold leading-[1.1] tracking-[-0.05em] text-heading"
             >
-              Helping you turn
+              Your business.
               <span className="block text-muted-foreground">
-                a business idea into
+                A clear direction.
               </span>
               <span className="relative inline-block">
-                <span className="text-gold-gradient">a clear way forward.</span>
+                <span className="text-gold-gradient">The right solution.</span>
 
                 <motion.span
                   aria-hidden="true"
@@ -189,9 +189,9 @@ export const HeroSection = () => {
               }}
               className="mt-5 max-w-xl text-base leading-7 text-body"
             >
-              Starting a business comes with questions. Blackcrest helps new
-              founders understand their customers, choose a direction, and
-              build a practical plan—with support to put it into action.
+              Blackcrest Advisory provides practical solutions to business
+              problems. We identify what is holding you back, set a clear
+              direction, and deliver the work your business needs to move forward.
             </motion.p>
 
             {/* actions */}
@@ -253,11 +253,11 @@ export const HeroSection = () => {
             {/* index */}
             <div className="mb-3 flex items-center justify-between">
               <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                For people starting a business
+                Starting or growing
               </span>
 
               <span className="font-mono text-[10px] text-secondary">
-                Your starting point
+                Working with you
               </span>
             </div>
 
@@ -322,23 +322,23 @@ export const HeroSection = () => {
                     />
 
                     <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground">
-                      Advice & practical support
+                      Business problem. Clear solution.
                     </span>
                   </div>
                 </div>
 
                 <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
-                  Our purpose
+                  Where we start
                 </p>
 
                 <h2 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-heading sm:text-2xl">
-                  You do not need to have every answer.
+                  The problem behind the question.
                 </h2>
 
                 <p className="mt-3 text-sm leading-6 text-body">
-                  You might be unsure what to sell, who to reach, or where to
-                  invest first. We help you work through the problem and
-                  decide on a useful next step.
+                  Not enough enquiries? Unsure what to offer? Spending on
+                  marketing without knowing what works? We look at what is
+                  happening in your business before we recommend a solution.
                 </p>
 
                 {/* principles */}
@@ -427,16 +427,16 @@ export const HeroSection = () => {
           </span>
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-medium text-muted-foreground sm:justify-end">
-            <span>Customer understanding</span>
+            <span>Honest advice</span>
             <span className="h-1 w-1 rounded-full bg-secondary" />
 
-            <span>Practical planning</span>
+            <span>Clear priorities</span>
             <span className="h-1 w-1 rounded-full bg-secondary" />
 
-            <span>Clear communication</span>
+            <span>Care in the work</span>
             <span className="h-1 w-1 rounded-full bg-secondary" />
 
-            <span>Long-term partnership</span>
+            <span>Working together</span>
           </div>
         </motion.div>
       </Container>
