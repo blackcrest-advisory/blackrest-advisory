@@ -60,19 +60,24 @@ export default function HeroTwo() {
       ref={sectionRef}
       className="relative overflow-hidden bg-navy-deep py-0 md:py-0 lg:py-0"
     >
-      <div className="relative min-h-[calc(100svh-68px)] overflow-hidden lg:h-[calc(100svh-68px)]">
+      <div className="relative flex flex-col overflow-hidden lg:block lg:h-[calc(100svh-68px)] lg:min-h-[calc(100svh-68px)]">
         {/* =====================================================
             VIDEO
         ===================================================== */}
 
-        <motion.div style={{ scale: videoScale }} className="absolute inset-0">
+        <motion.div
+          style={{ scale: videoScale }}
+          className="relative z-10 order-2 aspect-[64/27] w-full border-y border-gold-light/20 max-lg:transform-none! lg:absolute lg:inset-0 lg:z-auto lg:aspect-auto lg:border-0"
+        >
           <video
             autoPlay
             muted
             loop
             playsInline
             preload="metadata"
-            className="absolute inset-0 h-full w-full object-cover brightness-[1.08] contrast-[1.04] saturate-[1.03]"
+            width={1024}
+            height={432}
+            className="absolute inset-0 h-full w-full object-contain object-center brightness-[1.08] contrast-[1.04] saturate-[1.03] lg:object-cover"
           >
             <source src="/videos/blackcrest-brand2.mp4" type="video/mp4" />
           </video>
@@ -82,11 +87,11 @@ export default function HeroTwo() {
             BACKGROUND TREATMENT
         ===================================================== */}
 
-        <div className="pointer-events-none absolute inset-0 bg-navy-deep/20" />
+        <div className="pointer-events-none absolute inset-0 hidden bg-navy-deep/20 lg:block" />
 
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-navy-deep/95 via-navy-deep/68 to-navy-deep/18" />
+        <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-navy-deep/95 via-navy-deep/68 to-navy-deep/18 lg:block" />
 
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy-deep/10 via-transparent to-navy-deep/65" />
+        <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-b from-navy-deep/10 via-transparent to-navy-deep/65 lg:block" />
 
         <div className="pointer-events-none absolute -right-48 top-[20%] h-[32rem] w-[32rem] rounded-full bg-secondary/[0.06] blur-[140px]" />
 
@@ -127,20 +132,20 @@ export default function HeroTwo() {
             CONTENT
         ===================================================== */}
 
-        <div className="relative z-20 flex min-h-[calc(100svh-68px)] items-center lg:h-[calc(100svh-68px)]">
-          <Container className="w-full py-12 sm:py-16 lg:py-20">
+        <div className="relative z-20 order-1 flex items-center lg:h-[calc(100svh-68px)] lg:min-h-[calc(100svh-68px)]">
+          <Container className="w-full px-6 pb-8 pt-10 sm:px-8 sm:py-12 lg:px-6 lg:py-20">
             <motion.div
               style={{
                 y: contentY,
                 opacity: contentOpacity,
               }}
-              className="max-w-[900px]"
+              className="max-w-[900px] max-lg:transform-none! max-lg:opacity-100!"
             >
               <motion.p
                 initial={{ opacity: 0, y: reduceMotion ? 0 : 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: reduceMotion ? 0 : 0.65 }}
-                className="mb-5 flex flex-wrap gap-x-1.5 gap-y-1 border-l-2 border-gold-light/60 pl-4 text-sm font-medium leading-relaxed tracking-[0.01em] sm:text-base"
+                className="mb-6 flex flex-wrap gap-x-1.5 gap-y-1 border-l-2 border-gold-light/60 pl-4 text-xs font-medium leading-relaxed tracking-[0.01em] sm:text-base lg:mb-5 lg:text-sm"
               >
                 <span className="text-white/90">We Grow Together.</span>{" "}
                 <span className="text-gold-light">We Achieve Together.</span>
@@ -184,7 +189,7 @@ export default function HeroTwo() {
 
               {/* HEADLINE */}
 
-              <h1 className="max-w-[900px] text-[clamp(2.15rem,3.15vw,3.8rem)] font-semibold leading-[1.08] tracking-[-0.045em]">
+              <h1 className="max-w-[900px] text-[clamp(2.5rem,9vw,4.25rem)] font-semibold leading-[1.04] tracking-[-0.045em] lg:text-[clamp(2.15rem,3.15vw,3.8rem)] lg:leading-[1.08]">
                 {headline.map((line, index) => (
                   <motion.span
                     key={line.text}
@@ -226,7 +231,7 @@ export default function HeroTwo() {
                 }}
                 className="mt-6 max-w-[650px]"
               >
-                <p className="text-sm leading-7 text-white/60 sm:text-[15px]">
+                <p className="text-sm leading-7 text-white/85 sm:text-[15px] lg:text-white/60">
                   Have an idea but don’t know where to begin? Have a business
                   but feel stuck on what comes next? Blackcrest identifies the
                   real problems, sets the right direction, and turns business
@@ -235,7 +240,7 @@ export default function HeroTwo() {
 
                 {/* CTA */}
 
-                <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <div className="mt-7 hidden gap-3 lg:flex lg:items-center">
                   <Link
                     href="/services/business-development"
                     className="group inline-flex h-11 items-center justify-center gap-3 bg-secondary px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-deep transition-all duration-300 hover:bg-gold-light sm:px-6 sm:text-[11px]"
@@ -256,6 +261,25 @@ export default function HeroTwo() {
             </motion.div>
           </Container>
         </div>
+
+        <Container className="relative z-20 order-3 px-6 py-7 sm:px-8 sm:py-8 lg:hidden">
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/services/business-development"
+              className="group inline-flex min-h-12 items-center justify-between gap-4 rounded-sm bg-gold-light px-5 py-3 text-sm font-semibold text-navy-deep transition-colors hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light sm:flex-1"
+            >
+              Find Your Next Step
+              <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+            </Link>
+            <Link
+              href="/contact#contact-form"
+              className="group inline-flex min-h-12 items-center justify-between gap-4 rounded-sm border border-white/20 px-5 py-3 text-sm font-medium text-white transition-colors hover:border-gold-light hover:text-gold-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light sm:flex-1"
+            >
+              Talk to Blackcrest
+              <ArrowRight className="h-4 w-4 shrink-0 text-gold-light" aria-hidden="true" />
+            </Link>
+          </div>
+        </Container>
 
         {/* =====================================================
             SCROLL CUE
@@ -296,7 +320,7 @@ export default function HeroTwo() {
             VIGNETTE
         ===================================================== */}
 
-        <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_170px_color-mix(in_srgb,var(--color-navy-deep)_35%,transparent)]" />
+        <div className="pointer-events-none absolute inset-0 hidden shadow-[inset_0_0_170px_color-mix(in_srgb,var(--color-navy-deep)_35%,transparent)] lg:block" />
       </div>
     </Section>
   );
