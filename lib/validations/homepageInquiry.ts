@@ -3,6 +3,18 @@ import { z } from "zod";
 export const HOMEPAGE_INQUIRY_SOURCE = "homepage_enquiry";
 export const HOMEPAGE_FORM_PREFIX = "homepage-enquiry-v1:";
 
+export const businessLinkSchema = z.string().trim().max(2048)
+  .refine((value) => {
+    if (!value) return true;
+    try {
+      const url = new URL(value);
+      return url.protocol === "https:" || url.protocol === "http:";
+    } catch {
+      return false;
+    }
+  }, "Please enter a valid business link starting with https:// or http://.")
+  .default("");
+
 export const businessIndustries = [
   "Retail & ecommerce", "Food & hospitality", "Professional services",
   "Technology", "Healthcare & wellbeing", "Construction & property",
@@ -25,6 +37,7 @@ export const homepageInquirySchema = z.object({
   name: z.string().trim().min(1, "Please enter your name.").max(120),
   email: z.string().trim().toLowerCase().email("Please enter a valid email address.").max(254),
   companyName: z.string().trim().max(160).default(""),
+  businessLink: businessLinkSchema,
   industry: z.enum(businessIndustries, { error: "Please choose your type of business." }),
   businessStage: z.enum(businessStages, { error: "Please choose your business stage." }),
   need: z.enum(businessNeeds.map((need) => need.value), { error: "Please choose the help you need." }),

@@ -197,6 +197,21 @@ export const LeadDetailModal = ({
                 )}
               </Field>
 
+              <Field label="Business link (optional)">
+                {isEditing ? (
+                  <Input
+                    type="url"
+                    maxLength={2048}
+                    placeholder="https://your-business.com"
+                    value={editedLead?.website || ""}
+                    onChange={(e) => handleChange("website", e.target.value)}
+                    className="w-full"
+                  />
+                ) : (
+                  <ReadValue value={lead.website || "Not specified"} breakValue />
+                )}
+              </Field>
+
               <Field label="Industry" icon={BriefcaseBusiness}>
                 {isEditing ? (
                   <Input

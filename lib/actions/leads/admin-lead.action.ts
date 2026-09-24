@@ -3,6 +3,7 @@
 import { LeadStatus, Pillar } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
+import { businessLinkSchema } from "@/lib/validations/homepageInquiry";
 import { sendWelcomeEmail } from "@/lib/services/email.service";
 import { prisma } from "@/lib/db/client";
 import { getAdminUser } from "@/lib/utils/admin-utils";
@@ -217,6 +218,7 @@ export async function getAdminLead(
 
 export async function updateAdminLead(id: string, lead: Lead): Promise<Lead> {
   await requireAdmin();
+  const businessLink = businessLinkSchema.parse(lead.website);
   const updatedLead = await prisma.lead.update({
     where: { id },
     data: {
@@ -227,7 +229,7 @@ export async function updateAdminLead(id: string, lead: Lead): Promise<Lead> {
       industry: lead.industry || null,
       companySize: lead.companySize || null,
       location: lead.location || null,
-      website: lead.website || null,
+      website: businessLink || null,
       services: lead.services,
       status: toDatabaseStatus(lead.status),
       priority: lead.priority,

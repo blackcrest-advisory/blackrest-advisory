@@ -60,6 +60,13 @@ async function main() {
   const valid = homepageInquirySchema.parse(input);
   assert.equal(valid.name, "Alex Smith");
   assert.equal(valid.email, "alex@example.com");
+  assert.equal(valid.businessLink, "");
+  for (const businessLink of ["", "   ", "https://example.com", "http://example.com", "https://www.facebook.com/example"]) {
+    assert.equal(homepageInquirySchema.safeParse({ ...input, businessLink }).success, true);
+  }
+  for (const businessLink of ["invalid", "javascript:alert(1)", "ftp://example.com", "https://example.com/" + "a".repeat(2048)]) {
+    assert.equal(homepageInquirySchema.safeParse({ ...input, businessLink }).success, false);
+  }
   for (const invalid of [
     { name: "  " }, { email: "invalid" }, { industry: "" }, { businessStage: "" },
     { need: "invalid" }, { visitorId: "bad" }, { websiteConfirm: "spam" }, { message: "x".repeat(2001) },
@@ -129,6 +136,7 @@ async function main() {
   assert.equal(lead.source, "homepage_enquiry");
   assert.equal(lead.status, "NEW");
   assert.equal(lead.email, "alex@example.com");
+  assert.equal(lead.website, null);
   assert.ok(lead.problem.includes("Business stage: Idea stage"));
   assert.equal(JSON.parse(lead.notes).businessStage, "Idea stage");
   await callbacks.shift()();
@@ -140,7 +148,8 @@ async function main() {
   await recordHomepageFormEvent({ visitorId, eventType: "DISMISS" });
   const secondVisitor = "e97f4250-9964-41cc-a2d9-b18167bca532";
   failNotifications = true; failEmail = true;
-  assert.equal((await submitHomepageInquiry({ ...input, visitorId: secondVisitor, need: "not-sure" })).success, true);
+  assert.equal((await submitHomepageInquiry({ ...input, visitorId: secondVisitor, need: "not-sure", businessLink: " https://example.com/business " })).success, true);
+  assert.equal(leads.get(HOMEPAGE_FORM_PREFIX + secondVisitor).website, "https://example.com/business");
   await callbacks.shift()();
   assert.equal(leads.size, 2, "Notification failures cannot undo a saved enquiry");
   assert.deepEqual(leads.get(HOMEPAGE_FORM_PREFIX + secondVisitor).services, []);

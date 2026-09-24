@@ -43,6 +43,7 @@ export async function submitHomepageInquiry(input: unknown): Promise<
         id, name: data.name, email: data.email,
         companyName: data.companyName || null, industry: data.industry,
         phone: data.phone || null, problem,
+        website: data.businessLink || null,
         services: data.need === "not-sure" ? [] : [data.need],
         status: "NEW", source: HOMEPAGE_INQUIRY_SOURCE,
         notes: JSON.stringify({

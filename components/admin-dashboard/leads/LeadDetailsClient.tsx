@@ -445,6 +445,13 @@ export function LeadDetailsClient({
               />
 
               <ContactItem
+                label="Business link"
+                value={lead.website || "Not specified"}
+                icon={ArrowUpRight}
+                breakValue
+              />
+
+              <ContactItem
                 label="Assigned to"
                 value={lead.assignedTo || "Unassigned"}
                 icon={UserCheck}
