@@ -79,7 +79,7 @@ export default function HeroTwo() {
             height={432}
             className="absolute inset-0 h-full w-full object-contain object-center brightness-[1.08] contrast-[1.04] saturate-[1.03] lg:object-cover"
           >
-            <source src="/videos/blackcrest-brand2.mp4" type="video/mp4" />
+            <source src="/videos/hero video 2.mp4" type="video/mp4" />
           </video>
         </motion.div>
 
@@ -276,7 +276,10 @@ export default function HeroTwo() {
               className="group inline-flex min-h-12 items-center justify-between gap-4 rounded-sm border border-white/20 px-5 py-3 text-sm font-medium text-white transition-colors hover:border-gold-light hover:text-gold-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-light sm:flex-1"
             >
               Talk to Blackcrest
-              <ArrowRight className="h-4 w-4 shrink-0 text-gold-light" aria-hidden="true" />
+              <ArrowRight
+                className="h-4 w-4 shrink-0 text-gold-light"
+                aria-hidden="true"
+              />
             </Link>
           </div>
         </Container>
