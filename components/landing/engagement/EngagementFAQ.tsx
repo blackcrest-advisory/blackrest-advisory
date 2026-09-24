@@ -17,27 +17,27 @@ const faqs = [
   {
     question: "What happens after I get in touch?",
     answer:
-      "We begin by understanding the challenge and the outcome you need. From there, we can recommend a practical scope, the right support, and a sensible first step.",
+      "We discuss your business, the problem you are facing, and what you want to achieve. We then recommend an approach and set out the work, costs, and timeline for your review before anything begins.",
   },
   {
     question: "Can we begin with one focused project?",
     answer:
-      "Yes. A clearly defined project is often the best place to start. We can focus on a website, mobile feature, marketing initiative, or sales-support need, then build on the work when it is useful.",
+      "Yes. We can start with one defined problem, such as a website that gets few enquiries or a sales process that misses follow-ups. We agree the work and delivery plan for that project before discussing any wider work.",
   },
   {
-    question: "Can you support more than one area?",
+    question: "Can one project include several services?",
     answer:
-      "Yes. Web, mobile, marketing, and sales support can be combined when they serve the same business goal. We keep the work connected instead of treating each area as a separate problem.",
+      "Yes. Business planning, websites, apps, marketing, and sales processes can form one solution. For example, a business launch may need a website, a campaign, and a way to track enquiries. Blackcrest coordinates the work through one main point of contact.",
   },
   {
-    question: "How are scope and pricing agreed?",
+    question: "How do you agree the work and price?",
     answer:
-      "We agree the scope, priorities, and commercial approach before work begins. The details depend on the type of support, but you should always understand what is included and what happens next.",
+      "We define what is included, what we will deliver, the expected timeline, and the price before work begins. The cost depends on the work required. Any proposed changes are discussed with you, including their effect on cost and timing.",
   },
   {
-    question: "Can support continue after launch or delivery?",
+    question: "What happens after launch or delivery?",
     answer:
-      "Yes. If there is a useful next step after a project, we can discuss ongoing improvements, marketing activity, maintenance, or focused commercial support.",
+      "We review the completed work with you and discuss any next steps. Website maintenance, marketing campaigns, and sales improvements can continue through an agreed plan for ongoing services.",
   },
 ];
 
@@ -142,8 +142,8 @@ export const EngagementFAQ = () => {
               transition={{ delay: 0.14 }}
               className="mt-6 max-w-md text-sm leading-7 text-body sm:text-base"
             >
-              Clear answers about starting a project, combining services, scope,
-              and what support can look like after delivery.
+              Clear answers about starting a project, combining services,
+              agreeing costs, and what happens after delivery.
             </motion.p>
 
             {/* Contact block */}
@@ -171,9 +171,9 @@ export const EngagementFAQ = () => {
                   </p>
 
                   <p className="mt-1 text-xs leading-6 text-muted-foreground">
-                    Every engagement is different. If your question is about a
-                    particular project, we can usually answer it quickly in an
-                    initial conversation.
+                    Tell us about your project and the decision you need to
+                    make. We will explain what the work would involve and
+                    what we need to assess it.
                   </p>
                 </div>
               </div>
@@ -384,8 +384,8 @@ export const EngagementFAQ = () => {
               className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between"
             >
               <p className="text-xs leading-6 text-muted-foreground">
-                Still unsure about scope, pricing, or the right engagement
-                model?
+                Have a question about the work, costs, or how we would
+                work together?
               </p>
 
               <a

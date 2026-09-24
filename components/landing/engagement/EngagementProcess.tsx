@@ -11,28 +11,28 @@ const steps = [
     number: "01",
     title: "Understand",
     description:
-      "We clarify the challenge, the people it affects, and the outcome that matters most.",
+      "We examine the problem, how it affects your business and customers, and what needs to change.",
     icon: Search,
   },
   {
     number: "02",
     title: "Plan",
     description:
-      "We agree a practical scope, priorities, and a delivery path that fits the work.",
+      "We set out the solution, the work included, costs, responsibilities, and expected delivery dates.",
     icon: Target,
   },
   {
     number: "03",
-    title: "Build",
+    title: "Deliver",
     description:
-      "We deliver with clear ownership, regular updates, and focused execution.",
+      "We carry out the agreed work, check its quality, and review key stages with you.",
     icon: Rocket,
   },
   {
     number: "04",
     title: "Improve",
     description:
-      "We review the progress, learn from the work, and choose the right next step.",
+      "We review results against the agreed goal and identify what needs further attention.",
     icon: TrendingUp,
   },
 ];
@@ -71,14 +71,14 @@ export const EngagementProcess = () => {
             <div className="flex items-center gap-3">
               <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
               <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.2em] text-gold-light">
-                A simple working rhythm
+                How we deliver
               </span>
               <span className="h-px w-12 bg-secondary/45" />
             </div>
 
             <h2 className="mt-5 max-w-2xl text-4xl font-semibold tracking-[-0.045em] sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]">
-              Clear from the start.
-              <span className="block text-white/60">Useful at every step.</span>
+              From the first conversation.
+              <span className="block text-white/60">To the finished work.</span>
             </h2>
           </motion.div>
 
@@ -89,8 +89,9 @@ export const EngagementProcess = () => {
             transition={{ delay: 0.1, duration: 0.5 }}
             className="max-w-xl text-sm leading-7 text-white/60 sm:text-base lg:justify-self-end"
           >
-            The process stays simple: understand the real need, decide what is
-            useful, deliver with visibility, and improve from what we learn.
+            Every stage has a clear purpose: identify the problem, agree the
+            solution, deliver the work, and review the results. You know what
+            is happening and which decisions need your input.
           </motion.p>
         </div>
 
@@ -142,7 +143,7 @@ export const EngagementProcess = () => {
           </div>
 
           <span className="font-mono text-[9px] uppercase tracking-[0.17em] text-white/60">
-            Understand / Plan / Build / Improve
+            Understand / Plan / Deliver / Improve
           </span>
         </div>
       </Container>

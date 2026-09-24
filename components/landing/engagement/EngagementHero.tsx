@@ -16,26 +16,26 @@ import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 
 const engagementSignals = [
-  "Clear scope & priorities",
+  "Agreed work and costs",
   "Clear communication",
-  "Support that fits the work",
+  "Solutions built around your business",
 ];
 
 const phases = [
   {
     number: "01",
     title: "Understand",
-    description: "Clarify the challenge, context, and outcome you need.",
+    description: "Identify the problem and what needs to change.",
   },
   {
     number: "02",
     title: "Plan",
-    description: "Agree the right scope, priorities, and way forward.",
+    description: "Agree the work, costs, responsibilities, and timeline.",
   },
   {
     number: "03",
     title: "Begin",
-    description: "Start the work with clear ownership and next actions.",
+    description: "Begin delivery with a clear plan and regular updates.",
   },
 ];
 
@@ -126,7 +126,7 @@ export const EngagementHero = () => {
               <CircleDot className="h-4 w-4 text-secondary" />
 
               <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-secondary">
-                Engagement / Start here
+                Working with Blackcrest
               </span>
 
               <motion.span
@@ -151,11 +151,11 @@ export const EngagementHero = () => {
               }}
               className="mt-5 max-w-3xl text-[clamp(2.5rem,4.2vw,4.35rem)] font-semibold leading-[0.96] tracking-[-0.05em] text-heading"
             >
-              A clear way to
+              Your business problem.
               <span className="block text-muted-foreground">
-                work together,
+                An agreed plan.
               </span>
-              <span className="text-gold-gradient">from the first step.</span>
+              <span className="text-gold-gradient">A solution delivered.</span>
             </motion.h1>
 
             <motion.p
@@ -164,9 +164,9 @@ export const EngagementHero = () => {
               transition={{ delay: 0.24 }}
               className="mt-5 max-w-xl text-base leading-7 text-body"
             >
-              Every business starts in a different place. We shape the work
-              around the challenge in front of you, the outcome you need, and
-              the level of support that makes sense now.
+              Whether you need to launch a business, improve your website, or
+              turn more enquiries into sales, we define the work around the
+              problem. You know what we will deliver, what it costs, and who is responsible.
             </motion.p>
 
             <motion.div
@@ -181,7 +181,7 @@ export const EngagementHero = () => {
                 href="#engagement-models"
                 className="group"
               >
-                Explore engagement models
+                Ways to work together
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
 
@@ -225,7 +225,7 @@ export const EngagementHero = () => {
           >
             <div className="mb-4 flex items-center justify-between">
               <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground">
-                Engagement blueprint
+                From problem to plan
               </span>
 
               <span className="font-mono text-[9px] text-secondary">
@@ -291,17 +291,17 @@ export const EngagementHero = () => {
                 </div>
 
                 <p className="mt-6 text-[10px] font-semibold uppercase tracking-[0.18em] text-secondary">
-                  How an engagement begins
+                  How we begin
                 </p>
 
                 <h2 className="mt-3 max-w-xl text-2xl font-semibold tracking-[-0.035em] text-heading sm:text-3xl">
-                  Start with the business need, then choose the right way forward.
+                  Understand the problem. Define the solution.
                 </h2>
 
                 <p className="mt-4 text-sm leading-7 text-body">
-                  We begin with context, not packages. That helps us recommend
-                  the right scope and support instead of forcing the work into a
-                  predefined model.
+                  We review your goals, what you have tried, and where progress
+                  has slowed. Then we recommend the work needed and agree
+                  priorities that fit your budget and timeline.
                 </p>
 
                 <div className="relative mt-6">
@@ -351,8 +351,8 @@ export const EngagementHero = () => {
                   <MessagesSquare className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
 
                   <p className="text-xs leading-6 text-muted-foreground">
-                    The first conversation is about your challenge, the right
-                    direction, and whether Blackcrest is a good fit.
+                    The first conversation defines the challenge and whether
+                    Blackcrest is the right team to deliver the solution.
                   </p>
                 </div>
               </div>
@@ -369,7 +369,7 @@ export const EngagementHero = () => {
                 <Sparkles className="h-3.5 w-3.5 text-secondary" />
 
                 <span className="text-xs text-muted-foreground">
-                  Scope around the business need
+                  Work defined by the problem
                 </span>
               </div>
 
@@ -388,12 +388,12 @@ export const EngagementHero = () => {
           className="mt-10 grid gap-5 border-t border-border pt-6 sm:grid-cols-[auto_1fr] sm:items-center"
         >
           <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-secondary">
-            Engagement principle
+            Our approach
           </span>
 
           <p className="max-w-3xl text-sm leading-7 text-muted-foreground sm:justify-self-end sm:text-right">
-            Begin with the work that matters most now. Expand support when it is
-            useful and the value is clear.
+            Start with the problem that needs attention first. Agree any
+            additional work when there is a clear business reason for it.
           </p>
         </motion.div>
       </Container>

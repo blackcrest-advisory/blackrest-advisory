@@ -11,29 +11,29 @@ const models = [
   {
     number: "01",
     title: "Project work",
-    eyebrow: "A defined outcome",
+    eyebrow: "One clear goal",
     description:
-      "For a clearly scoped website, mobile application, campaign, or sales-support initiative.",
+      "For a specific business need, such as a launch plan, a new website, an app, or a better way to manage sales enquiries.",
     icon: FolderKanban,
-    details: ["Clear scope and priorities", "Practical delivery plan", "Agreed milestones"],
+    details: ["Defined work and costs", "Agreed delivery dates", "Reviews at key stages"],
   },
   {
     number: "02",
-    title: "Ongoing support",
-    eyebrow: "Continued progress",
+    title: "Ongoing services",
+    eyebrow: "Regular work and review",
     description:
-      "For businesses that need regular digital, marketing, or commercial support as priorities evolve.",
+      "For work that continues each month, such as running marketing campaigns, maintaining your website, or improving sales follow-up.",
     icon: Clock3,
-    details: ["Regular planning and updates", "Flexible priorities", "Continuous improvement"],
+    details: ["Agreed priorities", "Regular progress reviews", "Changes based on results"],
   },
   {
     number: "03",
     title: "Flexible partnership",
-    eyebrow: "Support that adapts",
+    eyebrow: "Several needs, one team",
     description:
-      "For a mix of planned work and additional specialist support when a project needs it.",
+      "For connected business needs, such as launching a website alongside marketing and sales processes. Blackcrest manages the work across each area.",
     icon: Layers3,
-    details: ["Connected capabilities", "Support matched to scope", "One clear point of contact"],
+    details: ["One plan across services", "Specialists matched to the work", "One main point of contact"],
   },
 ];
 
@@ -71,9 +71,9 @@ export const EngagementModels = () => {
             </div>
 
             <h2 className="mt-5 max-w-2xl text-4xl font-semibold tracking-[-0.045em] text-heading sm:text-5xl lg:text-[3.35rem] lg:leading-[1.04]">
-              Choose the support
+              The right way to work
               <span className="block text-muted-foreground">
-                that fits what you need now.
+                for the problem to solve.
               </span>
             </h2>
           </motion.div>
@@ -85,9 +85,9 @@ export const EngagementModels = () => {
             transition={{ delay: 0.1, duration: 0.5 }}
             className="max-w-xl text-sm leading-7 text-body sm:text-base lg:justify-self-end"
           >
-            There is no need to commit to more than the work requires. We can
-            start with one focused project, provide ongoing support, or combine
-            the right capabilities around a wider goal.
+            Some problems need one focused project. Others need regular work
+            or several services working together. We recommend an approach
+            based on your goals, budget, and the work required.
           </motion.p>
         </div>
 
@@ -149,8 +149,8 @@ export const EngagementModels = () => {
         </div>
 
         <p className="pt-6 text-center text-sm text-muted-foreground">
-          Not sure which option fits? Start with the challenge and we will help
-          you choose a practical first step.
+          Tell us the problem you need to solve. We will recommend the right
+          way to work together and explain what it involves.
         </p>
       </Container>
     </Section>
